@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FL Atlas Savegame Editor | Flathack</title>
+  <meta name="description" content="Dokumentation fuer den FL Atlas Savegame Editor.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark">FH</span>
+        <span class="brand-text">Flathack Projekte</span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="../index.html">Start</a>
+        <a href="../projects/index.html">Projekte</a>
+        <a href="../status/index.html">Status</a>
+        <a href="../wiki/index.html">Wiki</a>
+        <a class="active" href="index.html">Doku</a>
+        <a href="../changelog/index.html">Changelog</a>
+        <a href="../about/index.html">Info</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="page-hero-copy">
+          <p class="eyebrow">Programmdokumentation</p>
+          <h1>FL Atlas Savegame Editor</h1>
+          <p class="page-intro">Standalone-Editor fuer Freelancer-Singleplayer-Savegames (`*.fl`). Das Tool ist auf sichere Bearbeitung ausgelegt und kombiniert Savegame-Inspektion, gezielte Aenderungen, Validation und eine nachvollziehbare Backup-Historie.</p>
+          <div class="page-tag-row">
+            <span class="tag">Savegames</span>
+            <span class="tag">Backup-Workflow</span>
+            <span class="tag">Singleplayer</span>
+          </div>
+        </div>
+        <aside class="panel-card">
+          <p class="panel-label">Schnellzugriff</p>
+          <ul class="compact-list">
+            <li>Version laut README: v0.1.3</li>
+            <li>Start: `python start_savegame_editor.py`</li>
+            <li>Sprachen: de, en, es, fr, ru</li>
+          </ul>
+        </aside>
+      </section>
+
+      <section class="meta-grid">
+        <article class="page-section">
+          <h2>Uebersicht</h2>
+          <p>Der Savegame Editor arbeitet mit Vanilla- und Mod-Saves, laedt Spielinformationen moeglichst spaet fuer schnellen Start und zeigt Savegames im Stil `Dateiname - Ingame-Name` an. Aenderungen werden erst beim expliziten Speichern in die Datei geschrieben.</p>
+        </article>
+        <article class="page-section">
+          <h2>Kurzinfos</h2>
+          <ul class="meta-list">
+            <li>Typ: Standalone-Save-Editor</li>
+            <li>Ziel: sichere Bearbeitung und Wiederherstellung</li>
+            <li>Kompatibilitaet: Vanilla und Mods</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="section-grid two-columns">
+        <article class="page-section">
+          <h2>Editor-Tabs</h2>
+          <ul class="doc-list">
+            <li>`Visited` mit Kartenstatus, aktuellem System und Reveal-Funktionen</li>
+            <li>`Locked Gates` zum Visualisieren und Freischalten gesperrter Sprungverbindungen</li>
+            <li>`Reputation` mit Faction-Tabellen, Templates sowie Cleanup- und Validation-Hilfen</li>
+            <li>`Trent` fuer Appearance-Teile mit Schutz fuer costume-basierte Saves</li>
+            <li>`Ship` mit Unterbereichen fuer Core Components, Equip Entries und Cargo Entries</li>
+          </ul>
+        </article>
+        <article class="page-section">
+          <h2>Sicherheitsfunktionen</h2>
+          <ul class="doc-list">
+            <li>Automatische Backups bei jedem Speichern</li>
+            <li>Story-Saves schuetzen riskante System- und Base-Aenderungen</li>
+            <li>Verschluesselte `FLS1`-Saves bleiben standardmaessig verschluesselt</li>
+            <li>Inkompatible oder fremde Eintraege bleiben sichtbar und werden beim Speichern erhalten</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="section-grid two-columns">
+        <article class="page-section">
+          <h2>Validation und Restore</h2>
+          <ul class="doc-list">
+            <li>`Check savegame` prueft Schiffe, Equipment, Cargo, Factions, System/Base und Visited-Status</li>
+            <li>Hardpoint-Autofix hilft bei ungueltigen Equipment-Zuordnungen</li>
+            <li>Die Save-Vorschau zeigt die geplanten Aenderungen vor dem Schreiben an</li>
+            <li>Restore stellt zuerst den aktuellen Stand als neuen Historien-Snapshot sicher</li>
+          </ul>
+        </article>
+        <article class="page-section">
+          <h2>Build und Konfiguration</h2>
+          <ul class="doc-list">
+            <li>Anforderungen: Python 3.10+, PySide6, `pefile`, optional PyInstaller</li>
+            <li>Build-Dateien: `build.py`, `savegame_editor.spec`, `build.bat`, `build.sh`</li>
+            <li>Lokale Konfiguration unter `%APPDATA%\\fl_editor\\config.json` oder `~/.config/fl_editor/config.json`</li>
+            <li>Relevante Einstellungen betreffen Savegame-Pfade, Recent Files, Theme und Sprache</li>
+          </ul>
+        </article>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

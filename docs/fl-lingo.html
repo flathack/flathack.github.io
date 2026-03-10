@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FL-Lingo Doku | Flathack</title>
+  <meta name="description" content="Dokumentation fuer FL-Lingo.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark">FH</span>
+        <span class="brand-text">Flathack Projekte</span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="../index.html">Start</a>
+        <a href="../projects/index.html">Projekte</a>
+        <a href="../status/index.html">Status</a>
+        <a href="../wiki/index.html">Wiki</a>
+        <a class="active" href="index.html">Doku</a>
+        <a href="../changelog/index.html">Changelog</a>
+        <a href="../about/index.html">Info</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="page-hero-copy">
+          <p class="eyebrow">Programmdokumentation</p>
+          <h1>FL-Lingo</h1>
+          <p class="page-intro">FL-Lingo ist ein Relokalisierungs-Tool fuer Freelancer-Mods. Es vergleicht eine aktuelle modifizierte Installation mit einer sauberen Referenzinstallation, stellt bekannte Vanilla-Texte automatisch wieder her, exportiert mod-spezifische Inhalte fuer externe Uebersetzungen und schreibt die lokalisierten Ergebnisse mit Backup-Strategie zurueck in die Resource-DLLs.</p>
+          <div class="page-tag-row">
+            <span class="tag">Relokalisierung</span>
+            <span class="tag">DLL-Workflow</span>
+            <span class="tag">In Entwicklung</span>
+          </div>
+        </div>
+        <aside class="panel-card">
+          <p class="panel-label">Schnellzugriff</p>
+          <ul class="compact-list">
+            <li>GitHub: github.com/flathack/FL-Lingo</li>
+            <li>Projektdatei: .FLLingo</li>
+            <li>UI-Sprachen: EN, DE, FR, ES, RU</li>
+          </ul>
+        </aside>
+      </section>
+
+      <section class="meta-grid">
+        <article class="page-section">
+          <h2>Uebersicht</h2>
+          <p>FL-Lingo ist fuer den typischen Fall gebaut, dass eine Freelancer-Mod eine lokalisierte Installation wieder auf Englisch oder andere mod-eigene Texte zuruecksetzt. Das Programm vergleicht eine modifizierte Spielinstallation mit einer sauberen Referenzinstallation in der Zielsprache und klassifiziert Eintraege in automatisch wiederherstellbar, bereits lokalisiert, manuell uebersetzt oder mod-spezifisch.</p>
+        </article>
+        <article class="page-section">
+          <h2>Kurzinfos</h2>
+          <ul class="meta-list">
+            <li>Typ: Desktop-Anwendung fuer Windows und Linux</li>
+            <li>Rolle: Compare-, Export-, Import- und Apply-Workflow</li>
+            <li>Status: aktiv in Entwicklung</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="section-grid two-columns">
+        <article class="page-section">
+          <h2>Installation</h2>
+          <ul class="doc-list">
+            <li>Python 3.11+ verwenden</li>
+            <li>Virtuelle Umgebung anlegen und `python -m pip install -e .[all]` ausfuehren</li>
+            <li>Start ueber `python launch.py` aus dem Projektordner</li>
+          </ul>
+        </article>
+        <article class="page-section">
+          <h2>Schnellstart</h2>
+          <ul class="doc-list">
+            <li>Aktuelle modifizierte Freelancer-Installation waehlen</li>
+            <li>Saubere Referenzinstallation in der Zielsprache laden</li>
+            <li>Vergleich starten, mod-spezifische Eintraege exportieren, Uebersetzungen importieren und anwenden</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="section-grid two-columns">
+        <article class="page-section">
+          <h2>Wichtige Funktionen</h2>
+          <ul class="doc-list">
+            <li>Simple Mode fuer gefuehrte drei-Spalten-Arbeitsschritte</li>
+            <li>Expert Mode mit Filtern, DLL-Analyse, manuellen Korrekturen und Terminologie</li>
+            <li>Automatische Backups vor Schreibvorgaengen und Restore aus der App</li>
+          </ul>
+        </article>
+        <article class="page-section">
+          <h2>Technische Daten</h2>
+          <ul class="doc-list">
+            <li>Arbeitet mit String Tables, Infocards und DLL-Referenzen aus `EXE/freelancer.ini`</li>
+            <li>Unterstuetzt Terminologie-Dateien pro Zielsprache und Projektdateien im Format `.FLLingo`</li>
+            <li>Tests laufen ueber `pytest`, GUI-Smoke-Tests headless mit `QT_QPA_PLATFORM=offscreen`</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="section-grid two-columns">
+        <article class="page-section">
+          <h2>Sicherheit</h2>
+          <ul class="doc-list">
+            <li>Vor dem Anwenden werden automatische Backups erzeugt</li>
+            <li>DLLs werden nicht blind ueberschrieben, sondern nach sicherster Schreibstrategie behandelt</li>
+            <li>Empfohlen ist das Testen auf einer Kopie des Spiels mit sauberer Referenzinstallation</li>
+          </ul>
+        </article>
+        <article class="page-section">
+          <h2>Projektstruktur</h2>
+          <ul class="doc-list">
+            <li>`launch.py` startet die App mit zentralen Defaults</li>
+            <li>`src/flatlas_translator/` enthaelt UI, Katalog-, DLL- und Schreiblogik</li>
+            <li>`Languages/`, `data/help/`, `data/` und `tests/` decken UI-Texte, Hilfe, Terminologie und Tests ab</li>
+          </ul>
+        </article>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

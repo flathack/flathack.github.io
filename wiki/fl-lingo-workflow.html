@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FL-Lingo Workflow | Flathack Wiki</title>
+  <meta name="description" content="Wiki-Artikel zum FL-Lingo-Workflow.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark">FH</span>
+        <span class="brand-text">Flathack Projekte</span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="../index.html">Start</a>
+        <a href="../projects/index.html">Projekte</a>
+        <a href="../status/index.html">Status</a>
+        <a class="active" href="index.html">Wiki</a>
+        <a href="../docs/index.html">Doku</a>
+        <a href="../changelog/index.html">Changelog</a>
+        <a href="../about/index.html">Info</a>
+      </nav>
+    </header>
+    <main>
+      <section class="page-hero">
+        <div class="page-hero-copy">
+          <p class="eyebrow">Wiki</p>
+          <h1>FL-Lingo Workflow</h1>
+          <p class="page-intro">Dieser Artikel beschreibt den typischen Arbeitsablauf mit FL-Lingo fuer die Relokalisierung einer modifizierten Freelancer-Installation.</p>
+        </div>
+        <aside class="panel-card">
+          <p class="panel-label">Typischer Fall</p>
+          <ul class="compact-list">
+            <li>Modifizierte Installation ist auf Englisch</li>
+            <li>Referenzinstallation ist sauber und lokalisiert</li>
+            <li>Ziel ist die Rueckuebertragung in die Zielsprache</li>
+          </ul>
+        </aside>
+      </section>
+      <section class="page-section">
+        <h2>Ablauf</h2>
+        <ul class="doc-list">
+          <li>Aktuelle Spielinstallation laden, also den Mod-Stand, den du lokalisieren willst</li>
+          <li>Saubere Referenzinstallation in der gewuenschten Zielsprache laden</li>
+          <li>Vergleich starten, damit FL-Lingo Eintraege nach DLL und Resource-ID paaren kann</li>
+          <li>Automatisch wiederherstellbare Vanilla-Texte direkt uebernehmen lassen</li>
+          <li>Mod-spezifische Eintraege exportieren und extern uebersetzen</li>
+          <li>Uebersetzte Austauschdatei wieder importieren und abschliessend anwenden</li>
+        </ul>
+      </section>
+      <section class="page-section">
+        <h2>Warum der Referenzvergleich wichtig ist</h2>
+        <p>Das Tool ist nicht einfach ein Texteditor fuer DLLs. Es versucht sichere Uebernahmen zu erkennen und nutzt eine DLL-spezifische Analyse, damit nur dort vollstaendig ersetzt wird, wo das risikoarm moeglich ist. Unsichere DLLs werden nicht blind ueberschrieben.</p>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

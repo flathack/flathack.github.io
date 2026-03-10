@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Savegame Editor Guide | Flathack Wiki</title>
+  <meta name="description" content="Wiki-Artikel zum FL Atlas Savegame Editor.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark">FH</span>
+        <span class="brand-text">Flathack Projekte</span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="../index.html">Start</a>
+        <a href="../projects/index.html">Projekte</a>
+        <a href="../status/index.html">Status</a>
+        <a class="active" href="index.html">Wiki</a>
+        <a href="../docs/index.html">Doku</a>
+        <a href="../changelog/index.html">Changelog</a>
+        <a href="../about/index.html">Info</a>
+      </nav>
+    </header>
+    <main>
+      <section class="page-hero">
+        <div class="page-hero-copy">
+          <p class="eyebrow">Wiki</p>
+          <h1>Savegame Editor Guide</h1>
+          <p class="page-intro">Der Savegame Editor ist fuer gezielte Einzelspieler-Savebearbeitung gedacht. Dieser Artikel fasst zusammen, wie du sicher arbeitest und welche Schutzmechanismen das Tool bereits mitbringt.</p>
+        </div>
+        <aside class="panel-card">
+          <p class="panel-label">Wichtig</p>
+          <ul class="compact-list">
+            <li>Aenderungen werden erst beim Speichern geschrieben</li>
+            <li>Vor jedem Speichern entsteht ein Backup</li>
+            <li>Story-Saves haben zusaetzliche Sperren</li>
+          </ul>
+        </aside>
+      </section>
+      <section class="page-section">
+        <h2>Empfohlener Ablauf</h2>
+        <ul class="doc-list">
+          <li>Save laden und zuerst den Kompatibilitaetshinweis pruefen</li>
+          <li>Bearbeitungen in den passenden Tabs vornehmen</li>
+          <li>`Check savegame` ausfuehren, bevor gespeichert wird</li>
+          <li>Save-Vorschau lesen und erst dann schreiben</li>
+          <li>Bei Problemen ueber `Restore Backup` einen frueheren Stand wiederherstellen</li>
+        </ul>
+      </section>
+      <section class="page-section">
+        <h2>Backup-System</h2>
+        <p>Jeder Schreibvorgang erzeugt einen Alias-Backup-Stand und einen Historien-Snapshot mit Zeitstempel. Beim Restore wird der aktuelle Stand zuerst ebenfalls gesichert. Das macht Experimente deutlich weniger riskant als manuelles Ueberschreiben von Save-Dateien.</p>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
