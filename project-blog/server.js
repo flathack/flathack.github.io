@@ -10,9 +10,36 @@ const CONTENT_DIR = path.join(__dirname, "content");
 const INDEX_FILE = path.join(__dirname, "content-index.json");
 
 /**
+ * Minimal in-memory rate limiter to protect file-system-backed endpoints.
+ * Allows up to RATE_LIMIT_MAX requests per IP per RATE_LIMIT_WINDOW_MS.
+ */
+const RATE_LIMIT_WINDOW_MS = 60_000;
+const RATE_LIMIT_MAX = 60;
+const requestLog = new Map();
+
+function rateLimiter(req, res, next) {
+  const ip = req.ip || req.socket.remoteAddress || "unknown";
+  const now = Date.now();
+  let record = requestLog.get(ip);
+
+  if (!record || now > record.resetAt) {
+    record = { count: 0, resetAt: now + RATE_LIMIT_WINDOW_MS };
+  }
+
+  record.count += 1;
+  requestLog.set(ip, record);
+
+  if (record.count > RATE_LIMIT_MAX) {
+    return res.status(429).json({ error: "Too many requests. Please slow down." });
+  }
+
+  return next();
+}
+
+/**
  * Scans the content directory and returns a structured list of posts
  * grouped by category. Each category corresponds to a subdirectory.
- * @returns {{ [category: string]: { file: string, title: string }[] }}
+ * @returns {{ [category: string]: { file: string, title: string, excerpt: string }[] }}
  */
 function scanContent() {
   const result = {};
@@ -59,19 +86,20 @@ function updateIndex() {
 // Update the static manifest on every server start
 updateIndex();
 
-// Serve static files (HTML, CSS) from the project-blog directory
-app.use(express.static(__dirname));
-
-// Serve content text files explicitly
+// Serve only the public-facing files; do NOT expose server.js, package.json, etc.
+app.get("/", (req, res) => res.sendFile(path.join(__dirname, "index.html")));
+app.get("/index.html", (req, res) => res.sendFile(path.join(__dirname, "index.html")));
+app.get("/post.html", (req, res) => res.sendFile(path.join(__dirname, "post.html")));
+app.use("/static", express.static(path.join(__dirname, "static")));
 app.use("/content", express.static(CONTENT_DIR));
 
 /**
  * GET /api/posts
- * Returns the full post index with titles and category grouping.
+ * Returns the full post index with titles, excerpts, and category grouping.
  * This endpoint re-scans the content directory on every request so
  * newly added text files are picked up without a server restart.
  */
-app.get("/api/posts", (req, res) => {
+app.get("/api/posts", rateLimiter, (req, res) => {
   const index = scanContent();
   res.json(index);
 });
@@ -80,11 +108,12 @@ app.get("/api/posts", (req, res) => {
  * GET /api/posts/:category/:file
  * Returns the full text content of a single post file.
  */
-app.get("/api/posts/:category/:file", (req, res) => {
+app.get("/api/posts/:category/:file", rateLimiter, (req, res) => {
   const { category, file } = req.params;
 
-  // Security: prevent directory traversal
-  if (category.includes("..") || file.includes("..")) {
+  // Security: only allow safe path segments (no traversal, standard filenames only)
+  const safeSegment = /^[a-zA-Z0-9_-]+(\.[a-zA-Z0-9]+)?$/;
+  if (!safeSegment.test(category) || !safeSegment.test(file)) {
     return res.status(400).json({ error: "Invalid path" });
   }
 
@@ -103,6 +132,6 @@ app.get("/api/posts/:category/:file", (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Project Blog läuft unter http://localhost:${PORT}`);
-  console.log(`Beiträge verfügbar über http://localhost:${PORT}/api/posts`);
+  console.log(`Project Blog running at http://localhost:${PORT}`);
+  console.log(`Posts available via http://localhost:${PORT}/api/posts`);
 });
