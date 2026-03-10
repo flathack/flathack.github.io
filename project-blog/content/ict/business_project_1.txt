@@ -1,0 +1,23 @@
+Active Directory User Manager
+
+Ein PowerShell-basiertes Tool zur effizienten Verwaltung von Active Directory Benutzerkonten in mittelgroßen und großen Unternehmensumgebungen.
+
+Funktionen:
+- Benutzer anlegen, bearbeiten und deaktivieren
+- Gruppen- und Rechteverwaltung per GUI
+- Automatisierte Berichte zu Benutzerstatus und letzter Aktivität
+- Passwort-Reset mit automatischer E-Mail-Benachrichtigung
+- Bulk-Import und -Export über CSV-Dateien
+- Protokollierung aller administrativen Aktionen
+
+Technologie-Stack:
+- PowerShell 7 mit WinForms-GUI
+- Active Directory RSAT-Module
+- SQLite für lokale Protokollierung
+- XML-basierte Konfiguration
+
+Zielgruppe:
+IT-Administratoren in KMU und Enterprise-Umgebungen, die einen schnellen Workflow für Benutzerverwaltung ohne aufwendige manuelle Schritte benötigen.
+
+Status: In Entwicklung
+Kategorie: Business / IT-Administration

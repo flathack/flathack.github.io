@@ -1,0 +1,28 @@
+FL Atlas
+
+Ein visueller Editor für Freelancer-Spieldaten mit Unterstützung für Universe-, System- und Trade-Route-Bearbeitung sowie DLL-Ressourcenverwaltung.
+
+Funktionen:
+- Universe-Editor: Systemkarten visuell anlegen und verschieben
+- System-Editor: Objekte, Zonen, Asteroiden und NPCs im 3D-Raum platzieren
+- Trade-Route-Planer: Visualisierung und Optimierung von Handelswegen
+- DLL-Ressourcen-Viewer und -Editor für Textressourcen
+- INI-Datei-Editor mit Syntax-Highlighting
+- Live-Vorschau von Änderungen
+
+Kompatibilität:
+- Freelancer Vanilla (1.0)
+- Discovery Freelancer (aktuellste Version)
+- Crossfire Mod
+- Beliebige Custom-Mods mit Standard-Freelancer-Dateistruktur
+
+Für Modder:
+FL Atlas vereinfacht die bisher mühsame manuelle Bearbeitung der INI-Dateien erheblich. Änderungen, die früher Stunden dauerten, sind mit dem visuellen Editor in Minuten erledigt.
+
+Technologie:
+- C# / WPF-Anwendung
+- Eigener INI-Parser für Freelancer-Dateiformate
+- 3D-Vorschau mit SharpDX
+
+Status: Beta
+Kategorie: Gaming / Modding-Werkzeug

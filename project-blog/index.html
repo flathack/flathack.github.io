@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projekt-Blog | Flathack</title>
+  <meta name="description" content="Übersicht aller ICT- und Gaming-Projekte, automatisch aus Textdateien eingelesen.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+  <div class="site-shell">
+
+    <header class="site-header">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark">FH</span>
+        <span class="brand-text">Flathack Projekte</span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="../index.html">Start</a>
+        <a href="../business/index.html">Business</a>
+        <a href="../gaming/index.html">Gaming</a>
+        <a class="active" href="index.html">Blog</a>
+        <a href="../about/index.html">Info</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="page-hero-copy">
+          <p class="eyebrow">Projekt-Blog</p>
+          <h1>Alle Projekte.</h1>
+          <p class="page-intro">
+            Beiträge werden automatisch aus Textdateien eingelesen. ICT- und
+            Gaming-Projekte erscheinen in getrennten Bereichen. Neue Dateien
+            in <code>content/</code> werden beim Laden der Seite automatisch erkannt.
+          </p>
+        </div>
+        <aside class="panel-card">
+          <p class="panel-label">Sortieren</p>
+          <div class="controls-bar" style="flex-direction:column;align-items:flex-start;">
+            <span class="sort-label">Reihenfolge</span>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;">
+              <button class="sort-btn active" data-sort="name" onclick="setSortOrder('name', this)">A → Z</button>
+              <button class="sort-btn" data-sort="name-desc" onclick="setSortOrder('name-desc', this)">Z → A</button>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <div id="blog-content">
+        <p class="loading-text">Beiträge werden geladen …</p>
+      </div>
+    </main>
+
+    <footer class="page-footer">
+      Inhalte werden aus <code>content/</code> eingelesen. Neue <code>.txt</code>-Dateien
+      werden automatisch als Beiträge erkannt.
+    </footer>
+
+  </div>
+
+  <script>
+    "use strict";
+
+    /* ── Configuration ──────────────────────────────────────── */
+
+    // When running via the Express server, this endpoint dynamically
+    // scans the content directory. On GitHub Pages, the static
+    // content-index.json is used instead.
+    const API_ENDPOINT = "api/posts";
+    const STATIC_INDEX = "content-index.json";
+    const CATEGORY_LABELS = {
+      ict: "ICT (Business)",
+      gaming: "Gaming"
+    };
+
+    let currentSort = "name";
+    let cachedIndex = null;
+
+    /* ── Fetch helpers ──────────────────────────────────────── */
+
+    async function loadIndex() {
+      // Try the dynamic API first (Express server), fall back to static JSON
+      for (const url of [API_ENDPOINT, STATIC_INDEX]) {
+        try {
+          const res = await fetch(url);
+          if (res.ok) {
+            cachedIndex = await res.json();
+            return cachedIndex;
+          }
+        } catch (_) {
+          // continue to next url
+        }
+      }
+      throw new Error("Inhaltsindex konnte nicht geladen werden.");
+    }
+
+    /* ── Rendering ──────────────────────────────────────────── */
+
+    function postCardHtml(post, category) {
+      const href = `post.html?category=${encodeURIComponent(category)}&file=${encodeURIComponent(post.file)}`;
+      const excerpt = post.excerpt || "";
+      const categoryClass = category === "gaming" ? "gaming-card" : "ict-card";
+      return `
+        <article class="project-card ${categoryClass}">
+          <p class="card-kicker">${escapeHtml(CATEGORY_LABELS[category] || category)}</p>
+          <h2>${escapeHtml(post.title)}</h2>
+          <p class="project-excerpt">${escapeHtml(excerpt)}</p>
+          <div class="card-footer">
+            <a class="button button-secondary" href="${href}">Beitrag lesen →</a>
+          </div>
+        </article>`;
+    }
+
+    function categoryHtml(categoryKey, posts) {
+      const label = CATEGORY_LABELS[categoryKey] || categoryKey;
+      const badgeClass = categoryKey === "gaming" ? "badge-gaming" : "badge-ict";
+      const sorted = sortPosts([...posts]);
+      const cards = sorted.map((p) => postCardHtml(p, categoryKey)).join("");
+      const countLabel = sorted.length === 1 ? "1 Beitrag" : `${sorted.length} Beiträge`;
+      return `
+        <section class="category-section" data-category="${escapeHtml(categoryKey)}">
+          <div class="category-header">
+            <span class="category-badge ${badgeClass}">${escapeHtml(label)}</span>
+            <h2>${countLabel}</h2>
+          </div>
+          <div class="project-grid">${cards}</div>
+        </section>`;
+    }
+
+    function sortPosts(posts) {
+      return posts.sort((a, b) => {
+        const ta = a.title.toLowerCase();
+        const tb = b.title.toLowerCase();
+        if (currentSort === "name-desc") return tb.localeCompare(ta, "de");
+        return ta.localeCompare(tb, "de");
+      });
+    }
+
+    /* ── Main render ────────────────────────────────────────── */
+
+    function renderBlog(index) {
+      // Excerpts are pre-generated by the server and included in the index.
+      // The client only needs to arrange and display the data.
+      const categoryOrder = ["ict", "gaming"];
+      const allKeys = [
+        ...categoryOrder.filter((k) => k in index),
+        ...Object.keys(index).filter((k) => !categoryOrder.includes(k))
+      ];
+
+      const html = allKeys.map((k) => categoryHtml(k, index[k] || [])).join("");
+      document.getElementById("blog-content").innerHTML = html;
+    }
+
+    /* ── Sort toggle ────────────────────────────────────────── */
+
+    function setSortOrder(order, btn) {
+      currentSort = order;
+      document.querySelectorAll(".sort-btn").forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      if (cachedIndex) {
+        try { renderBlog(cachedIndex); } catch (e) { showError(e); }
+      }
+    }
+
+    /* ── Error display ──────────────────────────────────────── */
+
+    function showError(err) {
+      document.getElementById("blog-content").innerHTML =
+        `<p class="error-text">Fehler beim Laden der Beiträge: ${escapeHtml(String(err.message))}</p>`;
+    }
+
+    /* ── Security helper ────────────────────────────────────── */
+
+    function escapeHtml(str) {
+      return String(str)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    /* ── Bootstrap ──────────────────────────────────────────── */
+
+    loadIndex()
+      .then((index) => {
+        cachedIndex = index;
+        renderBlog(index);
+      })
+      .catch(showError);
+  </script>
+</body>
+</html>
