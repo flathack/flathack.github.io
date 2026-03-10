@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FL-Lingo Doku | Flathack</title>
-  <meta name="description" content="Dokumentation fuer FL-Lingo.">
+  <meta name="description" content="Dokumentation für FL-Lingo.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -33,7 +33,7 @@
         <div class="page-hero-copy">
           <p class="eyebrow">Programmdokumentation</p>
           <h1>FL-Lingo</h1>
-          <p class="page-intro">FL-Lingo ist ein Relokalisierungs-Tool fuer Freelancer-Mods. Es vergleicht eine aktuelle modifizierte Installation mit einer sauberen Referenzinstallation, stellt bekannte Vanilla-Texte automatisch wieder her, exportiert mod-spezifische Inhalte fuer externe Uebersetzungen und schreibt die lokalisierten Ergebnisse mit Backup-Strategie zurueck in die Resource-DLLs.</p>
+          <p class="page-intro">FL-Lingo ist ein Relokalisierungs-Tool für Freelancer-Mods. Es vergleicht eine aktuelle modifizierte Installation mit einer sauberen Referenzinstallation, stellt bekannte Vanilla-Texte automatisch wieder her, exportiert mod-spezifische Inhalte für externe Übersetzungen und schreibt die lokalisierten Ergebnisse mit Backup-Strategie zurück in die Resource-DLLs.</p>
           <div class="page-tag-row">
             <span class="tag">Relokalisierung</span>
             <span class="tag">DLL-Workflow</span>
@@ -52,13 +52,13 @@
 
       <section class="meta-grid">
         <article class="page-section">
-          <h2>Uebersicht</h2>
-          <p>FL-Lingo ist fuer den typischen Fall gebaut, dass eine Freelancer-Mod eine lokalisierte Installation wieder auf Englisch oder andere mod-eigene Texte zuruecksetzt. Das Programm vergleicht eine modifizierte Spielinstallation mit einer sauberen Referenzinstallation in der Zielsprache und klassifiziert Eintraege in automatisch wiederherstellbar, bereits lokalisiert, manuell uebersetzt oder mod-spezifisch.</p>
+          <h2>Übersicht</h2>
+          <p>FL-Lingo ist für den typischen Fall gebaut, dass eine Freelancer-Mod eine lokalisierte Installation wieder auf Englisch oder andere mod-eigene Texte zurücksetzt. Das Programm vergleicht eine modifizierte Spielinstallation mit einer sauberen Referenzinstallation in der Zielsprache und klassifiziert Einträge in automatisch wiederherstellbar, bereits lokalisiert, manuell übersetzt oder mod-spezifisch.</p>
         </article>
         <article class="page-section">
           <h2>Kurzinfos</h2>
           <ul class="meta-list">
-            <li>Typ: Desktop-Anwendung fuer Windows und Linux</li>
+            <li>Typ: Desktop-Anwendung für Windows und Linux</li>
             <li>Rolle: Compare-, Export-, Import- und Apply-Workflow</li>
             <li>Status: aktiv in Entwicklung</li>
           </ul>
@@ -70,16 +70,16 @@
           <h2>Installation</h2>
           <ul class="doc-list">
             <li>Python 3.11+ verwenden</li>
-            <li>Virtuelle Umgebung anlegen und `python -m pip install -e .[all]` ausfuehren</li>
-            <li>Start ueber `python launch.py` aus dem Projektordner</li>
+            <li>Virtuelle Umgebung anlegen und `python -m pip install -e .[all]` ausführen</li>
+            <li>Start über `python launch.py` aus dem Projektordner</li>
           </ul>
         </article>
         <article class="page-section">
           <h2>Schnellstart</h2>
           <ul class="doc-list">
-            <li>Aktuelle modifizierte Freelancer-Installation waehlen</li>
+            <li>Aktuelle modifizierte Freelancer-Installation wählen</li>
             <li>Saubere Referenzinstallation in der Zielsprache laden</li>
-            <li>Vergleich starten, mod-spezifische Eintraege exportieren, Uebersetzungen importieren und anwenden</li>
+            <li>Vergleich starten, mod-spezifische Einträge exportieren, Übersetzungen importieren und anwenden</li>
           </ul>
         </article>
       </section>
@@ -88,17 +88,17 @@
         <article class="page-section">
           <h2>Wichtige Funktionen</h2>
           <ul class="doc-list">
-            <li>Simple Mode fuer gefuehrte drei-Spalten-Arbeitsschritte</li>
+            <li>Simple Mode für geführte drei-Spalten-Arbeitsschritte</li>
             <li>Expert Mode mit Filtern, DLL-Analyse, manuellen Korrekturen und Terminologie</li>
-            <li>Automatische Backups vor Schreibvorgaengen und Restore aus der App</li>
+            <li>Automatische Backups vor Schreibvorgängen und Restore aus der App</li>
           </ul>
         </article>
         <article class="page-section">
           <h2>Technische Daten</h2>
           <ul class="doc-list">
             <li>Arbeitet mit String Tables, Infocards und DLL-Referenzen aus `EXE/freelancer.ini`</li>
-            <li>Unterstuetzt Terminologie-Dateien pro Zielsprache und Projektdateien im Format `.FLLingo`</li>
-            <li>Tests laufen ueber `pytest`, GUI-Smoke-Tests headless mit `QT_QPA_PLATFORM=offscreen`</li>
+            <li>Unterstützt Terminologie-Dateien pro Zielsprache und Projektdateien im Format `.FLLingo`</li>
+            <li>Tests laufen über `pytest`, GUI-Smoke-Tests headless mit `QT_QPA_PLATFORM=offscreen`</li>
           </ul>
         </article>
       </section>
@@ -108,7 +108,7 @@
           <h2>Sicherheit</h2>
           <ul class="doc-list">
             <li>Vor dem Anwenden werden automatische Backups erzeugt</li>
-            <li>DLLs werden nicht blind ueberschrieben, sondern nach sicherster Schreibstrategie behandelt</li>
+            <li>DLLs werden nicht blind überschrieben, sondern nach sicherster Schreibstrategie behandelt</li>
             <li>Empfohlen ist das Testen auf einer Kopie des Spiels mit sauberer Referenzinstallation</li>
           </ul>
         </article>
