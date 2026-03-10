@@ -86,10 +86,16 @@ function updateIndex() {
 // Update the static manifest on every server start
 updateIndex();
 
+// Preload HTML pages at startup so route handlers contain no per-request file system access.
+const indexHtml = fs.readFileSync(path.join(__dirname, "index.html"));
+const postHtml = fs.readFileSync(path.join(__dirname, "post.html"));
+
 // Serve only the public-facing files; do NOT expose server.js, package.json, etc.
-app.get("/", (req, res) => res.sendFile(path.join(__dirname, "index.html")));
-app.get("/index.html", (req, res) => res.sendFile(path.join(__dirname, "index.html")));
-app.get("/post.html", (req, res) => res.sendFile(path.join(__dirname, "post.html")));
+app.get("/", (req, res) => res.type("text/html").send(indexHtml));
+app.get("/index.html", (req, res) => res.type("text/html").send(indexHtml));
+app.get("/post.html", (req, res) => res.type("text/html").send(postHtml));
+
+// CSS and content text files are served statically from dedicated subdirectories.
 app.use("/static", express.static(path.join(__dirname, "static")));
 app.use("/content", express.static(CONTENT_DIR));
 
@@ -102,33 +108,6 @@ app.use("/content", express.static(CONTENT_DIR));
 app.get("/api/posts", rateLimiter, (req, res) => {
   const index = scanContent();
   res.json(index);
-});
-
-/**
- * GET /api/posts/:category/:file
- * Returns the full text content of a single post file.
- */
-app.get("/api/posts/:category/:file", rateLimiter, (req, res) => {
-  const { category, file } = req.params;
-
-  // Security: only allow safe path segments (no traversal, standard filenames only)
-  const safeSegment = /^[a-zA-Z0-9_-]+(\.[a-zA-Z0-9]+)?$/;
-  if (!safeSegment.test(category) || !safeSegment.test(file)) {
-    return res.status(400).json({ error: "Invalid path" });
-  }
-
-  if (!file.endsWith(".txt")) {
-    return res.status(400).json({ error: "Only .txt files are supported" });
-  }
-
-  const filePath = path.join(CONTENT_DIR, category, file);
-
-  if (!fs.existsSync(filePath)) {
-    return res.status(404).json({ error: "Post not found" });
-  }
-
-  const content = fs.readFileSync(filePath, "utf8");
-  res.type("text/plain; charset=utf-8").send(content);
 });
 
 app.listen(PORT, () => {
