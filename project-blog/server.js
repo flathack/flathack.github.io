@@ -33,8 +33,13 @@ function scanContent() {
 
     result[category] = files.map((file) => {
       const filePath = path.join(categoryPath, file);
-      const firstLine = fs.readFileSync(filePath, "utf8").split("\n")[0].trim();
-      return { file, title: firstLine || file.replace(".txt", "") };
+      const raw = fs.readFileSync(filePath, "utf8");
+      const lines = raw.split("\n");
+      const title = lines[0].trim() || file.replace(".txt", "");
+      const bodyLines = lines.filter((l) => l.trim() !== "").slice(1);
+      const body = bodyLines.join(" ").trim();
+      const excerpt = body.length > 150 ? body.slice(0, 150).trimEnd() + " …" : body;
+      return { file, title, excerpt };
     });
   }
 
