@@ -16,6 +16,20 @@
   --content-width: 1180px;
 }
 
+body.business-theme {
+  background:
+    radial-gradient(circle at top left, rgba(88, 196, 255, 0.08), transparent 28%),
+    radial-gradient(circle at top right, rgba(148, 163, 184, 0.1), transparent 24%),
+    linear-gradient(180deg, #071019 0%, #0a1420 52%, #060b12 100%);
+}
+
+body.gaming-theme {
+  background:
+    radial-gradient(circle at top left, rgba(236, 72, 153, 0.12), transparent 24%),
+    radial-gradient(circle at top right, rgba(34, 211, 238, 0.16), transparent 22%),
+    linear-gradient(180deg, #080814 0%, #121126 48%, #090b14 100%);
+}
+
 * {
   box-sizing: border-box;
 }
@@ -70,6 +84,42 @@ a {
   background: rgba(5, 13, 23, 0.72);
   backdrop-filter: blur(18px);
   box-shadow: var(--shadow);
+}
+
+.domain-tabs {
+  display: flex;
+  gap: 12px;
+  margin: 0 0 24px;
+}
+
+.domain-tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0 20px;
+  border: 1px solid var(--panel-border);
+  border-radius: 18px;
+  background: rgba(7, 16, 29, 0.72);
+  color: var(--muted);
+  font-weight: 600;
+  transition: 160ms ease;
+}
+
+.domain-tab:hover,
+.domain-tab.active {
+  color: var(--text);
+  background: rgba(88, 196, 255, 0.1);
+}
+
+body.business-theme .domain-tab.active {
+  background: rgba(148, 163, 184, 0.14);
+  border-color: rgba(148, 163, 184, 0.24);
+}
+
+body.gaming-theme .domain-tab.active {
+  background: rgba(236, 72, 153, 0.14);
+  border-color: rgba(236, 72, 153, 0.24);
 }
 
 .brand {
@@ -234,6 +284,22 @@ p {
   background: rgba(88, 196, 255, 0.08);
 }
 
+.button-repo {
+  border-color: rgba(148, 163, 184, 0.24);
+  background: rgba(148, 163, 184, 0.1);
+  color: var(--text);
+}
+
+.button-moddb {
+  border-color: rgba(255, 255, 255, 0.22);
+  background: linear-gradient(135deg, #b91c1c, #ef4444);
+  color: #ffffff;
+}
+
+.button-moddb:hover {
+  background: linear-gradient(135deg, #991b1b, #dc2626);
+}
+
 .section-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -381,6 +447,33 @@ p {
   background: rgba(7, 16, 29, 0.72);
 }
 
+.split-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.split-card {
+  padding: 32px;
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(180deg, rgba(11, 24, 42, 0.92), rgba(7, 16, 29, 0.92));
+  box-shadow: var(--shadow);
+}
+
+.split-card h2 {
+  margin-bottom: 12px;
+}
+
+.split-card.business {
+  background: linear-gradient(180deg, rgba(15, 24, 35, 0.96), rgba(9, 16, 24, 0.96));
+}
+
+.split-card.gaming {
+  background: linear-gradient(180deg, rgba(29, 13, 38, 0.95), rgba(11, 17, 32, 0.96));
+}
+
 @media (max-width: 960px) {
   .hero,
   .page-hero,
@@ -388,7 +481,8 @@ p {
   .content-grid,
   .section-grid,
   .two-columns,
-  .grid-list {
+  .grid-list,
+  .split-grid {
     grid-template-columns: 1fr;
   }
 
