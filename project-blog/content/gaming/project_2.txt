@@ -1,0 +1,24 @@
+FL Atlas Savegame Editor
+
+Ein eigenständiger Editor für Freelancer-Singleplayer-Speicherstände mit umfangreichen Sicherheits- und Wiederherstellungsfunktionen.
+
+Funktionen:
+- Lesen und Schreiben von Freelancer-Savegame-Dateien (.fl)
+- Backup-Verwaltung mit vollständiger Versionshistorie
+- Validation der Savegame-Integrität vor dem Speichern
+- Restore aus beliebigem Backup-Zeitpunkt
+- Bearbeitung von Spielerwerten: Credits, Schiff, Ausrüstung, Position
+- Anzeige von Missionsfortschritt und Rufwerten
+- Unterstützung für Vanilla und gängige Mods (Discovery, Crossfire)
+
+Technische Details:
+- Standalone-Anwendung, keine Freelancer-Installation erforderlich
+- Verarbeitung des binären Savegame-Formats
+- Automatische Erkennung des Savegame-Ordners
+- Dark-Mode-Oberfläche
+
+Sicherheitskonzept:
+Jedes Speichern erzeugt automatisch ein Backup im Backup-Ordner mit Zeitstempel, sodass versehentliche Überschreibungen jederzeit rückgängig gemacht werden können.
+
+Status: Veröffentlicht (stable)
+Kategorie: Gaming / Savegame-Verwaltung

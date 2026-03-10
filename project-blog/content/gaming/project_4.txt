@@ -1,0 +1,23 @@
+FL Community Hub
+
+Ein zentrales Informations- und Ressourcenportal für die Freelancer-Modding-Community mit Wiki, Download-Bereich und Projektübersicht.
+
+Funktionen:
+- Community-Wiki mit Artikeln zu Modding, Dateiformaten und Tools
+- Download-Bereich für Patches, Tools und Ressourcen
+- Projektübersicht aktiver Freelancer-Mods
+- Forum-Integration für Fragen und Diskussionen
+- Changelog-Aggregator für mehrere Mods gleichzeitig
+- Beginner-Guide für neue Modder
+
+Inhaltsstruktur:
+- Lore & Hintergrund: Geschichte des Sirius-Sektors und Fraktionen
+- Technische Dokumentation: Dateiformate, INI-Syntax, DLL-Ressourcen
+- Tool-Verzeichnis: Übersicht aller Community-Tools mit Beschreibungen
+- Tutorial-Reihe: Schritt-für-Schritt-Anleitungen für häufige Modding-Aufgaben
+
+Zielgruppe:
+Sowohl Einsteiger, die gerade mit Freelancer-Modding beginnen, als auch erfahrene Modder, die Referenzmaterial und Austausch suchen.
+
+Status: Planung / Konzeptphase
+Kategorie: Gaming / Community / Dokumentation

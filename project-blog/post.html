@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beitrag | Flathack</title>
+  <meta name="description" content="Detailseite eines Projektbeitrags.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+  <div class="site-shell">
+
+    <header class="site-header">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark">FH</span>
+        <span class="brand-text">Flathack Projekte</span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="../index.html">Start</a>
+        <a href="../business/index.html">Business</a>
+        <a href="../gaming/index.html">Gaming</a>
+        <a class="active" href="index.html">Blog</a>
+        <a href="../about/index.html">Info</a>
+      </nav>
+    </header>
+
+    <main>
+      <a class="back-link" href="index.html">← Zurück zur Übersicht</a>
+      <div id="post-content">
+        <p class="loading-text">Beitrag wird geladen …</p>
+      </div>
+    </main>
+
+  </div>
+
+  <script>
+    "use strict";
+
+    const CONTENT_BASE = "content/";
+    const CATEGORY_LABELS = {
+      ict: "ICT (Business)",
+      gaming: "Gaming"
+    };
+
+    /* ── URL helpers ─────────────────────────────────────────── */
+
+    function getParam(name) {
+      return new URLSearchParams(window.location.search).get(name) || "";
+    }
+
+    /* ── Security helpers ────────────────────────────────────── */
+
+    function escapeHtml(str) {
+      return String(str)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    function isSafePathSegment(segment) {
+      // Allow only alphanumeric, underscores, hyphens and dots (no directory traversal)
+      return /^[\w.-]+$/.test(segment) && !segment.includes("..");
+    }
+
+    /* ── Render ──────────────────────────────────────────────── */
+
+    function extractTitle(rawText) {
+      return rawText.split("\n")[0].trim();
+    }
+
+    function extractBody(rawText) {
+      // Everything after the first non-empty line (the title)
+      const lines = rawText.split("\n");
+      const titleIndex = lines.findIndex((l) => l.trim() !== "");
+      return lines.slice(titleIndex + 1).join("\n").trim();
+    }
+
+    function renderPost(category, file, rawText) {
+      const title = extractTitle(rawText);
+      const body = extractBody(rawText);
+      const categoryLabel = escapeHtml(CATEGORY_LABELS[category] || category);
+      const themeClass = category === "gaming" ? "gaming-theme" : "ict-theme";
+
+      document.body.classList.add(themeClass);
+      document.title = `${title} | Flathack`;
+
+      const badgeClass = category === "gaming" ? "badge-gaming" : "badge-ict";
+
+      document.getElementById("post-content").innerHTML = `
+        <div class="post-layout">
+          <article class="post-body">
+            <span class="category-badge ${badgeClass}" style="margin-bottom:16px;display:inline-flex;">${categoryLabel}</span>
+            <h1 class="post-title">${escapeHtml(title)}</h1>
+            <div class="post-content">${escapeHtml(body)}</div>
+          </article>
+          <aside class="post-meta-panel">
+            <p class="panel-label">Details</p>
+            <ul class="meta-list">
+              <li>Kategorie: ${categoryLabel}</li>
+              <li>Datei: ${escapeHtml(file)}</li>
+            </ul>
+            <div style="margin-top:24px;">
+              <a class="button button-secondary" href="index.html">← Alle Beiträge</a>
+            </div>
+          </aside>
+        </div>`;
+    }
+
+    function showError(message) {
+      document.getElementById("post-content").innerHTML =
+        `<p class="error-text">Fehler: ${escapeHtml(message)}</p>`;
+    }
+
+    /* ── Bootstrap ───────────────────────────────────────────── */
+
+    async function loadPost() {
+      const category = getParam("category");
+      const file = getParam("file");
+
+      if (!category || !file) {
+        showError("Kein Beitrag angegeben. Bitte kehre zur Übersicht zurück.");
+        return;
+      }
+
+      if (!isSafePathSegment(category) || !isSafePathSegment(file)) {
+        showError("Ungültiger Pfad.");
+        return;
+      }
+
+      if (!file.endsWith(".txt")) {
+        showError("Ungültiger Dateityp.");
+        return;
+      }
+
+      try {
+        const url = `${CONTENT_BASE}${encodeURIComponent(category)}/${encodeURIComponent(file)}`;
+        const res = await fetch(url);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const text = await res.text();
+        renderPost(category, file, text);
+      } catch (err) {
+        showError(`Beitrag konnte nicht geladen werden: ${err.message}`);
+      }
+    }
+
+    loadPost();
+  </script>
+</body>
+</html>

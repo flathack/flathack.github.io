@@ -1,0 +1,24 @@
+FL-Lingo
+
+Ein leistungsstarkes Relokalisierungs-Tool für Freelancer-Mods, das den gesamten Workflow von Compare über Export und Import bis zu Apply abdeckt.
+
+Funktionen:
+- Compare: Vergleich von Original- und Mod-Ressourcendateien
+- Export: Extraktion aller lokalisierbaren Texte in editierbare Formate
+- Import: Rückführung übersetzter Inhalte in die Mod-Struktur
+- Apply: Automatisches Einpflegen der Lokalisierungen in den Mod-Build
+
+Unterstützte Formate:
+- DLL-Ressourcendateien (Resources.dll, NameResources.dll)
+- INI-Textdateien für Schiffe, Ausrüstung und Systeme
+- Infocards (XML-Markup-basiert)
+
+Workflow-Beispiel:
+1. FL-Lingo Compare zeigt alle geänderten Strings zwischen Original und Mod
+2. Export schreibt alle Strings in eine strukturierte Excel- oder CSV-Datei
+3. Übersetzer bearbeiten die Datei in ihrer bevorzugten Umgebung
+4. Import liest die übersetzten Strings zurück
+5. Apply patcht die Mod-Dateien automatisch
+
+Status: Aktiv in Entwicklung
+Kategorie: Gaming / Lokalisierung / Modding
