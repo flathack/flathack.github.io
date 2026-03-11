@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FL Atlas Savegame Editor | Flathack</title>
-  <meta name="description" content="Dokumentation für den FL Atlas Savegame Editor.">
+  <meta name="description" content="Documentation for the FL Atlas Savegame Editor.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -15,35 +15,76 @@
     <header class="site-header">
       <a class="brand" href="../index.html">
         <span class="brand-mark">FH</span>
-        <span class="brand-text">Flathack Projekte</span>
+        <span class="brand-text">Flathack Projects</span>
       </a>
       <nav class="site-nav" aria-label="Main navigation">
-        <a href="../index.html">Start</a>
-        <a href="../business/index.html">Business</a>
-        <a href="../gaming/index.html">Gaming</a>
-        <a href="../about/index.html">Info</a>
+        <a href="../index.html">Home</a>
+        <a href="fleditor.html">FL Atlas-Visual-Editor</a>
+        <a class="active" href="fl-atlas-savegame-editor.html">Savegame Editor</a>
+        <a href="fl-lingo.html">FL-Lingo</a>
+        <a href="../about/index.html">About</a>
       </nav>
     </header>
 
     <main>
-      <a class="back-link" href="../gaming/index.html">Zurück zu Gaming Projekte</a>
+      <a class="back-link" href="../index.html">Back to Home</a>
+      <section class="progress-diagram-card" aria-label="Project progress FL Atlas Savegame Editor">
+        <div class="progress-diagram-head">
+          <div>
+            <p class="card-kicker">Project Progress</p>
+            <h2>FL Atlas Savegame Editor</h2>
+          </div>
+          <span class="status-badge">Production-ready core</span>
+        </div>
+        <div class="progress-diagram-grid">
+          <div class="progress-donut" style="--progress: 84;">
+            <svg viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+              <circle class="progress-donut-track" cx="60" cy="60" r="52"></circle>
+              <circle class="progress-donut-value" cx="60" cy="60" r="52"></circle>
+            </svg>
+            <div class="progress-donut-label">
+              <div>
+                <strong>74%</strong>
+                <span>Overall</span>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="progress-bars">
+              <div class="progress-row">
+                <div class="progress-row-head"><span>Editor Features</span><span>80%</span></div>
+                <div class="progress-bar"><span style="width: 80%;"></span></div>
+              </div>
+              <div class="progress-row">
+                <div class="progress-row-head"><span>Validation and Safety</span><span>78%</span></div>
+                <div class="progress-bar"><span style="width: 78%;"></span></div>
+              </div>
+              <div class="progress-row">
+                <div class="progress-row-head"><span>Usability and QA</span><span>64%</span></div>
+                <div class="progress-bar"><span style="width: 64%;"></span></div>
+              </div>
+            </div>
+            <p class="progress-note">Current focus: additional UX improvements and edge-case support for mods.</p>
+          </div>
+        </div>
+      </section>
       <section class="page-hero">
         <div class="page-hero-copy">
-          <p class="eyebrow">Projektdetails</p>
+          <p class="eyebrow">Project Details</p>
           <h1>FL Atlas Savegame Editor</h1>
-          <p class="page-intro">Standalone-Editor für Freelancer-Singleplayer-Savegames (`*.fl`). Das Tool ist auf sichere Bearbeitung ausgelegt und kombiniert Savegame-Inspektion, gezielte Änderungen, Validation und eine nachvollziehbare Backup-Historie.</p>
+          <p class="page-intro">Standalone editor for Freelancer single-player save files (`*.fl`). The tool is designed for safe editing and combines savegame inspection, targeted modifications, validation, and traceable backup history.</p>
           <div class="page-tag-row">
             <span class="tag">Savegames</span>
-            <span class="tag">Backup-Workflow</span>
+            <span class="tag">Backup Workflow</span>
             <span class="tag">Singleplayer</span>
           </div>
         </div>
         <aside class="panel-card">
-          <p class="panel-label">Schnellzugriff</p>
+          <p class="panel-label">Quick Access</p>
           <ul class="compact-list">
-            <li>Version laut README: v0.1.3</li>
-            <li>Start: `python start_savegame_editor.py`</li>
-            <li>Sprachen: de, en, es, fr, ru</li>
+            <li>README version: v0.1.4</li>
+            <li>Download it here</li>
+            <li>Languages: de, en, es, fr, ru</li>
           </ul>
           <div class="section-actions">
             <a class="button button-repo" href="https://github.com/flathack/FLAtlas---Save-Game-Editor">GitHub Repo</a>
@@ -54,58 +95,58 @@
 
       <section class="meta-grid">
         <article class="page-section">
-          <h2>Übersicht</h2>
-          <p>Der Savegame Editor arbeitet mit Vanilla- und Mod-Saves, lädt Spielinformationen möglichst spät für schnellen Start und zeigt Savegames im Stil `Dateiname - Ingame-Name` an. Änderungen werden erst beim expliziten Speichern in die Datei geschrieben.</p>
+          <h2>Overview</h2>
+          <p>The Savegame Editor supports vanilla, FS1 encrypted saves and mod saves, loads game information lazily for faster startup, and displays saves as `Filename - In-game Name`. Changes are only written when you explicitly save.</p>
         </article>
         <article class="page-section">
-          <h2>Kurzinfos</h2>
+          <h2>Quick Facts</h2>
           <ul class="meta-list">
-            <li>Typ: Standalone-Save-Editor</li>
-            <li>Ziel: sichere Bearbeitung und Wiederherstellung</li>
-            <li>Kompatibilitaet: Vanilla und Mods</li>
+            <li>Type: standalone save editor</li>
+            <li>Goal: safe editing and reliable restore</li>
+            <li>Compatibility: vanilla and mods</li>
           </ul>
         </article>
       </section>
 
       <section class="section-grid two-columns">
         <article class="page-section">
-          <h2>Editor-Tabs</h2>
+          <h2>Editor Tabs</h2>
           <ul class="doc-list">
-            <li>`Visited` mit Kartenstatus, aktuellem System und Reveal-Funktionen</li>
-            <li>`Locked Gates` zum Visualisieren und Freischalten gesperrter Sprungverbindungen</li>
-            <li>`Reputation` mit Faction-Tabellen, Templates sowie Cleanup- und Validation-Hilfen</li>
-            <li>`Trent` für Appearance-Teile mit Schutz für costume-basierte Saves</li>
-            <li>`Ship` mit Unterbereichen für Core Components, Equip Entries und Cargo Entries</li>
+            <li>`Visited` with map state, current system, and reveal tools</li>
+            <li>`Locked Gates` to inspect and unlock blocked jump connections</li>
+            <li>`Reputation` with faction tables, templates, cleanup, and validation helpers</li>
+            <li>`Trent` for appearance elements with protection for costume-based saves</li>
+            <li>`Ship` with subareas for core components, equipment entries, and cargo entries</li>
           </ul>
         </article>
         <article class="page-section">
-          <h2>Sicherheitsfunktionen</h2>
+          <h2>Safety Features</h2>
           <ul class="doc-list">
-            <li>Automatische Backups bei jedem Speichern</li>
-            <li>Story-Saves schützen riskante System- und Base-Änderungen</li>
-            <li>Verschlüsselte `FLS1`-Saves bleiben standardmäßig verschlüsselt</li>
-            <li>Inkompatible oder fremde Einträge bleiben sichtbar und werden beim Speichern erhalten</li>
+            <li>Automatic backup on every save</li>
+            <li>Story saves protect risky system and base modifications</li>
+            <li>Encrypted `FLS1` saves remain encrypted by default</li>
+            <li>Incompatible or unknown entries remain visible and are preserved on save</li>
           </ul>
         </article>
       </section>
 
       <section class="section-grid two-columns">
         <article class="page-section">
-          <h2>Validation und Restore</h2>
+          <h2>Validation and Restore</h2>
           <ul class="doc-list">
-            <li>`Check savegame` prüft Schiffe, Equipment, Cargo, Factions, System/Base und Visited-Status</li>
-            <li>Hardpoint-Autofix hilft bei ungültigen Equipment-Zuordnungen</li>
-            <li>Die Save-Vorschau zeigt die geplanten Änderungen vor dem Schreiben an</li>
-            <li>Restore stellt zuerst den aktuellen Stand als neuen Historien-Snapshot sicher</li>
+            <li>`Check savegame` validates ship, equipment, cargo, factions, system/base, and visited state</li>
+            <li>Hardpoint autofix helps repair invalid equipment assignments</li>
+            <li>Save preview shows planned changes before writing</li>
+            <li>Restore first creates a new snapshot of the current state</li>
           </ul>
         </article>
         <article class="page-section">
-          <h2>Build und Konfiguration</h2>
+          <h2>Build and Configuration</h2>
           <ul class="doc-list">
-            <li>Anforderungen: Python 3.10+, PySide6, `pefile`, optional PyInstaller</li>
-            <li>Build-Dateien: `build.py`, `savegame_editor.spec`, `build.bat`, `build.sh`</li>
-            <li>Lokale Konfiguration unter `%APPDATA%\\fl_editor\\config.json` oder `~/.config/fl_editor/config.json`</li>
-            <li>Relevante Einstellungen betreffen Savegame-Pfade, Recent Files, Theme und Sprache</li>
+            <li>Requirements: Python 3.10+, PySide6, `pefile`, optional PyInstaller</li>
+            <li>Build files: `build.py`, `savegame_editor.spec`, `build.bat`, `build.sh`</li>
+            <li>Local config: `%APPDATA%\fl_editor\config.json` or `~/.config/fl_editor/config.json`</li>
+            <li>Important settings include save paths, recent files, theme, and language</li>
           </ul>
         </article>
       </section>

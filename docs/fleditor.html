@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FLEditor / FL Atlas | Flathack</title>
-  <meta name="description" content="Dokumentation für FLEditor und FL Atlas.">
+  <title>FL Atlas Visual Editor - Full User Documentation | Flathack</title>
+  <meta name="description" content="Complete user documentation for FL Atlas Visual Editor, including features, workflows, and practical usage guidance.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -15,35 +15,85 @@
     <header class="site-header">
       <a class="brand" href="../index.html">
         <span class="brand-mark">FH</span>
-        <span class="brand-text">Flathack Projekte</span>
+        <span class="brand-text">Flathack Projects</span>
       </a>
       <nav class="site-nav" aria-label="Main navigation">
-        <a href="../index.html">Start</a>
-        <a href="../business/index.html">Business</a>
-        <a href="../gaming/index.html">Gaming</a>
-        <a href="../about/index.html">Info</a>
+        <a href="../index.html">Home</a>
+        <a class="active" href="fleditor.html">FL Atlas-Visual-Editor</a>
+        <a href="fl-atlas-savegame-editor.html">Savegame Editor</a>
+        <a href="fl-lingo.html">FL-Lingo</a>
+        <a href="../about/index.html">About</a>
       </nav>
     </header>
 
     <main>
-      <a class="back-link" href="../gaming/index.html">Zurück zu Gaming Projekte</a>
+      <a class="back-link" href="../index.html">Back to Home</a>
+      <section class="progress-diagram-card" aria-label="Project progress FL Atlas Visual Editor">
+        <div class="progress-diagram-head">
+          <div>
+            <p class="card-kicker">Project Progress</p>
+            <h2>FL Atlas Visual Editor</h2>
+          </div>
+          <span class="status-badge">Active Development</span>
+        </div>
+        <div class="progress-diagram-grid">
+          <div class="progress-donut" style="--progress: 43;">
+            <svg viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+              <circle class="progress-donut-track" cx="60" cy="60" r="52"></circle>
+              <circle class="progress-donut-value" cx="60" cy="60" r="52"></circle>
+            </svg>
+            <div class="progress-donut-label">
+              <div>
+                <strong>43%</strong>
+                <span>Overall</span>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="progress-bars">
+              <div class="progress-row">
+                <div class="progress-row-head"><span>3D Model Viewer</span><span>50%</span></div>
+                <div class="progress-bar"><span style="width: 50%;"></span></div>
+              </div>
+              <div class="progress-row">
+                <div class="progress-row-head"><span>Main Code Refactoring</span><span>70%</span></div>
+                <div class="progress-bar"><span style="width: 70%;"></span></div>
+              </div>
+              <div class="progress-row">
+                <div class="progress-row-head"><span>INI Editor</span><span>40%</span></div>
+                <div class="progress-bar"><span style="width: 40%;"></span></div>
+              </div>
+              <div class="progress-row">
+                <div class="progress-row-head"><span>Help and Documentation</span><span>5%</span></div>
+                <div class="progress-bar"><span style="width: 5%;"></span></div>
+              </div>
+              <div class="progress-row">
+                <div class="progress-row-head"><span>Polish and Stability</span><span>50%</span></div>
+                <div class="progress-bar"><span style="width: 50%;"></span></div>
+              </div>
+            </div>
+            <p class="progress-note">Current focus: refactoring the main codebase, expanding the 3D model viewer, and building out the INI editor and documentation.</p>
+          </div>
+        </div>
+      </section>
+
       <section class="page-hero">
         <div class="page-hero-copy">
-          <p class="eyebrow">Projektdetails</p>
-          <h1>FLEditor / FL Atlas</h1>
-          <p class="page-intro">FL Atlas ist ein Desktop-Editor für Freelancer-Spieldaten. Das Projekt lief früher unter dem Namen FLEditor und wurde später in FL Atlas umbenannt. Es verbindet Universe- und Systembearbeitung, Trade-Route-Werkzeuge sowie DLL-String- und Infocard-Editing in einer Anwendung.</p>
+          <p class="eyebrow">User Documentation</p>
+          <h1>FL Atlas Visual Editor</h1>
+          <p class="page-intro">This page is the complete user documentation for FL Atlas. It covers all confirmed feature areas: welcome flow, mod manager, universe/system editor (2D/3D), flight mode, trade routes, name and infocard editor, INI editor, NPC/rumor/news editor, and global settings.</p>
           <div class="page-tag-row">
-            <span class="tag">Universe Editor</span>
-            <span class="tag">Trade Routes</span>
-            <span class="tag">IDS Editing</span>
+            <span class="tag">v0.7.0 Source</span>
+            <span class="tag">Visual Modding Workflow</span>
+            <span class="tag">DE/EN UI</span>
           </div>
         </div>
         <aside class="panel-card">
-          <p class="panel-label">Release-Stand</p>
+          <p class="panel-label">Quick Overview</p>
           <ul class="compact-list">
-            <li>Erste Public Release: v0.6.2</li>
-            <li>README nennt zuletzt: v0.6.2.3</li>
-            <li>EN/DE UI vorhanden</li>
+            <li>Product: FL Atlas (formerly FLEditor)</li>
+            <li>Core areas: modding, navigation, text resources</li>
+            <li>Goal: safe editing in an explicit active mod context</li>
           </ul>
           <div class="section-actions">
             <a class="button button-repo" href="https://github.com/flathack/FLAtlas">GitHub Repo</a>
@@ -54,58 +104,254 @@
 
       <section class="meta-grid">
         <article class="page-section">
-          <h2>Übersicht</h2>
-          <p>FL Atlas ist für die Bearbeitung von Freelancer-Spielinhalten gedacht. Der Schwerpunkt liegt auf visuellen Arbeitsabläufen für Universe- und Systemdaten, Objekt- und Zonenbearbeitung direkt auf der Karte, Trade-Route-Generierung und dem Editieren von `ids_name`- und `ids_info`-Ressourcen in DLLs.</p>
+          <h2>Overview</h2>
+          <p>FL Atlas combines several editor areas in one interface. The core rule is simple: define your edit context in Mod Manager first, then work in Universe, System, Trade, Name/Info, or INI.</p>
         </article>
         <article class="page-section">
-          <h2>Kurzinfos</h2>
+          <h2>Contents</h2>
+          <ul class="link-list">
+            <li><a href="#quickstart">Quickstart</a></li>
+            <li><a href="#layout-navigation">Layout and Navigation</a></li>
+            <li><a href="#welcome">Welcome Screen</a></li>
+            <li><a href="#mod-manager">Mod Manager</a></li>
+            <li><a href="#global-settings">Global Settings</a></li>
+            <li><a href="#universe-system">Universe and System Browser</a></li>
+            <li><a href="#system-editor">System Editor 2D</a></li>
+            <li><a href="#view-3d-flight">3D View and Flight Mode</a></li>
+            <li><a href="#trade-routes">Trade Routes</a></li>
+            <li><a href="#name-info">Name and Info Editor</a></li>
+            <li><a href="#ini-editor">INI Editor</a></li>
+            <li><a href="#npc-rumor-news">NPC, Rumor, and News Editor</a></li>
+            <li><a href="#safety-limits">Safety and Limits</a></li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="section-grid two-columns" id="quickstart">
+        <article class="page-section">
+          <h2>Quickstart</h2>
+          <ol class="doc-list">
+            <li>Start FL Atlas and set language and theme in the Welcome screen.</li>
+            <li>Register an installation or mod in Mod Manager.</li>
+            <li>Use Open for Editing to set the active editing context.</li>
+            <li>Edit in Universe/System and save with Apply plus Write to file.</li>
+            <li>Use Trade Routes, Name/Info, and INI Editor for deeper work.</li>
+          </ol>
+        </article>
+        <article class="page-section" id="layout-navigation">
+          <h2>Layout and Navigation</h2>
           <ul class="meta-list">
-            <li>Typ: Desktop-Modding-Editor</li>
-            <li>Plattform: Windows, Linux-Builds vorbereitet/veröffentlicht</li>
-            <li>Kontext: Mod-Manager und BINI-Workflows</li>
+            <li>Left panel: context actions and side tools.</li>
+            <li>Center: tab host (Universe, Mod Manager, Trade, Name, INI).</li>
+            <li>Right panel: object and file details for the current view.</li>
+            <li>Menu: File, Edit, View, System Browser, Settings, Language, Help.</li>
+            <li>Status bar: active mod, operation status, and loading hints.</li>
           </ul>
         </article>
       </section>
 
-      <section class="section-grid two-columns">
+      <section class="section-grid two-columns" id="welcome">
         <article class="page-section">
-          <h2>Highlights</h2>
+          <h2>Welcome Screen</h2>
           <ul class="doc-list">
-            <li>Universe- und Systemansicht mit 2D/3D-Visualisierung</li>
-            <li>Objekt- und Zonenbearbeitung direkt auf der Karte</li>
-            <li>Trade Route Generator für Wirtschaftsrouten</li>
-            <li>Name &amp; Info Editor für DLL-Textressourcen</li>
-            <li>Mod Manager, Welcome-Flow und BINI-Konvertierung</li>
+            <li>Select language (de/en) and apply immediately.</li>
+            <li>Switch theme instantly.</li>
+            <li>Enable or disable startup update checks.</li>
+            <li>Open Help and IDS toolchain installer.</li>
+            <li>Use Continue to Mod Manager for guided onboarding.</li>
           </ul>
         </article>
-        <article class="page-section">
-          <h2>Projektentwicklung</h2>
+        <article class="page-section" id="mod-manager">
+          <h2>Mod Manager</h2>
           <ul class="doc-list">
-            <li>Frühere Versionen liefen unter dem Namen FLEditor</li>
-            <li>Das Changelog nennt die Umbenennung zu FL Atlas in v0.4</li>
-            <li>Neuere Arbeit umfasst Sprachumschaltung DE/EN und ein Theme-System</li>
-            <li>Toolbar, Übersetzungen und Stylesheets wurden für Live-Umschaltung erweitert</li>
+            <li>Create profiles: New Mod (repository) and Add Direct (existing folder).</li>
+            <li>Manage profiles: delete, open folder, open savegames, refresh.</li>
+            <li>Set target installation and active edit context.</li>
+            <li>Enable OpenSP per profile and edit SP starter ship.</li>
+            <li>Activate/deactivate mods, run repair, review conflict/state indicators.</li>
+            <li>Launch FL with optional resolution, aspect ratio, and 32-bit color depth.</li>
+            <li>Control savegame backup policy per profile.</li>
           </ul>
         </article>
       </section>
 
-      <section class="section-grid two-columns">
+      <section class="section-grid two-columns" id="global-settings">
         <article class="page-section">
-          <h2>Erster Start</h2>
+          <h2>Global Settings</h2>
           <ul class="doc-list">
-            <li>Mod-Repository konfigurieren oder einen direkten Spielordner als Mod registrieren</li>
-            <li>Eine Mod als aktiven Bearbeitungskontext auswählen</li>
-            <li>Danach in Universe, System, Trade Routes oder Name &amp; Info Editor wechseln</li>
-            <li>Bei BINI-komprimierten Daten die Konvertierungsoptionen im Welcome-Flow oder in den Global Settings verwenden</li>
+            <li>General: language, theme, auto-name language, updates, splash screen.</li>
+            <li>System Editor tab: external XML editor path.</li>
+            <li>Mod Manager tab: repo root, additional repos, FLMM path and detection.</li>
+            <li>Editors tab: external Savegame Editor with update/install actions.</li>
+            <li>BINI conversion: choose target path and run conversion from settings.</li>
+            <li>Linux: IDS toolchain path with help dialog.</li>
+            <li>DEV Status tab: maturity matrix and detail table.</li>
+          </ul>
+        </article>
+        <article class="page-section" id="universe-system">
+          <h2>Universe and System Browser</h2>
+          <ul class="doc-list">
+            <li>Universe map as central view of systems and links.</li>
+            <li>System selection via browser tree or direct map click.</li>
+            <li>Universe Entry editor for per-system universe data.</li>
+            <li>System infocard preview in the side panel.</li>
+            <li>New System action for creating additional systems.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="page-section" id="system-editor">
+        <h2>System Editor 2D - full feature set</h2>
+        <p>The System Editor has dedicated Create and Edit areas in menus and context actions. Typical flow: create object, adjust values, Apply, then Write to file.</p>
+        <h3>Creation Tools</h3>
+        <ul class="doc-list">
+          <li>Create Object</li>
+          <li>Create Asteroid/Nebula</li>
+          <li>Create Zone</li>
+          <li>Create Patrol Zone</li>
+          <li>Create Jump Connection</li>
+          <li>Create Sun</li>
+          <li>Create Planet</li>
+          <li>Create Light Source</li>
+          <li>Create Wreck</li>
+          <li>Create Buoy</li>
+          <li>Create Weapon Platform</li>
+          <li>Create Depot</li>
+          <li>Create Trade Lane</li>
+          <li>Create Base</li>
+          <li>Attach Docking Ring</li>
+        </ul>
+        <h3>Editing Actions</h3>
+        <ul class="doc-list">
+          <li>Apply Changes</li>
+          <li>Edit Object</li>
+          <li>Delete Object</li>
+          <li>Edit Trade Lane</li>
+          <li>Edit Zone Population</li>
+          <li>Add Exclusion Zone</li>
+          <li>Edit Base</li>
+        </ul>
+        <h3>2D View Toggles</h3>
+        <ul class="doc-list">
+          <li>Toggle zones</li>
+          <li>Toggle viewer labels</li>
+          <li>Toggle label overlap avoidance</li>
+          <li>Object group filtering</li>
+          <li>System name mode</li>
+          <li>IDS name resolution</li>
+          <li>Fit view</li>
+        </ul>
+      </section>
+
+      <section class="section-grid two-columns" id="view-3d-flight">
+        <article class="page-section">
+          <h2>3D View</h2>
+          <ul class="doc-list">
+            <li>Per-system 3D view when Qt3D is available.</li>
+            <li>3D object selection linked to editor state.</li>
+            <li>Height and axis adjustments through 3D interaction.</li>
+            <li>Dedicated 3D preview for selected objects from the sidebar.</li>
           </ul>
         </article>
         <article class="page-section">
-          <h2>Build und Struktur</h2>
+          <h2>Flight Mode</h2>
           <ul class="doc-list">
-            <li>Einstieg über `fl_atlas.py`</li>
-            <li>UI-Orchestrierung in `fl_editor/main_window.py`</li>
-            <li>Hilfsmodule für Dialoge, DLL-Ressourcen, BINI und Build-Skripte</li>
-            <li>Windows-Build über `scripts/build_windows.bat`, Linux über `scripts/build_linux.sh`</li>
+            <li>Toggle via toolbar or view menu.</li>
+            <li>HUD dock with Free, Approach, and Dock modes.</li>
+            <li>Camera distance slider (0.5x to 8.0x ship lengths).</li>
+            <li>Live HUD with controls and status values.</li>
+            <li>Requirements: Qt3D, loaded system, selected object.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="section-grid two-columns" id="trade-routes">
+        <article class="page-section">
+          <h2>Trade Routes</h2>
+          <ul class="doc-list">
+            <li>Filters: commodity, minimum profit, same-system-only, free text search.</li>
+            <li>Apply action and result counter.</li>
+            <li>Tabular route list with sortable columns.</li>
+            <li>Dedicated preview canvas for route visualization.</li>
+            <li>Context menu and selection-based actions.</li>
+          </ul>
+        </article>
+        <article class="page-section">
+          <h2>Trade Sidebar Actions</h2>
+          <ul class="doc-list">
+            <li>Create Route</li>
+            <li>Edit Selected Route</li>
+            <li>Delete Selected Route</li>
+            <li>Visualize Selected Route</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="section-grid two-columns" id="name-info">
+        <article class="page-section">
+          <h2>Name Editor (ids_name)</h2>
+          <ul class="doc-list">
+            <li>Names/Info subnavigation with two dedicated work modes.</li>
+            <li>Live search, clear filters, reload, and conflict check.</li>
+            <li>IDS table with ID, text, DLL source, and editable flag.</li>
+            <li>Create and update entries directly from the page.</li>
+            <li>Usage table and missing-ID assignment workflow.</li>
+            <li>Jump action for navigation to usage locations.</li>
+          </ul>
+        </article>
+        <article class="page-section">
+          <h2>Info Editor (ids_info / Infocards)</h2>
+          <ul class="doc-list">
+            <li>Dedicated search and reload for info entries.</li>
+            <li>Formatting controls: bold, italic, underline, alignment.</li>
+            <li>Color picker plus reset-to-default action.</li>
+            <li>Rich text editor and XML editor in split layout.</li>
+            <li>Validate XML, create, update, and jump actions.</li>
+            <li>Support notes and guidance area for editing and validation.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="section-grid two-columns" id="ini-editor">
+        <article class="page-section">
+          <h2>INI Editor</h2>
+          <ul class="doc-list">
+            <li>INI root display with current root path.</li>
+            <li>File tree with click activation and context menu.</li>
+            <li>Code editor with syntax highlighting and dirty tracking.</li>
+            <li>Section list for quick navigation in large files.</li>
+            <li>Explicit Reload Tree and Save actions.</li>
+          </ul>
+        </article>
+        <article class="page-section" id="npc-rumor-news">
+          <h2>NPC, Rumor, and News Editor</h2>
+          <ul class="doc-list">
+            <li>NPC editor with create/edit tabs and structured fields.</li>
+            <li>Guided line editors for mission, rumor, and rumor type2 entries.</li>
+            <li>Rumor editor with system/base scope, filters, and line operations.</li>
+            <li>News editor with rank range, icon/logo, IDs, and base assignment.</li>
+            <li>IDS text integration for writing and reusing user DLL text.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="section-grid two-columns" id="safety-limits">
+        <article class="page-section">
+          <h2>Safety and Write Behavior</h2>
+          <ul class="doc-list">
+            <li>Write to file is the central persistence action in system workflows.</li>
+            <li>Most editors only write after explicit save/update operations.</li>
+            <li>Status bar and internal changelog track key operations.</li>
+            <li>Editing is bound to an explicit active mod context.</li>
+          </ul>
+        </article>
+        <article class="page-section">
+          <h2>Known Limits</h2>
+          <ul class="doc-list">
+            <li>3D and flight workflows require Qt3D support.</li>
+            <li>Some actions require valid game/mod paths and writable targets.</li>
+            <li>IDS text workflows are best with a correctly configured toolchain.</li>
+            <li>Complex bulk INI refactoring remains an expert-level workflow.</li>
           </ul>
         </article>
       </section>
