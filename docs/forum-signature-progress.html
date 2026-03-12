@@ -433,6 +433,57 @@
       text-align: right;
     }
 
+    .gif-block {
+      width: 600px;
+      display: grid;
+      gap: 6px;
+      padding: 8px 0 4px;
+      border-top: 1px solid rgba(255, 116, 128, 0.18);
+    }
+
+    .gif-label {
+      font-family: "Chakra Petch", sans-serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #c7a9b0;
+      margin: 0;
+    }
+
+    .gif-block img {
+      display: block;
+      width: 600px;
+      height: 100px;
+      image-rendering: auto;
+    }
+
+    .gif-bbcode {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.58rem;
+      color: #c7a9b0;
+      overflow: hidden;
+    }
+
+    .gif-bbcode-label {
+      white-space: nowrap;
+      font-family: "Chakra Petch", sans-serif;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .gif-bbcode code {
+      font-family: monospace;
+      font-size: 0.58rem;
+      color: #ff8e96;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      cursor: pointer;
+      user-select: all;
+    }
+
   </style>
 </head>
 <body>
@@ -476,6 +527,17 @@
     </div>
   </section>
 
+  <div class="gif-block">
+    <p class="gif-label">Animierte GIF-Version &mdash; Roadmap</p>
+    <a href="../assets/img/widgets/widget-animated-roadmap.gif" target="_blank">
+      <img src="../assets/img/widgets/widget-animated-roadmap.gif" width="600" height="100" alt="Animierte Roadmap-Signatur">
+    </a>
+    <div class="gif-bbcode">
+      <span class="gif-bbcode-label">BBCode:</span>
+      <code>[img]https://flathack.github.io/assets/img/widgets/widget-animated-roadmap.gif[/img]</code>
+    </div>
+  </div>
+
   <section id="widget-combo" class="signature signature-download" aria-label="Kombiwidget im Download-Stil 600x100">
     <div class="ring-col">
       <div class="ring" style="--progress: 69;" role="img" aria-label="Gesamtfortschritt aller Projekte bis Version 1.0: 69 Prozent">
@@ -498,6 +560,17 @@
       <div class="download-foot">Visual 63 | Save 74 | Lingo 71</div>
     </div>
   </section>
+
+  <div class="gif-block">
+    <p class="gif-label">Animierte GIF-Version &mdash; Alle Projekte</p>
+    <a href="../assets/img/widgets/widget-animated-combo.gif" target="_blank">
+      <img src="../assets/img/widgets/widget-animated-combo.gif" width="600" height="100" alt="Animierte Kombi-Signatur">
+    </a>
+    <div class="gif-bbcode">
+      <span class="gif-bbcode-label">BBCode:</span>
+      <code>[img]https://flathack.github.io/assets/img/widgets/widget-animated-combo.gif[/img]</code>
+    </div>
+  </div>
 
   <section id="widget-visual" class="signature signature-download" aria-label="Widget FL Atlas Visual Editor im Download-Stil 600x100">
     <div class="ring-col">
@@ -522,6 +595,17 @@
     </div>
   </section>
 
+  <div class="gif-block">
+    <p class="gif-label">Animierte GIF-Version &mdash; FL Atlas Visual Editor</p>
+    <a href="../assets/img/widgets/widget-animated-visual.gif" target="_blank">
+      <img src="../assets/img/widgets/widget-animated-visual.gif" width="600" height="100" alt="Animierte Visual-Editor-Signatur">
+    </a>
+    <div class="gif-bbcode">
+      <span class="gif-bbcode-label">BBCode:</span>
+      <code>[img]https://flathack.github.io/assets/img/widgets/widget-animated-visual.gif[/img]</code>
+    </div>
+  </div>
+
   <section id="widget-savegame" class="signature signature-download" aria-label="Widget FL Atlas Savegame Editor im Download-Stil 600x100">
     <div class="ring-col">
       <div class="ring" style="--progress: 74;" role="img" aria-label="Gesamtfortschritt bis Version 1.0: 74 Prozent">
@@ -545,6 +629,17 @@
     </div>
   </section>
 
+  <div class="gif-block">
+    <p class="gif-label">Animierte GIF-Version &mdash; FL Atlas Savegame Editor</p>
+    <a href="../assets/img/widgets/widget-animated-savegame.gif" target="_blank">
+      <img src="../assets/img/widgets/widget-animated-savegame.gif" width="600" height="100" alt="Animierte Savegame-Editor-Signatur">
+    </a>
+    <div class="gif-bbcode">
+      <span class="gif-bbcode-label">BBCode:</span>
+      <code>[img]https://flathack.github.io/assets/img/widgets/widget-animated-savegame.gif[/img]</code>
+    </div>
+  </div>
+
   <section id="widget-lingo" class="signature signature-download" aria-label="Widget FL-Lingo im Download-Stil 600x100">
     <div class="ring-col">
       <div class="ring" style="--progress: 71;" role="img" aria-label="Gesamtfortschritt bis Version 1.0: 71 Prozent">
@@ -567,6 +662,18 @@
       <div class="download-foot">Core 79 | Flow 68 | QA 66</div>
     </div>
   </section>
+
+  <div class="gif-block">
+    <p class="gif-label">Animierte GIF-Version &mdash; FL-Lingo</p>
+    <a href="../assets/img/widgets/widget-animated-lingo.gif" target="_blank">
+      <img src="../assets/img/widgets/widget-animated-lingo.gif" width="600" height="100" alt="Animierte FL-Lingo-Signatur">
+    </a>
+    <div class="gif-bbcode">
+      <span class="gif-bbcode-label">BBCode:</span>
+      <code>[img]https://flathack.github.io/assets/img/widgets/widget-animated-lingo.gif[/img]</code>
+    </div>
+  </div>
+
   <script>
     (function () {
       var params = new URLSearchParams(window.location.search);
