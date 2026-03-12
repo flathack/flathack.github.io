@@ -11,13 +11,13 @@
     :root {
       --sig-width: 600px;
       --sig-height: 100px;
-      --bg-1: #07131e;
-      --bg-2: #0f2234;
+      --bg-1: #16080c;
+      --bg-2: #261118;
       --text: #f4f8ff;
-      --muted: #9eb2c8;
-      --line: rgba(151, 185, 224, 0.3);
-      --accent: #00d1a2;
-      --accent-2: #4ec3ff;
+      --muted: #c7a9b0;
+      --line: rgba(255, 116, 128, 0.34);
+      --accent: #ff2d37;
+      --accent-2: #ff6b73;
     }
 
     * {
@@ -29,8 +29,8 @@
       margin: 0;
       min-height: 100%;
       background:
-        radial-gradient(circle at 0% 0%, rgba(0, 209, 162, 0.22), transparent 34%),
-        radial-gradient(circle at 100% 100%, rgba(78, 195, 255, 0.2), transparent 38%),
+        radial-gradient(circle at 0% 0%, rgba(255, 56, 70, 0.24), transparent 34%),
+        radial-gradient(circle at 100% 100%, rgba(255, 122, 131, 0.18), transparent 38%),
         #03080d;
       font-family: "Rajdhani", sans-serif;
       color: var(--text);
@@ -49,10 +49,10 @@
       display: grid;
       grid-template-columns: 100px 1fr;
       border: 1px solid var(--line);
-      border-radius: 14px;
+      border-radius: 0;
       overflow: hidden;
       background:
-        linear-gradient(135deg, rgba(0, 209, 162, 0.08), transparent 30%),
+        linear-gradient(135deg, rgba(255, 45, 55, 0.12), transparent 30%),
         linear-gradient(180deg, var(--bg-2), var(--bg-1));
       box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
     }
@@ -70,7 +70,7 @@
       height: 72px;
       border-radius: 50%;
       background:
-        conic-gradient(var(--accent) calc(var(--progress) * 1%), rgba(160, 186, 214, 0.22) 0);
+        conic-gradient(var(--accent) calc(var(--progress) * 1%), rgba(255, 130, 138, 0.22) 0);
       display: grid;
       place-items: center;
     }
@@ -81,7 +81,7 @@
       inset: 8px;
       border-radius: 50%;
       background: rgba(5, 14, 22, 0.96);
-      box-shadow: inset 0 0 0 1px rgba(151, 185, 224, 0.2);
+      box-shadow: inset 0 0 0 1px rgba(255, 116, 128, 0.24);
     }
 
     .ring-value {
@@ -120,14 +120,14 @@
       font-family: "Chakra Petch", sans-serif;
       font-size: 0.72rem;
       letter-spacing: 0.04em;
-      color: #d9e8fb;
+      color: #ffeef2;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
 
     .headline .version {
-      color: #94ffd7;
+      color: #ff8e96;
       font-weight: 600;
       margin-left: 8px;
     }
@@ -142,7 +142,7 @@
 
     .project-name {
       font-size: 0.66rem;
-      color: #d6e5f7;
+      color: #f7dce2;
       letter-spacing: 0.03em;
       white-space: nowrap;
       overflow: hidden;
@@ -167,7 +167,7 @@
     .bar {
       height: 8px;
       border-radius: 999px;
-      background: rgba(151, 185, 224, 0.2);
+      background: rgba(255, 118, 130, 0.2);
       overflow: hidden;
       position: relative;
     }
@@ -203,7 +203,7 @@
     .mini-track {
       height: 5px;
       border-radius: 999px;
-      background: rgba(151, 185, 224, 0.2);
+      background: rgba(255, 118, 130, 0.2);
       overflow: hidden;
     }
 
@@ -229,7 +229,7 @@
 
     .combo-name {
       font-size: 0.62rem;
-      color: #d6e5f7;
+      color: #f7dce2;
       letter-spacing: 0.03em;
       white-space: nowrap;
       overflow: hidden;
@@ -243,10 +243,240 @@
       letter-spacing: 0.02em;
     }
 
+    .signature-download {
+      grid-template-columns: 86px 1fr;
+      border-radius: 0;
+      border: 1px solid #2c313b;
+      background: linear-gradient(180deg, #151a22 0%, #0a0d13 100%);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        0 10px 24px rgba(0, 0, 0, 0.45);
+    }
+
+    .signature-download .ring-col {
+      padding: 6px;
+      border-right: 1px solid #2c313b;
+      background: linear-gradient(180deg, #1c222c 0%, #0d1117 100%);
+    }
+
+    .download-icon {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+    }
+
+    .download-icon::before {
+      content: "";
+      position: absolute;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 2px solid #d9e2ef;
+      opacity: 0.9;
+    }
+
+    .download-icon::after {
+      content: "";
+      position: absolute;
+      width: 68px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent 0%, #ff3f46 30%, #ff3f46 70%, transparent 100%);
+      transform: rotate(-58deg);
+      transform-origin: center;
+      opacity: 0.9;
+    }
+
+    .download-icon .mark {
+      position: relative;
+      z-index: 1;
+      font-family: "Chakra Petch", sans-serif;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #f5f8ff;
+      text-transform: uppercase;
+    }
+
+    .download-content {
+      padding: 7px 12px 6px 10px;
+      display: grid;
+      grid-template-rows: 16px 14px 10px 10px 1fr;
+      gap: 2px;
+    }
+
+    .download-title {
+      font-family: "Chakra Petch", sans-serif;
+      font-size: 1.05rem;
+      line-height: 1;
+      letter-spacing: 0.03em;
+      color: #ff4a4f;
+      text-transform: uppercase;
+    }
+
+    .download-sub {
+      font-size: 0.64rem;
+      color: #e8eef8;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-transform: uppercase;
+    }
+
+    .download-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      font-size: 0.53rem;
+      color: #aeb9c9;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .download-progress {
+      height: 7px;
+      border-radius: 999px;
+      overflow: hidden;
+      background: #242a34;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .download-progress > span {
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, #ff2d37 0%, #ff646a 60%, #ffa2a6 100%);
+    }
+
+    .download-foot {
+      display: flex;
+      align-items: end;
+      font-size: 0.72rem;
+      color: #f1f6ff;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .version-roadmap {
+      padding: 2px 0 0;
+      display: grid;
+      gap: 4px;
+    }
+
+    .milestone-track {
+      position: relative;
+      height: 10px;
+      border-radius: 999px;
+      overflow: hidden;
+      background: #242a34;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .milestone-track > span {
+      display: block;
+      width: 16%;
+      height: 100%;
+      background: linear-gradient(90deg, #ff2d37 0%, #ff646a 60%, #ffa2a6 100%);
+    }
+
+    .milestone-points {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .milestone-point {
+      position: absolute;
+      top: 50%;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      background: #0e1118;
+      transform: translate(-50%, -50%);
+    }
+
+    .milestone-point.current {
+      background: #ff7d84;
+      border-color: #ffd2d6;
+      box-shadow: 0 0 0 2px rgba(255, 45, 55, 0.22);
+    }
+
+    .milestone-labels {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      font-size: 0.53rem;
+      color: #d6b7be;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .milestone-labels span {
+      white-space: nowrap;
+    }
+
+    .milestone-labels span:nth-child(2),
+    .milestone-labels span:nth-child(3) {
+      text-align: center;
+    }
+
+    .milestone-labels span:last-child {
+      text-align: right;
+    }
+
   </style>
 </head>
 <body>
-  <section id="widget-combo" class="signature signature-combo" aria-label="Kombiwidget alle Projekte 600x100">
+  <section id="widget-roadmap" class="signature signature-download" aria-label="Versions-Roadmap im Download-Stil 600x100">
+    <div class="ring-col">
+      <div class="ring" style="--progress: 63;" role="img" aria-label="Versionsfortschritt von v0.6.3 bis v1.0: aktuell zwischen v0.6.3 und v0.6.4">
+        <div class="ring-value">
+          <strong>63%</strong>
+          <span>roadmap</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="download-content">
+      <div class="download-title">FL Atlas Version Progress</div>
+      <div class="download-sub">Aktuell zwischen v0.6.3 und v0.6.4</div>
+      <div class="download-meta">
+        <span>Pfad zu v1.0</span>
+        <span>Current</span>
+        <span>v0.6.3+</span>
+      </div>
+      <div class="version-roadmap">
+        <div class="milestone-track">
+          <span style="width: 16%;"></span>
+          <div class="milestone-points" aria-hidden="true">
+            <span class="milestone-point" style="left: 0%;"></span>
+            <span class="milestone-point" style="left: 33.333%;"></span>
+            <span class="milestone-point" style="left: 66.666%;"></span>
+            <span class="milestone-point" style="left: 100%;"></span>
+            <span class="milestone-point current" style="left: 16%;"></span>
+          </div>
+        </div>
+        <div class="milestone-labels">
+          <span>v0.6.3</span>
+          <span>v0.6.4</span>
+          <span>v0.7.0</span>
+          <span>v1.0</span>
+        </div>
+      </div>
+      <div class="download-foot">Nächster Meilenstein: v0.6.4</div>
+    </div>
+  </section>
+
+  <section id="widget-combo" class="signature signature-download" aria-label="Kombiwidget im Download-Stil 600x100">
     <div class="ring-col">
       <div class="ring" style="--progress: 69;" role="img" aria-label="Gesamtfortschritt aller Projekte bis Version 1.0: 69 Prozent">
         <div class="ring-value">
@@ -256,137 +486,95 @@
       </div>
     </div>
 
-    <div class="content">
-      <div class="headline">
-        <span>Alle Projekte</span>
-        <span class="version">Mittelwert: 69%</span>
+    <div class="download-content">
+      <div class="download-title">FL Atlas Project Suite</div>
+      <div class="download-sub">FL Atlas Project Suite</div>
+      <div class="download-meta">
+        <span>v1.0 Progress 69%</span>
+        <span>Multi</span>
+        <span>Build 0.6.3+</span>
       </div>
-
-      <div class="combo-row">
-        <span class="combo-name">Visual Editor</span>
-        <div class="bar"><span style="width: 63%;"></span></div>
-        <span class="combo-pct">63%</span>
-      </div>
-
-      <div class="combo-row">
-        <span class="combo-name">Savegame Editor</span>
-        <div class="bar"><span style="width: 74%;"></span></div>
-        <span class="combo-pct">74%</span>
-      </div>
-
-      <div class="combo-row">
-        <span class="combo-name">FL-Lingo</span>
-        <div class="bar"><span style="width: 71%;"></span></div>
-        <span class="combo-pct">71%</span>
-      </div>
+      <div class="download-progress"><span style="width: 69%;"></span></div>
+      <div class="download-foot">Visual 63 | Save 74 | Lingo 71</div>
     </div>
   </section>
 
-  <section id="widget-visual" class="signature" aria-label="Widget FL Atlas Visual Editor 600x100">
+  <section id="widget-visual" class="signature signature-download" aria-label="Widget FL Atlas Visual Editor im Download-Stil 600x100">
     <div class="ring-col">
       <div class="ring" style="--progress: 63;" role="img" aria-label="Gesamtfortschritt bis Version 1.0: 63 Prozent">
         <div class="ring-value">
           <strong>63%</strong>
-          <span>bis v1.0</span>
+          <span>v1.0</span>
         </div>
       </div>
     </div>
 
-    <div class="content">
-      <div class="headline">
-        <span>FL Atlas Visual Editor</span>
-        <span class="version">v0.63 / 1.00</span>
+    <div class="download-content">
+      <div class="download-title">FL Atlas Visual Editor</div>
+      <div class="download-sub">FL Atlas Visual Editor v0.6.3</div>
+      <div class="download-meta">
+        <span>v1.0 Progress 63%</span>
+        <span>Alpha</span>
+        <span>Build 0.6.3</span>
       </div>
-
-      <div class="project-row">
-        <span class="project-name">Gesamt</span>
-        <div class="bar-wrap">
-          <div class="bar-text">Overall 63%</div>
-          <div class="bar"><span style="width: 63%;"></span></div>
-        </div>
-      </div>
-
-      <div class="mini-bars" aria-label="Vorhandene Unterbalken aus dem Projekt">
-        <div class="mini-bar" title="3D Model Viewer 72%"><div class="mini-text">3D 72%</div><div class="mini-track"><span style="width: 72%;"></span></div></div>
-        <div class="mini-bar" title="Main Code Refactoring 78%"><div class="mini-text">Ref 78%</div><div class="mini-track"><span style="width: 78%;"></span></div></div>
-        <div class="mini-bar" title="INI Editor 66%"><div class="mini-text">INI 66%</div><div class="mini-track"><span style="width: 66%;"></span></div></div>
-        <div class="mini-bar" title="Help and Documentation 42%"><div class="mini-text">Doc 42%</div><div class="mini-track"><span style="width: 42%;"></span></div></div>
-        <div class="mini-bar" title="Polish and Stability 57%"><div class="mini-text">QA 57%</div><div class="mini-track"><span style="width: 57%;"></span></div></div>
-      </div>
+      <div class="download-progress"><span style="width: 63%;"></span></div>
+      <div class="download-foot">16 total updates (1 today)</div>
     </div>
   </section>
 
-  <section id="widget-savegame" class="signature" aria-label="Widget FL Atlas Savegame Editor 600x100">
+  <section id="widget-savegame" class="signature signature-download" aria-label="Widget FL Atlas Savegame Editor im Download-Stil 600x100">
     <div class="ring-col">
       <div class="ring" style="--progress: 74;" role="img" aria-label="Gesamtfortschritt bis Version 1.0: 74 Prozent">
         <div class="ring-value">
           <strong>74%</strong>
-          <span>bis v1.0</span>
+          <span>v1.0</span>
         </div>
       </div>
     </div>
 
-    <div class="content">
-      <div class="headline">
-        <span>FL Atlas Savegame Editor</span>
-        <span class="version">v0.74 / 1.00</span>
+    <div class="download-content">
+      <div class="download-title">FL Atlas Savegame Editor</div>
+      <div class="download-sub">FL Atlas Savegame Editor v0.74</div>
+      <div class="download-meta">
+        <span>v1.0 Progress 74%</span>
+        <span>Alpha</span>
+        <span>Build 0.7.4</span>
       </div>
-
-      <div class="project-row">
-        <span class="project-name">Gesamt</span>
-        <div class="bar-wrap">
-          <div class="bar-text">Overall 74% (Donut-Quelle 84%)</div>
-          <div class="bar"><span style="width: 74%;"></span></div>
-        </div>
-      </div>
-
-      <div class="mini-bars" aria-label="Vorhandene Unterbalken aus dem Projekt">
-        <div class="mini-bar" title="Editor Features 80%"><div class="mini-text">Feat 80%</div><div class="mini-track"><span style="width: 80%;"></span></div></div>
-        <div class="mini-bar" title="Validation and Safety 78%"><div class="mini-text">Safe 78%</div><div class="mini-track"><span style="width: 78%;"></span></div></div>
-        <div class="mini-bar" title="Usability and QA 64%"><div class="mini-text">UX 64%</div><div class="mini-track"><span style="width: 64%;"></span></div></div>
-        <div class="mini-bar" title="Donut-Quelle 84%"><div class="mini-text">D84</div><div class="mini-track"><span style="width: 84%;"></span></div></div>
-        <div class="mini-bar" title="Version zu 1.0: 74%"><div class="mini-text">v1 74%</div><div class="mini-track"><span style="width: 74%;"></span></div></div>
-      </div>
+      <div class="download-progress"><span style="width: 74%;"></span></div>
+      <div class="download-foot">Safety 78 | Features 80 | QA 64</div>
     </div>
   </section>
 
-  <section id="widget-lingo" class="signature" aria-label="Widget FL-Lingo 600x100">
+  <section id="widget-lingo" class="signature signature-download" aria-label="Widget FL-Lingo im Download-Stil 600x100">
     <div class="ring-col">
       <div class="ring" style="--progress: 71;" role="img" aria-label="Gesamtfortschritt bis Version 1.0: 71 Prozent">
         <div class="ring-value">
           <strong>71%</strong>
-          <span>bis v1.0</span>
+          <span>v1.0</span>
         </div>
       </div>
     </div>
 
-    <div class="content">
-      <div class="headline">
-        <span>FL-Lingo</span>
-        <span class="version">v0.71 / 1.00</span>
+    <div class="download-content">
+      <div class="download-title">FL-Lingo</div>
+      <div class="download-sub">FL-Lingo v0.71</div>
+      <div class="download-meta">
+        <span>v1.0 Progress 71%</span>
+        <span>Active</span>
+        <span>Build 0.7.1</span>
       </div>
-
-      <div class="project-row">
-        <span class="project-name">Gesamt</span>
-        <div class="bar-wrap">
-          <div class="bar-text">Overall 71%</div>
-          <div class="bar"><span style="width: 71%;"></span></div>
-        </div>
-      </div>
-
-      <div class="mini-bars" aria-label="Vorhandene Unterbalken aus dem Projekt">
-        <div class="mini-bar" title="Core Compare Pipeline 79%"><div class="mini-text">Core 79%</div><div class="mini-track"><span style="width: 79%;"></span></div></div>
-        <div class="mini-bar" title="Translation Workflow 68%"><div class="mini-text">Flow 68%</div><div class="mini-track"><span style="width: 68%;"></span></div></div>
-        <div class="mini-bar" title="Expert Tools and QA 66%"><div class="mini-text">QA 66%</div><div class="mini-track"><span style="width: 66%;"></span></div></div>
-        <div class="mini-bar" title="Version zu 1.0: 71%"><div class="mini-text">v1 71%</div><div class="mini-track"><span style="width: 71%;"></span></div></div>
-        <div class="mini-bar" title="Status Aktiv"><div class="mini-text">Aktiv</div><div class="mini-track"><span style="width: 71%;"></span></div></div>
-      </div>
+      <div class="download-progress"><span style="width: 71%;"></span></div>
+      <div class="download-foot">Core 79 | Flow 68 | QA 66</div>
     </div>
   </section>
   <script>
     (function () {
       var params = new URLSearchParams(window.location.search);
       var exportWidgetId = params.get("export");
+
+      if (exportWidgetId === "widget-visual-download") {
+        exportWidgetId = "widget-visual";
+      }
 
       if (!exportWidgetId) {
         return;
