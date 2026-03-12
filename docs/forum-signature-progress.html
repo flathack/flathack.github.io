@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flathack Projektfortschritt Widgets</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Chakra+Petch:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --sig-width: 600px;
+      --sig-height: 100px;
+      --bg-1: #07131e;
+      --bg-2: #0f2234;
+      --text: #f4f8ff;
+      --muted: #9eb2c8;
+      --line: rgba(151, 185, 224, 0.3);
+      --accent: #00d1a2;
+      --accent-2: #4ec3ff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(0, 209, 162, 0.22), transparent 34%),
+        radial-gradient(circle at 100% 100%, rgba(78, 195, 255, 0.2), transparent 38%),
+        #03080d;
+      font-family: "Rajdhani", sans-serif;
+      color: var(--text);
+    }
+
+    body {
+      display: grid;
+      justify-content: center;
+      gap: 12px;
+      padding: 12px;
+    }
+
+    .signature {
+      width: var(--sig-width);
+      height: var(--sig-height);
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, rgba(0, 209, 162, 0.08), transparent 30%),
+        linear-gradient(180deg, var(--bg-2), var(--bg-1));
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
+    }
+
+    .ring-col {
+      display: grid;
+      place-items: center;
+      border-right: 1px solid var(--line);
+      padding: 6px;
+    }
+
+    .ring {
+      position: relative;
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background:
+        conic-gradient(var(--accent) calc(var(--progress) * 1%), rgba(160, 186, 214, 0.22) 0);
+      display: grid;
+      place-items: center;
+    }
+
+    .ring::before {
+      content: "";
+      position: absolute;
+      inset: 8px;
+      border-radius: 50%;
+      background: rgba(5, 14, 22, 0.96);
+      box-shadow: inset 0 0 0 1px rgba(151, 185, 224, 0.2);
+    }
+
+    .ring-value {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      line-height: 1;
+    }
+
+    .ring-value strong {
+      display: block;
+      font-size: 1.05rem;
+      letter-spacing: 0.03em;
+    }
+
+    .ring-value span {
+      display: block;
+      margin-top: 2px;
+      font-size: 0.57rem;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .content {
+      padding: 6px 10px 6px 8px;
+      display: grid;
+      grid-template-rows: 15px 1fr;
+      gap: 4px;
+    }
+
+    .headline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: "Chakra Petch", sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.04em;
+      color: #d9e8fb;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .headline .version {
+      color: #94ffd7;
+      font-weight: 600;
+      margin-left: 8px;
+    }
+
+    .project-row {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      align-items: center;
+      gap: 8px;
+      min-height: 20px;
+    }
+
+    .project-name {
+      font-size: 0.66rem;
+      color: #d6e5f7;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .bar-wrap {
+      display: grid;
+      gap: 1px;
+    }
+
+    .bar-text {
+      font-size: 0.56rem;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+      line-height: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .bar {
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(151, 185, 224, 0.2);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .bar > span {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    }
+
+    .mini-bars {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 3px;
+      margin-top: 3px;
+    }
+
+    .mini-bar {
+      display: grid;
+      gap: 1px;
+    }
+
+    .mini-text {
+      font-size: 0.5rem;
+      color: var(--muted);
+      line-height: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .mini-track {
+      height: 5px;
+      border-radius: 999px;
+      background: rgba(151, 185, 224, 0.2);
+      overflow: hidden;
+    }
+
+    .mini-track > span {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    }
+
+    .signature-combo .content {
+      grid-template-rows: 15px repeat(3, 1fr);
+      gap: 3px;
+    }
+
+    .combo-row {
+      display: grid;
+      grid-template-columns: 132px 1fr 34px;
+      align-items: center;
+      gap: 6px;
+      min-height: 20px;
+    }
+
+    .combo-name {
+      font-size: 0.62rem;
+      color: #d6e5f7;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .combo-pct {
+      font-size: 0.58rem;
+      color: var(--muted);
+      text-align: right;
+      letter-spacing: 0.02em;
+    }
+
+  </style>
+</head>
+<body>
+  <section id="widget-combo" class="signature signature-combo" aria-label="Kombiwidget alle Projekte 600x100">
+    <div class="ring-col">
+      <div class="ring" style="--progress: 52;" role="img" aria-label="Gesamtfortschritt aller Projekte bis Version 1.0: 63 Prozent">
+        <div class="ring-value">
+          <strong>52%</strong>
+          <span>all</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="headline">
+        <span>Alle Projekte</span>
+        <span class="version">Mittelwert: 63%</span>
+      </div>
+
+      <div class="combo-row">
+        <span class="combo-name">Visual Editor</span>
+        <div class="bar"><span style="width: 43%;"></span></div>
+        <span class="combo-pct">43%</span>
+      </div>
+
+      <div class="combo-row">
+        <span class="combo-name">Savegame Editor</span>
+        <div class="bar"><span style="width: 74%;"></span></div>
+        <span class="combo-pct">74%</span>
+      </div>
+
+      <div class="combo-row">
+        <span class="combo-name">FL-Lingo</span>
+        <div class="bar"><span style="width: 41%;"></span></div>
+        <span class="combo-pct">41%</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="widget-visual" class="signature" aria-label="Widget FL Atlas Visual Editor 600x100">
+    <div class="ring-col">
+      <div class="ring" style="--progress: 43;" role="img" aria-label="Gesamtfortschritt bis Version 1.0: 43 Prozent">
+        <div class="ring-value">
+          <strong>43%</strong>
+          <span>bis v1.0</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="headline">
+        <span>FL Atlas Visual Editor</span>
+        <span class="version">v0.43 / 1.00</span>
+      </div>
+
+      <div class="project-row">
+        <span class="project-name">Gesamt</span>
+        <div class="bar-wrap">
+          <div class="bar-text">Overall 43%</div>
+          <div class="bar"><span style="width: 43%;"></span></div>
+        </div>
+      </div>
+
+      <div class="mini-bars" aria-label="Vorhandene Unterbalken aus dem Projekt">
+        <div class="mini-bar" title="3D Model Viewer 50%"><div class="mini-text">3D 50%</div><div class="mini-track"><span style="width: 50%;"></span></div></div>
+        <div class="mini-bar" title="Main Code Refactoring 70%"><div class="mini-text">Ref 70%</div><div class="mini-track"><span style="width: 70%;"></span></div></div>
+        <div class="mini-bar" title="INI Editor 40%"><div class="mini-text">INI 40%</div><div class="mini-track"><span style="width: 40%;"></span></div></div>
+        <div class="mini-bar" title="Help and Documentation 5%"><div class="mini-text">Doc 5%</div><div class="mini-track"><span style="width: 5%;"></span></div></div>
+        <div class="mini-bar" title="Polish and Stability 50%"><div class="mini-text">QA 50%</div><div class="mini-track"><span style="width: 50%;"></span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="widget-savegame" class="signature" aria-label="Widget FL Atlas Savegame Editor 600x100">
+    <div class="ring-col">
+      <div class="ring" style="--progress: 74;" role="img" aria-label="Gesamtfortschritt bis Version 1.0: 74 Prozent">
+        <div class="ring-value">
+          <strong>74%</strong>
+          <span>bis v1.0</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="headline">
+        <span>FL Atlas Savegame Editor</span>
+        <span class="version">v0.74 / 1.00</span>
+      </div>
+
+      <div class="project-row">
+        <span class="project-name">Gesamt</span>
+        <div class="bar-wrap">
+          <div class="bar-text">Overall 74% (Donut-Quelle 84%)</div>
+          <div class="bar"><span style="width: 74%;"></span></div>
+        </div>
+      </div>
+
+      <div class="mini-bars" aria-label="Vorhandene Unterbalken aus dem Projekt">
+        <div class="mini-bar" title="Editor Features 80%"><div class="mini-text">Feat 80%</div><div class="mini-track"><span style="width: 80%;"></span></div></div>
+        <div class="mini-bar" title="Validation and Safety 78%"><div class="mini-text">Safe 78%</div><div class="mini-track"><span style="width: 78%;"></span></div></div>
+        <div class="mini-bar" title="Usability and QA 64%"><div class="mini-text">UX 64%</div><div class="mini-track"><span style="width: 64%;"></span></div></div>
+        <div class="mini-bar" title="Donut-Quelle 84%"><div class="mini-text">D84</div><div class="mini-track"><span style="width: 84%;"></span></div></div>
+        <div class="mini-bar" title="Version zu 1.0: 74%"><div class="mini-text">v1 74%</div><div class="mini-track"><span style="width: 74%;"></span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="widget-lingo" class="signature" aria-label="Widget FL-Lingo 600x100">
+    <div class="ring-col">
+      <div class="ring" style="--progress: 71;" role="img" aria-label="Gesamtfortschritt bis Version 1.0: 71 Prozent">
+        <div class="ring-value">
+          <strong>71%</strong>
+          <span>bis v1.0</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="headline">
+        <span>FL-Lingo</span>
+        <span class="version">v0.71 / 1.00</span>
+      </div>
+
+      <div class="project-row">
+        <span class="project-name">Gesamt</span>
+        <div class="bar-wrap">
+          <div class="bar-text">Overall 71%</div>
+          <div class="bar"><span style="width: 71%;"></span></div>
+        </div>
+      </div>
+
+      <div class="mini-bars" aria-label="Vorhandene Unterbalken aus dem Projekt">
+        <div class="mini-bar" title="Core Compare Pipeline 79%"><div class="mini-text">Core 79%</div><div class="mini-track"><span style="width: 79%;"></span></div></div>
+        <div class="mini-bar" title="Translation Workflow 68%"><div class="mini-text">Flow 68%</div><div class="mini-track"><span style="width: 68%;"></span></div></div>
+        <div class="mini-bar" title="Expert Tools and QA 66%"><div class="mini-text">QA 66%</div><div class="mini-track"><span style="width: 66%;"></span></div></div>
+        <div class="mini-bar" title="Version zu 1.0: 71%"><div class="mini-text">v1 71%</div><div class="mini-track"><span style="width: 71%;"></span></div></div>
+        <div class="mini-bar" title="Status Aktiv"><div class="mini-text">Aktiv</div><div class="mini-track"><span style="width: 71%;"></span></div></div>
+      </div>
+    </div>
+  </section>
+  <script>
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var exportWidgetId = params.get("export");
+
+      if (!exportWidgetId) {
+        return;
+      }
+
+      var root = document.documentElement;
+      var body = document.body;
+      var widgets = Array.prototype.slice.call(document.querySelectorAll(".signature"));
+
+      widgets.forEach(function (widget) {
+        if (widget.id !== exportWidgetId) {
+          widget.remove();
+        }
+      });
+
+      root.style.width = "600px";
+      root.style.height = "100px";
+      root.style.overflow = "hidden";
+
+      body.style.width = "600px";
+      body.style.height = "100px";
+      body.style.minHeight = "100px";
+      body.style.padding = "0";
+      body.style.gap = "0";
+      body.style.overflow = "hidden";
+      body.style.alignContent = "start";
+      body.style.justifyContent = "start";
+    })();
+  </script>
+</body>
+</html>
