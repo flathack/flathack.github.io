@@ -19,7 +19,7 @@ from PIL import Image, ImageDraw, ImageFont
 # ---------------------------------------------------------------------------
 # Canvas
 # ---------------------------------------------------------------------------
-W, H = 1000, 150
+W, H = 800, 100
 FPS  = 24
 DURATION_S = 3
 TOTAL_FRAMES = FPS * DURATION_S          # 72
@@ -27,8 +27,8 @@ TOTAL_FRAMES = FPS * DURATION_S          # 72
 # ---------------------------------------------------------------------------
 # Column layout — matches HTML grid: 140px | 1fr | 1fr | 1fr
 # ---------------------------------------------------------------------------
-BRAND_W = 140
-PROJ_W  = (W - BRAND_W) // 3            # ~361 each
+BRAND_W = 86
+PROJ_W  = (W - BRAND_W) // 3            # ~238 each
 
 BRAND_X = 0
 PROJ1_X = BRAND_W
@@ -36,12 +36,12 @@ PROJ2_X = BRAND_W + PROJ_W
 PROJ3_X = BRAND_W + PROJ_W * 2
 
 # Ring geometry (suite only)
-RING_R_OUT = 36
-RING_R_IN  = 27
+RING_R_OUT = 24
+RING_R_IN  = 18
 
 # Bar geometry
-BAR_H     = 9
-BAR_PAD_X = 18   # left/right padding inside each project column
+BAR_H     = 6
+BAR_PAD_X = 10   # left/right padding inside each project column
 
 # ---------------------------------------------------------------------------
 # Project data
@@ -109,15 +109,15 @@ def _load_font(names: list[str], size: int) -> ImageFont.FreeTypeFont:
             continue
     return ImageFont.load_default()
 
-font_pct_lg   = _load_font(["consola.ttf", "consolab.ttf", "arial.ttf"], 17)
-font_ring_sub = _load_font(["segoeuil.ttf", "segoeui.ttf", "arial.ttf"], 9)
-font_name     = _load_font(["segoeuib.ttf", "segoeui.ttf", "arialbd.ttf"], 13)
-font_version  = _load_font(["segoeuib.ttf", "segoeui.ttf", "arialbd.ttf"], 10)
-font_status   = _load_font(["segoeuil.ttf", "segoeui.ttf", "arial.ttf"], 9)
-font_detail   = _load_font(["segoeuil.ttf", "segoeui.ttf", "arial.ttf"], 9)
-font_pct_bar  = _load_font(["segoeuib.ttf", "consolab.ttf", "arialbd.ttf"], 11)
-font_brand    = _load_font(["segoeuib.ttf", "segoeui.ttf", "arialbd.ttf"], 9)
-font_foot     = _load_font(["segoeuil.ttf", "segoeui.ttf", "arial.ttf"], 7)
+font_pct_lg   = _load_font(["consola.ttf", "consolab.ttf", "arial.ttf"], 12)
+font_ring_sub = _load_font(["segoeuil.ttf", "segoeui.ttf", "arial.ttf"], 7)
+font_name     = _load_font(["segoeuib.ttf", "segoeui.ttf", "arialbd.ttf"], 10)
+font_version  = _load_font(["segoeuib.ttf", "segoeui.ttf", "arialbd.ttf"], 8)
+font_status   = _load_font(["segoeuil.ttf", "segoeui.ttf", "arial.ttf"], 7)
+font_detail   = _load_font(["segoeuil.ttf", "segoeui.ttf", "arial.ttf"], 7)
+font_pct_bar  = _load_font(["segoeuib.ttf", "consolab.ttf", "arialbd.ttf"], 8)
+font_brand    = _load_font(["segoeuib.ttf", "segoeui.ttf", "arialbd.ttf"], 7)
+font_foot     = _load_font(["segoeuil.ttf", "segoeui.ttf", "arial.ttf"], 6)
 
 # ---------------------------------------------------------------------------
 # Drawing helpers
@@ -178,7 +178,7 @@ def render_frame(frame_idx: int, total: int) -> Image.Image:
     # SUITE RING (brand column)
     # ══════════════════════════════════════════════════════════
     bcx = BRAND_X + BRAND_W // 2
-    bcy = H // 2 - 10
+    bcy = H // 2 - 6
 
     # Outer glow (pulsing)
     for dr in range(4, 0, -1):
@@ -226,8 +226,8 @@ def render_frame(frame_idx: int, total: int) -> Image.Image:
     lbl1, lbl2 = "FL ATLAS SUITE", "by flathack"
     bb_l1 = draw.textbbox((0, 0), lbl1, font=font_brand)
     bb_l2 = draw.textbbox((0, 0), lbl2, font=font_foot)
-    draw.text((bcx - (bb_l1[2]-bb_l1[0])//2, H - 28), lbl1, font=font_brand, fill=TEXT_MUTED)
-    draw.text((bcx - (bb_l2[2]-bb_l2[0])//2, H - 17), lbl2, font=font_foot, fill=TEXT_DIM)
+    draw.text((bcx - (bb_l1[2]-bb_l1[0])//2, H - 18), lbl1, font=font_brand, fill=TEXT_MUTED)
+    draw.text((bcx - (bb_l2[2]-bb_l2[0])//2, H - 10), lbl2, font=font_foot, fill=TEXT_DIM)
 
     # ══════════════════════════════════════════════════════════
     # PROJECT COLUMNS (bar charts)
@@ -238,23 +238,23 @@ def render_frame(frame_idx: int, total: int) -> Image.Image:
         pw = PROJ_W - BAR_PAD_X * 2      # available content width
 
         # ── Project name + version ──
-        ty_name = 18
+        ty_name = 10
         draw.text((px, ty_name), proj["name"], font=font_name, fill=TEXT_WHITE)
         # version right of name
         nb = draw.textbbox((0, 0), proj["name"], font=font_name)
-        vx = px + (nb[2] - nb[0]) + 8
-        draw.text((vx, ty_name + 2), proj["version"], font=font_version, fill=ACCENT2)
+        vx = px + (nb[2] - nb[0]) + 6
+        draw.text((vx, ty_name + 1), proj["version"], font=font_version, fill=ACCENT2)
 
         # ── Status line with dot ──
-        ty_status = ty_name + 20
+        ty_status = ty_name + 15
         dot_col = DOT_GREEN if proj["dot"] == "green" else DOT_BLUE
-        draw.ellipse([px, ty_status + 3, px + 5, ty_status + 8], fill=dot_col)
-        draw.text((px + 9, ty_status), proj["status"], font=font_status, fill=TEXT_MUTED)
+        draw.ellipse([px, ty_status + 2, px + 4, ty_status + 6], fill=dot_col)
+        draw.text((px + 7, ty_status), proj["status"], font=font_status, fill=TEXT_MUTED)
 
         # ── Progress bar with shimmer ──
-        ty_bar = ty_status + 18
+        ty_bar = ty_status + 13
         bar_x0 = px
-        bar_x1 = px + pw - 42           # leave room for % label
+        bar_x1 = px + pw - 32           # leave room for % label
         bar_fill_w = int((bar_x1 - bar_x0) * proj["pct"] / 100)
 
         # Track
@@ -289,7 +289,7 @@ def render_frame(frame_idx: int, total: int) -> Image.Image:
         draw.text((bar_x1 + 6, ty_bar - 2), pct_text, font=font_pct_bar, fill=ACCENT2)
 
         # ── Detail + target ──
-        ty_detail = ty_bar + BAR_H + 6
+        ty_detail = ty_bar + BAR_H + 4
         draw.text((px, ty_detail), proj["detail"], font=font_detail, fill=TEXT_SUB)
 
         target_bb = draw.textbbox((0, 0), proj["target"], font=font_detail)
