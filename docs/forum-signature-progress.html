@@ -1,36 +1,35 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Flathack Projektfortschritt Widgets</title>
+  <title>FL Atlas Suite — Forum Signature</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Chakra+Petch:wght@500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Chakra+Petch:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --sig-width: 600px;
-      --sig-height: 100px;
-      --bg-1: #16080c;
-      --bg-2: #261118;
+      --sig-w: 1225px;
+      --sig-h: 160px;
+      --bg-1: #0a0d13;
+      --bg-2: #151a22;
+      --bg-3: #1c222c;
       --text: #f4f8ff;
-      --muted: #c7a9b0;
-      --line: rgba(255, 116, 128, 0.34);
+      --muted: #8b95a8;
       --accent: #ff2d37;
       --accent-2: #ff6b73;
+      --border: rgba(255, 255, 255, 0.08);
+      --border-accent: rgba(255, 116, 128, 0.25);
+      --ring-track: rgba(255, 130, 138, 0.12);
+      --bar-track: #1e2430;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html,
-    body {
-      margin: 0;
-      min-height: 100%;
+    html, body {
       background:
-        radial-gradient(circle at 0% 0%, rgba(255, 56, 70, 0.24), transparent 34%),
-        radial-gradient(circle at 100% 100%, rgba(255, 122, 131, 0.18), transparent 38%),
+        radial-gradient(circle at 0% 0%, rgba(255, 56, 70, 0.18), transparent 34%),
+        radial-gradient(circle at 100% 100%, rgba(255, 122, 131, 0.12), transparent 38%),
         #03080d;
       font-family: "Rajdhani", sans-serif;
       color: var(--text);
@@ -39,675 +38,373 @@
     body {
       display: grid;
       justify-content: center;
-      gap: 12px;
-      padding: 12px;
+      gap: 24px;
+      padding: 24px;
     }
 
-    .signature {
-      width: var(--sig-width);
-      height: var(--sig-height);
+    /* ════════════════════════════════════════════════════════════
+       SUITE SIGNATURE — 1225 × 160
+       Layout: brand-ring | project | project | project
+       ════════════════════════════════════════════════════════════ */
+    .suite-sig {
+      width: var(--sig-w);
+      height: var(--sig-h);
       display: grid;
-      grid-template-columns: 100px 1fr;
-      border: 1px solid var(--line);
-      border-radius: 0;
+      grid-template-columns: 140px 1fr 1fr 1fr;
       overflow: hidden;
       background:
-        linear-gradient(135deg, rgba(255, 45, 55, 0.12), transparent 30%),
+        linear-gradient(135deg, rgba(255, 45, 55, 0.07), transparent 40%),
         linear-gradient(180deg, var(--bg-2), var(--bg-1));
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
+      border: 1px solid var(--border);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.06),
+        0 10px 30px rgba(0, 0, 0, 0.5);
     }
 
-    .ring-col {
+    /* ─── LEFT: SUITE BRANDING RING ─── */
+    .brand-col {
       display: grid;
-      place-items: center;
-      border-right: 1px solid var(--line);
-      padding: 6px;
+      grid-template-rows: 1fr auto;
+      border-right: 1px solid var(--border);
+      background: linear-gradient(180deg, var(--bg-3), var(--bg-1));
+      padding: 10px 10px 8px;
+      gap: 4px;
     }
 
-    .ring {
+    .brand-ring-wrap {
+      justify-self: center;
+      align-self: center;
       position: relative;
-      width: 72px;
-      height: 72px;
+      width: 88px; height: 88px;
+    }
+
+    .brand-ring {
+      width: 88px; height: 88px;
       border-radius: 50%;
       background:
-        conic-gradient(var(--accent) calc(var(--progress) * 1%), rgba(255, 130, 138, 0.22) 0);
+        conic-gradient(var(--accent) calc(var(--pct) * 1%), var(--ring-track) 0);
       display: grid;
       place-items: center;
     }
 
-    .ring::before {
+    .brand-ring::before {
       content: "";
       position: absolute;
-      inset: 8px;
+      inset: 9px;
       border-radius: 50%;
       background: rgba(5, 14, 22, 0.96);
-      box-shadow: inset 0 0 0 1px rgba(255, 116, 128, 0.24);
+      box-shadow: inset 0 0 0 1px rgba(255, 116, 128, 0.18);
     }
 
-    .ring-value {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      line-height: 1;
+    .brand-ring-val {
+      position: relative; z-index: 1;
+      text-align: center; line-height: 1;
     }
 
-    .ring-value strong {
+    .brand-ring-val strong {
       display: block;
-      font-size: 1.05rem;
+      font-size: 1.25rem;
       letter-spacing: 0.03em;
+      color: #fff;
     }
 
-    .ring-value span {
-      display: block;
-      margin-top: 2px;
-      font-size: 0.57rem;
+    .brand-ring-val span {
+      display: block; margin-top: 2px;
+      font-size: 0.52rem;
       color: var(--muted);
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-
-    .content {
-      padding: 6px 10px 6px 8px;
-      display: grid;
-      grid-template-rows: 15px 1fr;
-      gap: 4px;
-    }
-
-    .headline {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-family: "Chakra Petch", sans-serif;
-      font-size: 0.72rem;
-      letter-spacing: 0.04em;
-      color: #ffeef2;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .headline .version {
-      color: #ff8e96;
-      font-weight: 600;
-      margin-left: 8px;
-    }
-
-    .project-row {
-      display: grid;
-      grid-template-columns: 150px 1fr;
-      align-items: center;
-      gap: 8px;
-      min-height: 20px;
-    }
-
-    .project-name {
-      font-size: 0.66rem;
-      color: #f7dce2;
-      letter-spacing: 0.03em;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .bar-wrap {
-      display: grid;
-      gap: 1px;
-    }
-
-    .bar-text {
-      font-size: 0.56rem;
-      color: var(--muted);
-      letter-spacing: 0.02em;
-      line-height: 1;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .bar {
-      height: 8px;
-      border-radius: 999px;
-      background: rgba(255, 118, 130, 0.2);
-      overflow: hidden;
-      position: relative;
-    }
-
-    .bar > span {
-      display: block;
-      height: 100%;
-      border-radius: inherit;
-      background: linear-gradient(90deg, var(--accent), var(--accent-2));
-    }
-
-    .mini-bars {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 3px;
-      margin-top: 3px;
-    }
-
-    .mini-bar {
-      display: grid;
-      gap: 1px;
-    }
-
-    .mini-text {
-      font-size: 0.5rem;
-      color: var(--muted);
-      line-height: 1;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .mini-track {
-      height: 5px;
-      border-radius: 999px;
-      background: rgba(255, 118, 130, 0.2);
-      overflow: hidden;
-    }
-
-    .mini-track > span {
-      display: block;
-      height: 100%;
-      border-radius: inherit;
-      background: linear-gradient(90deg, var(--accent), var(--accent-2));
-    }
-
-    .signature-combo .content {
-      grid-template-rows: 15px repeat(3, 1fr);
-      gap: 3px;
-    }
-
-    .combo-row {
-      display: grid;
-      grid-template-columns: 132px 1fr 34px;
-      align-items: center;
-      gap: 6px;
-      min-height: 20px;
-    }
-
-    .combo-name {
-      font-size: 0.62rem;
-      color: #f7dce2;
-      letter-spacing: 0.03em;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .combo-pct {
-      font-size: 0.58rem;
-      color: var(--muted);
-      text-align: right;
-      letter-spacing: 0.02em;
-    }
-
-    .signature-download {
-      grid-template-columns: 86px 1fr;
-      border-radius: 0;
-      border: 1px solid #2c313b;
-      background: linear-gradient(180deg, #151a22 0%, #0a0d13 100%);
-      box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.08),
-        0 10px 24px rgba(0, 0, 0, 0.45);
-    }
-
-    .signature-download .ring-col {
-      padding: 6px;
-      border-right: 1px solid #2c313b;
-      background: linear-gradient(180deg, #1c222c 0%, #0d1117 100%);
-    }
-
-    .download-icon {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      display: grid;
-      place-items: center;
-      overflow: hidden;
-    }
-
-    .download-icon::before {
-      content: "";
-      position: absolute;
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      border: 2px solid #d9e2ef;
-      opacity: 0.9;
-    }
-
-    .download-icon::after {
-      content: "";
-      position: absolute;
-      width: 68px;
-      height: 2px;
-      background: linear-gradient(90deg, transparent 0%, #ff3f46 30%, #ff3f46 70%, transparent 100%);
-      transform: rotate(-58deg);
-      transform-origin: center;
-      opacity: 0.9;
-    }
-
-    .download-icon .mark {
-      position: relative;
-      z-index: 1;
-      font-family: "Chakra Petch", sans-serif;
-      font-size: 0.62rem;
-      font-weight: 700;
       letter-spacing: 0.08em;
-      color: #f5f8ff;
       text-transform: uppercase;
     }
 
-    .download-content {
-      padding: 7px 12px 6px 10px;
-      display: grid;
-      grid-template-rows: 16px 14px 10px 10px 1fr;
-      gap: 2px;
-    }
-
-    .download-title {
+    .brand-label {
+      text-align: center;
       font-family: "Chakra Petch", sans-serif;
-      font-size: 1.05rem;
-      line-height: 1;
-      letter-spacing: 0.03em;
-      color: #ff4a4f;
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
+      color: var(--muted);
+      line-height: 1.2;
     }
 
-    .download-sub {
-      font-size: 0.64rem;
+    .brand-label em { font-style: normal; color: var(--accent-2); }
+
+    /* ─── PROJECT COLUMN (×3) — bar chart layout ─── */
+    .proj-col {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      padding: 14px 18px 14px 20px;
+      border-right: 1px solid var(--border);
+    }
+
+    .proj-col:last-child { border-right: none; }
+
+    .proj-head {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .proj-name {
+      font-family: "Chakra Petch", sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
       color: #e8eef8;
-      letter-spacing: 0.03em;
       white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      text-transform: uppercase;
     }
 
-    .download-meta {
+    .proj-version {
+      font-family: "Chakra Petch", sans-serif;
+      font-size: 0.62rem;
+      font-weight: 600;
+      color: var(--accent-2);
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    .proj-status {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-      font-size: 0.53rem;
-      color: #aeb9c9;
+      gap: 5px;
+      font-size: 0.52rem;
+      color: var(--muted);
       letter-spacing: 0.04em;
       text-transform: uppercase;
-      white-space: nowrap;
-      overflow: hidden;
     }
 
-    .download-progress {
-      height: 7px;
-      border-radius: 999px;
-      overflow: hidden;
-      background: #242a34;
-      border: 1px solid rgba(255, 255, 255, 0.08);
+    .dot {
+      display: inline-block;
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      flex-shrink: 0;
     }
 
-    .download-progress > span {
-      display: block;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, #ff2d37 0%, #ff646a 60%, #ffa2a6 100%);
-    }
+    .dot-green  { background: #34d058; box-shadow: 0 0 4px rgba(52,208,88,0.4); }
+    .dot-blue   { background: #58a6ff; box-shadow: 0 0 4px rgba(88,166,255,0.4); }
 
-    .download-foot {
+    /* Progress bar */
+    .proj-bar-wrap {
       display: flex;
-      align-items: end;
-      font-size: 0.72rem;
-      color: #f1f6ff;
-      letter-spacing: 0.02em;
-      text-transform: uppercase;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      align-items: center;
+      gap: 8px;
     }
 
-    .version-roadmap {
-      padding: 2px 0 0;
-      display: grid;
-      gap: 4px;
-    }
-
-    .milestone-track {
-      position: relative;
+    .proj-bar {
+      flex: 1;
       height: 10px;
       border-radius: 999px;
       overflow: hidden;
-      background: #242a34;
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: var(--bar-track);
+      border: 1px solid var(--border);
     }
 
-    .milestone-track > span {
+    .proj-bar > span {
       display: block;
-      width: 16%;
       height: 100%;
-      background: linear-gradient(90deg, #ff2d37 0%, #ff646a 60%, #ffa2a6 100%);
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
     }
 
-    .milestone-points {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-    }
-
-    .milestone-point {
-      position: absolute;
-      top: 50%;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      border: 1px solid rgba(255, 255, 255, 0.45);
-      background: #0e1118;
-      transform: translate(-50%, -50%);
-    }
-
-    .milestone-point.current {
-      background: #ff7d84;
-      border-color: #ffd2d6;
-      box-shadow: 0 0 0 2px rgba(255, 45, 55, 0.22);
-    }
-
-    .milestone-labels {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      font-size: 0.53rem;
-      color: #d6b7be;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-    }
-
-    .milestone-labels span {
-      white-space: nowrap;
-    }
-
-    .milestone-labels span:nth-child(2),
-    .milestone-labels span:nth-child(3) {
-      text-align: center;
-    }
-
-    .milestone-labels span:last-child {
+    .proj-pct {
+      font-family: "Chakra Petch", sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--accent-2);
+      letter-spacing: 0.02em;
+      min-width: 32px;
       text-align: right;
     }
 
+    .proj-detail {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.5rem;
+      color: #5e6a7e;
+      letter-spacing: 0.03em;
+    }
+
+    .proj-target {
+      font-size: 0.46rem;
+      color: #4a5568;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    /* ─── BBCode block ─── */
+    .bbcode-block {
+      width: var(--sig-w);
+      padding: 8px 0 0;
+      border-top: 1px solid rgba(255,116,128,0.12);
+    }
+
+    .bbcode-label {
+      font-family: "Chakra Petch", sans-serif;
+      font-size: 0.56rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #6e7a8e;
+      margin-bottom: 4px;
+    }
+
+    .bbcode-code {
+      font-family: monospace;
+      font-size: 0.54rem;
+      color: #ff8e96;
+      user-select: all;
+      cursor: pointer;
+      word-break: break-all;
+    }
+
+    /* ─── Animated GIF block ─── */
     .gif-block {
-      width: 600px;
-      display: grid;
-      gap: 6px;
-      padding: 8px 0 4px;
-      border-top: 1px solid rgba(255, 116, 128, 0.18);
+      width: var(--sig-w);
+      padding: 12px 0 0;
+      border-top: 1px solid rgba(255,116,128,0.08);
     }
 
     .gif-label {
       font-family: "Chakra Petch", sans-serif;
-      font-size: 0.6rem;
-      letter-spacing: 0.1em;
+      font-size: 0.56rem;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: #c7a9b0;
-      margin: 0;
+      color: #6e7a8e;
+      margin-bottom: 4px;
     }
 
-    .gif-block img {
+    .gif-label span { color: var(--accent-2); }
+
+    .gif-img {
+      border: 1px solid var(--border);
       display: block;
-      width: 600px;
-      height: 100px;
-      image-rendering: auto;
     }
 
-    .gif-bbcode {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.58rem;
-      color: #c7a9b0;
-      overflow: hidden;
-    }
-
-    .gif-bbcode-label {
-      white-space: nowrap;
-      font-family: "Chakra Petch", sans-serif;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-    }
-
-    .gif-bbcode code {
-      font-family: monospace;
-      font-size: 0.58rem;
-      color: #ff8e96;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      cursor: pointer;
-      user-select: all;
-    }
-
+    .gif-bbcode { margin-top: 6px; }
   </style>
 </head>
 <body>
-  <section id="widget-roadmap" class="signature signature-download" aria-label="Versions-Roadmap im Download-Stil 600x100">
-    <div class="ring-col">
-      <div class="ring" style="--progress: 63;" role="img" aria-label="Versionsfortschritt von v0.6.3 bis v1.0: aktuell zwischen v0.6.3 und v0.6.4">
-        <div class="ring-value">
-          <strong>63%</strong>
-          <span>roadmap</span>
-        </div>
-      </div>
-    </div>
 
-    <div class="download-content">
-      <div class="download-title">FL Atlas Version Progress</div>
-      <div class="download-sub">Aktuell zwischen v0.6.3 und v0.6.4</div>
-      <div class="download-meta">
-        <span>Pfad zu v1.0</span>
-        <span>Current</span>
-        <span>v0.6.3+</span>
-      </div>
-      <div class="version-roadmap">
-        <div class="milestone-track">
-          <span style="width: 16%;"></span>
-          <div class="milestone-points" aria-hidden="true">
-            <span class="milestone-point" style="left: 0%;"></span>
-            <span class="milestone-point" style="left: 33.333%;"></span>
-            <span class="milestone-point" style="left: 66.666%;"></span>
-            <span class="milestone-point" style="left: 100%;"></span>
-            <span class="milestone-point current" style="left: 16%;"></span>
+  <!-- ══════════════════════════════════════════════════════════════
+       FL ATLAS SUITE — SIGNATURE  1225 × 160
+       ═══════════════════════════════════════════════════════════ -->
+  <section id="widget-suite" class="suite-sig"
+           aria-label="FL Atlas Suite Signature 1225x160">
+
+    <!-- LEFT: OVERALL SUITE RING -->
+    <div class="brand-col">
+      <div class="brand-ring-wrap">
+        <div class="brand-ring" style="--pct: 69;"
+             role="img" aria-label="Overall suite progress: 69 %">
+          <div class="brand-ring-val">
+            <strong>69%</strong>
+            <span>Suite</span>
           </div>
         </div>
-        <div class="milestone-labels">
-          <span>v0.6.3</span>
-          <span>v0.6.4</span>
-          <span>v0.7.0</span>
-          <span>v1.0</span>
-        </div>
       </div>
-      <div class="download-foot">Nächster Meilenstein: v0.6.4</div>
+      <div class="brand-label"><em>FL Atlas</em> Suite<br>by flathack</div>
     </div>
+
+    <!-- PROJECT 1: VISUAL EDITOR -->
+    <div class="proj-col">
+      <div class="proj-head">
+        <span class="proj-name">FL Atlas — Visual Editor</span>
+        <span class="proj-version">v0.6.3</span>
+      </div>
+      <div class="proj-status"><span class="dot dot-green"></span>Released · Alpha · 16 Updates</div>
+      <div class="proj-bar-wrap">
+        <div class="proj-bar"><span style="width: 63%;"></span></div>
+        <span class="proj-pct">63 %</span>
+      </div>
+      <div class="proj-detail">
+        <span>3D Viewer · INI Editor · Universe Map</span>
+        <span class="proj-target">→ v1.0</span>
+      </div>
+    </div>
+
+    <!-- PROJECT 2: SAVEGAME EDITOR -->
+    <div class="proj-col">
+      <div class="proj-head">
+        <span class="proj-name">FL Atlas — Savegame Editor</span>
+        <span class="proj-version">v0.1.5</span>
+      </div>
+      <div class="proj-status"><span class="dot dot-green"></span>Released · Alpha · Active</div>
+      <div class="proj-bar-wrap">
+        <div class="proj-bar"><span style="width: 74%;"></span></div>
+        <span class="proj-pct">74 %</span>
+      </div>
+      <div class="proj-detail">
+        <span>Save Editing · Inventory · Ship Swap</span>
+        <span class="proj-target">→ v1.0</span>
+      </div>
+    </div>
+
+    <!-- PROJECT 3: FL LINGO -->
+    <div class="proj-col">
+      <div class="proj-head">
+        <span class="proj-name">FL Lingo — Translator</span>
+        <span class="proj-version">v0.1.1</span>
+      </div>
+      <div class="proj-status"><span class="dot dot-blue"></span>Released · Early · New</div>
+      <div class="proj-bar-wrap">
+        <div class="proj-bar"><span style="width: 71%;"></span></div>
+        <span class="proj-pct">71 %</span>
+      </div>
+      <div class="proj-detail">
+        <span>Relocalization · Auto-Translate · DLL Patch</span>
+        <span class="proj-target">→ v1.0</span>
+      </div>
+    </div>
+
   </section>
 
+  <!-- BBCode -->
+  <div class="bbcode-block">
+    <div class="bbcode-label">BBCode (static image — for forums):</div>
+    <code class="bbcode-code">[url=https://www.moddb.com/games/freelancer/downloads][img]https://flathack.github.io/assets/img/widgets/widget-suite.png[/img][/url]</code>
+  </div>
+
+  <!-- Animated GIF -->
   <div class="gif-block">
-    <p class="gif-label">Animierte GIF-Version &mdash; Roadmap</p>
-    <a href="../assets/img/widgets/widget-animated-roadmap.gif" target="_blank">
-      <img src="../assets/img/widgets/widget-animated-roadmap.gif" width="600" height="100" alt="Animierte Roadmap-Signatur">
-    </a>
-    <div class="gif-bbcode">
-      <span class="gif-bbcode-label">BBCode:</span>
-      <code>[img]https://flathack.github.io/assets/img/widgets/widget-animated-roadmap.gif[/img]</code>
+    <div class="gif-label"><span>Animated</span> version (GIF):</div>
+    <img class="gif-img" src="../assets/img/widgets/widget-animated-suite.gif"
+         alt="FL Atlas Suite — animated signature" width="1225" height="160">
+    <div class="bbcode-block gif-bbcode">
+      <div class="bbcode-label">BBCode (animated — for forums):</div>
+      <code class="bbcode-code">[url=https://www.moddb.com/games/freelancer/downloads][img]https://flathack.github.io/assets/img/widgets/widget-animated-suite.gif[/img][/url]</code>
     </div>
   </div>
 
-  <section id="widget-combo" class="signature signature-download" aria-label="Kombiwidget im Download-Stil 600x100">
-    <div class="ring-col">
-      <div class="ring" style="--progress: 69;" role="img" aria-label="Gesamtfortschritt aller Projekte bis Version 1.0: 69 Prozent">
-        <div class="ring-value">
-          <strong>69%</strong>
-          <span>all</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="download-content">
-      <div class="download-title">FL Atlas Project Suite</div>
-      <div class="download-sub">FL Atlas Project Suite</div>
-      <div class="download-meta">
-        <span>v1.0 Progress 69%</span>
-        <span>Multi</span>
-        <span>Build 0.6.3+</span>
-      </div>
-      <div class="download-progress"><span style="width: 69%;"></span></div>
-      <div class="download-foot">Visual 63 | Save 74 | Lingo 71</div>
-    </div>
-  </section>
-
-  <div class="gif-block">
-    <p class="gif-label">Animierte GIF-Version &mdash; Alle Projekte</p>
-    <a href="../assets/img/widgets/widget-animated-combo.gif" target="_blank">
-      <img src="../assets/img/widgets/widget-animated-combo.gif" width="600" height="100" alt="Animierte Kombi-Signatur">
-    </a>
-    <div class="gif-bbcode">
-      <span class="gif-bbcode-label">BBCode:</span>
-      <code>[img]https://flathack.github.io/assets/img/widgets/widget-animated-combo.gif[/img]</code>
-    </div>
-  </div>
-
-  <section id="widget-visual" class="signature signature-download" aria-label="Widget FL Atlas Visual Editor im Download-Stil 600x100">
-    <div class="ring-col">
-      <div class="ring" style="--progress: 63;" role="img" aria-label="Gesamtfortschritt bis Version 1.0: 63 Prozent">
-        <div class="ring-value">
-          <strong>63%</strong>
-          <span>v1.0</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="download-content">
-      <div class="download-title">FL Atlas Visual Editor</div>
-      <div class="download-sub">FL Atlas Visual Editor v0.6.3</div>
-      <div class="download-meta">
-        <span>v1.0 Progress 63%</span>
-        <span>Alpha</span>
-        <span>Build 0.6.3</span>
-      </div>
-      <div class="download-progress"><span style="width: 63%;"></span></div>
-      <div class="download-foot">16 total updates (1 today)</div>
-    </div>
-  </section>
-
-  <div class="gif-block">
-    <p class="gif-label">Animierte GIF-Version &mdash; FL Atlas Visual Editor</p>
-    <a href="../assets/img/widgets/widget-animated-visual.gif" target="_blank">
-      <img src="../assets/img/widgets/widget-animated-visual.gif" width="600" height="100" alt="Animierte Visual-Editor-Signatur">
-    </a>
-    <div class="gif-bbcode">
-      <span class="gif-bbcode-label">BBCode:</span>
-      <code>[img]https://flathack.github.io/assets/img/widgets/widget-animated-visual.gif[/img]</code>
-    </div>
-  </div>
-
-  <section id="widget-savegame" class="signature signature-download" aria-label="Widget FL Atlas Savegame Editor im Download-Stil 600x100">
-    <div class="ring-col">
-      <div class="ring" style="--progress: 74;" role="img" aria-label="Gesamtfortschritt bis Version 1.0: 74 Prozent">
-        <div class="ring-value">
-          <strong>74%</strong>
-          <span>v1.0</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="download-content">
-      <div class="download-title">FL Atlas Savegame Editor</div>
-      <div class="download-sub">FL Atlas Savegame Editor v0.74</div>
-      <div class="download-meta">
-        <span>v1.0 Progress 74%</span>
-        <span>Alpha</span>
-        <span>Build 0.7.4</span>
-      </div>
-      <div class="download-progress"><span style="width: 74%;"></span></div>
-      <div class="download-foot">Safety 78 | Features 80 | QA 64</div>
-    </div>
-  </section>
-
-  <div class="gif-block">
-    <p class="gif-label">Animierte GIF-Version &mdash; FL Atlas Savegame Editor</p>
-    <a href="../assets/img/widgets/widget-animated-savegame.gif" target="_blank">
-      <img src="../assets/img/widgets/widget-animated-savegame.gif" width="600" height="100" alt="Animierte Savegame-Editor-Signatur">
-    </a>
-    <div class="gif-bbcode">
-      <span class="gif-bbcode-label">BBCode:</span>
-      <code>[img]https://flathack.github.io/assets/img/widgets/widget-animated-savegame.gif[/img]</code>
-    </div>
-  </div>
-
-  <section id="widget-lingo" class="signature signature-download" aria-label="Widget FL-Lingo im Download-Stil 600x100">
-    <div class="ring-col">
-      <div class="ring" style="--progress: 71;" role="img" aria-label="Gesamtfortschritt bis Version 1.0: 71 Prozent">
-        <div class="ring-value">
-          <strong>71%</strong>
-          <span>v1.0</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="download-content">
-      <div class="download-title">FL-Lingo</div>
-      <div class="download-sub">FL-Lingo v0.71</div>
-      <div class="download-meta">
-        <span>v1.0 Progress 71%</span>
-        <span>Active</span>
-        <span>Build 0.7.1</span>
-      </div>
-      <div class="download-progress"><span style="width: 71%;"></span></div>
-      <div class="download-foot">Core 79 | Flow 68 | QA 66</div>
-    </div>
-  </section>
-
-  <div class="gif-block">
-    <p class="gif-label">Animierte GIF-Version &mdash; FL-Lingo</p>
-    <a href="../assets/img/widgets/widget-animated-lingo.gif" target="_blank">
-      <img src="../assets/img/widgets/widget-animated-lingo.gif" width="600" height="100" alt="Animierte FL-Lingo-Signatur">
-    </a>
-    <div class="gif-bbcode">
-      <span class="gif-bbcode-label">BBCode:</span>
-      <code>[img]https://flathack.github.io/assets/img/widgets/widget-animated-lingo.gif[/img]</code>
-    </div>
-  </div>
-
+  <!-- Export mode: ?export=widget-suite -->
   <script>
     (function () {
       var params = new URLSearchParams(window.location.search);
-      var exportWidgetId = params.get("export");
+      var exportId = params.get("export");
+      if (!exportId) return;
 
-      if (exportWidgetId === "widget-visual-download") {
-        exportWidgetId = "widget-visual";
-      }
+      var widget = document.getElementById(exportId);
+      if (!widget) return;
 
-      if (!exportWidgetId) {
-        return;
-      }
+      document.querySelectorAll("body > *").forEach(function (el) {
+        if (el !== widget) el.remove();
+      });
 
       var root = document.documentElement;
       var body = document.body;
-      var widgets = Array.prototype.slice.call(document.querySelectorAll(".signature"));
 
-      widgets.forEach(function (widget) {
-        if (widget.id !== exportWidgetId) {
-          widget.remove();
-        }
-      });
-
-      root.style.width = "600px";
-      root.style.height = "100px";
+      root.style.width  = "1225px";
+      root.style.height = "160px";
       root.style.overflow = "hidden";
 
-      body.style.width = "600px";
-      body.style.height = "100px";
-      body.style.minHeight = "100px";
-      body.style.padding = "0";
-      body.style.gap = "0";
-      body.style.overflow = "hidden";
-      body.style.alignContent = "start";
+      body.style.width     = "1225px";
+      body.style.height    = "160px";
+      body.style.minHeight = "160px";
+      body.style.padding   = "0";
+      body.style.gap       = "0";
+      body.style.overflow  = "hidden";
+      body.style.alignContent  = "start";
       body.style.justifyContent = "start";
     })();
   </script>
