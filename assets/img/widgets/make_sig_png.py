@@ -46,12 +46,13 @@ for i, proj in enumerate(PROJECTS):
     col_x = BRAND_W + i * PROJ_W
     px = col_x + BAR_PAD_X
     pw = PROJ_W - BAR_PAD_X * 2
+    accent_start, accent_end = project_colors(proj)
 
     ty_name = 18
     draw.text((px, ty_name), proj["name"], font=font_name, fill=TEXT_WHITE)
     nb = draw.textbbox((0, 0), proj["name"], font=font_name)
     vx = px + (nb[2] - nb[0]) + 8
-    draw.text((vx, ty_name + 2), proj["version"], font=font_version, fill=ACCENT2)
+    draw.text((vx, ty_name + 2), proj["version"], font=font_version, fill=accent_end)
 
     ty_status = ty_name + 20
     dot_col = DOT_GREEN if proj["dot"] == "green" else DOT_BLUE
@@ -67,18 +68,19 @@ for i, proj in enumerate(PROJECTS):
     if bar_fill_w > 3:
         for x in range(bar_x0, bar_x0 + bar_fill_w):
             frac = (x - bar_x0) / max(1, bar_fill_w)
-            c = lerp_color(RED_BRIGHT, ACCENT2, frac)
+            c = lerp_color(accent_start, accent_end, frac)
             draw.line([(x, ty_bar + 1), (x, ty_bar + BAR_H - 1)], fill=c)
-        draw_rounded_rect(draw, [bar_x0, ty_bar, bar_x0 + min(bar_fill_w, 4), ty_bar + BAR_H], 4, RED_BRIGHT)
+        draw_rounded_rect(draw, [bar_x0, ty_bar, bar_x0 + min(bar_fill_w, 4), ty_bar + BAR_H], 4, accent_start)
         draw_rounded_rect(draw, [bar_x0 + bar_fill_w - 4, ty_bar, bar_x0 + bar_fill_w, ty_bar + BAR_H], 4,
-                          lerp_color(RED_BRIGHT, ACCENT2, 1.0))
+                          accent_end)
 
-    draw.text((bar_x1 + 6, ty_bar - 2), f"{proj['pct']} %", font=font_pct_bar, fill=ACCENT2)
+    draw.text((bar_x1 + 6, ty_bar - 2), f"{proj['pct']} %", font=font_pct_bar, fill=accent_end)
 
     ty_detail = ty_bar + BAR_H + 6
     draw.text((px, ty_detail), proj["detail"], font=font_detail, fill=TEXT_SUB)
     tbb = draw.textbbox((0, 0), proj["target"], font=font_detail)
-    draw.text((px + pw - (tbb[2] - tbb[0]), ty_detail), proj["target"], font=font_detail, fill=TEXT_DIM)
+    target_fill = accent_end if proj.get("theme") == "green" else TEXT_DIM
+    draw.text((px + pw - (tbb[2] - tbb[0]), ty_detail), proj["target"], font=font_detail, fill=target_fill)
 
 out = Path(__file__).parent / "widget-suite.png"
 img.save(out, optimize=False)

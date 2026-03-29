@@ -18,6 +18,9 @@
       --muted: #8b95a8;
       --accent: #ff2d37;
       --accent-2: #ff6b73;
+      --success: #34d058;
+      --success-2: #7ae59b;
+      --success-track: rgba(52, 208, 88, 0.14);
       --border: rgba(255, 255, 255, 0.08);
       --border-accent: rgba(255, 116, 128, 0.25);
       --ring-track: rgba(255, 130, 138, 0.12);
@@ -141,6 +144,12 @@
 
     .proj-col:last-child { border-right: none; }
 
+    .proj-col.completed {
+      background:
+        linear-gradient(180deg, rgba(52, 208, 88, 0.08), transparent 28%),
+        linear-gradient(180deg, var(--bg-2), var(--bg-1));
+    }
+
     .proj-head {
       display: flex;
       align-items: baseline;
@@ -206,6 +215,20 @@
       height: 100%;
       border-radius: inherit;
       background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    }
+
+    .proj-col.completed .proj-version,
+    .proj-col.completed .proj-pct,
+    .proj-col.completed .proj-target {
+      color: var(--success-2);
+    }
+
+    .proj-col.completed .proj-bar {
+      background: color-mix(in srgb, var(--bar-track) 78%, var(--success-track));
+    }
+
+    .proj-col.completed .proj-bar > span {
+      background: linear-gradient(90deg, var(--success), var(--success-2));
     }
 
     .proj-pct {
@@ -296,10 +319,10 @@
     <!-- LEFT: OVERALL SUITE RING -->
     <div class="brand-col">
       <div class="brand-ring-wrap">
-        <div class="brand-ring" style="--pct: 75;"
-             role="img" aria-label="Overall suite progress: 75 %">
+        <div class="brand-ring" style="--pct: 88;"
+             role="img" aria-label="Overall suite progress: 88 %">
           <div class="brand-ring-val">
-            <strong>75%</strong>
+            <strong>88%</strong>
             <span>Suite</span>
           </div>
         </div>
@@ -311,7 +334,7 @@
     <div class="proj-col">
       <div class="proj-head">
         <span class="proj-name">FL Atlas — Visual Editor</span>
-        <span class="proj-version">v0.6.3</span>
+        <span class="proj-version">v0.6.5</span>
       </div>
       <div class="proj-status"><span class="dot dot-green"></span>Released · Alpha · 16 Updates</div>
       <div class="proj-bar-wrap">
@@ -325,36 +348,36 @@
     </div>
 
     <!-- PROJECT 2: SAVEGAME EDITOR -->
-    <div class="proj-col">
+    <div class="proj-col completed">
       <div class="proj-head">
         <span class="proj-name">FL Atlas — Savegame Editor</span>
-        <span class="proj-version">v0.2.0</span>
+        <span class="proj-version">v0.5.0</span>
       </div>
-      <div class="proj-status"><span class="dot dot-green"></span>Released · Beta · Active</div>
+      <div class="proj-status"><span class="dot dot-green"></span>Released · Full Release · Complete</div>
       <div class="proj-bar-wrap">
         <div class="proj-bar"><span style="width: 100%;"></span></div>
         <span class="proj-pct">100 %</span>
       </div>
       <div class="proj-detail">
         <span>Save Editing · Inventory · Ship Swap</span>
-        <span class="proj-target">→ v1.0</span>
+        <span class="proj-target">Complete</span>
       </div>
     </div>
 
     <!-- PROJECT 3: FL LINGO -->
-    <div class="proj-col">
+    <div class="proj-col completed">
       <div class="proj-head">
         <span class="proj-name">FL Lingo — Translator</span>
-        <span class="proj-version">v0.2.1</span>
+        <span class="proj-version">v0.2.2</span>
       </div>
-      <div class="proj-status"><span class="dot dot-blue"></span>Released · Alpha · Active</div>
+      <div class="proj-status"><span class="dot dot-green"></span>Released · Full Release · Complete</div>
       <div class="proj-bar-wrap">
-        <div class="proj-bar"><span style="width: 95%;"></span></div>
-        <span class="proj-pct">95 %</span>
+        <div class="proj-bar"><span style="width: 100%;"></span></div>
+        <span class="proj-pct">100 %</span>
       </div>
       <div class="proj-detail">
         <span>Relocalization · Auto-Translate · DLL Patch</span>
-        <span class="proj-target">→ v1.0</span>
+        <span class="proj-target">Complete</span>
       </div>
     </div>
 

@@ -2,10 +2,10 @@
 """
 Generate an animated GIF forum signature for the FL Atlas Suite.
 
-Output: widget-animated-suite.gif  (1225 × 160 px, ~3 s loop)
+Output: widget-animated-suite.gif  (800 × 100 px, ~3 s loop)
 
 Layout:
-  | Suite ring (69%) | Proj-1 bar + info | Proj-2 bar + info | Proj-3 bar + info |
+    | Suite ring (dynamic) | Proj-1 bar + info | Proj-2 bar + info | Proj-3 bar + info |
 
 Requires: Pillow
 """
@@ -49,34 +49,37 @@ BAR_PAD_X = 10   # left/right padding inside each project column
 PROJECTS = [
     {
         "name":    "FL Atlas — Visual Editor",
-        "version": "v0.6.3",
+        "version": "v0.6.5",
         "status":  "Released · Alpha · 16 Updates",
         "detail":  "3D Viewer · INI Editor · Universe Map",
         "target":  "→ v1.0",
         "pct":     63,
         "dot":     "green",
+        "theme":   "red",
     },
     {
         "name":    "FL Atlas — Savegame Editor",
-        "version": "v0.1.5",
-        "status":  "Released · Alpha · Active",
+        "version": "v0.5.0",
+        "status":  "Released · Full Release · Complete",
         "detail":  "Save Editing · Inventory · Ship Swap",
-        "target":  "→ v1.0",
-        "pct":     74,
+        "target":  "Complete",
+        "pct":     100,
         "dot":     "green",
+        "theme":   "green",
     },
     {
         "name":    "FL Lingo — Translator",
-        "version": "v0.1.1",
-        "status":  "Released · Early · New",
+        "version": "v0.2.2",
+        "status":  "Released · Full Release · Complete",
         "detail":  "Relocalization · Auto-Translate · DLL Patch",
-        "target":  "→ v1.0",
-        "pct":     71,
-        "dot":     "blue",
+        "target":  "Complete",
+        "pct":     100,
+        "dot":     "green",
+        "theme":   "green",
     },
 ]
 
-SUITE_PCT = 69
+SUITE_PCT = round(sum(project["pct"] for project in PROJECTS) / len(PROJECTS))
 
 # ---------------------------------------------------------------------------
 # Colours
@@ -87,6 +90,8 @@ BG_BRAND    = (28, 34, 44)
 BG_BRAND_B  = (13, 17, 23)
 RED_BRIGHT  = (255, 45, 55)
 RED_MID     = (255, 107, 115)
+GREEN_BRIGHT = (52, 208, 88)
+GREEN_MID    = (122, 229, 155)
 TEXT_WHITE   = (244, 248, 255)
 TEXT_MUTED   = (139, 149, 168)
 TEXT_SUB     = (94, 106, 126)
@@ -97,6 +102,12 @@ DIVIDER      = (44, 52, 66)
 ACCENT2      = (255, 107, 115)
 DOT_GREEN    = (52, 208, 88)
 DOT_BLUE     = (88, 166, 255)
+
+
+def project_colors(project: dict) -> tuple[tuple, tuple]:
+    if project.get("theme") == "green":
+        return GREEN_BRIGHT, GREEN_MID
+    return RED_BRIGHT, ACCENT2
 
 # ---------------------------------------------------------------------------
 # Fonts — Windows system fonts
@@ -236,6 +247,7 @@ def render_frame(frame_idx: int, total: int) -> Image.Image:
         col_x = BRAND_W + i * PROJ_W
         px = col_x + BAR_PAD_X           # left content edge
         pw = PROJ_W - BAR_PAD_X * 2      # available content width
+        accent_start, accent_end = project_colors(proj)
 
         # ── Project name + version ──
         ty_name = 10
@@ -243,7 +255,7 @@ def render_frame(frame_idx: int, total: int) -> Image.Image:
         # version right of name
         nb = draw.textbbox((0, 0), proj["name"], font=font_name)
         vx = px + (nb[2] - nb[0]) + 6
-        draw.text((vx, ty_name + 1), proj["version"], font=font_version, fill=ACCENT2)
+        draw.text((vx, ty_name + 1), proj["version"], font=font_version, fill=accent_end)
 
         # ── Status line with dot ──
         ty_status = ty_name + 15
@@ -265,11 +277,11 @@ def render_frame(frame_idx: int, total: int) -> Image.Image:
             # gradient fill
             for x in range(bar_x0, bar_x0 + bar_fill_w):
                 frac = (x - bar_x0) / max(1, bar_fill_w)
-                c = lerp_color(RED_BRIGHT, ACCENT2, frac)
+                c = lerp_color(accent_start, accent_end, frac)
                 draw.line([(x, ty_bar + 1), (x, ty_bar + BAR_H - 1)], fill=c)
             # round caps
-            draw_rounded_rect(draw, [bar_x0, ty_bar, bar_x0 + min(bar_fill_w, 4), ty_bar + BAR_H], 4, RED_BRIGHT)
-            draw_rounded_rect(draw, [bar_x0 + bar_fill_w - 4, ty_bar, bar_x0 + bar_fill_w, ty_bar + BAR_H], 4, lerp_color(RED_BRIGHT, ACCENT2, 1.0))
+            draw_rounded_rect(draw, [bar_x0, ty_bar, bar_x0 + min(bar_fill_w, 4), ty_bar + BAR_H], 4, accent_start)
+            draw_rounded_rect(draw, [bar_x0 + bar_fill_w - 4, ty_bar, bar_x0 + bar_fill_w, ty_bar + BAR_H], 4, accent_end)
 
             # Shimmer sweep
             phase = i * 0.33
@@ -281,12 +293,13 @@ def render_frame(frame_idx: int, total: int) -> Image.Image:
                 d = abs(x - scx)
                 if d < shimmer_hw:
                     a = ((1.0 - d / shimmer_hw) ** 2) * 0.75
-                    sc = lerp_color(ACCENT2, (255, 240, 242), a)
+                    shimmer_target = (232, 255, 238) if proj.get("theme") == "green" else (255, 240, 242)
+                    sc = lerp_color(accent_end, shimmer_target, a)
                     draw.line([(x, ty_bar + 1), (x, ty_bar + BAR_H - 1)], fill=sc)
 
         # Percentage text
         pct_text = f"{proj['pct']} %"
-        draw.text((bar_x1 + 6, ty_bar - 2), pct_text, font=font_pct_bar, fill=ACCENT2)
+        draw.text((bar_x1 + 6, ty_bar - 2), pct_text, font=font_pct_bar, fill=accent_end)
 
         # ── Detail + target ──
         ty_detail = ty_bar + BAR_H + 4
@@ -294,7 +307,8 @@ def render_frame(frame_idx: int, total: int) -> Image.Image:
 
         target_bb = draw.textbbox((0, 0), proj["target"], font=font_detail)
         target_w = target_bb[2] - target_bb[0]
-        draw.text((px + pw - target_w, ty_detail), proj["target"], font=font_detail, fill=TEXT_DIM)
+        target_fill = accent_end if proj.get("theme") == "green" else TEXT_DIM
+        draw.text((px + pw - target_w, ty_detail), proj["target"], font=font_detail, fill=target_fill)
 
     return img
 
