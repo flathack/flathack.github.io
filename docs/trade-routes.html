@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -160,15 +160,28 @@
       border-bottom: 1px solid rgba(132, 177, 255, 0.08);
     }
     .tr-leg-detail {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 6px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
       font-size: 0.84rem;
       color: var(--muted);
+      padding: 6px 0;
     }
-    .tr-leg-detail span { padding: 4px 0; }
-    .tr-leg-detail .leg-commodity { color: var(--text); }
-    .tr-leg-detail .leg-profit { color: var(--success); }
+    .tr-leg-row {
+      display: grid;
+      grid-template-columns: 52px 1fr auto;
+      gap: 8px;
+      align-items: baseline;
+      padding: 5px 10px;
+      border-radius: 6px;
+    }
+    .tr-leg-row:nth-child(odd) { background: rgba(88, 196, 255, 0.03); }
+    .tr-leg-label { font-weight: 600; color: var(--accent); white-space: nowrap; }
+    .tr-leg-info { color: var(--muted); }
+    .tr-leg-info .leg-commodity { color: var(--text); font-weight: 500; }
+    .tr-leg-info .leg-route { color: var(--muted); }
+    .tr-leg-info .leg-jumps { color: var(--accent-warm); font-size: 0.8rem; }
+    .tr-leg-profit { color: var(--success); font-weight: 600; font-family: 'IBM Plex Mono', monospace; white-space: nowrap; }
 
     /* ── Loading ───────────────────────────────────────── */
     .tr-loading {
@@ -215,6 +228,31 @@
     .tr-calc-btn:hover { filter: brightness(1.1); }
     .tr-calc-btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
+    /* ── Language toggle ─────────────────────────────── */
+    .tr-lang-toggle {
+      display: inline-flex;
+      gap: 0;
+      border: 1px solid var(--panel-border);
+      border-radius: 999px;
+      overflow: hidden;
+      margin-left: auto;
+    }
+    .tr-lang-btn {
+      padding: 5px 12px;
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      font-family: inherit;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 160ms ease;
+    }
+    .tr-lang-btn.active {
+      background: rgba(88, 196, 255, 0.14);
+      color: var(--text);
+    }
+
     /* ── Responsive ────────────────────────────────────── */
     @media (max-width: 700px) {
       .tr-controls { flex-direction: column; align-items: stretch; }
@@ -241,19 +279,25 @@
     </header>
 
     <main>
-      <a class="back-link" href="../index.html">&larr; Back to Home</a>
+      <a class="back-link" href="../index.html" data-i18n="back">&larr; Zurück zur Startseite</a>
 
-      <section class="page-hero-copy" style="margin-bottom: 24px;">
-        <p class="eyebrow">Freelancer Tools</p>
-        <h1 style="max-width: 20ch;">Trade Route Calculator</h1>
-        <p class="page-intro">Find the most profitable trade routes across systems. Select your mod, your ship, and start trading.</p>
+      <section class="page-hero-copy" style="margin-bottom: 24px; display: flex; align-items: flex-start; justify-content: space-between; gap: 20px;">
+        <div>
+          <p class="eyebrow">Freelancer Tools</p>
+          <h1 style="max-width: 20ch;" data-i18n="title">Handelsrouten-Rechner</h1>
+          <p class="page-intro" data-i18n="intro">Finde die profitabelsten Handelsrouten über alle Systeme. Wähle deinen Mod, dein Schiff und starte den Handel.</p>
+        </div>
+        <div class="tr-lang-toggle" id="lang-toggle">
+          <button class="tr-lang-btn active" data-lang="de">DE</button>
+          <button class="tr-lang-btn" data-lang="en">EN</button>
+        </div>
       </section>
 
       <!-- Controls -->
       <section class="page-section" style="margin-bottom: 24px;">
         <div class="tr-controls">
           <div class="tr-field">
-            <label for="mod-select">Mod</label>
+            <label for="mod-select" data-i18n="lbl_mod">Mod</label>
             <select id="mod-select">
               <option value="hamburg-city">Hamburg City</option>
               <option value="crossfire">Crossfire 2.0</option>
@@ -261,41 +305,41 @@
           </div>
 
           <div class="tr-field">
-            <label for="ship-select">Ship</label>
+            <label for="ship-select" data-i18n="lbl_ship">Schiff</label>
             <select id="ship-select">
               <option value="">Loading...</option>
             </select>
           </div>
 
           <div class="tr-field">
-            <label for="cargo-input">Cargo</label>
+            <label for="cargo-input" data-i18n="lbl_cargo">Fracht</label>
             <input type="number" id="cargo-input" value="1" min="1" max="20000">
           </div>
 
           <div class="tr-field" id="jumps-field">
-            <label for="jumps-input">Max Jumps</label>
+            <label for="jumps-input" data-i18n="lbl_jumps">Max. Sprünge</label>
             <input type="number" id="jumps-input" value="5" min="0" max="50">
           </div>
 
           <div class="tr-field" id="legs-field" style="display:none;">
-            <label for="legs-input">Legs</label>
+            <label for="legs-input" data-i18n="lbl_legs">Etappen</label>
             <input type="number" id="legs-input" value="3" min="3" max="6">
           </div>
 
-          <button class="tr-calc-btn" id="calc-btn" disabled>Calculate</button>
+          <button class="tr-calc-btn" id="calc-btn" disabled data-i18n="btn_calc">Berechnen</button>
         </div>
 
         <div class="tr-tabs">
-          <button class="tr-tab active" data-mode="system">Trade Routes</button>
-          <button class="tr-tab" data-mode="inner">Inner System</button>
-          <button class="tr-tab" data-mode="loop">Rundkurs</button>
+          <button class="tr-tab active" data-mode="system" data-i18n="tab_system">Handelsrouten</button>
+          <button class="tr-tab" data-mode="inner" data-i18n="tab_inner">Innersystem</button>
+          <button class="tr-tab" data-mode="loop" data-i18n="tab_loop">Rundkurs</button>
         </div>
       </section>
 
       <!-- Results -->
       <section class="page-section" id="results-section" style="display:none;">
         <div class="tr-stats" id="stats-bar"></div>
-        <input type="text" id="search-input" class="tr-search" placeholder="Search routes...">
+        <input type="text" id="search-input" class="tr-search" placeholder="Routen durchsuchen...">
         <div class="tr-table-wrap">
           <table class="tr-table" id="results-table">
             <thead id="table-head"></thead>
@@ -307,13 +351,100 @@
       <!-- Loading -->
       <div class="tr-loading" id="loading">
         <div class="tr-spinner"></div>
-        <p>Calculating routes...</p>
+        <p data-i18n="loading">Routen werden berechnet...</p>
       </div>
     </main>
   </div>
 
   <script src="../assets/js/trade-engine.js"></script>
   <script>
+    /* ── i18n ──────────────────────────────────────────── */
+    const I18N = {
+      de: {
+        back: '\u2190 Zurück zur Startseite',
+        title: 'Handelsrouten-Rechner',
+        intro: 'Finde die profitabelsten Handelsrouten über alle Systeme. Wähle deinen Mod, dein Schiff und starte den Handel.',
+        lbl_mod: 'Mod', lbl_ship: 'Schiff', lbl_cargo: 'Fracht',
+        lbl_jumps: 'Max. Sprünge', lbl_legs: 'Etappen',
+        btn_calc: 'Berechnen',
+        tab_system: 'Handelsrouten', tab_inner: 'Innersystem', tab_loop: 'Rundkurs',
+        search_placeholder: 'Routen durchsuchen...',
+        loading: 'Routen werden berechnet...',
+        custom_cargo: 'Eigene Fracht',
+        no_routes: 'Keine Routen gefunden.',
+        load_fail: 'Mod-Daten konnten nicht geladen werden: ',
+        stats_routes: 'Routen', stats_best: 'Bester Profit',
+        col_srcSys: 'Quell-System', col_buyBase: 'Kauf-Basis',
+        col_dstSys: 'Ziel-System', col_sellBase: 'Verkauf-Basis',
+        col_commodity: 'Ware', col_buyPrice: 'Kauf $', col_sellPrice: 'Verkauf $',
+        col_profitUnit: 'Profit/E', col_totalProfit: 'Gesamtprofit',
+        col_jumps: 'Sprünge', col_path: 'Pfad',
+        col_system: 'System', col_route: 'Route', col_commodities: 'Waren',
+        leg: 'Etappe',
+        jump_s: 'Sprung', jump_p: 'Sprünge',
+      },
+      en: {
+        back: '\u2190 Back to Home',
+        title: 'Trade Route Calculator',
+        intro: 'Find the most profitable trade routes across systems. Select your mod, your ship, and start trading.',
+        lbl_mod: 'Mod', lbl_ship: 'Ship', lbl_cargo: 'Cargo',
+        lbl_jumps: 'Max Jumps', lbl_legs: 'Legs',
+        btn_calc: 'Calculate',
+        tab_system: 'Trade Routes', tab_inner: 'Inner System', tab_loop: 'Round Trip',
+        search_placeholder: 'Search routes...',
+        loading: 'Calculating routes...',
+        custom_cargo: 'Custom cargo',
+        no_routes: 'No routes found.',
+        load_fail: 'Failed to load mod data: ',
+        stats_routes: 'Routes', stats_best: 'Best profit',
+        col_srcSys: 'Source System', col_buyBase: 'Buy Base',
+        col_dstSys: 'Target System', col_sellBase: 'Sell Base',
+        col_commodity: 'Commodity', col_buyPrice: 'Buy $', col_sellPrice: 'Sell $',
+        col_profitUnit: 'Profit/U', col_totalProfit: 'Total Profit',
+        col_jumps: 'Jumps', col_path: 'Path',
+        col_system: 'System', col_route: 'Route', col_commodities: 'Commodities',
+        leg: 'Leg',
+        jump_s: 'jump', jump_p: 'jumps',
+      }
+    };
+    const COMMODITY_DE = {
+      'Alien Artifacts': 'Alien-Artefakte', 'Alien Organisms': 'Alien-Organismen',
+      'Basic Alloys': 'Basislegierungen', 'Beryllium': 'Beryllium', 'Boron': 'Bor',
+      'Cardamine': 'Cardamin', 'Cobalt': 'Kobalt',
+      'Construction Machinery': 'Baumaschinen', 'Consumer Goods': 'Konsumgüter',
+      'Copper': 'Kupfer', 'Diamonds': 'Diamanten',
+      'Engine Components': 'Triebwerksteile', 'Fertilizers': 'Düngemittel',
+      'Food': 'Nahrung', 'Gold': 'Gold', 'H Fuel': 'H-Treibstoff',
+      'High Temp Alloys': 'Hochtemperaturlegierungen', 'Hydrocarbons': 'Kohlenwasserstoffe',
+      'Luxury Consumer Goods': 'Luxusgüter', 'Luxury Food': 'Luxusnahrung',
+      'Mining Machinery': 'Bergbaumaschinen', 'Mox Fuel': 'MOX-Brennstoff',
+      'Niobium': 'Niob', 'Optical Chips': 'Optochips', 'Optronics': 'Optronik',
+      'Oxygen': 'Sauerstoff', 'Pharm': 'Pharmazeutika', 'Polymers': 'Polymere',
+      'Prisoners': 'Gefangene', 'Scrap Metal': 'Schrott',
+      'Ship Hull Panels': 'Rumpfplatten', 'Sidearms': 'Handfeuerwaffen',
+      'Silver': 'Silber', 'Super Alloys': 'Superlegierungen',
+      'Superconductors': 'Supraleiter', 'Terraforming Gases': 'Terraforming-Gase',
+      'Toxic Waste': 'Giftmüll', 'Tradelane Parts': 'Handelsrouten-Teile',
+      'Vips': 'VIPs', 'Water': 'Wasser',
+      'Energycrystals': 'Energiekristalle', 'Energycrystals2': 'Energiekristalle II',
+      'Rum': 'Rum', 'Vodka': 'Wodka', 'Whiskey': 'Whiskey', 'Supply': 'Nachschub',
+    };
+
+    let lang = 'de';
+    function t(key) { return (I18N[lang] || I18N.de)[key] || key; }
+    function tCommodity(name) { return lang === 'de' ? (COMMODITY_DE[name] || name) : name; }
+
+    function applyLang() {
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        el.textContent = t(el.dataset.i18n);
+      });
+      searchInput.placeholder = t('search_placeholder');
+      document.querySelectorAll('.tr-lang-btn').forEach(b => {
+        b.classList.toggle('active', b.dataset.lang === lang);
+      });
+      if (currentResults.length) renderResults();
+    }
+
     /* ── State ─────────────────────────────────────────── */
     let engine = null;
     let currentResults = [];
@@ -356,7 +487,7 @@
         shipSelect.innerHTML = '';
         const cOpt = document.createElement('option');
         cOpt.value = 'custom';
-        cOpt.textContent = 'Custom cargo';
+        cOpt.textContent = t('custom_cargo');
         shipSelect.appendChild(cOpt);
 
         for (const ship of data.ships) {
@@ -371,8 +502,8 @@
         }
         calcBtn.disabled = false;
       } catch (err) {
-        tableBody.innerHTML = '<tr><td colspan="99" class="tr-empty">Failed to load mod data: ' +
-          err.message + '</td></tr>';
+        tableBody.innerHTML = '<tr><td colspan="99" class="tr-empty">' + escHtml(t('load_fail')) +
+          escHtml(err.message) + '</td></tr>';
         resultsSection.style.display = '';
       } finally {
         loading.style.display = 'none';
@@ -409,42 +540,42 @@
 
     /* ── Rendering ─────────────────────────────────────── */
 
-    const COLS_ROUTE = [
-      { key: 'srcSys',       label: 'Source System' },
-      { key: 'buyBase',      label: 'Buy Base' },
-      { key: 'dstSys',       label: 'Target System' },
-      { key: 'sellBase',     label: 'Sell Base' },
-      { key: 'commodity',    label: 'Commodity' },
-      { key: 'buyPrice',     label: 'Buy $',       cls: 'td-num' },
-      { key: 'sellPrice',    label: 'Sell $',      cls: 'td-num' },
-      { key: 'profitPerUnit',label: 'Profit/U',    cls: 'td-num td-profit' },
-      { key: 'totalProfit',  label: 'Total Profit', cls: 'td-num td-profit' },
-      { key: 'jumps',        label: 'Jumps',        cls: 'td-num td-jumps' },
-      { key: 'path',         label: 'Path',         cls: 'td-path', format: v => Array.isArray(v) ? v.join(' → ') : v },
-    ];
+    function colsRoute() { return [
+      { key: 'srcSys',       label: t('col_srcSys') },
+      { key: 'buyBase',      label: t('col_buyBase') },
+      { key: 'dstSys',       label: t('col_dstSys') },
+      { key: 'sellBase',     label: t('col_sellBase') },
+      { key: 'commodity',    label: t('col_commodity'), format: v => tCommodity(v) },
+      { key: 'buyPrice',     label: t('col_buyPrice'),   cls: 'td-num' },
+      { key: 'sellPrice',    label: t('col_sellPrice'),  cls: 'td-num' },
+      { key: 'profitPerUnit',label: t('col_profitUnit'), cls: 'td-num td-profit' },
+      { key: 'totalProfit',  label: t('col_totalProfit'),cls: 'td-num td-profit' },
+      { key: 'jumps',        label: t('col_jumps'),      cls: 'td-num td-jumps' },
+      { key: 'path',         label: t('col_path'),       cls: 'td-path', format: v => Array.isArray(v) ? v.join(' \u2192 ') : v },
+    ]; }
 
-    const COLS_INNER = [
-      { key: 'srcSys',       label: 'System' },
-      { key: 'buyBase',      label: 'Buy Base' },
-      { key: 'sellBase',     label: 'Sell Base' },
-      { key: 'commodity',    label: 'Commodity' },
-      { key: 'buyPrice',     label: 'Buy $',       cls: 'td-num' },
-      { key: 'sellPrice',    label: 'Sell $',      cls: 'td-num' },
-      { key: 'profitPerUnit',label: 'Profit/U',    cls: 'td-num td-profit' },
-      { key: 'totalProfit',  label: 'Total Profit', cls: 'td-num td-profit' },
-    ];
+    function colsInner() { return [
+      { key: 'srcSys',       label: t('col_system') },
+      { key: 'buyBase',      label: t('col_buyBase') },
+      { key: 'sellBase',     label: t('col_sellBase') },
+      { key: 'commodity',    label: t('col_commodity'), format: v => tCommodity(v) },
+      { key: 'buyPrice',     label: t('col_buyPrice'),   cls: 'td-num' },
+      { key: 'sellPrice',    label: t('col_sellPrice'),  cls: 'td-num' },
+      { key: 'profitPerUnit',label: t('col_profitUnit'), cls: 'td-num td-profit' },
+      { key: 'totalProfit',  label: t('col_totalProfit'),cls: 'td-num td-profit' },
+    ]; }
 
-    const COLS_LOOP = [
-      { key: 'routeText',    label: 'Route' },
-      { key: 'commodities',  label: 'Commodities', format: v => Array.isArray(v) ? v.join(', ') : v },
-      { key: 'totalProfit',  label: 'Total Profit', cls: 'td-num td-profit' },
-      { key: 'totalJumps',   label: 'Jumps',        cls: 'td-num td-jumps' },
-    ];
+    function colsLoop() { return [
+      { key: 'routeText',    label: t('col_route') },
+      { key: 'commodities',  label: t('col_commodities'), format: v => Array.isArray(v) ? v.map(tCommodity).join(', ') : tCommodity(v) },
+      { key: 'totalProfit',  label: t('col_totalProfit'), cls: 'td-num td-profit' },
+      { key: 'totalJumps',   label: t('col_jumps'),       cls: 'td-num td-jumps' },
+    ]; }
 
     function getCols() {
-      if (currentMode === 'inner') return COLS_INNER;
-      if (currentMode === 'loop') return COLS_LOOP;
-      return COLS_ROUTE;
+      if (currentMode === 'inner') return colsInner();
+      if (currentMode === 'loop') return colsLoop();
+      return colsRoute();
     }
 
     function renderResults() {
@@ -487,17 +618,17 @@
 
       // Stats
       if (currentMode === 'loop') {
-        statsBar.innerHTML = '<span>Routes: <strong>' + rows.length + '</strong></span>';
+        statsBar.innerHTML = '<span>' + t('stats_routes') + ': <strong>' + rows.length + '</strong></span>';
       } else {
         const best = rows.length ? fmt(rows[0].totalProfit) : '–';
         statsBar.innerHTML =
-          '<span>Routes: <strong>' + rows.length + '</strong></span>' +
-          '<span>Best profit: <strong>' + best + '</strong></span>';
+          '<span>' + t('stats_routes') + ': <strong>' + rows.length + '</strong></span>' +
+          '<span>' + t('stats_best') + ': <strong>' + best + '</strong></span>';
       }
 
       // Body
       if (!rows.length) {
-        tableBody.innerHTML = '<tr><td colspan="' + cols.length + '" class="tr-empty">No routes found.</td></tr>';
+        tableBody.innerHTML = '<tr><td colspan="' + cols.length + '" class="tr-empty">' + escHtml(t('no_routes')) + '</td></tr>';
         return;
       }
 
@@ -517,11 +648,16 @@
           html += '<tr class="tr-loop-legs" data-parent="' + i + '"><td colspan="' + cols.length + '">';
           html += '<div class="tr-leg-detail">';
           r.legs.forEach((leg, li) => {
-            html += '<span><strong>Leg ' + (li + 1) + ':</strong> ' +
-              '<span class="leg-commodity">' + escHtml(leg.commodity) + '</span> ' +
-              escHtml(leg.buyBase) + ' → ' + escHtml(leg.sellBase) +
-              ' <span class="leg-profit">+' + fmt(leg.totalProfit) + '</span>' +
-              ' (' + leg.jumps + ' jumps)</span>';
+            html += '<div class="tr-leg-row">' +
+              '<span class="tr-leg-label">' + t('leg') + ' ' + (li + 1) + '</span>' +
+              '<span class="tr-leg-info">' +
+                '<span class="leg-commodity">' + escHtml(tCommodity(leg.commodity)) + '</span> &mdash; ' +
+                '<span class="leg-route">' + escHtml(leg.srcSys) + ' (' + escHtml(leg.buyBase) + ') \u2192 ' +
+                escHtml(leg.dstSys) + ' (' + escHtml(leg.sellBase) + ')</span>' +
+                ' <span class="leg-jumps">' + leg.jumps + ' ' + (leg.jumps !== 1 ? t('jump_p') : t('jump_s')) + '</span>' +
+              '</span>' +
+              '<span class="tr-leg-profit">+' + fmt(leg.totalProfit) + '</span>' +
+            '</div>';
           });
           html += '</div></td></tr>';
         }
@@ -583,6 +719,14 @@
       const idx = parent.dataset.idx;
       const legs = tableBody.querySelector('.tr-loop-legs[data-parent="' + idx + '"]');
       if (legs) legs.classList.toggle('open');
+    });
+
+    // Language toggle
+    $('lang-toggle').addEventListener('click', e => {
+      const btn = e.target.closest('.tr-lang-btn');
+      if (!btn || btn.dataset.lang === lang) return;
+      lang = btn.dataset.lang;
+      applyLang();
     });
 
     /* ── Init ──────────────────────────────────────────── */
