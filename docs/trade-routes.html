@@ -553,6 +553,11 @@
             currentResults = engine.roundTrips(cargo, jumps, legs, 50, tlOnly);
           }
           sortCol = -1;
+          // Default sort: $/Min descending
+          const cols = getCols();
+          for (let i = 0; i < cols.length; i++) {
+            if (cols[i].key === 'profitPerMin') { sortCol = i; sortAsc = false; break; }
+          }
           renderResults();
           resultsSection.style.display = '';
         } finally {
@@ -635,6 +640,10 @@
         const key = cols[sortCol].key;
         rows = rows.slice().sort((a, b) => {
           let va = a[key], vb = b[key];
+          // null/undefined always sort to bottom
+          if (va == null && vb == null) return 0;
+          if (va == null) return 1;
+          if (vb == null) return -1;
           if (Array.isArray(va)) va = va.join(', ');
           if (Array.isArray(vb)) vb = vb.join(', ');
           if (typeof va === 'number' && typeof vb === 'number') {
