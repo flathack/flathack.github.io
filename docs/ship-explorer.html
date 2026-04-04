@@ -183,13 +183,6 @@
       <section class="page-section" style="margin-bottom: 24px;">
         <div class="se-controls">
           <div class="se-field">
-            <label for="mod-select" data-i18n="lbl_mod">Mod</label>
-            <select id="mod-select">
-              <option value="hamburg-city">Hamburg City</option>
-              <option value="crossfire">Crossfire 2.0</option>
-            </select>
-          </div>
-          <div class="se-field">
             <label for="type-filter" data-i18n="lbl_type">Typ</label>
             <select id="type-filter">
               <option value="" data-i18n="opt_all">Alle</option>
@@ -445,7 +438,7 @@
     function esc(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
 
     /* ── Events ── */
-    document.getElementById('mod-select').addEventListener('change', e => loadMod(e.target.value));
+    window.addEventListener('mod-change', e => loadMod(e.detail.mod));
     document.getElementById('type-filter').addEventListener('change', () => renderTable());
     document.getElementById('search-input').addEventListener('input', () => renderTable());
 
@@ -488,7 +481,6 @@
 
     /* ── Init ── */
     applyLang();
-    loadMod(document.getElementById('mod-select').value);
   </script>
   <script src="../assets/js/nav.js"></script>
 </body>

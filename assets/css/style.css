@@ -198,6 +198,44 @@ body.gaming-theme .domain-tab.active {
   background: rgba(74, 222, 128, 0.14);
 }
 
+/* ── Sub-navigation (mod tabs) ────────────────────── */
+.project-sub-nav {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+  padding: 10px 16px;
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius-lg);
+  background: rgba(5, 13, 23, 0.55);
+  backdrop-filter: blur(12px);
+}
+
+.project-sub-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 16px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  color: var(--muted);
+  background: transparent;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: 160ms ease;
+}
+
+.project-sub-nav a:hover {
+  color: var(--text);
+  background: rgba(88, 196, 255, 0.08);
+}
+
+.project-sub-nav a.active {
+  color: var(--text);
+  border-color: rgba(88, 196, 255, 0.3);
+  background: rgba(88, 196, 255, 0.14);
+}
+
 .home-hero {
   margin-bottom: 24px;
 }
@@ -811,6 +849,10 @@ p {
 
   .project-top-nav {
     justify-content: flex-start;
+  }
+
+  .project-sub-nav {
+    flex-wrap: wrap;
   }
 
   .hero-copy,

@@ -290,14 +290,6 @@
       <section class="page-section" style="margin-bottom: 24px;">
         <div class="tr-controls">
           <div class="tr-field">
-            <label for="mod-select" data-i18n="lbl_mod">Mod</label>
-            <select id="mod-select">
-              <option value="hamburg-city">Hamburg City</option>
-              <option value="crossfire">Crossfire 2.0</option>
-            </select>
-          </div>
-
-          <div class="tr-field">
             <label for="ship-select" data-i18n="lbl_ship">Schiff</label>
             <select id="ship-select">
               <option value="">Loading...</option>
@@ -447,7 +439,6 @@
 
     /* ── DOM refs ──────────────────────────────────────── */
     const $ = id => document.getElementById(id);
-    const modSelect    = $('mod-select');
     const shipSelect   = $('ship-select');
     const cargoInput   = $('cargo-input');
     const jumpsInput   = $('jumps-input');
@@ -666,7 +657,7 @@
 
     /* ── Events ────────────────────────────────────────── */
 
-    modSelect.addEventListener('change', () => loadMod(modSelect.value));
+    window.addEventListener('mod-change', e => loadMod(e.detail.mod));
 
     shipSelect.addEventListener('change', () => {
       if (shipSelect.value !== 'custom') {
@@ -723,7 +714,6 @@
     });
 
     /* ── Init ──────────────────────────────────────────── */
-    loadMod(modSelect.value);
   </script>
   <script src="../assets/js/nav.js"></script>
 </body>

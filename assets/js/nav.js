@@ -1,13 +1,20 @@
 /**
  * Shared navigation — injected into every page that includes this script.
  * Detects the current page and marks the matching link as active.
+ * Pages with children get a sub-navigation bar for mod selection.
  */
 (function () {
   const NAV_ITEMS = [
-    { label: "Home",            href: "index.html" },
-    { label: "Trade Routes",    href: "docs/trade-routes.html" },
-    { label: "Schiff-Explorer", href: "docs/ship-explorer.html" },
-    { label: "Signaturen",      href: "docs/forum-signature-progress.html" },
+    { label: "Home", href: "index.html" },
+    { label: "Trade Routes", href: "docs/trade-routes.html", children: [
+      { label: "Hamburg City", hash: "hamburg-city" },
+      { label: "Crossfire 2.0", hash: "crossfire" },
+    ]},
+    { label: "Schiff-Explorer", href: "docs/ship-explorer.html", children: [
+      { label: "Hamburg City", hash: "hamburg-city" },
+      { label: "Crossfire 2.0", hash: "crossfire" },
+    ]},
+    { label: "Signaturen", href: "docs/forum-signature-progress.html" },
   ];
 
   // Determine the base path from root to the current page's directory
@@ -23,7 +30,6 @@
   const segments = path.split("/");
   const fileName = segments.pop() || "index.html";
   const folder = segments.pop() || "";
-  // e.g. "docs/fleditor.html" or "index.html" or "about/index.html"
   const current = folder && folder !== "" && !/flathack\.github\.io/i.test(folder)
     ? folder + "/" + fileName
     : fileName;
@@ -32,12 +38,53 @@
   if (!nav) return;
 
   nav.setAttribute("aria-label", "Projekt-Navigation");
-  // Ensure correct CSS class
   nav.className = "project-top-nav";
 
+  var activeItem = null;
   nav.innerHTML = NAV_ITEMS.map(function (item) {
     const href = prefix + item.href;
     const isActive = current === item.href;
+    if (isActive) activeItem = item;
     return '<a href="' + href + '"' + (isActive ? ' class="active"' : "") + ">" + item.label + "</a>";
   }).join("\n");
+
+  // Sub-navigation for items with children (mod selector)
+  if (activeItem && activeItem.children) {
+    var currentHash = window.location.hash.replace("#", "") || activeItem.children[0].hash;
+
+    var subNav = document.createElement("nav");
+    subNav.className = "project-sub-nav";
+    subNav.setAttribute("aria-label", "Mod-Auswahl");
+
+    subNav.innerHTML = activeItem.children.map(function (child) {
+      var isActive = currentHash === child.hash;
+      return '<a href="#' + child.hash + '"' +
+        (isActive ? ' class="active"' : '') +
+        ' data-mod="' + child.hash + '">' + child.label + '</a>';
+    }).join("\n");
+
+    // Insert sub-nav after the header
+    var header = nav.closest(".site-header");
+    if (header) {
+      header.parentNode.insertBefore(subNav, header.nextSibling);
+    } else {
+      nav.parentNode.insertBefore(subNav, nav.nextSibling);
+    }
+
+    // Handle sub-nav clicks
+    subNav.addEventListener("click", function (e) {
+      var link = e.target.closest("a[data-mod]");
+      if (!link) return;
+      e.preventDefault();
+      var mod = link.dataset.mod;
+      window.location.hash = mod;
+      subNav.querySelectorAll("a").forEach(function (a) {
+        a.classList.toggle("active", a.dataset.mod === mod);
+      });
+      window.dispatchEvent(new CustomEvent("mod-change", { detail: { mod: mod } }));
+    });
+
+    // Fire initial mod-change so the page loads the right data
+    window.dispatchEvent(new CustomEvent("mod-change", { detail: { mod: currentHash } }));
+  }
 })();
