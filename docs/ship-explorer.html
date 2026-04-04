@@ -147,10 +147,35 @@
       color: var(--accent-strong);
     }
 
+    /* ── Ship icon ── */
+    .se-ship-icon {
+      width: 36px;
+      height: 36px;
+      object-fit: contain;
+      vertical-align: middle;
+    }
+    .se-icon-placeholder {
+      display: inline-block;
+      width: 36px;
+      height: 36px;
+      border-radius: 6px;
+      background: rgba(132, 177, 255, 0.06);
+    }
+    .se-ship-link {
+      color: var(--text);
+      text-decoration: none;
+      transition: color 160ms ease;
+    }
+    .se-ship-link:hover {
+      color: var(--accent);
+    }
+
     /* ── Responsive ── */
     @media (max-width: 640px) {
       .se-controls { flex-direction: column; }
       .se-field select, .se-field input { min-width: 100%; }
+      .se-ship-icon { width: 28px; height: 28px; }
+      .se-icon-placeholder { width: 28px; height: 28px; }
     }
   </style>
 </head>
@@ -220,6 +245,7 @@
         lbl_search: 'Suche',
         opt_all: 'Alle',
         search_placeholder: 'Name, Basis oder System…',
+        col_image: '',
         col_name: 'Name',
         col_type: 'Typ',
         col_armor: 'Armor (HP)',
@@ -247,6 +273,7 @@
         lbl_search: 'Search',
         opt_all: 'All',
         search_placeholder: 'Name, base, or system…',
+        col_image: '',
         col_name: 'Name',
         col_type: 'Type',
         col_armor: 'Armor (HP)',
@@ -310,10 +337,12 @@
     /* ── Data ── */
     let data = null;
     let ships = [];
+    let currentMod = 'hamburg-city';
     let sortCol = 'name';
     let sortAsc = true;
 
     const COLS = [
+      { key: 'image',     i18n: 'col_image',     num: false },
       { key: 'name',      i18n: 'col_name',      num: false },
       { key: 'type',      i18n: 'col_type',       num: false },
       { key: 'hit_pts',   i18n: 'col_armor',      num: true },
@@ -335,6 +364,7 @@
 
     /* ── Load mod data ── */
     async function loadMod(modId) {
+      currentMod = modId;
       document.getElementById('table-body').innerHTML = '<tr><td colspan="' + COLS.length + '" style="text-align:center;padding:24px;color:var(--muted)">' + t('loading') + '</td></tr>';
       try {
         const resp = await fetch('../data/trade-routes/' + modId + '.json');
@@ -398,6 +428,7 @@
       // Header
       const thead = document.getElementById('table-head');
       thead.innerHTML = COLS.map(c => {
+        if (c.key === 'image') return '<th></th>';
         const arrow = sortCol === c.key ? (sortAsc ? ' ▲' : ' ▼') : '';
         return '<th data-col="' + c.key + '">' + t(c.i18n) + '<span class="sort-arrow">' + arrow + '</span></th>';
       }).join('');
@@ -411,9 +442,13 @@
         const dealerCell = dealerCount > 0
           ? '<button class="se-expand-btn" data-idx="' + idx + '">' + dealerCount + ' — ' + t('btn_show') + '</button>'
           : '<span style="color:var(--muted);font-size:0.82rem">' + t('no_dealers') + '</span>';
+        const imgSrc = '../data/ships/' + currentMod + '/icons/' + encodeURIComponent(s.nick) + '.png';
+        const imgCell = '<img class="se-ship-icon" src="' + imgSrc + '" alt="" loading="lazy" onerror="this.outerHTML=\'<span class=se-icon-placeholder></span>\'">';
+        const detailHref = 'ship-detail.html?mod=' + encodeURIComponent(currentMod) + '&ship=' + encodeURIComponent(s.nick);
         rows.push(
           '<tr class="se-ship-row" data-idx="' + idx + '">' +
-          '<td>' + esc(s.name) + '</td>' +
+          '<td>' + imgCell + '</td>' +
+          '<td><a class="se-ship-link" href="' + detailHref + '">' + esc(s.name) + '</a></td>' +
           '<td><span class="se-type-badge ' + typeClass(s.type) + '">' + tType(s.type) + '</span></td>' +
           '<td class="num">' + fmtNum(s.hit_pts) + '</td>' +
           '<td class="num">' + fmtNum(s.cargo) + '</td>' +
@@ -470,7 +505,7 @@
       const dealerRows = ship.dealers.map(d => {
         const sysName = (data.systems || {})[d.sys] || d.sys || '—';
         return '<tr class="se-dealer-row" data-parent="' + idx + '">' +
-          '<td colspan="2"></td>' +
+          '<td colspan="3"></td>' +
           '<td colspan="3">' + esc(d.name) + '</td>' +
           '<td colspan="4">' + esc(sysName) + '</td>' +
           '</tr>';

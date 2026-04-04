@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Schiff-Details | Flathack</title>
+  <meta name="description" content="Detaillierte Schiffsinfo — Bewaffnung, Ausrüstung, Stats und 3D-Ansicht.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    .site-shell { max-width: 960px; }
+
+    /* ── Back link ── */
+    .sd-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 20px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 160ms;
+    }
+    .sd-back:hover { color: var(--accent); }
+
+    /* ── Hero: image + title side by side ── */
+    .sd-hero {
+      display: flex;
+      gap: 32px;
+      align-items: flex-start;
+      margin-bottom: 32px;
+      padding: 28px;
+      border: 1px solid var(--panel-border);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(180deg, rgba(8, 25, 36, 0.94), rgba(4, 14, 23, 0.94));
+      box-shadow: var(--shadow);
+    }
+    .sd-render {
+      flex-shrink: 0;
+      width: 320px;
+      border-radius: 14px;
+      overflow: hidden;
+      background: rgba(4, 12, 22, 0.6);
+    }
+    .sd-render img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .sd-render-placeholder {
+      width: 100%;
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .sd-title-area { flex: 1; min-width: 0; }
+    .sd-title-area h1 {
+      margin: 0 0 8px;
+      font-size: 1.8rem;
+      line-height: 1.2;
+    }
+    .sd-type-badge {
+      display: inline-flex;
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      margin-bottom: 16px;
+    }
+    .sd-type-fighter { background: rgba(88, 196, 255, 0.12); color: #7dd3fc; }
+    .sd-type-freighter { background: rgba(245, 158, 11, 0.12); color: #fbbf24; }
+    .sd-type-transport { background: rgba(52, 211, 153, 0.12); color: #6ee7b7; }
+    .sd-type-default { background: rgba(132, 177, 255, 0.1); color: var(--muted); }
+    .sd-price {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 1.1rem;
+      color: var(--success);
+      font-weight: 600;
+    }
+
+    /* ── Stats grid ── */
+    .sd-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+    .sd-stat {
+      padding: 16px;
+      border: 1px solid var(--panel-border);
+      border-radius: 14px;
+      background: rgba(6, 14, 26, 0.7);
+    }
+    .sd-stat-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .sd-stat-value {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    /* ── Equipment section ── */
+    .sd-section-title {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent-strong);
+      margin: 0 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--panel-border);
+    }
+    .sd-equip-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+    .sd-equip-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      border: 1px solid var(--panel-border);
+      border-radius: 12px;
+      background: rgba(6, 14, 26, 0.5);
+    }
+    .sd-equip-icon {
+      font-size: 1.3rem;
+      width: 28px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .sd-equip-label {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    .sd-equip-value {
+      font-weight: 600;
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+
+    /* ── Dealers table ── */
+    .sd-dealers {
+      margin-bottom: 28px;
+    }
+    .sd-dealer-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+    .sd-dealer-table th {
+      text-align: left;
+      padding: 8px 12px;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-strong);
+      border-bottom: 2px solid var(--panel-border);
+    }
+    .sd-dealer-table td {
+      padding: 6px 12px;
+      border-bottom: 1px solid rgba(132, 177, 255, 0.08);
+      color: var(--text);
+    }
+    .sd-dealer-table tr:hover td {
+      background: rgba(88, 196, 255, 0.06);
+    }
+    .sd-no-dealers {
+      padding: 24px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    /* ── Lang toggle ── */
+    .sd-lang-toggle {
+      display: inline-flex;
+      border: 1px solid rgba(132, 177, 255, 0.2);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .sd-lang-btn {
+      padding: 5px 12px;
+      background: transparent;
+      border: none;
+      color: var(--muted);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 160ms ease;
+    }
+    .sd-lang-btn.active {
+      background: rgba(88, 196, 255, 0.16);
+      color: var(--accent-strong);
+    }
+
+    /* ── Loading / error ── */
+    .sd-loading, .sd-error {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+    .sd-error { color: #f87171; }
+
+    /* ── Responsive ── */
+    @media (max-width: 700px) {
+      .sd-hero {
+        flex-direction: column;
+        gap: 20px;
+      }
+      .sd-render { width: 100%; }
+      .sd-stats { grid-template-columns: repeat(2, 1fr); }
+      .sd-equip-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body class="gaming-theme">
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark">FH</span>
+        <span class="brand-text">Flathack Projects</span>
+      </a>
+      <nav class="project-top-nav" aria-label="Projekt-Navigation"></nav>
+    </header>
+
+    <main id="main-content">
+      <div class="sd-loading" id="loading" data-i18n="loading">Lade Schiffsdaten…</div>
+    </main>
+  </div>
+
+  <script>
+    /* ── i18n ── */
+    const I18N = {
+      de: {
+        loading: 'Lade Schiffsdaten…',
+        error: 'Schiff nicht gefunden.',
+        back: '← Zurück zum Schiff-Explorer',
+        price: 'Preis',
+        lbl_armor: 'Panzerung (HP)',
+        lbl_cargo: 'Frachtraum',
+        lbl_speed: 'Max. Speed',
+        lbl_agility: 'Agilität',
+        lbl_mass: 'Masse',
+        lbl_nanobots: 'Nanobots',
+        lbl_batteries: 'Batterien',
+        lbl_strafe: 'Strafe',
+        lbl_class: 'Klasse',
+        sec_equipment: 'Bewaffnung & Ausrüstung',
+        eq_weapons: 'Waffenplätze',
+        eq_shields: 'Schildplätze',
+        eq_thruster: 'Thruster',
+        eq_mine: 'Minenwerfer',
+        eq_cm: 'Gegenmaßnahmen',
+        sec_dealers: 'Kauforte',
+        dealer_base: 'Basis',
+        dealer_system: 'System',
+        no_dealers: 'Nicht kaufbar',
+        not_available: '—',
+      },
+      en: {
+        loading: 'Loading ship data…',
+        error: 'Ship not found.',
+        back: '← Back to Ship Explorer',
+        price: 'Price',
+        lbl_armor: 'Armor (HP)',
+        lbl_cargo: 'Cargo Hold',
+        lbl_speed: 'Max Speed',
+        lbl_agility: 'Agility',
+        lbl_mass: 'Mass',
+        lbl_nanobots: 'Nanobots',
+        lbl_batteries: 'Batteries',
+        lbl_strafe: 'Strafe',
+        lbl_class: 'Class',
+        sec_equipment: 'Weapons & Equipment',
+        eq_weapons: 'Weapon Mounts',
+        eq_shields: 'Shield Mounts',
+        eq_thruster: 'Thruster',
+        eq_mine: 'Mine Dropper',
+        eq_cm: 'Countermeasures',
+        sec_dealers: 'Dealers',
+        dealer_base: 'Base',
+        dealer_system: 'System',
+        no_dealers: 'Not purchasable',
+        not_available: '—',
+      }
+    };
+
+    const TYPE_DE = {
+      'FIGHTER': 'Jäger', 'FREIGHTER': 'Frachter', 'TRANSPORT': 'Transporter',
+      'GUNBOAT': 'Kanonenboot', 'CRUISER': 'Kreuzer', 'BATTLESHIP': 'Schlachtschiff',
+      'MINING': 'Bergbau', 'BOMBER': 'Bomber', 'INTERCEPTOR': 'Abfangjäger',
+    };
+
+    let lang = 'de';
+    function t(key) { return (I18N[lang] || I18N.de)[key] || key; }
+    function tType(type) {
+      if (lang === 'de' && TYPE_DE[type]) return TYPE_DE[type];
+      return type || '—';
+    }
+    function typeClass(type) {
+      const t = (type || '').toUpperCase();
+      if (t === 'FIGHTER' || t === 'INTERCEPTOR' || t === 'BOMBER') return 'sd-type-fighter';
+      if (t === 'FREIGHTER' || t === 'TRANSPORT') return 'sd-type-freighter';
+      if (t === 'GUNBOAT' || t === 'CRUISER' || t === 'BATTLESHIP') return 'sd-type-transport';
+      return 'sd-type-default';
+    }
+    function fmtNum(n) { return n ? n.toLocaleString('de-DE') : '—'; }
+    function fmtPrice(n) { return n ? n.toLocaleString('de-DE') + ' $' : t('not_available'); }
+    function esc(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+    /* ── Read URL params ── */
+    const params = new URLSearchParams(window.location.search);
+    const modId = params.get('mod') || 'hamburg-city';
+    const shipNick = params.get('ship') || '';
+
+    /* ── Load & render ── */
+    async function init() {
+      if (!shipNick) {
+        showError();
+        return;
+      }
+
+      try {
+        const resp = await fetch('../data/trade-routes/' + encodeURIComponent(modId) + '.json');
+        if (!resp.ok) throw new Error(resp.status);
+        const data = await resp.json();
+        const ship = (data.ships || []).find(s => s.nick === shipNick);
+        if (!ship) { showError(); return; }
+        renderShip(ship, data);
+      } catch (e) {
+        showError();
+      }
+    }
+
+    function showError() {
+      document.getElementById('main-content').innerHTML =
+        '<a class="sd-back" href="ship-explorer.html#' + esc(modId) + '">' + t('back') + '</a>' +
+        '<div class="sd-error">' + t('error') + '</div>';
+    }
+
+    function renderShip(ship, data) {
+      const systems = data.systems || {};
+      const renderSrc = '../data/ships/' + modId + '/' + encodeURIComponent(ship.nick) + '.png';
+      const backHref = 'ship-explorer.html#' + encodeURIComponent(modId);
+
+      let html = '';
+
+      // Back link
+      html += '<a class="sd-back" href="' + backHref + '">' + t('back') + '</a>';
+
+      // Hero
+      html += '<div class="sd-hero">';
+      html += '<div class="sd-render">';
+      html += '<img src="' + renderSrc + '" alt="' + esc(ship.name) + '" onerror="this.parentElement.innerHTML=\'<div class=sd-render-placeholder>No image</div>\'">';
+      html += '</div>';
+      html += '<div class="sd-title-area">';
+      html += '<h1>' + esc(ship.name) + '</h1>';
+      html += '<div><span class="sd-type-badge ' + typeClass(ship.type) + '">' + tType(ship.type) + '</span></div>';
+      if (ship.price) {
+        html += '<div class="sd-price">' + fmtPrice(ship.price) + '</div>';
+      }
+      // Lang toggle
+      html += '<div style="margin-top:16px">';
+      html += '<div class="sd-lang-toggle" id="lang-toggle">';
+      html += '<button class="sd-lang-btn active" data-lang="de">DE</button>';
+      html += '<button class="sd-lang-btn" data-lang="en">EN</button>';
+      html += '</div></div>';
+      html += '</div></div>';
+
+      // Stats
+      html += '<div class="sd-stats">';
+      html += statCard(t('lbl_armor'), fmtNum(ship.hit_pts));
+      html += statCard(t('lbl_cargo'), fmtNum(ship.cargo));
+      html += statCard(t('lbl_speed'), fmtNum(ship.max_speed));
+      html += statCard(t('lbl_agility'), ship.agility || '—');
+      html += statCard(t('lbl_mass'), fmtNum(ship.mass));
+      html += statCard(t('lbl_nanobots'), fmtNum(ship.nanobots));
+      html += statCard(t('lbl_batteries'), fmtNum(ship.batteries));
+      html += statCard(t('lbl_strafe'), fmtNum(ship.strafe));
+      html += '</div>';
+
+      // Equipment
+      html += '<h2 class="sd-section-title">' + t('sec_equipment') + '</h2>';
+      html += '<div class="sd-equip-grid">';
+      html += equipItem('🔫', t('eq_weapons'), ship.weapon_mounts || 0);
+      html += equipItem('🛡️', t('eq_shields'), ship.shield_mounts || 0);
+      const eq = ship.equipment || {};
+      if (eq.thruster) html += equipItem('🚀', t('eq_thruster'), eq.thruster);
+      if (eq.mine) html += equipItem('💣', t('eq_mine'), eq.mine);
+      if (eq.cm) html += equipItem('🎯', t('eq_cm'), eq.cm);
+      html += '</div>';
+
+      // Dealers
+      html += '<h2 class="sd-section-title">' + t('sec_dealers') + '</h2>';
+      if (ship.dealers && ship.dealers.length > 0) {
+        html += '<div class="sd-dealers"><table class="sd-dealer-table">';
+        html += '<thead><tr><th>' + t('dealer_base') + '</th><th>' + t('dealer_system') + '</th></tr></thead>';
+        html += '<tbody>';
+        ship.dealers.forEach(d => {
+          const sysName = systems[d.sys] || d.sys || '—';
+          html += '<tr><td>' + esc(d.name) + '</td><td>' + esc(sysName) + '</td></tr>';
+        });
+        html += '</tbody></table></div>';
+      } else {
+        html += '<div class="sd-no-dealers">' + t('no_dealers') + '</div>';
+      }
+
+      document.getElementById('main-content').innerHTML = html;
+      document.title = ship.name + ' | Flathack';
+
+      // Wire lang toggle
+      const toggle = document.getElementById('lang-toggle');
+      if (toggle) {
+        toggle.addEventListener('click', e => {
+          const btn = e.target.closest('.sd-lang-btn');
+          if (!btn) return;
+          lang = btn.dataset.lang;
+          toggle.querySelectorAll('.sd-lang-btn').forEach(b => b.classList.toggle('active', b === btn));
+          renderShip(ship, data);
+        });
+      }
+    }
+
+    function statCard(label, value) {
+      return '<div class="sd-stat"><div class="sd-stat-label">' + label + '</div><div class="sd-stat-value">' + value + '</div></div>';
+    }
+
+    function equipItem(icon, label, value) {
+      return '<div class="sd-equip-item"><span class="sd-equip-icon">' + icon + '</span><div><div class="sd-equip-label">' + label + '</div><div class="sd-equip-value">' + value + '</div></div></div>';
+    }
+
+    init();
+  </script>
+  <script src="../assets/js/nav.js"></script>
+</body>
+</html>

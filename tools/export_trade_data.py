@@ -480,7 +480,12 @@ def extract_ships(fl_ini: Path, res: DLLResolver, bases: dict[str, dict]) -> lis
         steering_torque = (0.0, 0.0, 0.0)
         angular_drag = (0.0, 0.0, 0.0)
         strafe_force = 0.0
+        nudge_force = 0.0
+        linear_drag = 0.0
         mass = 0.0
+        hp_types: list[tuple[str, list[str]]] = []  # [(type, [mount1, mount2, ...])]
+        ship_class = 0
+        num_exhaust_nozzles = 0
         for k, v in entries:
             kl = k.lower()
             if kl == "nickname":
@@ -526,9 +531,33 @@ def extract_ships(fl_ini: Path, res: DLLResolver, bases: dict[str, dict]) -> lis
                     strafe_force = float(v.strip())
                 except ValueError:
                     pass
+            elif kl == "nudge_force":
+                try:
+                    nudge_force = float(v.strip())
+                except ValueError:
+                    pass
+            elif kl == "linear_drag":
+                try:
+                    linear_drag = float(v.strip())
+                except ValueError:
+                    pass
             elif kl == "mass":
                 try:
                     mass = float(v.strip())
+                except ValueError:
+                    pass
+            elif kl == "hp_type":
+                parts = [p.strip() for p in v.split(",")]
+                if len(parts) >= 2:
+                    hp_types.append((parts[0], parts[1:]))
+            elif kl == "ship_class":
+                try:
+                    ship_class = int(float(v.strip()))
+                except ValueError:
+                    pass
+            elif kl == "num_exhaust_nozzles":
+                try:
+                    num_exhaust_nozzles = int(float(v.strip()))
                 except ValueError:
                     pass
         if not nick or hold <= 0 or hold > 5000:
@@ -540,6 +569,30 @@ def extract_ships(fl_ini: Path, res: DLLResolver, bases: dict[str, dict]) -> lis
             turn_x = steering_torque[0] / angular_drag[0]
             turn_y = steering_torque[1] / angular_drag[1]
             agility = round((turn_x + turn_y) / 2, 2)
+        # Categorize hardpoints
+        weapon_mounts: list[str] = []
+        shield_mounts: list[str] = []
+        other_equip: dict[str, int] = {}  # category -> count
+        for hp_cat, mounts in hp_types:
+            hp_lower = hp_cat.lower()
+            if "gun" in hp_lower or "torpedo" in hp_lower or "turret" in hp_lower:
+                for m in mounts:
+                    if m.strip():
+                        weapon_mounts.append(m.strip())
+            elif "shield" in hp_lower:
+                for m in mounts:
+                    if m.strip():
+                        shield_mounts.append(m.strip())
+            elif "thruster" in hp_lower:
+                other_equip["thruster"] = other_equip.get("thruster", 0) + len(mounts)
+            elif "mine" in hp_lower:
+                other_equip["mine"] = other_equip.get("mine", 0) + len(mounts)
+            elif "countermeasure" in hp_lower:
+                other_equip["cm"] = other_equip.get("cm", 0) + len(mounts)
+
+        # Max speed: nudge_force / linear_drag (simplified Freelancer physics)
+        max_speed = round(nudge_force / linear_drag) if linear_drag > 0 else 0
+
         ship_arch[nick.lower()] = {
             "nick": nick,
             "name": name or nick,
@@ -551,6 +604,11 @@ def extract_ships(fl_ini: Path, res: DLLResolver, bases: dict[str, dict]) -> lis
             "agility": agility,
             "strafe": round(strafe_force),
             "mass": round(mass),
+            "max_speed": max_speed,
+            "weapon_mounts": len(set(weapon_mounts)),
+            "shield_mounts": len(set(shield_mounts)),
+            "equipment": other_equip,
+            "ship_class": ship_class,
         }
 
     # 2) Parse goods to get hull prices and package→hull mapping
@@ -639,6 +697,11 @@ def extract_ships(fl_ini: Path, res: DLLResolver, bases: dict[str, dict]) -> lis
             "agility": arch["agility"],
             "strafe": arch["strafe"],
             "mass": arch["mass"],
+            "max_speed": arch["max_speed"],
+            "weapon_mounts": arch["weapon_mounts"],
+            "shield_mounts": arch["shield_mounts"],
+            "equipment": arch["equipment"],
+            "ship_class": arch["ship_class"],
             "price": price,
             "dealers": dealers,
         })

@@ -475,14 +475,16 @@
         shipSelect.appendChild(cOpt);
 
         for (const ship of data.ships) {
+          if (!ship.dealers || ship.dealers.length === 0) continue;
           const opt = document.createElement('option');
           opt.value = ship.cargo;
           opt.textContent = ship.name + '  [' + ship.cargo + ']';
           shipSelect.appendChild(opt);
         }
-        if (data.ships.length) {
-          shipSelect.value = data.ships[0].cargo;
-          cargoInput.value = data.ships[0].cargo;
+        const buyableShips = data.ships.filter(s => s.dealers && s.dealers.length > 0);
+        if (buyableShips.length) {
+          shipSelect.value = buyableShips[0].cargo;
+          cargoInput.value = buyableShips[0].cargo;
         }
         calcBtn.disabled = false;
       } catch (err) {
