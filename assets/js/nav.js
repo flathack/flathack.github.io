@@ -6,6 +6,7 @@
   const NAV_ITEMS = [
     { label: "Home",            href: "index.html" },
     { label: "Trade Routes",    href: "docs/trade-routes.html" },
+    { label: "Schiff-Explorer", href: "docs/ship-explorer.html" },
     { label: "Signaturen",      href: "docs/forum-signature-progress.html" },
   ];
 

@@ -456,7 +456,7 @@ def extract_market_entries(
     return by_commodity
 
 
-def extract_ships(fl_ini: Path, res: DLLResolver) -> list[dict]:
+def extract_ships(fl_ini: Path, res: DLLResolver, bases: dict[str, dict]) -> list[dict]:
     parent = fl_ini.parent
     data_root = (
         parent.parent / "DATA" if parent.name.lower() == "exe" else parent / "DATA"
@@ -464,13 +464,23 @@ def extract_ships(fl_ini: Path, res: DLLResolver) -> list[dict]:
     ship_file = data_root / "SHIPS" / "shiparch.ini"
     if not ship_file.exists():
         return []
-    ships: list[dict] = []
+
+    # 1) Parse ship archetypes
+    ship_arch: dict[str, dict] = {}
     for sec, entries in parse_ini(ship_file):
         if sec.lower() != "ship":
             continue
         nick = ""
         ids = ""
         hold = 0
+        hit_pts = 0
+        ship_type = ""
+        nanobot_limit = 0
+        shield_battery_limit = 0
+        steering_torque = (0.0, 0.0, 0.0)
+        angular_drag = (0.0, 0.0, 0.0)
+        strafe_force = 0.0
+        mass = 0.0
         for k, v in entries:
             kl = k.lower()
             if kl == "nickname":
@@ -482,10 +492,156 @@ def extract_ships(fl_ini: Path, res: DLLResolver) -> list[dict]:
                     hold = int(float(v.strip()))
                 except ValueError:
                     pass
+            elif kl == "hit_pts":
+                try:
+                    hit_pts = int(float(v.strip()))
+                except ValueError:
+                    pass
+            elif kl == "type":
+                ship_type = v.strip()
+            elif kl == "nanobot_limit":
+                try:
+                    nanobot_limit = int(float(v.strip()))
+                except ValueError:
+                    pass
+            elif kl == "shield_battery_limit":
+                try:
+                    shield_battery_limit = int(float(v.strip()))
+                except ValueError:
+                    pass
+            elif kl == "steering_torque":
+                parts = [p.strip() for p in v.split(",")]
+                try:
+                    steering_torque = (float(parts[0]), float(parts[1]), float(parts[2]))
+                except (ValueError, IndexError):
+                    pass
+            elif kl == "angular_drag":
+                parts = [p.strip() for p in v.split(",")]
+                try:
+                    angular_drag = (float(parts[0]), float(parts[1]), float(parts[2]))
+                except (ValueError, IndexError):
+                    pass
+            elif kl == "strafe_force":
+                try:
+                    strafe_force = float(v.strip())
+                except ValueError:
+                    pass
+            elif kl == "mass":
+                try:
+                    mass = float(v.strip())
+                except ValueError:
+                    pass
         if not nick or hold <= 0 or hold > 5000:
             continue
         name = res.get(ids) if ids else ""
-        ships.append({"nick": nick, "name": name or nick, "cargo": hold})
+        # Agility: average turn rate (steering_torque / angular_drag) as degrees/sec approx
+        agility = 0.0
+        if angular_drag[0] > 0 and angular_drag[1] > 0:
+            turn_x = steering_torque[0] / angular_drag[0]
+            turn_y = steering_torque[1] / angular_drag[1]
+            agility = round((turn_x + turn_y) / 2, 2)
+        ship_arch[nick.lower()] = {
+            "nick": nick,
+            "name": name or nick,
+            "cargo": hold,
+            "hit_pts": hit_pts,
+            "type": ship_type,
+            "nanobots": nanobot_limit,
+            "batteries": shield_battery_limit,
+            "agility": agility,
+            "strafe": round(strafe_force),
+            "mass": round(mass),
+        }
+
+    # 2) Parse goods to get hull prices and package→hull mapping
+    sections_fl = parse_ini(fl_ini)
+    goods_files = find_data_files(fl_ini, sections_fl, "goods")
+    hull_prices: dict[str, int] = {}   # ship_nick -> price
+    hull_ids: dict[str, str] = {}      # hull_nick -> ship_nick
+    package_hull: dict[str, str] = {}  # package_nick -> hull_nick
+    for gf in goods_files:
+        for sec, entries in parse_ini(gf):
+            if sec.lower() != "good":
+                continue
+            nick = ""
+            category = ""
+            price = 0
+            ship_nick = ""
+            hull_nick = ""
+            for k, v in entries:
+                kl = k.lower()
+                if kl == "nickname":
+                    nick = v.strip()
+                elif kl == "category":
+                    category = v.strip().lower()
+                elif kl == "price":
+                    try:
+                        price = int(float(v.strip()))
+                    except ValueError:
+                        pass
+                elif kl == "ship":
+                    ship_nick = v.strip().lower()
+                elif kl == "hull":
+                    hull_nick = v.strip().lower()
+            if category == "shiphull" and ship_nick:
+                hull_prices[ship_nick] = price
+                hull_ids[nick.lower()] = ship_nick
+            elif category == "ship" and hull_nick:
+                package_hull[nick.lower()] = hull_nick
+
+    # 3) Parse market_ships to find where each package is sold
+    market_files = find_data_files(fl_ini, sections_fl, "markets")
+    ship_bases: dict[str, list[dict]] = {}  # ship_nick -> [{base, sys, name}]
+    for mf in market_files:
+        for sec, entries in parse_ini(mf):
+            if sec.lower() != "basegood":
+                continue
+            base_nick = ""
+            for k, v in entries:
+                if k.lower() == "base":
+                    base_nick = v.strip().lower()
+                    break
+            if not base_nick or base_nick not in bases:
+                continue
+            for k, v in entries:
+                if k.lower() != "marketgood":
+                    continue
+                fields = [f.strip() for f in v.split(",")]
+                if len(fields) >= 5 and fields[3] == "0" and fields[4] == "0":
+                    continue  # no stock – NPC-only, not purchasable
+                pkg = fields[0].lower()
+                if pkg not in package_hull:
+                    continue
+                hull = package_hull[pkg]
+                ship_nick = hull_ids.get(hull, "")
+                if not ship_nick or ship_nick not in ship_arch:
+                    continue
+                base_info = bases.get(base_nick, {})
+                ship_bases.setdefault(ship_nick, []).append({
+                    "base": base_nick,
+                    "sys": base_info.get("sys", ""),
+                    "name": base_info.get("name", base_nick),
+                })
+
+    # 4) Build final ship list
+    ships: list[dict] = []
+    for nick, arch in ship_arch.items():
+        price = hull_prices.get(nick, 0)
+        dealers = ship_bases.get(nick, [])
+        ships.append({
+            "nick": arch["nick"],
+            "name": arch["name"],
+            "type": arch["type"],
+            "cargo": arch["cargo"],
+            "hit_pts": arch["hit_pts"],
+            "nanobots": arch["nanobots"],
+            "batteries": arch["batteries"],
+            "agility": arch["agility"],
+            "strafe": arch["strafe"],
+            "mass": arch["mass"],
+            "price": price,
+            "dealers": dealers,
+        })
     ships.sort(key=lambda s: (-s["cargo"], s["name"]))
     return ships
 
@@ -520,7 +676,7 @@ def export_installation(inst: dict):
         adjacency = build_adjacency(universe_file, locked)
         comm_prices, comm_names = extract_commodity_prices(goods_files, res)
         markets = extract_market_entries(market_files, bases, comm_prices)
-        ships = extract_ships(fl_ini, res)
+        ships = extract_ships(fl_ini, res, bases)
 
         output = {
             "id": inst["id"],

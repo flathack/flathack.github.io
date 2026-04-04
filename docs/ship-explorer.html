@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Schiff-Explorer | Flathack</title>
+  <meta name="description" content="Alle Freelancer-Schiffe im Überblick: Armor, Cargo, Agilität, Preis und Kauforte für Hamburg City, Crossfire und weitere Mods.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    /* ── Full-width override ── */
+    .site-shell { width: calc(100% - 32px); max-width: none; }
+
+    /* ── Controls ── */
+    .se-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: flex-end;
+    }
+    .se-field { display: flex; flex-direction: column; gap: 5px; }
+    .se-field label {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+    .se-field select, .se-field input {
+      min-height: 40px;
+      padding: 0 14px;
+      border: 1px solid rgba(132, 177, 255, 0.2);
+      border-radius: 12px;
+      background: rgba(6, 14, 26, 0.8);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.95rem;
+    }
+    .se-field select { min-width: 180px; }
+    .se-field input[type="text"] { min-width: 240px; }
+
+    /* ── Stats bar ── */
+    .se-stats {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 12px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+    .se-stats strong { color: var(--accent-strong); }
+
+    /* ── Table ── */
+    .se-table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--panel-border);
+      border-radius: 14px;
+      background: rgba(6, 14, 26, 0.7);
+    }
+    .se-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      white-space: nowrap;
+    }
+    .se-table th {
+      position: sticky;
+      top: 0;
+      padding: 6px 10px;
+      background: rgba(8, 22, 38, 0.96);
+      border-bottom: 2px solid var(--panel-border);
+      text-align: left;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-strong);
+      cursor: pointer;
+      user-select: none;
+    }
+    .se-table th:hover { color: var(--text); }
+    .se-table th .sort-arrow { margin-left: 4px; font-size: 0.7rem; }
+    .se-table td {
+      padding: 4px 10px;
+      border-bottom: 1px solid rgba(132, 177, 255, 0.08);
+      color: var(--text);
+    }
+    .se-table tr:hover td { background: rgba(88, 196, 255, 0.06); }
+    .se-table td.num { text-align: right; font-family: "IBM Plex Mono", monospace; font-size: 0.85rem; }
+
+    /* ── Expandable dealers ── */
+    .se-expand-btn {
+      background: none;
+      border: 1px solid rgba(132, 177, 255, 0.2);
+      border-radius: 8px;
+      padding: 2px 10px;
+      color: var(--accent);
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.82rem;
+      transition: background 160ms ease;
+    }
+    .se-expand-btn:hover { background: rgba(88, 196, 255, 0.12); }
+    .se-dealer-row td {
+      padding: 2px 10px 2px 28px;
+      background: rgba(4, 12, 22, 0.6);
+      border-bottom: 1px solid rgba(132, 177, 255, 0.05);
+      font-size: 0.84rem;
+      color: var(--muted);
+    }
+    .se-dealer-row td:first-child { padding-left: 28px; }
+    .se-dealer-hidden { display: none; }
+
+    /* ── Type badge ── */
+    .se-type-badge {
+      display: inline-flex;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+    .se-type-fighter { background: rgba(88, 196, 255, 0.12); color: #7dd3fc; }
+    .se-type-freighter { background: rgba(245, 158, 11, 0.12); color: #fbbf24; }
+    .se-type-transport { background: rgba(52, 211, 153, 0.12); color: #6ee7b7; }
+    .se-type-default { background: rgba(132, 177, 255, 0.1); color: var(--muted); }
+
+    /* ── Lang toggle ── */
+    .se-lang-toggle {
+      display: inline-flex;
+      border: 1px solid rgba(132, 177, 255, 0.2);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .se-lang-btn {
+      padding: 6px 14px;
+      background: transparent;
+      border: none;
+      color: var(--muted);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.82rem;
+      cursor: pointer;
+      transition: background 160ms ease, color 160ms ease;
+    }
+    .se-lang-btn.active {
+      background: rgba(88, 196, 255, 0.16);
+      color: var(--accent-strong);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      .se-controls { flex-direction: column; }
+      .se-field select, .se-field input { min-width: 100%; }
+    }
+  </style>
+</head>
+<body class="gaming-theme">
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark">FH</span>
+        <span class="brand-text">Flathack Projects</span>
+      </a>
+      <nav class="project-top-nav" aria-label="Projekt-Navigation"></nav>
+    </header>
+
+    <main>
+      <a class="back-link" href="../index.html">&larr; Zurück zur Startseite</a>
+
+      <section class="page-hero-copy" style="margin-bottom: 24px; display: flex; align-items: flex-start; justify-content: space-between; gap: 20px;">
+        <div>
+          <p class="eyebrow">Freelancer Tools</p>
+          <h1 style="max-width: 20ch;" data-i18n="title">Schiff-Explorer</h1>
+          <p class="page-intro" data-i18n="intro">Alle Schiffe im Überblick — mit Armor, Cargo, Agilität, Preis und Kauforten.</p>
+        </div>
+        <div class="se-lang-toggle" id="lang-toggle">
+          <button class="se-lang-btn active" data-lang="de">DE</button>
+          <button class="se-lang-btn" data-lang="en">EN</button>
+        </div>
+      </section>
+
+      <!-- Controls -->
+      <section class="page-section" style="margin-bottom: 24px;">
+        <div class="se-controls">
+          <div class="se-field">
+            <label for="mod-select" data-i18n="lbl_mod">Mod</label>
+            <select id="mod-select">
+              <option value="hamburg-city">Hamburg City</option>
+              <option value="crossfire">Crossfire 2.0</option>
+            </select>
+          </div>
+          <div class="se-field">
+            <label for="type-filter" data-i18n="lbl_type">Typ</label>
+            <select id="type-filter">
+              <option value="" data-i18n="opt_all">Alle</option>
+            </select>
+          </div>
+          <div class="se-field">
+            <label for="search-input" data-i18n="lbl_search">Suche</label>
+            <input type="text" id="search-input" placeholder="Name, Basis oder System…" data-i18n-placeholder="search_placeholder">
+          </div>
+        </div>
+      </section>
+
+      <!-- Stats -->
+      <div class="se-stats" id="stats"></div>
+
+      <!-- Table -->
+      <div class="se-table-wrap">
+        <table class="se-table" id="ship-table">
+          <thead><tr id="table-head"></tr></thead>
+          <tbody id="table-body"></tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    /* ── i18n ── */
+    const I18N = {
+      de: {
+        title: 'Schiff-Explorer',
+        intro: 'Alle Schiffe im Überblick — mit Armor, Cargo, Agilität, Preis und Kauforten.',
+        back: '← Zurück zur Startseite',
+        lbl_mod: 'Mod',
+        lbl_type: 'Typ',
+        lbl_search: 'Suche',
+        opt_all: 'Alle',
+        search_placeholder: 'Name, Basis oder System…',
+        col_name: 'Name',
+        col_type: 'Typ',
+        col_armor: 'Armor (HP)',
+        col_cargo: 'Cargo',
+        col_agility: 'Agilität',
+        col_nanobots: 'Nanobots',
+        col_batteries: 'Batterien',
+        col_price: 'Preis',
+        col_dealers: 'Kauforte',
+        stats_ships: 'Schiffe',
+        stats_shown: 'angezeigt',
+        stats_types: 'Typen',
+        btn_show: 'Kauforte zeigen',
+        btn_hide: 'Ausblenden',
+        no_dealers: 'Nicht kaufbar',
+        loading: 'Lade Daten…',
+        error: 'Fehler beim Laden',
+      },
+      en: {
+        title: 'Ship Explorer',
+        intro: 'All ships at a glance — with armor, cargo, agility, price, and purchase locations.',
+        back: '← Back to Home',
+        lbl_mod: 'Mod',
+        lbl_type: 'Type',
+        lbl_search: 'Search',
+        opt_all: 'All',
+        search_placeholder: 'Name, base, or system…',
+        col_name: 'Name',
+        col_type: 'Type',
+        col_armor: 'Armor (HP)',
+        col_cargo: 'Cargo',
+        col_agility: 'Agility',
+        col_nanobots: 'Nanobots',
+        col_batteries: 'Batteries',
+        col_price: 'Price',
+        col_dealers: 'Dealers',
+        stats_ships: 'Ships',
+        stats_shown: 'shown',
+        stats_types: 'Types',
+        btn_show: 'Show dealers',
+        btn_hide: 'Hide',
+        no_dealers: 'Not purchasable',
+        loading: 'Loading data…',
+        error: 'Error loading data',
+      }
+    };
+
+    let lang = 'de';
+    function t(key) { return (I18N[lang] || I18N.de)[key] || key; }
+
+    function applyLang() {
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        el.textContent = t(key);
+      });
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        el.placeholder = t(el.getAttribute('data-i18n-placeholder'));
+      });
+    }
+
+    document.getElementById('lang-toggle').addEventListener('click', e => {
+      const btn = e.target.closest('.se-lang-btn');
+      if (!btn) return;
+      lang = btn.dataset.lang;
+      document.querySelectorAll('.se-lang-btn').forEach(b => b.classList.toggle('active', b === btn));
+      applyLang();
+      renderTable();
+    });
+
+    /* ── Ship type translation ── */
+    const TYPE_DE = {
+      'FIGHTER': 'Jäger', 'FREIGHTER': 'Frachter', 'TRANSPORT': 'Transporter',
+      'GUNBOAT': 'Kanonenboot', 'CRUISER': 'Kreuzer', 'BATTLESHIP': 'Schlachtschiff',
+      'MINING': 'Bergbau', 'BOMBER': 'Bomber', 'INTERCEPTOR': 'Abfangjäger',
+    };
+    function tType(type) {
+      if (lang === 'de' && TYPE_DE[type]) return TYPE_DE[type];
+      return type || '—';
+    }
+    function typeClass(type) {
+      const t = (type || '').toUpperCase();
+      if (t === 'FIGHTER' || t === 'INTERCEPTOR' || t === 'BOMBER') return 'se-type-fighter';
+      if (t === 'FREIGHTER' || t === 'TRANSPORT') return 'se-type-freighter';
+      if (t === 'GUNBOAT' || t === 'CRUISER' || t === 'BATTLESHIP') return 'se-type-transport';
+      return 'se-type-default';
+    }
+
+    /* ── Data ── */
+    let data = null;
+    let ships = [];
+    let sortCol = 'name';
+    let sortAsc = true;
+
+    const COLS = [
+      { key: 'name',      i18n: 'col_name',      num: false },
+      { key: 'type',      i18n: 'col_type',       num: false },
+      { key: 'hit_pts',   i18n: 'col_armor',      num: true },
+      { key: 'cargo',     i18n: 'col_cargo',      num: true },
+      { key: 'agility',   i18n: 'col_agility',    num: true },
+      { key: 'nanobots',  i18n: 'col_nanobots',   num: true },
+      { key: 'batteries', i18n: 'col_batteries',  num: true },
+      { key: 'price',     i18n: 'col_price',      num: true },
+      { key: 'dealers',   i18n: 'col_dealers',    num: false },
+    ];
+
+    /* ── Format helpers ── */
+    function fmtNum(n) { return n ? n.toLocaleString('de-DE') : '—'; }
+
+    function fmtPrice(n) {
+      if (!n) return '—';
+      return n.toLocaleString('de-DE') + ' $';
+    }
+
+    /* ── Load mod data ── */
+    async function loadMod(modId) {
+      document.getElementById('table-body').innerHTML = '<tr><td colspan="' + COLS.length + '" style="text-align:center;padding:24px;color:var(--muted)">' + t('loading') + '</td></tr>';
+      try {
+        const resp = await fetch('../data/trade-routes/' + modId + '.json');
+        if (!resp.ok) throw new Error(resp.status);
+        data = await resp.json();
+        ships = data.ships || [];
+        populateTypeFilter();
+        renderTable();
+      } catch (e) {
+        document.getElementById('table-body').innerHTML = '<tr><td colspan="' + COLS.length + '" style="text-align:center;padding:24px;color:#f87171">' + t('error') + '</td></tr>';
+      }
+    }
+
+    /* ── Type filter dropdown ── */
+    function populateTypeFilter() {
+      const sel = document.getElementById('type-filter');
+      const types = [...new Set(ships.map(s => s.type).filter(Boolean))].sort();
+      sel.innerHTML = '<option value="" data-i18n="opt_all">' + t('opt_all') + '</option>';
+      types.forEach(tp => {
+        const opt = document.createElement('option');
+        opt.value = tp;
+        opt.textContent = tType(tp);
+        sel.appendChild(opt);
+      });
+    }
+
+    /* ── Filter & sort ── */
+    function getFiltered() {
+      const typeVal = document.getElementById('type-filter').value;
+      const query = document.getElementById('search-input').value.toLowerCase().trim();
+      let filtered = ships;
+      if (typeVal) filtered = filtered.filter(s => s.type === typeVal);
+      if (query) {
+        filtered = filtered.filter(s => {
+          if (s.name.toLowerCase().includes(query)) return true;
+          if ((s.type || '').toLowerCase().includes(query)) return true;
+          if (tType(s.type).toLowerCase().includes(query)) return true;
+          if (s.dealers && s.dealers.some(d =>
+            d.name.toLowerCase().includes(query) ||
+            (data.systems[d.sys] || d.sys || '').toLowerCase().includes(query)
+          )) return true;
+          return false;
+        });
+      }
+      // Sort
+      filtered.sort((a, b) => {
+        let va = a[sortCol], vb = b[sortCol];
+        if (sortCol === 'dealers') { va = (a.dealers || []).length; vb = (b.dealers || []).length; }
+        if (sortCol === 'type') { va = tType(va); vb = tType(vb); }
+        if (typeof va === 'string') {
+          const cmp = va.localeCompare(vb, 'de');
+          return sortAsc ? cmp : -cmp;
+        }
+        return sortAsc ? (va || 0) - (vb || 0) : (vb || 0) - (va || 0);
+      });
+      return filtered;
+    }
+
+    /* ── Render ── */
+    function renderTable() {
+      // Header
+      const thead = document.getElementById('table-head');
+      thead.innerHTML = COLS.map(c => {
+        const arrow = sortCol === c.key ? (sortAsc ? ' ▲' : ' ▼') : '';
+        return '<th data-col="' + c.key + '">' + t(c.i18n) + '<span class="sort-arrow">' + arrow + '</span></th>';
+      }).join('');
+
+      // Body
+      const filtered = getFiltered();
+      const tbody = document.getElementById('table-body');
+      const rows = [];
+      filtered.forEach((s, idx) => {
+        const dealerCount = (s.dealers || []).length;
+        const dealerCell = dealerCount > 0
+          ? '<button class="se-expand-btn" data-idx="' + idx + '">' + dealerCount + ' — ' + t('btn_show') + '</button>'
+          : '<span style="color:var(--muted);font-size:0.82rem">' + t('no_dealers') + '</span>';
+        rows.push(
+          '<tr class="se-ship-row" data-idx="' + idx + '">' +
+          '<td>' + esc(s.name) + '</td>' +
+          '<td><span class="se-type-badge ' + typeClass(s.type) + '">' + tType(s.type) + '</span></td>' +
+          '<td class="num">' + fmtNum(s.hit_pts) + '</td>' +
+          '<td class="num">' + fmtNum(s.cargo) + '</td>' +
+          '<td class="num">' + (s.agility || '—') + '</td>' +
+          '<td class="num">' + fmtNum(s.nanobots) + '</td>' +
+          '<td class="num">' + fmtNum(s.batteries) + '</td>' +
+          '<td class="num">' + fmtPrice(s.price) + '</td>' +
+          '<td>' + dealerCell + '</td>' +
+          '</tr>'
+        );
+      });
+      tbody.innerHTML = rows.join('');
+
+      // Stats
+      const types = new Set(filtered.map(s => s.type).filter(Boolean));
+      document.getElementById('stats').innerHTML =
+        '<span><strong>' + ships.length + '</strong> ' + t('stats_ships') + '</span>' +
+        '<span><strong>' + filtered.length + '</strong> ' + t('stats_shown') + '</span>' +
+        '<span><strong>' + types.size + '</strong> ' + t('stats_types') + '</span>';
+    }
+
+    function esc(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+    /* ── Events ── */
+    document.getElementById('mod-select').addEventListener('change', e => loadMod(e.target.value));
+    document.getElementById('type-filter').addEventListener('change', () => renderTable());
+    document.getElementById('search-input').addEventListener('input', () => renderTable());
+
+    // Sort
+    document.getElementById('table-head').addEventListener('click', e => {
+      const th = e.target.closest('th');
+      if (!th) return;
+      const col = th.dataset.col;
+      if (sortCol === col) { sortAsc = !sortAsc; } else { sortCol = col; sortAsc = true; }
+      renderTable();
+    });
+
+    // Expand dealers
+    document.getElementById('table-body').addEventListener('click', e => {
+      const btn = e.target.closest('.se-expand-btn');
+      if (!btn) return;
+      const idx = parseInt(btn.dataset.idx, 10);
+      const tr = btn.closest('tr');
+      const existing = tr.parentNode.querySelectorAll('.se-dealer-row[data-parent="' + idx + '"]');
+      if (existing.length > 0) {
+        existing.forEach(r => r.remove());
+        const filtered = getFiltered();
+        btn.textContent = (filtered[idx].dealers || []).length + ' — ' + t('btn_show');
+        return;
+      }
+      const filtered = getFiltered();
+      const ship = filtered[idx];
+      if (!ship || !ship.dealers) return;
+      const dealerRows = ship.dealers.map(d => {
+        const sysName = (data.systems || {})[d.sys] || d.sys || '—';
+        return '<tr class="se-dealer-row" data-parent="' + idx + '">' +
+          '<td colspan="2"></td>' +
+          '<td colspan="3">' + esc(d.name) + '</td>' +
+          '<td colspan="4">' + esc(sysName) + '</td>' +
+          '</tr>';
+      }).join('');
+      tr.insertAdjacentHTML('afterend', dealerRows);
+      btn.textContent = t('btn_hide');
+    });
+
+    /* ── Init ── */
+    applyLang();
+    loadMod(document.getElementById('mod-select').value);
+  </script>
+  <script src="../assets/js/nav.js"></script>
+</body>
+</html>
