@@ -312,6 +312,7 @@
     var viewMode = "universe"; // "universe" or "system"
     var currentSystem = null;
     var showJumpHoles = true;
+    var iconCache = {};  // arch -> true/false (whether icon exists)
 
     // Pan & zoom state
     var viewBox = { x: 0, y: 0, w: 1000, h: 800 };
@@ -343,7 +344,24 @@
         .then(function (r) { return r.json(); })
         .then(function (d) {
           data = d;
-          showUniverse();
+          // Probe which solar icons exist for this mod
+          iconCache = {};
+          var archs = {};
+          d.systems.forEach(function (s) {
+            (s.objects || []).forEach(function (o) {
+              if (o.arch && !archs[o.arch]) archs[o.arch] = true;
+            });
+          });
+          var archList = Object.keys(archs);
+          var iconBase = "../data/universe/icons/" + mod + "/";
+          var remaining = archList.length;
+          if (!remaining) { showUniverse(); return; }
+          archList.forEach(function (arch) {
+            var img = new window.Image();
+            img.onload = function () { iconCache[arch] = true; if (--remaining === 0) showUniverse(); };
+            img.onerror = function () { iconCache[arch] = false; if (--remaining === 0) showUniverse(); };
+            img.src = iconBase + encodeURIComponent(arch) + ".png";
+          });
         })
         .catch(function () {
           svg.innerHTML = '<text x="50%" y="50%" text-anchor="middle" fill="#ef4444" font-size="16">Fehler beim Laden der Daten.</text>';
@@ -573,6 +591,9 @@
       });
 
       // ── Draw objects ──
+      // Pre-compute icon path base
+      var iconBase = "../data/universe/icons/" + currentMod + "/";
+
       objects.forEach(function (o) {
         if (o.type === "jump_hole" && !showJumpHoles) return;
 
@@ -581,6 +602,8 @@
         var color = COLORS[o.type] || COLORS.other;
         var r = getObjectRadius(o.type);
         var label = o.name || o.nick;
+        var hasIcon = o.arch && iconCache[o.arch] !== false;
+        var iconSize = Math.max(r * 3, 24);
 
         content += '<g class="uv-obj-node" data-nick="' + escAttr(o.nick) + '" style="cursor:pointer;">';
 
@@ -597,6 +620,14 @@
                      ' stroke="' + color + '" stroke-width="3" stroke-linecap="round" opacity="0.9"/>';
           content += '<line x1="' + (cx + s) + '" y1="' + (cy - s) + '" x2="' + (cx - s) + '" y2="' + (cy + s) + '"' +
                      ' stroke="' + color + '" stroke-width="3" stroke-linecap="round" opacity="0.9"/>';
+        } else if (hasIcon && o.type !== "sun" && o.type !== "planet") {
+          // Render icon image with colored glow behind
+          content += '<circle cx="' + cx + '" cy="' + cy + '" r="' + (iconSize / 2 + 2) + '"' +
+                     ' fill="' + color + '" opacity="0.12"/>';
+          content += '<image href="' + iconBase + encodeURIComponent(o.arch) + '.png"' +
+                     ' x="' + (cx - iconSize / 2) + '" y="' + (cy - iconSize / 2) + '"' +
+                     ' width="' + iconSize + '" height="' + iconSize + '"' +
+                     ' style="filter: drop-shadow(0 0 2px ' + color + ');"/>';
         } else {
           content += '<circle cx="' + cx + '" cy="' + cy + '" r="' + r + '"' +
                      ' fill="' + color + '" opacity="0.85"' +
@@ -604,11 +635,13 @@
         }
 
         // Hit area
-        content += '<circle cx="' + cx + '" cy="' + cy + '" r="' + Math.max(r + 8, 16) + '"' +
+        var hitR = hasIcon && o.type !== "sun" && o.type !== "planet" ? iconSize / 2 + 4 : Math.max(r + 8, 16);
+        content += '<circle cx="' + cx + '" cy="' + cy + '" r="' + hitR + '"' +
                    ' fill="transparent"/>';
 
         // Label
-        content += '<text x="' + cx + '" y="' + (cy + r + 14) + '"' +
+        var labelY = hasIcon && o.type !== "sun" && o.type !== "planet" ? cy + iconSize / 2 + 12 : cy + r + 14;
+        content += '<text x="' + cx + '" y="' + labelY + '"' +
                    ' text-anchor="middle" fill="#9fb2cf" font-size="9" font-family="Space Grotesk, sans-serif">' +
                    escXml(label) + '</text>';
 
@@ -616,7 +649,7 @@
         if (o.goto) {
           var targetSys = data.systems.find(function (s) { return s.nick.toUpperCase() === o.goto.toUpperCase(); });
           var targetName = targetSys ? targetSys.name : o.goto;
-          content += '<text x="' + cx + '" y="' + (cy + r + 24) + '"' +
+          content += '<text x="' + cx + '" y="' + (labelY + 10) + '"' +
                      ' text-anchor="middle" fill="' + color + '" font-size="7.5" opacity="0.7"' +
                      ' font-family="IBM Plex Mono, monospace">→ ' + escXml(targetName) + '</text>';
         }

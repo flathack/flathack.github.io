@@ -253,6 +253,10 @@ def extract_universe(fl_ini: Path, res: DLLResolver) -> dict:
                     obj["base"] = base_nick
                 if goto_system:
                     obj["goto"] = goto_system
+                # Store archetype for icon lookup (lowercase, stripped)
+                arch_key = archetype.lower().strip()
+                if arch_key:
+                    obj["arch"] = arch_key
 
                 objects.append(obj)
 
