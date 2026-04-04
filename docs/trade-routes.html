@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trade Route Calculator | Flathack</title>
+  <meta name="description" content="Find the most profitable Freelancer trade routes across systems for Hamburg City, Crossfire, and more.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    /* ── Full-width override ───────────────────────────── */
+    .site-shell {
+      width: calc(100% - 32px);
+      max-width: none;
+    }
+
+    /* ── Trade Route Controls ──────────────────────────── */
+    .tr-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: flex-end;
+      margin-bottom: 18px;
+    }
+    .tr-field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .tr-field label {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+    .tr-field select,
+    .tr-field input[type="number"] {
+      background: rgba(4, 14, 23, 0.85);
+      border: 1px solid var(--panel-border);
+      border-radius: 10px;
+      color: var(--text);
+      padding: 10px 14px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      min-width: 100px;
+    }
+    .tr-field select { min-width: 190px; }
+    .tr-field input[type="number"] { width: 90px; }
+    .tr-field select:focus,
+    .tr-field input:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px rgba(88, 196, 255, 0.15);
+    }
+
+    /* ── Tabs ──────────────────────────────────────────── */
+    .tr-tabs {
+      display: flex;
+      gap: 8px;
+      margin-top: 6px;
+    }
+    .tr-tab {
+      padding: 10px 18px;
+      border: 1px solid var(--panel-border);
+      border-radius: 999px;
+      background: rgba(7, 16, 29, 0.72);
+      color: var(--muted);
+      font-family: inherit;
+      font-weight: 600;
+      font-size: 0.92rem;
+      cursor: pointer;
+      transition: 160ms ease;
+    }
+    .tr-tab:hover { color: var(--text); background: rgba(88, 196, 255, 0.08); }
+    .tr-tab.active {
+      color: var(--text);
+      background: rgba(88, 196, 255, 0.14);
+      border-color: rgba(88, 196, 255, 0.3);
+    }
+
+    /* ── Stats Bar ────────────────────────────────────── */
+    .tr-stats {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 14px;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+    .tr-stats strong { color: var(--accent-strong); }
+
+    /* ── Search ────────────────────────────────────────── */
+    .tr-search {
+      width: 100%;
+      padding: 10px 16px;
+      margin-bottom: 14px;
+      background: rgba(4, 14, 23, 0.7);
+      border: 1px solid var(--panel-border);
+      border-radius: 10px;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.95rem;
+    }
+    .tr-search:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    .tr-search::placeholder { color: rgba(159, 178, 207, 0.5); }
+
+    /* ── Table ─────────────────────────────────────────── */
+    .tr-table-wrap {
+      overflow-x: auto;
+      border-radius: 14px;
+      border: 1px solid var(--panel-border);
+    }
+    .tr-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      white-space: nowrap;
+    }
+    .tr-table th {
+      position: sticky;
+      top: 0;
+      padding: 6px 10px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-strong);
+      background: rgba(8, 20, 34, 0.95);
+      border-bottom: 1px solid var(--panel-border);
+      cursor: pointer;
+      user-select: none;
+    }
+    .tr-table th:hover { color: var(--text); }
+    .tr-table th .sort-arrow { margin-left: 4px; font-size: 0.7rem; }
+    .tr-table td {
+      padding: 2px 5px;
+      border-bottom: 1px solid rgba(132, 177, 255, 0.08);
+    }
+    .tr-table tbody tr:nth-child(even) { background: rgba(4, 14, 23, 0.35); }
+    .tr-table tbody tr:hover { background: rgba(88, 196, 255, 0.06); }
+
+    .td-num { text-align: right; font-family: "IBM Plex Mono", monospace; }
+    .td-profit { color: var(--success); font-weight: 600; }
+    .td-jumps { color: var(--accent-warm); }
+    .td-path { color: var(--muted); font-size: 0.82rem; white-space: normal; max-width: 220px; }
+
+    /* ── Round trip legs ───────────────────────────────── */
+    .tr-loop-legs {
+      display: none;
+      padding: 0;
+    }
+    .tr-loop-legs.open { display: table-row; }
+    .tr-loop-legs td {
+      padding: 0 8px 5px 9px;
+      border-bottom: 1px solid rgba(132, 177, 255, 0.08);
+    }
+    .tr-leg-detail {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 6px;
+      font-size: 0.84rem;
+      color: var(--muted);
+    }
+    .tr-leg-detail span { padding: 4px 0; }
+    .tr-leg-detail .leg-commodity { color: var(--text); }
+    .tr-leg-detail .leg-profit { color: var(--success); }
+
+    /* ── Loading ───────────────────────────────────────── */
+    .tr-loading {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      padding: 48px 0;
+    }
+    .tr-spinner {
+      width: 36px; height: 36px;
+      border: 3px solid var(--panel-border);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── Empty state ───────────────────────────────────── */
+    .tr-empty {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--muted);
+    }
+
+    /* ── Calc button ───────────────────────────────────── */
+    .tr-calc-btn {
+      align-self: flex-end;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 0 22px;
+      border: none;
+      border-radius: 999px;
+      font-family: inherit;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      color: #04111f;
+      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+      transition: 160ms ease;
+    }
+    .tr-calc-btn:hover { filter: brightness(1.1); }
+    .tr-calc-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    /* ── Responsive ────────────────────────────────────── */
+    @media (max-width: 700px) {
+      .tr-controls { flex-direction: column; align-items: stretch; }
+      .tr-field select, .tr-field input[type="number"] { min-width: unset; width: 100%; }
+      .tr-tabs { flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body class="gaming-theme">
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark">FH</span>
+        <span class="brand-text">Flathack Projects</span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="../index.html">Home</a>
+        <a href="fleditor.html">FL Atlas-Visual-Editor</a>
+        <a href="fl-atlas-savegame-editor.html">Savegame Editor</a>
+        <a href="fl-lingo.html">FL-Lingo</a>
+        <a class="active" href="trade-routes.html">Trade Routes</a>
+        <a href="../about/index.html">About</a>
+      </nav>
+    </header>
+
+    <main>
+      <a class="back-link" href="../index.html">&larr; Back to Home</a>
+
+      <section class="page-hero-copy" style="margin-bottom: 24px;">
+        <p class="eyebrow">Freelancer Tools</p>
+        <h1 style="max-width: 20ch;">Trade Route Calculator</h1>
+        <p class="page-intro">Find the most profitable trade routes across systems. Select your mod, your ship, and start trading.</p>
+      </section>
+
+      <!-- Controls -->
+      <section class="page-section" style="margin-bottom: 24px;">
+        <div class="tr-controls">
+          <div class="tr-field">
+            <label for="mod-select">Mod</label>
+            <select id="mod-select">
+              <option value="hamburg-city">Hamburg City</option>
+              <option value="crossfire">Crossfire 2.0</option>
+            </select>
+          </div>
+
+          <div class="tr-field">
+            <label for="ship-select">Ship</label>
+            <select id="ship-select">
+              <option value="">Loading...</option>
+            </select>
+          </div>
+
+          <div class="tr-field">
+            <label for="cargo-input">Cargo</label>
+            <input type="number" id="cargo-input" value="1" min="1" max="20000">
+          </div>
+
+          <div class="tr-field" id="jumps-field">
+            <label for="jumps-input">Max Jumps</label>
+            <input type="number" id="jumps-input" value="5" min="0" max="50">
+          </div>
+
+          <div class="tr-field" id="legs-field" style="display:none;">
+            <label for="legs-input">Legs</label>
+            <input type="number" id="legs-input" value="3" min="3" max="6">
+          </div>
+
+          <button class="tr-calc-btn" id="calc-btn" disabled>Calculate</button>
+        </div>
+
+        <div class="tr-tabs">
+          <button class="tr-tab active" data-mode="system">Trade Routes</button>
+          <button class="tr-tab" data-mode="inner">Inner System</button>
+          <button class="tr-tab" data-mode="loop">Rundkurs</button>
+        </div>
+      </section>
+
+      <!-- Results -->
+      <section class="page-section" id="results-section" style="display:none;">
+        <div class="tr-stats" id="stats-bar"></div>
+        <input type="text" id="search-input" class="tr-search" placeholder="Search routes...">
+        <div class="tr-table-wrap">
+          <table class="tr-table" id="results-table">
+            <thead id="table-head"></thead>
+            <tbody id="table-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Loading -->
+      <div class="tr-loading" id="loading">
+        <div class="tr-spinner"></div>
+        <p>Calculating routes...</p>
+      </div>
+    </main>
+  </div>
+
+  <script src="../assets/js/trade-engine.js"></script>
+  <script>
+    /* ── State ─────────────────────────────────────────── */
+    let engine = null;
+    let currentResults = [];
+    let currentMode = 'system';
+    let sortCol = -1;
+    let sortAsc = false;
+
+    /* ── DOM refs ──────────────────────────────────────── */
+    const $ = id => document.getElementById(id);
+    const modSelect    = $('mod-select');
+    const shipSelect   = $('ship-select');
+    const cargoInput   = $('cargo-input');
+    const jumpsInput   = $('jumps-input');
+    const legsInput    = $('legs-input');
+    const jumpsField   = $('jumps-field');
+    const legsField    = $('legs-field');
+    const calcBtn      = $('calc-btn');
+    const searchInput  = $('search-input');
+    const resultsSection = $('results-section');
+    const statsBar     = $('stats-bar');
+    const tableHead    = $('table-head');
+    const tableBody    = $('table-body');
+    const loading      = $('loading');
+
+    /* ── Formatters ────────────────────────────────────── */
+    const fmt = n => Number(n).toLocaleString('de-DE');
+
+    /* ── Mod Loading ───────────────────────────────────── */
+    async function loadMod(modId) {
+      engine = null;
+      calcBtn.disabled = true;
+      resultsSection.style.display = 'none';
+      loading.style.display = 'flex';
+      try {
+        const resp = await fetch('../data/trade-routes/' + modId + '.json');
+        if (!resp.ok) throw new Error('HTTP ' + resp.status);
+        const data = await resp.json();
+        engine = new TradeEngine(data);
+
+        shipSelect.innerHTML = '';
+        const cOpt = document.createElement('option');
+        cOpt.value = 'custom';
+        cOpt.textContent = 'Custom cargo';
+        shipSelect.appendChild(cOpt);
+
+        for (const ship of data.ships) {
+          const opt = document.createElement('option');
+          opt.value = ship.cargo;
+          opt.textContent = ship.name + '  [' + ship.cargo + ']';
+          shipSelect.appendChild(opt);
+        }
+        if (data.ships.length) {
+          shipSelect.value = data.ships[0].cargo;
+          cargoInput.value = data.ships[0].cargo;
+        }
+        calcBtn.disabled = false;
+      } catch (err) {
+        tableBody.innerHTML = '<tr><td colspan="99" class="tr-empty">Failed to load mod data: ' +
+          err.message + '</td></tr>';
+        resultsSection.style.display = '';
+      } finally {
+        loading.style.display = 'none';
+      }
+    }
+
+    /* ── Calculation ───────────────────────────────────── */
+    function calculate() {
+      if (!engine) return;
+      const cargo = Math.max(1, parseInt(cargoInput.value) || 1);
+      const jumps = Math.max(0, parseInt(jumpsInput.value) || 0);
+      const legs  = Math.max(3, Math.min(6, parseInt(legsInput.value) || 3));
+
+      loading.style.display = 'flex';
+      resultsSection.style.display = 'none';
+
+      setTimeout(() => {
+        try {
+          if (currentMode === 'system') {
+            currentResults = engine.bestRoutesBySystem(cargo, jumps);
+          } else if (currentMode === 'inner') {
+            currentResults = engine.innerSystemRoutes(cargo);
+          } else {
+            currentResults = engine.roundTrips(cargo, jumps, legs, 50);
+          }
+          sortCol = -1;
+          renderResults();
+          resultsSection.style.display = '';
+        } finally {
+          loading.style.display = 'none';
+        }
+      }, 30);
+    }
+
+    /* ── Rendering ─────────────────────────────────────── */
+
+    const COLS_ROUTE = [
+      { key: 'srcSys',       label: 'Source System' },
+      { key: 'buyBase',      label: 'Buy Base' },
+      { key: 'dstSys',       label: 'Target System' },
+      { key: 'sellBase',     label: 'Sell Base' },
+      { key: 'commodity',    label: 'Commodity' },
+      { key: 'buyPrice',     label: 'Buy $',       cls: 'td-num' },
+      { key: 'sellPrice',    label: 'Sell $',      cls: 'td-num' },
+      { key: 'profitPerUnit',label: 'Profit/U',    cls: 'td-num td-profit' },
+      { key: 'totalProfit',  label: 'Total Profit', cls: 'td-num td-profit' },
+      { key: 'jumps',        label: 'Jumps',        cls: 'td-num td-jumps' },
+      { key: 'path',         label: 'Path',         cls: 'td-path', format: v => Array.isArray(v) ? v.join(' → ') : v },
+    ];
+
+    const COLS_INNER = [
+      { key: 'srcSys',       label: 'System' },
+      { key: 'buyBase',      label: 'Buy Base' },
+      { key: 'sellBase',     label: 'Sell Base' },
+      { key: 'commodity',    label: 'Commodity' },
+      { key: 'buyPrice',     label: 'Buy $',       cls: 'td-num' },
+      { key: 'sellPrice',    label: 'Sell $',      cls: 'td-num' },
+      { key: 'profitPerUnit',label: 'Profit/U',    cls: 'td-num td-profit' },
+      { key: 'totalProfit',  label: 'Total Profit', cls: 'td-num td-profit' },
+    ];
+
+    const COLS_LOOP = [
+      { key: 'routeText',    label: 'Route' },
+      { key: 'commodities',  label: 'Commodities', format: v => Array.isArray(v) ? v.join(', ') : v },
+      { key: 'totalProfit',  label: 'Total Profit', cls: 'td-num td-profit' },
+      { key: 'totalJumps',   label: 'Jumps',        cls: 'td-num td-jumps' },
+    ];
+
+    function getCols() {
+      if (currentMode === 'inner') return COLS_INNER;
+      if (currentMode === 'loop') return COLS_LOOP;
+      return COLS_ROUTE;
+    }
+
+    function renderResults() {
+      const cols = getCols();
+      const query = searchInput.value.toLowerCase().trim();
+
+      // Header
+      tableHead.innerHTML = '<tr>' + cols.map((c, i) => {
+        const arrow = sortCol === i ? (sortAsc ? ' ▲' : ' ▼') : '';
+        return '<th data-col="' + i + '">' + c.label +
+          '<span class="sort-arrow">' + arrow + '</span></th>';
+      }).join('') + '</tr>';
+
+      // Filter
+      let rows = currentResults;
+      if (query) {
+        rows = rows.filter(r => {
+          const text = cols.map(c => {
+            const v = r[c.key];
+            return c.format ? c.format(v) : (typeof v === 'number' ? fmt(v) : String(v || ''));
+          }).join(' ').toLowerCase();
+          return text.includes(query);
+        });
+      }
+
+      // Sort
+      if (sortCol >= 0 && sortCol < cols.length) {
+        const key = cols[sortCol].key;
+        rows = rows.slice().sort((a, b) => {
+          let va = a[key], vb = b[key];
+          if (Array.isArray(va)) va = va.join(', ');
+          if (Array.isArray(vb)) vb = vb.join(', ');
+          if (typeof va === 'number' && typeof vb === 'number') {
+            return sortAsc ? va - vb : vb - va;
+          }
+          va = String(va || ''); vb = String(vb || '');
+          return sortAsc ? va.localeCompare(vb) : vb.localeCompare(va);
+        });
+      }
+
+      // Stats
+      if (currentMode === 'loop') {
+        statsBar.innerHTML = '<span>Routes: <strong>' + rows.length + '</strong></span>';
+      } else {
+        const best = rows.length ? fmt(rows[0].totalProfit) : '–';
+        statsBar.innerHTML =
+          '<span>Routes: <strong>' + rows.length + '</strong></span>' +
+          '<span>Best profit: <strong>' + best + '</strong></span>';
+      }
+
+      // Body
+      if (!rows.length) {
+        tableBody.innerHTML = '<tr><td colspan="' + cols.length + '" class="tr-empty">No routes found.</td></tr>';
+        return;
+      }
+
+      let html = '';
+      for (let i = 0; i < rows.length; i++) {
+        const r = rows[i];
+        html += '<tr' + (currentMode === 'loop' ? ' class="tr-loop-parent" data-idx="' + i + '"' : '') + '>';
+        for (const c of cols) {
+          const raw = r[c.key];
+          const val = c.format ? c.format(raw) : (typeof raw === 'number' ? fmt(raw) : String(raw || ''));
+          html += '<td' + (c.cls ? ' class="' + c.cls + '"' : '') + '>' + escHtml(val) + '</td>';
+        }
+        html += '</tr>';
+
+        // Loop legs (hidden, expand on click)
+        if (currentMode === 'loop' && r.legs) {
+          html += '<tr class="tr-loop-legs" data-parent="' + i + '"><td colspan="' + cols.length + '">';
+          html += '<div class="tr-leg-detail">';
+          r.legs.forEach((leg, li) => {
+            html += '<span><strong>Leg ' + (li + 1) + ':</strong> ' +
+              '<span class="leg-commodity">' + escHtml(leg.commodity) + '</span> ' +
+              escHtml(leg.buyBase) + ' → ' + escHtml(leg.sellBase) +
+              ' <span class="leg-profit">+' + fmt(leg.totalProfit) + '</span>' +
+              ' (' + leg.jumps + ' jumps)</span>';
+          });
+          html += '</div></td></tr>';
+        }
+      }
+      tableBody.innerHTML = html;
+    }
+
+    function escHtml(s) {
+      const d = document.createElement('div');
+      d.textContent = s;
+      return d.innerHTML;
+    }
+
+    /* ── Events ────────────────────────────────────────── */
+
+    modSelect.addEventListener('change', () => loadMod(modSelect.value));
+
+    shipSelect.addEventListener('change', () => {
+      if (shipSelect.value !== 'custom') {
+        cargoInput.value = shipSelect.value;
+      }
+    });
+
+    calcBtn.addEventListener('click', calculate);
+
+    document.querySelectorAll('.tr-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.tr-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        currentMode = tab.dataset.mode;
+
+        // Toggle field visibility
+        jumpsField.style.display = currentMode === 'inner' ? 'none' : '';
+        legsField.style.display = currentMode === 'loop' ? '' : 'none';
+
+        // Clear results when switching modes
+        currentResults = [];
+        resultsSection.style.display = 'none';
+      });
+    });
+
+    searchInput.addEventListener('input', () => { if (currentResults.length) renderResults(); });
+
+    // Column sort
+    tableHead.addEventListener('click', e => {
+      const th = e.target.closest('th');
+      if (!th) return;
+      const col = parseInt(th.dataset.col);
+      if (isNaN(col)) return;
+      if (sortCol === col) { sortAsc = !sortAsc; }
+      else { sortCol = col; sortAsc = false; }
+      renderResults();
+    });
+
+    // Expand/collapse loop legs
+    tableBody.addEventListener('click', e => {
+      const parent = e.target.closest('.tr-loop-parent');
+      if (!parent) return;
+      const idx = parent.dataset.idx;
+      const legs = tableBody.querySelector('.tr-loop-legs[data-parent="' + idx + '"]');
+      if (legs) legs.classList.toggle('open');
+    });
+
+    /* ── Init ──────────────────────────────────────────── */
+    loadMod(modSelect.value);
+  </script>
+</body>
+</html>
