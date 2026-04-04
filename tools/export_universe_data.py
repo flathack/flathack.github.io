@@ -25,6 +25,7 @@ OUTPUT_DIR = SCRIPT_DIR.parent / "data" / "universe"
 # Object archetype keywords that we want to show on the system map
 INTERESTING_ARCHETYPES = {
     "planet", "sun", "station", "jumpgate", "jumphole",
+    "gate", "base",  # Crossfire custom archetypes (nomad_gate, frgate, co_base …)
     "dock_ring", "docking_fixture", "trade_lane_ring",
     "depot", "weapons_platform", "dreadnought",
     "battleship", "mining", "surprise", "suprise",
@@ -44,11 +45,11 @@ def classify_object(archetype: str) -> str:
         return "sun"
     if "planet" in a or "moon" in a:
         return "planet"
-    if "jumpgate" in a:
+    if "jumpgate" in a or ("gate" in a and "hole" not in a):
         return "jump_gate"
     if "jumphole" in a:
         return "jump_hole"
-    if "station" in a or "dreadnought" in a or "battleship" in a:
+    if "station" in a or "base" in a or "dreadnought" in a or "battleship" in a:
         return "station"
     if "dock_ring" in a or "docking_fixture" in a:
         return "dock"
@@ -184,14 +185,18 @@ def extract_universe(fl_ini: Path, res: DLLResolver) -> dict:
 
                 archetype = vals.get("archetype", "")
                 nickname = vals.get("nickname", "")
+                has_base = bool(vals.get("base", ""))
                 # Detect surprise objects by archetype or nickname
                 is_surprise_nick = "surprise" in nickname.lower()
-                if not archetype or (not is_interesting(archetype) and not is_surprise_nick):
+                # Objects with a base= field are always dockable stations
+                if not archetype or (not is_interesting(archetype) and not is_surprise_nick and not has_base):
                     continue
 
                 category = classify_object(archetype)
                 if is_surprise_nick and category not in ("surprise",):
                     category = "surprise"
+                elif has_base and category in ("other",):
+                    category = "station"
 
                 # Parse position (x, y, z) — we use x and z for top-down view
                 pos_str = vals.get("pos", "0, 0, 0")
