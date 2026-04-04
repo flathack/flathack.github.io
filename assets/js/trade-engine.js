@@ -48,7 +48,9 @@ class TradeEngine {
 
   static CRUISE_SPEED = 300;   // m/s
   static TL_SPEED = 2500;     // m/s
-  static GATE_TIME = 5;       // seconds per jump gate/hole transition
+  static GATE_TIME = 10;      // seconds per jump gate/hole docking+transition
+  static DOCK_TIME = 10;      // seconds to dock at a base
+  static SELL_TIME = 5;       // seconds to sell cargo
 
   _findGatePos(systemNick, targetSystem) {
     const sysTravel = (this.data.travel || {})[systemNick];
@@ -135,6 +137,9 @@ class TradeEngine {
       // Add gate transition times
       totalTime += (path.length - 1) * TradeEngine.GATE_TIME;
     }
+
+    // Dock at buy base + sell at destination
+    totalTime += TradeEngine.DOCK_TIME + TradeEngine.SELL_TIME;
 
     return Math.round(totalTime);
   }
