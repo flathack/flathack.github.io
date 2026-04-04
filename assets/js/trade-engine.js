@@ -1,6 +1,6 @@
 /**
  * TradeEngine – client-side Freelancer trade route calculator.
- * Operates on pre-exported JSON data (systems, bases, commodities, markets, adjacency).
+ * Operates on pre-exported JSON data (systems, bases, commodities, markets, adjacency, travel).
  */
 class TradeEngine {
   constructor(data) {
@@ -44,9 +44,104 @@ class TradeEngine {
     return [];
   }
 
+  /* ── Travel time calculation ────────────────────────────── */
+
+  static CRUISE_SPEED = 300;   // m/s
+  static TL_SPEED = 2500;     // m/s
+  static GATE_TIME = 5;       // seconds per jump gate/hole transition
+
+  _findGatePos(systemNick, targetSystem) {
+    const sysTravel = (this.data.travel || {})[systemNick];
+    if (!sysTravel || !sysTravel.gates) return null;
+    const gate = sysTravel.gates.find(g => g.goto === targetSystem);
+    return gate ? gate.pos : null;
+  }
+
+  _intraSystemTime(systemNick, fromPos, toPos) {
+    const dx = toPos[0] - fromPos[0], dz = toPos[1] - fromPos[1];
+    const directDist = Math.hypot(dx, dz);
+    const directTime = directDist / TradeEngine.CRUISE_SPEED;
+
+    const sysTravel = (this.data.travel || {})[systemNick];
+    if (!sysTravel || !sysTravel.tl || !sysTravel.tl.length) return directTime;
+
+    let bestTime = directTime;
+
+    for (const polyline of sysTravel.tl) {
+      let nearFromIdx = 0, nearFromDist = Infinity;
+      let nearToIdx = 0, nearToDist = Infinity;
+
+      for (let j = 0; j < polyline.length; j++) {
+        const r = polyline[j];
+        const dF = Math.hypot(r[0] - fromPos[0], r[1] - fromPos[1]);
+        const dT = Math.hypot(r[0] - toPos[0], r[1] - toPos[1]);
+        if (dF < nearFromDist) { nearFromDist = dF; nearFromIdx = j; }
+        if (dT < nearToDist) { nearToDist = dT; nearToIdx = j; }
+      }
+
+      // Fly to TL, ride it, fly from TL
+      const timeToTL = nearFromDist / TradeEngine.CRUISE_SPEED;
+      const timeFromTL = nearToDist / TradeEngine.CRUISE_SPEED;
+
+      let tlDist = 0;
+      const si = Math.min(nearFromIdx, nearToIdx);
+      const ei = Math.max(nearFromIdx, nearToIdx);
+      for (let j = si; j < ei; j++) {
+        tlDist += Math.hypot(
+          polyline[j + 1][0] - polyline[j][0],
+          polyline[j + 1][1] - polyline[j][1]
+        );
+      }
+      const timeTL = tlDist / TradeEngine.TL_SPEED;
+
+      const total = timeToTL + timeTL + timeFromTL;
+      if (total < bestTime) bestTime = total;
+    }
+
+    return bestTime;
+  }
+
+  travelTime(route) {
+    const bases = this.data.bases;
+    const srcBase = bases[route.buyBaseNick];
+    const dstBase = bases[route.sellBaseNick];
+    if (!srcBase || !srcBase.pos || !dstBase || !dstBase.pos) return null;
+
+    const path = route.pathNicks;
+    if (!path || !path.length) return null;
+
+    let totalTime = 0;
+
+    if (path.length === 1) {
+      totalTime = this._intraSystemTime(path[0], srcBase.pos, dstBase.pos);
+    } else {
+      for (let i = 0; i < path.length; i++) {
+        let fromPos, toPos;
+
+        if (i === 0) {
+          fromPos = srcBase.pos;
+          toPos = this._findGatePos(path[i], path[i + 1]);
+        } else if (i === path.length - 1) {
+          fromPos = this._findGatePos(path[i], path[i - 1]);
+          toPos = dstBase.pos;
+        } else {
+          fromPos = this._findGatePos(path[i], path[i - 1]);
+          toPos = this._findGatePos(path[i], path[i + 1]);
+        }
+
+        if (!fromPos || !toPos) return null;
+        totalTime += this._intraSystemTime(path[i], fromPos, toPos);
+      }
+      // Add gate transition times
+      totalTime += (path.length - 1) * TradeEngine.GATE_TIME;
+    }
+
+    return Math.round(totalTime);
+  }
+
   /* ── Candidate route generation ─────────────────────────── */
 
-  candidateRoutes(cargoCapacity, maxJumps) {
+  candidateRoutes(cargoCapacity, maxJumps, tlOnly) {
     const routes = [];
     const { markets, commodities, bases, systems } = this.data;
 
@@ -66,14 +161,17 @@ class TradeEngine {
       if (!sources.length) continue;
 
       for (const source of sources) {
+        if (tlOnly && !(bases[source.base] && bases[source.base].tl)) continue;
         // Explicit sinks
         for (const sink of explicitSinks) {
+          if (tlOnly && !(bases[sink.base] && bases[sink.base].tl)) continue;
           this._tryAdd(routes, source, sink, commInfo, cargoCapacity, maxJumps);
         }
         // Implicit base-price sinks (every base not listed explicitly)
         const basePrice = commInfo.price;
         for (const baseNick in bases) {
           if (explicitBases.has(baseNick) || baseNick.includes('_miner')) continue;
+          if (tlOnly && !bases[baseNick].tl) continue;
           this._tryAdd(routes, source,
             { base: baseNick, sys: bases[baseNick].sys, price: basePrice, src: false },
             commInfo, cargoCapacity, maxJumps);
@@ -123,8 +221,14 @@ class TradeEngine {
 
   /* ── Public API ─────────────────────────────────────────── */
 
-  bestRoutesBySystem(cargoCapacity, maxJumps) {
-    const candidates = this.candidateRoutes(cargoCapacity, maxJumps);
+  bestRoutesBySystem(cargoCapacity, maxJumps, tlOnly) {
+    const candidates = this.candidateRoutes(cargoCapacity, maxJumps, tlOnly);
+    // Compute travel time + $/min for each route
+    for (const r of candidates) {
+      const tt = this.travelTime(r);
+      r.travelTime = tt;
+      r.profitPerMin = (tt && tt > 0) ? Math.round(r.totalProfit / (tt / 60)) : null;
+    }
     const best = Object.create(null);
     for (const r of candidates) {
       const cur = best[r.srcSysNick];
@@ -135,16 +239,22 @@ class TradeEngine {
     );
   }
 
-  innerSystemRoutes(cargoCapacity) {
-    return this.candidateRoutes(cargoCapacity, 0).sort((a, b) =>
+  innerSystemRoutes(cargoCapacity, tlOnly) {
+    const candidates = this.candidateRoutes(cargoCapacity, 0, tlOnly);
+    for (const r of candidates) {
+      const tt = this.travelTime(r);
+      r.travelTime = tt;
+      r.profitPerMin = (tt && tt > 0) ? Math.round(r.totalProfit / (tt / 60)) : null;
+    }
+    return candidates.sort((a, b) =>
       b.totalProfit - a.totalProfit || b.profitPerUnit - a.profitPerUnit
     );
   }
 
-  roundTrips(cargoCapacity, maxJumps, legCount, maxResults) {
+  roundTrips(cargoCapacity, maxJumps, legCount, maxResults, tlOnly) {
     legCount = Math.max(3, Math.min(legCount || 3, 6));
     maxResults = maxResults || 20;
-    const candidates = this.candidateRoutes(cargoCapacity, maxJumps);
+    const candidates = this.candidateRoutes(cargoCapacity, maxJumps, tlOnly);
     if (!candidates.length) return [];
 
     // Best edge per system pair
@@ -183,6 +293,17 @@ class TradeEngine {
         const c = canonical(cn);
         if (seenCycles.has(c)) return;
         seenCycles.add(c);
+        const totalProfit = legs.reduce((s, l) => s + l.totalProfit, 0);
+        const totalJumps = legs.reduce((s, l) => s + l.jumps, 0);
+        // Compute travel time for each leg and sum
+        let totalTravelTime = 0;
+        let hasTime = true;
+        for (const leg of legs) {
+          const tt = this.travelTime(leg);
+          leg.travelTime = tt;
+          if (tt != null) totalTravelTime += tt;
+          else hasTime = false;
+        }
         loops.push({
           startSysNick: start,
           startSys: legs[0].srcSys,
@@ -190,8 +311,10 @@ class TradeEngine {
           commodities: legs.map(l => l.commodity),
           legs: legs,
           cargo: cargoCapacity,
-          totalProfit: legs.reduce((s, l) => s + l.totalProfit, 0),
-          totalJumps: legs.reduce((s, l) => s + l.jumps, 0),
+          totalProfit: totalProfit,
+          totalJumps: totalJumps,
+          travelTime: hasTime ? Math.round(totalTravelTime) : null,
+          profitPerMin: hasTime && totalTravelTime > 0 ? Math.round(totalProfit / (totalTravelTime / 60)) : null,
         });
         return;
       }

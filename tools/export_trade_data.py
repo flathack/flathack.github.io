@@ -328,6 +328,115 @@ def enrich_bases(universe_file: Path, systems: dict, bases: dict):
                 bases[base_nick]["sys"] = sys_nick
 
 
+import math
+
+
+def extract_travel_data(universe_file: Path, systems: dict) -> dict:
+    """Extract travel-relevant data: base positions, TL proximity, gate positions, TL polylines."""
+    root = universe_file.parent  # DATA/UNIVERSE
+
+    base_positions: dict[str, list[float]] = {}   # base_nick_lower -> [x, z]
+    base_tl: dict[str, bool] = {}                 # base_nick_lower -> True/False
+    system_gates: dict[str, list[dict]] = {}       # SYS_NICK -> [{pos, goto}]
+    system_tl: dict[str, list] = {}                # SYS_NICK -> [[[x1,z1],[x2,z2],...], ...]
+
+    for sys_nick, sys_info in systems.items():
+        rel = sys_info.get("file", "").strip()
+        if not rel:
+            continue
+        sys_file = root / rel.replace("\\", "/")
+        if not sys_file.exists():
+            continue
+
+        tl_rings: dict[str, dict] = {}  # nick -> {pos, prev, next}
+        base_objs: list[dict] = []      # [{nick, pos}]
+        gate_objs: list[dict] = []      # [{pos, goto}]
+
+        for sec, entries in parse_ini(sys_file):
+            if sec.lower() != "object":
+                continue
+            vals = {k.lower(): v.strip() for k, v in entries}
+            pos_str = vals.get("pos", "0, 0, 0")
+            pos_parts = [p.strip() for p in pos_str.split(",")]
+            try:
+                x = float(pos_parts[0])
+                z = float(pos_parts[2]) if len(pos_parts) > 2 else 0.0
+            except (ValueError, IndexError):
+                x, z = 0.0, 0.0
+
+            nickname = vals.get("nickname", "")
+            archetype = vals.get("archetype", "").lower()
+
+            # Trade lane ring?
+            if "trade_lane_ring" in archetype or vals.get("prev_ring") or vals.get("next_ring"):
+                tl_rings[nickname] = {
+                    "pos": [x, z],
+                    "prev": vals.get("prev_ring", ""),
+                    "next": vals.get("next_ring", ""),
+                }
+
+            # Base?
+            base_nick = vals.get("base", "").lower()
+            if base_nick:
+                base_positions[base_nick] = [round(x), round(z)]
+                base_objs.append({"nick": base_nick, "pos": [x, z]})
+
+            # Gate/hole?
+            goto_str = vals.get("goto", "")
+            if goto_str:
+                goto_parts = [p.strip() for p in goto_str.split(",")]
+                goto_sys = goto_parts[0].upper() if goto_parts else ""
+                if goto_sys:
+                    gate_objs.append({
+                        "pos": [round(x), round(z)],
+                        "goto": goto_sys,
+                    })
+
+        # Build TL polylines
+        tl_polylines: list[list[list[float]]] = []
+        visited: set[str] = set()
+        for nick in tl_rings:
+            if nick in visited:
+                continue
+            start = nick
+            while tl_rings.get(start, {}).get("prev", ""):
+                prev = tl_rings[start]["prev"]
+                if prev not in tl_rings or prev in visited:
+                    break
+                start = prev
+            chain: list[list[float]] = []
+            cur = start
+            while cur and cur in tl_rings and cur not in visited:
+                visited.add(cur)
+                chain.append(tl_rings[cur]["pos"])
+                cur = tl_rings[cur].get("next", "")
+            if len(chain) >= 2:
+                tl_polylines.append([[round(p[0]), round(p[1])] for p in chain])
+
+        # Check TL proximity for bases in this system
+        for bo in base_objs:
+            nearby = False
+            for ring in tl_rings.values():
+                dx = bo["pos"][0] - ring["pos"][0]
+                dz = bo["pos"][1] - ring["pos"][1]
+                if math.hypot(dx, dz) <= 5000:
+                    nearby = True
+                    break
+            base_tl[bo["nick"]] = nearby
+
+        if gate_objs:
+            system_gates[sys_nick] = gate_objs
+        if tl_polylines:
+            system_tl[sys_nick] = tl_polylines
+
+    return {
+        "base_positions": base_positions,
+        "base_tl": base_tl,
+        "system_gates": system_gates,
+        "system_tl": system_tl,
+    }
+
+
 def extract_locked_hashes(universe_file: Path) -> set[int]:
     data_dir = universe_file.parent.parent
     for name in ("initialworld.ini", "InitialWorld.ini"):
@@ -759,6 +868,7 @@ def export_installation(inst: dict):
         comm_prices, comm_names = extract_commodity_prices(goods_files, res)
         markets = extract_market_entries(market_files, bases, comm_prices)
         ships = extract_ships(fl_ini, res, bases)
+        travel = extract_travel_data(universe_file, systems)
 
         output = {
             "id": inst["id"],
@@ -766,7 +876,12 @@ def export_installation(inst: dict):
             "ships": ships,
             "systems": {nick: info["name"] for nick, info in systems.items()},
             "bases": {
-                nick: {"name": info["name"], "sys": info.get("sys", "")}
+                nick: {
+                    "name": info["name"],
+                    "sys": info.get("sys", ""),
+                    **({"pos": travel["base_positions"][nick]} if nick in travel["base_positions"] else {}),
+                    **({"tl": True} if travel["base_tl"].get(nick) else {}),
+                }
                 for nick, info in bases.items()
             },
             "adjacency": adjacency,
@@ -779,6 +894,14 @@ def export_installation(inst: dict):
                 if price > 0
             },
             "markets": markets,
+            "travel": {
+                sys_nick: {
+                    **({"gates": travel["system_gates"][sys_nick]} if sys_nick in travel["system_gates"] else {}),
+                    **({"tl": travel["system_tl"][sys_nick]} if sys_nick in travel["system_tl"] else {}),
+                }
+                for sys_nick in systems
+                if sys_nick in travel["system_gates"] or sys_nick in travel["system_tl"]
+            },
         }
 
         OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
