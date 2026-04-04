@@ -14,6 +14,10 @@
       { label: "Hamburg City", hash: "hamburg-city" },
       { label: "Crossfire 2.0", hash: "crossfire" },
     ]},
+    { label: "Universum", href: "docs/universe-viewer.html", children: [
+      { label: "Hamburg City", hash: "hamburg-city" },
+      { label: "Crossfire 2.0", hash: "crossfire" },
+    ]},
     { label: "Signaturen", href: "docs/forum-signature-progress.html" },
   ];
 

@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Universum | Flathack</title>
+  <meta name="description" content="Interaktive Freelancer-Universumskarte: Systeme, Sprungverbindungen, Planeten und Stationen für Hamburg City, Crossfire und weitere Mods.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    /* ── Full-width override ── */
+    .site-shell { width: calc(100% - 32px); max-width: none; }
+
+    /* ── Universe viewer container ── */
+    .uv-container {
+      position: relative;
+      border: 1px solid var(--panel-border);
+      border-radius: 14px;
+      background: rgba(6, 14, 26, 0.85);
+      overflow: hidden;
+      min-height: 600px;
+      cursor: grab;
+    }
+    .uv-container.dragging { cursor: grabbing; }
+
+    .uv-container svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* ── Controls bar ── */
+    .uv-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+    .uv-controls .uv-field {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .uv-controls label {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+    .uv-controls input[type="text"] {
+      min-height: 40px;
+      padding: 0 14px;
+      border: 1px solid rgba(132, 177, 255, 0.2);
+      border-radius: 12px;
+      background: rgba(6, 14, 26, 0.8);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.95rem;
+      min-width: 240px;
+    }
+
+    .uv-btn {
+      padding: 8px 18px;
+      border: 1px solid rgba(132, 177, 255, 0.25);
+      border-radius: 10px;
+      background: rgba(6, 14, 26, 0.7);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: background 200ms, border-color 200ms;
+    }
+    .uv-btn:hover {
+      background: rgba(88, 196, 255, 0.12);
+      border-color: var(--accent);
+    }
+    .uv-btn.active {
+      background: rgba(88, 196, 255, 0.18);
+      border-color: var(--accent);
+      color: var(--accent-strong);
+    }
+
+    .uv-zoom-controls {
+      display: flex;
+      gap: 6px;
+      margin-left: auto;
+    }
+    .uv-zoom-controls .uv-btn { font-size: 1.1rem; padding: 6px 14px; }
+
+    /* ── Breadcrumb ── */
+    .uv-breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+    .uv-breadcrumb a {
+      color: var(--accent);
+      cursor: pointer;
+      transition: color 200ms;
+    }
+    .uv-breadcrumb a:hover { color: var(--accent-strong); }
+    .uv-breadcrumb .separator { opacity: 0.4; }
+
+    /* ── Info panel (right side overlay) ── */
+    .uv-info-panel {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 300px;
+      max-height: calc(100% - 24px);
+      overflow-y: auto;
+      padding: 20px;
+      border: 1px solid var(--panel-border);
+      border-radius: 14px;
+      background: rgba(8, 18, 32, 0.95);
+      backdrop-filter: blur(12px);
+      font-size: 0.88rem;
+      display: none;
+      z-index: 10;
+    }
+    .uv-info-panel.visible { display: block; }
+    .uv-info-panel h3 {
+      margin: 0 0 12px;
+      font-size: 1.05rem;
+      color: var(--accent-strong);
+    }
+    .uv-info-panel .uv-info-close {
+      position: absolute;
+      top: 10px;
+      right: 14px;
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+    .uv-info-panel .uv-info-close:hover { color: var(--text); }
+    .uv-info-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .uv-info-list li {
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(132, 177, 255, 0.08);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .uv-info-list li:last-child { border-bottom: none; }
+    .uv-obj-icon {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .uv-obj-label { flex: 1; }
+    .uv-obj-type {
+      font-size: 0.75rem;
+      color: var(--muted);
+      font-family: "IBM Plex Mono", monospace;
+    }
+
+    /* ── Legend ── */
+    .uv-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 12px;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+    .uv-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .uv-legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ── Stats bar ── */
+    .uv-stats {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 12px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+    .uv-stats strong { color: var(--accent-strong); }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .uv-info-panel { width: 240px; }
+    }
+    @media (max-width: 520px) {
+      .uv-info-panel {
+        position: fixed;
+        top: auto;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        max-height: 50vh;
+        border-radius: 14px 14px 0 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark">FH</span>
+        <span class="brand-text">Flathack Projects</span>
+      </a>
+      <nav class="project-top-nav" aria-label="Projekt-Navigation"></nav>
+    </header>
+
+    <main>
+      <h2 style="margin: 0 0 4px;">Universum</h2>
+      <p style="color: var(--muted); margin: 0 0 18px; font-size: 0.92rem;">Interaktive Karte des Freelancer-Universums — klicke auf ein System für Details.</p>
+
+      <div class="uv-breadcrumb" id="breadcrumb">
+        <span>Universumskarte</span>
+      </div>
+
+      <div class="uv-controls">
+        <div class="uv-field">
+          <label for="search">Suche</label>
+          <input type="text" id="search" placeholder="System oder Objekt suchen…">
+        </div>
+        <button class="uv-btn active" id="btnShowHoles" title="Jump Holes ein-/ausblenden">Jump Holes</button>
+        <div class="uv-zoom-controls">
+          <button class="uv-btn" id="btnZoomIn" title="Vergrößern">+</button>
+          <button class="uv-btn" id="btnZoomOut" title="Verkleinern">−</button>
+          <button class="uv-btn" id="btnZoomReset" title="Zurücksetzen">⌂</button>
+        </div>
+      </div>
+
+      <div class="uv-stats" id="stats"></div>
+
+      <div class="uv-container" id="viewer">
+        <svg id="svgCanvas"></svg>
+        <div class="uv-info-panel" id="infoPanel">
+          <button class="uv-info-close" id="infoClose">✕</button>
+          <h3 id="infoPanelTitle"></h3>
+          <ul class="uv-info-list" id="infoPanelList"></ul>
+        </div>
+      </div>
+
+      <div class="uv-legend" id="legend"></div>
+
+      <footer class="page-footer" style="margin-top: 32px;">
+        &copy; 2026 Steven Schödel — Flathack Projects
+      </footer>
+    </main>
+  </div>
+
+  <script>
+  (function () {
+    "use strict";
+
+    /* ── Color palette for object types ── */
+    var COLORS = {
+      sun:              "#FFD700",
+      planet:           "#58c4ff",
+      jump_gate:        "#34d399",
+      jump_hole:        "#a78bfa",
+      station:          "#f59e0b",
+      dock:             "#94a3b8",
+      depot:            "#fb923c",
+      weapons_platform: "#ef4444",
+      mining:           "#d97706",
+      nebula:           "#c084fc",
+      asteroid_field:   "#a8763e",
+      trade_lane:       "#38bdf8",
+      surprise:         "#ff0000",
+      other:            "#6b7280",
+    };
+
+    var TYPE_LABELS = {
+      sun:              "Sonne",
+      planet:           "Planet",
+      jump_gate:        "Jump Gate",
+      jump_hole:        "Jump Hole",
+      station:          "Station",
+      dock:             "Dock",
+      depot:            "Depot",
+      weapons_platform: "Waffenplattform",
+      mining:           "Mining",
+      nebula:           "Nebel",
+      asteroid_field:   "Asteroidenfeld",
+      trade_lane:       "Trade Lane",
+      surprise:         "Surprise",
+      other:            "Sonstige",
+    };
+
+    /* ── State ── */
+    var data = null;
+    var currentMod = "";
+    var viewMode = "universe"; // "universe" or "system"
+    var currentSystem = null;
+    var showJumpHoles = true;
+
+    // Pan & zoom state
+    var viewBox = { x: 0, y: 0, w: 1000, h: 800 };
+    var isPanning = false;
+    var panStart = { x: 0, y: 0 };
+    var panViewStart = { x: 0, y: 0 };
+
+    /* ── DOM refs ── */
+    var svg = document.getElementById("svgCanvas");
+    var viewer = document.getElementById("viewer");
+    var infoPanel = document.getElementById("infoPanel");
+    var infoPanelTitle = document.getElementById("infoPanelTitle");
+    var infoPanelList = document.getElementById("infoPanelList");
+    var infoClose = document.getElementById("infoClose");
+    var breadcrumb = document.getElementById("breadcrumb");
+    var statsEl = document.getElementById("stats");
+    var searchInput = document.getElementById("search");
+    var legendEl = document.getElementById("legend");
+    var btnShowHoles = document.getElementById("btnShowHoles");
+    var btnZoomIn = document.getElementById("btnZoomIn");
+    var btnZoomOut = document.getElementById("btnZoomOut");
+    var btnZoomReset = document.getElementById("btnZoomReset");
+
+    /* ── Data loading ── */
+    function loadMod(mod) {
+      currentMod = mod;
+      var url = "../data/universe/" + mod + ".json";
+      fetch(url)
+        .then(function (r) { return r.json(); })
+        .then(function (d) {
+          data = d;
+          showUniverse();
+        })
+        .catch(function () {
+          svg.innerHTML = '<text x="50%" y="50%" text-anchor="middle" fill="#ef4444" font-size="16">Fehler beim Laden der Daten.</text>';
+        });
+    }
+
+    /* ── Universe map (all systems) ── */
+    function showUniverse() {
+      viewMode = "universe";
+      currentSystem = null;
+      infoPanel.classList.remove("visible");
+
+      if (!data || !data.systems.length) {
+        svg.innerHTML = '<text x="50%" y="50%" text-anchor="middle" fill="' + COLORS.other + '" font-size="14">Keine Systemdaten gefunden.</text>';
+        return;
+      }
+
+      // Compute bounding box of system positions
+      var minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+      data.systems.forEach(function (s) {
+        if (s.pos[0] < minX) minX = s.pos[0];
+        if (s.pos[1] < minY) minY = s.pos[1];
+        if (s.pos[0] > maxX) maxX = s.pos[0];
+        if (s.pos[1] > maxY) maxY = s.pos[1];
+      });
+
+      var rangeX = maxX - minX || 1;
+      var rangeY = maxY - minY || 1;
+      var padding = 80;
+      var w = 1200;
+      var h = Math.max(800, w * (rangeY / rangeX));
+      var scaleX = (w - padding * 2) / rangeX;
+      var scaleY = (h - padding * 2) / rangeY;
+      var scale = Math.min(scaleX, scaleY);
+
+      // Center offset
+      var usedW = rangeX * scale;
+      var usedH = rangeY * scale;
+      var offX = (w - usedW) / 2;
+      var offY = (h - usedH) / 2;
+
+      function mapX(v) { return offX + (v - minX) * scale; }
+      function mapY(v) { return offY + (v - minY) * scale; }
+
+      // Build nick -> screen pos lookup
+      var sysPos = {};
+      data.systems.forEach(function (s) {
+        sysPos[s.nick.toUpperCase()] = {
+          x: mapX(s.pos[0]),
+          y: mapY(s.pos[1]),
+          name: s.name,
+          nick: s.nick,
+          obj: s,
+        };
+      });
+
+      var lines = "";
+      var drawnConn = {};
+
+      // Draw connections
+      data.connections.forEach(function (c) {
+        var from = sysPos[c.from.toUpperCase()];
+        var to = sysPos[c.to.toUpperCase()];
+        if (!from || !to) return;
+
+        var key = [c.from, c.to].sort().join("-");
+        if (drawnConn[key]) return;
+        drawnConn[key] = true;
+
+        var isHole = c.type === "jump_hole";
+        if (isHole && !showJumpHoles) return;
+
+        var color = isHole ? COLORS.jump_hole : COLORS.jump_gate;
+        var dash = isHole ? ' stroke-dasharray="6,4"' : "";
+        var opacity = isHole ? "0.4" : "0.35";
+        lines += '<line x1="' + from.x + '" y1="' + from.y + '" x2="' + to.x + '" y2="' + to.y + '"' +
+                 ' stroke="' + color + '" stroke-width="1.2" opacity="' + opacity + '"' + dash + '/>';
+      });
+
+      var nodes = "";
+      data.systems.forEach(function (s) {
+        var sp = sysPos[s.nick.toUpperCase()];
+        if (!sp) return;
+
+        var objCount = s.objects ? s.objects.length : 0;
+        var r = Math.max(5, Math.min(12, 4 + objCount * 0.4));
+
+        // Color based on dominant object types
+        var hasStation = false;
+        if (s.objects) {
+          s.objects.forEach(function (o) {
+            if (o.type === "station") hasStation = true;
+          });
+        }
+        var fillColor = hasStation ? COLORS.station : COLORS.planet;
+
+        nodes += '<g class="uv-system-node" data-nick="' + escAttr(s.nick) + '" style="cursor:pointer;">' +
+                 '<circle cx="' + sp.x + '" cy="' + sp.y + '" r="' + r + '"' +
+                 ' fill="' + fillColor + '" opacity="0.8"' +
+                 ' stroke="' + fillColor + '" stroke-width="0.5" stroke-opacity="0.4"/>' +
+                 '<circle cx="' + sp.x + '" cy="' + sp.y + '" r="' + (r + 6) + '"' +
+                 ' fill="transparent" stroke="transparent"/>' + // hit area
+                 '<text x="' + sp.x + '" y="' + (sp.y + r + 14) + '"' +
+                 ' text-anchor="middle" fill="#9fb2cf" font-size="9" font-family="Space Grotesk, sans-serif">' +
+                 escXml(s.name) + '</text>' +
+                 '</g>';
+      });
+
+      viewBox = { x: 0, y: 0, w: w, h: h };
+      svg.setAttribute("viewBox", viewBox.x + " " + viewBox.y + " " + viewBox.w + " " + viewBox.h);
+      svg.innerHTML = '<g id="connections">' + lines + '</g><g id="nodes">' + nodes + '</g>';
+
+      // Adjust container height
+      var aspect = h / w;
+      viewer.style.height = Math.min(800, viewer.offsetWidth * aspect) + "px";
+
+      // Click handler for system nodes
+      svg.querySelectorAll(".uv-system-node").forEach(function (node) {
+        node.addEventListener("click", function (e) {
+          e.stopPropagation();
+          var nick = node.getAttribute("data-nick");
+          var sys = data.systems.find(function (s) { return s.nick === nick; });
+          if (sys) showSystem(sys);
+        });
+      });
+
+      // Update breadcrumb
+      breadcrumb.innerHTML = "<span>Universumskarte</span>";
+
+      // Update stats
+      var totalObj = 0;
+      data.systems.forEach(function (s) { totalObj += (s.objects ? s.objects.length : 0); });
+      statsEl.innerHTML = "Systeme: <strong>" + data.systems.length + "</strong> · " +
+                          "Verbindungen: <strong>" + data.connections.length + "</strong> · " +
+                          "Objekte: <strong>" + totalObj + "</strong>";
+
+      // Legend
+      legendEl.innerHTML =
+        legendItem(COLORS.station, "System mit Station") +
+        legendItem(COLORS.planet, "System") +
+        legendItem(COLORS.jump_gate, "Jump Gate Verbindung") +
+        legendItem(COLORS.jump_hole, "Jump Hole Verbindung");
+    }
+
+    /* ── System detail view ── */
+    function showSystem(sys) {
+      viewMode = "system";
+      currentSystem = sys;
+      infoPanel.classList.remove("visible");
+
+      var objects = sys.objects || [];
+      if (!objects.length) {
+        svg.innerHTML = '<text x="50%" y="50%" text-anchor="middle" fill="' + COLORS.other + '" font-size="14">Keine Objekte in diesem System.</text>';
+        updateBreadcrumb(sys);
+        return;
+      }
+
+      // Freelancer nav map grid: 8×8 cells, half_extent = 120000 / NavMapScale
+      var gridSize = 8;
+      var navmapscale = sys.navmapscale || 1.0;
+      var gridRange = 120000 / navmapscale; // half-extent in game units
+      var fullRange = gridRange * 2;
+      var padding = 60;
+      var w = 1000;
+      var h = 1000;
+      var cellSvg = (w - padding * 2) / gridSize;
+      var gridLeft = padding;
+      var gridTop = padding;
+      var gridW = cellSvg * gridSize;
+      var gridH = cellSvg * gridSize;
+
+      function mapObjX(v) { return gridLeft + ((v + gridRange) / fullRange) * gridW; }
+      function mapObjZ(v) { return gridTop + ((v + gridRange) / fullRange) * gridH; }
+
+      var content = "";
+
+      // Draw 8×8 grid
+      var gridLabels = ["A", "B", "C", "D", "E", "F", "G", "H"];
+      for (var gi = 0; gi <= gridSize; gi++) {
+        var gx = gridLeft + gi * cellSvg;
+        var gy = gridTop + gi * cellSvg;
+        // Vertical line
+        content += '<line x1="' + gx + '" y1="' + gridTop + '" x2="' + gx + '" y2="' + (gridTop + gridH) + '"' +
+                   ' stroke="rgba(132,177,255,0.08)" stroke-width="0.8"/>';
+        // Horizontal line
+        content += '<line x1="' + gridLeft + '" y1="' + gy + '" x2="' + (gridLeft + gridW) + '" y2="' + gy + '"' +
+                   ' stroke="rgba(132,177,255,0.08)" stroke-width="0.8"/>';
+      }
+      // Grid labels
+      for (var gc = 0; gc < gridSize; gc++) {
+        // Column labels (A-H) at top
+        content += '<text x="' + (gridLeft + gc * cellSvg + cellSvg / 2) + '" y="' + (gridTop - 8) + '"' +
+                   ' text-anchor="middle" fill="rgba(132,177,255,0.25)" font-size="10"' +
+                   ' font-family="IBM Plex Mono, monospace">' + gridLabels[gc] + '</text>';
+        // Row labels (1-8) at left
+        content += '<text x="' + (gridLeft - 10) + '" y="' + (gridTop + gc * cellSvg + cellSvg / 2 + 3) + '"' +
+                   ' text-anchor="middle" fill="rgba(132,177,255,0.25)" font-size="10"' +
+                   ' font-family="IBM Plex Mono, monospace">' + (gc + 1) + '</text>';
+      }
+
+      // ── Draw zones (nebulae + asteroid fields) as background ellipses ──
+      var zones = sys.zones || [];
+      zones.forEach(function (z) {
+        var cx = mapObjX(z.pos[0]);
+        var cy = mapObjZ(z.pos[1]);
+        var color = COLORS[z.type] || COLORS.other;
+        // Map zone size from game units to SVG units
+        var rx = (z.size[0] / fullRange) * gridW;
+        var ry = (z.size[1] / fullRange) * gridH;
+        if (rx < 3) rx = 3;
+        if (ry < 3) ry = 3;
+        content += '<ellipse cx="' + cx + '" cy="' + cy + '" rx="' + rx + '" ry="' + ry + '"' +
+                   ' fill="' + color + '" opacity="0.08"' +
+                   ' stroke="' + color + '" stroke-width="0.6" stroke-opacity="0.2" stroke-dasharray="4,3"/>';
+      });
+
+      // ── Draw trade lane polylines ──
+      var tradeLanes = sys.trade_lanes || [];
+      tradeLanes.forEach(function (chain) {
+        if (chain.length < 2) return;
+        var points = chain.map(function (p) {
+          return mapObjX(p[0]) + "," + mapObjZ(p[1]);
+        }).join(" ");
+        content += '<polyline points="' + points + '"' +
+                   ' fill="none" stroke="' + COLORS.trade_lane + '" stroke-width="1.5"' +
+                   ' opacity="0.35" stroke-linecap="round" stroke-linejoin="round"/>';
+      });
+
+      // ── Draw objects ──
+      objects.forEach(function (o) {
+        if (o.type === "jump_hole" && !showJumpHoles) return;
+
+        var cx = mapObjX(o.pos[0]);
+        var cy = mapObjZ(o.pos[1]);
+        var color = COLORS[o.type] || COLORS.other;
+        var r = getObjectRadius(o.type);
+        var label = o.name || o.nick;
+
+        content += '<g class="uv-obj-node" data-nick="' + escAttr(o.nick) + '" style="cursor:pointer;">';
+
+        if (o.type === "sun") {
+          content += '<circle cx="' + cx + '" cy="' + cy + '" r="' + (r + 10) + '"' +
+                     ' fill="' + color + '" opacity="0.08"/>';
+          content += '<circle cx="' + cx + '" cy="' + cy + '" r="' + (r + 4) + '"' +
+                     ' fill="' + color + '" opacity="0.15"/>';
+        }
+
+        if (o.type === "surprise") {
+          var s = r + 2;
+          content += '<line x1="' + (cx - s) + '" y1="' + (cy - s) + '" x2="' + (cx + s) + '" y2="' + (cy + s) + '"' +
+                     ' stroke="' + color + '" stroke-width="3" stroke-linecap="round" opacity="0.9"/>';
+          content += '<line x1="' + (cx + s) + '" y1="' + (cy - s) + '" x2="' + (cx - s) + '" y2="' + (cy + s) + '"' +
+                     ' stroke="' + color + '" stroke-width="3" stroke-linecap="round" opacity="0.9"/>';
+        } else {
+          content += '<circle cx="' + cx + '" cy="' + cy + '" r="' + r + '"' +
+                     ' fill="' + color + '" opacity="0.85"' +
+                     ' stroke="' + color + '" stroke-width="0.8" stroke-opacity="0.5"/>';
+        }
+
+        // Hit area
+        content += '<circle cx="' + cx + '" cy="' + cy + '" r="' + Math.max(r + 8, 16) + '"' +
+                   ' fill="transparent"/>';
+
+        // Label
+        content += '<text x="' + cx + '" y="' + (cy + r + 14) + '"' +
+                   ' text-anchor="middle" fill="#9fb2cf" font-size="9" font-family="Space Grotesk, sans-serif">' +
+                   escXml(label) + '</text>';
+
+        // Goto indicator for jump gates/holes
+        if (o.goto) {
+          var targetSys = data.systems.find(function (s) { return s.nick.toUpperCase() === o.goto.toUpperCase(); });
+          var targetName = targetSys ? targetSys.name : o.goto;
+          content += '<text x="' + cx + '" y="' + (cy + r + 24) + '"' +
+                     ' text-anchor="middle" fill="' + color + '" font-size="7.5" opacity="0.7"' +
+                     ' font-family="IBM Plex Mono, monospace">→ ' + escXml(targetName) + '</text>';
+        }
+
+        content += '</g>';
+      });
+
+      viewBox = { x: 0, y: 0, w: w, h: h };
+      svg.setAttribute("viewBox", viewBox.x + " " + viewBox.y + " " + viewBox.w + " " + viewBox.h);
+      svg.innerHTML = content;
+
+      viewer.style.height = Math.min(900, viewer.offsetWidth) + "px";
+
+      // Click handler for objects
+      svg.querySelectorAll(".uv-obj-node").forEach(function (node) {
+        node.addEventListener("click", function (e) {
+          e.stopPropagation();
+          var nick = node.getAttribute("data-nick");
+          var obj = objects.find(function (o) { return o.nick === nick; });
+          if (obj) showObjectInfo(obj);
+        });
+      });
+
+      updateBreadcrumb(sys);
+
+      // Stats for this system
+      var typeCounts = {};
+      objects.forEach(function (o) {
+        typeCounts[o.type] = (typeCounts[o.type] || 0) + 1;
+      });
+      if (tradeLanes.length) typeCounts["trade_lane"] = tradeLanes.length;
+      zones.forEach(function (z) {
+        typeCounts[z.type] = (typeCounts[z.type] || 0) + 1;
+      });
+      var statParts = [];
+      Object.keys(typeCounts).forEach(function (t) {
+        statParts.push((TYPE_LABELS[t] || t) + ": <strong>" + typeCounts[t] + "</strong>");
+      });
+      statsEl.innerHTML = statParts.join(" · ");
+
+      // Legend for this system
+      var typesUsed = Object.keys(typeCounts);
+      legendEl.innerHTML = typesUsed.map(function (t) {
+        return legendItem(COLORS[t] || COLORS.other, TYPE_LABELS[t] || t);
+      }).join("");
+    }
+
+    /* ── Object info panel ── */
+    function showObjectInfo(obj) {
+      infoPanelTitle.textContent = obj.name || obj.nick;
+      var items = '';
+      items += infoRow("Typ", TYPE_LABELS[obj.type] || obj.type, COLORS[obj.type]);
+      items += infoRow("Nickname", obj.nick);
+      items += infoRow("Position", Math.round(obj.pos[0]) + ", " + Math.round(obj.pos[1]));
+      if (obj.base) items += infoRow("Basis", obj.base);
+      if (obj.goto) {
+        var targetSys = data.systems.find(function (s) { return s.nick.toUpperCase() === obj.goto.toUpperCase(); });
+        var gotoLabel = targetSys ? targetSys.name : obj.goto;
+        items += '<li style="cursor:pointer;color:var(--accent);" data-goto="' + escAttr(obj.goto) + '">' +
+                 '<span class="uv-obj-icon" style="background:' + (COLORS[obj.type] || COLORS.other) + ';"></span>' +
+                 '<span class="uv-obj-label">→ ' + escXml(gotoLabel) + '</span>' +
+                 '<span class="uv-obj-type">Sprung</span></li>';
+      }
+      infoPanelList.innerHTML = items;
+      infoPanel.classList.add("visible");
+
+      // Goto click
+      infoPanelList.querySelectorAll("[data-goto]").forEach(function (el) {
+        el.addEventListener("click", function () {
+          var target = el.getAttribute("data-goto");
+          var sys = data.systems.find(function (s) { return s.nick.toUpperCase() === target.toUpperCase(); });
+          if (sys) showSystem(sys);
+        });
+      });
+    }
+
+    function infoRow(label, value, color) {
+      return '<li>' +
+             (color ? '<span class="uv-obj-icon" style="background:' + color + ';"></span>' : '') +
+             '<span class="uv-obj-label">' + escXml(value) + '</span>' +
+             '<span class="uv-obj-type">' + escXml(label) + '</span></li>';
+    }
+
+    /* ── Breadcrumb ── */
+    function updateBreadcrumb(sys) {
+      breadcrumb.innerHTML =
+        '<a id="bcUniverse">Universumskarte</a>' +
+        '<span class="separator">›</span>' +
+        '<span>' + escXml(sys.name) + '</span>';
+      document.getElementById("bcUniverse").addEventListener("click", function () {
+        showUniverse();
+      });
+    }
+
+    /* ── Pan & Zoom ── */
+    viewer.addEventListener("mousedown", function (e) {
+      if (e.button !== 0) return;
+      isPanning = true;
+      panStart = { x: e.clientX, y: e.clientY };
+      panViewStart = { x: viewBox.x, y: viewBox.y };
+      viewer.classList.add("dragging");
+    });
+
+    window.addEventListener("mousemove", function (e) {
+      if (!isPanning) return;
+      var rect = viewer.getBoundingClientRect();
+      var scaleFactorX = viewBox.w / rect.width;
+      var scaleFactorY = viewBox.h / rect.height;
+      viewBox.x = panViewStart.x - (e.clientX - panStart.x) * scaleFactorX;
+      viewBox.y = panViewStart.y - (e.clientY - panStart.y) * scaleFactorY;
+      applyViewBox();
+    });
+
+    window.addEventListener("mouseup", function () {
+      isPanning = false;
+      viewer.classList.remove("dragging");
+    });
+
+    viewer.addEventListener("wheel", function (e) {
+      e.preventDefault();
+      var factor = e.deltaY > 0 ? 1.15 : 0.87;
+      zoom(factor, e.clientX, e.clientY);
+    }, { passive: false });
+
+    btnZoomIn.addEventListener("click", function () {
+      var rect = viewer.getBoundingClientRect();
+      zoom(0.75, rect.left + rect.width / 2, rect.top + rect.height / 2);
+    });
+    btnZoomOut.addEventListener("click", function () {
+      var rect = viewer.getBoundingClientRect();
+      zoom(1.35, rect.left + rect.width / 2, rect.top + rect.height / 2);
+    });
+    btnZoomReset.addEventListener("click", function () {
+      if (viewMode === "system" && currentSystem) {
+        showSystem(currentSystem);
+      } else {
+        showUniverse();
+      }
+    });
+
+    function zoom(factor, clientX, clientY) {
+      var rect = viewer.getBoundingClientRect();
+      var mx = ((clientX - rect.left) / rect.width) * viewBox.w + viewBox.x;
+      var my = ((clientY - rect.top) / rect.height) * viewBox.h + viewBox.y;
+
+      var newW = viewBox.w * factor;
+      var newH = viewBox.h * factor;
+
+      viewBox.x = mx - (mx - viewBox.x) * factor;
+      viewBox.y = my - (my - viewBox.y) * factor;
+      viewBox.w = newW;
+      viewBox.h = newH;
+      applyViewBox();
+    }
+
+    function applyViewBox() {
+      svg.setAttribute("viewBox", viewBox.x + " " + viewBox.y + " " + viewBox.w + " " + viewBox.h);
+    }
+
+    /* ── Search ── */
+    var searchTimeout;
+    searchInput.addEventListener("input", function () {
+      clearTimeout(searchTimeout);
+      searchTimeout = setTimeout(doSearch, 300);
+    });
+
+    function doSearch() {
+      var q = searchInput.value.trim().toLowerCase();
+      if (!q || !data) {
+        // Reset highlights
+        svg.querySelectorAll(".uv-search-highlight").forEach(function (el) { el.remove(); });
+        return;
+      }
+
+      // Search in systems
+      if (viewMode === "universe") {
+        svg.querySelectorAll(".uv-system-node").forEach(function (node) {
+          var nick = node.getAttribute("data-nick");
+          var sys = data.systems.find(function (s) { return s.nick === nick; });
+          if (!sys) return;
+          var match = sys.name.toLowerCase().indexOf(q) >= 0 || sys.nick.toLowerCase().indexOf(q) >= 0;
+          // Also search in objects
+          if (!match && sys.objects) {
+            match = sys.objects.some(function (o) {
+              return (o.name && o.name.toLowerCase().indexOf(q) >= 0) ||
+                     o.nick.toLowerCase().indexOf(q) >= 0;
+            });
+          }
+          node.style.opacity = match ? "1" : "0.15";
+        });
+        svg.querySelectorAll("#connections line").forEach(function (line) {
+          line.style.opacity = "0.08";
+        });
+      } else {
+        // System view: highlight matching objects
+        svg.querySelectorAll(".uv-obj-node").forEach(function (node) {
+          var nick = node.getAttribute("data-nick");
+          var obj = currentSystem.objects.find(function (o) { return o.nick === nick; });
+          if (!obj) return;
+          var match = (obj.name && obj.name.toLowerCase().indexOf(q) >= 0) ||
+                      obj.nick.toLowerCase().indexOf(q) >= 0 ||
+                      (TYPE_LABELS[obj.type] || "").toLowerCase().indexOf(q) >= 0;
+          node.style.opacity = match ? "1" : "0.15";
+        });
+      }
+    }
+
+    // Clear search highlights when search is emptied
+    searchInput.addEventListener("change", function () {
+      if (!searchInput.value.trim()) {
+        svg.querySelectorAll(".uv-system-node, .uv-obj-node").forEach(function (n) { n.style.opacity = "1"; });
+        svg.querySelectorAll("#connections line").forEach(function (l) { l.style.opacity = ""; });
+      }
+    });
+
+    /* ── Jump Holes toggle ── */
+    btnShowHoles.addEventListener("click", function () {
+      showJumpHoles = !showJumpHoles;
+      btnShowHoles.classList.toggle("active", showJumpHoles);
+      if (viewMode === "system" && currentSystem) {
+        showSystem(currentSystem);
+      } else {
+        showUniverse();
+      }
+    });
+
+    /* ── Info panel close ── */
+    infoClose.addEventListener("click", function () {
+      infoPanel.classList.remove("visible");
+    });
+
+    /* ── Helpers ── */
+    function getObjectRadius(type) {
+      switch (type) {
+        case "sun": return 16;
+        case "planet": return 10;
+        case "station": return 8;
+        case "jump_gate": return 6;
+        case "jump_hole": return 5;
+        case "dock": return 4;
+        case "depot": return 5;
+        case "weapons_platform": return 6;
+        default: return 5;
+      }
+    }
+
+    function legendItem(color, label) {
+      return '<div class="uv-legend-item">' +
+             '<span class="uv-legend-dot" style="background:' + color + ';"></span>' +
+             '<span>' + escXml(label) + '</span></div>';
+    }
+
+    function escXml(s) {
+      if (!s) return "";
+      return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+    }
+
+    function escAttr(s) {
+      return escXml(s);
+    }
+
+    /* ── Init ── */
+    window.addEventListener("mod-change", function (e) { loadMod(e.detail.mod); });
+  })();
+  </script>
+  <script src="../assets/js/nav.js"></script>
+</body>
+</html>
