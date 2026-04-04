@@ -191,7 +191,8 @@ body.gaming-theme .domain-tab.active {
 }
 
 .project-top-nav a:hover,
-.project-top-nav a:focus-visible {
+.project-top-nav a:focus-visible,
+.project-top-nav a.active {
   color: var(--text);
   border-color: rgba(74, 222, 128, 0.45);
   background: rgba(74, 222, 128, 0.14);

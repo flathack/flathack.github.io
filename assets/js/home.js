@@ -1,29 +1,34 @@
 const newsItems = [
   {
+    date: "2026-04-04",
+    title: "Trade Route Calculator veröffentlicht",
+    text: "Der Trade Route Calculator ist jetzt als Online-Tool auf der Webseite verfügbar — mit Unterstützung für Hamburg City und Crossfire.",
+  },
+  {
     date: "2026-03-11",
-    title: "Homepage Structure Updated",
-    text: "The main page now prioritizes news and provides direct access to all core projects.",
+    title: "Webseite überarbeitet",
+    text: "Die Startseite wurde komplett neu aufgebaut: Projekt-Übersicht, Fortschrittsanzeigen und direkter Zugriff auf alle Tools.",
   },
   {
     date: "2026-03-08",
-    title: "FL-Lingo Workflow Improved",
-    text: "Internal translation and terminology workflows were revised and streamlined.",
+    title: "FL-Lingo Workflow verbessert",
+    text: "Interne Übersetzungs- und Terminologie-Workflows wurden überarbeitet und optimiert.",
   },
   {
     date: "2026-03-03",
-    title: "Savegame Editor Stability Pass",
-    text: "Multiple small fixes improve stability while loading and validating save files.",
+    title: "Savegame Editor Stabilitäts-Update",
+    text: "Mehrere kleine Fixes verbessern die Stabilität beim Laden und Validieren von Savegames.",
   },
   {
     date: "2026-02-27",
-    title: "Visual Editor Roadmap Expanded",
-    text: "New tasks for the next development phase were added to the roadmap.",
+    title: "Visual Editor Roadmap erweitert",
+    text: "Neue Aufgaben für die nächste Entwicklungsphase wurden in die Roadmap aufgenommen.",
   },
 ];
 
 function formatDate(isoDate) {
   const date = new Date(`${isoDate}T00:00:00`);
-  return new Intl.DateTimeFormat("en-US", {
+  return new Intl.DateTimeFormat("de-DE", {
     day: "2-digit",
     month: "2-digit",
     year: "numeric",
