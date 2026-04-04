@@ -32,6 +32,10 @@ sys.path.insert(0, str(FLATLAS_ROOT))
 from fl_editor.cmp_loader import load_native_freelancer_model
 from fl_editor.native_preview_geometry import decode_native_preview_geometries
 
+# Shared INI parser (handles BINI)
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from export_trade_data import parse_ini
+
 SCRIPT_DIR = Path(__file__).resolve().parent
 
 # Render settings
@@ -50,22 +54,14 @@ def parse_solararch(game_path: Path) -> dict[str, str]:
     if not solararch.exists():
         print(f"ERROR: {solararch} not found")
         return {}
-    text = solararch.read_text(encoding="latin1")
-    sections = re.split(r"(?=\[)", text)
+    sections = parse_ini(solararch)
     result: dict[str, str] = {}
-    for sec in sections:
-        if not sec.strip().lower().startswith("[solar]"):
+    for sec, entries in sections:
+        if sec.lower() != "solar":
             continue
-        nick = ""
-        da = ""
-        for line in sec.split("\n"):
-            kv = line.strip().split("=", 1)
-            if len(kv) == 2:
-                k = kv[0].strip().lower()
-                if k == "nickname":
-                    nick = kv[1].strip()
-                elif k == "da_archetype":
-                    da = kv[1].strip()
+        vals = {k.lower(): v for k, v in entries}
+        nick = vals.get("nickname", "").strip()
+        da = vals.get("da_archetype", "").strip()
         if nick and da:
             result[nick.lower()] = da
     return result
@@ -82,40 +78,23 @@ def find_used_archetypes(game_path: Path) -> set[str]:
         for f in files:
             if not f.lower().endswith(".ini"):
                 continue
-            path = os.path.join(root, f)
+            path = Path(root) / f
             try:
-                with open(path, "r", errors="ignore") as fh:
-                    in_obj = False
-                    arch = ""
-                    has_base = False
-                    has_goto = False
-                    for line in fh:
-                        ls = line.strip()
-                        if ls.lower().startswith("["):
-                            if in_obj and arch:
-                                al = arch.lower()
-                                if has_base or has_goto or "gate" in al or "hole" in al or "dock" in al:
-                                    used.add(al)
-                            in_obj = ls.lower() == "[object]"
-                            arch = ""
-                            has_base = False
-                            has_goto = False
-                        elif in_obj:
-                            kv = ls.split("=", 1)
-                            if len(kv) == 2:
-                                k = kv[0].strip().lower()
-                                if k == "archetype":
-                                    arch = kv[1].strip()
-                                elif k == "base":
-                                    has_base = True
-                                elif k == "goto":
-                                    has_goto = True
-                    if in_obj and arch:
-                        al = arch.lower()
-                        if has_base or has_goto or "gate" in al or "hole" in al or "dock" in al:
-                            used.add(al)
+                sections = parse_ini(path)
             except OSError:
-                pass
+                continue
+            for sec, entries in sections:
+                if sec.lower() != "object":
+                    continue
+                vals = {k.lower(): v.strip() for k, v in entries}
+                arch = vals.get("archetype", "")
+                if not arch:
+                    continue
+                al = arch.lower()
+                has_base = "base" in vals
+                has_goto = "goto" in vals
+                if has_base or has_goto or "gate" in al or "hole" in al or "dock" in al:
+                    used.add(al)
     return used
 
 

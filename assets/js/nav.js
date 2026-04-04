@@ -4,20 +4,18 @@
  * Pages with children get a sub-navigation bar for mod selection.
  */
 (function () {
+  const MOD_CHILDREN = [
+    { label: "Vanilla", hash: "vanilla" },
+    { label: "Hamburg City", hash: "hamburg-city" },
+    { label: "Crossfire 2.0", hash: "crossfire" },
+    { label: "Discovery 5.3.2", hash: "discovery" },
+  ];
+
   const NAV_ITEMS = [
     { label: "Home", href: "index.html" },
-    { label: "Trade Routes", href: "docs/trade-routes.html", children: [
-      { label: "Hamburg City", hash: "hamburg-city" },
-      { label: "Crossfire 2.0", hash: "crossfire" },
-    ]},
-    { label: "Schiff-Explorer", href: "docs/ship-explorer.html", children: [
-      { label: "Hamburg City", hash: "hamburg-city" },
-      { label: "Crossfire 2.0", hash: "crossfire" },
-    ]},
-    { label: "Universum", href: "docs/universe-viewer.html", children: [
-      { label: "Hamburg City", hash: "hamburg-city" },
-      { label: "Crossfire 2.0", hash: "crossfire" },
-    ]},
+    { label: "Trade Routes", href: "docs/trade-routes.html", children: MOD_CHILDREN },
+    { label: "Schiff-Explorer", href: "docs/ship-explorer.html", children: MOD_CHILDREN },
+    { label: "Universum", href: "docs/universe-viewer.html", children: MOD_CHILDREN },
     { label: "Signaturen", href: "docs/forum-signature-progress.html" },
   ];
 
@@ -54,7 +52,14 @@
 
   // Sub-navigation for items with children (mod selector)
   if (activeItem && activeItem.children) {
-    var currentHash = window.location.hash.replace("#", "") || activeItem.children[0].hash;
+    // Persist mod selection across pages via localStorage
+    var storedMod = null;
+    try { storedMod = localStorage.getItem("flathack-mod"); } catch(e) {}
+    var hashMod = window.location.hash.replace("#", "");
+    var validHashes = activeItem.children.map(function(c) { return c.hash; });
+    var currentHash = (hashMod && validHashes.indexOf(hashMod) !== -1) ? hashMod
+                    : (storedMod && validHashes.indexOf(storedMod) !== -1) ? storedMod
+                    : activeItem.children[0].hash;
 
     var subNav = document.createElement("nav");
     subNav.className = "project-sub-nav";
@@ -82,6 +87,7 @@
       e.preventDefault();
       var mod = link.dataset.mod;
       window.location.hash = mod;
+      try { localStorage.setItem("flathack-mod", mod); } catch(e) {}
       subNav.querySelectorAll("a").forEach(function (a) {
         a.classList.toggle("active", a.dataset.mod === mod);
       });

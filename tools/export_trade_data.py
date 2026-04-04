@@ -15,6 +15,11 @@ import pefile
 
 INSTALLATIONS = [
     dict(
+        id="vanilla",
+        name="Vanilla Freelancer",
+        path=Path(r"C:\Users\steve\Github\FL-Installationen\_FL Fresh Install-deutsch"),
+    ),
+    dict(
         id="hamburg-city",
         name="Hamburg City",
         path=Path(r"C:\Users\steve\Github\FL-Installationen\HamburgCityFLMM"),
@@ -23,6 +28,11 @@ INSTALLATIONS = [
         id="crossfire",
         name="Crossfire 2.0",
         path=Path(r"C:\Users\steve\Github\FL-Installationen\Freelancer Crossfire"),
+    ),
+    dict(
+        id="discovery",
+        name="Discovery 5.3.2",
+        path=Path(r"C:\Users\steve\Github\FL-Installationen\Discovery Freelancer 5.3.2"),
     ),
 ]
 
@@ -67,6 +77,12 @@ def fl_hash(nickname: str) -> int:
     return h
 
 
+# ── BINI support (Vanilla FL uses binary INI files) ──────────────
+import sys as _sys
+_FLATLAS_ROOT = Path(__file__).resolve().parent.parent.parent / "FLAtlas"
+_sys.path.insert(0, str(_FLATLAS_ROOT))
+from fl_editor.bini import is_bini_bytes, decode_bini_to_ini_text
+
 # ── INI Parser ───────────────────────────────────────────────────
 
 Section = tuple[str, list[tuple[str, str]]]
@@ -74,7 +90,10 @@ Section = tuple[str, list[tuple[str, str]]]
 
 def parse_ini(path: Path) -> list[Section]:
     raw = path.read_bytes()
-    if raw[:3] == b"\xef\xbb\xbf":
+    # Auto-decode BINI (binary INI) format used by Vanilla FL
+    if is_bini_bytes(raw):
+        text = decode_bini_to_ini_text(raw)
+    elif raw[:3] == b"\xef\xbb\xbf":
         text = raw.decode("utf-8-sig", errors="ignore")
     elif raw[:2] in (b"\xff\xfe", b"\xfe\xff"):
         text = raw.decode("utf-16", errors="ignore")

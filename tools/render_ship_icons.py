@@ -29,6 +29,11 @@ sys.path.insert(0, str(FLATLAS_ROOT))
 from fl_editor.cmp_loader import load_native_freelancer_model
 from fl_editor.native_preview_geometry import decode_native_preview_geometries
 
+# BINI-aware INI parser
+TOOLS_DIR = Path(__file__).resolve().parent
+sys.path.insert(0, str(TOOLS_DIR))
+from export_trade_data import parse_ini
+
 # Render settings — small icon with transparent background
 ICON_SIZE = 48
 BASE_COLOR = np.array([0.45, 0.7, 0.9])
@@ -39,22 +44,14 @@ LIGHT_DIR = LIGHT_DIR / np.linalg.norm(LIGHT_DIR)
 def parse_shiparch(game_path: Path) -> dict[str, str]:
     """Return {nickname_lower: da_archetype_rel_path}."""
     shiparch = game_path / "DATA" / "SHIPS" / "shiparch.ini"
-    text = shiparch.read_text(encoding="latin1")
-    sections = re.split(r"(?=\[)", text)
+    sections = parse_ini(shiparch)
     result: dict[str, str] = {}
-    for sec in sections:
-        if not sec.strip().lower().startswith("[ship]"):
+    for sec, entries in sections:
+        if sec.lower() != "ship":
             continue
-        nick = ""
-        da = ""
-        for line in sec.split("\n"):
-            kv = line.strip().split("=", 1)
-            if len(kv) == 2:
-                k = kv[0].strip().lower()
-                if k == "nickname":
-                    nick = kv[1].strip().lower()
-                elif k == "da_archetype":
-                    da = kv[1].strip()
+        vals = {k.lower(): v for k, v in entries}
+        nick = vals.get("nickname", "").strip().lower()
+        da = vals.get("da_archetype", "").strip()
         if nick and da:
             result[nick] = da
     return result
