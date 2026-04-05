@@ -225,6 +225,7 @@ const RepEngine = (function () {
         });
       }
 
+      var prevError = currentError;
       currentError = bestError;
 
       if (onProgress && step % 100 === 0) {
@@ -236,8 +237,9 @@ const RepEngine = (function () {
         break;
       }
 
-      // Track improvement stalls
-      if (bestError >= currentError - 1e-12) {
+      // Track improvement stalls (compare to previous error, not updated one)
+      var improvement = prevError - currentError;
+      if (improvement < 1e-8) {
         noImprovementCount++;
         if (noImprovementCount >= MAX_NO_IMPROVEMENT) break;
       } else {

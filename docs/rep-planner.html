@@ -129,6 +129,35 @@
       opacity: .8;
     }
 
+    /* ── Collapsible sections ─────────────────────────── */
+    details.rp-collapse {
+      border: 1px solid var(--panel-border);
+      border-radius: var(--radius-lg);
+      margin-bottom: 18px;
+      background: linear-gradient(180deg, rgba(8,25,36,.94), rgba(4,14,23,.94));
+    }
+    details.rp-collapse summary {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 18px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: .95rem;
+      color: var(--text);
+      user-select: none;
+      list-style: none;
+    }
+    details.rp-collapse summary::-webkit-details-marker { display: none; }
+    details.rp-collapse summary::before {
+      content: '▶';
+      font-size: .7rem;
+      transition: transform 200ms ease;
+      color: var(--accent);
+    }
+    details.rp-collapse[open] summary::before { transform: rotate(90deg); }
+    details.rp-collapse .rp-collapse-body { padding: 0 18px 14px; }
+
     /* ── Rep value input ─────────────────────────────── */
     .rp-rep-input {
       width: 68px;
@@ -511,25 +540,28 @@
         <div style="display:flex;gap:8px;align-items:center;">
           <button class="rp-preset-btn" data-start-preset="liberty">Multiplayer-Start</button>
           <button class="rp-preset-btn" data-start-preset="neutral">Alles Neutral</button>
-          <input class="rp-search" id="rp-search-start" placeholder="Fraktion suchen…" style="width:200px;margin:0;">
         </div>
       </div>
-      <div class="rp-table-section">
-        <div class="rp-table-wrap" id="rp-start-table-wrap">
-          <table class="rp-table" id="rp-start-table">
-            <thead>
-              <tr>
-                <th>Fraktion</th>
-                <th>Legalität</th>
-                <th>Aktueller Ruf</th>
-                <th>Wert</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody id="rp-start-body"></tbody>
-          </table>
+      <details class="rp-collapse" id="rp-start-details">
+        <summary>Fraktionsliste anzeigen</summary>
+        <div class="rp-collapse-body">
+          <input class="rp-search" id="rp-search-start" placeholder="Fraktion suchen…" style="margin-bottom:10px;">
+          <div class="rp-table-wrap" id="rp-start-table-wrap">
+            <table class="rp-table" id="rp-start-table">
+              <thead>
+                <tr>
+                  <th>Fraktion</th>
+                  <th>Legalität</th>
+                  <th>Aktueller Ruf</th>
+                  <th>Wert</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="rp-start-body"></tbody>
+            </table>
+          </div>
         </div>
-      </div>
+      </details>
 
       <!-- ── Mode Tabs ── -->
       <div class="rp-mode-tabs">
@@ -542,29 +574,32 @@
         <div class="rp-section-head">
           <h2>Simulation</h2>
           <div class="rp-sim-controls">
-            <input class="rp-search" id="rp-search-sim" placeholder="Fraktion suchen…" style="width:200px;margin:0;">
             <button class="rp-sim-btn" id="rp-sim-undo" disabled>↩ Rückgängig</button>
             <button class="rp-sim-btn danger" id="rp-sim-reset">⟲ Alles zurücksetzen</button>
           </div>
         </div>
-        <div class="rp-table-section">
-          <div class="rp-table-wrap">
-            <table class="rp-table" id="rp-sim-table">
-              <thead>
-                <tr>
-                  <th>Fraktion</th>
-                  <th>Legalität</th>
-                  <th>Aktueller Ruf</th>
-                  <th>Wert</th>
-                  <th>Status</th>
-                  <th>Letztes Δ</th>
-                  <th>Aktion</th>
-                </tr>
-              </thead>
-              <tbody id="rp-sim-body"></tbody>
-            </table>
+        <details class="rp-collapse" open id="rp-sim-details">
+          <summary>Fraktionsliste anzeigen</summary>
+          <div class="rp-collapse-body">
+            <input class="rp-search" id="rp-search-sim" placeholder="Fraktion suchen…" style="margin-bottom:10px;">
+            <div class="rp-table-wrap">
+              <table class="rp-table" id="rp-sim-table">
+                <thead>
+                  <tr>
+                    <th>Fraktion</th>
+                    <th>Legalität</th>
+                    <th>Aktueller Ruf</th>
+                    <th>Wert</th>
+                    <th>Status</th>
+                    <th>Letztes Δ</th>
+                    <th>Aktion</th>
+                  </tr>
+                </thead>
+                <tbody id="rp-sim-body"></tbody>
+              </table>
+            </div>
           </div>
-        </div>
+        </details>
         <div class="rp-kill-log" id="rp-kill-log" style="display:none;">
           <h3>Abschuss-Protokoll</h3>
           <div class="rp-kill-log-count" id="rp-kill-log-count"></div>
@@ -614,24 +649,27 @@
       <!-- ── Target Rep ── -->
       <div class="rp-section-head">
         <h2>Ziel-Reputation</h2>
-        <input class="rp-search" id="rp-search-target" placeholder="Fraktion suchen…" style="width:200px;margin:0;">
       </div>
-      <div class="rp-table-section">
-        <div class="rp-table-wrap" id="rp-target-table-wrap">
-          <table class="rp-table" id="rp-target-table">
-            <thead>
-              <tr>
-                <th>Fraktion</th>
-                <th>Legalität</th>
-                <th>Ziel-Ruf</th>
-                <th>Wert</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody id="rp-target-body"></tbody>
-          </table>
+      <details class="rp-collapse" id="rp-target-details">
+        <summary>Fraktionsliste anzeigen</summary>
+        <div class="rp-collapse-body">
+          <input class="rp-search" id="rp-search-target" placeholder="Fraktion suchen…" style="margin-bottom:10px;">
+          <div class="rp-table-wrap" id="rp-target-table-wrap">
+            <table class="rp-table" id="rp-target-table">
+              <thead>
+                <tr>
+                  <th>Fraktion</th>
+                  <th>Legalität</th>
+                  <th>Ziel-Ruf</th>
+                  <th>Wert</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="rp-target-body"></tbody>
+            </table>
+          </div>
         </div>
-      </div>
+      </details>
 
       <!-- ── Loading ── -->
       <div class="rp-loading" id="rp-loading">Berechne optimale Reihenfolge…</div>
