@@ -10,7 +10,11 @@
       "defaultRep": -0.65,
       "shortName": "BAE",
       "objectDestruction": -0.05,
-      "empathy": {}
+      "missionSuccess": 0.1,
+      "empathy": {},
+      "missionBases": [
+        "Newcastle → Prison Liner Verwood"
+      ]
     },
     {
       "nick": "br_m_grp",
@@ -21,6 +25,7 @@
       "defaultRep": -0.55,
       "shortName": "BMM",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "br_n_grp": 0.3,
         "fc_ouk_grp": 0.2,
@@ -41,7 +46,44 @@
         "fc_rh_grp": -0.3,
         "gd_bh_grp": 0.05,
         "gd_im_grp": -0.2
-      }
+      },
+      "bribes": [
+        "BPA Newgate",
+        "Battlecruiser Livingston",
+        "Battleship Ark Royal",
+        "Battleship Essex",
+        "Battleship Macduff",
+        "Battleship Somerset",
+        "Birmingham Station",
+        "Canterbury Station",
+        "Douglas Station",
+        "Durham Outpost",
+        "Freeport 1",
+        "Gateshead Station",
+        "Halifax Freeport",
+        "Kingston Border Station",
+        "Leicester Shipping Platform",
+        "Peterborough Mining Facility",
+        "Planet Carlisle",
+        "Planet New London",
+        "Planet Sprague",
+        "Portsmouth Drydock",
+        "Portsmouth Shipyard",
+        "Redcarr Production Facility",
+        "Scarborough Shipyard",
+        "Sheffield Station",
+        "Thames Outpost",
+        "Waterloo Station"
+      ],
+      "missionBases": [
+        "Cambridge → Peterborough Mining Facility",
+        "Cambridge → Portsmouth Shipyard",
+        "Leeds → LD-14",
+        "New London → Thames Outpost",
+        "Newcastle → Redcarr Production Facility",
+        "Newcastle → Scarborough Shipyard",
+        "Omega-3 → Douglas Station"
+      ]
     },
     {
       "nick": "br_n_grp",
@@ -52,6 +94,7 @@
       "defaultRep": 0.0,
       "shortName": "Armed Forces",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "br_p_grp": 0.3,
         "br_m_grp": 0.3,
@@ -83,7 +126,25 @@
         "gd_bh_grp": 0.08,
         "gd_im_grp": -0.2,
         "gd_gm_grp": 0.05
-      }
+      },
+      "bribes": [
+        "Halifax Freeport",
+        "Prison Liner Verwood",
+        "Sunderland Research Aerostat"
+      ],
+      "missionBases": [
+        "Cambridge → Battleship Macduff",
+        "Cambridge → Battleship Norfolk",
+        "Cambridge → Portsmouth Drydock",
+        "Cambridge → Portsmouth Shipyard",
+        "Leeds → Battleship Ark Royal",
+        "Leeds → Durham Outpost",
+        "New London → Battleship Essex",
+        "Newcastle → Planet Carlisle",
+        "Newcastle → Scarborough Shipyard",
+        "Tau-23 → bw08_04_base",
+        "Tau-31 → Battlecruiser Livingston"
+      ]
     },
     {
       "nick": "br_p_grp",
@@ -94,6 +155,7 @@
       "defaultRep": 0.0,
       "shortName": "Police",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "br_n_grp": 0.3,
         "br_m_grp": 0.3,
@@ -128,7 +190,48 @@
         "gd_bh_grp": 0.05,
         "gd_im_grp": -0.2,
         "gd_gm_grp": 0.05
-      }
+      },
+      "bribes": [
+        "BPA Newgate",
+        "Battlecruiser Livingston",
+        "Battleship Macduff",
+        "Battleship Norfolk",
+        "Battleship Somerset",
+        "Birmingham Station",
+        "Cambridge Research Station",
+        "Canterbury Station",
+        "Cold Bay Depot",
+        "Durham Outpost",
+        "Gateshead Station",
+        "Halifax Freeport",
+        "Heaton Mining Station",
+        "Kensington Shipping Platform",
+        "Kingston Border Station",
+        "Luxury Liner Shetland",
+        "Peterborough Mining Facility",
+        "Planet Cambridge",
+        "Planet Carlisle",
+        "Planet New London",
+        "Planet Sprague",
+        "Portsmouth Drydock",
+        "Portsmouth Shipyard",
+        "Scarborough Shipyard",
+        "Sheffield Station",
+        "Thames Outpost"
+      ],
+      "missionBases": [
+        "Cambridge → Planet Cambridge",
+        "Manchester → BPA Newgate",
+        "Manchester → Kingston Border Station",
+        "Manchester → Sheffield Station",
+        "New London → Belvedere Refinery",
+        "New London → Canterbury Station",
+        "New London → Kensington Shipping Platform",
+        "New London → Planet New London",
+        "Newcastle → Redcarr Production Facility",
+        "Newcastle → Scarborough Shipyard",
+        "Omega-3 → Planet Sprague"
+      ]
     },
     {
       "nick": "co_alg_grp",
@@ -139,6 +242,7 @@
       "defaultRep": 0.0,
       "shortName": "ALG",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "rh_n_grp": 0.2,
         "rh_p_grp": 0.2,
@@ -160,7 +264,67 @@
         "fc_lh_grp": -0.1,
         "fc_lr_grp": -0.15,
         "fc_x_grp": -0.1
-      }
+      },
+      "bribes": [
+        "Alster Shipyard",
+        "Altona Station",
+        "Baltimore Shipyard",
+        "Battleship Altenburg",
+        "Battleship Bayern",
+        "Battleship Westfalen",
+        "Belvedere Refinery",
+        "Bonn Station",
+        "Brandenburg Station",
+        "Bristol Bay Station",
+        "Detroit Munitions",
+        "Essen Station",
+        "Fort Bush",
+        "Freeport 1",
+        "Freiburg Station",
+        "Fulda Border Station",
+        "Gas Miner Naha",
+        "Heisenberg Research Station",
+        "Helgoland Station",
+        "Kansai Research Institute",
+        "LPI Huntsville",
+        "LPI Sugarland",
+        "Lewes Shipping Platform",
+        "Lübeck Border Station",
+        "Mainz Storage Facility",
+        "Manitoba Station",
+        "Mannheim Station",
+        "Newark Station",
+        "Norfolk Shipyard",
+        "Oder Shipyard",
+        "Planet Baden Baden",
+        "Planet California Minor",
+        "Planet Hamburg",
+        "Planet Honshu",
+        "Planet Houston",
+        "Planet Los Angeles",
+        "Planet New Berlin",
+        "Planet New London",
+        "Planet Stuttgart",
+        "Pueblo Station",
+        "Rambouillet Shipyard",
+        "Reims Station",
+        "Rochester Base",
+        "Supply Station Neckar",
+        "The Ring",
+        "Thunder Bay Depot",
+        "Ulm Border Station",
+        "Vierlande Prison",
+        "Wichter Station",
+        "Wildau Station",
+        "Wuppertal Refinery",
+        "li03_06_base"
+      ],
+      "missionBases": [
+        "New Berlin → Wildau Station",
+        "New London → Belvedere Refinery",
+        "Sigma-13 → Helgoland Station",
+        "Sigma-15 → Wichter Station"
+      ]
     },
     {
       "nick": "co_bcm_grp",
@@ -171,12 +335,22 @@
       "defaultRep": 0.0,
       "shortName": "Bristol",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "co_alg_grp": 0.2,
         "fc_j_grp": -0.15,
         "fc_lr_grp": -0.2,
         "fc_g_grp": -0.1
-      }
+      },
+      "bribes": [
+        "Bristol Bay Station",
+        "Planet Erie",
+        "li03_06_base"
+      ],
+      "missionBases": [
+        "Bering → Bristol Bay Station",
+        "Colorado → li03_06_base"
+      ]
     },
     {
       "nick": "co_be_grp",
@@ -187,6 +361,7 @@
       "defaultRep": 0.0,
       "shortName": "Bowex",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "br_n_grp": 0.3,
         "fc_ouk_grp": 0.2,
@@ -207,7 +382,82 @@
         "fc_rh_grp": -0.3,
         "gd_bh_grp": 0.05,
         "gd_im_grp": -0.2
-      }
+      },
+      "bribes": [
+        "Akita Border Station",
+        "BPA Newgate",
+        "Baltimore Shipyard",
+        "Battlecruiser Livingston",
+        "Battlecruiser Yellowstone",
+        "Battleship Ark Royal",
+        "Battleship Essex",
+        "Battleship Macduff",
+        "Battleship Missouri",
+        "Battleship Norfolk",
+        "Battleship Somerset",
+        "Birmingham Station",
+        "Cambridge Research Station",
+        "Douglas Station",
+        "Durham Outpost",
+        "Elbe Border Fortress",
+        "Fort Bush",
+        "Freeport 1",
+        "Freiburg Station",
+        "Freistadt Base",
+        "Gateshead Station",
+        "Halifax Freeport",
+        "Heaton Mining Station",
+        "Kagoshima Depot",
+        "Kansai Research Institute",
+        "Kingston Border Station",
+        "Leicester Shipping Platform",
+        "Lewes Shipping Platform",
+        "Luxury Liner Shetland",
+        "Nansei Research Complex",
+        "Narita Outpost",
+        "Newark Station",
+        "Norfolk Shipyard",
+        "Perth Outpost",
+        "Peterborough Mining Facility",
+        "Planet Baden Baden",
+        "Planet California Minor",
+        "Planet Cambridge",
+        "Planet Carlisle",
+        "Planet Curacao",
+        "Planet Denver",
+        "Planet Gran Canaria",
+        "Planet Honshu",
+        "Planet Kyushu",
+        "Planet Los Angeles",
+        "Planet Manhattan",
+        "Planet New London",
+        "Planet New Tokyo",
+        "Planet Pittsburgh",
+        "Planet Sprague",
+        "Planet Stuttgart",
+        "Portsmouth Drydock",
+        "Portsmouth Shipyard",
+        "Pueblo Station",
+        "Redcarr Production Facility",
+        "Scarborough Shipyard",
+        "Sheffield Station",
+        "Shinagawa Station",
+        "South Shields Refinery",
+        "Thames Outpost",
+        "Tsushima Depot",
+        "Ulm Border Station",
+        "Valley Forge Flight School",
+        "Versailles Station",
+        "Waterloo Station",
+        "West Point Military Academy",
+        "Willard Research Station",
+        "bw08_04_base"
+      ],
+      "missionBases": [
+        "Newcastle → Planet Carlisle",
+        "Newcastle → Scarborough Shipyard",
+        "Omega-3 → Leicester Shipping Platform"
+      ]
     },
     {
       "nick": "co_hsp_grp",
@@ -218,6 +468,7 @@
       "defaultRep": 0.3,
       "shortName": "Cryer",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "br_m_grp": 0.05,
         "co_be_grp": 0.05,
@@ -242,7 +493,55 @@
         "fc_c_grp": -0.1,
         "fc_ou_grp": -0.2,
         "fc_j_grp": -0.05
-      }
+      },
+      "bribes": [
+        "Baltimore Shipyard",
+        "Battleship Arkansas",
+        "Battleship Missouri",
+        "Battleship Norfolk",
+        "Battleship Rio Grande",
+        "Cambridge Research Station",
+        "Detroit Munitions",
+        "Fort Bush",
+        "LPI Huntsville",
+        "LPI Sugarland",
+        "Lewes Shipping Platform",
+        "Liner Samsara",
+        "Luxury Liner Shetland",
+        "Newark Station",
+        "Norfolk Shipyard",
+        "Osaka Storage Facility",
+        "Philadelphia Station",
+        "Planet California Minor",
+        "Planet Cambridge",
+        "Planet Denver",
+        "Planet Erie",
+        "Planet Houston",
+        "Planet Kurile, Samura Platform",
+        "Planet Los Angeles",
+        "Planet Manhattan",
+        "Planet New London",
+        "Planet Pittsburgh",
+        "Planet Pygar",
+        "Portsmouth Shipyard",
+        "Pueblo Station",
+        "Riverside Station",
+        "San Diego Border Station",
+        "Syracuse Station",
+        "Trenton Outpost",
+        "Valley Forge Flight School",
+        "Versailles Station",
+        "Waterloo Station",
+        "West Point Military Academy",
+        "Willard Research Station",
+        "bw10_06_base"
+      ],
+      "missionBases": [
+        "Cambridge → Cambridge Research Station",
+        "Colorado → Syracuse Station",
+        "Hudson → Cold Bay Depot",
+        "Tau-31 → bw10_06_base"
+      ]
     },
     {
       "nick": "co_ic_grp",
@@ -253,6 +552,7 @@
       "defaultRep": 0.3,
       "shortName": "Interspace",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "br_m_grp": 0.05,
         "co_be_grp": 0.05,
@@ -283,7 +583,26 @@
         "fc_c_grp": -0.2,
         "fc_ou_grp": -0.3,
         "fc_j_grp": -0.05
-      }
+      },
+      "bribes": [
+        "Bonn Station",
+        "Cordova Shipping Platform",
+        "Furyoku Station",
+        "Newark Station",
+        "Planet Miura",
+        "Supply Station Neckar",
+        "Valley Forge Flight School",
+        "Versailles Station",
+        "Waterloo Station"
+      ],
+      "missionBases": [
+        "New Berlin → Bonn Station",
+        "New London → Waterloo Station",
+        "New Tokyo → ku01_04_base",
+        "New York → Newark Station",
+        "Pennsylvania → Harrisburg Station",
+        "Sigma-59 → Furyoku Station"
+      ]
     },
     {
       "nick": "co_khc_grp",
@@ -294,6 +613,7 @@
       "defaultRep": -0.55,
       "shortName": "Daumann",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "rh_n_grp": 0.2,
         "rh_p_grp": 0.2,
@@ -311,7 +631,34 @@
         "fc_c_grp": -0.2,
         "fc_ou_grp": -0.2,
         "fc_j_grp": -0.05
-      }
+      },
+      "bribes": [
+        "Brandenburg Station",
+        "Briesen Mining Facility",
+        "Elbich Mining Facility",
+        "Essen Station",
+        "Freeport 1",
+        "Freiburg Station",
+        "Freistadt Base",
+        "Fulda Border Station",
+        "Mainz Storage Facility",
+        "Oder Shipyard",
+        "Planet Baden Baden",
+        "Planet Holstein",
+        "Planet New Berlin",
+        "Planet Stuttgart",
+        "Rugen Station",
+        "Solarius Station",
+        "The Ring",
+        "Ulm Border Station"
+      ],
+      "missionBases": [
+        "Frankfurt → Planet Holstein",
+        "New Berlin → The Ring",
+        "Omega-11 → Solarius Station",
+        "Omega-3 → Rugen Station",
+        "Omega-7 → Briesen Mining Facility"
+      ]
     },
     {
       "nick": "co_kt_grp",
@@ -322,6 +669,7 @@
       "defaultRep": -0.3,
       "shortName": "Kishiro",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "br_n_grp": 0.02,
         "br_p_grp": 0.1,
@@ -347,7 +695,62 @@
         "gd_bh_grp": 0.05,
         "gd_gm_grp": 0.3,
         "gd_im_grp": 0.05
-      }
+      },
+      "bribes": [
+        "Akita Border Station",
+        "Ames Research Station",
+        "Aomori Station",
+        "Baltimore Shipyard",
+        "Battleship Essex",
+        "Battleship Hamamatsu",
+        "Battleship Rio Grande",
+        "Deshima Station",
+        "Detroit Munitions",
+        "Fort Bush",
+        "Freeport 6",
+        "Fuchu Prison",
+        "Fulda Border Station",
+        "Furyoku Station",
+        "Gas Miner Naha",
+        "Gas Miner Ogashawa",
+        "Helgoland Station",
+        "Kansai Research Institute",
+        "Luxury Liner Hawaii",
+        "Mainz Storage Facility",
+        "Nago Station",
+        "Nansei Research Complex",
+        "Narita Outpost",
+        "Newark Station",
+        "Norfolk Shipyard",
+        "Noshima Freeport",
+        "Ohashi Border Station",
+        "Osaka Storage Facility",
+        "Planet Denver",
+        "Planet Honshu",
+        "Planet Kyushu",
+        "Planet Manhattan",
+        "Planet Miura",
+        "Planet New London",
+        "Planet New Tokyo",
+        "Planet Pittsburgh",
+        "Portsmouth Shipyard",
+        "Pueblo Station",
+        "San Diego Border Station",
+        "Shinagawa Station",
+        "Tsushima Depot",
+        "Valley Forge Flight School",
+        "Versailles Station",
+        "Waterloo Station",
+        "West Point Military Academy",
+        "Yokohama Shipyard",
+        "Yukawa Shipyard",
+        "ku01_04_base"
+      ],
+      "missionBases": [
+        "Honshu → Yukawa Shipyard",
+        "New Tokyo → Shinagawa Station",
+        "Tau-29 → Nago Station"
+      ]
     },
     {
       "nick": "co_me_grp",
@@ -358,6 +761,7 @@
       "defaultRep": 0.3,
       "shortName": "DSE",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "br_m_grp": 0.05,
         "co_be_grp": 0.05,
@@ -381,7 +785,52 @@
         "fc_x_grp": -0.1,
         "fc_c_grp": -0.2,
         "fc_ou_grp": -0.3
-      }
+      },
+      "bribes": [
+        "Baltimore Shipyard",
+        "Battleship Arkansas",
+        "Battleship Macduff",
+        "Battleship Matsumoto",
+        "Battleship Missouri",
+        "Cordova Shipping Platform",
+        "Detroit Munitions",
+        "Fort Bush",
+        "Furyoku Station",
+        "Hamburg Gate Reconstruction Site",
+        "LPI Huntsville",
+        "LPI Sugarland",
+        "Leicester Shipping Platform",
+        "Leniex Outpost",
+        "Luxury Liner Barbados",
+        "Newark Station",
+        "Norfolk Shipyard",
+        "Philadelphia Station",
+        "Planet Carlisle",
+        "Planet Erie",
+        "Planet Houston",
+        "Planet Manhattan",
+        "Planet New London",
+        "Planet New Tokyo",
+        "Planet Pittsburgh",
+        "Planet Sprague",
+        "Portsmouth Shipyard",
+        "Sapporo Station",
+        "Scottsdale Refinery",
+        "Sheffield Station",
+        "Trenton Outpost",
+        "Valley Forge Flight School",
+        "Waterloo Station",
+        "West Point Military Academy",
+        "Yokohama Shipyard",
+        "bw08_04_base",
+        "li03_05_base"
+      ],
+      "missionBases": [
+        "Bering → Hamburg Gate Reconstruction Site",
+        "Coronado → Scottsdale Refinery",
+        "New York → Baltimore Shipyard",
+        "New York → Planet Pittsburgh"
+      ]
     },
     {
       "nick": "co_ni_grp",
@@ -392,6 +841,7 @@
       "defaultRep": 0.3,
       "shortName": "Synth Foods",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "br_m_grp": 0.05,
         "co_be_grp": 0.05,
@@ -418,7 +868,66 @@
         "fc_u_grp": -0.1,
         "fc_c_grp": -0.2,
         "fc_ou_grp": -0.3
-      }
+      },
+      "bribes": [
+        "Akita Border Station",
+        "Alster Shipyard",
+        "Altona Station",
+        "Ames Research Station",
+        "Baltimore Shipyard",
+        "Battlecruiser Yellowstone",
+        "Battleship Altenburg",
+        "Battleship Arkansas",
+        "Battleship Missouri",
+        "Battleship Rio Grande",
+        "Battleship Westfalen",
+        "Bonn Station",
+        "Brandenburg Station",
+        "Bristol Bay Station",
+        "Cold Bay Depot",
+        "Deshima Station",
+        "Detroit Munitions",
+        "Essen Station",
+        "Fort Bush",
+        "Freiburg Station",
+        "LPI Huntsville",
+        "LPI Sugarland",
+        "Lewes Shipping Platform",
+        "Lübeck Border Station",
+        "Narita Outpost",
+        "Newark Station",
+        "Norfolk Shipyard",
+        "Oder Shipyard",
+        "Planet Baden Baden",
+        "Planet California Minor",
+        "Planet Denver",
+        "Planet Erie",
+        "Planet Hamburg",
+        "Planet Honshu",
+        "Planet Houston",
+        "Planet Los Angeles",
+        "Planet Manhattan",
+        "Planet New Berlin",
+        "Planet New Tokyo",
+        "Planet Pittsburgh",
+        "Planet Stuttgart",
+        "Pueblo Station",
+        "Riverside Station",
+        "San Diego Border Station",
+        "Supply Station Neckar",
+        "Syracuse Station",
+        "The Ring",
+        "Trenton Outpost",
+        "Ulm Border Station",
+        "Valley Forge Flight School",
+        "Vierlande Prison",
+        "West Point Military Academy",
+        "Yokohama Shipyard",
+        "ku01_04_base"
+      ],
+      "missionBases": [
+        "California → Riverside Station"
+      ]
     },
     {
       "nick": "co_nws_grp",
@@ -429,6 +938,7 @@
       "defaultRep": 0.0,
       "shortName": "Gateway",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "br_n_grp": 0.2,
         "fc_ouk_grp": 0.1,
@@ -448,7 +958,73 @@
         "fc_m_grp": -0.2,
         "gd_bh_grp": 0.05,
         "gd_im_grp": 0.3
-      }
+      },
+      "bribes": [
+        "Baltimore Shipyard",
+        "Battlecruiser Yellowstone",
+        "Battleship Hamamatsu",
+        "Battleship Missouri",
+        "Battleship Norfolk",
+        "Battleship Somerset",
+        "Belvedere Refinery",
+        "Bonn Station",
+        "Brandenburg Station",
+        "Canterbury Station",
+        "Detroit Munitions",
+        "Elbe Border Fortress",
+        "Essen Station",
+        "Fort Bush",
+        "Freeport 1",
+        "Freeport 6",
+        "Freiburg Station",
+        "Freistadt Base",
+        "Halifax Freeport",
+        "Heaton Mining Station",
+        "Holman Outpost",
+        "Kagoshima Depot",
+        "Kensington Shipping Platform",
+        "Lewes Shipping Platform",
+        "Luxury Liner Shetland",
+        "Nansei Research Complex",
+        "Narita Outpost",
+        "Newark Station",
+        "Norfolk Shipyard",
+        "Oder Shipyard",
+        "Pecos, New Hope",
+        "Planet Baden Baden",
+        "Planet California Minor",
+        "Planet Cambridge",
+        "Planet Carlisle",
+        "Planet Curacao",
+        "Planet Denver",
+        "Planet Gran Canaria",
+        "Planet Kyushu",
+        "Planet Los Angeles",
+        "Planet Manhattan",
+        "Planet New Berlin",
+        "Planet New London",
+        "Planet New Tokyo",
+        "Planet Stuttgart",
+        "Planet Yuma",
+        "Portsmouth Drydock",
+        "Portsmouth Shipyard",
+        "Pueblo Station",
+        "Scarborough Shipyard",
+        "Sheffield Station",
+        "South Shields Refinery",
+        "Ulm Border Station",
+        "Valley Forge Flight School",
+        "Versailles Station",
+        "Waterloo Station",
+        "West Point Military Academy",
+        "Willard Research Station"
+      ],
+      "missionBases": [
+        "New London → Belvedere Refinery",
+        "New London → Kensington Shipping Platform",
+        "Newcastle → Planet Carlisle",
+        "Tau-31 → Lewes Shipping Platform"
+      ]
     },
     {
       "nick": "co_os_grp",
@@ -459,6 +1035,7 @@
       "defaultRep": 0.0,
       "shortName": "Spa and Cruise",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "br_m_grp": 0.05,
         "co_be_grp": 0.05,
@@ -488,7 +1065,65 @@
         "fc_u_grp": -0.05,
         "fc_c_grp": -0.2,
         "fc_ou_grp": -0.3
-      }
+      },
+      "bribes": [
+        "Akita Border Station",
+        "Alster Shipyard",
+        "Altona Station",
+        "Baltimore Shipyard",
+        "Battleship Altenburg",
+        "Battleship Macduff",
+        "Battleship Missouri",
+        "Battleship Westfalen",
+        "Bonn Station",
+        "Brandenburg Station",
+        "Cold Bay Depot",
+        "Deshima Station",
+        "Detroit Munitions",
+        "Fort Bush",
+        "Freeport 1",
+        "Freiburg Station",
+        "Fuchu Prison",
+        "Halifax Freeport",
+        "Kamakura Base",
+        "LPI Huntsville",
+        "LPI Sugarland",
+        "Lewes Shipping Platform",
+        "Luxury Liner Barbados",
+        "Luxury Liner Hawaii",
+        "Luxury Liner Shetland",
+        "Lübeck Border Station",
+        "Narita Outpost",
+        "Newark Station",
+        "Norfolk Shipyard",
+        "Noshima Freeport",
+        "Ohashi Border Station",
+        "Planet Baden Baden",
+        "Planet Curacao",
+        "Planet Denver",
+        "Planet Hamburg",
+        "Planet Honshu",
+        "Planet Houston",
+        "Planet Manhattan",
+        "Planet New Berlin",
+        "Planet New London",
+        "Planet New Tokyo",
+        "Planet Pittsburgh",
+        "Planet Stuttgart",
+        "Portsmouth Shipyard",
+        "Pueblo Station",
+        "Ulm Border Station",
+        "Valley Forge Flight School",
+        "Vierlande Prison",
+        "Waterloo Station"
+      ],
+      "missionBases": [
+        "Cortez → Luxury Liner Shetland",
+        "Cortez → Planet Curacao",
+        "Sigma-19 → Luxury Liner Hawaii",
+        "Stuttgart → Planet Baden Baden",
+        "Vespucci → Luxury Liner Barbados"
+      ]
     },
     {
       "nick": "co_rs_grp",
@@ -499,6 +1134,7 @@
       "defaultRep": -0.3,
       "shortName": "Imperial Shipping",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "rh_n_grp": 0.2,
         "rh_p_grp": 0.2,
@@ -518,7 +1154,71 @@
         "fc_j_grp": -0.05,
         "fc_lr_grp": -0.1,
         "fc_x_grp": -0.2
-      }
+      },
+      "bribes": [
+        "Alster Shipyard",
+        "Altona Station",
+        "Baltimore Shipyard",
+        "Battleship Altenburg",
+        "Battleship Arkansas",
+        "Battleship Norfolk",
+        "Battleship Westfalen",
+        "Bonn Station",
+        "Brandenburg Station",
+        "Briesen Mining Facility",
+        "Bristol Bay Station",
+        "Carrier Soltau",
+        "Detroit Munitions",
+        "Elbich Mining Facility",
+        "Essen Station",
+        "Fort Bush",
+        "Freeport 1",
+        "Freiburg Station",
+        "Fulda Border Station",
+        "Gas Miner Naha",
+        "Helgoland Station",
+        "LPI Huntsville",
+        "LPI Sugarland",
+        "Lübeck Border Station",
+        "Mainz Storage Facility",
+        "Mannheim Station",
+        "Narita Outpost",
+        "Newark Station",
+        "Norfolk Shipyard",
+        "Oder Shipyard",
+        "Oerlikon Refinery",
+        "Planet Baden Baden",
+        "Planet Cambridge",
+        "Planet Denver",
+        "Planet Hamburg",
+        "Planet Holstein",
+        "Planet Honshu",
+        "Planet Houston",
+        "Planet Manhattan",
+        "Planet New Berlin",
+        "Planet New London",
+        "Planet New Tokyo",
+        "Planet Orleans",
+        "Planet Stuttgart",
+        "Portsmouth Shipyard",
+        "Pueblo Station",
+        "Reims Station",
+        "Rugen Station",
+        "Solarius Station",
+        "The Ring",
+        "Trenton Outpost",
+        "Ulm Border Station",
+        "Versailles Station",
+        "Vierlande Prison",
+        "Wuppertal Refinery",
+        "Yukawa Shipyard"
+      ],
+      "missionBases": [
+        "Frankfurt → Mainz Storage Facility",
+        "Hamburg → Alster Shipyard",
+        "Hamburg → Altona Station",
+        "Stuttgart → Freiburg Station"
+      ]
     },
     {
       "nick": "co_shi_grp",
@@ -529,6 +1229,7 @@
       "defaultRep": -0.3,
       "shortName": "Samura",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "br_n_grp": 0.02,
         "br_p_grp": 0.1,
@@ -553,7 +1254,76 @@
         "gd_bh_grp": 0.05,
         "gd_gm_grp": -0.1,
         "gd_im_grp": 0.05
-      }
+      },
+      "bribes": [
+        "Akita Border Station",
+        "Ames Research Station",
+        "Aomori Station",
+        "Baltimore Shipyard",
+        "Battlecruiser Akatsuki",
+        "Battleship Hamamatsu",
+        "Battleship Matsumoto",
+        "Battleship Missouri",
+        "Battleship Myoko",
+        "Battleship Nagasaki",
+        "Battleship Rio Grande",
+        "Deshima Station",
+        "Fort Bush",
+        "Freeport 6",
+        "Fuchu Prison",
+        "Kabukicho Depot",
+        "Kagoshima Depot",
+        "Kamakura Base",
+        "Kamisu Hideout",
+        "Kansai Research Institute",
+        "Lagos Depot",
+        "Leiden Base",
+        "Liner Samsara",
+        "Luxury Liner Hawaii",
+        "Mainz Storage Facility",
+        "Nansei Research Complex",
+        "Narita Outpost",
+        "Newark Station",
+        "Norfolk Shipyard",
+        "Ohashi Border Station",
+        "Osaka Storage Facility",
+        "Philadelphia Station",
+        "Planet Denver",
+        "Planet Gran Canaria",
+        "Planet Holstein",
+        "Planet Honshu",
+        "Planet Junyo",
+        "Planet Kurile",
+        "Planet Kyushu",
+        "Planet Manhattan",
+        "Planet New London",
+        "Planet New Tokyo",
+        "Portsmouth Shipyard",
+        "Pueblo Station",
+        "San Diego Border Station",
+        "Sapporo Station",
+        "Shinagawa Station",
+        "Shinjuku Station",
+        "Shinkaku Station",
+        "Tsushima Depot",
+        "Valley Forge Flight School",
+        "Versailles Station",
+        "West Point Military Academy",
+        "Yokohama Shipyard",
+        "Yukawa Shipyard",
+        "ku01_04_base"
+      ],
+      "missionBases": [
+        "Honshu → Osaka Storage Facility",
+        "Honshu → Planet Honshu",
+        "Kyushu → Tsushima Depot",
+        "New Tokyo → Shinjuku Station",
+        "New Tokyo → Yokohama Shipyard",
+        "New Tokyo → ku01_04_base",
+        "Shikoku → Planet Junyo",
+        "Sigma-59 → Kamakura Base",
+        "Tau-29 → Shinkaku Station"
+      ]
     },
     {
       "nick": "co_ss_grp",
@@ -564,6 +1334,7 @@
       "defaultRep": 0.3,
       "shortName": "Universal",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "br_m_grp": 0.05,
         "co_be_grp": 0.05,
@@ -595,7 +1366,75 @@
         "fc_c_grp": -0.2,
         "fc_ou_grp": -0.2,
         "fc_j_grp": -0.05
-      }
+      },
+      "bribes": [
+        "Alster Shipyard",
+        "Altona Station",
+        "Ames Research Station",
+        "Baltimore Shipyard",
+        "Battlecruiser Yellowstone",
+        "Battleship Altenburg",
+        "Battleship Arkansas",
+        "Battleship Missouri",
+        "Battleship Rio Grande",
+        "Battleship Westfalen",
+        "Birmingham Station",
+        "Bonn Station",
+        "Brandenburg Station",
+        "Bristol Bay Station",
+        "Canterbury Station",
+        "Cordova Shipping Platform",
+        "Deshima Station",
+        "Detroit Munitions",
+        "Fort Bush",
+        "Fuchu Prison",
+        "Harrisburg Station",
+        "Kensington Shipping Platform",
+        "LPI Huntsville",
+        "LPI Sugarland",
+        "Lewes Shipping Platform",
+        "Lübeck Border Station",
+        "Manitoba Station",
+        "Newark Station",
+        "Norfolk Shipyard",
+        "Oder Shipyard",
+        "Ohashi Border Station",
+        "Philadelphia Station",
+        "Planet California Minor",
+        "Planet Carlisle",
+        "Planet Curacao",
+        "Planet Denver",
+        "Planet Erie",
+        "Planet Hamburg",
+        "Planet Houston",
+        "Planet Los Angeles",
+        "Planet Manhattan",
+        "Planet New Berlin",
+        "Planet New London",
+        "Planet New Tokyo",
+        "Planet Pittsburgh",
+        "Planet Sprague",
+        "Portsmouth Shipyard",
+        "Pueblo Station",
+        "Riverside Station",
+        "Sabah Shipyard",
+        "San Diego Border Station",
+        "Sheffield Station",
+        "Supply Station Neckar",
+        "Syracuse Station",
+        "Trenton Outpost",
+        "Valley Forge Flight School",
+        "Vierlande Prison",
+        "Waterloo Station",
+        "West Point Military Academy",
+        "Willard Research Station",
+        "Yokohama Shipyard",
+        "ku01_04_base"
+      ],
+      "missionBases": [
+        "New York → Trenton Outpost",
+        "Newcastle → Planet Carlisle"
+      ]
     },
     {
       "nick": "co_ti_grp",
@@ -606,6 +1445,7 @@
       "defaultRep": 0.0,
       "shortName": "Planetform",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "br_n_grp": 0.2,
         "fc_ouk_grp": 0.2,
@@ -628,7 +1468,43 @@
         "fc_x_grp": -0.05,
         "gd_bh_grp": 0.05,
         "gd_im_grp": 0.05
-      }
+      },
+      "bribes": [
+        "Battlecruiser Livingston",
+        "Battlecruiser Yellowstone",
+        "Battleship Alma",
+        "Battleship Macduff",
+        "Battleship Somerset",
+        "Birmingham Station",
+        "Canterbury Station",
+        "Cold Bay Depot",
+        "Halifax Freeport",
+        "Heaton Mining Station",
+        "Holman Outpost",
+        "Kensington Shipping Platform",
+        "Kingston Border Station",
+        "Lewes Shipping Platform",
+        "Planet California Minor",
+        "Planet Denver",
+        "Planet Erie",
+        "Planet Kurile, Samura Platform",
+        "Planet Los Angeles",
+        "Planet New London",
+        "Portsmouth Shipyard",
+        "Pueblo Station",
+        "Scarborough Shipyard",
+        "Sheffield Station",
+        "Waterloo Station",
+        "Willard Research Station"
+      ],
+      "missionBases": [
+        "California → Planet California Minor",
+        "Hudson → Cold Bay Depot",
+        "Manchester → Birmingham Station",
+        "New London → Canterbury Station",
+        "Newcastle → Heaton Mining Station",
+        "Newcastle → Planet Carlisle"
+      ]
     },
     {
       "nick": "co_vr_grp",
@@ -639,6 +1515,7 @@
       "defaultRep": 0.0,
       "shortName": "Ageira",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "br_m_grp": 0.05,
         "co_be_grp": 0.05,
@@ -657,7 +1534,45 @@
         "fc_lh_grp": -0.3,
         "fc_lr_grp": -0.2,
         "fc_x_grp": -0.2
-      }
+      },
+      "bribes": [
+        "BPA Newgate",
+        "Baltimore Shipyard",
+        "Battlecruiser Yellowstone",
+        "Battleship Missouri",
+        "Battleship Rio Grande",
+        "Cordova Shipping Platform",
+        "Detroit Munitions",
+        "Fort Bush",
+        "Lewes Shipping Platform",
+        "Newark Station",
+        "Norfolk Shipyard",
+        "Philadelphia Station",
+        "Planet California Minor",
+        "Planet Denver",
+        "Planet Erie",
+        "Planet Los Angeles",
+        "Planet Manhattan",
+        "Planet New London",
+        "Planet Pittsburgh",
+        "Pueblo Station",
+        "Riverside Station",
+        "San Diego Border Station",
+        "Scottsdale Refinery",
+        "Sheffield Station",
+        "Trenton Outpost",
+        "Valley Forge Flight School",
+        "Waterloo Station",
+        "West Point Military Academy",
+        "Willard Research Station",
+        "bw08_04_base"
+      ],
+      "missionBases": [
+        "Bering → Hamburg Gate Reconstruction Site",
+        "California → Riverside Station",
+        "Colorado → Pueblo Station",
+        "New York → Detroit Munitions"
+      ]
     },
     {
       "nick": "fc_ai_grp",
@@ -668,13 +1583,20 @@
       "defaultRep": -0.7,
       "shortName": "AI",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "fc_technocracy": 0.3,
         "fc_c_grp": 0.1,
         "fc_ou_grp": -0.05,
         "fc_or_grp": -0.1,
         "fc_core": -0.3
-      }
+      },
+      "bribes": [
+        "Primus Outpost"
+      ],
+      "missionBases": [
+        "Omega-47 → Primus Outpost"
+      ]
     },
     {
       "nick": "fc_b_grp",
@@ -685,6 +1607,7 @@
       "defaultRep": -0.3,
       "shortName": "Bundschuh",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "rh_n_grp": -0.2,
         "rh_p_grp": -0.2,
@@ -696,7 +1619,32 @@
         "fc_u_grp": -0.1,
         "fc_lwb_grp": 0.1,
         "gd_bh_grp": -0.2
-      }
+      },
+      "bribes": [
+        "Aralsk Research Station",
+        "Battleship Bayern",
+        "Bielefeld Base",
+        "Bruchsal Base",
+        "Fort Sommerda",
+        "Freeport 8",
+        "Heisenberg Research Station",
+        "Invergordon Drydock",
+        "Kaiserslautern Depot",
+        "Kreuzberg Depot",
+        "Mainz Storage Facility",
+        "Planet Hamburg",
+        "Saverne Base",
+        "Tennstedt Base",
+        "Vogtland Base"
+      ],
+      "missionBases": [
+        "Cologne → Saverne Base",
+        "Frankfurt → Bruchsal Base",
+        "New Berlin → Kaiserslautern Depot",
+        "New Berlin → Kreuzberg Depot",
+        "Sigma-15 → Bielefeld Base",
+        "Thuringia → Tennstedt Base"
+      ]
     },
     {
       "nick": "fc_bd_grp",
@@ -707,6 +1655,7 @@
       "defaultRep": -0.3,
       "shortName": "Dragons",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "ku_n_grp": -0.3,
         "ku_p_grp": -0.3,
@@ -725,7 +1674,23 @@
         "fc_or_grp": 0.1,
         "gd_gm_grp": 0.1,
         "gd_bh_grp": -0.1
-      }
+      },
+      "bribes": [
+        "Ainu Depot",
+        "Battleship Kokura",
+        "Battleship Matsuda",
+        "Furyoku Station",
+        "Kyoto Base",
+        "Morioka Base",
+        "Ryukyu Base"
+      ],
+      "missionBases": [
+        "Chugoku → Kyoto Base",
+        "Hokkaido → Ainu Depot",
+        "Honshu → Hikone Base",
+        "Kyushu → Battleship Kokura",
+        "Tohoku → Ryukyu Base"
+      ]
     },
     {
       "nick": "fc_brigands_grp",
@@ -736,6 +1701,7 @@
       "defaultRep": -0.7,
       "shortName": "Brigands",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "ga_n_grp": -0.3,
         "ga_gni_grp": -0.3,
@@ -744,7 +1710,25 @@
         "ga_idf_grp": -0.25,
         "fc_maquis_grp": 0.2,
         "fc_corse_grp": 0.15
-      }
+      },
+      "bribes": [
+        "Beaumont Depot",
+        "Boulogne Base",
+        "Bourbon Base",
+        "Davos Base",
+        "Kirkwall Base",
+        "Krefeld Base",
+        "Lodeve Space Port",
+        "Montauban Base",
+        "Salbris Base",
+        "ew16_06_base"
+      ],
+      "missionBases": [
+        "Ile-de-France → Beaumont Depot",
+        "Orleanais → Salbris Base",
+        "Picardy → Boulogne Base",
+        "Roussillon → Montauban Base"
+      ]
     },
     {
       "nick": "fc_c_grp",
@@ -755,6 +1739,7 @@
       "defaultRep": -0.7,
       "shortName": "Corsairs",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "br_n_grp": -0.25,
         "fc_ouk_grp": -0.25,
@@ -794,7 +1779,63 @@
         "gd_bh_grp": -0.15,
         "gd_gm_grp": -0.15,
         "gd_im_grp": -0.1
-      }
+      },
+      "bribes": [
+        "Battlecruiser Santander",
+        "Battlecruiser Vis",
+        "Battleship Athos",
+        "Battleship Delos",
+        "Battleship Prox",
+        "Bornholm Depot",
+        "Cadiz Base",
+        "Casablanca Base",
+        "Ciutadella Outpost",
+        "Command Battlecruiser Krk",
+        "Corfu Base",
+        "Freeport 1",
+        "Freeport 11",
+        "Freeport 5",
+        "Freeport 8",
+        "Freeport 9",
+        "Halifax Freeport",
+        "Holmfirth Base",
+        "Lagos Depot",
+        "Lanzarote Station",
+        "Leon Base",
+        "Liner Brixton",
+        "Luxury Liner Hawaii",
+        "Newport Station",
+        "Planet Crete",
+        "Planet New London, Landing Site",
+        "Planet Pygar",
+        "Santa Lucia",
+        "Sedona Station",
+        "Skye Base",
+        "Torshavn Space Port",
+        "Trafalgar Base",
+        "Tripoli Shipyard",
+        "Wedel Base"
+      ],
+      "missionBases": [
+        "Dublin → Battlecruiser Santander",
+        "New London → Trafalgar Base",
+        "Omega-41 → Leon Base",
+        "Omega-47 → Casablanca Base",
+        "Omega-49 → Battleship Athos",
+        "Omega-49 → Lanzarote Station",
+        "Omega-49 → Planet Gran Canaria",
+        "Omega-5 → Cadiz Base",
+        "Omega-55 → Bornholm Depot",
+        "Omicron Delta → Battleship Delos",
+        "Omicron Gamma → Battleship Prox",
+        "Omicron Gamma → Command Battlecruiser Krk",
+        "Omicron Gamma → Planet Crete",
+        "Omicron Gamma → Tripoli Shipyard",
+        "Omicron Kappa → Battlecruiser Vis",
+        "Omicron Kappa → Ciutadella Outpost",
+        "Omicron Theta → Planet Pygar",
+        "Sigma-13 → Lagos Depot"
+      ]
     },
     {
       "nick": "fc_core",
@@ -805,11 +1846,33 @@
       "defaultRep": 0.0,
       "shortName": "Core",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "fc_or_grp": -0.3,
         "gd_bh_grp": 0.2,
         "fc_technocracy": -0.2
-      }
+      },
+      "bribes": [
+        "Battleship Bellona",
+        "Bonn Station",
+        "Dagger Outpost",
+        "Freeport 11",
+        "Freeport 5",
+        "Freeport 8",
+        "Hammersee",
+        "Nauru",
+        "Newark Station",
+        "Nobeoka Platform",
+        "Planet Gran Canaria",
+        "Planet Holstein",
+        "Waterloo Station",
+        "Yaren Orbital Terminal"
+      ],
+      "missionBases": [
+        "Omega-49 → Planet Gran Canaria",
+        "Omicron Delta → Battleship Bellona",
+        "Omicron Delta → Freeport 11"
+      ]
     },
     {
       "nick": "fc_corse_grp",
@@ -820,11 +1883,36 @@
       "defaultRep": -0.3,
       "shortName": "Corse",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "fc_ou_grp": -0.2,
         "fc_maquis_grp": 0.2,
         "fc_brigands_grp": 0.1
-      }
+      },
+      "bribes": [
+        "Borneo",
+        "Bourbon Base",
+        "Béziers Base",
+        "Cannes Resort Station",
+        "Davos Base",
+        "Epernon Base",
+        "Lodeve Space Port",
+        "Luxury Liner Argenton",
+        "Minato Harbor",
+        "Monaco Base",
+        "Monte Carlo Freeport",
+        "Planet Marseille",
+        "ew16_06_base"
+      ],
+      "missionBases": [
+        "Orleanais → Epernon Base",
+        "Provence → Cannes Resort Station",
+        "Provence → Monaco Base",
+        "Provence → Monte Carlo Freeport",
+        "Provence → Planet Marseille",
+        "Tau-44 → Luxury Liner Argenton",
+        "Zurich → Davos Base"
+      ]
     },
     {
       "nick": "fc_fa_grp",
@@ -835,6 +1923,7 @@
       "defaultRep": -0.7,
       "shortName": "Alliance",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "ku_p_grp": -0.05,
         "co_shi_grp": 0.05,
@@ -857,7 +1946,36 @@
         "fc_lr_grp": -0.1,
         "gd_gm_grp": -0.05,
         "gd_bh_grp": -0.05
-      }
+      },
+      "bribes": [
+        "Akita Border Station",
+        "Battleship Hamamatsu",
+        "Battleship Myoko",
+        "Battleship Nagasaki",
+        "Deshima Station",
+        "Fuchu Prison",
+        "Heisenberg Research Station",
+        "Kabukicho Depot",
+        "Kagoshima Depot",
+        "Kamakura Base",
+        "Kamisu Hideout",
+        "Kreuzberg Depot",
+        "Nansei Research Complex",
+        "Narita Outpost",
+        "Ohashi Border Station",
+        "Planet Honshu",
+        "Planet Junyo",
+        "Planet Kyushu",
+        "Planet New Tokyo",
+        "Shinjuku Station",
+        "Shinkaku Station",
+        "Yokohama Shipyard",
+        "ku01_04_base"
+      ],
+      "missionBases": [
+        "Honshu → Kamisu Hideout",
+        "Kyushu → Kagoshima Depot"
+      ]
     },
     {
       "nick": "fc_freelancer",
@@ -868,7 +1986,23 @@
       "defaultRep": 0.9,
       "shortName": "Freelancer",
       "objectDestruction": -0.05,
-      "empathy": {}
+      "missionSuccess": 0.1,
+      "empathy": {},
+      "bribes": [
+        "Barrier Gate Station A",
+        "Barrier Gate Station B",
+        "Barrier Gate Station C",
+        "Freeport 6",
+        "Freeport 8",
+        "Halifax Freeport",
+        "Heisenberg Research Station",
+        "Monte Carlo Freeport",
+        "Nauru"
+      ],
+      "missionBases": [
+        "Coronado → Sierra Starport",
+        "New London Atmosphere → Planet New London, Landing Site"
+      ]
     },
     {
       "nick": "fc_friendly",
@@ -888,6 +2022,7 @@
       "defaultRep": -0.7,
       "shortName": "Gaians",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "br_n_grp": -0.2,
         "fc_ouk_grp": -0.2,
@@ -904,7 +2039,35 @@
         "co_bcm_grp": -0.1,
         "gd_bh_grp": -0.1,
         "fc_technocracy": -0.1
-      }
+      },
+      "bribes": [
+        "Battlecruiser Santander",
+        "Battleship Pamiers",
+        "Battleship Prox",
+        "Command Battlecruiser Krk",
+        "Cruiser Greifswald",
+        "Darmstadt Depot",
+        "Freeport 1",
+        "Halifax Freeport",
+        "Holmfirth Base",
+        "Islay Base",
+        "Kirkwall Base",
+        "Liner Brixton",
+        "Planet New London, Landing Site",
+        "Sandur Base",
+        "Skye Base",
+        "Torshavn Space Port",
+        "Trafalgar Base"
+      ],
+      "missionBases": [
+        "Burgundy → Liner Brixton",
+        "Edinburgh → Islay Base",
+        "Manchester → Holmfirth Base",
+        "New London → Trafalgar Base",
+        "Newcastle → Skye Base",
+        "Orkney → Kirkwall Base",
+        "Vespucci → Atacama Base"
+      ]
     },
     {
       "nick": "fc_gc_grp",
@@ -915,6 +2078,7 @@
       "defaultRep": -0.7,
       "shortName": "GC",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "ku_n_grp": -0.3,
         "ku_p_grp": -0.3,
@@ -933,7 +2097,28 @@
         "fc_or_grp": 0.1,
         "gd_gm_grp": 0.1,
         "gd_bh_grp": -0.1
-      }
+      },
+      "bribes": [
+        "Ainu Depot",
+        "Attica Station",
+        "Attica Ultramax",
+        "Battleship Matsuda",
+        "Cali Base",
+        "Corsica Shipyard",
+        "Destroyer Ceuta",
+        "Destroyer Medellin",
+        "Dreadnought Basilica",
+        "Furyoku Station",
+        "Leiden Base",
+        "Morioka Base",
+        "Padua Base"
+      ],
+      "missionBases": [
+        "Hokkaido → Ainu Depot",
+        "Kyushu → Battleship Kokura",
+        "Shikoku → Morioka Base",
+        "Sigma-59 → Nishiara Base"
+      ]
     },
     {
       "nick": "fc_h_grp",
@@ -944,6 +2129,7 @@
       "defaultRep": -0.4,
       "shortName": "Hogosha",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "co_shi_grp": 0.05,
         "co_kt_grp": -0.05,
@@ -963,7 +2149,36 @@
         "fc_fa_grp": 0.3,
         "gd_gm_grp": -0.1,
         "gd_bh_grp": -0.05
-      }
+      },
+      "bribes": [
+        "Akita Border Station",
+        "Attica Ultramax",
+        "Battleship Myoko",
+        "Battleship Nagasaki",
+        "Deshima Station",
+        "Freeport 6",
+        "Fuchu Prison",
+        "Kabukicho Depot",
+        "Kamakura Base",
+        "Lagos Depot",
+        "Leiden Base",
+        "Luxury Liner Hawaii",
+        "Narita Outpost",
+        "Ohashi Border Station",
+        "Padua Base",
+        "Philadelphia Station",
+        "Planet Honshu",
+        "Planet Junyo",
+        "Planet Kurile, Samura Platform",
+        "Planet New Tokyo",
+        "Shinjuku Station",
+        "Shinkaku Station",
+        "Yokohama Shipyard"
+      ],
+      "missionBases": [
+        "New Tokyo → Kabukicho Depot",
+        "Shikoku → Golden Dragon Casino"
+      ]
     },
     {
       "nick": "fc_hostile",
@@ -974,6 +2189,7 @@
       "defaultRep": -0.65,
       "shortName": "Unknown",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {}
     },
     {
@@ -985,13 +2201,57 @@
       "defaultRep": 0.3,
       "shortName": "Junkers",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "ku_n_grp": -0.05,
         "ku_p_grp": -0.05,
         "fc_h_grp": -0.2,
         "fc_x_grp": -0.2,
         "co_bcm_grp": -0.2
-      }
+      },
+      "bribes": [
+        "Allentown Base",
+        "Beaumont Base",
+        "Bethlehem Station",
+        "Bornholm Depot",
+        "Bruchsal Base",
+        "Buffalo Base",
+        "Halifax Freeport",
+        "Holmfirth Base",
+        "Invergordon Drydock",
+        "Invergordon Shipyard",
+        "Kreuzberg Depot",
+        "LPI Sugarland",
+        "Lagos Depot",
+        "Liner Brixton",
+        "Lisburn Rock",
+        "Mainz Storage Facility",
+        "Niverton Base",
+        "Planet Hamburg",
+        "Planet Houston",
+        "Planet Manhattan",
+        "Planet New Berlin",
+        "Planet New London",
+        "Planet New London, Landing Site",
+        "Portsmouth Shipyard",
+        "Rochester Base",
+        "Saverne Base",
+        "Skye Base",
+        "Tarancon Base Wreck",
+        "Tennstedt Base",
+        "Thunder Bay Depot",
+        "Trafalgar Base"
+      ],
+      "missionBases": [
+        "Burgundy → Liner Brixton",
+        "New Berlin → Kreuzberg Depot",
+        "New London → Trafalgar Base",
+        "New York → Rochester Base",
+        "Omicron Minor → Tarancon Base Wreck",
+        "Ontario → Thunder Bay Depot",
+        "Pennsylvania → Allentown Base",
+        "Texas → Beaumont Base"
+      ]
     },
     {
       "nick": "fc_kn_grp",
@@ -1002,6 +2262,7 @@
       "defaultRep": 0.0,
       "shortName": "Coalition",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "br_n_grp": -0.3,
         "fc_ouk_grp": -0.3,
@@ -1030,7 +2291,25 @@
         "fc_c_grp": -0.25,
         "fc_j_grp": 0.05,
         "gd_bh_grp": -0.2
-      }
+      },
+      "bribes": [
+        "Aralsk Research Station",
+        "Battleship Zuschen",
+        "Destroyer Shillelagh",
+        "Gjallarbru Research Station",
+        "Madeira Base",
+        "Newport Station",
+        "Planet Jiangxi",
+        "Planet Tangier",
+        "Zhejiang Orbital",
+        "Zvyozdny Gorodok"
+      ],
+      "missionBases": [
+        "Omega-47 → Planet Tangier",
+        "Omega-49 → Carrier Ben Warner",
+        "Omega-49 → Planet Gran Canaria",
+        "Omega-52 → Aralsk Research Station"
+      ]
     },
     {
       "nick": "fc_lh_grp",
@@ -1041,6 +2320,7 @@
       "defaultRep": -0.7,
       "shortName": "Hackers",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "br_n_grp": -0.05,
         "fc_ouk_grp": -0.05,
@@ -1063,7 +2343,38 @@
         "fc_ou_grp": 0.2,
         "fc_c_grp": -0.15,
         "gd_bh_grp": -0.1
-      }
+      },
+      "bribes": [
+        "Allentown Base",
+        "Amarillo Base",
+        "Ames Research Station",
+        "Attica Station",
+        "Attica Ultramax",
+        "Barrier Gate Station A",
+        "Barrier Gate Station B",
+        "Barrier Gate Station C",
+        "Bristol Bay Station",
+        "Cochrane Depot",
+        "Destroyer Insidious",
+        "Freeport 14",
+        "Invergordon Drydock",
+        "Invergordon Shipyard",
+        "Leiden Base",
+        "Mactan Base",
+        "Niverton Base",
+        "Padua Base",
+        "li09_09_base"
+      ],
+      "missionBases": [
+        "Bering → Bristol Bay Station",
+        "Coronado → Destroyer Insidious",
+        "Coronado → Sierra Starport",
+        "Galileo → Leiden Base",
+        "Magellan → Mactan Base",
+        "Ontario → Cochrane Depot",
+        "Shikoku → Noshima Freeport",
+        "Texas → Amarillo Base"
+      ]
     },
     {
       "nick": "fc_ln_grp",
@@ -1083,6 +2394,7 @@
       "defaultRep": -0.7,
       "shortName": "Rogues",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "br_n_grp": -0.05,
         "fc_ouk_grp": -0.05,
@@ -1109,7 +2421,54 @@
         "fc_c_grp": -0.05,
         "fc_j_grp": 0.1,
         "gd_bh_grp": -0.15
-      }
+      },
+      "bribes": [
+        "Alcatraz Depot",
+        "Allentown Base",
+        "Amarillo Base",
+        "Attica Station",
+        "Attica Ultramax",
+        "Barrier Gate Station A",
+        "Barrier Gate Station B",
+        "Barrier Gate Station C",
+        "Beaumont Base",
+        "Bethlehem Station",
+        "Bristol Bay Station",
+        "Buffalo Base",
+        "Cochrane Depot",
+        "Dawson Base",
+        "Destroyer Insidious",
+        "Freeport 14",
+        "Invergordon Drydock",
+        "Invergordon Shipyard",
+        "Krefeld Base",
+        "LPI Sugarland",
+        "Leiden Base",
+        "Mactan Base",
+        "Montezuma Base",
+        "Niverton Base",
+        "Pacifica Base",
+        "Padua Base",
+        "Planet Houston",
+        "Planet Manhattan",
+        "Rochester Base",
+        "Thunder Bay Depot",
+        "Wedel Base"
+      ],
+      "missionBases": [
+        "California → Alcatraz Depot",
+        "Colorado → Attica Ultramax",
+        "Cortez → Montezuma Base",
+        "Galileo → Attica Station",
+        "Galileo → Padua Base",
+        "Hudson → Dawson Base",
+        "New York → Buffalo Base",
+        "New York → Rochester Base",
+        "Ontario → Thunder Bay Depot",
+        "Pennsylvania → Allentown Base",
+        "Pennsylvania → Niverton Base",
+        "Texas → Beaumont Base"
+      ]
     },
     {
       "nick": "fc_lwb_grp",
@@ -1120,6 +2479,7 @@
       "defaultRep": -0.55,
       "shortName": "LWB",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "br_m_grp": -0.05,
         "br_n_grp": -0.15,
@@ -1150,7 +2510,20 @@
         "rh_mnd_grp": -0.25,
         "rh_n_grp": -0.25,
         "rh_p_grp": -0.25
-      }
+      },
+      "bribes": [
+        "Cruiser Greifswald",
+        "Cruiser Schwarzwald",
+        "Darmstadt Depot",
+        "Heisenberg Research Station",
+        "Kreuzberg Depot",
+        "Torshavn Space Port",
+        "Vogtland Base"
+      ],
+      "missionBases": [
+        "Cologne → Cruiser Schwarzwald",
+        "Stuttgart → Darmstadt Depot"
+      ]
     },
     {
       "nick": "fc_m_grp",
@@ -1161,6 +2534,7 @@
       "defaultRep": -0.65,
       "shortName": "Mollys",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "br_n_grp": -0.2,
         "br_p_grp": -0.2,
@@ -1173,7 +2547,27 @@
         "fc_lh_grp": 0.1,
         "fc_lr_grp": 0.15,
         "gd_bh_grp": -0.1
-      }
+      },
+      "bribes": [
+        "Aralsk Research Station",
+        "Arranmore Base",
+        "Destroyer Ceuta",
+        "Garvagh Base",
+        "Halifax Freeport",
+        "Lisburn Rock",
+        "Mull Base",
+        "Planet New London, Landing Site",
+        "South Shields Refinery",
+        "Trafalgar Base"
+      ],
+      "missionBases": [
+        "Cambridge → Lisburn Rock",
+        "Dublin → Arranmore Base",
+        "New London Atmosphere → Planet New London, Landing Site",
+        "New London → Trafalgar Base",
+        "Newcastle → Mull Base",
+        "Omega-49 → Planet Gran Canaria"
+      ]
     },
     {
       "nick": "fc_maquis_grp",
@@ -1184,6 +2578,7 @@
       "defaultRep": 0.0,
       "shortName": "Maquis",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "li_n_grp": 0.05,
         "li_lsf_grp": 0.05,
@@ -1202,7 +2597,26 @@
         "fc_corse_grp": 0.1,
         "fc_brigands_grp": 0.1,
         "ga_roy_grp": -0.3
-      }
+      },
+      "bribes": [
+        "Battleship Pamiers",
+        "Brunoy Hideout",
+        "Béziers Base",
+        "Davos Base",
+        "Eplessier Depot",
+        "Islay Base",
+        "Lodeve Space Port",
+        "Vercors Outpost",
+        "ew16_06_base"
+      ],
+      "missionBases": [
+        "Burgundy → Vercors Outpost",
+        "Champagne → ew16_06_base",
+        "Ile-de-France → Brunoy Hideout",
+        "Languedoc → Béziers Base",
+        "Picardy → Eplessier Depot",
+        "Roussillon → Battleship Pamiers"
+      ]
     },
     {
       "nick": "fc_militant",
@@ -1213,9 +2627,13 @@
       "defaultRep": -0.65,
       "shortName": "Militants",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "gd_z_grp": 0.4
-      }
+      },
+      "bribes": [
+        "Invergordon Drydock"
+      ]
     },
     {
       "nick": "fc_n_grp",
@@ -1226,6 +2644,7 @@
       "defaultRep": -0.9,
       "shortName": "Nomads",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.03,
       "empathy": {
         "fc_wild": 0.3
       }
@@ -1237,7 +2656,8 @@
       "shootable": false,
       "changeable": false,
       "defaultRep": 0.0,
-      "shortName": "Neutral"
+      "shortName": "Neutral",
+      "empathy": {}
     },
     {
       "nick": "fc_or_grp",
@@ -1248,6 +2668,7 @@
       "defaultRep": -0.3,
       "shortName": "Order",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "br_n_grp": -0.05,
         "fc_ouk_grp": -0.05,
@@ -1269,7 +2690,15 @@
         "gd_z_grp": 0.1,
         "gd_bh_grp": -0.1,
         "fc_core": -0.2
-      }
+      },
+      "bribes": [
+        "Akabat",
+        "Battleship Atum",
+        "Battleship Thebes",
+        "Dabadoru Station",
+        "Freeport 11",
+        "Taba Starbase"
+      ]
     },
     {
       "nick": "fc_ou_grp",
@@ -1280,6 +2709,7 @@
       "defaultRep": -0.7,
       "shortName": "Outcasts",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "br_n_grp": -0.05,
         "fc_ouk_grp": -0.05,
@@ -1333,7 +2763,67 @@
         "ga_idf_grp": -0.1,
         "fc_maquis_grp": -0.1,
         "fc_brigands_grp": 0.05
-      }
+      },
+      "bribes": [
+        "Alcatraz Depot",
+        "Allentown Base",
+        "Amarillo Base",
+        "Barrier Gate Station A",
+        "Barrier Gate Station B",
+        "Barrier Gate Station C",
+        "Beaumont Base",
+        "Buffalo Base",
+        "Cali Base",
+        "Canberra Star City",
+        "Cochrane Depot",
+        "Corsica Shipyard",
+        "Destroyer Ceuta",
+        "Destroyer Insidious",
+        "Destroyer Medellin",
+        "Destroyer Quezon",
+        "Dreadnought Basilica",
+        "Freeport 10",
+        "Freeport 6",
+        "Galicia Research Station",
+        "Halifax Freeport",
+        "Ibiza Base",
+        "Invergordon Drydock",
+        "LPI Sugarland",
+        "Liner Brixton",
+        "Mactan Base",
+        "Montezuma Base",
+        "Niverton Base",
+        "Planet Houston",
+        "Planet Malta",
+        "Planet Manhattan",
+        "Planet New London, Landing Site",
+        "Rochester Base",
+        "Ruiz Base",
+        "Thunder Bay Depot",
+        "Trafalgar Base"
+      ],
+      "missionBases": [
+        "Burgundy → Liner Brixton",
+        "California → Alcatraz Depot",
+        "Cortez → Montezuma Base",
+        "Magellan → Mactan Base",
+        "New London → Trafalgar Base",
+        "New York → Buffalo Base",
+        "Newcastle → Destroyer Ceuta",
+        "Omicron Alpha → Corsica Shipyard",
+        "Omicron Alpha → Dreadnought Basilica",
+        "Omicron Alpha → Ibiza Base",
+        "Omicron Alpha → Planet Malta",
+        "Omicron Beta → Galicia Research Station",
+        "Omicron Beta → Ruiz Base",
+        "Ontario → Cochrane Depot",
+        "Pennsylvania → Niverton Base",
+        "Planet Manhattan Atmosphere → Planet Manhattan, Landing Site",
+        "Tau-23 → Cali Base",
+        "Tau-23 → Destroyer Medellin",
+        "Tau-44 → Destroyer Quezon",
+        "Texas → Beaumont Base"
+      ]
     },
     {
       "nick": "fc_ouk_grp",
@@ -1344,6 +2834,7 @@
       "defaultRep": -0.3,
       "shortName": "BIS",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "br_n_grp": 0.3,
         "fc_ouk_grp": 0.3,
@@ -1380,7 +2871,15 @@
         "gd_bh_grp": 0.05,
         "gd_im_grp": 0.05,
         "gd_gm_grp": 0.05
-      }
+      },
+      "bribes": [
+        "Halifax Freeport",
+        "Prison Liner Verwood",
+        "Sunderland Research Aerostat"
+      ],
+      "missionBases": [
+        "Dublin → Battleship Somerset"
+      ]
     },
     {
       "nick": "fc_pirate",
@@ -1391,6 +2890,7 @@
       "defaultRep": 0.0,
       "shortName": "Pirate",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "br_n_grp": -0.05,
         "br_p_grp": -0.05,
@@ -1406,7 +2906,20 @@
         "ku_koi_grp": -0.05,
         "ga_n_grp": -0.05,
         "ga_gni_grp": -0.05
-      }
+      },
+      "bribes": [
+        "Barrier Gate Station A",
+        "Barrier Gate Station B",
+        "Barrier Gate Station C",
+        "Canberra Star City",
+        "Ithaca Base",
+        "Providence Station"
+      ],
+      "missionBases": [
+        "Edinburgh → Providence Station",
+        "Omega-7 → Ithaca Base",
+        "Tau-44 → Canberra Star City"
+      ]
     },
     {
       "nick": "fc_q_grp",
@@ -1415,7 +2928,10 @@
       "shootable": false,
       "changeable": true,
       "defaultRep": 0.0,
-      "shortName": "New York"
+      "shortName": "New York",
+      "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
+      "empathy": {}
     },
     {
       "nick": "fc_rh_grp",
@@ -1426,6 +2942,7 @@
       "defaultRep": -0.7,
       "shortName": "Hessians",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "br_n_grp": -0.15,
         "fc_ouk_grp": -0.15,
@@ -1454,7 +2971,42 @@
         "fc_c_grp": -0.25,
         "fc_j_grp": 0.05,
         "gd_bh_grp": -0.2
-      }
+      },
+      "bribes": [
+        "Aralsk Research Station",
+        "Battleship Zuschen",
+        "Bruchsal Base",
+        "Cadiz Base",
+        "Carrier Ben Warner",
+        "Corfu Base",
+        "Cruiser Greifswald",
+        "Cruiser Schwarzwald",
+        "Darmstadt Depot",
+        "Freeport 1",
+        "Freeport 5",
+        "Heisenberg Research Station",
+        "Kreuzberg Depot",
+        "Lisburn Rock",
+        "Mainz Storage Facility",
+        "Newport Station",
+        "Planet Gran Canaria",
+        "Planet Hamburg",
+        "Planet New Berlin",
+        "Planet Tangier",
+        "Ronneburg Base",
+        "Sedona Station",
+        "Tennstedt Base",
+        "Vogtland Base",
+        "Zhejiang Orbital",
+        "Zvyozdny Gorodok"
+      ],
+      "missionBases": [
+        "Dresden → Vogtland Base",
+        "Omega-47 → Madeira Base",
+        "Omega-47 → Planet Tangier",
+        "Omega-49 → Carrier Ben Warner",
+        "Omega-5 → Ronneburg Base"
+      ]
     },
     {
       "nick": "fc_rn_grp",
@@ -1465,6 +3017,7 @@
       "defaultRep": 0.0,
       "shortName": "Crayter Republic",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "br_n_grp": 0.1,
         "fc_ouk_grp": 0.1,
@@ -1478,7 +3031,31 @@
         "gd_im_grp": 0.3,
         "gd_z_grp": 0.1,
         "ga_roy_grp": -0.3
-      }
+      },
+      "bribes": [
+        "Barrier Gate Station A",
+        "Barrier Gate Station B",
+        "Barrier Gate Station C",
+        "Battlecruiser Tuscaloosa",
+        "Borneo",
+        "Freeport 6",
+        "Minato Harbor",
+        "Pecos, Camp Lister",
+        "Pecos, New Hope",
+        "Planet Carlisle",
+        "Planet Harris",
+        "Planet Yuma",
+        "Riverside Station",
+        "Shasta Orbital Skyhook",
+        "Sulawesi Citadel"
+      ],
+      "missionBases": [
+        "California → Riverside Station",
+        "Ontario → Battlecruiser Tuscaloosa",
+        "Tau-44 → Borneo",
+        "Tau-44 → Minato Harbor",
+        "Tau-44 → Sulawesi Citadel"
+      ]
     },
     {
       "nick": "fc_staff",
@@ -1489,6 +3066,7 @@
       "defaultRep": -0.55,
       "shortName": "Admin",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {}
     },
     {
@@ -1500,6 +3078,7 @@
       "defaultRep": -0.7,
       "shortName": "Technocracy",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "fc_vagrants": 0.3,
         "li_n_grp": -0.05,
@@ -1513,7 +3092,15 @@
         "fc_ou_grp": -0.2,
         "fc_or_grp": -0.3,
         "fc_core": -0.3
-      }
+      },
+      "bribes": [
+        "Carrier Orion",
+        "Primus Outpost",
+        "Valravn Citadel"
+      ],
+      "missionBases": [
+        "Inverness → Valravn Citadel"
+      ]
     },
     {
       "nick": "fc_u_grp",
@@ -1524,6 +3111,7 @@
       "defaultRep": -0.7,
       "shortName": "Unioners",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "li_n_grp": -0.05,
         "li_p_grp": -0.05,
@@ -1543,7 +3131,35 @@
         "fc_rh_grp": -0.2,
         "fc_j_grp": 0.05,
         "gd_bh_grp": -0.15
-      }
+      },
+      "bribes": [
+        "Bristol Bay Station",
+        "Bruchsal Base",
+        "Davos Base",
+        "Dawson Base",
+        "Freeport 8",
+        "Heisenberg Research Station",
+        "Invergordon Drydock",
+        "Invergordon Shipyard",
+        "Kaiserslautern Depot",
+        "Krefeld Base",
+        "Kreuzberg Depot",
+        "Lagos Depot",
+        "Mainz Storage Facility",
+        "Pacifica Base",
+        "Planet Hamburg",
+        "Planet New Berlin",
+        "Tennstedt Base",
+        "Vierlande Prison",
+        "Wedel Base"
+      ],
+      "missionBases": [
+        "Bering → Pacifica Base",
+        "Hamburg → Vierlande Prison",
+        "Hamburg → Wedel Base",
+        "New Berlin → Kreuzberg Depot",
+        "Zurich → Davos Base"
+      ]
     },
     {
       "nick": "fc_uk_grp",
@@ -1551,7 +3167,10 @@
       "legality": "unlawful",
       "shootable": false,
       "changeable": true,
-      "defaultRep": 0.0
+      "defaultRep": 0.0,
+      "objectDestruction": -0.05,
+      "missionSuccess": 0.13,
+      "empathy": {}
     },
     {
       "nick": "fc_vagrants",
@@ -1562,6 +3181,7 @@
       "defaultRep": -0.9,
       "shortName": "Vagrants",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.03,
       "empathy": {
         "fc_technocracy": 0.3,
         "fc_wild": 0.3
@@ -1576,6 +3196,7 @@
       "defaultRep": 0.0,
       "shortName": "Unknown",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.03,
       "empathy": {
         "fc_n_grp": 0.1,
         "fc_wild": 0.1,
@@ -1583,7 +3204,13 @@
         "fc_or_grp": -0.1,
         "gd_z_grp": -0.05,
         "fc_core": -0.05
-      }
+      },
+      "bribes": [
+        "Leniex Outpost"
+      ],
+      "missionBases": [
+        "Vespucci → Leniex Outpost"
+      ]
     },
     {
       "nick": "fc_wild",
@@ -1594,6 +3221,7 @@
       "defaultRep": -0.9,
       "shortName": "Unknown",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.03,
       "empathy": {
         "fc_n_grp": 0.5,
         "fc_vagrants": 0.1,
@@ -1601,7 +3229,17 @@
         "fc_or_grp": -0.1,
         "gd_z_grp": -0.05,
         "fc_core": -0.05
-      }
+      },
+      "missionBases": [
+        "Cambridge → Battlecruiser Trier",
+        "Newcastle → Stockton Depot",
+        "Omega-55 → Basel Rock",
+        "Omega-58 → Kaarst Drydock",
+        "Omicron Mu → Battleship Hakodate",
+        "Sigma-19 → Liner Samsara",
+        "Thuringia → Battleship Fenrir",
+        "Zurich → Lausanne Complex"
+      ]
     },
     {
       "nick": "fc_x_grp",
@@ -1612,6 +3250,7 @@
       "defaultRep": -0.7,
       "shortName": "Xenos",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "ku_n_grp": -0.1,
         "ku_p_grp": -0.1,
@@ -1639,7 +3278,28 @@
         "fc_u_grp": -0.1,
         "fc_j_grp": -0.25,
         "gd_bh_grp": -0.2
-      }
+      },
+      "bribes": [
+        "Ames Research Station",
+        "Barrow Base",
+        "Bethlehem Station",
+        "Bristol Bay Station",
+        "Fort Ramsey",
+        "Leyte Base",
+        "Milford Base",
+        "Nome Base",
+        "Ouray Base",
+        "Planet Pittsburgh, Xeno Hideout",
+        "li03_06_base"
+      ],
+      "missionBases": [
+        "Colorado → Ouray Base",
+        "Colorado → li03_06_base",
+        "Hudson → Barrow Base",
+        "Kepler → Nome Base",
+        "Ontario → Fort Ramsey",
+        "Pennsylvania → Milford Base"
+      ]
     },
     {
       "nick": "ga_efl_grp",
@@ -1650,6 +3310,7 @@
       "defaultRep": -0.3,
       "shortName": "EFL",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "ga_n_grp": 0.2,
         "ga_gms_grp": 0.2,
@@ -1660,7 +3321,40 @@
         "fc_maquis_grp": -0.25,
         "fc_ou_grp": -0.2,
         "fc_rn_grp": -0.2
-      }
+      },
+      "bribes": [
+        "Abbeville Production Facility",
+        "Aubigny",
+        "Bourg-en-Bresse Space Port",
+        "Cannes Resort Station",
+        "Chartres Space Colony",
+        "Compiegne Naval Academy",
+        "Haute-Seine Shipyard",
+        "Java Station",
+        "Lodeve Space Port",
+        "Maintenon Shipyard",
+        "Melun Research Institution",
+        "Oerlikon Refinery",
+        "Planet Amiens",
+        "Planet Blois",
+        "Planet Marseille",
+        "Planet New Paris",
+        "Planet Orleans",
+        "Rambouillet Shipyard",
+        "Sarcelles Shipping Facility",
+        "Vendome Station",
+        "Versailles Station",
+        "Wuppertal Refinery"
+      ],
+      "missionBases": [
+        "Burgundy → Bourg-en-Bresse Space Port",
+        "Champagne → Planet Marne",
+        "Ile-de-France → Compiegne Naval Academy",
+        "Orleanais → Chartres Space Colony",
+        "Picardy → Abbeville Production Facility",
+        "Picardy → Haute-Seine Shipyard",
+        "Zurich → Oerlikon Refinery"
+      ]
     },
     {
       "nick": "ga_gms_grp",
@@ -1671,6 +3365,7 @@
       "defaultRep": -0.55,
       "shortName": "GMS",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "ga_n_grp": 0.1,
         "ga_efl_grp": 0.2,
@@ -1681,7 +3376,36 @@
         "fc_maquis_grp": -0.25,
         "fc_ou_grp": -0.2,
         "fc_rn_grp": -0.2
-      }
+      },
+      "bribes": [
+        "Aubigny",
+        "Bourbon Base",
+        "Bourg-en-Bresse Space Port",
+        "Cannes Resort Station",
+        "Chartres Space Colony",
+        "Freeport 6",
+        "Guise Mining Facility",
+        "Haute-Seine Shipyard",
+        "Holman Outpost",
+        "Java Station",
+        "Lodeve Space Port",
+        "Maintenon Shipyard",
+        "Nimes Station",
+        "Planet Amiens",
+        "Planet Blois",
+        "Planet Marseille",
+        "Planet New Paris",
+        "Planet Orleans",
+        "Rambouillet Shipyard",
+        "Sarcelles Shipping Facility",
+        "Toulon Mining Station"
+      ],
+      "missionBases": [
+        "Languedoc → Lodeve Space Port",
+        "Languedoc → Planet Quillan",
+        "Picardy → Guise Mining Facility",
+        "Provence → Toulon Mining Station"
+      ]
     },
     {
       "nick": "ga_gni_grp",
@@ -1692,6 +3416,7 @@
       "defaultRep": 0.0,
       "shortName": "GNI",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "ga_n_grp": 0.3,
         "ga_efl_grp": 0.2,
@@ -1701,7 +3426,21 @@
         "fc_maquis_grp": -0.3,
         "fc_ou_grp": -0.3,
         "ga_roy_grp": -0.3
-      }
+      },
+      "bribes": [
+        "Calais Research Facility",
+        "Evreux Research Facility",
+        "Maintenon Shipyard",
+        "Melun Research Institution",
+        "Planet Blois",
+        "Planet Orleans"
+      ],
+      "missionBases": [
+        "Ile-de-France → Melun Research Institution",
+        "Orkney → Battlecruiser Sisteron",
+        "Orleanais → Evreux Research Facility",
+        "Picardy → Calais Research Facility"
+      ]
     },
     {
       "nick": "ga_idf_grp",
@@ -1712,6 +3451,7 @@
       "defaultRep": -0.3,
       "shortName": "IDF",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "ga_n_grp": 0.1,
         "ga_gms_grp": 0.2,
@@ -1722,7 +3462,33 @@
         "fc_maquis_grp": -0.25,
         "fc_ou_grp": -0.2,
         "fc_rn_grp": -0.2
-      }
+      },
+      "bribes": [
+        "Aubigny",
+        "Battleship Resurgent",
+        "Bourg-en-Bresse Space Port",
+        "Cannes Resort Station",
+        "Chartres Space Colony",
+        "Compiegne Naval Academy",
+        "Freeport 6",
+        "Haute-Seine Shipyard",
+        "Holman Outpost",
+        "Java Station",
+        "Nago Station",
+        "Oerlikon Refinery",
+        "Planet Amiens",
+        "Planet Blois",
+        "Planet Marseille",
+        "Planet New Paris",
+        "Planet Orleans",
+        "Rambouillet Shipyard",
+        "Sarcelles Shipping Facility",
+        "Vendome Station",
+        "Versailles Station"
+      ],
+      "missionBases": [
+        "Ile-de-France → Sarcelles Shipping Facility"
+      ]
     },
     {
       "nick": "ga_n_grp",
@@ -1733,6 +3499,7 @@
       "defaultRep": -0.75,
       "shortName": "Gallic Navy",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "ga_gms_grp": 0.2,
         "ga_efl_grp": 0.2,
@@ -1742,7 +3509,46 @@
         "ga_gni_grp": 0.3,
         "fc_ou_grp": -0.3,
         "ga_roy_grp": -0.3
-      }
+      },
+      "bribes": [
+        "Aubigny",
+        "Borneo",
+        "Bourg-en-Bresse Space Port",
+        "Cannes Resort Station",
+        "Compiegne Naval Academy",
+        "Dounby Station",
+        "Fleury-Merogis Prison Station",
+        "Java Station",
+        "Lodeve Space Port",
+        "Luxury Liner Argenton",
+        "Maintenon Shipyard",
+        "Minato Harbor",
+        "Monte Carlo Freeport",
+        "Nago Station",
+        "Nimes Station",
+        "Oerlikon Refinery",
+        "Planet Amiens",
+        "Planet Blois",
+        "Planet New Paris",
+        "Planet Orleans",
+        "Rambouillet Shipyard",
+        "South Shields Refinery",
+        "Vendome Station"
+      ],
+      "missionBases": [
+        "Burgundy → Nevers",
+        "Champagne → Battleship Cassard",
+        "Ile-de-France → Aubigny",
+        "Ile-de-France → Battleship Dax",
+        "Ile-de-France → Fleury-Merogis Prison Station",
+        "Ile-de-France → Planet New Paris",
+        "Languedoc → Battleship De Grasse",
+        "Languedoc → Nimes Station",
+        "Orleanais → Planet Blois",
+        "Orleanais → Planet Orleans",
+        "Orleanais → Vendome Station",
+        "Picardy → Planet Amiens"
+      ]
     },
     {
       "nick": "ga_p_grp",
@@ -1753,6 +3559,7 @@
       "defaultRep": -0.65,
       "shortName": "Gendarmerie",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {}
     },
     {
@@ -1764,6 +3571,7 @@
       "defaultRep": -0.3,
       "shortName": "Royalist",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "br_n_grp": -0.3,
         "br_p_grp": -0.3,
@@ -1796,6 +3604,7 @@
       "defaultRep": -0.3,
       "shortName": "Bounty Hunters",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "li_n_grp": 0.05,
         "li_lsf_grp": 0.05,
@@ -1824,7 +3633,195 @@
         "fc_j_grp": -0.05,
         "fc_or_grp": -0.1,
         "fc_core": 0.2
-      }
+      },
+      "bribes": [
+        "Alster Shipyard",
+        "Altona Station",
+        "Ames Research Station",
+        "Aomori Station",
+        "Aubigny",
+        "BPA Newgate",
+        "Baltimore Shipyard",
+        "Barrier Gate Station A",
+        "Barrier Gate Station B",
+        "Barrier Gate Station C",
+        "Battlecruiser Tuscaloosa",
+        "Battlecruiser Yellowstone",
+        "Battleship Alma",
+        "Battleship Altenburg",
+        "Battleship Ark Royal",
+        "Battleship Arkansas",
+        "Battleship Essex",
+        "Battleship Macduff",
+        "Battleship Missouri",
+        "Battleship Norfolk",
+        "Battleship Rio Grande",
+        "Battleship Somerset",
+        "Battleship Westfalen",
+        "Bethlehem Station",
+        "Birmingham Station",
+        "Bonn Station",
+        "Borneo",
+        "Brandenburg Station",
+        "Bristol Bay Station",
+        "Cambridge Research Station",
+        "Canterbury Station",
+        "Cold Bay Depot",
+        "Cordova Shipping Platform",
+        "Corfu Base",
+        "Dagger Outpost",
+        "Deshima Station",
+        "Detroit Munitions",
+        "Douglas Station",
+        "Dounby Station",
+        "Elbe Border Fortress",
+        "Elbich Mining Facility",
+        "Essen Station",
+        "Fort Bush",
+        "Freeport 1",
+        "Freeport 10",
+        "Freeport 14",
+        "Freeport 5",
+        "Freeport 6",
+        "Freeport 8",
+        "Freiburg Station",
+        "Freistadt Base",
+        "Gas Miner Ogashawa",
+        "Halifax Freeport",
+        "Harrisburg Station",
+        "Heaton Mining Station",
+        "Java Station",
+        "Kansai Research Institute",
+        "Kensington Shipping Platform",
+        "Kingston Border Station",
+        "LPI Huntsville",
+        "LPI Sugarland",
+        "Liner Samsara",
+        "Luxury Liner Hawaii",
+        "Lübeck Border Station",
+        "Manitoba Station",
+        "Nago Station",
+        "Newark Station",
+        "Newport Station",
+        "Nobeoka Platform",
+        "Norfolk Shipyard",
+        "Noshima Freeport",
+        "Oder Shipyard",
+        "Perth Outpost",
+        "Philadelphia Station",
+        "Planet Amiens",
+        "Planet Baden Baden",
+        "Planet California Minor",
+        "Planet Cambridge",
+        "Planet Curacao",
+        "Planet Denver",
+        "Planet Erie",
+        "Planet Gran Canaria",
+        "Planet Hamburg",
+        "Planet Honshu",
+        "Planet Houston",
+        "Planet Kurile, Samura Platform",
+        "Planet Los Angeles",
+        "Planet Manhattan",
+        "Planet Marseille",
+        "Planet New Berlin",
+        "Planet New London",
+        "Planet New Paris",
+        "Planet Pittsburgh",
+        "Planet Quillan",
+        "Planet Sprague",
+        "Planet Stuttgart",
+        "Portsmouth Drydock",
+        "Portsmouth Shipyard",
+        "Pueblo Bonito",
+        "Rugen Station",
+        "San Diego Border Station",
+        "Scarborough Shipyard",
+        "Sedona Station",
+        "Sheffield Station",
+        "Singapore Shipyard",
+        "South Shields Refinery",
+        "Supply Station Neckar",
+        "Syracuse Station",
+        "Thames Outpost",
+        "The Ring",
+        "Ulm Border Station",
+        "Valley Forge Flight School",
+        "Waterloo Station",
+        "West Point Military Academy",
+        "Wildau Station",
+        "Willard Research Station",
+        "bw08_04_base",
+        "bw10_06_base"
+      ],
+      "missionBases": [
+        "California → Battlecruiser Yellowstone",
+        "California → Battleship Concord",
+        "California → Planet California Minor",
+        "California → Planet Los Angeles",
+        "California → San Diego Border Station",
+        "California → Willard Research Station",
+        "Cambridge → Battleship Macduff",
+        "Cambridge → Battleship Norfolk",
+        "Cambridge → Portsmouth Drydock",
+        "Cambridge → Portsmouth Shipyard",
+        "Cologne → Battleship Altenburg",
+        "Colorado → Battleship Rio Grande",
+        "Colorado → Planet Denver",
+        "Colorado → Syracuse Station",
+        "Cortez → Planet Curacao",
+        "Dublin → Battleship Somerset",
+        "Hamburg → Planet Hamburg",
+        "Hudson → Manitoba Station",
+        "Kepler → Ames Research Station",
+        "Languedoc → Planet Quillan",
+        "Manchester → BPA Newgate",
+        "Manchester → Birmingham Station",
+        "Manchester → Sheffield Station",
+        "New Berlin → Bonn Station",
+        "New Berlin → Wildau Station",
+        "New London → Battleship Essex",
+        "New London → Canterbury Station",
+        "New London → Planet New London",
+        "New London → Waterloo Station",
+        "New York → Baltimore Shipyard",
+        "New York → Battleship Missouri",
+        "New York → Detroit Munitions",
+        "New York → Fort Bush",
+        "New York → Newark Station",
+        "New York → Norfolk Shipyard",
+        "New York → Planet Pittsburgh",
+        "New York → West Point Military Academy",
+        "Newcastle → Heaton Mining Station",
+        "Newcastle → Scarborough Shipyard",
+        "Newcastle → South Shields Refinery",
+        "Omega-3 → Douglas Station",
+        "Omega-3 → Freeport 1",
+        "Omega-3 → Planet Sprague",
+        "Omega-7 → Freistadt Base",
+        "Omicron Theta → Corfu Base",
+        "Pennsylvania → Battleship Alma",
+        "Pennsylvania → Bethlehem Station",
+        "Pennsylvania → Harrisburg Station",
+        "Pennsylvania → Philadelphia Station",
+        "Pennsylvania → Planet Erie",
+        "Shikoku → Deshima Station",
+        "Sigma-13 → Newport Station",
+        "Sigma-19 → Luxury Liner Hawaii",
+        "Stuttgart → Battleship Westfalen",
+        "Stuttgart → Freiburg Station",
+        "Stuttgart → Planet Stuttgart",
+        "Stuttgart → Supply Station Neckar",
+        "Tau-23 → Java Station",
+        "Tau-29 → Nago Station",
+        "Tau-31 → bw10_06_base",
+        "Tau-37 → Freeport 10",
+        "Tau-44 → Borneo",
+        "Texas → Battleship Arkansas",
+        "Texas → LPI Huntsville",
+        "Texas → LPI Sugarland",
+        "Texas → Planet Houston"
+      ]
     },
     {
       "nick": "gd_gm_grp",
@@ -1835,6 +3832,7 @@
       "defaultRep": -0.55,
       "shortName": "GMG",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "ku_n_grp": 0.1,
         "ku_p_grp": 0.1,
@@ -1848,7 +3846,35 @@
         "fc_fa_grp": -0.1,
         "fc_c_grp": -0.3,
         "fc_ou_grp": -0.3
-      }
+      },
+      "bribes": [
+        "Akita Border Station",
+        "Aomori Station",
+        "Freeport 6",
+        "Furyoku Station",
+        "Gas Miner Naha",
+        "Gas Miner Ogashawa",
+        "Helgoland Station",
+        "Kamakura Base",
+        "Kansai Research Institute",
+        "Luxury Liner Hawaii",
+        "Nobeoka Platform",
+        "Noshima Freeport",
+        "Planet Honshu",
+        "Planet Kurile, Samura Platform",
+        "Planet Miura",
+        "Planet New London",
+        "Wichter Station",
+        "Yukawa Shipyard"
+      ],
+      "missionBases": [
+        "Honshu → Aomori Station",
+        "Sigma-13 → Gas Miner Naha",
+        "Sigma-13 → Helgoland Station",
+        "Sigma-17 → Planet Kurile, Samura Platform",
+        "Sigma-19 → Gas Miner Ogashawa",
+        "Sigma-19 → Luxury Liner Hawaii"
+      ]
     },
     {
       "nick": "gd_im_grp",
@@ -1859,6 +3885,7 @@
       "defaultRep": -0.55,
       "shortName": "IMG",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "br_m_grp": -0.05,
         "co_ti_grp": 0.05,
@@ -1871,7 +3898,61 @@
         "fc_ou_grp": -0.3,
         "fc_c_grp": -0.2,
         "fc_rn_grp": 0.2
-      }
+      },
+      "bribes": [
+        "Barrier Gate Station A",
+        "Barrier Gate Station B",
+        "Barrier Gate Station C",
+        "Battleship Essex",
+        "Battleship Norfolk",
+        "Battleship Zuschen",
+        "Belvedere Refinery",
+        "Borneo",
+        "Briesen Mining Facility",
+        "Canterbury Station",
+        "Dounby Station",
+        "Falkland Base",
+        "Freeport 1",
+        "Freeport 10",
+        "Freeport 6",
+        "Freistadt Base",
+        "Halifax Freeport",
+        "Holman Outpost",
+        "Java Station",
+        "Kensington Shipping Platform",
+        "Mactan Base",
+        "Minato Harbor",
+        "Nago Station",
+        "Nimes Station",
+        "Pecos, Camp Lister",
+        "Pecos, New Hope",
+        "Planet Cambridge",
+        "Planet Gran Canaria",
+        "Planet Harris",
+        "Planet New London",
+        "Planet Tangier",
+        "Planet Yuma",
+        "Portsmouth Drydock",
+        "Portsmouth Shipyard",
+        "Riverside Station",
+        "Shasta Orbital Skyhook",
+        "Sheffield Station",
+        "Singapore Shipyard",
+        "South Shields Refinery",
+        "Sulawesi Citadel",
+        "Torshavn Space Port",
+        "Zvyozdny Gorodok"
+      ],
+      "missionBases": [
+        "Newcastle → South Shields Refinery",
+        "Omega-47 → Planet Tangier",
+        "Omega-49 → Planet Gran Canaria",
+        "Omega-7 → Freistadt Base",
+        "Orkney → Dounby Station",
+        "Tau-23 → Java Station",
+        "Tau-31 → Holman Outpost",
+        "Tau-37 → Falkland Base"
+      ]
     },
     {
       "nick": "gd_z_grp",
@@ -1882,13 +3963,86 @@
       "defaultRep": 0.0,
       "shortName": "Zoners",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "fc_or_grp": 0.1,
         "gd_gm_grp": 0.1,
         "gd_im_grp": 0.1,
         "fc_militant": 0.4,
         "fc_freelancer": 0.2
-      }
+      },
+      "bribes": [
+        "Ames Research Station",
+        "Aralsk Research Station",
+        "Barrier Gate Station A",
+        "Barrier Gate Station B",
+        "Barrier Gate Station C",
+        "Barrow Base",
+        "Battlecruiser Santander",
+        "Battleship Prox",
+        "Bethlehem Station",
+        "Bristol Bay Station",
+        "Cadiz Base",
+        "Cairo Station",
+        "Cali Base",
+        "Casablanca Base",
+        "Ciutadella Outpost",
+        "Command Battlecruiser Krk",
+        "Corfu Base",
+        "Corsica Shipyard",
+        "Dawson Base",
+        "Destroyer Ceuta",
+        "Dounby Station",
+        "Dreadnought Basilica",
+        "Durban Station",
+        "Evia Research Complex",
+        "Falkland Base",
+        "Freeport 1",
+        "Freeport 10",
+        "Freeport 11",
+        "Freeport 14",
+        "Freeport 5",
+        "Freeport 6",
+        "Freeport 8",
+        "Freeport 9",
+        "Gas Miner Naha",
+        "Halifax Freeport",
+        "Harrisburg Station",
+        "Helgoland Station",
+        "Java Station",
+        "Lagos Depot",
+        "Lanzarote Station",
+        "Liner Samsara",
+        "Lisburn Rock",
+        "Livadia Shipyard",
+        "Milford Base",
+        "Nago Station",
+        "Nauru",
+        "Newport Station",
+        "Nome Base",
+        "Pacifica Base",
+        "Pecos, New Hope",
+        "Philadelphia Station",
+        "Planet Erie",
+        "Planet Gran Canaria",
+        "Planet Hamburg",
+        "Planet Pygar",
+        "Planet Yuma",
+        "Pueblo Bonito",
+        "Ronneburg Base",
+        "Sedona Station",
+        "Shasta Orbital Skyhook",
+        "The Intrepid Maiden",
+        "Wedel Base",
+        "Zhejiang Orbital",
+        "Zvyozdny Gorodok"
+      ],
+      "missionBases": [
+        "Kepler → Ames Research Station",
+        "Omega-49 → Lanzarote Station",
+        "Omega-49 → Planet Gran Canaria",
+        "Pennsylvania → Planet Erie"
+      ]
     },
     {
       "nick": "ku_koi_grp",
@@ -1899,6 +4053,7 @@
       "defaultRep": -0.7,
       "shortName": "KOI",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "fc_bd_grp": -0.3,
         "fc_gc_grp": -0.3,
@@ -1911,7 +4066,15 @@
         "ku_p_grp": 0.2,
         "co_kt_grp": 0.1,
         "co_shi_grp": 0.1
-      }
+      },
+      "bribes": [
+        "Kansai Research Institute",
+        "Nansei Research Complex"
+      ],
+      "missionBases": [
+        "Kyushu → Nansei Research Complex",
+        "Tohoku → Heaven's Gate"
+      ]
     },
     {
       "nick": "ku_n_grp",
@@ -1922,6 +4085,7 @@
       "defaultRep": -0.1,
       "shortName": "Naval Forces",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "br_n_grp": -0.01,
         "fc_ouk_grp": -0.2,
@@ -1953,7 +4117,21 @@
         "gd_gm_grp": 0.1,
         "gd_im_grp": 0.05,
         "gd_bh_grp": 0.05
-      }
+      },
+      "bribes": [
+        "Battleship Nagasaki",
+        "Kansai Research Institute",
+        "Nansei Research Complex"
+      ],
+      "missionBases": [
+        "Honshu → Kansai Research Institute",
+        "New Tokyo → Battleship Hamamatsu",
+        "New Tokyo → Yokohama Shipyard",
+        "Shikoku → Battleship Myoko",
+        "Shikoku → Battleship Nagasaki",
+        "Tau-29 → Battlecruiser Akatsuki",
+        "Tohoku → Battleship Matsumoto"
+      ]
     },
     {
       "nick": "ku_p_grp",
@@ -1964,6 +4142,7 @@
       "defaultRep": -0.1,
       "shortName": "Police",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "br_n_grp": 0.01,
         "fc_ouk_grp": -0.2,
@@ -1996,7 +4175,45 @@
         "gd_gm_grp": 0.1,
         "gd_im_grp": 0.05,
         "gd_bh_grp": 0.05
-      }
+      },
+      "bribes": [
+        "Akita Border Station",
+        "Battleship Hamamatsu",
+        "Battleship Matsumoto",
+        "Battleship Myoko",
+        "Deshima Station",
+        "Fuchu Prison",
+        "Gas Miner Naha",
+        "Gas Miner Ogashawa",
+        "Kansai Research Institute",
+        "Nansei Research Complex",
+        "Narita Outpost",
+        "Ohashi Border Station",
+        "Osaka Storage Facility",
+        "Planet Honshu",
+        "Planet Junyo",
+        "Planet Kyushu",
+        "Planet New Tokyo",
+        "Sapporo Station",
+        "Shinagawa Station",
+        "Shinjuku Station",
+        "Tsushima Depot",
+        "Yokohama Shipyard",
+        "Yukawa Shipyard",
+        "ku01_04_base"
+      ],
+      "missionBases": [
+        "Hokkaido → Sapporo Station",
+        "Honshu → Akita Border Station",
+        "Honshu → Planet Honshu",
+        "Kyushu → Planet Kyushu",
+        "New Tokyo → Narita Outpost",
+        "New Tokyo → Planet New Tokyo",
+        "New Tokyo → ku01_04_base",
+        "Shikoku → Fuchu Prison",
+        "Shikoku → Ohashi Border Station",
+        "Shikoku → Planet Junyo"
+      ]
     },
     {
       "nick": "li_alaska_grp",
@@ -2007,6 +4224,7 @@
       "defaultRep": -0.65,
       "shortName": "ASF",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {}
     },
     {
@@ -2018,6 +4236,7 @@
       "defaultRep": -0.4,
       "shortName": "LSF",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "br_n_grp": 0.15,
         "br_p_grp": 0.2,
@@ -2055,7 +4274,21 @@
         "gd_bh_grp": 0.05,
         "gd_im_grp": 0.05,
         "gd_gm_grp": 0.05
-      }
+      },
+      "bribes": [
+        "Battlecruiser Amarna",
+        "Battlecruiser Tuscaloosa",
+        "Chadwick Station",
+        "Chesapeake Research Facility",
+        "Willard Research Station"
+      ],
+      "missionBases": [
+        "Coronado → Scottsdale Refinery",
+        "New York → Planet Manhattan",
+        "Ontario → Battlecruiser Tuscaloosa",
+        "Pennsylvania → Planet Erie",
+        "Tau-31 → bw10_06_base"
+      ]
     },
     {
       "nick": "li_n_grp",
@@ -2066,6 +4299,7 @@
       "defaultRep": 0.3,
       "shortName": "Navy",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "br_n_grp": 0.2,
         "fc_ouk_grp": 0.1,
@@ -2102,7 +4336,29 @@
         "gd_bh_grp": 0.05,
         "gd_im_grp": 0.05,
         "gd_gm_grp": 0.05
-      }
+      },
+      "bribes": [
+        "Battlecruiser Amarna",
+        "Battlecruiser Tuscaloosa",
+        "Chadwick Station",
+        "Chesapeake Research Facility",
+        "Willard Research Station"
+      ],
+      "missionBases": [
+        "California → Battlecruiser Yellowstone",
+        "California → Battleship Concord",
+        "California → Planet Los Angeles",
+        "California → San Diego Border Station",
+        "California → Willard Research Station",
+        "Colorado → Battleship Rio Grande",
+        "New York → Battleship Missouri",
+        "New York → Chadwick Station",
+        "New York → Norfolk Shipyard",
+        "New York → Planet Manhattan",
+        "New York → West Point Military Academy",
+        "Pennsylvania → Battleship Alma",
+        "Texas → Battleship Arkansas"
+      ]
     },
     {
       "nick": "li_p_grp",
@@ -2113,6 +4369,7 @@
       "defaultRep": 0.3,
       "shortName": "Police",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "br_n_grp": 0.1,
         "fc_ouk_grp": 0.1,
@@ -2150,7 +4407,58 @@
         "gd_bh_grp": 0.05,
         "gd_im_grp": 0.05,
         "gd_gm_grp": 0.05
-      }
+      },
+      "bribes": [
+        "Allentown Base",
+        "Baltimore Shipyard",
+        "Battlecruiser Yellowstone",
+        "Battleship Arkansas",
+        "Battleship Rio Grande",
+        "Chadwick Station",
+        "Cordova Shipping Platform",
+        "Detroit Munitions",
+        "Fort Bush",
+        "Harrisburg Station",
+        "LPI Huntsville",
+        "LPI Sugarland",
+        "Lewes Shipping Platform",
+        "Manitoba Station",
+        "Newark Station",
+        "Norfolk Shipyard",
+        "Philadelphia Station",
+        "Planet California Minor",
+        "Planet Denver",
+        "Planet Erie",
+        "Planet Houston",
+        "Planet Los Angeles",
+        "Planet Manhattan",
+        "Planet Pittsburgh",
+        "Pueblo Station",
+        "Riverside Station",
+        "Rochester Base",
+        "San Diego Border Station",
+        "Syracuse Station",
+        "Thunder Bay Depot",
+        "Trenton Outpost",
+        "Valley Forge Flight School",
+        "West Point Military Academy",
+        "Willard Research Station"
+      ],
+      "missionBases": [
+        "California → Planet California Minor",
+        "California → Planet Los Angeles",
+        "Colorado → Planet Denver",
+        "Colorado → Syracuse Station",
+        "New York → Baltimore Shipyard",
+        "New York → Detroit Munitions",
+        "New York → Fort Bush",
+        "New York → Planet Manhattan",
+        "New York → Planet Pittsburgh",
+        "Planet Manhattan Atmosphere → Planet Manhattan, Landing Site",
+        "Texas → LPI Huntsville",
+        "Texas → LPI Sugarland",
+        "Texas → Planet Houston"
+      ]
     },
     {
       "nick": "pf_02_grp",
@@ -2159,7 +4467,10 @@
       "shootable": false,
       "changeable": true,
       "defaultRep": 0.0,
-      "shortName": "PF02"
+      "shortName": "PF02",
+      "objectDestruction": -0.05,
+      "missionSuccess": 0.13,
+      "empathy": {}
     },
     {
       "nick": "pf_03_grp",
@@ -2168,7 +4479,10 @@
       "shootable": false,
       "changeable": true,
       "defaultRep": 0.0,
-      "shortName": "PF03"
+      "shortName": "PF03",
+      "objectDestruction": -0.05,
+      "missionSuccess": 0.13,
+      "empathy": {}
     },
     {
       "nick": "pf_04_grp",
@@ -2177,7 +4491,10 @@
       "shootable": false,
       "changeable": true,
       "defaultRep": 0.0,
-      "shortName": "PF04"
+      "shortName": "PF04",
+      "objectDestruction": -0.05,
+      "missionSuccess": 0.13,
+      "empathy": {}
     },
     {
       "nick": "pf_05_grp",
@@ -2186,7 +4503,10 @@
       "shootable": false,
       "changeable": true,
       "defaultRep": 0.0,
-      "shortName": "PF05"
+      "shortName": "PF05",
+      "objectDestruction": -0.05,
+      "missionSuccess": 0.13,
+      "empathy": {}
     },
     {
       "nick": "pf_07_grp",
@@ -2195,7 +4515,10 @@
       "shootable": false,
       "changeable": true,
       "defaultRep": 0.0,
-      "shortName": "PF07"
+      "shortName": "PF07",
+      "objectDestruction": -0.05,
+      "missionSuccess": 0.13,
+      "empathy": {}
     },
     {
       "nick": "pf_08_grp",
@@ -2204,7 +4527,10 @@
       "shootable": false,
       "changeable": true,
       "defaultRep": 0.0,
-      "shortName": "PF08"
+      "shortName": "PF08",
+      "objectDestruction": -0.05,
+      "missionSuccess": 0.13,
+      "empathy": {}
     },
     {
       "nick": "pf_09_grp",
@@ -2213,7 +4539,10 @@
       "shootable": false,
       "changeable": true,
       "defaultRep": 0.0,
-      "shortName": "PF09"
+      "shortName": "PF09",
+      "objectDestruction": -0.05,
+      "missionSuccess": 0.13,
+      "empathy": {}
     },
     {
       "nick": "pf_10_grp",
@@ -2222,7 +4551,10 @@
       "shootable": false,
       "changeable": true,
       "defaultRep": 0.0,
-      "shortName": "PF10"
+      "shortName": "PF10",
+      "objectDestruction": -0.05,
+      "missionSuccess": 0.13,
+      "empathy": {}
     },
     {
       "nick": "rh_d19_grp",
@@ -2233,6 +4565,7 @@
       "defaultRep": -0.65,
       "shortName": "D-16",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {}
     },
     {
@@ -2244,6 +4577,7 @@
       "defaultRep": -0.55,
       "shortName": "Kruger",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "rh_n_grp": 0.2,
         "rh_p_grp": 0.2,
@@ -2264,7 +4598,33 @@
         "fc_c_grp": -0.2,
         "fc_ou_grp": -0.2,
         "fc_j_grp": -0.05
-      }
+      },
+      "bribes": [
+        "Bonn Station",
+        "Brandenburg Station",
+        "Briesen Mining Facility",
+        "Elbe Border Fortress",
+        "Elbich Mining Facility",
+        "Essen Station",
+        "Freiburg Station",
+        "Fulda Border Station",
+        "Jena Station",
+        "Mainz Storage Facility",
+        "Mannheim Station",
+        "Oder Shipyard",
+        "Planet Baden Baden",
+        "Planet New Berlin",
+        "Planet Stuttgart",
+        "Solarius Station",
+        "The Ring",
+        "Ulm Border Station",
+        "Wichter Station"
+      ],
+      "missionBases": [
+        "Frankfurt → Mannheim Station",
+        "New Berlin → Essen Station",
+        "Omega-7 → Elbich Mining Facility"
+      ]
     },
     {
       "nick": "rh_mnd_grp",
@@ -2275,6 +4635,7 @@
       "defaultRep": -0.65,
       "shortName": "MND",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "br_m_grp": -0.05,
         "co_be_grp": -0.05,
@@ -2295,7 +4656,23 @@
         "fc_c_grp": -0.3,
         "fc_ou_grp": -0.2,
         "gd_bh_grp": 0.05
-      }
+      },
+      "bribes": [
+        "Battleship Bayern",
+        "Bristol Bay Station",
+        "Fort Sommerda",
+        "Kaiserslautern Depot",
+        "Mecklenburg Prison",
+        "Planet Weimar",
+        "Schatten Research Facility"
+      ],
+      "missionBases": [
+        "Frankfurt → Carrier Saar",
+        "Omega-55 → Dagger Outpost",
+        "Thuringia → Fort Sommerda",
+        "Thuringia → Jena Station",
+        "Thuringia → Planet Weimar"
+      ]
     },
     {
       "nick": "rh_n_grp",
@@ -2306,6 +4683,7 @@
       "defaultRep": -0.1,
       "shortName": "Military",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "co_be_grp": 0.05,
         "co_nws_grp": 0.05,
@@ -2322,7 +4700,23 @@
         "fc_c_grp": -0.3,
         "fc_ou_grp": -0.2,
         "gd_bh_grp": 0.05
-      }
+      },
+      "bribes": [
+        "Mecklenburg Prison",
+        "Schatten Research Facility",
+        "Solarius Station"
+      ],
+      "missionBases": [
+        "Cologne → Battleship Altenburg",
+        "Frankfurt → Battleship Schwerin",
+        "Hamburg → Carrier Soltau",
+        "New Berlin → Battleship Bayern",
+        "New Berlin → Kolleda Wreck",
+        "New Berlin → Oder Shipyard",
+        "New Berlin → Wildau Station",
+        "Omega-11 → Solarius Station",
+        "Stuttgart → Battleship Westfalen"
+      ]
     },
     {
       "nick": "rh_p_grp",
@@ -2333,6 +4727,7 @@
       "defaultRep": -0.1,
       "shortName": "Police",
       "objectDestruction": -0.05,
+      "missionSuccess": 0.1,
       "empathy": {
         "br_m_grp": 0.05,
         "co_be_grp": 0.05,
@@ -2352,7 +4747,46 @@
         "fc_ou_grp": -0.2,
         "gd_bh_grp": 0.05,
         "rh_mnd_grp": 0.4
-      }
+      },
+      "bribes": [
+        "Alster Shipyard",
+        "Altona Station",
+        "Battleship Altenburg",
+        "Battleship Westfalen",
+        "Bonn Station",
+        "Brandenburg Station",
+        "Elbe Border Fortress",
+        "Essen Station",
+        "Freiburg Station",
+        "Fulda Border Station",
+        "Gas Miner Naha",
+        "Hammersee",
+        "Helgoland Station",
+        "Lübeck Border Station",
+        "Mainz Storage Facility",
+        "Mannheim Station",
+        "Oder Shipyard",
+        "Planet Baden Baden",
+        "Planet Hamburg",
+        "Planet Holstein",
+        "Planet New Berlin",
+        "Planet Stuttgart",
+        "The Ring",
+        "Ulm Border Station",
+        "Wildau Station",
+        "Wuppertal Refinery"
+      ],
+      "missionBases": [
+        "Frankfurt → Fulda Border Station",
+        "Hamburg → Alster Shipyard",
+        "Hamburg → Lübeck Border Station",
+        "Hamburg → Planet Hamburg",
+        "New Berlin → Brandenburg Station",
+        "New Berlin → Planet New Berlin",
+        "New Berlin → Wildau Station",
+        "Stuttgart → Planet Stuttgart",
+        "Stuttgart → Ulm Border Station"
+      ]
     }
   ]
 }

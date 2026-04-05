@@ -476,6 +476,86 @@
     .rp-kill-btn:hover { background: rgba(239,68,68,.2); }
     .rp-kill-btn:disabled { opacity: .25; cursor: not-allowed; }
 
+    .rp-mission-btn {
+      padding: 3px 10px;
+      border: 1px solid rgba(52,211,153,.3);
+      border-radius: 6px;
+      background: rgba(52,211,153,.08);
+      color: #34d399;
+      font-family: inherit;
+      font-weight: 600;
+      font-size: .78rem;
+      cursor: pointer;
+      transition: 120ms ease;
+      white-space: nowrap;
+    }
+    .rp-mission-btn:hover { background: rgba(52,211,153,.2); }
+    .rp-mission-btn:disabled { opacity: .25; cursor: not-allowed; }
+
+    .rp-bribe-btn {
+      padding: 3px 10px;
+      border: 1px solid rgba(245,158,11,.3);
+      border-radius: 6px;
+      background: rgba(245,158,11,.08);
+      color: #f59e0b;
+      font-family: inherit;
+      font-weight: 600;
+      font-size: .78rem;
+      cursor: pointer;
+      transition: 120ms ease;
+      white-space: nowrap;
+    }
+    .rp-bribe-btn:hover { background: rgba(245,158,11,.2); }
+    .rp-bribe-btn:disabled { opacity: .25; cursor: not-allowed; }
+
+    .rp-action-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    /* ── Action type toggles ─────────────────────────── */
+    .rp-action-toggles {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-bottom: 18px;
+      padding: 14px 22px;
+      border: 1px solid var(--panel-border);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(180deg, rgba(8,25,36,.94), rgba(4,14,23,.94));
+    }
+    .rp-action-toggles label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      font-size: .92rem;
+      color: var(--text);
+      user-select: none;
+    }
+    .rp-action-toggles input[type="checkbox"] {
+      accent-color: var(--accent);
+      width: 16px;
+      height: 16px;
+    }
+    .rp-action-toggles small {
+      color: var(--muted);
+      font-size: .78rem;
+    }
+
+    /* ── Action type badge ── */
+    .rp-action-badge {
+      display: inline-block;
+      padding: 1px 8px;
+      border-radius: 999px;
+      font-size: .72rem;
+      font-weight: 600;
+    }
+    .rp-action-badge.kill { background: rgba(239,68,68,.12); color: #ef4444; }
+    .rp-action-badge.mission { background: rgba(52,211,153,.12); color: #34d399; }
+    .rp-action-badge.bribe { background: rgba(245,158,11,.12); color: #f59e0b; }
+
     .rp-sim-delta {
       font-family: "IBM Plex Mono", monospace;
       font-size: .75rem;
@@ -509,6 +589,89 @@
     }
     .rp-kill-log-count strong { color: var(--accent-strong); }
 
+    /* ── Faction detail modal ─────────────────────────── */
+    .rp-modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(0,0,0,.6);
+      backdrop-filter: blur(4px);
+      justify-content: center;
+      align-items: center;
+    }
+    .rp-modal-overlay.visible { display: flex; }
+    .rp-modal {
+      background: linear-gradient(180deg, rgba(12,30,44,.98), rgba(6,18,28,.98));
+      border: 1px solid var(--panel-border);
+      border-radius: var(--radius-lg);
+      padding: 28px 32px;
+      max-width: 520px;
+      width: 90vw;
+      max-height: 80vh;
+      overflow-y: auto;
+      box-shadow: 0 8px 40px rgba(0,0,0,.5);
+    }
+    .rp-modal h3 { margin-bottom: 14px; font-size: 1.1rem; }
+    .rp-modal-close {
+      float: right;
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 1.3rem;
+      cursor: pointer;
+      padding: 0 4px;
+    }
+    .rp-modal-close:hover { color: var(--text); }
+    .rp-modal-section { margin-bottom: 14px; }
+    .rp-modal-section h4 {
+      font-size: .82rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--accent-strong);
+      margin-bottom: 6px;
+    }
+    .rp-modal-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .rp-modal-list li {
+      padding: 3px 0;
+      font-size: .88rem;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .rp-modal-list .emp-val {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: .78rem;
+      min-width: 52px;
+      text-align: right;
+    }
+    .rp-faction-link {
+      cursor: pointer;
+      border-bottom: 1px dotted rgba(132,177,255,.3);
+      transition: color 150ms;
+    }
+    .rp-faction-link:hover { color: var(--accent); }
+
+    /* ── Export button ─────────────────────────────────── */
+    .rp-export-btn {
+      padding: 5px 14px;
+      border: 1px solid var(--panel-border);
+      border-radius: 8px;
+      background: rgba(7,16,29,.72);
+      color: var(--muted);
+      font-family: inherit;
+      font-weight: 600;
+      font-size: .82rem;
+      cursor: pointer;
+      transition: 160ms ease;
+    }
+    .rp-export-btn:hover { color: var(--text); background: rgba(88,196,255,.08); }
+
     /* ── Responsive ────────────────────────────────────── */
     @media (max-width: 768px) {
       .rp-comp-name { width: 120px; font-size: .75rem; }
@@ -531,7 +694,7 @@
       <section class="rp-intro">
         <p class="eyebrow">Reputation Planner</p>
         <h1>Rep Planner</h1>
-        <p>Gib deinen aktuellen Ruf ein und simuliere Abschüsse manuell — oder nutze den Auto-Planner für eine optimale Abschuss-Reihenfolge. Gesperrte Fraktionen werden automatisch markiert.</p>
+        <p>Gib deinen aktuellen Ruf ein und simuliere Abschüsse, Missionen und Bestechungen manuell — oder nutze den Auto-Planner für eine optimale Aktions-Reihenfolge.</p>
       </section>
 
       <!-- ── Start Rep ── -->
@@ -562,6 +725,13 @@
           </div>
         </div>
       </details>
+
+      <!-- ── Action Type Toggles ── -->
+      <div class="rp-action-toggles">
+        <label><input type="checkbox" id="rp-use-kills" checked> ☠ Abschüsse / Zerstörung</label>
+        <label><input type="checkbox" id="rp-use-missions" checked> 📋 Missionen <small>(ab Neutral)</small></label>
+        <label><input type="checkbox" id="rp-use-bribes"> 💰 Bestechungen <small>(bei schlechtem Ruf, begrenzt)</small></label>
+      </div>
 
       <!-- ── Mode Tabs ── -->
       <div class="rp-mode-tabs">
@@ -601,13 +771,14 @@
           </div>
         </details>
         <div class="rp-kill-log" id="rp-kill-log" style="display:none;">
-          <h3>Abschuss-Protokoll</h3>
+          <div style="display:flex;justify-content:space-between;align-items:center;"><h3>Aktions-Protokoll</h3><button class="rp-export-btn" id="rp-export-manual">📋 Exportieren</button></div>
           <div class="rp-kill-log-count" id="rp-kill-log-count"></div>
           <div class="rp-step-table-wrap">
             <table class="rp-step-table">
               <thead>
                 <tr>
                   <th>#</th>
+                  <th>Typ</th>
                   <th>Fraktion</th>
                   <th>Anzahl</th>
                 </tr>
@@ -683,15 +854,17 @@
         </div>
 
         <div class="rp-section-head">
-          <h2>Abschuss-Plan</h2>
+          <h2>Aktions-Plan</h2>
+          <button class="rp-export-btn" id="rp-export-auto">📋 Exportieren</button>
         </div>
         <div class="rp-step-table-wrap">
           <table class="rp-step-table">
             <thead>
               <tr>
                 <th>#</th>
+                <th>Typ</th>
                 <th>Fraktion</th>
-                <th>Anzahl Abschüsse</th>
+                <th>Anzahl</th>
               </tr>
             </thead>
             <tbody id="rp-steps-body"></tbody>
@@ -705,6 +878,14 @@
       </div>
 
       </div><!-- /rp-panel-auto -->
+
+      <!-- ── Faction Detail Modal ── -->
+      <div class="rp-modal-overlay" id="rp-faction-modal">
+        <div class="rp-modal">
+          <button class="rp-modal-close" id="rp-modal-close">✕</button>
+          <div id="rp-modal-content"></div>
+        </div>
+      </div>
 
       <footer class="page-footer">
         &copy; 2026 Steven Schödel — Flathack Projects
@@ -733,10 +914,21 @@
     var searchStart   = document.getElementById("rp-search-start");
     var searchTarget  = document.getElementById("rp-search-target");
     var startPresets  = document.querySelectorAll("[data-start-preset]");
+    var chkKills      = document.getElementById("rp-use-kills");
+    var chkMissions   = document.getElementById("rp-use-missions");
+    var chkBribes     = document.getElementById("rp-use-bribes");
+
+    /* ── Modal refs ── */
+    var factionModal  = document.getElementById("rp-faction-modal");
+    var modalContent  = document.getElementById("rp-modal-content");
+    var modalClose    = document.getElementById("rp-modal-close");
+    var exportAutoBtn = document.getElementById("rp-export-auto");
+    var exportManBtn  = document.getElementById("rp-export-manual");
 
     /* ── State ── */
     var startReps  = {};
     var targetReps = {};
+    var lastAutoResult = null;
 
     /* ── Mod loading (via hash, shared with nav.js) ── */
     function getModId() {
@@ -784,7 +976,7 @@
         var label = RepEngine.repLabel(val);
         var info = !f.changeable ? ' <span class="rp-no-empathy" title="Keine Empathie-Verbindung zu anderen Fraktionen">⚠ isoliert</span>' : '';
         html += '<tr>' +
-          '<td>' + esc(f.name) + info + '</td>' +
+          '<td><span class="rp-faction-link" data-faction="' + f.nick + '">' + esc(f.name) + '</span>' + info + '</td>' +
           '<td>' + legalityBadge(f.legality) + '</td>' +
           '<td><input type="range" class="rp-rep-slider" min="-0.91" max="0.91" step="0.01" value="' + val + '"' +
             ' data-nick="' + f.nick + '" data-table="start"></td>' +
@@ -795,6 +987,7 @@
       });
       startBody.innerHTML = html || '<tr><td colspan="5">Keine Fraktionen gefunden.</td></tr>';
       bindInputs(startBody, "start");
+      bindFactionLinks(startBody);
     }
 
     /* ── Render Target Table ── */
@@ -807,7 +1000,7 @@
         var label = RepEngine.repLabel(val);
         var info = !f.changeable ? ' <span class="rp-no-empathy" title="Keine Empathie-Verbindung zu anderen Fraktionen">⚠ isoliert</span>' : '';
         html += '<tr>' +
-          '<td>' + esc(f.name) + info + '</td>' +
+          '<td><span class="rp-faction-link" data-faction="' + f.nick + '">' + esc(f.name) + '</span>' + info + '</td>' +
           '<td>' + legalityBadge(f.legality) + '</td>' +
           '<td><input type="range" class="rp-rep-slider" min="-0.91" max="0.91" step="0.01" value="' + val + '"' +
             ' data-nick="' + f.nick + '" data-table="target"></td>' +
@@ -818,6 +1011,7 @@
       });
       targetBody.innerHTML = html || '<tr><td colspan="5">Keine Fraktionen gefunden.</td></tr>';
       bindInputs(targetBody, "target");
+      bindFactionLinks(targetBody);
     }
 
     /* ── Bind slider ↔ input sync ── */
@@ -841,6 +1035,8 @@
             badge.className = "rp-rep-badge " + RepEngine.repClass(val);
             badge.textContent = RepEngine.repLabel(val);
           }
+          // Sync to manual sim if start table and no actions yet
+          if (table === "start") syncStartToSim();
         });
       });
 
@@ -862,6 +1058,8 @@
             badge.className = "rp-rep-badge " + RepEngine.repClass(val);
             badge.textContent = RepEngine.repLabel(val);
           }
+          // Sync to manual sim if start table and no actions yet
+          if (table === "start") syncStartToSim();
         });
       });
     }
@@ -918,6 +1116,7 @@
         }
       });
       renderStartTable(factions, searchStart.value.toLowerCase().trim());
+      syncStartToSim();
     }
 
     startPresets.forEach(function (btn) {
@@ -950,8 +1149,12 @@
           var result = RepEngine.plan(startReps, targetReps, {
             tolerance: tol,
             maxSteps: maxSteps,
+            useKills: chkKills.checked,
+            useMissions: chkMissions.checked,
+            useBribes: chkBribes.checked,
           });
 
+          lastAutoResult = result;
           renderResults(result);
         } catch (e) {
           console.error(e);
@@ -963,16 +1166,65 @@
       }, 30);
     });
 
+    function actionLabel(type) {
+      switch (type) {
+        case "kill": return '<span class="rp-action-badge kill">☠ Abschuss</span>';
+        case "mission": return '<span class="rp-action-badge mission">📋 Mission</span>';
+        case "bribe": return '<span class="rp-action-badge bribe">💰 Bestechung</span>';
+        default: return type;
+      }
+    }
+
     /* ── Render Results ── */
     function renderResults(result) {
-      // Summary stats
-      summaryStats.innerHTML =
-        '<span>Abschüsse gesamt: <strong>' + (result.totalKills || 0) + '</strong></span>' +
-        '<span>Schritte: <strong>' + result.steps.length + '</strong></span>' +
-        '<span>Konvergiert: <strong>' + (result.converged ? "Ja ✓" : "Nein ✗") + '</strong></span>';
+      // Count by type
+      var countByType = { kill: 0, mission: 0, bribe: 0 };
+      result.steps.forEach(function (s) {
+        countByType[s.type || "kill"] = (countByType[s.type || "kill"] || 0) + s.count;
+      });
+      var statParts = [];
+      statParts.push('Aktionen gesamt: <strong>' + (result.totalKills || 0) + '</strong>');
+      if (countByType.kill > 0) statParts.push('Abschüsse: <strong>' + countByType.kill + '</strong>');
+      if (countByType.mission > 0) statParts.push('Missionen: <strong>' + countByType.mission + '</strong>');
+      if (countByType.bribe > 0) statParts.push('Bestechungen: <strong>' + countByType.bribe + '</strong>');
+      statParts.push('Konvergiert: <strong>' + (result.converged ? "Ja ✓" : "Nein ✗") + '</strong>');
+      summaryStats.innerHTML = statParts.map(function (s) { return '<span>' + s + '</span>'; }).join("");
 
       // Warnings
       var warns = "";
+
+      // Unreachable factions
+      var unreachableList = [];
+      if (result.unreachable) {
+        var factions = RepEngine.getFactions();
+        factions.forEach(function (f) {
+          if (result.unreachable[f.nick]) {
+            unreachableList.push(f.name);
+          }
+        });
+      }
+      if (unreachableList.length > 0) {
+        warns += '<div class="rp-warning">⛔ ' + unreachableList.length +
+          ' Fraktion' + (unreachableList.length > 1 ? 'en' : '') +
+          ' kann mit den gewählten Aktionstypen nicht erreicht werden' +
+          ' und wurde vom Planer ignoriert:<br><em>' +
+          unreachableList.map(esc).join(', ') + '</em></div>';
+      }
+
+      // Suggest enabling more action types
+      var useKills = document.getElementById('rp-use-kills').checked;
+      var useMissions = document.getElementById('rp-use-missions').checked;
+      var useBribes = document.getElementById('rp-use-bribes').checked;
+      if (!result.converged || unreachableList.length > 0) {
+        var suggestions = [];
+        if (!useMissions) suggestions.push('Missionen');
+        if (!useBribes) suggestions.push('Bestechungen');
+        if (suggestions.length > 0) {
+          warns += '<div class="rp-warning">💡 Tipp: Aktiviere <strong>' +
+            suggestions.join(' und ') + '</strong>, um mehr Fraktionen erreichen zu können.</div>';
+        }
+      }
+
       if (!result.converged) {
         warns += '<div class="rp-warning">Die Ziel-Reputation konnte nicht vollständig erreicht werden. ' +
           'Manche Fraktionen sind durch Empathie-Verkettungen miteinander gekoppelt — ' +
@@ -983,6 +1235,7 @@
       var factions = RepEngine.getFactions();
       factions.forEach(function (f) {
         if (!f.changeable) return;
+        if (result.unreachable && result.unreachable[f.nick]) return;
         var target = targetReps[f.nick] || 0;
         var final_ = result.finalReps[f.nick] || 0;
         var diff = Math.abs(final_ - target);
@@ -996,12 +1249,21 @@
       // Steps table
       var stepsHtml = "";
       if (result.steps.length === 0) {
-        stepsHtml = '<tr><td colspan="3" style="text-align:center;color:var(--muted);">Keine Abschüsse nötig — Ziel bereits erreicht!</td></tr>';
+        stepsHtml = '<tr><td colspan="4" style="text-align:center;color:var(--muted);">Keine Aktionen nötig — Ziel bereits erreicht!</td></tr>';
       } else {
         result.steps.forEach(function (s, i) {
+          var locationInfo = "";
+          if (s.type === "bribe") {
+            var f = RepEngine.getFaction(s.nick);
+            if (f && f.bribes) locationInfo = ' <small style="color:var(--muted);">(' + f.bribes.slice(0, 3).join(", ") + (f.bribes.length > 3 ? ", …" : "") + ')</small>';
+          } else if (s.type === "mission") {
+            var mf = RepEngine.getFaction(s.nick);
+            if (mf && mf.missionBases) locationInfo = ' <small style="color:var(--muted);">(' + mf.missionBases.slice(0, 3).join(", ") + (mf.missionBases.length > 3 ? ", …" : "") + ')</small>';
+          }
           stepsHtml += '<tr>' +
             '<td class="td-num">' + (i + 1) + '</td>' +
-            '<td>' + esc(s.name) + '</td>' +
+            '<td>' + actionLabel(s.type || "kill") + '</td>' +
+            '<td>' + esc(s.name) + locationInfo + '</td>' +
             '<td class="td-num">' + s.count + '×</td>' +
             '</tr>';
         });
@@ -1020,6 +1282,7 @@
       var html = "";
       factions.forEach(function (f) {
         if (!f.changeable) return;
+        var isUnreachable = result.unreachable && result.unreachable[f.nick];
         var startVal = startReps[f.nick] || 0;
         var finalVal = result.finalReps[f.nick] || 0;
         var targetVal = targetReps[f.nick] || 0;
@@ -1032,8 +1295,10 @@
         var barColor = repToColor(finalVal);
         var startColor = repToColor(startVal);
 
-        html += '<div class="rp-comp-bar">' +
-          '<span class="rp-comp-name" title="' + esc(f.nick) + '">' + esc(f.name) + '</span>' +
+        var nameLabel = esc(f.name) + (isUnreachable ? ' <small style="color:#ef4444;">⛔</small>' : '');
+
+        html += '<div class="rp-comp-bar"' + (isUnreachable ? ' style="opacity:.5;"' : '') + '>' +
+          '<span class="rp-comp-name" title="' + esc(f.nick) + (isUnreachable ? ' (nicht erreichbar)' : '') + '">' + nameLabel + '</span>' +
           '<div class="rp-comp-track">' +
             // start fill (faded)
             '<div class="rp-comp-fill start-fill" style="left:50%;width:0;background:' + startColor + ';' +
@@ -1086,6 +1351,172 @@
     init();
 
     /* ══════════════════════════════════════════════════════
+       FACTION DETAIL MODAL
+       ══════════════════════════════════════════════════════ */
+
+    function bindFactionLinks(container) {
+      container.querySelectorAll(".rp-faction-link").forEach(function (el) {
+        el.addEventListener("click", function () {
+          showFactionModal(this.dataset.faction);
+        });
+      });
+    }
+
+    function showFactionModal(nick) {
+      var f = RepEngine.getFaction(nick);
+      if (!f) return;
+
+      var html = '<h2>' + esc(f.name) + ' ' + legalityBadge(f.legality) + '</h2>';
+
+      // Empathy: friends and enemies
+      if (f.empathy) {
+        var friends = [];
+        var enemies = [];
+        var keys = Object.keys(f.empathy);
+        keys.forEach(function (k) {
+          var ef = RepEngine.getFaction(k);
+          if (!ef) return;
+          var val = f.empathy[k];
+          if (val > 0) friends.push({ name: ef.name, val: val });
+          else if (val < 0) enemies.push({ name: ef.name, val: val });
+        });
+        friends.sort(function (a, b) { return b.val - a.val; });
+        enemies.sort(function (a, b) { return a.val - b.val; });
+
+        if (friends.length > 0) {
+          html += '<div class="rp-modal-section"><h3>👥 Freunde (positive Empathie)</h3><ul class="rp-modal-list">';
+          friends.forEach(function (e) {
+            html += '<li>' + esc(e.name) + ' <span class="emp-val" style="color:#4caf50;">+' + e.val.toFixed(2) + '</span></li>';
+          });
+          html += '</ul></div>';
+        }
+
+        if (enemies.length > 0) {
+          html += '<div class="rp-modal-section"><h3>⚔ Feinde (negative Empathie)</h3><ul class="rp-modal-list">';
+          enemies.forEach(function (e) {
+            html += '<li>' + esc(e.name) + ' <span class="emp-val" style="color:#f44336;">' + e.val.toFixed(2) + '</span></li>';
+          });
+          html += '</ul></div>';
+        }
+      }
+
+      // Mission bases
+      if (f.missionBases && f.missionBases.length > 0) {
+        html += '<div class="rp-modal-section"><h3>📋 Missionen verfügbar bei</h3><ul class="rp-modal-list">';
+        f.missionBases.forEach(function (b) {
+          html += '<li>' + esc(b) + '</li>';
+        });
+        html += '</ul></div>';
+      }
+
+      // Bribe locations
+      if (f.bribes && f.bribes.length > 0) {
+        html += '<div class="rp-modal-section"><h3>💰 Bestechungen verfügbar bei</h3><ul class="rp-modal-list">';
+        f.bribes.forEach(function (b) {
+          html += '<li>' + esc(b) + '</li>';
+        });
+        html += '</ul></div>';
+      }
+
+      // Rep info
+      html += '<div class="rp-modal-section"><h3>📊 Reputation Info</h3><ul class="rp-modal-list">';
+      if (f.objectDestruction) html += '<li>Abschuss-Effekt: ' + f.objectDestruction.toFixed(4) + '</li>';
+      if (f.missionSuccess) html += '<li>Missions-Effekt: ' + f.missionSuccess.toFixed(4) + '</li>';
+      html += '<li>Abschießbar: ' + (f.shootable ? 'Ja' : 'Nein') + '</li>';
+      html += '<li>Veränderbar: ' + (f.changeable ? 'Ja' : 'Nein') + '</li>';
+      html += '</ul></div>';
+
+      modalContent.innerHTML = html;
+      factionModal.classList.add("visible");
+    }
+
+    modalClose.addEventListener("click", function () {
+      factionModal.classList.remove("visible");
+    });
+    factionModal.addEventListener("click", function (e) {
+      if (e.target === factionModal) factionModal.classList.remove("visible");
+    });
+
+    /* ══════════════════════════════════════════════════════
+       SYNC START REP → MANUAL SIM
+       ══════════════════════════════════════════════════════ */
+
+    function syncStartToSim() {
+      if (simHistory.length > 0) return; // don't overwrite if user has actions
+      simReps = {};
+      for (var k in startReps) {
+        if (startReps.hasOwnProperty(k)) simReps[k] = startReps[k];
+      }
+      simLastDeltas = {};
+      renderSimTable(simSearch ? simSearch.value.toLowerCase().trim() : "");
+    }
+
+    /* ══════════════════════════════════════════════════════
+       EXPORT FUNCTIONS
+       ══════════════════════════════════════════════════════ */
+
+    function exportAutoResult() {
+      if (!lastAutoResult || !lastAutoResult.steps || lastAutoResult.steps.length === 0) {
+        alert("Kein Auto-Plan vorhanden. Bitte erst den Planer ausführen.");
+        return;
+      }
+      var lines = ["=== Rep-Planner: Auto-Plan ===", ""];
+      lastAutoResult.steps.forEach(function (s, i) {
+        var typeLabel = s.type === "kill" ? "Abschuss" : (s.type === "mission" ? "Mission" : "Bestechung");
+        var line = (i + 1) + ". " + typeLabel + ": " + s.name + " " + s.count + "×";
+        var f = RepEngine.getFaction(s.nick);
+        if (s.type === "mission" && f && f.missionBases && f.missionBases.length > 0) {
+          line += " (bei: " + f.missionBases.slice(0, 3).join(", ") + ")";
+        } else if (s.type === "bribe" && f && f.bribes && f.bribes.length > 0) {
+          line += " (bei: " + f.bribes.slice(0, 3).join(", ") + ")";
+        }
+        lines.push(line);
+      });
+      lines.push("");
+      lines.push("Aktionen gesamt: " + (lastAutoResult.totalKills || 0));
+      copyToClipboard(lines.join("\n"));
+    }
+
+    function exportManualLog() {
+      if (simHistory.length === 0) {
+        alert("Keine Aktionen im manuellen Modus vorhanden.");
+        return;
+      }
+      // Merge consecutive same-type same-faction actions
+      var merged = [];
+      simHistory.forEach(function (h) {
+        var last = merged.length > 0 ? merged[merged.length - 1] : null;
+        if (last && last.nick === h.nick && last.type === (h.type || "kill")) {
+          last.count++;
+        } else {
+          var f = RepEngine.getFaction(h.nick);
+          merged.push({ type: h.type || "kill", nick: h.nick, name: f ? f.name : h.nick, count: 1 });
+        }
+      });
+
+      var lines = ["=== Rep-Planner: Manueller Plan ===", ""];
+      merged.forEach(function (m, i) {
+        var typeLabel = m.type === "kill" ? "Abschuss" : (m.type === "mission" ? "Mission" : "Bestechung");
+        lines.push((i + 1) + ". " + typeLabel + ": " + m.name + " " + m.count + "×");
+      });
+      lines.push("");
+      lines.push("Aktionen gesamt: " + simHistory.length);
+      copyToClipboard(lines.join("\n"));
+    }
+
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text).then(function () {
+        alert("In die Zwischenablage kopiert!");
+      }, function () {
+        // Fallback: prompt
+        prompt("Kopiere den Text:", text);
+      });
+    }
+
+    exportAutoBtn.addEventListener("click", exportAutoResult);
+    exportManBtn.addEventListener("click", exportManualLog);
+
+    /* ══════════════════════════════════════════════════════
        MANUAL SIMULATOR
        ══════════════════════════════════════════════════════ */
 
@@ -1118,20 +1549,46 @@
     function renderSimTable(filter) {
       var factions = RepEngine.getFactions();
       var html = "";
+      var useKills = chkKills.checked;
+      var useMissions = chkMissions.checked;
+      var useBribes = chkBribes.checked;
       factions.forEach(function (f) {
         if (filter && f.name.toLowerCase().indexOf(filter) === -1 && f.nick.toLowerCase().indexOf(filter) === -1) return;
         var val = simReps[f.nick] !== undefined ? simReps[f.nick] : 0;
         var cls = RepEngine.repClass(val);
         var label = RepEngine.repLabel(val);
-        var shootable = f.shootable;
         var delta = simLastDeltas[f.nick] || 0;
         var deltaStr = delta === 0 ? "—" : (delta > 0 ? "+" : "") + delta.toFixed(3);
         var deltaCls = delta > 0.0001 ? "pos" : (delta < -0.0001 ? "neg" : "zero");
         var flashCls = (Math.abs(delta) > 0.0001) ? " rp-sim-flash" : "";
 
         var info = !f.changeable ? ' <span class="rp-no-empathy" title="Keine Empathie-Verbindung zu anderen Fraktionen">⚠ isoliert</span>' : '';
+
+        // Build action buttons
+        var btns = '<div class="rp-action-btns">';
+        if (useKills && f.shootable) {
+          btns += '<button class="rp-kill-btn" data-action="kill" data-nick="' + f.nick + '">☠ Abschuss</button>';
+        }
+        if (useMissions && f.missionSuccess) {
+          var canMission = RepEngine.canDoMission(simReps, f.nick);
+          var missionTitle = canMission
+            ? (f.missionBases ? "Missionen bei: " + f.missionBases.slice(0, 5).join(", ") + (f.missionBases.length > 5 ? ", …" : "") : "Mission annehmen")
+            : "Ruf muss mindestens neutral sein (\u2265 " + RepEngine.MISSION_THRESHOLD.toFixed(1) + ")";
+          btns += '<button class="rp-mission-btn" data-action="mission" data-nick="' + f.nick + '"' +
+            (canMission ? '' : ' disabled') + ' title="' + esc(missionTitle) + '">📋 Mission</button>';
+        }
+        if (useBribes && f.bribes && f.bribes.length > 0) {
+          var canBribe = RepEngine.canDoBribe(simReps, f.nick);
+          var bribeTitle = canBribe
+            ? "Bestechung kaufen bei: " + f.bribes.slice(0, 5).join(", ") + (f.bribes.length > 5 ? ", …" : "") + " (je 10.000 Cr)"
+            : "Ruf muss ≤ " + RepEngine.BRIBE_THRESHOLD.toFixed(1) + " sein";
+          btns += '<button class="rp-bribe-btn" data-action="bribe" data-nick="' + f.nick + '"' +
+            (canBribe ? '' : ' disabled') + ' title="' + esc(bribeTitle) + '">💰 Bribe</button>';
+        }
+        btns += '</div>';
+
         html += '<tr class="' + flashCls.trim() + '">' +
-          '<td>' + esc(f.name) + info + '</td>' +
+          '<td><span class="rp-faction-link" data-faction="' + f.nick + '">' + esc(f.name) + '</span>' + info + '</td>' +
           '<td>' + legalityBadge(f.legality) + '</td>' +
           '<td><div class="rp-comp-track" style="height:10px;width:120px;display:inline-block;vertical-align:middle;">' +
             '<div class="rp-comp-fill final-fill" style="border-radius:999px;background:' + repToColor(val) + ';' + getBarStyle(val) + '"></div>' +
@@ -1139,32 +1596,37 @@
           '<td><span style="font-family:IBM Plex Mono,monospace;font-size:.85rem;">' + val.toFixed(2) + '</span></td>' +
           '<td><span class="rp-rep-badge ' + cls + '">' + label + '</span></td>' +
           '<td><span class="rp-sim-delta ' + deltaCls + '">' + deltaStr + '</span></td>' +
-          '<td>' + (shootable
-            ? '<button class="rp-kill-btn" data-kill="' + f.nick + '">☠ Abschuss</button>'
-            : '') + '</td>' +
+          '<td>' + btns + '</td>' +
           '</tr>';
       });
       simBody.innerHTML = html || '<tr><td colspan="7">Keine Fraktionen gefunden.</td></tr>';
 
-      // Bind kill buttons
-      simBody.querySelectorAll(".rp-kill-btn").forEach(function (btn) {
+      // Bind action buttons
+      simBody.querySelectorAll("[data-action]").forEach(function (btn) {
         btn.addEventListener("click", function () {
-          doSimKill(this.dataset.kill);
+          doSimAction(this.dataset.action, this.dataset.nick);
         });
       });
+
+      // Bind faction detail links
+      bindFactionLinks(simBody);
     }
 
-    function doSimKill(nick) {
-      // Save state for undo (only reps snapshot)
+    function doSimAction(actionType, nick) {
+      // Save state for undo
       var repsBefore = {};
       for (var k in simReps) {
         if (simReps.hasOwnProperty(k)) repsBefore[k] = simReps[k];
       }
-      simHistory.push({ nick: nick, repsBefore: repsBefore });
+      simHistory.push({ type: actionType, nick: nick, repsBefore: repsBefore });
       simUndo.disabled = false;
 
-      // Execute kill — simulateKill mutates simReps and returns deltas
-      var deltas = RepEngine.simulateKill(simReps, nick);
+      // Execute action
+      var deltas;
+      if (actionType === "kill") deltas = RepEngine.simulateKill(simReps, nick);
+      else if (actionType === "mission") deltas = RepEngine.simulateMission(simReps, nick);
+      else if (actionType === "bribe") deltas = RepEngine.simulateBribe(simReps, nick);
+      else deltas = {};
       simLastDeltas = deltas;
 
       renderSimTable(simSearch.value.toLowerCase().trim());
@@ -1198,25 +1660,26 @@
       }
       killLogEl.style.display = "";
 
-      // Merge consecutive same-faction kills
+      // Merge consecutive same-type-and-faction actions
       var merged = [];
       simHistory.forEach(function (h) {
         var last = merged.length > 0 ? merged[merged.length - 1] : null;
-        if (last && last.nick === h.nick) {
+        if (last && last.nick === h.nick && last.type === (h.type || "kill")) {
           last.count++;
         } else {
           var f = RepEngine.getFaction(h.nick);
-          merged.push({ nick: h.nick, name: f ? f.name : h.nick, count: 1 });
+          merged.push({ type: h.type || "kill", nick: h.nick, name: f ? f.name : h.nick, count: 1 });
         }
       });
 
-      var totalKills = simHistory.length;
-      killLogCount.innerHTML = 'Abschüsse gesamt: <strong>' + totalKills + '</strong>';
+      var totalActions = simHistory.length;
+      killLogCount.innerHTML = 'Aktionen gesamt: <strong>' + totalActions + '</strong>';
 
       var html = "";
       merged.forEach(function (m, i) {
         html += '<tr>' +
           '<td class="td-num">' + (i + 1) + '</td>' +
+          '<td>' + actionLabel(m.type) + '</td>' +
           '<td>' + esc(m.name) + '</td>' +
           '<td class="td-num">' + m.count + '×</td>' +
           '</tr>';
@@ -1234,6 +1697,17 @@
       renderSimTable(this.value.toLowerCase().trim());
     });
 
+    /* ── Action toggle changes refresh sim ── */
+    chkKills.addEventListener("change", function () {
+      renderSimTable(simSearch.value.toLowerCase().trim());
+    });
+    chkMissions.addEventListener("change", function () {
+      renderSimTable(simSearch.value.toLowerCase().trim());
+    });
+    chkBribes.addEventListener("change", function () {
+      renderSimTable(simSearch.value.toLowerCase().trim());
+    });
+
     /* ── Mode tab switching ── */
     var modeTabs = document.querySelectorAll(".rp-mode-tab");
     modeTabs.forEach(function (tab) {
@@ -1243,7 +1717,7 @@
         var mode = tab.dataset.mode;
         document.getElementById("rp-panel-manual").className = "rp-mode-panel" + (mode === "manual" ? " active" : "");
         document.getElementById("rp-panel-auto").className = "rp-mode-panel" + (mode === "auto" ? " active" : "");
-        if (mode === "manual") initSim();
+        if (mode === "manual" && simHistory.length === 0) syncStartToSim();
       });
     });
 

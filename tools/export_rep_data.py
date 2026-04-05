@@ -6,8 +6,10 @@ Output: ../data/reputation/<mod-id>.json for each configured installation.
 Data sources per installation:
   EXE/mpnewcharacter.fl          – player's default starting reputation
   DATA/InitialWorld.ini          – [Group] sections with ids_name for display names
-  DATA/MISSIONS/empathy.ini      – rep change on kill + empathy cascades
+  DATA/MISSIONS/empathy.ini      – rep change on kill/mission + empathy cascades
   DATA/MISSIONS/faction_prop.ini – legality, npc_ship presence
+  DATA/MISSIONS/mbases.ini       – bribe locations per faction
+  DATA/UNIVERSE/universe.ini     – base display names
 """
 from __future__ import annotations
 
@@ -59,6 +61,7 @@ def extract_empathy(empathy_path: Path) -> dict[str, dict]:
         obj_dest = 0.0
         mission_success = 0.0
         mission_failure = 0.0
+        mission_abort = 0.0
         empathy: dict[str, float] = {}
         for k, v in entries:
             kl = k.lower()
@@ -78,6 +81,8 @@ def extract_empathy(empathy_path: Path) -> dict[str, dict]:
                         mission_success = val
                     elif event_type == "random_mission_failure":
                         mission_failure = val
+                    elif event_type == "random_mission_abortion":
+                        mission_abort = val
             elif kl == "empathy_rate":
                 parts = [p.strip() for p in v.split(",")]
                 if len(parts) >= 2:
@@ -93,6 +98,7 @@ def extract_empathy(empathy_path: Path) -> dict[str, dict]:
                 "object_destruction": obj_dest,
                 "mission_success": mission_success,
                 "mission_failure": mission_failure,
+                "mission_abort": mission_abort,
                 "empathy": empathy,
             }
     return factions
@@ -119,6 +125,123 @@ def extract_faction_props(fp_path: Path) -> dict[str, dict]:
         if aff:
             props[aff] = {"legality": legality, "has_npc_ships": has_npc}
     return props
+
+
+def extract_base_names(
+    uni_path: Path, res: DLLResolver | None
+) -> tuple[dict[str, str], dict[str, str], dict[str, str]]:
+    """Parse universe.ini → base names, base→system mapping, system names.
+
+    Returns:
+        base_names:   {base_nick_lower: display_name}
+        base_system:  {base_nick_lower: system_nick_lower}
+        system_names: {system_nick_lower: display_name}
+    """
+    bases: dict[str, str] = {}
+    base_sys: dict[str, str] = {}
+    systems: dict[str, str] = {}
+    if not uni_path.exists() or res is None:
+        return bases, base_sys, systems
+    for sec, entries in parse_ini(uni_path):
+        sl = sec.lower()
+        if sl == "base":
+            vals = {k.lower(): v for k, v in entries}
+            nick = vals.get("nickname", "").strip()
+            strid = vals.get("strid_name", "")
+            sys_nick = vals.get("system", "").strip()
+            name = res.get(strid) or nick
+            if nick:
+                bases[nick.lower()] = name
+                if sys_nick:
+                    base_sys[nick.lower()] = sys_nick.lower()
+        elif sl == "system":
+            vals = {k.lower(): v for k, v in entries}
+            nick = vals.get("nickname", "").strip()
+            strid = vals.get("strid_name", "")
+            name = res.get(strid) or nick
+            if nick:
+                systems[nick.lower()] = name
+    return bases, base_sys, systems
+
+
+def extract_bribes(
+    mbases_path: Path, base_names: dict[str, str]
+) -> dict[str, list[str]]:
+    """Parse mbases.ini [GF_NPC] sections → {bribed_faction_nick: [base_display_name, ...]}.
+
+    Returns deduplicated base names per faction.
+    """
+    if not mbases_path.exists():
+        return {}
+
+    sections = parse_ini(mbases_path)
+    current_base = ""
+    # faction → set of base display names
+    bribes: dict[str, set[str]] = {}
+
+    for sec, entries in sections:
+        if sec == "MBase":
+            for k, v in entries:
+                if k.lower() == "nickname":
+                    current_base = v.strip()
+        elif sec == "GF_NPC":
+            for k, v in entries:
+                if k.lower() == "bribe":
+                    parts = [p.strip() for p in v.split(",")]
+                    if len(parts) >= 2:
+                        faction_nick = parts[0].lower()
+                        base_display = base_names.get(
+                            current_base.lower(), current_base
+                        )
+                        if faction_nick not in bribes:
+                            bribes[faction_nick] = set()
+                        bribes[faction_nick].add(base_display)
+
+    return {nick: sorted(bases) for nick, bases in bribes.items()}
+
+
+def extract_mission_bases(
+    mbases_path: Path,
+    base_names: dict[str, str],
+    base_system: dict[str, str],
+    system_names: dict[str, str],
+) -> dict[str, list[str]]:
+    """Parse mbases.ini GF_NPC sections for mission-offering NPCs.
+
+    Returns {faction_nick: ["System → Base", ...]}.
+    """
+    if not mbases_path.exists():
+        return {}
+
+    sections = parse_ini(mbases_path)
+    current_base = ""
+    missions: dict[str, set[str]] = {}
+
+    for sec, entries in sections:
+        if sec == "MBase":
+            for k, v in entries:
+                if k.lower() == "nickname":
+                    current_base = v.strip()
+        elif sec == "GF_NPC":
+            has_missions = False
+            affiliation = ""
+            for k, v in entries:
+                kl = k.lower()
+                if kl == "affiliation":
+                    affiliation = v.strip().lower()
+                elif kl == "misn":
+                    has_missions = True
+            if has_missions and affiliation:
+                base_lower = current_base.lower()
+                sys_nick = base_system.get(base_lower, "")
+                sys_name = system_names.get(sys_nick, sys_nick)
+                base_name = base_names.get(base_lower, current_base)
+                label = f"{sys_name} \u2192 {base_name}"
+                if affiliation not in missions:
+                    missions[affiliation] = set()
+                missions[affiliation].add(label)
+
+    return {nick: sorted(locs) for nick, locs in missions.items()}
 
 
 def extract_default_rep(fl_root: Path) -> dict[str, float]:
@@ -207,6 +330,22 @@ def export_mod(install: dict) -> None:
     props = extract_faction_props(fp_path)
     default_rep = extract_default_rep(fl_root)
 
+    # ── Bribes / base names ──
+    mbases_path = fl_root / "DATA" / "MISSIONS" / "mbases.ini"
+    uni_path = fl_root / "DATA" / "UNIVERSE" / "universe.ini"
+    if not uni_path.exists():
+        uni_path = fl_root / "DATA" / "Universe" / "universe.ini"
+    base_names, base_system, system_names = extract_base_names(uni_path, res)
+    faction_bribes = extract_bribes(mbases_path, base_names)
+    faction_missions = extract_mission_bases(
+        mbases_path, base_names, base_system, system_names
+    )
+    if mbases_path.exists():
+        print(f"  ✓ mbases.ini  ({sum(len(v) for v in faction_bribes.values())} bribe locations, "
+              f"{sum(len(v) for v in faction_missions.values())} mission locations)")
+    if uni_path.exists():
+        print(f"  ✓ universe.ini ({len(base_names)} bases, {len(system_names)} systems)")
+
     # ── Determine which factions are changeable ──
     # A faction's rep CAN change if:
     #   - It appears in empathy.ini (has object_destruction) → direct kills affect it
@@ -248,12 +387,25 @@ def export_mod(install: dict) -> None:
         if short_name:
             faction_entry["shortName"] = short_name
 
-        # Include empathy data only for shootable factions (optimization)
-        if shootable:
-            faction_entry["objectDestruction"] = round(obj_dest, 6)
+        # Include empathy data for all factions that have events in empathy.ini
+        # (needed for both kills AND missions)
+        if nick in empathy:
+            if obj_dest != 0.0:
+                faction_entry["objectDestruction"] = round(obj_dest, 6)
+            ms = emp_data.get("mission_success", 0.0)
+            if ms != 0.0:
+                faction_entry["missionSuccess"] = round(ms, 6)
             faction_entry["empathy"] = {
                 k: round(v, 6) for k, v in emp_data.get("empathy", {}).items()
             }
+
+        # Include bribe locations
+        if nick in faction_bribes:
+            faction_entry["bribes"] = faction_bribes[nick]
+
+        # Include mission base locations
+        if nick in faction_missions:
+            faction_entry["missionBases"] = faction_missions[nick]
 
         factions.append(faction_entry)
 
@@ -265,9 +417,12 @@ def export_mod(install: dict) -> None:
 
     shootable_count = sum(1 for f in factions if f["shootable"])
     changeable_count = sum(1 for f in factions if f["changeable"])
+    bribeable_count = sum(1 for f in factions if "bribes" in f)
+    missionable_count = sum(1 for f in factions if "missionSuccess" in f)
     locked_count = len(factions) - changeable_count
     print(f"\n  → {len(factions)} factions total")
-    print(f"    {shootable_count} shootable, {changeable_count} changeable, {locked_count} locked")
+    print(f"    {shootable_count} shootable, {missionable_count} missionable, {bribeable_count} bribeable")
+    print(f"    {changeable_count} changeable, {locked_count} locked")
     print(f"  → Saved: {out_path}")
 
     if res:
