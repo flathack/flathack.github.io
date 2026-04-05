@@ -78,8 +78,8 @@ const RepEngine = (function () {
   var MISSION_THRESHOLD = -0.1;
   /** Reputation threshold: bribes available when rep <= this value */
   var BRIBE_THRESHOLD = -0.4;
-  /** Fixed reputation change per bribe (no empathy cascade) */
-  var BRIBE_REP_CHANGE = 0.1;
+  /** Bribe always sets reputation to this value (no empathy cascade) */
+  var BRIBE_TARGET_REP = 0.6;
 
   /**
    * Generic event simulation: apply a delta to a faction and cascade via empathy.
@@ -134,16 +134,32 @@ const RepEngine = (function () {
 
   /**
    * Simulate buying a bribe for a given faction.
-   * Bribes give a flat rep boost – NO empathy cascade.
+   * Bribes set rep to BRIBE_TARGET_REP and cascade via empathy.
+   * Only one bribe per faction is possible.
    */
   function simulateBribe(reps, factionNick) {
     var faction = getFaction(factionNick);
     if (!faction || !faction.bribes || faction.bribes.length === 0) return {};
 
     var changes = {};
-    var newVal = clampRep((reps[factionNick] || 0) + BRIBE_REP_CHANGE);
-    changes[factionNick] = newVal - (reps[factionNick] || 0);
+    var oldVal = reps[factionNick] || 0;
+    var newVal = BRIBE_TARGET_REP;
+    var delta = newVal - oldVal;
+    changes[factionNick] = delta;
     reps[factionNick] = newVal;
+
+    // Empathy cascades
+    var empathy = faction.empathy || {};
+    for (var targetNick in empathy) {
+      if (!empathy.hasOwnProperty(targetNick)) continue;
+      if (reps[targetNick] === undefined) continue;
+
+      var empDelta = delta * empathy[targetNick];
+      var tNew = clampRep(reps[targetNick] + empDelta);
+      changes[targetNick] = (changes[targetNick] || 0) + (tNew - reps[targetNick]);
+      reps[targetNick] = tNew;
+    }
+
     return changes;
   }
 
@@ -304,11 +320,12 @@ const RepEngine = (function () {
     var missionable = useMissions ? getMissionable() : [];
     var bribeable = useBribes ? getBribeable() : [];
 
-    // Track remaining bribes per faction (each base = 1 bribe)
+    // Track remaining bribes per faction (max 1 per faction – the bases list
+    // only shows *where* the bribe can be bought, not how many times)
     var bribeRemaining = {};
     if (useBribes) {
       for (var bi = 0; bi < bribeable.length; bi++) {
-        bribeRemaining[bribeable[bi].nick] = bribeable[bi].bribes.length;
+        bribeRemaining[bribeable[bi].nick] = 1;
       }
     }
 
@@ -530,6 +547,6 @@ const RepEngine = (function () {
     repClass: repClass,
     MISSION_THRESHOLD: MISSION_THRESHOLD,
     BRIBE_THRESHOLD: BRIBE_THRESHOLD,
-    BRIBE_REP_CHANGE: BRIBE_REP_CHANGE,
+    BRIBE_TARGET_REP: BRIBE_TARGET_REP,
   };
 })();

@@ -945,7 +945,7 @@
         isolated: '⚠ isoliert',
         mission_at: 'Missionen bei: ', mission_accept: 'Mission annehmen',
         mission_threshold: 'Ruf muss mindestens neutral sein (≥ ',
-        bribe_at: 'Bestechung kaufen bei: ', bribe_cost: ' (je 10.000 Cr)',
+        bribe_at: 'Bestechung kaufen bei: ', bribe_cost_prefix: ' (ca. ', bribe_cost_suffix: ' Cr)',
         bribe_threshold: 'Ruf muss ≤ ', bribe_threshold_post: ' sein',
         not_reachable: ' (nicht erreichbar)',
         modal_friends: '👥 Freunde (positive Empathie)',
@@ -1009,7 +1009,7 @@
         isolated: '⚠ isolated',
         mission_at: 'Missions at: ', mission_accept: 'Accept mission',
         mission_threshold: 'Rep must be at least neutral (≥ ',
-        bribe_at: 'Buy bribe at: ', bribe_cost: ' (10,000 Cr each)',
+        bribe_at: 'Buy bribe at: ', bribe_cost_prefix: ' (~', bribe_cost_suffix: ' Cr)',
         bribe_threshold: 'Rep must be ≤ ', bribe_threshold_post: '',
         not_reachable: ' (unreachable)',
         modal_friends: '👥 Friends (positive empathy)',
@@ -1741,8 +1741,9 @@
         }
         if (useBribes && f.bribes && f.bribes.length > 0) {
           var canBribe = RepEngine.canDoBribe(simReps, f.nick);
+          var bribeCost = Math.round((RepEngine.BRIBE_TARGET_REP - (simReps[f.nick] || 0)) * 100) * 1000;
           var bribeTitle = canBribe
-            ? t('bribe_at') + f.bribes.slice(0, 5).join(", ") + (f.bribes.length > 5 ? ", …" : "") + t('bribe_cost')
+            ? t('bribe_at') + f.bribes.slice(0, 5).join(", ") + (f.bribes.length > 5 ? ", …" : "") + t('bribe_cost_prefix') + bribeCost.toLocaleString() + t('bribe_cost_suffix')
             : t('bribe_threshold') + RepEngine.BRIBE_THRESHOLD.toFixed(1) + t('bribe_threshold_post');
           btns += '<button class="rp-bribe-btn" data-action="bribe" data-nick="' + f.nick + '"' +
             (canBribe ? '' : ' disabled') + ' title="' + esc(bribeTitle) + '">' + t('btn_bribe_lbl') + '</button>';
