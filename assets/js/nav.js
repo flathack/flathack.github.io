@@ -16,6 +16,7 @@
     { label: "Trade Routes", href: "docs/trade-routes.html", children: MOD_CHILDREN },
     { label: "Schiff-Explorer", href: "docs/ship-explorer.html", children: MOD_CHILDREN },
     { label: "Universum", href: "docs/universe-viewer.html", children: MOD_CHILDREN },
+    { label: "Rep Planner", href: "docs/rep-planner.html", children: MOD_CHILDREN },
     { label: "Signaturen", href: "docs/forum-signature-progress.html" },
   ];
 

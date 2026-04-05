@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rep Planner | Flathack</title>
+  <meta name="description" content="Plane deinen Freelancer-Ruf: Finde die optimale Abschuss-Reihenfolge um dein gewünschtes Reputationsprofil zu erreichen.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    /* ── Rep Planner Layout ─────────────────────────────── */
+    .rp-intro {
+      margin-bottom: 22px;
+      padding: 28px 32px;
+      border: 1px solid var(--panel-border);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(180deg, rgba(8,25,36,.94), rgba(4,14,23,.94));
+      box-shadow: var(--shadow);
+    }
+    .rp-intro h1 { margin-bottom: 8px; font-size: clamp(1.4rem,3vw,2rem); }
+    .rp-intro p { max-width: 68ch; color: var(--muted); font-size: 1.02rem; }
+
+    /* ── Controls row ──────────────────────────────── */
+    .rp-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: flex-end;
+      margin-bottom: 18px;
+    }
+    .rp-field {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .rp-field label {
+      font-size: .8rem;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--muted);
+    }
+    .rp-field select,
+    .rp-field input[type="number"] {
+      background: rgba(4,14,23,.85);
+      border: 1px solid var(--panel-border);
+      border-radius: 10px;
+      color: var(--text);
+      padding: 9px 14px;
+      font-family: inherit;
+      font-size: .92rem;
+      min-width: 100px;
+    }
+    .rp-field select { min-width: 180px; }
+    .rp-field select:focus,
+    .rp-field input:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px rgba(88,196,255,.15);
+    }
+
+    /* ── Preset buttons ──────────────────────────────── */
+    .rp-presets {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+    .rp-preset-btn {
+      padding: 8px 16px;
+      border: 1px solid var(--panel-border);
+      border-radius: 999px;
+      background: rgba(7,16,29,.72);
+      color: var(--muted);
+      font-family: inherit;
+      font-weight: 600;
+      font-size: .88rem;
+      cursor: pointer;
+      transition: 160ms ease;
+    }
+    .rp-preset-btn:hover {
+      color: var(--text);
+      background: rgba(88,196,255,.08);
+    }
+    .rp-preset-btn.active {
+      color: var(--text);
+      background: rgba(88,196,255,.14);
+      border-color: rgba(88,196,255,.3);
+    }
+
+    /* ── Faction table ──────────────────────────────── */
+    .rp-table-section {
+      margin-bottom: 22px;
+    }
+    .rp-table-wrap {
+      max-height: 560px;
+      overflow: auto;
+      border-radius: 14px;
+      border: 1px solid var(--panel-border);
+    }
+    .rp-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .88rem;
+    }
+    .rp-table th {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      padding: 8px 10px;
+      text-align: left;
+      font-weight: 600;
+      font-size: .78rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--accent-strong);
+      background: rgba(8,20,34,.97);
+      border-bottom: 1px solid var(--panel-border);
+    }
+    .rp-table td {
+      padding: 5px 10px;
+      border-bottom: 1px solid rgba(132,177,255,.08);
+      vertical-align: middle;
+    }
+    .rp-table tbody tr:nth-child(even) { background: rgba(4,14,23,.35); }
+    .rp-table tbody tr:hover { background: rgba(88,196,255,.06); }
+    .rp-table tbody tr.rp-locked { opacity: .45; }
+    .rp-table tbody tr.rp-locked td { pointer-events: none; }
+
+    /* ── Rep value input ─────────────────────────────── */
+    .rp-rep-input {
+      width: 68px;
+      padding: 4px 6px;
+      background: rgba(4,14,23,.7);
+      border: 1px solid var(--panel-border);
+      border-radius: 6px;
+      color: var(--text);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: .85rem;
+      text-align: center;
+    }
+    .rp-rep-input:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    .rp-rep-input:disabled {
+      opacity: .35;
+      cursor: not-allowed;
+    }
+
+    /* ── Rep slider ──────────────────────────────────── */
+    .rp-rep-slider {
+      width: 120px;
+      accent-color: var(--accent);
+    }
+    .rp-rep-slider:disabled {
+      opacity: .35;
+      cursor: not-allowed;
+    }
+
+    /* ── Target dropdown ─────────────────────────────── */
+    .rp-target-select {
+      padding: 4px 8px;
+      background: rgba(4,14,23,.7);
+      border: 1px solid var(--panel-border);
+      border-radius: 6px;
+      color: var(--text);
+      font-family: inherit;
+      font-size: .85rem;
+    }
+    .rp-target-select:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    .rp-target-select:disabled {
+      opacity: .35;
+      cursor: not-allowed;
+    }
+
+    /* ── Rep badge ───────────────────────────────────── */
+    .rp-rep-badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: .78rem;
+      font-weight: 600;
+      font-family: "IBM Plex Mono", monospace;
+    }
+    .rep-allied    { background: rgba(52,211,153,.15); color: #34d399; }
+    .rep-friendly  { background: rgba(52,211,153,.10); color: #6ee7b7; }
+    .rep-neutral   { background: rgba(132,177,255,.10); color: #9fb2cf; }
+    .rep-unfriendly{ background: rgba(245,158,11,.12); color: #f59e0b; }
+    .rep-hostile   { background: rgba(239,68,68,.12); color: #ef4444; }
+
+    /* ── Run button ──────────────────────────────────── */
+    .rp-run-btn {
+      padding: 12px 28px;
+      border: none;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+      color: #03101d;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+    .rp-run-btn:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 20px rgba(88,196,255,.25);
+    }
+    .rp-run-btn:disabled {
+      opacity: .5;
+      cursor: wait;
+    }
+
+    /* ── Loading ──────────────────────────────────────── */
+    .rp-loading {
+      display: none;
+      text-align: center;
+      padding: 32px;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+    .rp-loading.visible { display: block; }
+
+    /* ── Results ──────────────────────────────────── */
+    .rp-results {
+      display: none;
+      margin-top: 22px;
+    }
+    .rp-results.visible { display: block; }
+
+    .rp-summary {
+      padding: 22px 28px;
+      margin-bottom: 18px;
+      border: 1px solid var(--panel-border);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(180deg, rgba(8,25,36,.94), rgba(4,14,23,.94));
+    }
+    .rp-summary h3 { margin-bottom: 10px; }
+    .rp-summary-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 12px;
+      font-size: .92rem;
+      color: var(--muted);
+    }
+    .rp-summary-stats strong { color: var(--accent-strong); }
+
+    .rp-step-table-wrap {
+      border-radius: 14px;
+      border: 1px solid var(--panel-border);
+      overflow-x: auto;
+      margin-bottom: 18px;
+    }
+    .rp-step-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .88rem;
+    }
+    .rp-step-table th {
+      position: sticky;
+      top: 0;
+      padding: 8px 10px;
+      text-align: left;
+      font-weight: 600;
+      font-size: .78rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--accent-strong);
+      background: rgba(8,20,34,.97);
+      border-bottom: 1px solid var(--panel-border);
+    }
+    .rp-step-table td {
+      padding: 5px 10px;
+      border-bottom: 1px solid rgba(132,177,255,.08);
+    }
+    .rp-step-table .td-num {
+      text-align: right;
+      font-family: "IBM Plex Mono", monospace;
+    }
+    .rp-step-table tbody tr:nth-child(even) { background: rgba(4,14,23,.35); }
+    .rp-step-table tbody tr:hover { background: rgba(88,196,255,.06); }
+
+    /* ── Final rep comparison ─────────────────────────── */
+    .rp-comparison {
+      margin-top: 18px;
+    }
+    .rp-comparison h3 { margin-bottom: 10px; }
+    .rp-comp-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 4px;
+      font-size: .82rem;
+    }
+    .rp-comp-name {
+      width: 180px;
+      flex-shrink: 0;
+      text-align: right;
+      color: var(--muted);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .rp-comp-track {
+      flex: 1;
+      height: 14px;
+      border-radius: 999px;
+      background: rgba(132,177,255,.1);
+      position: relative;
+      overflow: hidden;
+    }
+    .rp-comp-fill {
+      position: absolute;
+      top: 0; bottom: 0;
+      border-radius: 999px;
+      transition: left 400ms ease, width 400ms ease;
+    }
+    .rp-comp-fill.start-fill {
+      opacity: .35;
+    }
+    .rp-comp-fill.final-fill {
+      opacity: .85;
+    }
+    .rp-comp-val {
+      width: 50px;
+      flex-shrink: 0;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: .8rem;
+    }
+
+    /* ── Warnings ─────────────────────────────────────── */
+    .rp-warning {
+      padding: 12px 18px;
+      margin-bottom: 12px;
+      border: 1px solid rgba(245,158,11,.3);
+      border-radius: 10px;
+      background: rgba(245,158,11,.06);
+      color: var(--accent-warm);
+      font-size: .9rem;
+    }
+
+    /* ── Search ──────────────────────────────────────── */
+    .rp-search {
+      width: 100%;
+      padding: 8px 14px;
+      margin-bottom: 10px;
+      background: rgba(4,14,23,.7);
+      border: 1px solid var(--panel-border);
+      border-radius: 10px;
+      color: var(--text);
+      font-family: inherit;
+      font-size: .92rem;
+    }
+    .rp-search:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    .rp-search::placeholder { color: rgba(159,178,207,.5); }
+
+    /* ── Section headers ─────────────────────────────── */
+    .rp-section-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .rp-section-head h2 { margin: 0; font-size: 1.15rem; }
+
+    /* ── Responsive ────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .rp-comp-name { width: 120px; font-size: .75rem; }
+      .rp-rep-slider { width: 80px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark">FH</span>
+        <span class="brand-text">Flathack Projects</span>
+      </a>
+      <nav class="project-top-nav" aria-label="Projekt-Navigation"></nav>
+    </header>
+
+    <main>
+      <!-- ── Intro ── -->
+      <section class="rp-intro">
+        <p class="eyebrow">Reputation Planner</p>
+        <h1>Rep Planner</h1>
+        <p>Gib deinen aktuellen Ruf ein, wähle dein Ziel-Profil und berechne die optimale Abschuss-Reihenfolge. Gesperrte Fraktionen (ohne NPC-Schiffe oder ohne Empathie-Einfluss) werden automatisch markiert.</p>
+      </section>
+
+      <!-- ── Controls ── -->
+      <div class="rp-controls" id="rp-controls">
+        <div class="rp-field">
+          <label>Toleranz</label>
+          <input type="number" id="rp-tolerance" value="0.05" min="0.01" max="0.3" step="0.01">
+        </div>
+        <div class="rp-field">
+          <label>Max. Abschüsse</label>
+          <input type="number" id="rp-max-steps" value="3000" min="100" max="20000" step="100">
+        </div>
+        <button class="rp-run-btn" id="rp-run">▶ Berechnen</button>
+      </div>
+
+      <!-- ── Presets ── -->
+      <div class="rp-section-head">
+        <h2>Ziel-Profil</h2>
+      </div>
+      <div class="rp-presets" id="rp-presets">
+        <button class="rp-preset-btn" data-preset="default">Standard-Start</button>
+        <button class="rp-preset-btn" data-preset="neutral">Alles Neutral</button>
+        <button class="rp-preset-btn" data-preset="lawful">Lawful Hero</button>
+        <button class="rp-preset-btn" data-preset="pirate">Pirat</button>
+        <button class="rp-preset-btn" data-preset="zero">Alles 0</button>
+      </div>
+
+      <!-- ── Start Rep ── -->
+      <div class="rp-section-head">
+        <h2>Start-Reputation</h2>
+        <div style="display:flex;gap:8px;align-items:center;">
+          <button class="rp-preset-btn" id="rp-start-default">Standard-Start laden</button>
+          <input class="rp-search" id="rp-search-start" placeholder="Fraktion suchen…" style="width:200px;margin:0;">
+        </div>
+      </div>
+      <div class="rp-table-section">
+        <div class="rp-table-wrap" id="rp-start-table-wrap">
+          <table class="rp-table" id="rp-start-table">
+            <thead>
+              <tr>
+                <th>Fraktion</th>
+                <th>Legalität</th>
+                <th>Aktueller Ruf</th>
+                <th>Wert</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="rp-start-body"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ── Target Rep ── -->
+      <div class="rp-section-head">
+        <h2>Ziel-Reputation</h2>
+        <input class="rp-search" id="rp-search-target" placeholder="Fraktion suchen…" style="width:200px;margin:0;">
+      </div>
+      <div class="rp-table-section">
+        <div class="rp-table-wrap" id="rp-target-table-wrap">
+          <table class="rp-table" id="rp-target-table">
+            <thead>
+              <tr>
+                <th>Fraktion</th>
+                <th>Legalität</th>
+                <th>Ziel-Ruf</th>
+                <th>Wert</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="rp-target-body"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ── Loading ── -->
+      <div class="rp-loading" id="rp-loading">Berechne optimale Reihenfolge…</div>
+
+      <!-- ── Results ── -->
+      <div class="rp-results" id="rp-results">
+        <div class="rp-summary" id="rp-summary">
+          <h3>Ergebnis</h3>
+          <div class="rp-summary-stats" id="rp-summary-stats"></div>
+          <div id="rp-warnings"></div>
+        </div>
+
+        <div class="rp-section-head">
+          <h2>Abschuss-Plan</h2>
+        </div>
+        <div class="rp-step-table-wrap">
+          <table class="rp-step-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Fraktion</th>
+                <th>Anzahl Abschüsse</th>
+              </tr>
+            </thead>
+            <tbody id="rp-steps-body"></tbody>
+          </table>
+        </div>
+
+        <div class="rp-comparison" id="rp-comparison">
+          <h3>Ruf-Vergleich (Start → Ergebnis)</h3>
+          <div id="rp-comp-bars"></div>
+        </div>
+      </div>
+
+      <footer class="page-footer">
+        &copy; 2026 Steven Schödel — Flathack Projects
+      </footer>
+    </main>
+  </div>
+
+  <script src="../assets/js/nav.js"></script>
+  <script src="../assets/js/rep-engine.js"></script>
+  <script>
+  (function () {
+    "use strict";
+
+    /* ── DOM refs ── */
+    var startBody     = document.getElementById("rp-start-body");
+    var targetBody    = document.getElementById("rp-target-body");
+    var runBtn        = document.getElementById("rp-run");
+    var loadingEl     = document.getElementById("rp-loading");
+    var resultsEl     = document.getElementById("rp-results");
+    var summaryStats  = document.getElementById("rp-summary-stats");
+    var warningsEl    = document.getElementById("rp-warnings");
+    var stepsBody     = document.getElementById("rp-steps-body");
+    var compBarsEl    = document.getElementById("rp-comp-bars");
+    var tolInput      = document.getElementById("rp-tolerance");
+    var maxStepsInput = document.getElementById("rp-max-steps");
+    var searchStart   = document.getElementById("rp-search-start");
+    var searchTarget  = document.getElementById("rp-search-target");
+    var startDefault  = document.getElementById("rp-start-default");
+
+    /* ── State ── */
+    var startReps  = {};
+    var targetReps = {};
+
+    /* ── Mod loading (via hash, shared with nav.js) ── */
+    function getModId() {
+      var h = window.location.hash.replace("#", "");
+      return h || "hamburg-city";
+    }
+
+    async function init() {
+      var modId = getModId();
+      try {
+        await RepEngine.loadData(modId);
+      } catch (e) {
+        console.error(e);
+        startBody.innerHTML = '<tr><td colspan="5">Fehler beim Laden der Daten.</td></tr>';
+        return;
+      }
+      buildTables();
+    }
+
+    function buildTables() {
+      var factions = RepEngine.getFactions();
+      var defaults = RepEngine.getDefaultReps();
+
+      // Init reps with defaults
+      startReps = {};
+      targetReps = {};
+      factions.forEach(function (f) {
+        startReps[f.nick] = f.defaultRep;
+        targetReps[f.nick] = f.defaultRep;
+      });
+
+      renderStartTable(factions);
+      renderTargetTable(factions);
+      resultsEl.className = "rp-results";
+    }
+
+    /* ── Render Start Table ── */
+    function renderStartTable(factions, filter) {
+      var html = "";
+      factions.forEach(function (f) {
+        if (filter && f.name.toLowerCase().indexOf(filter) === -1 && f.nick.toLowerCase().indexOf(filter) === -1) return;
+        var locked = !f.changeable;
+        var val = startReps[f.nick] !== undefined ? startReps[f.nick] : 0;
+        var cls = RepEngine.repClass(val);
+        var label = RepEngine.repLabel(val);
+        html += '<tr class="' + (locked ? "rp-locked" : "") + '">' +
+          '<td>' + esc(f.name) + '</td>' +
+          '<td>' + legalityBadge(f.legality) + '</td>' +
+          '<td><input type="range" class="rp-rep-slider" min="-1" max="1" step="0.01" value="' + val + '"' +
+            ' data-nick="' + f.nick + '" data-table="start"' + (locked ? " disabled" : "") + '></td>' +
+          '<td><input type="number" class="rp-rep-input" min="-1" max="1" step="0.01" value="' + val.toFixed(2) + '"' +
+            ' data-nick="' + f.nick + '" data-table="start"' + (locked ? " disabled" : "") + '></td>' +
+          '<td><span class="rp-rep-badge ' + cls + '">' + label + '</span></td>' +
+          '</tr>';
+      });
+      startBody.innerHTML = html || '<tr><td colspan="5">Keine Fraktionen gefunden.</td></tr>';
+      bindInputs(startBody, "start");
+    }
+
+    /* ── Render Target Table ── */
+    function renderTargetTable(factions, filter) {
+      var html = "";
+      factions.forEach(function (f) {
+        if (filter && f.name.toLowerCase().indexOf(filter) === -1 && f.nick.toLowerCase().indexOf(filter) === -1) return;
+        var locked = !f.changeable;
+        var val = targetReps[f.nick] !== undefined ? targetReps[f.nick] : 0;
+        var cls = RepEngine.repClass(val);
+        var label = RepEngine.repLabel(val);
+        html += '<tr class="' + (locked ? "rp-locked" : "") + '">' +
+          '<td>' + esc(f.name) + '</td>' +
+          '<td>' + legalityBadge(f.legality) + '</td>' +
+          '<td><input type="range" class="rp-rep-slider" min="-1" max="1" step="0.01" value="' + val + '"' +
+            ' data-nick="' + f.nick + '" data-table="target"' + (locked ? " disabled" : "") + '></td>' +
+          '<td><input type="number" class="rp-rep-input" min="-1" max="1" step="0.01" value="' + val.toFixed(2) + '"' +
+            ' data-nick="' + f.nick + '" data-table="target"' + (locked ? " disabled" : "") + '></td>' +
+          '<td><span class="rp-rep-badge ' + cls + '">' + label + '</span></td>' +
+          '</tr>';
+      });
+      targetBody.innerHTML = html || '<tr><td colspan="5">Keine Fraktionen gefunden.</td></tr>';
+      bindInputs(targetBody, "target");
+    }
+
+    /* ── Bind slider ↔ input sync ── */
+    function bindInputs(container, table) {
+      var sliders = container.querySelectorAll(".rp-rep-slider");
+      var inputs  = container.querySelectorAll(".rp-rep-input");
+      var reps = table === "start" ? startReps : targetReps;
+
+      sliders.forEach(function (slider) {
+        slider.addEventListener("input", function () {
+          var nick = this.dataset.nick;
+          var val = parseFloat(this.value);
+          reps[nick] = val;
+          // Sync the number input in the same row
+          var row = this.closest("tr");
+          var numInput = row.querySelector(".rp-rep-input");
+          if (numInput) numInput.value = val.toFixed(2);
+          // Update badge
+          var badge = row.querySelector(".rp-rep-badge");
+          if (badge) {
+            badge.className = "rp-rep-badge " + RepEngine.repClass(val);
+            badge.textContent = RepEngine.repLabel(val);
+          }
+        });
+      });
+
+      inputs.forEach(function (input) {
+        input.addEventListener("change", function () {
+          var nick = this.dataset.nick;
+          var val = parseFloat(this.value);
+          if (isNaN(val)) val = 0;
+          val = Math.max(-1, Math.min(1, val));
+          this.value = val.toFixed(2);
+          reps[nick] = val;
+          // Sync the slider in the same row
+          var row = this.closest("tr");
+          var slider = row.querySelector(".rp-rep-slider");
+          if (slider) slider.value = val;
+          // Update badge
+          var badge = row.querySelector(".rp-rep-badge");
+          if (badge) {
+            badge.className = "rp-rep-badge " + RepEngine.repClass(val);
+            badge.textContent = RepEngine.repLabel(val);
+          }
+        });
+      });
+    }
+
+    /* ── Presets ── */
+    function applyPreset(preset) {
+      var factions = RepEngine.getFactions();
+      factions.forEach(function (f) {
+        if (!f.changeable) return;
+        var val = 0;
+        switch (preset) {
+          case "default":
+            val = f.defaultRep;
+            break;
+          case "neutral":
+            val = 0;
+            break;
+          case "lawful":
+            val = f.legality === "lawful" ? 0.6 : -0.6;
+            break;
+          case "pirate":
+            val = f.legality === "lawful" ? -0.6 : 0.3;
+            break;
+          case "zero":
+            val = 0;
+            break;
+        }
+        targetReps[f.nick] = val;
+      });
+      renderTargetTable(factions, searchTarget.value.toLowerCase().trim());
+    }
+
+    document.getElementById("rp-presets").addEventListener("click", function (e) {
+      var btn = e.target.closest(".rp-preset-btn");
+      if (!btn) return;
+      // Mark active
+      this.querySelectorAll(".rp-preset-btn").forEach(function (b) { b.classList.remove("active"); });
+      btn.classList.add("active");
+      applyPreset(btn.dataset.preset);
+    });
+
+    /* ── Load default start reps ── */
+    startDefault.addEventListener("click", function () {
+      var factions = RepEngine.getFactions();
+      factions.forEach(function (f) {
+        startReps[f.nick] = f.defaultRep;
+      });
+      renderStartTable(factions, searchStart.value.toLowerCase().trim());
+    });
+
+    /* ── Search filters ── */
+    searchStart.addEventListener("input", function () {
+      renderStartTable(RepEngine.getFactions(), this.value.toLowerCase().trim());
+    });
+    searchTarget.addEventListener("input", function () {
+      renderTargetTable(RepEngine.getFactions(), this.value.toLowerCase().trim());
+    });
+
+    /* ── Run Planner ── */
+    runBtn.addEventListener("click", function () {
+      runBtn.disabled = true;
+      loadingEl.className = "rp-loading visible";
+      resultsEl.className = "rp-results";
+
+      setTimeout(function () {
+        try {
+          var tol = parseFloat(tolInput.value) || 0.05;
+          var maxSteps = parseInt(maxStepsInput.value, 10) || 3000;
+
+          var result = RepEngine.plan(startReps, targetReps, {
+            tolerance: tol,
+            maxSteps: maxSteps,
+          });
+
+          renderResults(result);
+        } catch (e) {
+          console.error(e);
+          warningsEl.innerHTML = '<div class="rp-warning">Fehler bei der Berechnung: ' + esc(e.message) + '</div>';
+        } finally {
+          loadingEl.className = "rp-loading";
+          runBtn.disabled = false;
+        }
+      }, 30);
+    });
+
+    /* ── Render Results ── */
+    function renderResults(result) {
+      // Summary stats
+      summaryStats.innerHTML =
+        '<span>Abschüsse gesamt: <strong>' + (result.totalKills || 0) + '</strong></span>' +
+        '<span>Schritte: <strong>' + result.steps.length + '</strong></span>' +
+        '<span>Konvergiert: <strong>' + (result.converged ? "Ja ✓" : "Nein ✗") + '</strong></span>';
+
+      // Warnings
+      var warns = "";
+      if (!result.converged) {
+        warns += '<div class="rp-warning">Die Ziel-Reputation konnte nicht vollständig erreicht werden. ' +
+          'Manche Fraktionen sind durch Empathie-Verkettungen miteinander gekoppelt — ' +
+          'es ist nicht möglich, alle Werte gleichzeitig beliebig zu setzen. Versuche eine höhere Toleranz.</div>';
+      }
+
+      // Factions that diverged significantly
+      var factions = RepEngine.getFactions();
+      factions.forEach(function (f) {
+        if (!f.changeable) return;
+        var target = targetReps[f.nick] || 0;
+        var final_ = result.finalReps[f.nick] || 0;
+        var diff = Math.abs(final_ - target);
+        if (diff > 0.15) {
+          warns += '<div class="rp-warning">⚠ ' + esc(f.name) + ': Ziel ' + target.toFixed(2) +
+            ', erreicht ' + final_.toFixed(2) + ' (Abweichung ' + diff.toFixed(2) + ')</div>';
+        }
+      });
+      warningsEl.innerHTML = warns;
+
+      // Steps table
+      var stepsHtml = "";
+      if (result.steps.length === 0) {
+        stepsHtml = '<tr><td colspan="3" style="text-align:center;color:var(--muted);">Keine Abschüsse nötig — Ziel bereits erreicht!</td></tr>';
+      } else {
+        result.steps.forEach(function (s, i) {
+          stepsHtml += '<tr>' +
+            '<td class="td-num">' + (i + 1) + '</td>' +
+            '<td>' + esc(s.name) + '</td>' +
+            '<td class="td-num">' + s.count + '×</td>' +
+            '</tr>';
+        });
+      }
+      stepsBody.innerHTML = stepsHtml;
+
+      // Comparison bars
+      renderComparisonBars(result);
+
+      resultsEl.className = "rp-results visible";
+      resultsEl.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    function renderComparisonBars(result) {
+      var factions = RepEngine.getFactions();
+      var html = "";
+      factions.forEach(function (f) {
+        if (!f.changeable) return;
+        var startVal = startReps[f.nick] || 0;
+        var finalVal = result.finalReps[f.nick] || 0;
+        var targetVal = targetReps[f.nick] || 0;
+
+        // Convert -1..1 → 0..100% for bar positioning
+        var startPct = ((startVal + 1) / 2 * 100).toFixed(1);
+        var finalPct = ((finalVal + 1) / 2 * 100).toFixed(1);
+        var targetPct = ((targetVal + 1) / 2 * 100).toFixed(1);
+
+        var barColor = repToColor(finalVal);
+        var startColor = repToColor(startVal);
+
+        html += '<div class="rp-comp-bar">' +
+          '<span class="rp-comp-name" title="' + esc(f.nick) + '">' + esc(f.name) + '</span>' +
+          '<div class="rp-comp-track">' +
+            // start fill (faded)
+            '<div class="rp-comp-fill start-fill" style="left:50%;width:0;background:' + startColor + ';' +
+              getBarStyle(startVal) + '"></div>' +
+            // final fill
+            '<div class="rp-comp-fill final-fill" style="left:50%;width:0;background:' + barColor + ';' +
+              getBarStyle(finalVal) + '"></div>' +
+            // target marker
+            '<div style="position:absolute;top:-2px;bottom:-2px;width:2px;background:#fff;opacity:.6;left:' + targetPct + '%;pointer-events:none;"></div>' +
+          '</div>' +
+          '<span class="rp-comp-val ' + RepEngine.repClass(finalVal) + '">' + finalVal.toFixed(2) + '</span>' +
+        '</div>';
+      });
+      compBarsEl.innerHTML = html;
+    }
+
+    function getBarStyle(val) {
+      // Position bar from center (50%) extending left or right
+      if (val >= 0) {
+        return "left:50%;width:" + (val * 50).toFixed(1) + "%;";
+      } else {
+        var w = Math.abs(val) * 50;
+        return "left:" + (50 - w).toFixed(1) + "%;width:" + w.toFixed(1) + "%;";
+      }
+    }
+
+    function repToColor(val) {
+      if (val >= 0.6)  return "#34d399";
+      if (val >= 0.3)  return "#6ee7b7";
+      if (val >= -0.1) return "#84b1ff";
+      if (val >= -0.5) return "#f59e0b";
+      return "#ef4444";
+    }
+
+    function legalityBadge(legality) {
+      if (legality === "lawful") {
+        return '<span class="rp-rep-badge rep-friendly">Lawful</span>';
+      }
+      return '<span class="rp-rep-badge rep-unfriendly">Unlawful</span>';
+    }
+
+    function esc(s) {
+      var d = document.createElement("div");
+      d.textContent = s;
+      return d.innerHTML;
+    }
+
+    /* ── Hash change (mod switch) ── */
+    window.addEventListener("hashchange", init);
+    init();
+  })();
+  </script>
+</body>
+</html>
