@@ -309,6 +309,8 @@
 
     let lang = (function() { try { return sessionStorage.getItem('flathack-lang') || 'de'; } catch(e) { return 'de'; } })();
     function t(key) { return (I18N[lang] || I18N.de)[key] || key; }
+    function tShip(s) { return (lang === 'en' && s.nameEn) ? s.nameEn : s.name; }
+    function tBase(nick, fallback, data) { if (lang === 'en' && data && data.bases && data.bases[nick] && data.bases[nick].nameEn) return data.bases[nick].nameEn; return fallback; }
     function tType(type) {
       if (lang === 'de' && TYPE_DE[type]) return TYPE_DE[type];
       return type || '—';
@@ -367,10 +369,10 @@
       // Hero
       html += '<div class="sd-hero">';
       html += '<div class="sd-render">';
-      html += '<img src="' + renderSrc + '" alt="' + esc(ship.name) + '" onerror="this.parentElement.innerHTML=\'<div class=sd-render-placeholder>No image</div>\'">';
+      html += '<img src="' + renderSrc + '" alt="' + esc(tShip(ship)) + '" onerror="this.parentElement.innerHTML=\'<div class=sd-render-placeholder>No image</div>\'">';
       html += '</div>';
       html += '<div class="sd-title-area">';
-      html += '<h1>' + esc(ship.name) + '</h1>';
+      html += '<h1>' + esc(tShip(ship)) + '</h1>';
       html += '<div><span class="sd-type-badge ' + typeClass(ship.type) + '">' + tType(ship.type) + '</span></div>';
       if (ship.price) {
         html += '<div class="sd-price">' + fmtPrice(ship.price) + '</div>';
@@ -414,7 +416,7 @@
         html += '<tbody>';
         ship.dealers.forEach(d => {
           const sysName = systems[d.sys] || d.sys || '—';
-          html += '<tr><td>' + esc(d.name) + '</td><td>' + esc(sysName) + '</td></tr>';
+          html += '<tr><td>' + esc(tBase(d.base, d.name, data)) + '</td><td>' + esc(sysName) + '</td></tr>';
         });
         html += '</tbody></table></div>';
       } else {
@@ -422,7 +424,7 @@
       }
 
       document.getElementById('main-content').innerHTML = html;
-      document.title = ship.name + ' | Flathack';
+      document.title = tShip(ship) + ' | Flathack';
 
       // Wire lang toggle (per-page)
       const toggle = document.getElementById('lang-toggle');

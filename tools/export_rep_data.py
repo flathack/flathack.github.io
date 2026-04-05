@@ -28,6 +28,9 @@ from export_trade_data import (
 SCRIPT_DIR = Path(__file__).resolve().parent
 OUTPUT_DIR = SCRIPT_DIR.parent / "data" / "reputation"
 
+# Optional English installation for bilingual name export (vanilla only).
+EN_INSTALL_PATH = Path(r"C:\Users\steve\Github\FL-Installationen\_FL Fresh Install-englisch")
+
 # ── Extraction ───────────────────────────────────────────────────
 
 
@@ -427,6 +430,54 @@ def export_mod(install: dict) -> None:
 
     if res:
         res.close()
+
+    # ── English names (for vanilla only) ──
+    if mod_id == "vanilla" and EN_INSTALL_PATH.exists():
+        print("\n  Loading English names...")
+        en_fl_ini = EN_INSTALL_PATH / "EXE" / "Freelancer.ini"
+        if en_fl_ini.exists():
+            en_sections = parse_ini(en_fl_ini)
+            en_dll_paths = get_dll_paths(en_fl_ini, en_sections)
+            en_res = DLLResolver(en_dll_paths) if en_dll_paths else None
+        else:
+            en_res = None
+
+        if en_res:
+            en_iw = EN_INSTALL_PATH / "DATA" / "InitialWorld.ini"
+            if not en_iw.exists():
+                en_iw = EN_INSTALL_PATH / "DATA" / "initialworld.ini"
+            en_names = extract_faction_names(en_iw, en_res) if en_iw.exists() else {}
+
+            en_uni = EN_INSTALL_PATH / "DATA" / "UNIVERSE" / "universe.ini"
+            if not en_uni.exists():
+                en_uni = EN_INSTALL_PATH / "DATA" / "Universe" / "universe.ini"
+            en_base_names, en_base_system, en_system_names = extract_base_names(en_uni, en_res)
+
+            en_mbases = EN_INSTALL_PATH / "DATA" / "MISSIONS" / "mbases.ini"
+            en_bribes = extract_bribes(en_mbases, en_base_names)
+            en_missions = extract_mission_bases(en_mbases, en_base_names, en_base_system, en_system_names)
+
+            for faction_entry in output["factions"]:
+                nick = faction_entry["nick"]
+                en_info = en_names.get(nick, {})
+                en_name = en_info.get("name", "")
+                en_short = en_info.get("short_name", "")
+                if en_name and en_name != faction_entry.get("name"):
+                    faction_entry["nameEn"] = en_name
+                if en_short and en_short != faction_entry.get("shortName", ""):
+                    faction_entry["shortNameEn"] = en_short
+                if nick in en_bribes:
+                    faction_entry["bribesEn"] = en_bribes[nick]
+                if nick in en_missions:
+                    faction_entry["missionBasesEn"] = en_missions[nick]
+
+            en_count = sum(1 for f in output["factions"] if "nameEn" in f)
+            print(f"  → {en_count} factions with English names added")
+            en_res.close()
+
+            # Re-write updated JSON
+            out_path.write_text(json.dumps(output, indent=2, ensure_ascii=False), encoding="utf-8")
+            print(f"  → Re-saved with English names: {out_path}")
 
 
 def main() -> None:

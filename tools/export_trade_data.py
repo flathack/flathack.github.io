@@ -39,6 +39,9 @@ INSTALLATIONS = [
 SCRIPT_DIR = Path(__file__).resolve().parent
 OUTPUT_DIR = SCRIPT_DIR.parent / "data" / "trade-routes"
 
+# Optional English installation for bilingual name export (vanilla only).
+EN_INSTALL_PATH = Path(r"C:\Users\steve\Github\FL-Installationen\_FL Fresh Install-englisch")
+
 # ── Freelancer nickname hash (CreateID) ──────────────────────────
 
 _HASH_TABLE: list[int] | None = None
@@ -918,6 +921,53 @@ def export_installation(inst: dict):
         )
     finally:
         res.close()
+
+    # ── English names (for vanilla only) ──
+    if inst["id"] == "vanilla" and EN_INSTALL_PATH.exists():
+        print("  Loading English names...")
+        en_fl_ini = EN_INSTALL_PATH / "EXE" / "Freelancer.ini"
+        if not en_fl_ini.exists():
+            en_fl_ini = EN_INSTALL_PATH / "EXE" / "freelancer.ini"
+        if en_fl_ini.exists():
+            en_sections = parse_ini(en_fl_ini)
+            en_res = DLLResolver(get_dll_paths(en_fl_ini, en_sections))
+
+            # English base names
+            en_universe_files = find_data_files(en_fl_ini, en_sections, "universe")
+            en_universe = en_universe_files[0] if en_universe_files else None
+            en_bases = extract_bases(en_universe, en_res) if en_universe else {}
+
+            # English ship names
+            en_ships = extract_ships(en_fl_ini, en_res, en_bases) if en_universe else []
+            en_ship_map = {}
+            for s in en_ships:
+                en_ship_map[s["nick"]] = s["name"]
+
+            # Enrich output JSON
+            out_file = OUTPUT_DIR / f"{inst['id']}.json"
+            with open(out_file, "r", encoding="utf-8") as f:
+                data = json.load(f)
+
+            en_base_count = 0
+            for nick, base_info in data["bases"].items():
+                en_info = en_bases.get(nick, {})
+                en_name = en_info.get("name", "")
+                if en_name and en_name != base_info.get("name"):
+                    base_info["nameEn"] = en_name
+                    en_base_count += 1
+
+            en_ship_count = 0
+            for ship in data["ships"]:
+                en_name = en_ship_map.get(ship.get("nick", ""), "")
+                if en_name and en_name != ship.get("name"):
+                    ship["nameEn"] = en_name
+                    en_ship_count += 1
+
+            with open(out_file, "w", encoding="utf-8") as f:
+                json.dump(data, f, ensure_ascii=False, separators=(",", ":"))
+
+            print(f"  -> {en_base_count} bases, {en_ship_count} ships with English names added")
+            en_res.close()
 
 
 def main():

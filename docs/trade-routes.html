@@ -449,6 +449,19 @@
     function t(key) { return (I18N[lang] || I18N.de)[key] || key; }
     function tCommodity(name) { return lang === 'de' ? (COMMODITY_DE[name] || name) : name; }
 
+    /** Resolve a base name for the current language using the engine data. */
+    function tBase(nick, fallback) {
+      if (lang === 'en' && engine && engine.data && engine.data.bases[nick]) {
+        return engine.data.bases[nick].nameEn || engine.data.bases[nick].name;
+      }
+      return fallback || nick;
+    }
+    /** Resolve a ship name for the current language. */
+    function tShip(ship) {
+      if (lang === 'en' && ship.nameEn) return ship.nameEn;
+      return ship.name;
+    }
+
     function applyLang() {
       document.querySelectorAll('[data-i18n]').forEach(el => {
         el.textContent = t(el.dataset.i18n);
@@ -514,7 +527,7 @@
           if (!ship.dealers || ship.dealers.length === 0) continue;
           const opt = document.createElement('option');
           opt.value = ship.cargo;
-          opt.textContent = ship.name + '  [' + ship.cargo + ']';
+          opt.textContent = tShip(ship) + '  [' + ship.cargo + ']';
           shipSelect.appendChild(opt);
         }
         const buyableShips = data.ships.filter(s => s.dealers && s.dealers.length > 0);
@@ -570,9 +583,9 @@
 
     function colsRoute() { return [
       { key: 'srcSys',       label: t('col_srcSys') },
-      { key: 'buyBase',      label: t('col_buyBase') },
+      { key: 'buyBase',      label: t('col_buyBase'), format: (v, r) => tBase(r.buyBaseNick, v) },
       { key: 'dstSys',       label: t('col_dstSys') },
-      { key: 'sellBase',     label: t('col_sellBase') },
+      { key: 'sellBase',     label: t('col_sellBase'), format: (v, r) => tBase(r.sellBaseNick, v) },
       { key: 'commodity',    label: t('col_commodity'), format: v => tCommodity(v) },
       { key: 'buyPrice',     label: t('col_buyPrice'),   cls: 'td-num' },
       { key: 'sellPrice',    label: t('col_sellPrice'),  cls: 'td-num' },
@@ -586,8 +599,8 @@
 
     function colsInner() { return [
       { key: 'srcSys',       label: t('col_system') },
-      { key: 'buyBase',      label: t('col_buyBase') },
-      { key: 'sellBase',     label: t('col_sellBase') },
+      { key: 'buyBase',      label: t('col_buyBase'), format: (v, r) => tBase(r.buyBaseNick, v) },
+      { key: 'sellBase',     label: t('col_sellBase'), format: (v, r) => tBase(r.sellBaseNick, v) },
       { key: 'commodity',    label: t('col_commodity'), format: v => tCommodity(v) },
       { key: 'buyPrice',     label: t('col_buyPrice'),   cls: 'td-num' },
       { key: 'sellPrice',    label: t('col_sellPrice'),  cls: 'td-num' },
@@ -629,7 +642,7 @@
         rows = rows.filter(r => {
           const text = cols.map(c => {
             const v = r[c.key];
-            return c.format ? c.format(v) : (typeof v === 'number' ? fmt(v) : String(v || ''));
+            return c.format ? c.format(v, r) : (typeof v === 'number' ? fmt(v) : String(v || ''));
           }).join(' ').toLowerCase();
           return text.includes(query);
         });
@@ -676,7 +689,7 @@
         html += '<tr' + (currentMode === 'loop' ? ' class="tr-loop-parent" data-idx="' + i + '"' : '') + '>';
         for (const c of cols) {
           const raw = r[c.key];
-          const val = c.format ? c.format(raw) : (typeof raw === 'number' ? fmt(raw) : String(raw || ''));
+          const val = c.format ? c.format(raw, r) : (typeof raw === 'number' ? fmt(raw) : String(raw || ''));
           html += '<td' + (c.cls ? ' class="' + c.cls + '"' : '') + '>' + escHtml(val) + '</td>';
         }
         html += '</tr>';
@@ -690,8 +703,8 @@
               '<span class="tr-leg-label">' + t('leg') + ' ' + (li + 1) + '</span>' +
               '<span class="tr-leg-info">' +
                 '<span class="leg-commodity">' + escHtml(tCommodity(leg.commodity)) + '</span> &mdash; ' +
-                '<span class="leg-route">' + escHtml(leg.srcSys) + ' (' + escHtml(leg.buyBase) + ') \u2192 ' +
-                escHtml(leg.dstSys) + ' (' + escHtml(leg.sellBase) + ')</span>' +
+                '<span class="leg-route">' + escHtml(leg.srcSys) + ' (' + escHtml(tBase(leg.buyBaseNick, leg.buyBase)) + ') \u2192 ' +
+                escHtml(leg.dstSys) + ' (' + escHtml(tBase(leg.sellBaseNick, leg.sellBase)) + ')</span>' +
                 ' <span class="leg-jumps">' + leg.jumps + ' ' + (leg.jumps !== 1 ? t('jump_p') : t('jump_s')) + '</span>' +
               '</span>' +
               '<span class="tr-leg-profit">+' + fmt(leg.totalProfit) + '</span>' +

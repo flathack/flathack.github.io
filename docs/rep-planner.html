@@ -1034,6 +1034,27 @@
     var lang = (function() { try { return sessionStorage.getItem('flathack-lang') || 'de'; } catch(e) { return 'de'; } })();
     function t(key) { return (I18N[lang] || I18N.de)[key] || key; }
 
+    /** Return display name for a faction object, respecting current language. */
+    function fName(f) {
+      if (lang === 'en' && f.nameEn) return f.nameEn;
+      return f.name;
+    }
+    /** Return short name for a faction object, respecting current language. */
+    function fShort(f) {
+      if (lang === 'en' && f.shortNameEn) return f.shortNameEn;
+      return f.shortName || '';
+    }
+    /** Return bribes array for a faction object, respecting current language. */
+    function fBribes(f) {
+      if (lang === 'en' && f.bribesEn) return f.bribesEn;
+      return f.bribes || [];
+    }
+    /** Return mission bases array for a faction object, respecting current language. */
+    function fMissionBases(f) {
+      if (lang === 'en' && f.missionBasesEn) return f.missionBasesEn;
+      return f.missionBases || [];
+    }
+
     function applyLang() {
       document.querySelectorAll('[data-i18n]').forEach(function(el) {
         el.textContent = t(el.dataset.i18n);
@@ -1135,13 +1156,13 @@
     function renderStartTable(factions, filter) {
       var html = "";
       factions.forEach(function (f) {
-        if (filter && f.name.toLowerCase().indexOf(filter) === -1 && f.nick.toLowerCase().indexOf(filter) === -1) return;
+        if (filter && fName(f).toLowerCase().indexOf(filter) === -1 && f.nick.toLowerCase().indexOf(filter) === -1) return;
         var val = startReps[f.nick] !== undefined ? startReps[f.nick] : 0;
         var cls = RepEngine.repClass(val);
         var label = RepEngine.repLabel(val);
         var info = !f.changeable ? ' <span class="rp-no-empathy" title="' + esc(t('no_empathy')) + '">' + t('isolated') + '</span>' : '';
         html += '<tr>' +
-          '<td><span class="rp-faction-link" data-faction="' + f.nick + '">' + esc(f.name) + '</span>' + info + '</td>' +
+          '<td><span class="rp-faction-link" data-faction="' + f.nick + '">' + esc(fName(f)) + '</span>' + info + '</td>' +
           '<td>' + legalityBadge(f.legality) + '</td>' +
           '<td><input type="range" class="rp-rep-slider" min="-0.91" max="0.91" step="0.01" value="' + val + '"' +
             ' data-nick="' + f.nick + '" data-table="start"></td>' +
@@ -1159,13 +1180,13 @@
     function renderTargetTable(factions, filter) {
       var html = "";
       factions.forEach(function (f) {
-        if (filter && f.name.toLowerCase().indexOf(filter) === -1 && f.nick.toLowerCase().indexOf(filter) === -1) return;
+        if (filter && fName(f).toLowerCase().indexOf(filter) === -1 && f.nick.toLowerCase().indexOf(filter) === -1) return;
         var val = targetReps[f.nick] !== undefined ? targetReps[f.nick] : 0;
         var cls = RepEngine.repClass(val);
         var label = RepEngine.repLabel(val);
         var info = !f.changeable ? ' <span class="rp-no-empathy" title="' + esc(t('no_empathy')) + '">' + t('isolated') + '</span>' : '';
         html += '<tr>' +
-          '<td><span class="rp-faction-link" data-faction="' + f.nick + '">' + esc(f.name) + '</span>' + info + '</td>' +
+          '<td><span class="rp-faction-link" data-faction="' + f.nick + '">' + esc(fName(f)) + '</span>' + info + '</td>' +
           '<td>' + legalityBadge(f.legality) + '</td>' +
           '<td><input type="range" class="rp-rep-slider" min="-0.91" max="0.91" step="0.01" value="' + val + '"' +
             ' data-nick="' + f.nick + '" data-table="target"></td>' +
@@ -1364,7 +1385,7 @@
         var factions = RepEngine.getFactions();
         factions.forEach(function (f) {
           if (result.unreachable[f.nick]) {
-            unreachableList.push(f.name);
+            unreachableList.push(fName(f));
           }
         });
       }
@@ -1403,7 +1424,7 @@
         var final_ = result.finalReps[f.nick] || 0;
         var diff = Math.abs(final_ - target);
         if (diff > 0.15) {
-          warns += '<div class="rp-warning">⚠ ' + esc(f.name) + ': ' + t('warn_deviation') + target.toFixed(2) +
+          warns += '<div class="rp-warning">⚠ ' + esc(fName(f)) + ': ' + t('warn_deviation') + target.toFixed(2) +
             t('warn_deviation_reached') + final_.toFixed(2) + t('warn_deviation_diff') + diff.toFixed(2) + ')</div>';
         }
       });
@@ -1418,15 +1439,17 @@
           var locationInfo = "";
           if (s.type === "bribe") {
             var f = RepEngine.getFaction(s.nick);
-            if (f && f.bribes) locationInfo = ' <small style="color:var(--muted);">(' + f.bribes.slice(0, 3).join(", ") + (f.bribes.length > 3 ? ", …" : "") + ')</small>';
+            if (f && f.bribes) locationInfo = ' <small style="color:var(--muted);">(' + fBribes(f).slice(0, 3).join(", ") + (fBribes(f).length > 3 ? ", …" : "") + ')</small>';
           } else if (s.type === "mission") {
             var mf = RepEngine.getFaction(s.nick);
-            if (mf && mf.missionBases) locationInfo = ' <small style="color:var(--muted);">(' + mf.missionBases.slice(0, 3).join(", ") + (mf.missionBases.length > 3 ? ", …" : "") + ')</small>';
+            if (mf && mf.missionBases) locationInfo = ' <small style="color:var(--muted);">(' + fMissionBases(mf).slice(0, 3).join(", ") + (fMissionBases(mf).length > 3 ? ", …" : "") + ')</small>';
           }
+          var sf = RepEngine.getFaction(s.nick);
+          var sName = sf ? fName(sf) : s.name;
           stepsHtml += '<tr>' +
             '<td class="td-num">' + (i + 1) + '</td>' +
             '<td>' + actionLabel(s.type || "kill") + '</td>' +
-            '<td>' + esc(s.name) + locationInfo + '</td>' +
+            '<td>' + esc(sName) + locationInfo + '</td>' +
             '<td class="td-num">' + s.count + '×</td>' +
             '</tr>';
         });
@@ -1458,7 +1481,7 @@
         var barColor = repToColor(finalVal);
         var startColor = repToColor(startVal);
 
-        var nameLabel = esc(f.name) + (isUnreachable ? ' <small style="color:#ef4444;">⛔</small>' : '');
+        var nameLabel = esc(fName(f)) + (isUnreachable ? ' <small style="color:#ef4444;">⛔</small>' : '');
 
         html += '<div class="rp-comp-bar"' + (isUnreachable ? ' style="opacity:.5;"' : '') + '>' +
           '<span class="rp-comp-name" title="' + esc(f.nick) + (isUnreachable ? t('not_reachable') : '') + '">' + nameLabel + '</span>' +
@@ -1529,7 +1552,7 @@
       var f = RepEngine.getFaction(nick);
       if (!f) return;
 
-      var html = '<h2>' + esc(f.name) + ' ' + legalityBadge(f.legality) + '</h2>';
+      var html = '<h2>' + esc(fName(f)) + ' ' + legalityBadge(f.legality) + '</h2>';
 
       // Empathy: friends and enemies
       if (f.empathy) {
@@ -1540,8 +1563,8 @@
           var ef = RepEngine.getFaction(k);
           if (!ef) return;
           var val = f.empathy[k];
-          if (val > 0) friends.push({ name: ef.name, val: val });
-          else if (val < 0) enemies.push({ name: ef.name, val: val });
+          if (val > 0) friends.push({ name: fName(ef), val: val });
+          else if (val < 0) enemies.push({ name: fName(ef), val: val });
         });
         friends.sort(function (a, b) { return b.val - a.val; });
         enemies.sort(function (a, b) { return a.val - b.val; });
@@ -1564,18 +1587,20 @@
       }
 
       // Mission bases
-      if (f.missionBases && f.missionBases.length > 0) {
+      var _mBases = fMissionBases(f);
+      if (_mBases.length > 0) {
         html += '<div class="rp-modal-section"><h3>' + t('modal_missions') + '</h3><ul class="rp-modal-list">';
-        f.missionBases.forEach(function (b) {
+        _mBases.forEach(function (b) {
           html += '<li>' + esc(b) + '</li>';
         });
         html += '</ul></div>';
       }
 
       // Bribe locations
-      if (f.bribes && f.bribes.length > 0) {
+      var _bBases = fBribes(f);
+      if (_bBases.length > 0) {
         html += '<div class="rp-modal-section"><h3>' + t('modal_bribes') + '</h3><ul class="rp-modal-list">';
-        f.bribes.forEach(function (b) {
+        _bBases.forEach(function (b) {
           html += '<li>' + esc(b) + '</li>';
         });
         html += '</ul></div>';
@@ -1626,12 +1651,12 @@
       var lines = [t('export_auto_header'), ""];
       lastAutoResult.steps.forEach(function (s, i) {
         var typeLabel = s.type === "kill" ? t('export_type_kill') : (s.type === "mission" ? t('export_type_mission') : t('export_type_bribe'));
-        var line = (i + 1) + ". " + typeLabel + ": " + s.name + " " + s.count + "×";
         var f = RepEngine.getFaction(s.nick);
+        var line = (i + 1) + ". " + typeLabel + ": " + (f ? fName(f) : s.name) + " " + s.count + "×";
         if (s.type === "mission" && f && f.missionBases && f.missionBases.length > 0) {
-          line += t('export_at') + f.missionBases.slice(0, 3).join(", ") + ")";
+          line += t('export_at') + fMissionBases(f).slice(0, 3).join(", ") + ")";
         } else if (s.type === "bribe" && f && f.bribes && f.bribes.length > 0) {
-          line += t('export_at') + f.bribes.slice(0, 3).join(", ") + ")";
+          line += t('export_at') + fBribes(f).slice(0, 3).join(", ") + ")";
         }
         lines.push(line);
       });
@@ -1653,7 +1678,7 @@
           last.count++;
         } else {
           var f = RepEngine.getFaction(h.nick);
-          merged.push({ type: h.type || "kill", nick: h.nick, name: f ? f.name : h.nick, count: 1 });
+          merged.push({ type: h.type || "kill", nick: h.nick, name: f ? fName(f) : h.nick, count: 1 });
         }
       });
 
@@ -1715,7 +1740,7 @@
       var useMissions = chkMissions.checked;
       var useBribes = chkBribes.checked;
       factions.forEach(function (f) {
-        if (filter && f.name.toLowerCase().indexOf(filter) === -1 && f.nick.toLowerCase().indexOf(filter) === -1) return;
+        if (filter && fName(f).toLowerCase().indexOf(filter) === -1 && f.nick.toLowerCase().indexOf(filter) === -1) return;
         var val = simReps[f.nick] !== undefined ? simReps[f.nick] : 0;
         var cls = RepEngine.repClass(val);
         var label = RepEngine.repLabel(val);
@@ -1733,8 +1758,9 @@
         }
         if (useMissions && f.missionSuccess) {
           var canMission = RepEngine.canDoMission(simReps, f.nick);
+          var _mb = fMissionBases(f);
           var missionTitle = canMission
-            ? (f.missionBases ? t('mission_at') + f.missionBases.slice(0, 5).join(", ") + (f.missionBases.length > 5 ? ", …" : "") : t('mission_accept'))
+            ? (_mb.length > 0 ? t('mission_at') + _mb.slice(0, 5).join(", ") + (_mb.length > 5 ? ", …" : "") : t('mission_accept'))
             : t('mission_threshold') + RepEngine.MISSION_THRESHOLD.toFixed(1) + ")";
           btns += '<button class="rp-mission-btn" data-action="mission" data-nick="' + f.nick + '"' +
             (canMission ? '' : ' disabled') + ' title="' + esc(missionTitle) + '">' + t('btn_mission') + '</button>';
@@ -1742,8 +1768,9 @@
         if (useBribes && f.bribes && f.bribes.length > 0) {
           var canBribe = RepEngine.canDoBribe(simReps, f.nick);
           var bribeCost = Math.round((RepEngine.BRIBE_TARGET_REP - (simReps[f.nick] || 0)) * 100) * 1000;
+          var _bb = fBribes(f);
           var bribeTitle = canBribe
-            ? t('bribe_at') + f.bribes.slice(0, 5).join(", ") + (f.bribes.length > 5 ? ", …" : "") + t('bribe_cost_prefix') + bribeCost.toLocaleString() + t('bribe_cost_suffix')
+            ? t('bribe_at') + _bb.slice(0, 5).join(", ") + (_bb.length > 5 ? ", …" : "") + t('bribe_cost_prefix') + bribeCost.toLocaleString() + t('bribe_cost_suffix')
             : t('bribe_threshold') + RepEngine.BRIBE_THRESHOLD.toFixed(1) + t('bribe_threshold_post');
           btns += '<button class="rp-bribe-btn" data-action="bribe" data-nick="' + f.nick + '"' +
             (canBribe ? '' : ' disabled') + ' title="' + esc(bribeTitle) + '">' + t('btn_bribe_lbl') + '</button>';
@@ -1751,7 +1778,7 @@
         btns += '</div>';
 
         html += '<tr class="' + flashCls.trim() + '">' +
-          '<td><span class="rp-faction-link" data-faction="' + f.nick + '">' + esc(f.name) + '</span>' + info + '</td>' +
+          '<td><span class="rp-faction-link" data-faction="' + f.nick + '">' + esc(fName(f)) + '</span>' + info + '</td>' +
           '<td>' + legalityBadge(f.legality) + '</td>' +
           '<td><div class="rp-comp-track" style="height:10px;width:120px;display:inline-block;vertical-align:middle;">' +
             '<div class="rp-comp-fill final-fill" style="border-radius:999px;background:' + repToColor(val) + ';' + getBarStyle(val) + '"></div>' +
@@ -1831,7 +1858,7 @@
           last.count++;
         } else {
           var f = RepEngine.getFaction(h.nick);
-          merged.push({ type: h.type || "kill", nick: h.nick, name: f ? f.name : h.nick, count: 1 });
+          merged.push({ type: h.type || "kill", nick: h.nick, name: f ? fName(f) : h.nick, count: 1 });
         }
       });
 

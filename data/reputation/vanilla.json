@@ -60,6 +60,42 @@
         "New London → Southampton-Werft",
         "Omega-3 → Station Douglas",
         "Tau-23 → Baustelle Tau-31-Tor"
+      ],
+      "bribesEn": [
+        "BPA Newgate",
+        "Battleship Essex",
+        "Battleship Hood",
+        "Battleship Suffolk",
+        "Battleship York",
+        "Birmingham Station",
+        "Canterbury Station",
+        "Douglas Station",
+        "Durham Border Station",
+        "Freeport 1",
+        "Glasgow Outpost",
+        "Graves Station",
+        "Kensington Shipping Platform",
+        "Kingston Border Station",
+        "LD-14",
+        "Liverpool Border Station",
+        "Planet Leeds",
+        "Planet New London",
+        "Sheffield Station",
+        "Southampton Shipyard",
+        "Stokes Mining Station",
+        "Tau-31 Gate Construction Site",
+        "Thames Outpost",
+        "Waterloo Station"
+      ],
+      "missionBasesEn": [
+        "Dublin → Graves Station",
+        "Leeds → LD-14",
+        "Leeds → Stokes Mining Station",
+        "Manchester → Birmingham Station",
+        "New London → Southampton Shipyard",
+        "New London → Thames Outpost",
+        "Omega-3 → Douglas Station",
+        "Tau-23 → Tau-31 Gate Construction Site"
       ]
     },
     {
@@ -101,6 +137,16 @@
         "Leeds → Schlachtschiff York",
         "New London → Schlachtschiff Suffolk",
         "New London → Southampton-Werft"
+      ],
+      "nameEn": "Bretonia Armed Forces",
+      "shortNameEn": "Armed Forces",
+      "missionBasesEn": [
+        "Cambridge → Battleship Norfolk",
+        "Dublin → Battleship Essex",
+        "Leeds → Battleship York",
+        "Leeds → LD-14",
+        "New London → Battleship Suffolk",
+        "New London → Southampton Shipyard"
       ]
     },
     {
@@ -173,6 +219,47 @@
         "New London → Planet New London",
         "New London → Station Canterbury",
         "New London → Versandplattform Kensington"
+      ],
+      "nameEn": "Bretonia Police",
+      "shortNameEn": "Police",
+      "bribesEn": [
+        "Aberdeen Border Station",
+        "BPA Newgate",
+        "Battleship Norfolk",
+        "Battleship Suffolk",
+        "Battleship York",
+        "Birmingham Station",
+        "Cambridge Research Station",
+        "Canterbury Station",
+        "Cardiff Mining Facility",
+        "Durham Border Station",
+        "Glasgow Outpost",
+        "Kensington Shipping Platform",
+        "Kingston Border Station",
+        "LD-14",
+        "Liverpool Border Station",
+        "Luxury Liner Shetland",
+        "Perth Station",
+        "Planet Cambridge",
+        "Planet Leeds",
+        "Planet New London",
+        "Sheffield Station",
+        "Southampton Shipyard",
+        "Stokes Mining Station",
+        "Thames Outpost"
+      ],
+      "missionBasesEn": [
+        "Cambridge → Planet Cambridge",
+        "Edinburgh → Aberdeen Border Station",
+        "Leeds → Durham Border Station",
+        "Leeds → Planet Leeds",
+        "Manchester → BPA Newgate",
+        "Manchester → Kingston Border Station",
+        "Manchester → Liverpool Border Station",
+        "Manchester → Sheffield Station",
+        "New London → Canterbury Station",
+        "New London → Kensington Shipping Platform",
+        "New London → Planet New London"
       ]
     },
     {
@@ -257,6 +344,61 @@
       "missionBases": [
         "Neu-Berlin → Station Dortmund",
         "Sigma-13 → Station Helgoland"
+      ],
+      "nameEn": "ALG Waste Disposal",
+      "bribesEn": [
+        "Alster Shipyard",
+        "Altona Station",
+        "Baltimore Shipyard",
+        "Battleship Mississippi",
+        "Battleship Missouri",
+        "Battleship Rio Grande",
+        "Battleship Westfalen",
+        "Battleship Yukon",
+        "Bonn Station",
+        "Brandenburg Border Station",
+        "California Minor",
+        "Detroit Munitions",
+        "Dortmund Station",
+        "Essen Station",
+        "Fort Bush",
+        "Freeport 2",
+        "Freiburg Station",
+        "Fulda Border Station",
+        "Gas Miner Naha",
+        "Helgoland Station",
+        "Kansai Research Station",
+        "Konstanz Border Station",
+        "LPI Huntsville",
+        "LPI Sugarland",
+        "Lübeck Border Station",
+        "Mainz Storage Facility",
+        "Mannheim Station",
+        "Newark Station",
+        "Norfolk Shipyard",
+        "Oder Shipyard",
+        "Osaka Storage Facility",
+        "Planet Baden Baden",
+        "Planet Hamburg",
+        "Planet Honshu",
+        "Planet Houston",
+        "Planet Los Angeles",
+        "Planet Manhattan",
+        "Planet New Berlin",
+        "Planet Pittsburgh",
+        "Planet Stuttgart",
+        "Pueblo Station",
+        "Rochester Base",
+        "San Diego Border Station",
+        "The Ring",
+        "Trenton Outpost",
+        "Ulm Border Station",
+        "Vierlande Prison",
+        "Yukawa Shipyard"
+      ],
+      "missionBasesEn": [
+        "New Berlin → Dortmund Station",
+        "Sigma-13 → Helgoland Station"
       ]
     },
     {
@@ -361,6 +503,80 @@
       ],
       "missionBases": [
         "Leeds → Außenposten Glasgow"
+      ],
+      "nameEn": "Border World Exports",
+      "bribesEn": [
+        "Akita Border Station",
+        "BPA Newgate",
+        "Baltimore Shipyard",
+        "Battleship Essex",
+        "Battleship Hood",
+        "Battleship Missouri",
+        "Battleship Norfolk",
+        "Battleship Suffolk",
+        "Battleship York",
+        "Battleship Yukon",
+        "Birmingham Station",
+        "California Minor",
+        "Cambridge Research Station",
+        "Canterbury Station",
+        "Cardiff Mining Facility",
+        "Douglas Station",
+        "Durham Border Station",
+        "Fort Bush",
+        "Freeport 1",
+        "Freeport 4",
+        "Freeport 6",
+        "Freiburg Station",
+        "Freistadt Base",
+        "Glasgow Outpost",
+        "Graves Station",
+        "Holman Outpost",
+        "Kagoshima Depot",
+        "Kansai Research Station",
+        "Kensington Shipping Platform",
+        "Kingston Border Station",
+        "Konstanz Border Station",
+        "LD-14",
+        "Liverpool Border Station",
+        "Nansei Research Complex",
+        "Narita Outpost",
+        "Newark Station",
+        "Norfolk Shipyard",
+        "Osaka Storage Facility",
+        "Planet Baden Baden",
+        "Planet Cambridge",
+        "Planet Curacao",
+        "Planet Denver",
+        "Planet Harris",
+        "Planet Honshu",
+        "Planet Kyushu",
+        "Planet Leeds",
+        "Planet Los Angeles",
+        "Planet Manhattan",
+        "Planet New London",
+        "Planet New Tokyo",
+        "Planet Pittsburgh",
+        "Planet Stuttgart",
+        "Pueblo Station",
+        "Rugen Station",
+        "San Diego Border Station",
+        "Sheffield Station",
+        "Shinagawa Station",
+        "Shinkaku Station",
+        "Southampton Shipyard",
+        "Stokes Mining Station",
+        "Thames Outpost",
+        "Tsushima Depot",
+        "Ulm Border Station",
+        "Waterloo Station",
+        "West Point Military Academy",
+        "Willard Research Station",
+        "Yokohama Shipyard",
+        "Yukawa Shipyard"
+      ],
+      "missionBasesEn": [
+        "Leeds → Glasgow Outpost"
       ]
     },
     {
@@ -431,6 +647,40 @@
       ],
       "missionBases": [
         "Cambridge → Forschungsstation Cambridge"
+      ],
+      "bribesEn": [
+        "Atka Research Station",
+        "Baltimore Shipyard",
+        "Battleship Mississippi",
+        "Battleship Missouri",
+        "Battleship Norfolk",
+        "Battleship Rio Grande",
+        "California Minor",
+        "Cambridge Research Station",
+        "Detroit Munitions",
+        "Fort Bush",
+        "LPI Huntsville",
+        "LPI Sugarland",
+        "Newark Station",
+        "Norfolk Shipyard",
+        "Planet Cambridge",
+        "Planet Denver",
+        "Planet Houston",
+        "Planet Kurile",
+        "Planet Los Angeles",
+        "Planet Manhattan",
+        "Planet New London",
+        "Planet Pittsburgh",
+        "Pueblo Station",
+        "San Diego Border Station",
+        "Southampton Shipyard",
+        "Trenton Outpost",
+        "Waterloo Station",
+        "West Point Military Academy",
+        "Willard Research Station"
+      ],
+      "missionBasesEn": [
+        "Cambridge → Cambridge Research Station"
       ]
     },
     {
@@ -482,6 +732,17 @@
         "Neu-Tokio → Station Roppongi",
         "New London → Station Waterloo",
         "New York → Station Newark"
+      ],
+      "bribesEn": [
+        "Newark Station",
+        "Roppongi Station",
+        "Waterloo Station"
+      ],
+      "missionBasesEn": [
+        "New Berlin → Bonn Station",
+        "New London → Waterloo Station",
+        "New Tokyo → Roppongi Station",
+        "New York → Newark Station"
       ]
     },
     {
@@ -537,6 +798,40 @@
         "Omega-11 → Station Solarius",
         "Omega-3 → Station Rügen",
         "Omega-7 → Bergbaustation Erlangen"
+      ],
+      "nameEn": "Daumann Heavy Construction",
+      "bribesEn": [
+        "Bautzen Station",
+        "Brandenburg Border Station",
+        "Briesen Mining Facility",
+        "Douglas Station",
+        "Elbich Mining Facility",
+        "Essen Station",
+        "Freeport 1",
+        "Freiburg Station",
+        "Freistadt Base",
+        "Fulda Border Station",
+        "Konstanz Border Station",
+        "Leipzig Station",
+        "Mainz Storage Facility",
+        "Oder Shipyard",
+        "Pirna Border Station",
+        "Planet Baden Baden",
+        "Planet Holstein",
+        "Planet New Berlin",
+        "Planet Stuttgart",
+        "Rugen Station",
+        "Solarius Station",
+        "The Ring",
+        "Ulm Border Station"
+      ],
+      "missionBasesEn": [
+        "Dresden → Leipzig Station",
+        "Frankfurt → Planet Holstein",
+        "New Berlin → The Ring",
+        "Omega-11 → Solarius Station",
+        "Omega-3 → Rugen Station",
+        "Omega-7 → Briesen Mining Facility"
       ]
     },
     {
@@ -623,6 +918,61 @@
         "Honshu → Yukawa-Werft",
         "Neu-Tokio → Station Shinagawa",
         "Tau-29 → Station Nago"
+      ],
+      "bribesEn": [
+        "Akita Border Station",
+        "Ames Research Station",
+        "Aomori Station",
+        "Baltimore Shipyard",
+        "Battleship Nagumo",
+        "Battleship Osiris",
+        "Battleship Rio Grande",
+        "Canterbury Station",
+        "Deshima Station",
+        "Detroit Munitions",
+        "Durham Border Station",
+        "Fort Bush",
+        "Freeport 6",
+        "Fuchu Prison",
+        "Fulda Border Station",
+        "Gas Miner Naha",
+        "Gas Miner Ogashawa",
+        "Helgoland Station",
+        "Holman Outpost",
+        "Kansai Research Station",
+        "Luxury Liner Hawaii",
+        "Mainz Storage Facility",
+        "Nago Station",
+        "Nansei Research Complex",
+        "Narita Outpost",
+        "Newark Station",
+        "Norfolk Shipyard",
+        "Ohashi Border Station",
+        "Osaka Storage Facility",
+        "Planet Denver",
+        "Planet Honshu",
+        "Planet Kyushu",
+        "Planet Leeds",
+        "Planet Manhattan",
+        "Planet New London",
+        "Planet New Tokyo",
+        "Planet Pittsburgh",
+        "Pueblo Station",
+        "Roppongi Station",
+        "Shinagawa Station",
+        "Shinkaku Station",
+        "Southampton Shipyard",
+        "Stokes Mining Station",
+        "Tsushima Depot",
+        "West Point Military Academy",
+        "Yanagi Depot",
+        "Yokohama Shipyard",
+        "Yukawa Shipyard"
+      ],
+      "missionBasesEn": [
+        "Honshu → Yukawa Shipyard",
+        "New Tokyo → Shinagawa Station",
+        "Tau-29 → Nago Station"
       ]
     },
     {
@@ -694,6 +1044,44 @@
       "missionBases": [
         "Hokkaido → Baustelle Chugoku-Tor",
         "New York → Baltimore-Werft",
+        "New York → Planet Pittsburgh"
+      ],
+      "bribesEn": [
+        "Baltimore Shipyard",
+        "Battleship Matsumoto",
+        "Battleship Mississippi",
+        "Battleship Missouri",
+        "Battleship Suffolk",
+        "Battleship York",
+        "Chugoku Gate Construction Site",
+        "Detroit Munitions",
+        "Fort Bush",
+        "Holman Outpost",
+        "Java Station",
+        "LPI Huntsville",
+        "LPI Sugarland",
+        "Newark Station",
+        "Norfolk Shipyard",
+        "Planet Harris",
+        "Planet Houston",
+        "Planet Leeds",
+        "Planet Manhattan",
+        "Planet New London",
+        "Planet New Tokyo",
+        "Planet Pittsburgh",
+        "Roppongi Station",
+        "Sapporo Station",
+        "Southampton Shipyard",
+        "Stokes Mining Station",
+        "Tau-31 Gate Construction Site",
+        "Trenton Outpost",
+        "Waterloo Station",
+        "West Point Military Academy",
+        "Yokohama Shipyard"
+      ],
+      "missionBasesEn": [
+        "Hokkaido → Chugoku Gate Construction Site",
+        "New York → Baltimore Shipyard",
         "New York → Planet Pittsburgh"
       ]
     },
@@ -778,6 +1166,56 @@
         "Vierlandegefängnis",
         "Yokohama-Werft",
         "Yukawa-Werft"
+      ],
+      "bribesEn": [
+        "Akita Border Station",
+        "Alster Shipyard",
+        "Altona Station",
+        "Ames Research Station",
+        "Baltimore Shipyard",
+        "Battleship Mississippi",
+        "Battleship Missouri",
+        "Battleship Rio Grande",
+        "Battleship Westfalen",
+        "Battleship Yukon",
+        "Bonn Station",
+        "Brandenburg Border Station",
+        "California Minor",
+        "Deshima Station",
+        "Detroit Munitions",
+        "Essen Station",
+        "Fort Bush",
+        "Freeport 2",
+        "Freiburg Station",
+        "Konstanz Border Station",
+        "LPI Huntsville",
+        "LPI Sugarland",
+        "Lübeck Border Station",
+        "Narita Outpost",
+        "Newark Station",
+        "Norfolk Shipyard",
+        "Oder Shipyard",
+        "Pacifica Base",
+        "Planet Baden Baden",
+        "Planet Denver",
+        "Planet Hamburg",
+        "Planet Honshu",
+        "Planet Houston",
+        "Planet Los Angeles",
+        "Planet Manhattan",
+        "Planet New Berlin",
+        "Planet New Tokyo",
+        "Planet Pittsburgh",
+        "Planet Stuttgart",
+        "Pueblo Station",
+        "Roppongi Station",
+        "The Ring",
+        "Trenton Outpost",
+        "Ulm Border Station",
+        "Vierlande Prison",
+        "West Point Military Academy",
+        "Yokohama Shipyard",
+        "Yukawa Shipyard"
       ]
     },
     {
@@ -880,6 +1318,75 @@
       ],
       "missionBases": [
         "New London → Versandplattform Kensington"
+      ],
+      "bribesEn": [
+        "BPA Newgate",
+        "Baltimore Shipyard",
+        "Battleship Missouri",
+        "Battleship Nagumo",
+        "Battleship Norfolk",
+        "Battleship Osiris",
+        "Battleship Rio Grande",
+        "Battleship Suffolk",
+        "Battleship York",
+        "Battleship Yukon",
+        "Birmingham Station",
+        "Bonn Station",
+        "Brandenburg Border Station",
+        "California Minor",
+        "Canterbury Station",
+        "Cardiff Mining Facility",
+        "Detroit Munitions",
+        "Dortmund Station",
+        "Douglas Station",
+        "Durham Border Station",
+        "Essen Station",
+        "Fort Bush",
+        "Freeport 1",
+        "Freeport 4",
+        "Freeport 6",
+        "Freiburg Station",
+        "Freistadt Base",
+        "Glasgow Outpost",
+        "Holman Outpost",
+        "Kagoshima Depot",
+        "Kensington Shipping Platform",
+        "Kingston Border Station",
+        "Konstanz Border Station",
+        "Liverpool Border Station",
+        "Nago Station",
+        "Nansei Research Complex",
+        "Narita Outpost",
+        "Newark Station",
+        "Norfolk Shipyard",
+        "Oder Shipyard",
+        "Planet Baden Baden",
+        "Planet Cambridge",
+        "Planet Curacao",
+        "Planet Denver",
+        "Planet Harris",
+        "Planet Kyushu",
+        "Planet Leeds",
+        "Planet Los Angeles",
+        "Planet Manhattan",
+        "Planet New Berlin",
+        "Planet New London",
+        "Planet New Tokyo",
+        "Planet Stuttgart",
+        "Pueblo Station",
+        "Roppongi Station",
+        "San Diego Border Station",
+        "Sheffield Station",
+        "Southampton Shipyard",
+        "Stokes Mining Station",
+        "Ulm Border Station",
+        "Waterloo Station",
+        "West Point Military Academy",
+        "Willard Research Station",
+        "Yokohama Shipyard"
+      ],
+      "missionBasesEn": [
+        "New London → Kensington Shipping Platform"
       ]
     },
     {
@@ -975,6 +1482,72 @@
         "Edinburgh → Luxusliner Shetland",
         "Sigma-19 → Luxusliner Hawaii",
         "Stuttgart → Planet Baden-Baden"
+      ],
+      "nameEn": "Orbital Spa and Cruise",
+      "shortNameEn": "Spa and Cruise",
+      "bribesEn": [
+        "Aberdeen Border Station",
+        "Akita Border Station",
+        "Alster Shipyard",
+        "Altona Station",
+        "BPA Newgate",
+        "Baltimore Shipyard",
+        "Battleship Missouri",
+        "Battleship Suffolk",
+        "Battleship Westfalen",
+        "Battleship York",
+        "Birmingham Station",
+        "Bonn Station",
+        "Brandenburg Border Station",
+        "Deshima Station",
+        "Detroit Munitions",
+        "Durham Border Station",
+        "Fort Bush",
+        "Freeport 2",
+        "Freiburg Station",
+        "Fuchu Prison",
+        "Gas Miner Ogashawa",
+        "Kingston Border Station",
+        "LPI Huntsville",
+        "LPI Sugarland",
+        "Liverpool Border Station",
+        "Luxury Liner Hawaii",
+        "Luxury Liner Shetland",
+        "Lübeck Border Station",
+        "Narita Outpost",
+        "Newark Station",
+        "Norfolk Shipyard",
+        "Ohashi Border Station",
+        "Osaka Storage Facility",
+        "Perth Station",
+        "Planet Baden Baden",
+        "Planet Curacao",
+        "Planet Denver",
+        "Planet Hamburg",
+        "Planet Honshu",
+        "Planet Houston",
+        "Planet Leeds",
+        "Planet Manhattan",
+        "Planet New Berlin",
+        "Planet New London",
+        "Planet New Tokyo",
+        "Planet Pittsburgh",
+        "Planet Stuttgart",
+        "Pueblo Station",
+        "Roppongi Station",
+        "Sheffield Station",
+        "Southampton Shipyard",
+        "Ulm Border Station",
+        "Vierlande Prison",
+        "Waterloo Station",
+        "Yokohama Shipyard",
+        "Yukawa Shipyard"
+      ],
+      "missionBasesEn": [
+        "Cortez → Planet Curacao",
+        "Edinburgh → Luxury Liner Shetland",
+        "Sigma-19 → Luxury Liner Hawaii",
+        "Stuttgart → Planet Baden Baden"
       ]
     },
     {
@@ -1071,6 +1644,72 @@
         "Hamburg → Alster-Werft",
         "Hamburg → Station Altona",
         "Stuttgart → Station Freiburg"
+      ],
+      "nameEn": "Republican Shipping",
+      "shortNameEn": "Republican",
+      "bribesEn": [
+        "Alster Shipyard",
+        "Altona Station",
+        "Baltimore Shipyard",
+        "Battleship Mississippi",
+        "Battleship Missouri",
+        "Battleship Norfolk",
+        "Battleship Rio Grande",
+        "Battleship Westfalen",
+        "Bonn Station",
+        "Brandenburg Border Station",
+        "Briesen Mining Facility",
+        "Cambridge Research Station",
+        "Detroit Munitions",
+        "Dortmund Station",
+        "Douglas Station",
+        "Elbich Mining Facility",
+        "Essen Station",
+        "Fort Bush",
+        "Freeport 1",
+        "Freeport 2",
+        "Freiburg Station",
+        "Fulda Border Station",
+        "Gas Miner Naha",
+        "Helgoland Station",
+        "Konstanz Border Station",
+        "LPI Huntsville",
+        "LPI Sugarland",
+        "Lübeck Border Station",
+        "Mainz Storage Facility",
+        "Mannheim Station",
+        "Narita Outpost",
+        "Newark Station",
+        "Norfolk Shipyard",
+        "Oder Shipyard",
+        "Planet Baden Baden",
+        "Planet Cambridge",
+        "Planet Denver",
+        "Planet Hamburg",
+        "Planet Holstein",
+        "Planet Honshu",
+        "Planet Houston",
+        "Planet Manhattan",
+        "Planet New Berlin",
+        "Planet New London",
+        "Planet New Tokyo",
+        "Planet Pittsburgh",
+        "Planet Stuttgart",
+        "Pueblo Station",
+        "Roppongi Station",
+        "Rugen Station",
+        "Southampton Shipyard",
+        "The Ring",
+        "Trenton Outpost",
+        "Ulm Border Station",
+        "Vierlande Prison",
+        "Yukawa Shipyard"
+      ],
+      "missionBasesEn": [
+        "Frankfurt → Mainz Storage Facility",
+        "Hamburg → Alster Shipyard",
+        "Hamburg → Altona Station",
+        "Stuttgart → Freiburg Station"
       ]
     },
     {
@@ -1171,6 +1810,75 @@
         "Shikoku → Planet Junyo",
         "Sigma-17 → Planet Kurilen",
         "Tau-29 → Station Shinkaku"
+      ],
+      "bribesEn": [
+        "Akita Border Station",
+        "Ames Research Station",
+        "Aomori Station",
+        "Atka Research Station",
+        "Baltimore Shipyard",
+        "Battleship Matsumoto",
+        "Battleship Missouri",
+        "Battleship Myoko",
+        "Battleship Nagumo",
+        "Battleship Osiris",
+        "Battleship Rio Grande",
+        "Canterbury Station",
+        "Chugoku Gate Construction Site",
+        "Deshima Station",
+        "Durham Border Station",
+        "Fort Bush",
+        "Freeport 6",
+        "Fuchu Prison",
+        "Gas Miner Naha",
+        "Gas Miner Ogashawa",
+        "Helgoland Station",
+        "Holman Outpost",
+        "Kabukicho Depot",
+        "Kagoshima Depot",
+        "Kansai Research Station",
+        "Kensington Shipping Platform",
+        "Leiden Base",
+        "Luxury Liner Hawaii",
+        "Mainz Storage Facility",
+        "Nago Station",
+        "Nansei Research Complex",
+        "Narita Outpost",
+        "Newark Station",
+        "Norfolk Shipyard",
+        "Ohashi Border Station",
+        "Osaka Storage Facility",
+        "Planet Denver",
+        "Planet Holstein",
+        "Planet Honshu",
+        "Planet Junyo",
+        "Planet Kurile",
+        "Planet Kyushu",
+        "Planet Leeds",
+        "Planet Manhattan",
+        "Planet New London",
+        "Planet New Tokyo",
+        "Pueblo Station",
+        "Sapporo Station",
+        "Shinagawa Station",
+        "Shinjuku Station",
+        "Shinkaku Station",
+        "Southampton Shipyard",
+        "Stokes Mining Station",
+        "Tsushima Depot",
+        "West Point Military Academy",
+        "Yokohama Shipyard",
+        "Yukawa Shipyard"
+      ],
+      "missionBasesEn": [
+        "Honshu → Osaka Storage Facility",
+        "Honshu → Planet Honshu",
+        "Kyushu → Tsushima Depot",
+        "New Tokyo → Shinjuku Station",
+        "New Tokyo → Yokohama Shipyard",
+        "Shikoku → Planet Junyo",
+        "Sigma-17 → Planet Kurile",
+        "Tau-29 → Shinkaku Station"
       ]
     },
     {
@@ -1267,6 +1975,64 @@
       ],
       "missionBases": [
         "New York → Außenposten Trenton"
+      ],
+      "bribesEn": [
+        "Alster Shipyard",
+        "Altona Station",
+        "Ames Research Station",
+        "BPA Newgate",
+        "Baltimore Shipyard",
+        "Battleship Mississippi",
+        "Battleship Missouri",
+        "Battleship Rio Grande",
+        "Battleship Westfalen",
+        "Battleship Yukon",
+        "Birmingham Station",
+        "Bonn Station",
+        "Brandenburg Border Station",
+        "California Minor",
+        "Canterbury Station",
+        "Deshima Station",
+        "Detroit Munitions",
+        "Dortmund Station",
+        "Fort Bush",
+        "Freeport 2",
+        "Freeport 4",
+        "Fuchu Prison",
+        "Kensington Shipping Platform",
+        "Kingston Border Station",
+        "LPI Huntsville",
+        "LPI Sugarland",
+        "Lübeck Border Station",
+        "Narita Outpost",
+        "Newark Station",
+        "Norfolk Shipyard",
+        "Oder Shipyard",
+        "Ohashi Border Station",
+        "Planet Curacao",
+        "Planet Denver",
+        "Planet Hamburg",
+        "Planet Houston",
+        "Planet Los Angeles",
+        "Planet Manhattan",
+        "Planet New Berlin",
+        "Planet New London",
+        "Planet New Tokyo",
+        "Planet Pittsburgh",
+        "Pueblo Station",
+        "Roppongi Station",
+        "San Diego Border Station",
+        "Sheffield Station",
+        "Southampton Shipyard",
+        "Trenton Outpost",
+        "Vierlande Prison",
+        "Waterloo Station",
+        "West Point Military Academy",
+        "Willard Research Station",
+        "Yokohama Shipyard"
+      ],
+      "missionBasesEn": [
+        "New York → Trenton Outpost"
       ]
     },
     {
@@ -1332,6 +2098,45 @@
         "Edinburgh → Station Perth",
         "New London → Station Canterbury",
         "Tau-31 → Planet Harris"
+      ],
+      "bribesEn": [
+        "Aberdeen Border Station",
+        "BPA Newgate",
+        "Battleship Suffolk",
+        "Battleship York",
+        "Battleship Yukon",
+        "Birmingham Station",
+        "California Minor",
+        "Canterbury Station",
+        "Durham Border Station",
+        "Freeport 4",
+        "Glasgow Outpost",
+        "Holman Outpost",
+        "Kensington Shipping Platform",
+        "Kingston Border Station",
+        "LD-14",
+        "Liverpool Border Station",
+        "Luxury Liner Shetland",
+        "Perth Station",
+        "Planet Denver",
+        "Planet Harris",
+        "Planet Leeds",
+        "Planet Los Angeles",
+        "Planet New London",
+        "Pueblo Station",
+        "San Diego Border Station",
+        "Sheffield Station",
+        "Southampton Shipyard",
+        "Stokes Mining Station",
+        "Thames Outpost",
+        "Waterloo Station",
+        "Willard Research Station"
+      ],
+      "missionBasesEn": [
+        "California → California Minor",
+        "Edinburgh → Perth Station",
+        "New London → Canterbury Station",
+        "Tau-31 → Planet Harris"
       ]
     },
     {
@@ -1381,6 +2186,31 @@
       "missionBases": [
         "Colorado → Station Pueblo",
         "New York → Detroiter Munitionswerke"
+      ],
+      "bribesEn": [
+        "Baltimore Shipyard",
+        "Battleship Missouri",
+        "Battleship Rio Grande",
+        "Battleship Yukon",
+        "California Minor",
+        "Detroit Munitions",
+        "Fort Bush",
+        "Newark Station",
+        "Norfolk Shipyard",
+        "Planet Denver",
+        "Planet Los Angeles",
+        "Planet Manhattan",
+        "Planet Pittsburgh",
+        "Pueblo Station",
+        "San Diego Border Station",
+        "Sheffield Station",
+        "Trenton Outpost",
+        "West Point Military Academy",
+        "Willard Research Station"
+      ],
+      "missionBasesEn": [
+        "Colorado → Pueblo Station",
+        "New York → Detroit Munitions"
       ]
     },
     {
@@ -1421,6 +2251,17 @@
       ],
       "missionBases": [
         "Frankfurt → Basis Bruchsal"
+      ],
+      "bribesEn": [
+        "Bruchsal Base",
+        "Kreuzberg Depot",
+        "Mainz Storage Facility",
+        "Planet Hamburg",
+        "Vogtland Base",
+        "Yanagi Depot"
+      ],
+      "missionBasesEn": [
+        "Frankfurt → Bruchsal Base"
       ]
     },
     {
@@ -1464,6 +2305,17 @@
       "missionBases": [
         "Chugoku → Basis Kyoto",
         "Hokkaido → Ainu-Depot"
+      ],
+      "nameEn": "Blood Dragons",
+      "shortNameEn": "Dragons",
+      "bribesEn": [
+        "Ainu Depot",
+        "Kyoto Base",
+        "Roppongi Station"
+      ],
+      "missionBasesEn": [
+        "Chugoku → Kyoto Base",
+        "Hokkaido → Ainu Depot"
       ]
     },
     {
@@ -1524,6 +2376,32 @@
         "Omikron Gamma → Planet Kreta",
         "Omikron Gamma → Tripoli-Werft",
         "Sigma-13 → Yanagi-Depot"
+      ],
+      "nameEn": "Corsairs",
+      "shortNameEn": "Corsairs",
+      "bribesEn": [
+        "Atka Research Station",
+        "Cadiz Base",
+        "Freeport 1",
+        "Freeport 5",
+        "Freeport 9",
+        "Helgoland Station",
+        "Islay Base",
+        "Leon Base",
+        "Luxury Liner Hawaii",
+        "Planet Crete",
+        "Planet New London",
+        "Trafalgar Base",
+        "Tripoli Shipyard",
+        "Yanagi Depot"
+      ],
+      "missionBasesEn": [
+        "New London → Trafalgar Base",
+        "Omega-41 → Leon Base",
+        "Omega-5 → Cadiz Base",
+        "Omicron Gamma → Planet Crete",
+        "Omicron Gamma → Tripoli Shipyard",
+        "Sigma-13 → Yanagi Depot"
       ]
     },
     {
@@ -1536,7 +2414,9 @@
       "shortName": "Flüchtling",
       "objectDestruction": -0.03,
       "missionSuccess": 0.14,
-      "empathy": {}
+      "empathy": {},
+      "nameEn": "Fugitive",
+      "shortNameEn": "Fugitive"
     },
     {
       "nick": "fc_fa_grp",
@@ -1588,6 +2468,30 @@
       ],
       "missionBases": [
         "Kyushu → Kagoshima-Depot"
+      ],
+      "nameEn": "Farmers Alliance",
+      "shortNameEn": "Alliance",
+      "bribesEn": [
+        "Akita Border Station",
+        "Battleship Myoko",
+        "Battleship Nagumo",
+        "Deshima Station",
+        "Fuchu Prison",
+        "Kabukicho Depot",
+        "Kagoshima Depot",
+        "Nansei Research Complex",
+        "Narita Outpost",
+        "Ohashi Border Station",
+        "Osaka Storage Facility",
+        "Planet Honshu",
+        "Planet Junyo",
+        "Planet Kyushu",
+        "Planet New Tokyo",
+        "Shinjuku Station",
+        "Yokohama Shipyard"
+      ],
+      "missionBasesEn": [
+        "Kyushu → Kagoshima Depot"
       ]
     },
     {
@@ -1627,6 +2531,17 @@
       "missionBases": [
         "Edinburgh → Basis Islay",
         "New London → Basis Trafalgar"
+      ],
+      "nameEn": "Gaians",
+      "shortNameEn": "Gaians",
+      "bribesEn": [
+        "Islay Base",
+        "Planet New London",
+        "Trafalgar Base"
+      ],
+      "missionBasesEn": [
+        "Edinburgh → Islay Base",
+        "New London → Trafalgar Base"
       ]
     },
     {
@@ -1666,6 +2581,17 @@
       ],
       "missionBases": [
         "Hokkaido → Ainu-Depot"
+      ],
+      "nameEn": "Golden Chrysanthemums",
+      "bribesEn": [
+        "Ainu Depot",
+        "Cali Base",
+        "Leiden Base",
+        "Padua Base",
+        "Roppongi Station"
+      ],
+      "missionBasesEn": [
+        "Hokkaido → Ainu Depot"
       ]
     },
     {
@@ -1716,6 +2642,27 @@
       ],
       "missionBases": [
         "Neu-Tokio → Kabukicho-Depot"
+      ],
+      "bribesEn": [
+        "Akita Border Station",
+        "Battleship Myoko",
+        "Deshima Station",
+        "Fuchu Prison",
+        "Kabukicho Depot",
+        "Leiden Base",
+        "Luxury Liner Hawaii",
+        "Narita Outpost",
+        "Ohashi Border Station",
+        "Osaka Storage Facility",
+        "Padua Base",
+        "Planet Honshu",
+        "Planet Junyo",
+        "Planet New Tokyo",
+        "Shinjuku Station",
+        "Yokohama Shipyard"
+      ],
+      "missionBasesEn": [
+        "New Tokyo → Kabukicho Depot"
       ]
     },
     {
@@ -1778,6 +2725,37 @@
         "New York → Basis Rochester",
         "Sigma-13 → Yanagi-Depot",
         "Texas → Basis Beaumont"
+      ],
+      "nameEn": "Junkers",
+      "shortNameEn": "Junkers",
+      "bribesEn": [
+        "Baltimore Shipyard",
+        "Battleship Missouri",
+        "Beaumont Base",
+        "Bruchsal Base",
+        "Buffalo Base",
+        "Gas Miner Naha",
+        "Helgoland Station",
+        "Kreuzberg Depot",
+        "LPI Sugarland",
+        "Mainz Storage Facility",
+        "Norfolk Shipyard",
+        "Planet Hamburg",
+        "Planet Houston",
+        "Planet Manhattan",
+        "Planet New Berlin",
+        "Planet New London",
+        "Rochester Base",
+        "Southampton Shipyard",
+        "Trafalgar Base",
+        "Yanagi Depot"
+      ],
+      "missionBasesEn": [
+        "New Berlin → Kreuzberg Depot",
+        "New London → Trafalgar Base",
+        "New York → Rochester Base",
+        "Sigma-13 → Yanagi Depot",
+        "Texas → Beaumont Base"
       ]
     },
     {
@@ -1794,7 +2772,9 @@
         "fc_n_grp": 1.0,
         "fc_ln_grp": 1.0,
         "fc_rn_grp": 1.0
-      }
+      },
+      "nameEn": "Kusari Naval Forces",
+      "shortNameEn": "Naval Forces"
     },
     {
       "nick": "fc_lh_grp",
@@ -1849,6 +2829,22 @@
         "Cortez → Basis Montezuma",
         "Galileo → Basis Leiden",
         "Magellan → Basis Mactan"
+      ],
+      "nameEn": "Lane Hackers",
+      "shortNameEn": "Hackers",
+      "bribesEn": [
+        "Alcatraz Depot",
+        "Ames Research Station",
+        "Freeport 4",
+        "Leiden Base",
+        "Mactan Base",
+        "Montezuma Base",
+        "Padua Base"
+      ],
+      "missionBasesEn": [
+        "Cortez → Montezuma Base",
+        "Galileo → Leiden Base",
+        "Magellan → Mactan Base"
       ]
     },
     {
@@ -1865,7 +2861,9 @@
         "fc_n_grp": 1.0,
         "fc_kn_grp": 1.0,
         "fc_rn_grp": 1.0
-      }
+      },
+      "nameEn": "Liberty Navy",
+      "shortNameEn": "Navy"
     },
     {
       "nick": "fc_lr_grp",
@@ -1936,6 +2934,34 @@
         "New York → Basis Buffalo",
         "New York → Basis Rochester",
         "Texas → Basis Beaumont"
+      ],
+      "bribesEn": [
+        "Alcatraz Depot",
+        "Battleship Osiris",
+        "Beaumont Base",
+        "Buffalo Base",
+        "Dawson Base",
+        "Freeport 2",
+        "Freeport 4",
+        "LPI Sugarland",
+        "Leiden Base",
+        "Mactan Base",
+        "Montezuma Base",
+        "Pacifica Base",
+        "Padua Base",
+        "Planet Houston",
+        "Planet Manhattan",
+        "Rochester Base"
+      ],
+      "missionBasesEn": [
+        "California → Alcatraz Depot",
+        "Cortez → Montezuma Base",
+        "Galileo → Padua Base",
+        "Hudson → Dawson Base",
+        "Magellan → Freeport 4",
+        "New York → Buffalo Base",
+        "New York → Rochester Base",
+        "Texas → Beaumont Base"
       ]
     },
     {
@@ -1977,6 +3003,17 @@
       "missionBases": [
         "Neu-Berlin → Kreuzberg-Depot",
         "Stuttgart → Darmstadt-Depot"
+      ],
+      "bribesEn": [
+        "Darmstadt Depot",
+        "Kreuzberg Depot",
+        "Planet New Berlin",
+        "Ronneburg Base",
+        "Vogtland Base"
+      ],
+      "missionBasesEn": [
+        "New Berlin → Kreuzberg Depot",
+        "Stuttgart → Darmstadt Depot"
       ]
     },
     {
@@ -2019,6 +3056,16 @@
       "missionBases": [
         "Dublin → Basis Arranmore",
         "New London → Basis Trafalgar"
+      ],
+      "bribesEn": [
+        "Arranmore Base",
+        "Battleship Hood",
+        "Planet New London",
+        "Trafalgar Base"
+      ],
+      "missionBasesEn": [
+        "Dublin → Arranmore Base",
+        "New London → Trafalgar Base"
       ]
     },
     {
@@ -2035,7 +3082,9 @@
         "fc_ln_grp": 1.0,
         "fc_kn_grp": 1.0,
         "fc_rn_grp": 1.0
-      }
+      },
+      "nameEn": "Nomads",
+      "shortNameEn": "Nomads"
     },
     {
       "nick": "fc_or_grp",
@@ -2050,6 +3099,11 @@
       "empathy": {},
       "missionBases": [
         "Hudson → Schlachtschiff Osiris"
+      ],
+      "nameEn": "The Order",
+      "shortNameEn": "Order",
+      "missionBasesEn": [
+        "Hudson → Battleship Osiris"
       ]
     },
     {
@@ -2134,6 +3188,44 @@
         "Omikron Beta → Basis Ruiz",
         "Tau-23 → Basis Cali",
         "Texas → Basis Beaumont"
+      ],
+      "nameEn": "Outcasts",
+      "shortNameEn": "Outcasts",
+      "bribesEn": [
+        "Alcatraz Depot",
+        "Atka Research Station",
+        "Battleship Osiris",
+        "Beaumont Base",
+        "Buffalo Base",
+        "Cali Base",
+        "Freeport 10",
+        "Freeport 4",
+        "Freeport 6",
+        "Gas Miner Naha",
+        "Helgoland Station",
+        "Islay Base",
+        "LPI Sugarland",
+        "Mactan Base",
+        "Montezuma Base",
+        "Planet Houston",
+        "Planet Malta",
+        "Planet Manhattan",
+        "Planet New London",
+        "Rochester Base",
+        "Ruiz Base",
+        "Trafalgar Base",
+        "Yanagi Depot"
+      ],
+      "missionBasesEn": [
+        "California → Alcatraz Depot",
+        "Cortez → Montezuma Base",
+        "Magellan → Mactan Base",
+        "New London → Trafalgar Base",
+        "New York → Buffalo Base",
+        "Omicron Alpha → Planet Malta",
+        "Omicron Beta → Ruiz Base",
+        "Tau-23 → Cali Base",
+        "Texas → Beaumont Base"
       ]
     },
     {
@@ -2146,7 +3238,8 @@
       "shortName": "Kress",
       "objectDestruction": -0.03,
       "missionSuccess": 0.14,
-      "empathy": {}
+      "empathy": {},
+      "nameEn": "Kress's Men"
     },
     {
       "nick": "fc_q_grp",
@@ -2158,7 +3251,9 @@
       "shortName": "Qs Männer",
       "objectDestruction": -0.03,
       "missionSuccess": 0.14,
-      "empathy": {}
+      "empathy": {},
+      "nameEn": "Quintaine's Men",
+      "shortNameEn": "Q's Men"
     },
     {
       "nick": "fc_rh_grp",
@@ -2227,6 +3322,32 @@
         "Omega-5 → Basis Ronneburg",
         "Omega-7 → Basis Freistadt",
         "Stuttgart → Darmstadt-Depot"
+      ],
+      "nameEn": "Red Hessians",
+      "shortNameEn": "Hessians",
+      "bribesEn": [
+        "Bruchsal Base",
+        "Cadiz Base",
+        "Darmstadt Depot",
+        "Freeport 1",
+        "Freeport 5",
+        "Freeport 9",
+        "Freistadt Base",
+        "Freital Base",
+        "Kreuzberg Depot",
+        "Mainz Storage Facility",
+        "Planet Hamburg",
+        "Planet New Berlin",
+        "Ronneburg Base",
+        "Vogtland Base"
+      ],
+      "missionBasesEn": [
+        "Dresden → Vogtland Base",
+        "New Berlin → Kreuzberg Depot",
+        "Omega-11 → Freital Base",
+        "Omega-5 → Ronneburg Base",
+        "Omega-7 → Freistadt Base",
+        "Stuttgart → Darmstadt Depot"
       ]
     },
     {
@@ -2243,7 +3364,9 @@
         "fc_n_grp": 1.0,
         "fc_ln_grp": 1.0,
         "fc_kn_grp": 1.0
-      }
+      },
+      "nameEn": "Rheinland Military",
+      "shortNameEn": "Military"
     },
     {
       "nick": "fc_u_grp",
@@ -2292,6 +3415,21 @@
       ],
       "missionBases": [
         "Bering → Basis Pacifica"
+      ],
+      "nameEn": "Unioners",
+      "shortNameEn": "Unioners",
+      "bribesEn": [
+        "Bruchsal Base",
+        "Dawson Base",
+        "Freeport 2",
+        "Kreuzberg Depot",
+        "Mainz Storage Facility",
+        "Pacifica Base",
+        "Planet Hamburg",
+        "Planet New Berlin"
+      ],
+      "missionBasesEn": [
+        "Bering → Pacifica Base"
       ]
     },
     {
@@ -2362,6 +3500,19 @@
         "Colorado → Basis Ouray",
         "Hudson → Basis Barrow",
         "Kepler → Basis Nome"
+      ],
+      "bribesEn": [
+        "Ames Research Station",
+        "Barrow Base",
+        "Battleship Osiris",
+        "Freeport 2",
+        "Nome Base",
+        "Ouray Base"
+      ],
+      "missionBasesEn": [
+        "Colorado → Ouray Base",
+        "Hudson → Barrow Base",
+        "Kepler → Nome Base"
       ]
     },
     {
@@ -2550,6 +3701,160 @@
         "Texas → LPI Sugarland",
         "Texas → Planet Houston",
         "Texas → Schlachtschiff Mississippi"
+      ],
+      "nameEn": "Bounty Hunters Guild",
+      "shortNameEn": "Bounty Hunters",
+      "bribesEn": [
+        "Aberdeen Border Station",
+        "Alster Shipyard",
+        "Altona Station",
+        "Ames Research Station",
+        "Aomori Station",
+        "Atka Research Station",
+        "BPA Newgate",
+        "Baltimore Shipyard",
+        "Battleship Essex",
+        "Battleship Hood",
+        "Battleship Mississippi",
+        "Battleship Missouri",
+        "Battleship Norfolk",
+        "Battleship Osiris",
+        "Battleship Rio Grande",
+        "Battleship Suffolk",
+        "Battleship Westfalen",
+        "Battleship York",
+        "Battleship Yukon",
+        "Bautzen Station",
+        "Birmingham Station",
+        "Bonn Station",
+        "Brandenburg Border Station",
+        "California Minor",
+        "Cambridge Research Station",
+        "Canterbury Station",
+        "Cardiff Mining Facility",
+        "Deshima Station",
+        "Detroit Munitions",
+        "Dortmund Station",
+        "Douglas Station",
+        "Durham Border Station",
+        "Elbich Mining Facility",
+        "Essen Station",
+        "Fort Bush",
+        "Freeport 1",
+        "Freeport 10",
+        "Freeport 2",
+        "Freeport 4",
+        "Freeport 5",
+        "Freeport 6",
+        "Freeport 9",
+        "Freiburg Station",
+        "Freistadt Base",
+        "Gas Miner Ogashawa",
+        "Glasgow Outpost",
+        "Java Station",
+        "Kansai Research Station",
+        "Kensington Shipping Platform",
+        "Kingston Border Station",
+        "Konstanz Border Station",
+        "LD-14",
+        "LPI Huntsville",
+        "LPI Sugarland",
+        "Leipzig Station",
+        "Liverpool Border Station",
+        "Luxury Liner Hawaii",
+        "Luxury Liner Shetland",
+        "Lübeck Border Station",
+        "Nago Station",
+        "Newark Station",
+        "Norfolk Shipyard",
+        "Oder Shipyard",
+        "Osaka Storage Facility",
+        "Perth Station",
+        "Pirna Border Station",
+        "Planet Baden Baden",
+        "Planet Cambridge",
+        "Planet Curacao",
+        "Planet Denver",
+        "Planet Hamburg",
+        "Planet Honshu",
+        "Planet Houston",
+        "Planet Kurile",
+        "Planet Leeds",
+        "Planet Los Angeles",
+        "Planet Manhattan",
+        "Planet New Berlin",
+        "Planet New London",
+        "Planet Pittsburgh",
+        "Planet Stuttgart",
+        "Rugen Station",
+        "San Diego Border Station",
+        "Sheffield Station",
+        "Solarius Station",
+        "Southampton Shipyard",
+        "Stokes Mining Station",
+        "Tau-31 Gate Construction Site",
+        "Thames Outpost",
+        "The Ring",
+        "Ulm Border Station",
+        "Waterloo Station",
+        "West Point Military Academy",
+        "Willard Research Station"
+      ],
+      "missionBasesEn": [
+        "Bering → Freeport 2",
+        "California → Battleship Yukon",
+        "California → California Minor",
+        "California → Planet Los Angeles",
+        "California → San Diego Border Station",
+        "California → Willard Research Station",
+        "Cambridge → Battleship Norfolk",
+        "Colorado → Battleship Rio Grande",
+        "Colorado → Planet Denver",
+        "Cortez → Planet Curacao",
+        "Dresden → Bautzen Station",
+        "Dresden → Leipzig Station",
+        "Dublin → Battleship Essex",
+        "Dublin → Battleship Hood",
+        "Edinburgh → Aberdeen Border Station",
+        "Edinburgh → Luxury Liner Shetland",
+        "Hamburg → Battleship Westfalen",
+        "Hamburg → Planet Hamburg",
+        "Kepler → Ames Research Station",
+        "Leeds → Battleship York",
+        "Leeds → Durham Border Station",
+        "Magellan → Freeport 4",
+        "Manchester → BPA Newgate",
+        "Manchester → Birmingham Station",
+        "Manchester → Sheffield Station",
+        "New Berlin → Bonn Station",
+        "New London → Battleship Suffolk",
+        "New London → Canterbury Station",
+        "New London → Planet New London",
+        "New London → Southampton Shipyard",
+        "New London → Waterloo Station",
+        "New York → Baltimore Shipyard",
+        "New York → Battleship Missouri",
+        "New York → Detroit Munitions",
+        "New York → Fort Bush",
+        "New York → Newark Station",
+        "New York → Norfolk Shipyard",
+        "New York → Planet Pittsburgh",
+        "New York → West Point Military Academy",
+        "Omega-11 → Solarius Station",
+        "Omega-3 → Douglas Station",
+        "Omega-3 → Freeport 1",
+        "Omega-7 → Freistadt Base",
+        "Omicron Theta → Freeport 9",
+        "Shikoku → Deshima Station",
+        "Sigma-17 → Atka Research Station",
+        "Sigma-19 → Luxury Liner Hawaii",
+        "Stuttgart → Freiburg Station",
+        "Stuttgart → Planet Stuttgart",
+        "Tau-37 → Freeport 10",
+        "Texas → Battleship Mississippi",
+        "Texas → LPI Huntsville",
+        "Texas → LPI Sugarland",
+        "Texas → Planet Houston"
       ]
     },
     {
@@ -2598,6 +3903,26 @@
         "Sigma-13 → Gasabbaustation Naha",
         "Sigma-19 → Gasabbaustation Ogashawa",
         "Sigma-19 → Luxusliner Hawaii"
+      ],
+      "nameEn": "Gas Miners Guild",
+      "shortNameEn": "GMG",
+      "bribesEn": [
+        "Akita Border Station",
+        "Aomori Station",
+        "Gas Miner Naha",
+        "Gas Miner Ogashawa",
+        "Kansai Research Station",
+        "Luxury Liner Hawaii",
+        "Osaka Storage Facility",
+        "Planet Honshu",
+        "Yanagi Depot",
+        "Yukawa Shipyard"
+      ],
+      "missionBasesEn": [
+        "Honshu → Aomori Station",
+        "Sigma-13 → Gas Miner Naha",
+        "Sigma-19 → Gas Miner Ogashawa",
+        "Sigma-19 → Luxury Liner Hawaii"
       ]
     },
     {
@@ -2652,6 +3977,39 @@
         "Tau-23 → Station Java",
         "Tau-31 → Außenposten Holman",
         "Tau-37 → Basis Falkland"
+      ],
+      "nameEn": "Independent Miners Guild",
+      "shortNameEn": "IMG",
+      "bribesEn": [
+        "Battleship Essex",
+        "Battleship Hood",
+        "Birmingham Station",
+        "Briesen Mining Facility",
+        "Canterbury Station",
+        "Cardiff Mining Facility",
+        "Falkland Base",
+        "Freeport 10",
+        "Freeport 4",
+        "Freeport 6",
+        "Freistadt Base",
+        "Holman Outpost",
+        "Java Station",
+        "Kensington Shipping Platform",
+        "Planet Cambridge",
+        "Planet Harris",
+        "Planet New London",
+        "Sheffield Station",
+        "Southampton Shipyard",
+        "Tau-31 Gate Construction Site"
+      ],
+      "missionBasesEn": [
+        "Cambridge → Cardiff Mining Facility",
+        "Dublin → Battleship Hood",
+        "Magellan → Freeport 4",
+        "Omega-7 → Freistadt Base",
+        "Tau-23 → Java Station",
+        "Tau-31 → Holman Outpost",
+        "Tau-37 → Falkland Base"
       ]
     },
     {
@@ -2704,6 +4062,40 @@
       "missionBases": [
         "Bering → Freihafen 2",
         "Kepler → Forschungsstation Ames"
+      ],
+      "nameEn": "Zoners",
+      "shortNameEn": "Zoners",
+      "bribesEn": [
+        "Ames Research Station",
+        "Atka Research Station",
+        "Barrow Base",
+        "Cadiz Base",
+        "Cali Base",
+        "Cardiff Mining Facility",
+        "Dawson Base",
+        "Douglas Station",
+        "Falkland Base",
+        "Freeport 1",
+        "Freeport 10",
+        "Freeport 2",
+        "Freeport 5",
+        "Freeport 6",
+        "Freeport 9",
+        "Gas Miner Naha",
+        "Helgoland Station",
+        "Java Station",
+        "Nome Base",
+        "Pacifica Base",
+        "Planet Hamburg",
+        "Planet Kurile",
+        "Ronneburg Base",
+        "Rugen Station",
+        "Shinkaku Station",
+        "Yanagi Depot"
+      ],
+      "missionBasesEn": [
+        "Bering → Freeport 2",
+        "Kepler → Ames Research Station"
       ]
     },
     {
@@ -2742,6 +4134,16 @@
         "Kyushu → Schlachtschiff Nagumo",
         "Neu-Tokio → Yokohama-Werft",
         "Shikoku → Schlachtschiff Myoko"
+      ],
+      "nameEn": "Kusari Naval Forces",
+      "shortNameEn": "Naval Forces",
+      "missionBasesEn": [
+        "Hokkaido → Battleship Matsumoto",
+        "Honshu → Kansai Research Station",
+        "Kyushu → Battleship Nagumo",
+        "Kyushu → Nansei Research Complex",
+        "New Tokyo → Yokohama Shipyard",
+        "Shikoku → Battleship Myoko"
       ]
     },
     {
@@ -2808,6 +4210,43 @@
         "Shikoku → Gefängnis von Fuchu",
         "Shikoku → Grenzstation Ohashi",
         "Shikoku → Planet Junyo"
+      ],
+      "nameEn": "Kusari State Police",
+      "shortNameEn": "Police",
+      "bribesEn": [
+        "Akita Border Station",
+        "Battleship Matsumoto",
+        "Battleship Myoko",
+        "Battleship Nagumo",
+        "Chugoku Gate Construction Site",
+        "Deshima Station",
+        "Fuchu Prison",
+        "Kansai Research Station",
+        "Nansei Research Complex",
+        "Narita Outpost",
+        "Ohashi Border Station",
+        "Osaka Storage Facility",
+        "Planet Honshu",
+        "Planet Junyo",
+        "Planet Kyushu",
+        "Planet New Tokyo",
+        "Sapporo Station",
+        "Shinagawa Station",
+        "Shinjuku Station",
+        "Tsushima Depot",
+        "Yokohama Shipyard",
+        "Yukawa Shipyard"
+      ],
+      "missionBasesEn": [
+        "Hokkaido → Sapporo Station",
+        "Honshu → Akita Border Station",
+        "Honshu → Planet Honshu",
+        "Kyushu → Planet Kyushu",
+        "New Tokyo → Narita Outpost",
+        "New Tokyo → Planet New Tokyo",
+        "Shikoku → Fuchu Prison",
+        "Shikoku → Ohashi Border Station",
+        "Shikoku → Planet Junyo"
       ]
     },
     {
@@ -2845,6 +4284,10 @@
         "gd_bh_grp": 0.05
       },
       "missionBases": [
+        "New York → Planet Manhattan"
+      ],
+      "nameEn": "Liberty Security Force",
+      "missionBasesEn": [
         "New York → Planet Manhattan"
       ]
     },
@@ -2893,6 +4336,19 @@
         "New York → Planet Manhattan",
         "New York → Schlachtschiff Missouri",
         "Texas → Schlachtschiff Mississippi"
+      ],
+      "nameEn": "Liberty Navy",
+      "shortNameEn": "Navy",
+      "missionBasesEn": [
+        "California → Battleship Yukon",
+        "California → Planet Los Angeles",
+        "California → Willard Research Station",
+        "Colorado → Battleship Rio Grande",
+        "New York → Battleship Missouri",
+        "New York → Norfolk Shipyard",
+        "New York → Planet Manhattan",
+        "New York → West Point Military Academy",
+        "Texas → Battleship Mississippi"
       ]
     },
     {
@@ -2967,6 +4423,46 @@
         "Texas → LPI Huntsville",
         "Texas → LPI Sugarland",
         "Texas → Planet Houston"
+      ],
+      "shortNameEn": "Police",
+      "bribesEn": [
+        "Baltimore Shipyard",
+        "Battleship Mississippi",
+        "Battleship Osiris",
+        "Battleship Rio Grande",
+        "Battleship Yukon",
+        "California Minor",
+        "Detroit Munitions",
+        "Fort Bush",
+        "LPI Huntsville",
+        "LPI Sugarland",
+        "Newark Station",
+        "Norfolk Shipyard",
+        "Planet Denver",
+        "Planet Houston",
+        "Planet Los Angeles",
+        "Planet Manhattan",
+        "Planet Pittsburgh",
+        "Pueblo Station",
+        "Rochester Base",
+        "San Diego Border Station",
+        "Trenton Outpost",
+        "West Point Military Academy",
+        "Willard Research Station"
+      ],
+      "missionBasesEn": [
+        "California → California Minor",
+        "California → Planet Los Angeles",
+        "California → San Diego Border Station",
+        "Colorado → Planet Denver",
+        "New York → Baltimore Shipyard",
+        "New York → Detroit Munitions",
+        "New York → Fort Bush",
+        "New York → Planet Manhattan",
+        "New York → Planet Pittsburgh",
+        "Texas → LPI Huntsville",
+        "Texas → LPI Sugarland",
+        "Texas → Planet Houston"
       ]
     },
     {
@@ -3015,6 +4511,35 @@
         "Frankfurt → Station Mannheim",
         "Neu-Berlin → Station Essen",
         "Omega-7 → Bergbaustation Wismar"
+      ],
+      "nameEn": "Kruger Minerals",
+      "shortNameEn": "Kruger",
+      "bribesEn": [
+        "Bautzen Station",
+        "Bonn Station",
+        "Brandenburg Border Station",
+        "Briesen Mining Facility",
+        "Dortmund Station",
+        "Elbich Mining Facility",
+        "Essen Station",
+        "Freiburg Station",
+        "Fulda Border Station",
+        "Konstanz Border Station",
+        "Leipzig Station",
+        "Mainz Storage Facility",
+        "Mannheim Station",
+        "Oder Shipyard",
+        "Pirna Border Station",
+        "Planet Baden Baden",
+        "Planet New Berlin",
+        "Planet Stuttgart",
+        "The Ring",
+        "Ulm Border Station"
+      ],
+      "missionBasesEn": [
+        "Frankfurt → Mannheim Station",
+        "New Berlin → Essen Station",
+        "Omega-7 → Elbich Mining Facility"
       ]
     },
     {
@@ -3048,6 +4573,12 @@
       "missionBases": [
         "Hamburg → Schlachtschiff Westfalen",
         "Neu-Berlin → Oder-Werft"
+      ],
+      "nameEn": "Rheinland Military",
+      "shortNameEn": "Military",
+      "missionBasesEn": [
+        "Hamburg → Battleship Westfalen",
+        "New Berlin → Oder Shipyard"
       ]
     },
     {
@@ -3118,6 +4649,48 @@
         "Stuttgart → Grenzstation Konstanz",
         "Stuttgart → Grenzstation Ulm",
         "Stuttgart → Planet Stuttgart"
+      ],
+      "nameEn": "Rheinland Police",
+      "shortNameEn": "Police",
+      "bribesEn": [
+        "Alster Shipyard",
+        "Altona Station",
+        "Battleship Westfalen",
+        "Bautzen Station",
+        "Bonn Station",
+        "Brandenburg Border Station",
+        "Dortmund Station",
+        "Essen Station",
+        "Freiburg Station",
+        "Fulda Border Station",
+        "Konstanz Border Station",
+        "Leipzig Station",
+        "Lübeck Border Station",
+        "Mainz Storage Facility",
+        "Mannheim Station",
+        "Oder Shipyard",
+        "Pirna Border Station",
+        "Planet Baden Baden",
+        "Planet Hamburg",
+        "Planet Holstein",
+        "Planet New Berlin",
+        "Planet Stuttgart",
+        "The Ring",
+        "Ulm Border Station",
+        "Vierlande Prison"
+      ],
+      "missionBasesEn": [
+        "Dresden → Pirna Border Station",
+        "Frankfurt → Fulda Border Station",
+        "Hamburg → Alster Shipyard",
+        "Hamburg → Lübeck Border Station",
+        "Hamburg → Planet Hamburg",
+        "Hamburg → Vierlande Prison",
+        "New Berlin → Brandenburg Border Station",
+        "New Berlin → Planet New Berlin",
+        "Stuttgart → Konstanz Border Station",
+        "Stuttgart → Planet Stuttgart",
+        "Stuttgart → Ulm Border Station"
       ]
     }
   ]
