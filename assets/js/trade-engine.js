@@ -161,25 +161,13 @@ class TradeEngine {
       if (!sources.length) sources = accessible.slice();
       const explicitSinks = accessible.filter(e => !e.src);
 
-      const explicitBases = new Set(rawEntries.map(e => e.base));
-
       if (!sources.length) continue;
 
       for (const source of sources) {
         if (tlOnly && !(bases[source.base] && bases[source.base].tl)) continue;
-        // Explicit sinks
         for (const sink of explicitSinks) {
           if (tlOnly && !(bases[sink.base] && bases[sink.base].tl)) continue;
           this._tryAdd(routes, source, sink, commInfo, cargoCapacity, maxJumps);
-        }
-        // Implicit base-price sinks (every base not listed explicitly)
-        const basePrice = commInfo.price;
-        for (const baseNick in bases) {
-          if (explicitBases.has(baseNick) || baseNick.includes('_miner')) continue;
-          if (tlOnly && !bases[baseNick].tl) continue;
-          this._tryAdd(routes, source,
-            { base: baseNick, sys: bases[baseNick].sys, price: basePrice, src: false },
-            commInfo, cargoCapacity, maxJumps);
         }
       }
     }
