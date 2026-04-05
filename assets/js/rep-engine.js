@@ -113,15 +113,20 @@ const RepEngine = (function () {
   /**
    * Calculate the total squared error between current reps and target reps.
    * Only considers changeable factions.
+   * Asymmetric weighting: being too hostile (below target) is penalised
+   * more heavily than being too friendly (above target), so the planner
+   * prioritises raising hostile factions toward neutral.
    */
   function calcError(reps, targets) {
     var error = 0;
+    var HOSTILE_WEIGHT = 2.5;
     for (var nick in targets) {
       if (!targets.hasOwnProperty(nick)) continue;
       var f = getFaction(nick);
       if (!f || !f.changeable) continue;
       var diff = (reps[nick] || 0) - targets[nick];
-      error += diff * diff;
+      var w = diff < 0 ? HOSTILE_WEIGHT : 1;
+      error += w * diff * diff;
     }
     return error;
   }
@@ -264,9 +269,9 @@ const RepEngine = (function () {
     return true;
   }
 
-  /** Clamp reputation to [-1, 1] */
+  /** Clamp reputation to [-0.91, 0.91] (game engine limit) */
   function clampRep(v) {
-    return Math.max(-1, Math.min(1, v));
+    return Math.max(-0.91, Math.min(0.91, v));
   }
 
   /**

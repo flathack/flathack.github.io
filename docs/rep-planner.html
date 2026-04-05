@@ -94,8 +94,6 @@
       margin-bottom: 22px;
     }
     .rp-table-wrap {
-      max-height: 560px;
-      overflow: auto;
       border-radius: 14px;
       border: 1px solid var(--panel-border);
     }
@@ -125,8 +123,11 @@
     }
     .rp-table tbody tr:nth-child(even) { background: rgba(4,14,23,.35); }
     .rp-table tbody tr:hover { background: rgba(88,196,255,.06); }
-    .rp-table tbody tr.rp-locked { opacity: .45; }
-    .rp-table tbody tr.rp-locked td { pointer-events: none; }
+    .rp-no-empathy {
+      font-size: .72rem;
+      color: var(--accent-warm);
+      opacity: .8;
+    }
 
     /* ── Rep value input ─────────────────────────────── */
     .rp-rep-input {
@@ -372,6 +373,113 @@
     }
     .rp-section-head h2 { margin: 0; font-size: 1.15rem; }
 
+    /* ── Mode tabs ─────────────────────────────────────── */
+    .rp-mode-tabs {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 22px;
+      border-bottom: 1px solid var(--panel-border);
+      padding-bottom: 0;
+    }
+    .rp-mode-tab {
+      padding: 10px 22px;
+      border: 1px solid var(--panel-border);
+      border-bottom: none;
+      border-radius: 10px 10px 0 0;
+      background: rgba(7,16,29,.72);
+      color: var(--muted);
+      font-family: inherit;
+      font-weight: 600;
+      font-size: .92rem;
+      cursor: pointer;
+      transition: 160ms ease;
+      position: relative;
+      bottom: -1px;
+    }
+    .rp-mode-tab:hover { color: var(--text); }
+    .rp-mode-tab.active {
+      color: var(--text);
+      background: rgba(8,25,36,.94);
+      border-color: var(--panel-border);
+      border-bottom-color: rgba(8,25,36,.94);
+    }
+    .rp-mode-panel { display: none; }
+    .rp-mode-panel.active { display: block; }
+
+    /* ── Manual Simulator ─────────────────────────────── */
+    .rp-sim-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+    .rp-sim-btn {
+      padding: 5px 14px;
+      border: 1px solid var(--panel-border);
+      border-radius: 8px;
+      background: rgba(7,16,29,.72);
+      color: var(--muted);
+      font-family: inherit;
+      font-weight: 600;
+      font-size: .82rem;
+      cursor: pointer;
+      transition: 160ms ease;
+    }
+    .rp-sim-btn:hover { color: var(--text); background: rgba(88,196,255,.08); }
+    .rp-sim-btn:disabled { opacity: .35; cursor: not-allowed; }
+    .rp-sim-btn.danger { border-color: rgba(239,68,68,.3); color: #ef4444; }
+    .rp-sim-btn.danger:hover { background: rgba(239,68,68,.1); }
+
+    .rp-kill-btn {
+      padding: 3px 10px;
+      border: 1px solid rgba(239,68,68,.3);
+      border-radius: 6px;
+      background: rgba(239,68,68,.08);
+      color: #ef4444;
+      font-family: inherit;
+      font-weight: 600;
+      font-size: .78rem;
+      cursor: pointer;
+      transition: 120ms ease;
+      white-space: nowrap;
+    }
+    .rp-kill-btn:hover { background: rgba(239,68,68,.2); }
+    .rp-kill-btn:disabled { opacity: .25; cursor: not-allowed; }
+
+    .rp-sim-delta {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: .75rem;
+      font-weight: 600;
+      min-width: 48px;
+      text-align: right;
+      transition: color 300ms;
+    }
+    .rp-sim-delta.pos { color: #34d399; }
+    .rp-sim-delta.neg { color: #ef4444; }
+    .rp-sim-delta.zero { color: var(--muted); opacity: .4; }
+
+    .rp-sim-flash { animation: sim-flash 600ms ease; }
+    @keyframes sim-flash {
+      0%   { background: rgba(88,196,255,.18); }
+      100% { background: transparent; }
+    }
+
+    .rp-kill-log {
+      margin-top: 14px;
+      padding: 16px 22px;
+      border: 1px solid var(--panel-border);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(180deg, rgba(8,25,36,.94), rgba(4,14,23,.94));
+    }
+    .rp-kill-log h3 { margin-bottom: 8px; font-size: 1rem; }
+    .rp-kill-log-count {
+      font-size: .85rem;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .rp-kill-log-count strong { color: var(--accent-strong); }
+
     /* ── Responsive ────────────────────────────────────── */
     @media (max-width: 768px) {
       .rp-comp-name { width: 120px; font-size: .75rem; }
@@ -394,39 +502,15 @@
       <section class="rp-intro">
         <p class="eyebrow">Reputation Planner</p>
         <h1>Rep Planner</h1>
-        <p>Gib deinen aktuellen Ruf ein, wähle dein Ziel-Profil und berechne die optimale Abschuss-Reihenfolge. Gesperrte Fraktionen (ohne NPC-Schiffe oder ohne Empathie-Einfluss) werden automatisch markiert.</p>
+        <p>Gib deinen aktuellen Ruf ein und simuliere Abschüsse manuell — oder nutze den Auto-Planner für eine optimale Abschuss-Reihenfolge. Gesperrte Fraktionen werden automatisch markiert.</p>
       </section>
-
-      <!-- ── Controls ── -->
-      <div class="rp-controls" id="rp-controls">
-        <div class="rp-field">
-          <label>Toleranz</label>
-          <input type="number" id="rp-tolerance" value="0.05" min="0.01" max="0.3" step="0.01">
-        </div>
-        <div class="rp-field">
-          <label>Max. Abschüsse</label>
-          <input type="number" id="rp-max-steps" value="3000" min="100" max="20000" step="100">
-        </div>
-        <button class="rp-run-btn" id="rp-run">▶ Berechnen</button>
-      </div>
-
-      <!-- ── Presets ── -->
-      <div class="rp-section-head">
-        <h2>Ziel-Profil</h2>
-      </div>
-      <div class="rp-presets" id="rp-presets">
-        <button class="rp-preset-btn" data-preset="default">Standard-Start</button>
-        <button class="rp-preset-btn" data-preset="neutral">Alles Neutral</button>
-        <button class="rp-preset-btn" data-preset="lawful">Lawful Hero</button>
-        <button class="rp-preset-btn" data-preset="pirate">Pirat</button>
-        <button class="rp-preset-btn" data-preset="zero">Alles 0</button>
-      </div>
 
       <!-- ── Start Rep ── -->
       <div class="rp-section-head">
         <h2>Start-Reputation</h2>
         <div style="display:flex;gap:8px;align-items:center;">
-          <button class="rp-preset-btn" id="rp-start-default">Standard-Start laden</button>
+          <button class="rp-preset-btn" data-start-preset="liberty">Multiplayer-Start</button>
+          <button class="rp-preset-btn" data-start-preset="neutral">Alles Neutral</button>
           <input class="rp-search" id="rp-search-start" placeholder="Fraktion suchen…" style="width:200px;margin:0;">
         </div>
       </div>
@@ -445,6 +529,86 @@
             <tbody id="rp-start-body"></tbody>
           </table>
         </div>
+      </div>
+
+      <!-- ── Mode Tabs ── -->
+      <div class="rp-mode-tabs">
+        <button class="rp-mode-tab active" data-mode="manual">Manueller Simulator</button>
+        <button class="rp-mode-tab" data-mode="auto">Auto-Planner</button>
+      </div>
+
+      <!-- ══════ MANUAL SIMULATOR ══════ -->
+      <div class="rp-mode-panel active" id="rp-panel-manual">
+        <div class="rp-section-head">
+          <h2>Simulation</h2>
+          <div class="rp-sim-controls">
+            <input class="rp-search" id="rp-search-sim" placeholder="Fraktion suchen…" style="width:200px;margin:0;">
+            <button class="rp-sim-btn" id="rp-sim-undo" disabled>↩ Rückgängig</button>
+            <button class="rp-sim-btn danger" id="rp-sim-reset">⟲ Alles zurücksetzen</button>
+          </div>
+        </div>
+        <div class="rp-table-section">
+          <div class="rp-table-wrap">
+            <table class="rp-table" id="rp-sim-table">
+              <thead>
+                <tr>
+                  <th>Fraktion</th>
+                  <th>Legalität</th>
+                  <th>Aktueller Ruf</th>
+                  <th>Wert</th>
+                  <th>Status</th>
+                  <th>Letztes Δ</th>
+                  <th>Aktion</th>
+                </tr>
+              </thead>
+              <tbody id="rp-sim-body"></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="rp-kill-log" id="rp-kill-log" style="display:none;">
+          <h3>Abschuss-Protokoll</h3>
+          <div class="rp-kill-log-count" id="rp-kill-log-count"></div>
+          <div class="rp-step-table-wrap">
+            <table class="rp-step-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Fraktion</th>
+                  <th>Anzahl</th>
+                </tr>
+              </thead>
+              <tbody id="rp-kill-log-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════ AUTO PLANNER ══════ -->
+      <div class="rp-mode-panel" id="rp-panel-auto">
+
+      <!-- ── Presets ── -->
+      <div class="rp-section-head">
+        <h2>Ziel-Profil</h2>
+      </div>
+      <div class="rp-presets" id="rp-presets">
+        <button class="rp-preset-btn" data-preset="default">Standard-Start</button>
+        <button class="rp-preset-btn" data-preset="neutral">Alles Neutral</button>
+        <button class="rp-preset-btn" data-preset="lawful">Lawful Hero</button>
+        <button class="rp-preset-btn" data-preset="pirate">Pirat</button>
+        <button class="rp-preset-btn" data-preset="zero">Alles 0</button>
+      </div>
+
+      <!-- ── Controls ── -->
+      <div class="rp-controls" id="rp-controls">
+        <div class="rp-field">
+          <label>Toleranz</label>
+          <input type="number" id="rp-tolerance" value="0.05" min="0.01" max="0.3" step="0.01">
+        </div>
+        <div class="rp-field">
+          <label>Max. Abschüsse</label>
+          <input type="number" id="rp-max-steps" value="3000" min="100" max="20000" step="100">
+        </div>
+        <button class="rp-run-btn" id="rp-run">▶ Berechnen</button>
       </div>
 
       <!-- ── Target Rep ── -->
@@ -502,6 +666,8 @@
         </div>
       </div>
 
+      </div><!-- /rp-panel-auto -->
+
       <footer class="page-footer">
         &copy; 2026 Steven Schödel — Flathack Projects
       </footer>
@@ -528,7 +694,7 @@
     var maxStepsInput = document.getElementById("rp-max-steps");
     var searchStart   = document.getElementById("rp-search-start");
     var searchTarget  = document.getElementById("rp-search-target");
-    var startDefault  = document.getElementById("rp-start-default");
+    var startPresets  = document.querySelectorAll("[data-start-preset]");
 
     /* ── State ── */
     var startReps  = {};
@@ -556,17 +722,18 @@
       var factions = RepEngine.getFactions();
       var defaults = RepEngine.getDefaultReps();
 
-      // Init reps with defaults
+      // Init reps with neutral (0)
       startReps = {};
       targetReps = {};
       factions.forEach(function (f) {
-        startReps[f.nick] = f.defaultRep;
-        targetReps[f.nick] = f.defaultRep;
+        startReps[f.nick] = 0;
+        targetReps[f.nick] = 0;
       });
 
       renderStartTable(factions);
       renderTargetTable(factions);
       resultsEl.className = "rp-results";
+      if (typeof initSim === "function") initSim();
     }
 
     /* ── Render Start Table ── */
@@ -574,17 +741,17 @@
       var html = "";
       factions.forEach(function (f) {
         if (filter && f.name.toLowerCase().indexOf(filter) === -1 && f.nick.toLowerCase().indexOf(filter) === -1) return;
-        var locked = !f.changeable;
         var val = startReps[f.nick] !== undefined ? startReps[f.nick] : 0;
         var cls = RepEngine.repClass(val);
         var label = RepEngine.repLabel(val);
-        html += '<tr class="' + (locked ? "rp-locked" : "") + '">' +
-          '<td>' + esc(f.name) + '</td>' +
+        var info = !f.changeable ? ' <span class="rp-no-empathy" title="Keine Empathie-Verbindung zu anderen Fraktionen">⚠ isoliert</span>' : '';
+        html += '<tr>' +
+          '<td>' + esc(f.name) + info + '</td>' +
           '<td>' + legalityBadge(f.legality) + '</td>' +
-          '<td><input type="range" class="rp-rep-slider" min="-1" max="1" step="0.01" value="' + val + '"' +
-            ' data-nick="' + f.nick + '" data-table="start"' + (locked ? " disabled" : "") + '></td>' +
-          '<td><input type="number" class="rp-rep-input" min="-1" max="1" step="0.01" value="' + val.toFixed(2) + '"' +
-            ' data-nick="' + f.nick + '" data-table="start"' + (locked ? " disabled" : "") + '></td>' +
+          '<td><input type="range" class="rp-rep-slider" min="-0.91" max="0.91" step="0.01" value="' + val + '"' +
+            ' data-nick="' + f.nick + '" data-table="start"></td>' +
+          '<td><input type="number" class="rp-rep-input" min="-0.91" max="0.91" step="0.01" value="' + val.toFixed(2) + '"' +
+            ' data-nick="' + f.nick + '" data-table="start"></td>' +
           '<td><span class="rp-rep-badge ' + cls + '">' + label + '</span></td>' +
           '</tr>';
       });
@@ -597,17 +764,17 @@
       var html = "";
       factions.forEach(function (f) {
         if (filter && f.name.toLowerCase().indexOf(filter) === -1 && f.nick.toLowerCase().indexOf(filter) === -1) return;
-        var locked = !f.changeable;
         var val = targetReps[f.nick] !== undefined ? targetReps[f.nick] : 0;
         var cls = RepEngine.repClass(val);
         var label = RepEngine.repLabel(val);
-        html += '<tr class="' + (locked ? "rp-locked" : "") + '">' +
-          '<td>' + esc(f.name) + '</td>' +
+        var info = !f.changeable ? ' <span class="rp-no-empathy" title="Keine Empathie-Verbindung zu anderen Fraktionen">⚠ isoliert</span>' : '';
+        html += '<tr>' +
+          '<td>' + esc(f.name) + info + '</td>' +
           '<td>' + legalityBadge(f.legality) + '</td>' +
-          '<td><input type="range" class="rp-rep-slider" min="-1" max="1" step="0.01" value="' + val + '"' +
-            ' data-nick="' + f.nick + '" data-table="target"' + (locked ? " disabled" : "") + '></td>' +
-          '<td><input type="number" class="rp-rep-input" min="-1" max="1" step="0.01" value="' + val.toFixed(2) + '"' +
-            ' data-nick="' + f.nick + '" data-table="target"' + (locked ? " disabled" : "") + '></td>' +
+          '<td><input type="range" class="rp-rep-slider" min="-0.91" max="0.91" step="0.01" value="' + val + '"' +
+            ' data-nick="' + f.nick + '" data-table="target"></td>' +
+          '<td><input type="number" class="rp-rep-input" min="-0.91" max="0.91" step="0.01" value="' + val.toFixed(2) + '"' +
+            ' data-nick="' + f.nick + '" data-table="target"></td>' +
           '<td><span class="rp-rep-badge ' + cls + '">' + label + '</span></td>' +
           '</tr>';
       });
@@ -644,7 +811,7 @@
           var nick = this.dataset.nick;
           var val = parseFloat(this.value);
           if (isNaN(val)) val = 0;
-          val = Math.max(-1, Math.min(1, val));
+          val = Math.max(-0.91, Math.min(0.91, val));
           this.value = val.toFixed(2);
           reps[nick] = val;
           // Sync the slider in the same row
@@ -698,13 +865,29 @@
       applyPreset(btn.dataset.preset);
     });
 
-    /* ── Load default start reps ── */
-    startDefault.addEventListener("click", function () {
+    /* ── Start-Rep Presets ── */
+    function applyStartPreset(preset) {
       var factions = RepEngine.getFactions();
       factions.forEach(function (f) {
-        startReps[f.nick] = f.defaultRep;
+        switch (preset) {
+          case "liberty":
+            startReps[f.nick] = f.defaultRep;
+            break;
+          case "neutral":
+            if (!f.changeable) return;
+            startReps[f.nick] = 0;
+            break;
+        }
       });
       renderStartTable(factions, searchStart.value.toLowerCase().trim());
+    }
+
+    startPresets.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        startPresets.forEach(function (b) { b.classList.remove("active"); });
+        btn.classList.add("active");
+        applyStartPreset(btn.dataset.startPreset);
+      });
     });
 
     /* ── Search filters ── */
@@ -863,6 +1046,170 @@
     /* ── Hash change (mod switch) ── */
     window.addEventListener("hashchange", init);
     init();
+
+    /* ══════════════════════════════════════════════════════
+       MANUAL SIMULATOR
+       ══════════════════════════════════════════════════════ */
+
+    var simBody      = document.getElementById("rp-sim-body");
+    var simUndo      = document.getElementById("rp-sim-undo");
+    var simReset     = document.getElementById("rp-sim-reset");
+    var simSearch    = document.getElementById("rp-search-sim");
+    var killLogEl    = document.getElementById("rp-kill-log");
+    var killLogCount = document.getElementById("rp-kill-log-count");
+    var killLogBody  = document.getElementById("rp-kill-log-body");
+
+    /* State */
+    var simReps = {};           // current simulated reps
+    var simHistory = [];        // array of { nick, repsBefore } for undo
+    var simLastDeltas = {};     // nick → last delta (for the Δ column)
+
+    function initSim() {
+      // Clone startReps as base
+      simReps = {};
+      for (var k in startReps) {
+        if (startReps.hasOwnProperty(k)) simReps[k] = startReps[k];
+      }
+      simHistory = [];
+      simLastDeltas = {};
+      renderSimTable();
+      renderKillLog();
+      simUndo.disabled = true;
+    }
+
+    function renderSimTable(filter) {
+      var factions = RepEngine.getFactions();
+      var html = "";
+      factions.forEach(function (f) {
+        if (filter && f.name.toLowerCase().indexOf(filter) === -1 && f.nick.toLowerCase().indexOf(filter) === -1) return;
+        var val = simReps[f.nick] !== undefined ? simReps[f.nick] : 0;
+        var cls = RepEngine.repClass(val);
+        var label = RepEngine.repLabel(val);
+        var shootable = f.shootable;
+        var delta = simLastDeltas[f.nick] || 0;
+        var deltaStr = delta === 0 ? "—" : (delta > 0 ? "+" : "") + delta.toFixed(3);
+        var deltaCls = delta > 0.0001 ? "pos" : (delta < -0.0001 ? "neg" : "zero");
+        var flashCls = (Math.abs(delta) > 0.0001) ? " rp-sim-flash" : "";
+
+        var info = !f.changeable ? ' <span class="rp-no-empathy" title="Keine Empathie-Verbindung zu anderen Fraktionen">⚠ isoliert</span>' : '';
+        html += '<tr class="' + flashCls.trim() + '">' +
+          '<td>' + esc(f.name) + info + '</td>' +
+          '<td>' + legalityBadge(f.legality) + '</td>' +
+          '<td><div class="rp-comp-track" style="height:10px;width:120px;display:inline-block;vertical-align:middle;">' +
+            '<div class="rp-comp-fill final-fill" style="border-radius:999px;background:' + repToColor(val) + ';' + getBarStyle(val) + '"></div>' +
+          '</div></td>' +
+          '<td><span style="font-family:IBM Plex Mono,monospace;font-size:.85rem;">' + val.toFixed(2) + '</span></td>' +
+          '<td><span class="rp-rep-badge ' + cls + '">' + label + '</span></td>' +
+          '<td><span class="rp-sim-delta ' + deltaCls + '">' + deltaStr + '</span></td>' +
+          '<td>' + (shootable
+            ? '<button class="rp-kill-btn" data-kill="' + f.nick + '">☠ Abschuss</button>'
+            : '') + '</td>' +
+          '</tr>';
+      });
+      simBody.innerHTML = html || '<tr><td colspan="7">Keine Fraktionen gefunden.</td></tr>';
+
+      // Bind kill buttons
+      simBody.querySelectorAll(".rp-kill-btn").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          doSimKill(this.dataset.kill);
+        });
+      });
+    }
+
+    function doSimKill(nick) {
+      // Save state for undo (only reps snapshot)
+      var repsBefore = {};
+      for (var k in simReps) {
+        if (simReps.hasOwnProperty(k)) repsBefore[k] = simReps[k];
+      }
+      simHistory.push({ nick: nick, repsBefore: repsBefore });
+      simUndo.disabled = false;
+
+      // Execute kill — simulateKill mutates simReps and returns deltas
+      var deltas = RepEngine.simulateKill(simReps, nick);
+      simLastDeltas = deltas;
+
+      renderSimTable(simSearch.value.toLowerCase().trim());
+      renderKillLog();
+    }
+
+    function undoLastKill() {
+      if (simHistory.length === 0) return;
+      var last = simHistory.pop();
+
+      // Compute deltas for visual feedback (reverse: what changed going back)
+      var deltas = {};
+      for (var k in simReps) {
+        if (simReps.hasOwnProperty(k)) {
+          var diff = (last.repsBefore[k] || 0) - simReps[k];
+          if (Math.abs(diff) > 0.0001) deltas[k] = diff;
+        }
+      }
+
+      simReps = last.repsBefore;
+      simLastDeltas = deltas;
+      simUndo.disabled = simHistory.length === 0;
+      renderSimTable(simSearch.value.toLowerCase().trim());
+      renderKillLog();
+    }
+
+    function renderKillLog() {
+      if (simHistory.length === 0) {
+        killLogEl.style.display = "none";
+        return;
+      }
+      killLogEl.style.display = "";
+
+      // Merge consecutive same-faction kills
+      var merged = [];
+      simHistory.forEach(function (h) {
+        var last = merged.length > 0 ? merged[merged.length - 1] : null;
+        if (last && last.nick === h.nick) {
+          last.count++;
+        } else {
+          var f = RepEngine.getFaction(h.nick);
+          merged.push({ nick: h.nick, name: f ? f.name : h.nick, count: 1 });
+        }
+      });
+
+      var totalKills = simHistory.length;
+      killLogCount.innerHTML = 'Abschüsse gesamt: <strong>' + totalKills + '</strong>';
+
+      var html = "";
+      merged.forEach(function (m, i) {
+        html += '<tr>' +
+          '<td class="td-num">' + (i + 1) + '</td>' +
+          '<td>' + esc(m.name) + '</td>' +
+          '<td class="td-num">' + m.count + '×</td>' +
+          '</tr>';
+      });
+      killLogBody.innerHTML = html;
+    }
+
+    simUndo.addEventListener("click", undoLastKill);
+
+    simReset.addEventListener("click", function () {
+      initSim();
+    });
+
+    simSearch.addEventListener("input", function () {
+      renderSimTable(this.value.toLowerCase().trim());
+    });
+
+    /* ── Mode tab switching ── */
+    var modeTabs = document.querySelectorAll(".rp-mode-tab");
+    modeTabs.forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        modeTabs.forEach(function (t) { t.classList.remove("active"); });
+        tab.classList.add("active");
+        var mode = tab.dataset.mode;
+        document.getElementById("rp-panel-manual").className = "rp-mode-panel" + (mode === "manual" ? " active" : "");
+        document.getElementById("rp-panel-auto").className = "rp-mode-panel" + (mode === "auto" ? " active" : "");
+        if (mode === "manual") initSim();
+      });
+    });
+
+    /* Init sim when data loads — hook into the existing init */
   })();
   </script>
 </body>
