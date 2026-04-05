@@ -53,7 +53,7 @@
           find_me: 'You can find me here:',
         }
       };
-      var lang = (function() { try { return sessionStorage.getItem('flathack-lang') || 'de'; } catch(e) { return 'de'; } })();
+      var lang = (function() { try { return sessionStorage.getItem('flathack-lang') || 'en'; } catch(e) { return 'en'; } })();
       function t(key) { return (I18N[lang] || I18N.de)[key] || key; }
       function applyLang() {
         document.querySelectorAll('[data-i18n]').forEach(function(el) { el.textContent = t(el.dataset.i18n); });

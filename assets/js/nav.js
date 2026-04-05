@@ -54,7 +54,7 @@
   // ── Global language toggle ──
   var storedLang = null;
   try { storedLang = sessionStorage.getItem("flathack-lang"); } catch(e) {}
-  var currentLang = storedLang || "de";
+  var currentLang = storedLang || "en";
 
   var langToggle = document.createElement("div");
   langToggle.className = "nav-lang-toggle";

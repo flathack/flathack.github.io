@@ -342,7 +342,7 @@
       }
     };
 
-    var lang = (function() { try { return sessionStorage.getItem('flathack-lang') || 'de'; } catch(e) { return 'de'; } })();
+    var lang = (function() { try { return sessionStorage.getItem('flathack-lang') || 'en'; } catch(e) { return 'en'; } })();
     function t(key) { return (I18N[lang] || I18N.de)[key] || key; }
     function typeLabel(type) { return (TYPE_LABELS_I18N[lang] || TYPE_LABELS_I18N.de)[type] || type; }
 

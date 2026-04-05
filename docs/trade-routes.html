@@ -448,7 +448,7 @@
       'Rum': 'Rum', 'Vodka': 'Wodka', 'Whiskey': 'Whiskey', 'Supply': 'Nachschub',
     };
 
-    let lang = (function() { try { return sessionStorage.getItem('flathack-lang') || 'de'; } catch(e) { return 'de'; } })();
+    let lang = (function() { try { return sessionStorage.getItem('flathack-lang') || 'en'; } catch(e) { return 'en'; } })();
     function t(key) { return (I18N[lang] || I18N.de)[key] || key; }
     function tCommodity(name) { return lang === 'de' ? (COMMODITY_DE[name] || name) : name; }
 

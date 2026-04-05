@@ -27,7 +27,7 @@ const newsItems = [
 ];
 
 function formatDate(isoDate) {
-  const lang = (function() { try { return sessionStorage.getItem('flathack-lang') || 'de'; } catch(e) { return 'de'; } })();
+  const lang = (function() { try { return sessionStorage.getItem('flathack-lang') || 'en'; } catch(e) { return 'en'; } })();
   const locale = lang === 'en' ? 'en-GB' : 'de-DE';
   const date = new Date(`${isoDate}T00:00:00`);
   return new Intl.DateTimeFormat(locale, {
@@ -44,7 +44,7 @@ function renderNews() {
     return;
   }
 
-  const lang = (function() { try { return sessionStorage.getItem('flathack-lang') || 'de'; } catch(e) { return 'de'; } })();
+  const lang = (function() { try { return sessionStorage.getItem('flathack-lang') || 'en'; } catch(e) { return 'en'; } })();
 
   const sortedNews = [...newsItems].sort((a, b) => {
     return new Date(b.date).getTime() - new Date(a.date).getTime();

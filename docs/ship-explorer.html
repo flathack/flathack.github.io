@@ -294,7 +294,7 @@
       }
     };
 
-    let lang = (function() { try { return sessionStorage.getItem('flathack-lang') || 'de'; } catch(e) { return 'de'; } })();
+    let lang = (function() { try { return sessionStorage.getItem('flathack-lang') || 'en'; } catch(e) { return 'en'; } })();
     function t(key) { return (I18N[lang] || I18N.de)[key] || key; }
     function tShip(s) { return (lang === 'en' && s.nameEn) ? s.nameEn : s.name; }
     function tBase(nick, fallback) { if (lang === 'en' && data && data.bases && data.bases[nick] && data.bases[nick].nameEn) return data.bases[nick].nameEn; return fallback; }
