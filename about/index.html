@@ -23,13 +23,13 @@
     <main>
       <section class="page-hero">
         <div class="page-hero-copy">
-          <p class="eyebrow">About the author</p>
+          <p class="eyebrow" data-i18n="eyebrow">About the author</p>
           <h1>Steven Schödel</h1>
-          <p class="page-intro">This site is where I present my projects. I build them in my spare time alongside my regular work.</p>
+          <p class="page-intro" data-i18n="intro">This site is where I present my projects. I build them in my spare time alongside my regular work.</p>
         </div>
         <aside class="panel-card">
-          <p class="panel-label">Profile</p>
-          <p>You can find me here:</p>
+          <p class="panel-label" data-i18n="profile">Profile</p>
+          <p data-i18n="find_me">You can find me here:</p>
           <div class="section-actions">
             <a class="button button-repo" href="https://www.xing.com/profile/Steven_Schoedel/web_profiles?nwt_nav=profile&expandNeffi=true">Xing Profile</a>
           </div>
@@ -37,6 +37,33 @@
       </section>
     </main>
   </div>
+  <script>
+    (function() {
+      var I18N = {
+        de: {
+          eyebrow: '\u00dcber den Autor',
+          intro: 'Auf dieser Seite pr\u00e4sentiere ich meine Projekte. Ich entwickle sie in meiner Freizeit neben meiner regul\u00e4ren Arbeit.',
+          profile: 'Profil',
+          find_me: 'Hier bin ich zu finden:',
+        },
+        en: {
+          eyebrow: 'About the author',
+          intro: 'This site is where I present my projects. I build them in my spare time alongside my regular work.',
+          profile: 'Profile',
+          find_me: 'You can find me here:',
+        }
+      };
+      var lang = (function() { try { return sessionStorage.getItem('flathack-lang') || 'de'; } catch(e) { return 'de'; } })();
+      function t(key) { return (I18N[lang] || I18N.de)[key] || key; }
+      function applyLang() {
+        document.querySelectorAll('[data-i18n]').forEach(function(el) { el.textContent = t(el.dataset.i18n); });
+      }
+      window.addEventListener('lang-change', function(e) {
+        if (e.detail && e.detail.lang && e.detail.lang !== lang) { lang = e.detail.lang; applyLang(); }
+      });
+      if (lang !== 'en') applyLang();
+    })();
+  </script>
   <script src="../assets/js/nav.js"></script>
 </body>
 </html>

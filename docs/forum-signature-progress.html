@@ -321,12 +321,12 @@
     </header>
 
     <main>
-      <a class="back-link" href="../index.html">&larr; Zurück zur Startseite</a>
+      <a class="back-link" href="../index.html" data-i18n="back">&larr; Zurück zur Startseite</a>
 
       <section class="page-hero-copy" style="margin-bottom: 24px;">
-        <p class="eyebrow">Forum-Signaturen</p>
-        <h1>FL Atlas Suite — Fortschritts-Widgets</h1>
-        <p class="page-intro">Animierte und statische Signaturen für Forum-Profile. Einfach den BBCode kopieren und als Signatur einfügen.</p>
+        <p class="eyebrow" data-i18n="eyebrow">Forum-Signaturen</p>
+        <h1 data-i18n="h1">FL Atlas Suite — Fortschritts-Widgets</h1>
+        <p class="page-intro" data-i18n="intro">Animierte und statische Signaturen für Forum-Profile. Einfach den BBCode kopieren und als Signatur einfügen.</p>
       </section>
 
       <div class="sig-content" style="font-family: 'Rajdhani', sans-serif;">
@@ -458,6 +458,34 @@
       body.style.overflow  = "hidden";
       body.style.alignContent  = "start";
       body.style.justifyContent = "start";
+    })();
+  </script>
+  <script>
+    /* ── i18n ── */
+    (function() {
+      var I18N = {
+        de: {
+          back: '\u2190 Zur\u00fcck zur Startseite',
+          eyebrow: 'Forum-Signaturen',
+          h1: 'FL Atlas Suite \u2014 Fortschritts-Widgets',
+          intro: 'Animierte und statische Signaturen f\u00fcr Forum-Profile. Einfach den BBCode kopieren und als Signatur einf\u00fcgen.',
+        },
+        en: {
+          back: '\u2190 Back to Home',
+          eyebrow: 'Forum Signatures',
+          h1: 'FL Atlas Suite \u2014 Progress Widgets',
+          intro: 'Animated and static signatures for forum profiles. Just copy the BBCode and paste it as your signature.',
+        }
+      };
+      var lang = (function() { try { return sessionStorage.getItem('flathack-lang') || 'de'; } catch(e) { return 'de'; } })();
+      function t(key) { return (I18N[lang] || I18N.de)[key] || key; }
+      function applyLang() {
+        document.querySelectorAll('[data-i18n]').forEach(function(el) { el.textContent = t(el.dataset.i18n); });
+      }
+      window.addEventListener('lang-change', function(e) {
+        if (e.detail && e.detail.lang && e.detail.lang !== lang) { lang = e.detail.lang; applyLang(); }
+      });
+      if (lang !== 'de') applyLang();
     })();
   </script>
   <script src="../assets/js/nav.js"></script>

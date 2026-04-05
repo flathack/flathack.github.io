@@ -692,32 +692,32 @@
     <main>
       <!-- ── Intro ── -->
       <section class="rp-intro">
-        <p class="eyebrow">Reputation Planner</p>
-        <h1>Rep Planner</h1>
-        <p>Gib deinen aktuellen Ruf ein und simuliere Abschüsse, Missionen und Bestechungen manuell — oder nutze den Auto-Planner für eine optimale Aktions-Reihenfolge.</p>
+        <p class="eyebrow" data-i18n="eyebrow">Reputation Planner</p>
+        <h1 data-i18n="h1">Rep Planner</h1>
+        <p data-i18n="intro">Gib deinen aktuellen Ruf ein und simuliere Abschüsse, Missionen und Bestechungen manuell — oder nutze den Auto-Planner für eine optimale Aktions-Reihenfolge.</p>
       </section>
 
       <!-- ── Start Rep ── -->
       <div class="rp-section-head">
-        <h2>Start-Reputation</h2>
+        <h2 data-i18n="h_start_rep">Start-Reputation</h2>
         <div style="display:flex;gap:8px;align-items:center;">
-          <button class="rp-preset-btn" data-start-preset="liberty">Multiplayer-Start</button>
-          <button class="rp-preset-btn" data-start-preset="neutral">Alles Neutral</button>
+          <button class="rp-preset-btn" data-start-preset="liberty" data-i18n="preset_mp_start">Multiplayer-Start</button>
+          <button class="rp-preset-btn" data-start-preset="neutral" data-i18n="preset_all_neutral">Alles Neutral</button>
         </div>
       </div>
       <details class="rp-collapse" id="rp-start-details">
-        <summary>Fraktionsliste anzeigen</summary>
+        <summary data-i18n="show_factions">Fraktionsliste anzeigen</summary>
         <div class="rp-collapse-body">
           <input class="rp-search" id="rp-search-start" placeholder="Fraktion suchen…" style="margin-bottom:10px;">
           <div class="rp-table-wrap" id="rp-start-table-wrap">
             <table class="rp-table" id="rp-start-table">
               <thead>
                 <tr>
-                  <th>Fraktion</th>
-                  <th>Legalität</th>
-                  <th>Aktueller Ruf</th>
-                  <th>Wert</th>
-                  <th>Status</th>
+                  <th data-i18n="th_faction">Fraktion</th>
+                  <th data-i18n="th_legality">Legalität</th>
+                  <th data-i18n="th_current_rep">Aktueller Ruf</th>
+                  <th data-i18n="th_value">Wert</th>
+                  <th data-i18n="th_status">Status</th>
                 </tr>
               </thead>
               <tbody id="rp-start-body"></tbody>
@@ -728,41 +728,41 @@
 
       <!-- ── Action Type Toggles ── -->
       <div class="rp-action-toggles">
-        <label><input type="checkbox" id="rp-use-kills" checked> ☠ Abschüsse / Zerstörung</label>
-        <label><input type="checkbox" id="rp-use-missions" checked> 📋 Missionen <small>(ab Neutral)</small></label>
-        <label><input type="checkbox" id="rp-use-bribes"> 💰 Bestechungen <small>(bei schlechtem Ruf, begrenzt)</small></label>
+        <label><input type="checkbox" id="rp-use-kills" checked> <span data-i18n="toggle_kills">☠ Abschüsse / Zerstörung</span></label>
+        <label><input type="checkbox" id="rp-use-missions" checked> <span data-i18n="toggle_missions">📋 Missionen</span> <small data-i18n="toggle_missions_note">(ab Neutral)</small></label>
+        <label><input type="checkbox" id="rp-use-bribes"> <span data-i18n="toggle_bribes">💰 Bestechungen</span> <small data-i18n="toggle_bribes_note">(bei schlechtem Ruf, begrenzt)</small></label>
       </div>
 
       <!-- ── Mode Tabs ── -->
       <div class="rp-mode-tabs">
-        <button class="rp-mode-tab active" data-mode="manual">Manueller Simulator</button>
-        <button class="rp-mode-tab" data-mode="auto">Auto-Planner</button>
+        <button class="rp-mode-tab active" data-mode="manual" data-i18n="tab_manual">Manueller Simulator</button>
+        <button class="rp-mode-tab" data-mode="auto" data-i18n="tab_auto">Auto-Planner</button>
       </div>
 
       <!-- ══════ MANUAL SIMULATOR ══════ -->
       <div class="rp-mode-panel active" id="rp-panel-manual">
         <div class="rp-section-head">
-          <h2>Simulation</h2>
+          <h2 data-i18n="h_simulation">Simulation</h2>
           <div class="rp-sim-controls">
-            <button class="rp-sim-btn" id="rp-sim-undo" disabled>↩ Rückgängig</button>
-            <button class="rp-sim-btn danger" id="rp-sim-reset">⟲ Alles zurücksetzen</button>
+            <button class="rp-sim-btn" id="rp-sim-undo" disabled data-i18n="btn_undo">↩ Rückgängig</button>
+            <button class="rp-sim-btn danger" id="rp-sim-reset" data-i18n="btn_reset">⟲ Alles zurücksetzen</button>
           </div>
         </div>
         <details class="rp-collapse" open id="rp-sim-details">
-          <summary>Fraktionsliste anzeigen</summary>
+          <summary data-i18n="show_factions">Fraktionsliste anzeigen</summary>
           <div class="rp-collapse-body">
             <input class="rp-search" id="rp-search-sim" placeholder="Fraktion suchen…" style="margin-bottom:10px;">
             <div class="rp-table-wrap">
               <table class="rp-table" id="rp-sim-table">
                 <thead>
                   <tr>
-                    <th>Fraktion</th>
-                    <th>Legalität</th>
-                    <th>Aktueller Ruf</th>
-                    <th>Wert</th>
-                    <th>Status</th>
-                    <th>Letztes Δ</th>
-                    <th>Aktion</th>
+                    <th data-i18n="th_faction">Fraktion</th>
+                    <th data-i18n="th_legality">Legalität</th>
+                    <th data-i18n="th_current_rep">Aktueller Ruf</th>
+                    <th data-i18n="th_value">Wert</th>
+                    <th data-i18n="th_status">Status</th>
+                    <th data-i18n="th_last_delta">Letztes Δ</th>
+                    <th data-i18n="th_action">Aktion</th>
                   </tr>
                 </thead>
                 <tbody id="rp-sim-body"></tbody>
@@ -771,16 +771,16 @@
           </div>
         </details>
         <div class="rp-kill-log" id="rp-kill-log" style="display:none;">
-          <div style="display:flex;justify-content:space-between;align-items:center;"><h3>Aktions-Protokoll</h3><button class="rp-export-btn" id="rp-export-manual">📋 Exportieren</button></div>
+          <div style="display:flex;justify-content:space-between;align-items:center;"><h3 data-i18n="h_action_log">Aktions-Protokoll</h3><button class="rp-export-btn" id="rp-export-manual" data-i18n="btn_export">📋 Exportieren</button></div>
           <div class="rp-kill-log-count" id="rp-kill-log-count"></div>
           <div class="rp-step-table-wrap">
             <table class="rp-step-table">
               <thead>
                 <tr>
                   <th>#</th>
-                  <th>Typ</th>
-                  <th>Fraktion</th>
-                  <th>Anzahl</th>
+                  <th data-i18n="th_type">Typ</th>
+                  <th data-i18n="th_faction">Fraktion</th>
+                  <th data-i18n="th_count">Anzahl</th>
                 </tr>
               </thead>
               <tbody id="rp-kill-log-body"></tbody>
@@ -794,46 +794,46 @@
 
       <!-- ── Presets ── -->
       <div class="rp-section-head">
-        <h2>Ziel-Profil</h2>
+        <h2 data-i18n="h_target_profile">Ziel-Profil</h2>
       </div>
       <div class="rp-presets" id="rp-presets">
-        <button class="rp-preset-btn" data-preset="default">Standard-Start</button>
-        <button class="rp-preset-btn" data-preset="neutral">Alles Neutral</button>
-        <button class="rp-preset-btn" data-preset="lawful">Lawful Hero</button>
-        <button class="rp-preset-btn" data-preset="pirate">Pirat</button>
-        <button class="rp-preset-btn" data-preset="zero">Alles 0</button>
+        <button class="rp-preset-btn" data-preset="default" data-i18n="preset_default">Standard-Start</button>
+        <button class="rp-preset-btn" data-preset="neutral" data-i18n="preset_all_neutral">Alles Neutral</button>
+        <button class="rp-preset-btn" data-preset="lawful" data-i18n="preset_lawful">Lawful Hero</button>
+        <button class="rp-preset-btn" data-preset="pirate" data-i18n="preset_pirate">Pirat</button>
+        <button class="rp-preset-btn" data-preset="zero" data-i18n="preset_zero">Alles 0</button>
       </div>
 
       <!-- ── Controls ── -->
       <div class="rp-controls" id="rp-controls">
         <div class="rp-field">
-          <label>Toleranz</label>
+          <label data-i18n="lbl_tolerance">Toleranz</label>
           <input type="number" id="rp-tolerance" value="0.05" min="0.01" max="0.3" step="0.01">
         </div>
         <div class="rp-field">
-          <label>Max. Abschüsse</label>
+          <label data-i18n="lbl_max_steps">Max. Abschüsse</label>
           <input type="number" id="rp-max-steps" value="3000" min="100" max="20000" step="100">
         </div>
-        <button class="rp-run-btn" id="rp-run">▶ Berechnen</button>
+        <button class="rp-run-btn" id="rp-run" data-i18n="btn_run">▶ Berechnen</button>
       </div>
 
       <!-- ── Target Rep ── -->
       <div class="rp-section-head">
-        <h2>Ziel-Reputation</h2>
+        <h2 data-i18n="h_target_rep">Ziel-Reputation</h2>
       </div>
       <details class="rp-collapse" id="rp-target-details">
-        <summary>Fraktionsliste anzeigen</summary>
+        <summary data-i18n="show_factions">Fraktionsliste anzeigen</summary>
         <div class="rp-collapse-body">
           <input class="rp-search" id="rp-search-target" placeholder="Fraktion suchen…" style="margin-bottom:10px;">
           <div class="rp-table-wrap" id="rp-target-table-wrap">
             <table class="rp-table" id="rp-target-table">
               <thead>
                 <tr>
-                  <th>Fraktion</th>
-                  <th>Legalität</th>
-                  <th>Ziel-Ruf</th>
-                  <th>Wert</th>
-                  <th>Status</th>
+                  <th data-i18n="th_faction">Fraktion</th>
+                  <th data-i18n="th_legality">Legalität</th>
+                  <th data-i18n="th_target_rep">Ziel-Ruf</th>
+                  <th data-i18n="th_value">Wert</th>
+                  <th data-i18n="th_status">Status</th>
                 </tr>
               </thead>
               <tbody id="rp-target-body"></tbody>
@@ -843,28 +843,28 @@
       </details>
 
       <!-- ── Loading ── -->
-      <div class="rp-loading" id="rp-loading">Berechne optimale Reihenfolge…</div>
+      <div class="rp-loading" id="rp-loading" data-i18n="loading">Berechne optimale Reihenfolge…</div>
 
       <!-- ── Results ── -->
       <div class="rp-results" id="rp-results">
         <div class="rp-summary" id="rp-summary">
-          <h3>Ergebnis</h3>
+          <h3 data-i18n="h_result">Ergebnis</h3>
           <div class="rp-summary-stats" id="rp-summary-stats"></div>
           <div id="rp-warnings"></div>
         </div>
 
         <div class="rp-section-head">
-          <h2>Aktions-Plan</h2>
-          <button class="rp-export-btn" id="rp-export-auto">📋 Exportieren</button>
+          <h2 data-i18n="h_action_plan">Aktions-Plan</h2>
+          <button class="rp-export-btn" id="rp-export-auto" data-i18n="btn_export">📋 Exportieren</button>
         </div>
         <div class="rp-step-table-wrap">
           <table class="rp-step-table">
             <thead>
               <tr>
                 <th>#</th>
-                <th>Typ</th>
-                <th>Fraktion</th>
-                <th>Anzahl</th>
+                <th data-i18n="th_type">Typ</th>
+                <th data-i18n="th_faction">Fraktion</th>
+                <th data-i18n="th_count">Anzahl</th>
               </tr>
             </thead>
             <tbody id="rp-steps-body"></tbody>
@@ -872,7 +872,7 @@
         </div>
 
         <div class="rp-comparison" id="rp-comparison">
-          <h3>Ruf-Vergleich (Start → Ergebnis)</h3>
+          <h3 data-i18n="h_comparison">Ruf-Vergleich (Start → Ergebnis)</h3>
           <div id="rp-comp-bars"></div>
         </div>
       </div>
@@ -898,6 +898,171 @@
   <script>
   (function () {
     "use strict";
+
+    /* ── i18n ── */
+    var I18N = {
+      de: {
+        eyebrow: 'Reputation Planner', h1: 'Rep Planner',
+        intro: 'Gib deinen aktuellen Ruf ein und simuliere Abschüsse, Missionen und Bestechungen manuell — oder nutze den Auto-Planner für eine optimale Aktions-Reihenfolge.',
+        h_start_rep: 'Start-Reputation',
+        preset_mp_start: 'Multiplayer-Start', preset_all_neutral: 'Alles Neutral',
+        preset_default: 'Standard-Start', preset_lawful: 'Lawful Hero',
+        preset_pirate: 'Pirat', preset_zero: 'Alles 0',
+        show_factions: 'Fraktionsliste anzeigen',
+        search_ph: 'Fraktion suchen…',
+        th_faction: 'Fraktion', th_legality: 'Legalität', th_current_rep: 'Aktueller Ruf',
+        th_value: 'Wert', th_status: 'Status', th_last_delta: 'Letztes Δ', th_action: 'Aktion',
+        th_target_rep: 'Ziel-Ruf', th_type: 'Typ', th_count: 'Anzahl',
+        toggle_kills: '☠ Abschüsse / Zerstörung',
+        toggle_missions: '📋 Missionen', toggle_missions_note: '(ab Neutral)',
+        toggle_bribes: '💰 Bestechungen', toggle_bribes_note: '(bei schlechtem Ruf, begrenzt)',
+        tab_manual: 'Manueller Simulator', tab_auto: 'Auto-Planner',
+        h_simulation: 'Simulation', btn_undo: '↩ Rückgängig', btn_reset: '⟲ Alles zurücksetzen',
+        h_action_log: 'Aktions-Protokoll', btn_export: '📋 Exportieren',
+        h_target_profile: 'Ziel-Profil',
+        lbl_tolerance: 'Toleranz', lbl_max_steps: 'Max. Abschüsse', btn_run: '▶ Berechnen',
+        h_target_rep: 'Ziel-Reputation', loading: 'Berechne optimale Reihenfolge…',
+        h_result: 'Ergebnis', h_action_plan: 'Aktions-Plan',
+        h_comparison: 'Ruf-Vergleich (Start → Ergebnis)',
+        no_factions: 'Keine Fraktionen gefunden.',
+        no_actions: 'Keine Aktionen nötig — Ziel bereits erreicht!',
+        err_load: 'Fehler beim Laden der Daten.',
+        err_calc: 'Fehler bei der Berechnung: ',
+        action_kill: '☠ Abschuss', action_mission: '📋 Mission', action_bribe: '💰 Bestechung',
+        btn_kill: '☠ Abschuss', btn_mission: '📋 Mission', btn_bribe_lbl: '💰 Bribe',
+        total_actions: 'Aktionen gesamt', kills_label: 'Abschüsse',
+        missions_label: 'Missionen', bribes_label: 'Bestechungen',
+        converged_yes: 'Ja ✓', converged_no: 'Nein ✗', converged_label: 'Konvergiert',
+        warn_unreachable_pre: ' Fraktion', warn_unreachable_pre_p: ' Fraktionen',
+        warn_unreachable_post: ' kann mit den gewählten Aktionstypen nicht erreicht werden und wurde vom Planer ignoriert:',
+        warn_unreachable_post_p: ' können mit den gewählten Aktionstypen nicht erreicht werden und wurden vom Planer ignoriert:',
+        warn_tip: 'Tipp: Aktiviere ',
+        warn_tip_post: ', um mehr Fraktionen erreichen zu können.',
+        warn_tip_and: ' und ',
+        warn_not_converged: 'Die Ziel-Reputation konnte nicht vollständig erreicht werden. Manche Fraktionen sind durch Empathie-Verkettungen miteinander gekoppelt — es ist nicht möglich, alle Werte gleichzeitig beliebig zu setzen. Versuche eine höhere Toleranz.',
+        warn_deviation: 'Ziel ', warn_deviation_reached: ', erreicht ', warn_deviation_diff: ' (Abweichung ',
+        no_empathy: 'Keine Empathie-Verbindung zu anderen Fraktionen',
+        isolated: '⚠ isoliert',
+        mission_at: 'Missionen bei: ', mission_accept: 'Mission annehmen',
+        mission_threshold: 'Ruf muss mindestens neutral sein (≥ ',
+        bribe_at: 'Bestechung kaufen bei: ', bribe_cost: ' (je 10.000 Cr)',
+        bribe_threshold: 'Ruf muss ≤ ', bribe_threshold_post: ' sein',
+        not_reachable: ' (nicht erreichbar)',
+        modal_friends: '👥 Freunde (positive Empathie)',
+        modal_enemies: '⚔ Feinde (negative Empathie)',
+        modal_missions: '📋 Missionen verfügbar bei',
+        modal_bribes: '💰 Bestechungen verfügbar bei',
+        modal_rep_info: '📊 Reputation Info',
+        modal_kill_effect: 'Abschuss-Effekt: ', modal_mission_effect: 'Missions-Effekt: ',
+        modal_shootable: 'Abschießbar: ', modal_changeable: 'Veränderbar: ',
+        yes: 'Ja', no: 'Nein',
+        export_no_auto: 'Kein Auto-Plan vorhanden. Bitte erst den Planer ausführen.',
+        export_no_manual: 'Keine Aktionen im manuellen Modus vorhanden.',
+        export_copied: 'In die Zwischenablage kopiert!',
+        export_fallback: 'Kopiere den Text:',
+        export_auto_header: '=== Rep-Planner: Auto-Plan ===',
+        export_manual_header: '=== Rep-Planner: Manueller Plan ===',
+        export_type_kill: 'Abschuss', export_type_mission: 'Mission', export_type_bribe: 'Bestechung',
+        export_at: ' (bei: ',
+      },
+      en: {
+        eyebrow: 'Reputation Planner', h1: 'Rep Planner',
+        intro: 'Enter your current reputation and simulate kills, missions, and bribes manually — or use the Auto-Planner for an optimal action sequence.',
+        h_start_rep: 'Start Reputation',
+        preset_mp_start: 'Multiplayer Start', preset_all_neutral: 'All Neutral',
+        preset_default: 'Default Start', preset_lawful: 'Lawful Hero',
+        preset_pirate: 'Pirate', preset_zero: 'All Zero',
+        show_factions: 'Show faction list',
+        search_ph: 'Search faction…',
+        th_faction: 'Faction', th_legality: 'Legality', th_current_rep: 'Current Rep',
+        th_value: 'Value', th_status: 'Status', th_last_delta: 'Last Δ', th_action: 'Action',
+        th_target_rep: 'Target Rep', th_type: 'Type', th_count: 'Count',
+        toggle_kills: '☠ Kills / Destruction',
+        toggle_missions: '📋 Missions', toggle_missions_note: '(from Neutral)',
+        toggle_bribes: '💰 Bribes', toggle_bribes_note: '(at bad rep, limited)',
+        tab_manual: 'Manual Simulator', tab_auto: 'Auto-Planner',
+        h_simulation: 'Simulation', btn_undo: '↩ Undo', btn_reset: '⟲ Reset all',
+        h_action_log: 'Action Log', btn_export: '📋 Export',
+        h_target_profile: 'Target Profile',
+        lbl_tolerance: 'Tolerance', lbl_max_steps: 'Max Kills', btn_run: '▶ Calculate',
+        h_target_rep: 'Target Reputation', loading: 'Calculating optimal sequence…',
+        h_result: 'Result', h_action_plan: 'Action Plan',
+        h_comparison: 'Rep Comparison (Start → Result)',
+        no_factions: 'No factions found.',
+        no_actions: 'No actions needed — target already reached!',
+        err_load: 'Error loading data.',
+        err_calc: 'Error during calculation: ',
+        action_kill: '☠ Kill', action_mission: '📋 Mission', action_bribe: '💰 Bribe',
+        btn_kill: '☠ Kill', btn_mission: '📋 Mission', btn_bribe_lbl: '💰 Bribe',
+        total_actions: 'Total actions', kills_label: 'Kills',
+        missions_label: 'Missions', bribes_label: 'Bribes',
+        converged_yes: 'Yes ✓', converged_no: 'No ✗', converged_label: 'Converged',
+        warn_unreachable_pre: ' faction', warn_unreachable_pre_p: ' factions',
+        warn_unreachable_post: ' cannot be reached with the selected action types and was ignored by the planner:',
+        warn_unreachable_post_p: ' cannot be reached with the selected action types and were ignored by the planner:',
+        warn_tip: 'Tip: Enable ',
+        warn_tip_post: ' to reach more factions.',
+        warn_tip_and: ' and ',
+        warn_not_converged: 'The target reputation could not be fully reached. Some factions are linked through empathy chains — it is not possible to set all values independently. Try a higher tolerance.',
+        warn_deviation: 'Target ', warn_deviation_reached: ', reached ', warn_deviation_diff: ' (deviation ',
+        no_empathy: 'No empathy link to other factions',
+        isolated: '⚠ isolated',
+        mission_at: 'Missions at: ', mission_accept: 'Accept mission',
+        mission_threshold: 'Rep must be at least neutral (≥ ',
+        bribe_at: 'Buy bribe at: ', bribe_cost: ' (10,000 Cr each)',
+        bribe_threshold: 'Rep must be ≤ ', bribe_threshold_post: '',
+        not_reachable: ' (unreachable)',
+        modal_friends: '👥 Friends (positive empathy)',
+        modal_enemies: '⚔ Enemies (negative empathy)',
+        modal_missions: '📋 Missions available at',
+        modal_bribes: '💰 Bribes available at',
+        modal_rep_info: '📊 Reputation Info',
+        modal_kill_effect: 'Kill effect: ', modal_mission_effect: 'Mission effect: ',
+        modal_shootable: 'Shootable: ', modal_changeable: 'Changeable: ',
+        yes: 'Yes', no: 'No',
+        export_no_auto: 'No auto plan available. Please run the planner first.',
+        export_no_manual: 'No actions in manual mode.',
+        export_copied: 'Copied to clipboard!',
+        export_fallback: 'Copy the text:',
+        export_auto_header: '=== Rep-Planner: Auto Plan ===',
+        export_manual_header: '=== Rep-Planner: Manual Plan ===',
+        export_type_kill: 'Kill', export_type_mission: 'Mission', export_type_bribe: 'Bribe',
+        export_at: ' (at: ',
+      }
+    };
+
+    var lang = (function() { try { return sessionStorage.getItem('flathack-lang') || 'de'; } catch(e) { return 'de'; } })();
+    function t(key) { return (I18N[lang] || I18N.de)[key] || key; }
+
+    function applyLang() {
+      document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        el.textContent = t(el.dataset.i18n);
+      });
+      // Placeholders
+      document.querySelectorAll('.rp-search').forEach(function(el) {
+        el.placeholder = t('search_ph');
+      });
+      // Re-render tables if data loaded
+      if (typeof RepEngine !== 'undefined' && RepEngine.getFactions) {
+        try {
+          var factions = RepEngine.getFactions();
+          if (factions && factions.length > 0) {
+            renderStartTable(factions, searchStart ? searchStart.value.toLowerCase().trim() : '');
+            renderTargetTable(factions, searchTarget ? searchTarget.value.toLowerCase().trim() : '');
+            renderSimTable(simSearch ? simSearch.value.toLowerCase().trim() : '');
+            renderKillLog();
+            if (lastAutoResult) renderResults(lastAutoResult);
+          }
+        } catch(e) {}
+      }
+    }
+
+    window.addEventListener('lang-change', function(e) {
+      if (e.detail && e.detail.lang && e.detail.lang !== lang) {
+        lang = e.detail.lang;
+        applyLang();
+      }
+    });
 
     /* ── DOM refs ── */
     var startBody     = document.getElementById("rp-start-body");
@@ -942,7 +1107,7 @@
         await RepEngine.loadData(modId);
       } catch (e) {
         console.error(e);
-        startBody.innerHTML = '<tr><td colspan="5">Fehler beim Laden der Daten.</td></tr>';
+        startBody.innerHTML = '<tr><td colspan="5">' + esc(t('err_load')) + '</td></tr>';
         return;
       }
       buildTables();
@@ -974,7 +1139,7 @@
         var val = startReps[f.nick] !== undefined ? startReps[f.nick] : 0;
         var cls = RepEngine.repClass(val);
         var label = RepEngine.repLabel(val);
-        var info = !f.changeable ? ' <span class="rp-no-empathy" title="Keine Empathie-Verbindung zu anderen Fraktionen">⚠ isoliert</span>' : '';
+        var info = !f.changeable ? ' <span class="rp-no-empathy" title="' + esc(t('no_empathy')) + '">' + t('isolated') + '</span>' : '';
         html += '<tr>' +
           '<td><span class="rp-faction-link" data-faction="' + f.nick + '">' + esc(f.name) + '</span>' + info + '</td>' +
           '<td>' + legalityBadge(f.legality) + '</td>' +
@@ -985,7 +1150,7 @@
           '<td><span class="rp-rep-badge ' + cls + '">' + label + '</span></td>' +
           '</tr>';
       });
-      startBody.innerHTML = html || '<tr><td colspan="5">Keine Fraktionen gefunden.</td></tr>';
+      startBody.innerHTML = html || '<tr><td colspan="5">' + esc(t('no_factions')) + '</td></tr>';
       bindInputs(startBody, "start");
       bindFactionLinks(startBody);
     }
@@ -998,7 +1163,7 @@
         var val = targetReps[f.nick] !== undefined ? targetReps[f.nick] : 0;
         var cls = RepEngine.repClass(val);
         var label = RepEngine.repLabel(val);
-        var info = !f.changeable ? ' <span class="rp-no-empathy" title="Keine Empathie-Verbindung zu anderen Fraktionen">⚠ isoliert</span>' : '';
+        var info = !f.changeable ? ' <span class="rp-no-empathy" title="' + esc(t('no_empathy')) + '">' + t('isolated') + '</span>' : '';
         html += '<tr>' +
           '<td><span class="rp-faction-link" data-faction="' + f.nick + '">' + esc(f.name) + '</span>' + info + '</td>' +
           '<td>' + legalityBadge(f.legality) + '</td>' +
@@ -1009,7 +1174,7 @@
           '<td><span class="rp-rep-badge ' + cls + '">' + label + '</span></td>' +
           '</tr>';
       });
-      targetBody.innerHTML = html || '<tr><td colspan="5">Keine Fraktionen gefunden.</td></tr>';
+      targetBody.innerHTML = html || '<tr><td colspan="5">' + esc(t('no_factions')) + '</td></tr>';
       bindInputs(targetBody, "target");
       bindFactionLinks(targetBody);
     }
@@ -1158,7 +1323,7 @@
           renderResults(result);
         } catch (e) {
           console.error(e);
-          warningsEl.innerHTML = '<div class="rp-warning">Fehler bei der Berechnung: ' + esc(e.message) + '</div>';
+          warningsEl.innerHTML = '<div class="rp-warning">' + esc(t('err_calc')) + esc(e.message) + '</div>';
         } finally {
           loadingEl.className = "rp-loading";
           runBtn.disabled = false;
@@ -1168,9 +1333,9 @@
 
     function actionLabel(type) {
       switch (type) {
-        case "kill": return '<span class="rp-action-badge kill">☠ Abschuss</span>';
-        case "mission": return '<span class="rp-action-badge mission">📋 Mission</span>';
-        case "bribe": return '<span class="rp-action-badge bribe">💰 Bestechung</span>';
+        case "kill": return '<span class="rp-action-badge kill">' + t('action_kill') + '</span>';
+        case "mission": return '<span class="rp-action-badge mission">' + t('action_mission') + '</span>';
+        case "bribe": return '<span class="rp-action-badge bribe">' + t('action_bribe') + '</span>';
         default: return type;
       }
     }
@@ -1183,11 +1348,11 @@
         countByType[s.type || "kill"] = (countByType[s.type || "kill"] || 0) + s.count;
       });
       var statParts = [];
-      statParts.push('Aktionen gesamt: <strong>' + (result.totalKills || 0) + '</strong>');
-      if (countByType.kill > 0) statParts.push('Abschüsse: <strong>' + countByType.kill + '</strong>');
-      if (countByType.mission > 0) statParts.push('Missionen: <strong>' + countByType.mission + '</strong>');
-      if (countByType.bribe > 0) statParts.push('Bestechungen: <strong>' + countByType.bribe + '</strong>');
-      statParts.push('Konvergiert: <strong>' + (result.converged ? "Ja ✓" : "Nein ✗") + '</strong>');
+      statParts.push(t('total_actions') + ': <strong>' + (result.totalKills || 0) + '</strong>');
+      if (countByType.kill > 0) statParts.push(t('kills_label') + ': <strong>' + countByType.kill + '</strong>');
+      if (countByType.mission > 0) statParts.push(t('missions_label') + ': <strong>' + countByType.mission + '</strong>');
+      if (countByType.bribe > 0) statParts.push(t('bribes_label') + ': <strong>' + countByType.bribe + '</strong>');
+      statParts.push(t('converged_label') + ': <strong>' + (result.converged ? t('converged_yes') : t('converged_no')) + '</strong>');
       summaryStats.innerHTML = statParts.map(function (s) { return '<span>' + s + '</span>'; }).join("");
 
       // Warnings
@@ -1205,9 +1370,9 @@
       }
       if (unreachableList.length > 0) {
         warns += '<div class="rp-warning">⛔ ' + unreachableList.length +
-          ' Fraktion' + (unreachableList.length > 1 ? 'en' : '') +
-          ' kann mit den gewählten Aktionstypen nicht erreicht werden' +
-          ' und wurde vom Planer ignoriert:<br><em>' +
+          (unreachableList.length > 1 ? t('warn_unreachable_pre_p') : t('warn_unreachable_pre')) +
+          (unreachableList.length > 1 ? t('warn_unreachable_post_p') : t('warn_unreachable_post')) +
+          '<br><em>' +
           unreachableList.map(esc).join(', ') + '</em></div>';
       }
 
@@ -1217,18 +1382,16 @@
       var useBribes = document.getElementById('rp-use-bribes').checked;
       if (!result.converged || unreachableList.length > 0) {
         var suggestions = [];
-        if (!useMissions) suggestions.push('Missionen');
-        if (!useBribes) suggestions.push('Bestechungen');
+        if (!useMissions) suggestions.push(t('missions_label'));
+        if (!useBribes) suggestions.push(t('bribes_label'));
         if (suggestions.length > 0) {
-          warns += '<div class="rp-warning">💡 Tipp: Aktiviere <strong>' +
-            suggestions.join(' und ') + '</strong>, um mehr Fraktionen erreichen zu können.</div>';
+          warns += '<div class="rp-warning">💡 ' + t('warn_tip') + '<strong>' +
+            suggestions.join(t('warn_tip_and')) + '</strong>' + t('warn_tip_post') + '</div>';
         }
       }
 
       if (!result.converged) {
-        warns += '<div class="rp-warning">Die Ziel-Reputation konnte nicht vollständig erreicht werden. ' +
-          'Manche Fraktionen sind durch Empathie-Verkettungen miteinander gekoppelt — ' +
-          'es ist nicht möglich, alle Werte gleichzeitig beliebig zu setzen. Versuche eine höhere Toleranz.</div>';
+        warns += '<div class="rp-warning">' + t('warn_not_converged') + '</div>';
       }
 
       // Factions that diverged significantly
@@ -1240,8 +1403,8 @@
         var final_ = result.finalReps[f.nick] || 0;
         var diff = Math.abs(final_ - target);
         if (diff > 0.15) {
-          warns += '<div class="rp-warning">⚠ ' + esc(f.name) + ': Ziel ' + target.toFixed(2) +
-            ', erreicht ' + final_.toFixed(2) + ' (Abweichung ' + diff.toFixed(2) + ')</div>';
+          warns += '<div class="rp-warning">⚠ ' + esc(f.name) + ': ' + t('warn_deviation') + target.toFixed(2) +
+            t('warn_deviation_reached') + final_.toFixed(2) + t('warn_deviation_diff') + diff.toFixed(2) + ')</div>';
         }
       });
       warningsEl.innerHTML = warns;
@@ -1249,7 +1412,7 @@
       // Steps table
       var stepsHtml = "";
       if (result.steps.length === 0) {
-        stepsHtml = '<tr><td colspan="4" style="text-align:center;color:var(--muted);">Keine Aktionen nötig — Ziel bereits erreicht!</td></tr>';
+        stepsHtml = '<tr><td colspan="4" style="text-align:center;color:var(--muted);">' + esc(t('no_actions')) + '</td></tr>';
       } else {
         result.steps.forEach(function (s, i) {
           var locationInfo = "";
@@ -1298,7 +1461,7 @@
         var nameLabel = esc(f.name) + (isUnreachable ? ' <small style="color:#ef4444;">⛔</small>' : '');
 
         html += '<div class="rp-comp-bar"' + (isUnreachable ? ' style="opacity:.5;"' : '') + '>' +
-          '<span class="rp-comp-name" title="' + esc(f.nick) + (isUnreachable ? ' (nicht erreichbar)' : '') + '">' + nameLabel + '</span>' +
+          '<span class="rp-comp-name" title="' + esc(f.nick) + (isUnreachable ? t('not_reachable') : '') + '">' + nameLabel + '</span>' +
           '<div class="rp-comp-track">' +
             // start fill (faded)
             '<div class="rp-comp-fill start-fill" style="left:50%;width:0;background:' + startColor + ';' +
@@ -1384,7 +1547,7 @@
         enemies.sort(function (a, b) { return a.val - b.val; });
 
         if (friends.length > 0) {
-          html += '<div class="rp-modal-section"><h3>👥 Freunde (positive Empathie)</h3><ul class="rp-modal-list">';
+          html += '<div class="rp-modal-section"><h3>' + t('modal_friends') + '</h3><ul class="rp-modal-list">';
           friends.forEach(function (e) {
             html += '<li>' + esc(e.name) + ' <span class="emp-val" style="color:#4caf50;">+' + e.val.toFixed(2) + '</span></li>';
           });
@@ -1392,7 +1555,7 @@
         }
 
         if (enemies.length > 0) {
-          html += '<div class="rp-modal-section"><h3>⚔ Feinde (negative Empathie)</h3><ul class="rp-modal-list">';
+          html += '<div class="rp-modal-section"><h3>' + t('modal_enemies') + '</h3><ul class="rp-modal-list">';
           enemies.forEach(function (e) {
             html += '<li>' + esc(e.name) + ' <span class="emp-val" style="color:#f44336;">' + e.val.toFixed(2) + '</span></li>';
           });
@@ -1402,7 +1565,7 @@
 
       // Mission bases
       if (f.missionBases && f.missionBases.length > 0) {
-        html += '<div class="rp-modal-section"><h3>📋 Missionen verfügbar bei</h3><ul class="rp-modal-list">';
+        html += '<div class="rp-modal-section"><h3>' + t('modal_missions') + '</h3><ul class="rp-modal-list">';
         f.missionBases.forEach(function (b) {
           html += '<li>' + esc(b) + '</li>';
         });
@@ -1411,7 +1574,7 @@
 
       // Bribe locations
       if (f.bribes && f.bribes.length > 0) {
-        html += '<div class="rp-modal-section"><h3>💰 Bestechungen verfügbar bei</h3><ul class="rp-modal-list">';
+        html += '<div class="rp-modal-section"><h3>' + t('modal_bribes') + '</h3><ul class="rp-modal-list">';
         f.bribes.forEach(function (b) {
           html += '<li>' + esc(b) + '</li>';
         });
@@ -1419,11 +1582,11 @@
       }
 
       // Rep info
-      html += '<div class="rp-modal-section"><h3>📊 Reputation Info</h3><ul class="rp-modal-list">';
-      if (f.objectDestruction) html += '<li>Abschuss-Effekt: ' + f.objectDestruction.toFixed(4) + '</li>';
-      if (f.missionSuccess) html += '<li>Missions-Effekt: ' + f.missionSuccess.toFixed(4) + '</li>';
-      html += '<li>Abschießbar: ' + (f.shootable ? 'Ja' : 'Nein') + '</li>';
-      html += '<li>Veränderbar: ' + (f.changeable ? 'Ja' : 'Nein') + '</li>';
+      html += '<div class="rp-modal-section"><h3>' + t('modal_rep_info') + '</h3><ul class="rp-modal-list">';
+      if (f.objectDestruction) html += '<li>' + t('modal_kill_effect') + f.objectDestruction.toFixed(4) + '</li>';
+      if (f.missionSuccess) html += '<li>' + t('modal_mission_effect') + f.missionSuccess.toFixed(4) + '</li>';
+      html += '<li>' + t('modal_shootable') + (f.shootable ? t('yes') : t('no')) + '</li>';
+      html += '<li>' + t('modal_changeable') + (f.changeable ? t('yes') : t('no')) + '</li>';
       html += '</ul></div>';
 
       modalContent.innerHTML = html;
@@ -1457,29 +1620,29 @@
 
     function exportAutoResult() {
       if (!lastAutoResult || !lastAutoResult.steps || lastAutoResult.steps.length === 0) {
-        alert("Kein Auto-Plan vorhanden. Bitte erst den Planer ausführen.");
+        alert(t('export_no_auto'));
         return;
       }
-      var lines = ["=== Rep-Planner: Auto-Plan ===", ""];
+      var lines = [t('export_auto_header'), ""];
       lastAutoResult.steps.forEach(function (s, i) {
-        var typeLabel = s.type === "kill" ? "Abschuss" : (s.type === "mission" ? "Mission" : "Bestechung");
+        var typeLabel = s.type === "kill" ? t('export_type_kill') : (s.type === "mission" ? t('export_type_mission') : t('export_type_bribe'));
         var line = (i + 1) + ". " + typeLabel + ": " + s.name + " " + s.count + "×";
         var f = RepEngine.getFaction(s.nick);
         if (s.type === "mission" && f && f.missionBases && f.missionBases.length > 0) {
-          line += " (bei: " + f.missionBases.slice(0, 3).join(", ") + ")";
+          line += t('export_at') + f.missionBases.slice(0, 3).join(", ") + ")";
         } else if (s.type === "bribe" && f && f.bribes && f.bribes.length > 0) {
-          line += " (bei: " + f.bribes.slice(0, 3).join(", ") + ")";
+          line += t('export_at') + f.bribes.slice(0, 3).join(", ") + ")";
         }
         lines.push(line);
       });
       lines.push("");
-      lines.push("Aktionen gesamt: " + (lastAutoResult.totalKills || 0));
+      lines.push(t('total_actions') + ": " + (lastAutoResult.totalKills || 0));
       copyToClipboard(lines.join("\n"));
     }
 
     function exportManualLog() {
       if (simHistory.length === 0) {
-        alert("Keine Aktionen im manuellen Modus vorhanden.");
+        alert(t('export_no_manual'));
         return;
       }
       // Merge consecutive same-type same-faction actions
@@ -1494,22 +1657,21 @@
         }
       });
 
-      var lines = ["=== Rep-Planner: Manueller Plan ===", ""];
+      var lines = [t('export_manual_header'), ""];
       merged.forEach(function (m, i) {
-        var typeLabel = m.type === "kill" ? "Abschuss" : (m.type === "mission" ? "Mission" : "Bestechung");
+        var typeLabel = m.type === "kill" ? t('export_type_kill') : (m.type === "mission" ? t('export_type_mission') : t('export_type_bribe'));
         lines.push((i + 1) + ". " + typeLabel + ": " + m.name + " " + m.count + "×");
       });
       lines.push("");
-      lines.push("Aktionen gesamt: " + simHistory.length);
+      lines.push(t('total_actions') + ": " + simHistory.length);
       copyToClipboard(lines.join("\n"));
     }
 
     function copyToClipboard(text) {
       navigator.clipboard.writeText(text).then(function () {
-        alert("In die Zwischenablage kopiert!");
+        alert(t('export_copied'));
       }, function () {
-        // Fallback: prompt
-        prompt("Kopiere den Text:", text);
+        prompt(t('export_fallback'), text);
       });
     }
 
@@ -1562,28 +1724,28 @@
         var deltaCls = delta > 0.0001 ? "pos" : (delta < -0.0001 ? "neg" : "zero");
         var flashCls = (Math.abs(delta) > 0.0001) ? " rp-sim-flash" : "";
 
-        var info = !f.changeable ? ' <span class="rp-no-empathy" title="Keine Empathie-Verbindung zu anderen Fraktionen">⚠ isoliert</span>' : '';
+        var info = !f.changeable ? ' <span class="rp-no-empathy" title="' + esc(t('no_empathy')) + '">' + t('isolated') + '</span>' : '';
 
         // Build action buttons
         var btns = '<div class="rp-action-btns">';
         if (useKills && f.shootable) {
-          btns += '<button class="rp-kill-btn" data-action="kill" data-nick="' + f.nick + '">☠ Abschuss</button>';
+          btns += '<button class="rp-kill-btn" data-action="kill" data-nick="' + f.nick + '">' + t('btn_kill') + '</button>';
         }
         if (useMissions && f.missionSuccess) {
           var canMission = RepEngine.canDoMission(simReps, f.nick);
           var missionTitle = canMission
-            ? (f.missionBases ? "Missionen bei: " + f.missionBases.slice(0, 5).join(", ") + (f.missionBases.length > 5 ? ", …" : "") : "Mission annehmen")
-            : "Ruf muss mindestens neutral sein (\u2265 " + RepEngine.MISSION_THRESHOLD.toFixed(1) + ")";
+            ? (f.missionBases ? t('mission_at') + f.missionBases.slice(0, 5).join(", ") + (f.missionBases.length > 5 ? ", …" : "") : t('mission_accept'))
+            : t('mission_threshold') + RepEngine.MISSION_THRESHOLD.toFixed(1) + ")";
           btns += '<button class="rp-mission-btn" data-action="mission" data-nick="' + f.nick + '"' +
-            (canMission ? '' : ' disabled') + ' title="' + esc(missionTitle) + '">📋 Mission</button>';
+            (canMission ? '' : ' disabled') + ' title="' + esc(missionTitle) + '">' + t('btn_mission') + '</button>';
         }
         if (useBribes && f.bribes && f.bribes.length > 0) {
           var canBribe = RepEngine.canDoBribe(simReps, f.nick);
           var bribeTitle = canBribe
-            ? "Bestechung kaufen bei: " + f.bribes.slice(0, 5).join(", ") + (f.bribes.length > 5 ? ", …" : "") + " (je 10.000 Cr)"
-            : "Ruf muss ≤ " + RepEngine.BRIBE_THRESHOLD.toFixed(1) + " sein";
+            ? t('bribe_at') + f.bribes.slice(0, 5).join(", ") + (f.bribes.length > 5 ? ", …" : "") + t('bribe_cost')
+            : t('bribe_threshold') + RepEngine.BRIBE_THRESHOLD.toFixed(1) + t('bribe_threshold_post');
           btns += '<button class="rp-bribe-btn" data-action="bribe" data-nick="' + f.nick + '"' +
-            (canBribe ? '' : ' disabled') + ' title="' + esc(bribeTitle) + '">💰 Bribe</button>';
+            (canBribe ? '' : ' disabled') + ' title="' + esc(bribeTitle) + '">' + t('btn_bribe_lbl') + '</button>';
         }
         btns += '</div>';
 
@@ -1599,7 +1761,7 @@
           '<td>' + btns + '</td>' +
           '</tr>';
       });
-      simBody.innerHTML = html || '<tr><td colspan="7">Keine Fraktionen gefunden.</td></tr>';
+      simBody.innerHTML = html || '<tr><td colspan="7">' + esc(t('no_factions')) + '</td></tr>';
 
       // Bind action buttons
       simBody.querySelectorAll("[data-action]").forEach(function (btn) {
@@ -1673,7 +1835,7 @@
       });
 
       var totalActions = simHistory.length;
-      killLogCount.innerHTML = 'Aktionen gesamt: <strong>' + totalActions + '</strong>';
+      killLogCount.innerHTML = t('total_actions') + ': <strong>' + totalActions + '</strong>';
 
       var html = "";
       merged.forEach(function (m, i) {
@@ -1722,6 +1884,7 @@
     });
 
     /* Init sim when data loads — hook into the existing init */
+    if (lang !== 'de') applyLang();
   })();
   </script>
 </body>

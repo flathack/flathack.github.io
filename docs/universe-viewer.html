@@ -228,16 +228,16 @@
     </header>
 
     <main>
-      <h2 style="margin: 0 0 4px;">Universum</h2>
-      <p style="color: var(--muted); margin: 0 0 18px; font-size: 0.92rem;">Interaktive Karte des Freelancer-Universums — klicke auf ein System für Details.</p>
+      <h2 style="margin: 0 0 4px;" data-i18n="title">Universum</h2>
+      <p style="color: var(--muted); margin: 0 0 18px; font-size: 0.92rem;" data-i18n="subtitle">Interaktive Karte des Freelancer-Universums — klicke auf ein System für Details.</p>
 
       <div class="uv-breadcrumb" id="breadcrumb">
-        <span>Universumskarte</span>
+        <span data-i18n="bc_universe">Universumskarte</span>
       </div>
 
       <div class="uv-controls">
         <div class="uv-field">
-          <label for="search">Suche</label>
+          <label for="search" data-i18n="lbl_search">Suche</label>
           <input type="text" id="search" placeholder="System oder Objekt suchen…">
         </div>
         <button class="uv-btn active" id="btnShowHoles" title="Jump Holes ein-/ausblenden">Jump Holes</button>
@@ -271,6 +271,105 @@
   (function () {
     "use strict";
 
+    /* ── i18n ── */
+    var I18N = {
+      de: {
+        title: 'Universum',
+        subtitle: 'Interaktive Karte des Freelancer-Universums — klicke auf ein System für Details.',
+        bc_universe: 'Universumskarte',
+        lbl_search: 'Suche',
+        search_ph: 'System oder Objekt suchen…',
+        btn_holes_title: 'Jump Holes ein-/ausblenden',
+        btn_zoomin: 'Vergrößern',
+        btn_zoomout: 'Verkleinern',
+        btn_zoomreset: 'Zurücksetzen',
+        err_load: 'Fehler beim Laden der Daten.',
+        err_nosys: 'Keine Systemdaten gefunden.',
+        err_noobj: 'Keine Objekte in diesem System.',
+        stats_systems: 'Systeme',
+        stats_connections: 'Verbindungen',
+        stats_objects: 'Objekte',
+        legend_station_system: 'System mit Station',
+        legend_system: 'System',
+        legend_gate: 'Jump Gate Verbindung',
+        legend_hole: 'Jump Hole Verbindung',
+        info_type: 'Typ',
+        info_nick: 'Nickname',
+        info_pos: 'Position',
+        info_base: 'Basis',
+        info_jump: 'Sprung',
+      },
+      en: {
+        title: 'Universe',
+        subtitle: 'Interactive map of the Freelancer universe — click a system for details.',
+        bc_universe: 'Universe Map',
+        lbl_search: 'Search',
+        search_ph: 'Search system or object…',
+        btn_holes_title: 'Toggle Jump Holes',
+        btn_zoomin: 'Zoom in',
+        btn_zoomout: 'Zoom out',
+        btn_zoomreset: 'Reset',
+        err_load: 'Error loading data.',
+        err_nosys: 'No system data found.',
+        err_noobj: 'No objects in this system.',
+        stats_systems: 'Systems',
+        stats_connections: 'Connections',
+        stats_objects: 'Objects',
+        legend_station_system: 'System with station',
+        legend_system: 'System',
+        legend_gate: 'Jump Gate connection',
+        legend_hole: 'Jump Hole connection',
+        info_type: 'Type',
+        info_nick: 'Nickname',
+        info_pos: 'Position',
+        info_base: 'Base',
+        info_jump: 'Jump',
+      }
+    };
+
+    var TYPE_LABELS_I18N = {
+      de: {
+        sun: "Sonne", planet: "Planet", jump_gate: "Jump Gate", jump_hole: "Jump Hole",
+        station: "Station", dock: "Dock", depot: "Depot", weapons_platform: "Waffenplattform",
+        mining: "Mining", nebula: "Nebel", asteroid_field: "Asteroidenfeld",
+        trade_lane: "Trade Lane", surprise: "Surprise", other: "Sonstige",
+      },
+      en: {
+        sun: "Sun", planet: "Planet", jump_gate: "Jump Gate", jump_hole: "Jump Hole",
+        station: "Station", dock: "Dock", depot: "Depot", weapons_platform: "Weapons Platform",
+        mining: "Mining", nebula: "Nebula", asteroid_field: "Asteroid Field",
+        trade_lane: "Trade Lane", surprise: "Surprise", other: "Other",
+      }
+    };
+
+    var lang = (function() { try { return sessionStorage.getItem('flathack-lang') || 'de'; } catch(e) { return 'de'; } })();
+    function t(key) { return (I18N[lang] || I18N.de)[key] || key; }
+    function typeLabel(type) { return (TYPE_LABELS_I18N[lang] || TYPE_LABELS_I18N.de)[type] || type; }
+
+    function applyLang() {
+      document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        el.textContent = t(el.dataset.i18n);
+      });
+      searchInput.placeholder = t('search_ph');
+      btnShowHoles.title = t('btn_holes_title');
+      btnZoomIn.title = t('btn_zoomin');
+      btnZoomOut.title = t('btn_zoomout');
+      btnZoomReset.title = t('btn_zoomreset');
+      // Re-render current view
+      if (viewMode === 'system' && currentSystem) {
+        showSystem(currentSystem);
+      } else if (data) {
+        showUniverse();
+      }
+    }
+
+    window.addEventListener('lang-change', function(e) {
+      if (e.detail && e.detail.lang && e.detail.lang !== lang) {
+        lang = e.detail.lang;
+        applyLang();
+      }
+    });
+
     /* ── Color palette for object types ── */
     var COLORS = {
       sun:              "#FFD700",
@@ -287,23 +386,6 @@
       trade_lane:       "#38bdf8",
       surprise:         "#ff0000",
       other:            "#6b7280",
-    };
-
-    var TYPE_LABELS = {
-      sun:              "Sonne",
-      planet:           "Planet",
-      jump_gate:        "Jump Gate",
-      jump_hole:        "Jump Hole",
-      station:          "Station",
-      dock:             "Dock",
-      depot:            "Depot",
-      weapons_platform: "Waffenplattform",
-      mining:           "Mining",
-      nebula:           "Nebel",
-      asteroid_field:   "Asteroidenfeld",
-      trade_lane:       "Trade Lane",
-      surprise:         "Surprise",
-      other:            "Sonstige",
     };
 
     /* ── State ── */
@@ -364,7 +446,7 @@
           });
         })
         .catch(function () {
-          svg.innerHTML = '<text x="50%" y="50%" text-anchor="middle" fill="#ef4444" font-size="16">Fehler beim Laden der Daten.</text>';
+          svg.innerHTML = '<text x="50%" y="50%" text-anchor="middle" fill="#ef4444" font-size="16">' + escXml(t('err_load')) + '</text>';
         });
     }
 
@@ -375,7 +457,7 @@
       infoPanel.classList.remove("visible");
 
       if (!data || !data.systems.length) {
-        svg.innerHTML = '<text x="50%" y="50%" text-anchor="middle" fill="' + COLORS.other + '" font-size="14">Keine Systemdaten gefunden.</text>';
+        svg.innerHTML = '<text x="50%" y="50%" text-anchor="middle" fill="' + COLORS.other + '" font-size="14">' + escXml(t('err_nosys')) + '</text>';
         return;
       }
 
@@ -489,7 +571,7 @@
       });
 
       // Update breadcrumb
-      breadcrumb.innerHTML = "<span>Universumskarte</span>";
+      breadcrumb.innerHTML = '<span>' + escXml(t('bc_universe')) + '</span>';
 
       // Update stats
       var totalObj = 0;
@@ -500,10 +582,10 @@
 
       // Legend
       legendEl.innerHTML =
-        legendItem(COLORS.station, "System mit Station") +
-        legendItem(COLORS.planet, "System") +
-        legendItem(COLORS.jump_gate, "Jump Gate Verbindung") +
-        legendItem(COLORS.jump_hole, "Jump Hole Verbindung");
+        legendItem(COLORS.station, t('legend_station_system')) +
+        legendItem(COLORS.planet, t('legend_system')) +
+        legendItem(COLORS.jump_gate, t('legend_gate')) +
+        legendItem(COLORS.jump_hole, t('legend_hole'));
     }
 
     /* ── System detail view ── */
@@ -514,7 +596,7 @@
 
       var objects = sys.objects || [];
       if (!objects.length) {
-        svg.innerHTML = '<text x="50%" y="50%" text-anchor="middle" fill="' + COLORS.other + '" font-size="14">Keine Objekte in diesem System.</text>';
+        svg.innerHTML = '<text x="50%" y="50%" text-anchor="middle" fill="' + COLORS.other + '" font-size="14">' + escXml(t('err_noobj')) + '</text>';
         updateBreadcrumb(sys);
         return;
       }
@@ -686,14 +768,14 @@
       });
       var statParts = [];
       Object.keys(typeCounts).forEach(function (t) {
-        statParts.push((TYPE_LABELS[t] || t) + ": <strong>" + typeCounts[t] + "</strong>");
+        statParts.push(typeLabel(t) + ": <strong>" + typeCounts[t] + "</strong>");
       });
       statsEl.innerHTML = statParts.join(" · ");
 
       // Legend for this system
       var typesUsed = Object.keys(typeCounts);
       legendEl.innerHTML = typesUsed.map(function (t) {
-        return legendItem(COLORS[t] || COLORS.other, TYPE_LABELS[t] || t);
+        return legendItem(COLORS[t] || COLORS.other, typeLabel(t));
       }).join("");
     }
 
@@ -701,17 +783,17 @@
     function showObjectInfo(obj) {
       infoPanelTitle.textContent = obj.name || obj.nick;
       var items = '';
-      items += infoRow("Typ", TYPE_LABELS[obj.type] || obj.type, COLORS[obj.type]);
-      items += infoRow("Nickname", obj.nick);
-      items += infoRow("Position", Math.round(obj.pos[0]) + ", " + Math.round(obj.pos[1]));
-      if (obj.base) items += infoRow("Basis", obj.base);
+      items += infoRow(t('info_type'), typeLabel(obj.type), COLORS[obj.type]);
+      items += infoRow(t('info_nick'), obj.nick);
+      items += infoRow(t('info_pos'), Math.round(obj.pos[0]) + ", " + Math.round(obj.pos[1]));
+      if (obj.base) items += infoRow(t('info_base'), obj.base);
       if (obj.goto) {
         var targetSys = data.systems.find(function (s) { return s.nick.toUpperCase() === obj.goto.toUpperCase(); });
         var gotoLabel = targetSys ? targetSys.name : obj.goto;
         items += '<li style="cursor:pointer;color:var(--accent);" data-goto="' + escAttr(obj.goto) + '">' +
                  '<span class="uv-obj-icon" style="background:' + (COLORS[obj.type] || COLORS.other) + ';"></span>' +
                  '<span class="uv-obj-label">→ ' + escXml(gotoLabel) + '</span>' +
-                 '<span class="uv-obj-type">Sprung</span></li>';
+                 '<span class="uv-obj-type">' + t('info_jump') + '</span></li>';
       }
       infoPanelList.innerHTML = items;
       infoPanel.classList.add("visible");
@@ -736,7 +818,7 @@
     /* ── Breadcrumb ── */
     function updateBreadcrumb(sys) {
       breadcrumb.innerHTML =
-        '<a id="bcUniverse">Universumskarte</a>' +
+        '<a id="bcUniverse">' + escXml(t('bc_universe')) + '</a>' +
         '<span class="separator">›</span>' +
         '<span>' + escXml(sys.name) + '</span>';
       document.getElementById("bcUniverse").addEventListener("click", function () {
@@ -851,7 +933,7 @@
           if (!obj) return;
           var match = (obj.name && obj.name.toLowerCase().indexOf(q) >= 0) ||
                       obj.nick.toLowerCase().indexOf(q) >= 0 ||
-                      (TYPE_LABELS[obj.type] || "").toLowerCase().indexOf(q) >= 0;
+                      (typeLabel(obj.type) || "").toLowerCase().indexOf(q) >= 0;
           node.style.opacity = match ? "1" : "0.15";
         });
       }
@@ -913,6 +995,7 @@
 
     /* ── Init ── */
     window.addEventListener("mod-change", function (e) { loadMod(e.detail.mod); });
+    if (lang !== 'de') applyLang();
   })();
   </script>
   <script src="../assets/js/nav.js"></script>
