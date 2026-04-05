@@ -76,8 +76,8 @@ const RepEngine = (function () {
 
   /** Reputation threshold: missions available when rep >= this value */
   var MISSION_THRESHOLD = -0.1;
-  /** Reputation threshold: bribes available when rep <= this value */
-  var BRIBE_THRESHOLD = -0.4;
+  /** Reputation threshold: bribes available when rep < this value */
+  var BRIBE_THRESHOLD = 0.4;
   /** Bribe always sets reputation to this value (no empathy cascade) */
   var BRIBE_TARGET_REP = 0.6;
 
@@ -182,7 +182,7 @@ const RepEngine = (function () {
   /** Can the player currently buy a bribe for this faction? */
   function canDoBribe(reps, nick) {
     var f = getFaction(nick);
-    return f && f.bribes && f.bribes.length > 0 && (reps[nick] || 0) <= BRIBE_THRESHOLD;
+    return f && f.bribes && f.bribes.length > 0 && (reps[nick] || 0) < BRIBE_THRESHOLD;
   }
 
   /**
