@@ -294,7 +294,7 @@
       }
     };
 
-    let lang = 'de';
+    let lang = (function() { try { return sessionStorage.getItem('flathack-lang') || 'de'; } catch(e) { return 'de'; } })();
     function t(key) { return (I18N[lang] || I18N.de)[key] || key; }
 
     function applyLang() {
@@ -305,15 +305,26 @@
       document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
         el.placeholder = t(el.getAttribute('data-i18n-placeholder'));
       });
+      document.querySelectorAll('.se-lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
     }
 
     document.getElementById('lang-toggle').addEventListener('click', e => {
       const btn = e.target.closest('.se-lang-btn');
       if (!btn) return;
       lang = btn.dataset.lang;
+      try { sessionStorage.setItem('flathack-lang', lang); } catch(e) {}
       document.querySelectorAll('.se-lang-btn').forEach(b => b.classList.toggle('active', b === btn));
       applyLang();
       renderTable();
+    });
+
+    // Global language toggle (from nav bar)
+    window.addEventListener('lang-change', e => {
+      if (e.detail && e.detail.lang && e.detail.lang !== lang) {
+        lang = e.detail.lang;
+        applyLang();
+        renderTable();
+      }
     });
 
     /* ── Ship type translation ── */

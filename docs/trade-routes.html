@@ -445,7 +445,7 @@
       'Rum': 'Rum', 'Vodka': 'Wodka', 'Whiskey': 'Whiskey', 'Supply': 'Nachschub',
     };
 
-    let lang = 'de';
+    let lang = (function() { try { return sessionStorage.getItem('flathack-lang') || 'de'; } catch(e) { return 'de'; } })();
     function t(key) { return (I18N[lang] || I18N.de)[key] || key; }
     function tCommodity(name) { return lang === 'de' ? (COMMODITY_DE[name] || name) : name; }
 
@@ -759,13 +759,25 @@
       if (legs) legs.classList.toggle('open');
     });
 
-    // Language toggle
+    // Language toggle (per-page)
     $('lang-toggle').addEventListener('click', e => {
       const btn = e.target.closest('.tr-lang-btn');
       if (!btn || btn.dataset.lang === lang) return;
       lang = btn.dataset.lang;
+      try { sessionStorage.setItem('flathack-lang', lang); } catch(e) {}
       applyLang();
     });
+
+    // Global language toggle (from nav bar)
+    window.addEventListener('lang-change', e => {
+      if (e.detail && e.detail.lang && e.detail.lang !== lang) {
+        lang = e.detail.lang;
+        applyLang();
+      }
+    });
+
+    // Apply initial language from session
+    if (lang !== 'de') applyLang();
 
     /* ── Init ──────────────────────────────────────────── */
   </script>

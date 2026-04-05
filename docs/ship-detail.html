@@ -307,7 +307,7 @@
       'MINING': 'Bergbau', 'BOMBER': 'Bomber', 'INTERCEPTOR': 'Abfangjäger',
     };
 
-    let lang = 'de';
+    let lang = (function() { try { return sessionStorage.getItem('flathack-lang') || 'de'; } catch(e) { return 'de'; } })();
     function t(key) { return (I18N[lang] || I18N.de)[key] || key; }
     function tType(type) {
       if (lang === 'de' && TYPE_DE[type]) return TYPE_DE[type];
@@ -378,8 +378,8 @@
       // Lang toggle
       html += '<div style="margin-top:16px">';
       html += '<div class="sd-lang-toggle" id="lang-toggle">';
-      html += '<button class="sd-lang-btn active" data-lang="de">DE</button>';
-      html += '<button class="sd-lang-btn" data-lang="en">EN</button>';
+      html += '<button class="sd-lang-btn' + (lang === 'de' ? ' active' : '') + '" data-lang="de">DE</button>';
+      html += '<button class="sd-lang-btn' + (lang === 'en' ? ' active' : '') + '" data-lang="en">EN</button>';
       html += '</div></div>';
       html += '</div></div>';
 
@@ -424,17 +424,26 @@
       document.getElementById('main-content').innerHTML = html;
       document.title = ship.name + ' | Flathack';
 
-      // Wire lang toggle
+      // Wire lang toggle (per-page)
       const toggle = document.getElementById('lang-toggle');
       if (toggle) {
         toggle.addEventListener('click', e => {
           const btn = e.target.closest('.sd-lang-btn');
           if (!btn) return;
           lang = btn.dataset.lang;
+          try { sessionStorage.setItem('flathack-lang', lang); } catch(e) {}
           toggle.querySelectorAll('.sd-lang-btn').forEach(b => b.classList.toggle('active', b === btn));
           renderShip(ship, data);
         });
       }
+
+      // Global language toggle (from nav bar)
+      window.addEventListener('lang-change', e => {
+        if (e.detail && e.detail.lang && e.detail.lang !== lang) {
+          lang = e.detail.lang;
+          renderShip(ship, data);
+        }
+      });
     }
 
     function statCard(label, value) {

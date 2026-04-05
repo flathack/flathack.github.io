@@ -51,6 +51,32 @@
     return '<a href="' + href + '"' + (isActive ? ' class="active"' : "") + ">" + item.label + "</a>";
   }).join("\n");
 
+  // ── Global language toggle ──
+  var storedLang = null;
+  try { storedLang = sessionStorage.getItem("flathack-lang"); } catch(e) {}
+  var currentLang = storedLang || "de";
+
+  var langToggle = document.createElement("div");
+  langToggle.className = "nav-lang-toggle";
+  langToggle.innerHTML =
+    '<button data-lang="de"' + (currentLang === "de" ? ' class="active"' : '') + '>DE</button>' +
+    '<button data-lang="en"' + (currentLang === "en" ? ' class="active"' : '') + '>EN</button>';
+  nav.appendChild(langToggle);
+
+  langToggle.addEventListener("click", function (e) {
+    var btn = e.target.closest("button[data-lang]");
+    if (!btn || btn.dataset.lang === currentLang) return;
+    currentLang = btn.dataset.lang;
+    try { sessionStorage.setItem("flathack-lang", currentLang); } catch(e) {}
+    langToggle.querySelectorAll("button").forEach(function (b) {
+      b.classList.toggle("active", b.dataset.lang === currentLang);
+    });
+    window.dispatchEvent(new CustomEvent("lang-change", { detail: { lang: currentLang } }));
+  });
+
+  // Fire initial lang-change so pages can pick up the stored language
+  window.dispatchEvent(new CustomEvent("lang-change", { detail: { lang: currentLang } }));
+
   // Sub-navigation for items with children (mod selector)
   if (activeItem && activeItem.children) {
     // Persist mod selection across pages via localStorage
