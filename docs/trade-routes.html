@@ -147,7 +147,10 @@
     .td-num { text-align: right; font-family: "IBM Plex Mono", monospace; }
     .td-profit { color: var(--success); font-weight: 600; }
     .td-jumps { color: var(--accent-warm); }
-    .td-path { color: var(--muted); font-size: 0.82rem; white-space: normal; max-width: 220px; }
+    .tr-table tbody tr.tr-route-parent { cursor: pointer; }
+    .tr-path-row { display: none; }
+    .tr-path-row.open { display: table-row; }
+    .tr-path-row td { padding: 4px 12px 8px; border-bottom: 1px solid rgba(132, 177, 255, 0.08); font-size: 0.84rem; color: var(--muted); }
 
     /* ── Round trip legs ───────────────────────────────── */
     .tr-loop-legs {
@@ -594,7 +597,6 @@
       { key: 'jumps',        label: t('col_jumps'),      cls: 'td-num td-jumps' },
       { key: 'travelTime',   label: t('col_time'),       cls: 'td-num td-time', format: v => fmtTime(v) },
       { key: 'profitPerMin', label: t('col_ppm'),        cls: 'td-num td-ppm', format: v => v != null ? fmt(v) : '–' },
-      { key: 'path',         label: t('col_path'),       cls: 'td-path', format: v => Array.isArray(v) ? v.join(' \u2192 ') : v },
     ]; }
 
     function colsInner() { return [
@@ -686,13 +688,21 @@
       let html = '';
       for (let i = 0; i < rows.length; i++) {
         const r = rows[i];
-        html += '<tr' + (currentMode === 'loop' ? ' class="tr-loop-parent" data-idx="' + i + '"' : '') + '>';
+        const hasPath = currentMode !== 'loop' && r.path;
+        html += '<tr' + (currentMode === 'loop' ? ' class="tr-loop-parent" data-idx="' + i + '"' : (hasPath ? ' class="tr-route-parent" data-idx="' + i + '"' : '')) + '>';
         for (const c of cols) {
           const raw = r[c.key];
           const val = c.format ? c.format(raw, r) : (typeof raw === 'number' ? fmt(raw) : String(raw || ''));
           html += '<td' + (c.cls ? ' class="' + c.cls + '"' : '') + '>' + escHtml(val) + '</td>';
         }
         html += '</tr>';
+
+        // Path detail row (hidden, expand on click)
+        if (hasPath) {
+          const pathText = Array.isArray(r.path) ? r.path.join(' \u2192 ') : r.path;
+          html += '<tr class="tr-path-row" data-parent="' + i + '"><td colspan="' + cols.length + '">' +
+            '<strong>' + escHtml(t('col_path')) + ':</strong> ' + escHtml(pathText) + '</td></tr>';
+        }
 
         // Loop legs (hidden, expand on click)
         if (currentMode === 'loop' && r.legs) {
@@ -766,10 +776,18 @@
     // Expand/collapse loop legs
     tableBody.addEventListener('click', e => {
       const parent = e.target.closest('.tr-loop-parent');
-      if (!parent) return;
-      const idx = parent.dataset.idx;
-      const legs = tableBody.querySelector('.tr-loop-legs[data-parent="' + idx + '"]');
-      if (legs) legs.classList.toggle('open');
+      if (parent) {
+        const idx = parent.dataset.idx;
+        const legs = tableBody.querySelector('.tr-loop-legs[data-parent="' + idx + '"]');
+        if (legs) legs.classList.toggle('open');
+        return;
+      }
+      const routeParent = e.target.closest('.tr-route-parent');
+      if (routeParent) {
+        const idx = routeParent.dataset.idx;
+        const pathRow = tableBody.querySelector('.tr-path-row[data-parent="' + idx + '"]');
+        if (pathRow) pathRow.classList.toggle('open');
+      }
     });
 
     // Language toggle (per-page)

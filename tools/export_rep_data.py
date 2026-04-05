@@ -398,6 +398,12 @@ def export_mod(install: dict) -> None:
             ms = emp_data.get("mission_success", 0.0)
             if ms != 0.0:
                 faction_entry["missionSuccess"] = round(ms, 6)
+            mf = emp_data.get("mission_failure", 0.0)
+            if mf != 0.0:
+                faction_entry["missionFailure"] = round(mf, 6)
+            ma = emp_data.get("mission_abort", 0.0)
+            if ma != 0.0:
+                faction_entry["missionAbort"] = round(ma, 6)
             faction_entry["empathy"] = {
                 k: round(v, 6) for k, v in emp_data.get("empathy", {}).items()
             }

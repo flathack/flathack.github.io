@@ -11,6 +11,8 @@
       "shortName": "BMM",
       "objectDestruction": -0.03,
       "missionSuccess": 0.1381,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "br_n_grp": 0.25,
         "br_p_grp": 0.25,
@@ -95,6 +97,8 @@
       "shortName": "Armed Forces",
       "objectDestruction": -0.03,
       "missionSuccess": 0.1223,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "br_p_grp": 0.35,
         "co_shi_grp": 0.05,
@@ -150,6 +154,8 @@
       "shortName": "Police",
       "objectDestruction": -0.03,
       "missionSuccess": 0.1251,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "br_n_grp": 0.35,
         "co_shi_grp": 0.05,
@@ -281,6 +287,8 @@
       "shortName": "ALG",
       "objectDestruction": -0.03,
       "missionSuccess": 0.1325,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "li_n_grp": 0.05,
         "li_lsf_grp": 0.05,
@@ -414,6 +422,8 @@
       "shortName": "Bowex",
       "objectDestruction": -0.0278,
       "missionSuccess": 0.14,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "li_n_grp": 0.05,
         "li_lsf_grp": 0.05,
@@ -573,6 +583,8 @@
       "shortName": "Cryer",
       "objectDestruction": -0.03,
       "missionSuccess": 0.1232,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "li_n_grp": 0.25,
         "li_lsf_grp": 0.25,
@@ -669,6 +681,8 @@
       "shortName": "Interspace",
       "objectDestruction": -0.028,
       "missionSuccess": 0.14,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "li_n_grp": 0.25,
         "li_lsf_grp": 0.25,
@@ -723,6 +737,8 @@
       "shortName": "Daumann",
       "objectDestruction": -0.03,
       "missionSuccess": 0.1279,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "br_n_grp": 0.025,
         "rh_n_grp": 0.25,
@@ -792,6 +808,8 @@
       "shortName": "Kishiro",
       "objectDestruction": -0.0274,
       "missionSuccess": 0.14,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "li_n_grp": 0.05,
         "li_lsf_grp": 0.05,
@@ -904,6 +922,8 @@
       "shortName": "DSE",
       "objectDestruction": -0.03,
       "missionSuccess": 0.1204,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "li_n_grp": 0.275,
         "li_lsf_grp": 0.25,
@@ -1002,6 +1022,8 @@
       "shortName": "Synth Foods",
       "objectDestruction": -0.03,
       "missionSuccess": 0.1251,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "li_n_grp": 0.3,
         "li_lsf_grp": 0.3,
@@ -1120,6 +1142,8 @@
       "shortName": "Gateway",
       "objectDestruction": -0.03,
       "missionSuccess": 0.1344,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "li_n_grp": 0.05,
         "li_lsf_grp": 0.05,
@@ -1270,6 +1294,8 @@
       "shortName": "Spa and Cruise",
       "objectDestruction": -0.03,
       "missionSuccess": 0.1344,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "li_n_grp": 0.2,
         "li_lsf_grp": 0.2,
@@ -1401,6 +1427,8 @@
       "shortName": "Republican",
       "objectDestruction": -0.0293,
       "missionSuccess": 0.14,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "li_n_grp": 0.05,
         "li_lsf_grp": 0.05,
@@ -1543,6 +1571,8 @@
       "shortName": "Samura",
       "objectDestruction": -0.0283,
       "missionSuccess": 0.14,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "li_n_grp": 0.05,
         "li_lsf_grp": 0.05,
@@ -1670,6 +1700,8 @@
       "shortName": "Universal",
       "objectDestruction": -0.03,
       "missionSuccess": 0.1195,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "li_n_grp": 0.3,
         "li_lsf_grp": 0.3,
@@ -1820,6 +1852,8 @@
       "shortName": "Planetform",
       "objectDestruction": -0.03,
       "missionSuccess": 0.1307,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "li_n_grp": 0.05,
         "li_lsf_grp": 0.05,
@@ -1910,6 +1944,8 @@
       "shortName": "Ageira",
       "objectDestruction": -0.03,
       "missionSuccess": 0.1101,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "li_n_grp": 0.25,
         "li_lsf_grp": 0.25,
@@ -1981,6 +2017,8 @@
       "shortName": "Bundschuh",
       "objectDestruction": -0.0289,
       "missionSuccess": 0.14,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "rh_n_grp": -0.4,
         "rh_p_grp": -0.25,
@@ -2026,6 +2064,8 @@
       "shortName": "Dragons",
       "objectDestruction": -0.0256,
       "missionSuccess": 0.14,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "ku_n_grp": -0.4,
         "ku_p_grp": -0.35,
@@ -2077,6 +2117,8 @@
       "shortName": "Corsairs",
       "objectDestruction": -0.0119,
       "missionSuccess": 0.14,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "br_n_grp": -0.4,
         "br_p_grp": -0.4,
@@ -2161,6 +2203,8 @@
       "shortName": "Razak",
       "objectDestruction": -0.03,
       "missionSuccess": 0.028,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "fc_cf6_grp": -0.01,
         "fc_cf13_grp": 0.4
@@ -2176,6 +2220,8 @@
       "shortName": "Sentinel",
       "objectDestruction": -0.03,
       "missionSuccess": 0.028,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "fc_cf6_grp": -0.01,
         "fc_cf8_grp": 0.4
@@ -2191,6 +2237,8 @@
       "shortName": "Savage",
       "objectDestruction": -0.03,
       "missionSuccess": 0.028,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "fc_cf6_grp": -0.01,
         "fc_cf9_grp": 0.4
@@ -2206,6 +2254,8 @@
       "shortName": "Warrior",
       "objectDestruction": -0.03,
       "missionSuccess": 0.028,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "fc_cf6_grp": -0.01,
         "fc_cf10_grp": 0.4
@@ -2221,6 +2271,8 @@
       "shortName": "Coalition Rogues",
       "objectDestruction": -0.03,
       "missionSuccess": 0.028,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "fc_cf4_grp": -0.35
       },
@@ -2276,6 +2328,8 @@
       "shortName": "La Royale",
       "objectDestruction": -0.03,
       "missionSuccess": 0.0896,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "li_n_grp": 0.35,
         "li_lsf_grp": 0.4,
@@ -2331,6 +2385,8 @@
       "shortName": "Auvergnat",
       "objectDestruction": -0.018,
       "missionSuccess": 0.14,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "li_n_grp": -0.25,
         "li_lsf_grp": -0.25,
@@ -2386,6 +2442,8 @@
       "shortName": "ASF",
       "objectDestruction": -0.03,
       "missionSuccess": 0.0859,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "li_n_grp": 0.4,
         "li_lsf_grp": 0.4,
@@ -2441,6 +2499,8 @@
       "shortName": "CSF",
       "objectDestruction": -0.03,
       "missionSuccess": 0.0859,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "fc_ou_grp": 0.4,
         "li_n_grp": -0.4,
@@ -2512,6 +2572,8 @@
       "shortName": "Coalition",
       "objectDestruction": -0.03,
       "missionSuccess": 0.0859,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "fc_cf14_grp": -0.35
       },
@@ -2592,6 +2654,8 @@
       "shortName": "Order",
       "objectDestruction": -0.03,
       "missionSuccess": 0.14,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {},
       "bribes": [
         "Lagos Dock",
@@ -2614,6 +2678,8 @@
       "shortName": "Kavash",
       "objectDestruction": -0.03,
       "missionSuccess": 0.028,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "fc_n_grp": 0.4,
         "fc_cf7_grp": -0.6,
@@ -2635,6 +2701,8 @@
       "shortName": "Ancient",
       "objectDestruction": -0.53,
       "missionSuccess": 0.028,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "fc_cf6_grp": -0.6,
         "gd_gm2_grp": -0.6
@@ -2650,6 +2718,8 @@
       "shortName": "Setek",
       "objectDestruction": -0.03,
       "missionSuccess": 0.028,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "fc_cf6_grp": -0.01,
         "fc_cf11_grp": 0.4
@@ -2675,6 +2745,8 @@
       "shortName": "Nepesh",
       "objectDestruction": -0.03,
       "missionSuccess": 0.028,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "fc_cf6_grp": -0.01,
         "fc_cf12_grp": 0.4
@@ -2690,6 +2762,8 @@
       "shortName": "Fugitive",
       "objectDestruction": -0.03,
       "missionSuccess": 0.14,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {}
     },
     {
@@ -2702,6 +2776,8 @@
       "shortName": "Alliance",
       "objectDestruction": -0.0273,
       "missionSuccess": 0.14,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "ku_p_grp": -0.025,
         "co_shi_grp": 0.05,
@@ -2760,6 +2836,8 @@
       "shortName": "Gaians",
       "objectDestruction": -0.0245,
       "missionSuccess": 0.14,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "br_n_grp": -0.1,
         "br_p_grp": -0.15,
@@ -2803,6 +2881,8 @@
       "shortName": "GC",
       "objectDestruction": -0.0291,
       "missionSuccess": 0.14,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "ku_n_grp": -0.25,
         "ku_p_grp": -0.3,
@@ -2844,6 +2924,8 @@
       "shortName": "Hogosha",
       "objectDestruction": -0.0269,
       "missionSuccess": 0.14,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "co_shi_grp": 0.05,
         "co_kt_grp": -0.05,
@@ -2900,6 +2982,8 @@
       "shortName": "Junkers",
       "objectDestruction": -0.03,
       "missionSuccess": 0.1381,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "li_n_grp": -0.05,
         "li_lsf_grp": -0.05,
@@ -2990,6 +3074,8 @@
       "shortName": "Naval Forces",
       "objectDestruction": -0.03,
       "missionSuccess": 0.028,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "fc_n_grp": 1.0,
         "fc_ln_grp": 1.0,
@@ -3006,6 +3092,8 @@
       "shortName": "Hackers",
       "objectDestruction": -0.018,
       "missionSuccess": 0.14,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "li_n_grp": -0.35,
         "li_lsf_grp": -0.35,
@@ -3065,6 +3153,8 @@
       "shortName": "Navy",
       "objectDestruction": -0.03,
       "missionSuccess": 0.028,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "fc_n_grp": 1.0,
         "fc_kn_grp": 1.0,
@@ -3081,6 +3171,8 @@
       "shortName": "Rogues",
       "objectDestruction": -0.018,
       "missionSuccess": 0.14,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "li_n_grp": -0.25,
         "li_lsf_grp": -0.25,
@@ -3179,6 +3271,8 @@
       "shortName": "LWB",
       "objectDestruction": -0.0289,
       "missionSuccess": 0.14,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "rh_n_grp": -0.1,
         "rh_p_grp": -0.2,
@@ -3224,6 +3318,8 @@
       "shortName": "Mollys",
       "objectDestruction": -0.0261,
       "missionSuccess": 0.14,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "br_n_grp": -0.45,
         "br_p_grp": -0.3,
@@ -3271,6 +3367,8 @@
       "shortName": "Nomads",
       "objectDestruction": -0.03,
       "missionSuccess": 0.028,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "fc_cf6_grp": 0.4,
         "fc_ln_grp": 1.0,
@@ -3288,6 +3386,8 @@
       "shortName": "Order",
       "objectDestruction": -0.03,
       "missionSuccess": 0.14,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {},
       "missionBases": [
         "Hudson → Battleship Osiris",
@@ -3315,6 +3415,8 @@
       "shortName": "Outcasts",
       "objectDestruction": -0.006,
       "missionSuccess": 0.14,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "li_n_grp": -0.4,
         "li_lsf_grp": -0.4,
@@ -3433,6 +3535,8 @@
       "shortName": "Kress",
       "objectDestruction": -0.03,
       "missionSuccess": 0.14,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {}
     },
     {
@@ -3445,6 +3549,8 @@
       "shortName": "Q's Men",
       "objectDestruction": -0.03,
       "missionSuccess": 0.14,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {}
     },
     {
@@ -3457,6 +3563,8 @@
       "shortName": "Hessians",
       "objectDestruction": -0.0182,
       "missionSuccess": 0.14,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "rh_n_grp": -0.35,
         "rh_p_grp": -0.35,
@@ -3535,6 +3643,8 @@
       "shortName": "Military",
       "objectDestruction": -0.03,
       "missionSuccess": 0.028,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "fc_n_grp": 1.0,
         "fc_ln_grp": 1.0,
@@ -3551,6 +3661,8 @@
       "shortName": "Unioners",
       "objectDestruction": -0.0297,
       "missionSuccess": 0.14,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "li_n_grp": -0.025,
         "rh_n_grp": -0.2,
@@ -3610,6 +3722,8 @@
       "defaultRep": 0.0,
       "objectDestruction": -0.03,
       "missionSuccess": 0.1363,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "gd_z_grp": 0.1
       }
@@ -3624,6 +3738,8 @@
       "shortName": "Xenos",
       "objectDestruction": -0.0084,
       "missionSuccess": 0.14,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "li_n_grp": -0.45,
         "li_lsf_grp": -0.45,
@@ -3696,6 +3812,8 @@
       "shortName": "Bounty Hunters",
       "objectDestruction": -0.0249,
       "missionSuccess": 0.14,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "li_n_grp": 0.05,
         "li_lsf_grp": 0.05,
@@ -3982,6 +4100,8 @@
       "shortName": "GMG",
       "objectDestruction": -0.03,
       "missionSuccess": 0.1307,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "fc_cf7_grp": -0.6
       }
@@ -3996,6 +4116,8 @@
       "shortName": "GMG",
       "objectDestruction": -0.03,
       "missionSuccess": 0.1307,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "ku_n_grp": 0.175,
         "ku_p_grp": 0.175,
@@ -4049,6 +4171,8 @@
       "shortName": "IMG",
       "objectDestruction": -0.0287,
       "missionSuccess": 0.14,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "br_m_grp": -0.15,
         "co_be_grp": -0.05,
@@ -4108,6 +4232,8 @@
       "shortName": "Zoners",
       "objectDestruction": -0.03,
       "missionSuccess": 0.1157,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "fc_x_grp": 0.15,
         "fc_lh_grp": 0.05,
@@ -4179,6 +4305,8 @@
       "shortName": "Naval Forces",
       "objectDestruction": -0.03,
       "missionSuccess": 0.1157,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "ku_p_grp": 0.35,
         "co_shi_grp": 0.3,
@@ -4229,6 +4357,8 @@
       "shortName": "Police",
       "objectDestruction": -0.03,
       "missionSuccess": 0.1157,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "ku_n_grp": 0.35,
         "co_shi_grp": 0.35,
@@ -4308,6 +4438,8 @@
       "shortName": "LSF",
       "objectDestruction": -0.03,
       "missionSuccess": 0.084,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "li_n_grp": 0.4,
         "li_p_grp": 0.4,
@@ -4351,6 +4483,8 @@
       "shortName": "Navy",
       "objectDestruction": -0.03,
       "missionSuccess": 0.0859,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "li_lsf_grp": 0.4,
         "li_p_grp": 0.35,
@@ -4415,6 +4549,8 @@
       "shortName": "Police",
       "objectDestruction": -0.03,
       "missionSuccess": 0.0896,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "li_n_grp": 0.35,
         "li_lsf_grp": 0.4,
@@ -4527,6 +4663,8 @@
       "shortName": "Kruger",
       "objectDestruction": -0.03,
       "missionSuccess": 0.1269,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "rh_n_grp": 0.25,
         "rh_p_grp": 0.25,
@@ -4592,6 +4730,8 @@
       "shortName": "Military",
       "objectDestruction": -0.03,
       "missionSuccess": 0.1157,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "rh_p_grp": 0.35,
         "co_khc_grp": 0.25,
@@ -4637,6 +4777,8 @@
       "shortName": "Police",
       "objectDestruction": -0.03,
       "missionSuccess": 0.1157,
+      "missionFailure": -0.045,
+      "missionAbort": -0.0675,
       "empathy": {
         "rh_n_grp": 0.35,
         "co_khc_grp": 0.25,

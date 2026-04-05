@@ -1122,8 +1122,8 @@
       return h || "hamburg-city";
     }
 
-    async function init() {
-      var modId = getModId();
+    async function init(modId) {
+      if (!modId) modId = getModId();
       try {
         await RepEngine.loadData(modId);
       } catch (e) {
@@ -1533,8 +1533,9 @@
     }
 
     /* ── Hash change (mod switch) ── */
-    window.addEventListener("hashchange", init);
-    init();
+    window.addEventListener("mod-change", function(e) {
+      if (e.detail && e.detail.mod) init(e.detail.mod);
+    });
 
     /* ══════════════════════════════════════════════════════
        FACTION DETAIL MODAL
