@@ -324,6 +324,9 @@ def enrich_bases(universe_file: Path, systems: dict, bases: dict):
             base_nick = (vals.get("base") or vals.get("dock_with") or "").strip().lower()
             if not base_nick or base_nick not in bases:
                 continue
+            home_sys = (bases[base_nick].get("sys") or "").strip().upper()
+            if home_sys and sys_nick != home_sys:
+                continue
             rep = vals.get("reputation", "").strip().lower()
             if rep:
                 bases[base_nick]["faction"] = rep
@@ -882,6 +885,7 @@ def export_installation(inst: dict):
                 nick: {
                     "name": info["name"],
                     "sys": info.get("sys", ""),
+                    **({"faction": info["faction"]} if info.get("faction") else {}),
                     **({"pos": travel["base_positions"][nick]} if nick in travel["base_positions"] else {}),
                     **({"tl": True} if travel["base_tl"].get(nick) else {}),
                 }

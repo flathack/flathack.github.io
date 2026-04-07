@@ -186,6 +186,96 @@
     .tr-leg-info .leg-jumps { color: var(--accent-warm); font-size: 0.8rem; }
     .tr-leg-profit { color: var(--success); font-weight: 600; font-family: 'IBM Plex Mono', monospace; white-space: nowrap; }
 
+    .tr-commodity-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 0;
+      border: none;
+      background: transparent;
+      color: var(--accent);
+      font: inherit;
+      cursor: pointer;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+    }
+    .tr-commodity-btn:hover { color: var(--text); }
+
+    .tr-modal {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      background: rgba(3, 10, 18, 0.7);
+      backdrop-filter: blur(4px);
+      z-index: 1200;
+    }
+    .tr-modal.open { display: flex; }
+    .tr-modal-card {
+      width: min(1120px, 100%);
+      max-height: min(86vh, 900px);
+      overflow: auto;
+      border: 1px solid var(--panel-border);
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(8, 20, 34, 0.98), rgba(4, 14, 23, 0.96));
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+    }
+    .tr-modal-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px 20px 10px;
+      border-bottom: 1px solid rgba(132, 177, 255, 0.1);
+    }
+    .tr-modal-head h3 {
+      margin: 0 0 4px;
+      font-size: 1.2rem;
+    }
+    .tr-modal-meta {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .tr-modal-close {
+      flex: 0 0 auto;
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      border: 1px solid var(--panel-border);
+      background: rgba(255, 255, 255, 0.02);
+      color: var(--text);
+      font: inherit;
+      cursor: pointer;
+    }
+    .tr-modal-close:hover { background: rgba(88, 196, 255, 0.08); }
+    .tr-modal-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 16px 20px 12px;
+    }
+    .tr-modal-body {
+      padding: 0 20px 20px;
+    }
+    .tr-role-pill {
+      display: inline-flex;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+    .tr-role-pill.sell {
+      background: rgba(70, 190, 120, 0.12);
+      color: #84f0b0;
+    }
+    .tr-role-pill.buy {
+      background: rgba(255, 180, 70, 0.12);
+      color: #ffd08c;
+    }
+
     /* ── Loading ───────────────────────────────────────── */
     .tr-loading {
       display: none;
@@ -382,6 +472,40 @@
         <div class="tr-spinner"></div>
         <p data-i18n="loading">Routen werden berechnet...</p>
       </div>
+
+      <div class="tr-modal" id="commodity-modal" aria-hidden="true">
+        <div class="tr-modal-card" role="dialog" aria-modal="true" aria-labelledby="commodity-modal-title">
+          <div class="tr-modal-head">
+            <div>
+              <h3 id="commodity-modal-title">Commodity</h3>
+              <div class="tr-modal-meta" id="commodity-modal-meta"></div>
+            </div>
+            <button class="tr-modal-close" id="commodity-modal-close" aria-label="Close">×</button>
+          </div>
+          <div class="tr-modal-controls">
+            <div class="tr-field">
+              <label for="commodity-filter-input" data-i18n="commodity_filter">Filter</label>
+              <input type="text" id="commodity-filter-input" class="tr-search" style="margin-bottom:0;" placeholder="Filter...">
+            </div>
+            <div class="tr-field">
+              <label for="commodity-role-filter" data-i18n="commodity_role">Typ</label>
+              <select id="commodity-role-filter">
+                <option value="all">Alle</option>
+                <option value="sell">Verkauft</option>
+                <option value="buy">Kauft</option>
+              </select>
+            </div>
+          </div>
+          <div class="tr-modal-body">
+            <div class="tr-table-wrap">
+              <table class="tr-table">
+                <thead id="commodity-modal-head"></thead>
+                <tbody id="commodity-modal-body"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
   </div>
 
@@ -413,6 +537,14 @@
         col_jumps: 'Sprünge', col_path: 'Pfad',
         col_time: 'Reisezeit', col_ppm: '$/Min',
         col_system: 'System', col_route: 'Route', col_commodities: 'Waren',
+        commodity_filter: 'Filter', commodity_role: 'Typ',
+        commodity_role_all: 'Alle', commodity_role_sell: 'Verkauft', commodity_role_buy: 'Kauft',
+        commodity_base_price: 'Basispreis', commodity_locations: 'Basen',
+        commodity_best_buy: 'Best Buy', commodity_best_sell: 'Best Sell',
+        commodity_col_system: 'System', commodity_col_base: 'Basis', commodity_col_faction: 'Fraktion', commodity_col_buy: 'Kaufpreis',
+        commodity_col_sell: 'Verkaufspreis', commodity_col_role: 'Aktion',
+        commodity_no_results: 'Keine Basen für diesen Filter gefunden.',
+        commodity_role_sells: 'Verkauft', commodity_role_buys: 'Kauft',
         leg: 'Etappe',
         jump_s: 'Sprung', jump_p: 'Sprünge',
       },
@@ -440,6 +572,14 @@
         col_jumps: 'Jumps', col_path: 'Path',
         col_time: 'Travel Time', col_ppm: '$/Min',
         col_system: 'System', col_route: 'Route', col_commodities: 'Commodities',
+        commodity_filter: 'Filter', commodity_role: 'Type',
+        commodity_role_all: 'All', commodity_role_sell: 'Sells', commodity_role_buy: 'Buys',
+        commodity_base_price: 'Base price', commodity_locations: 'Bases',
+        commodity_best_buy: 'Best Buy', commodity_best_sell: 'Best Sell',
+        commodity_col_system: 'System', commodity_col_base: 'Base', commodity_col_faction: 'Faction', commodity_col_buy: 'Buy price',
+        commodity_col_sell: 'Sell price', commodity_col_role: 'Action',
+        commodity_no_results: 'No bases matched this filter.',
+        commodity_role_sells: 'Sells', commodity_role_buys: 'Buys',
         leg: 'Leg',
         jump_s: 'jump', jump_p: 'jumps',
       }
@@ -470,6 +610,17 @@
     let lang = (function() { try { return sessionStorage.getItem('flathack-lang') || 'en'; } catch(e) { return 'en'; } })();
     function t(key) { return (I18N[lang] || I18N.de)[key] || key; }
     function tCommodity(name) { return lang === 'de' ? (COMMODITY_DE[name] || name) : name; }
+    function tFaction(nick) {
+      if (!nick) return '-';
+      const info = factionNames[nick];
+      if (!info) return nick;
+      return lang === 'en' ? (info.nameEn || info.name || nick) : (info.name || nick);
+    }
+    function truncateText(text, maxLen) {
+      if (!text) return '-';
+      if (text.length <= maxLen) return text;
+      return text.slice(0, Math.max(0, maxLen - 3)) + '...';
+    }
 
     /** Resolve a base name for the current language using the engine data. */
     function tBase(nick, fallback) {
@@ -492,15 +643,27 @@
       document.querySelectorAll('.tr-lang-btn').forEach(b => {
         b.classList.toggle('active', b.dataset.lang === lang);
       });
+      if (activeCommodityNick && commodityModal.classList.contains('open')) {
+        const currentRole = commodityRoleFilter.value || 'all';
+        commodityRoleFilter.innerHTML =
+          '<option value="all">' + escHtml(t('commodity_role_all')) + '</option>' +
+          '<option value="sell">' + escHtml(t('commodity_role_sell')) + '</option>' +
+          '<option value="buy">' + escHtml(t('commodity_role_buy')) + '</option>';
+        commodityRoleFilter.value = currentRole;
+        renderCommodityModal();
+      }
       if (resultsSection.style.display !== 'none') renderResults();
     }
 
     /* ── State ─────────────────────────────────────────── */
     let engine = null;
+    let currentModId = '';
+    let factionNames = Object.create(null);
     let currentResults = [];
     let currentMode = 'system';
     let currentEmptyKey = 'no_routes';
     let currentJourneyPath = [];
+    let activeCommodityNick = '';
     let sortCol = -1;
     let sortAsc = false;
 
@@ -524,18 +687,29 @@
     const tableHead    = $('table-head');
     const tableBody    = $('table-body');
     const loading      = $('loading');
+    const commodityModal = $('commodity-modal');
+    const commodityModalTitle = $('commodity-modal-title');
+    const commodityModalMeta = $('commodity-modal-meta');
+    const commodityModalHead = $('commodity-modal-head');
+    const commodityModalBody = $('commodity-modal-body');
+    const commodityModalClose = $('commodity-modal-close');
+    const commodityFilterInput = $('commodity-filter-input');
+    const commodityRoleFilter = $('commodity-role-filter');
 
     /* ── Formatters ────────────────────────────────────── */
     const fmt = n => Number(n).toLocaleString('de-DE');
     function fmtTime(s) {
-      if (s == null) return '–';
+      if (s == null) return '-';
       const m = Math.floor(s / 60), sec = Math.round(s % 60);
       return m + ':' + String(sec).padStart(2, '0');
     }
 
     /* ── Mod Loading ───────────────────────────────────── */
     async function loadMod(modId) {
+      currentModId = modId;
       engine = null;
+      factionNames = Object.create(null);
+      closeCommodityModal();
       calcBtn.disabled = true;
       resultsSection.style.display = 'none';
       loading.style.display = 'flex';
@@ -544,6 +718,15 @@
         if (!resp.ok) throw new Error('HTTP ' + resp.status);
         const data = await resp.json();
         engine = new TradeEngine(data);
+        try {
+          const repResp = await fetch('../data/reputation/' + modId + '.json');
+          if (repResp.ok) {
+            const repData = await repResp.json();
+            for (const faction of (repData.factions || [])) {
+              if (faction && faction.nick) factionNames[faction.nick] = faction;
+            }
+          }
+        } catch (e) {}
 
         const systemEntries = Object.entries(data.systems || {})
           .sort((a, b) => String(a[1] || a[0]).localeCompare(String(b[1] || b[0])));
@@ -633,41 +816,153 @@
 
     /* ── Rendering ─────────────────────────────────────── */
 
+    function commodityButtonHtml(raw, label) {
+      if (!raw) return escHtml(label);
+      return '<button type="button" class="tr-commodity-btn" data-commodity="' + escHtml(raw) + '">' +
+        escHtml(label) + '</button>';
+    }
+
+    function getCommodityNickByName(name) {
+      if (!engine || !engine.data || !engine.data.commodities) return '';
+      for (const [nick, info] of Object.entries(engine.data.commodities)) {
+        if (info && info.name === name) return nick;
+      }
+      return '';
+    }
+
+    function getCommodityRows(commodityNick) {
+      if (!engine || !commodityNick) return [];
+      const entries = (engine.data.markets && engine.data.markets[commodityNick]) || [];
+      return entries.map(entry => {
+        const base = engine.data.bases[entry.base] || {};
+        const systemName = engine.data.systems[entry.sys] || entry.sys;
+        const baseName = tBase(entry.base, base.name || entry.base);
+        return {
+          system: systemName,
+          base: baseName,
+          faction: base.faction || '',
+          buyPrice: entry.src ? Math.round(entry.price) : null,
+          sellPrice: entry.src ? null : Math.round(entry.price),
+          role: entry.src ? 'sell' : 'buy',
+        };
+      }).sort((a, b) =>
+        (b.sellPrice ?? -1) - (a.sellPrice ?? -1) ||
+        (a.buyPrice ?? Number.MAX_SAFE_INTEGER) - (b.buyPrice ?? Number.MAX_SAFE_INTEGER) ||
+        (a.system + ' -> ' + a.base).localeCompare(b.system + ' -> ' + b.base)
+      );
+    }
+
+    function renderCommodityModal() {
+      if (!engine || !activeCommodityNick) return;
+      const info = engine.data.commodities[activeCommodityNick];
+      if (!info) return;
+
+      const query = commodityFilterInput.value.toLowerCase().trim();
+      const role = commodityRoleFilter.value;
+      let rows = getCommodityRows(activeCommodityNick);
+      if (role !== 'all') rows = rows.filter(row => row.role === role);
+      if (query) {
+        rows = rows.filter(row =>
+          row.system.toLowerCase().includes(query) ||
+          row.base.toLowerCase().includes(query) ||
+          row.faction.toLowerCase().includes(query)
+        );
+      }
+
+      const allRows = getCommodityRows(activeCommodityNick);
+      const bestBuy = allRows.filter(row => row.buyPrice != null)
+        .sort((a, b) => a.buyPrice - b.buyPrice)[0];
+      const bestSell = allRows.filter(row => row.sellPrice != null)
+        .sort((a, b) => b.sellPrice - a.sellPrice)[0];
+
+      commodityModalTitle.textContent = tCommodity(info.name);
+      commodityModalMeta.textContent = t('commodity_base_price') + ': ' + fmt(Math.round(info.price || 0)) +
+        ' | ' + t('commodity_best_buy') + ': ' + (bestBuy ? (bestBuy.system + ' -> ' + bestBuy.base + ' (' + fmt(bestBuy.buyPrice) + ')') : '-') +
+        ' | ' + t('commodity_best_sell') + ': ' + (bestSell ? (bestSell.system + ' -> ' + bestSell.base + ' (' + fmt(bestSell.sellPrice) + ')') : '-') +
+        ' | ' + t('commodity_locations') + ': ' + rows.length;
+      commodityModalHead.innerHTML = '<tr>' +
+        '<th>' + escHtml(t('commodity_col_system')) + '</th>' +
+        '<th>' + escHtml(t('commodity_col_base')) + '</th>' +
+        '<th>' + escHtml(t('commodity_col_faction')) + '</th>' +
+        '<th>' + escHtml(t('commodity_col_buy')) + '</th>' +
+        '<th>' + escHtml(t('commodity_col_sell')) + '</th>' +
+        '<th>' + escHtml(t('commodity_col_role')) + '</th>' +
+        '</tr>';
+
+      if (!rows.length) {
+        commodityModalBody.innerHTML = '<tr><td colspan="6" class="tr-empty">' + escHtml(t('commodity_no_results')) + '</td></tr>';
+        return;
+      }
+
+      commodityModalBody.innerHTML = rows.map(row =>
+        '<tr>' +
+          '<td>' + escHtml(row.system) + '</td>' +
+          '<td>' + escHtml(row.base) + '</td>' +
+          '<td title="' + escHtml(tFaction(row.faction)) + '">' + escHtml(truncateText(tFaction(row.faction), 30)) + '</td>' +
+          '<td class="td-num">' + escHtml(row.buyPrice != null ? fmt(row.buyPrice) : '-') + '</td>' +
+          '<td class="td-num">' + escHtml(row.sellPrice != null ? fmt(row.sellPrice) : '-') + '</td>' +
+          '<td><span class="tr-role-pill ' + row.role + '">' +
+            escHtml(row.role === 'sell' ? t('commodity_role_sells') : t('commodity_role_buys')) +
+          '</span></td>' +
+        '</tr>'
+      ).join('');
+    }
+
+    function openCommodityModal(commodityNick) {
+      activeCommodityNick = commodityNick;
+      commodityFilterInput.value = '';
+      commodityRoleFilter.innerHTML =
+        '<option value="all">' + escHtml(t('commodity_role_all')) + '</option>' +
+        '<option value="sell">' + escHtml(t('commodity_role_sell')) + '</option>' +
+        '<option value="buy">' + escHtml(t('commodity_role_buy')) + '</option>';
+      commodityRoleFilter.value = 'all';
+      renderCommodityModal();
+      commodityModal.classList.add('open');
+      commodityModal.setAttribute('aria-hidden', 'false');
+      commodityFilterInput.focus();
+    }
+
+    function closeCommodityModal() {
+      commodityModal.classList.remove('open');
+      commodityModal.setAttribute('aria-hidden', 'true');
+      activeCommodityNick = '';
+    }
+
     function colsRoute() { return [
       { key: 'srcSys',       label: t('col_srcSys') },
       { key: 'buyBase',      label: t('col_buyBase'), format: (v, r) => tBase(r.buyBaseNick, v) },
       { key: 'dstSys',       label: t('col_dstSys') },
       { key: 'sellBase',     label: t('col_sellBase'), format: (v, r) => tBase(r.sellBaseNick, v) },
-      { key: 'commodity',    label: t('col_commodity'), format: v => tCommodity(v) },
+      { key: 'commodity',    label: t('col_commodity'), format: v => tCommodity(v), html: (v, r) => commodityButtonHtml(getCommodityNickByName(v), tCommodity(v)) },
       { key: 'buyPrice',     label: t('col_buyPrice'),   cls: 'td-num' },
       { key: 'sellPrice',    label: t('col_sellPrice'),  cls: 'td-num' },
       { key: 'profitPerUnit',label: t('col_profitUnit'), cls: 'td-num td-profit' },
       { key: 'totalProfit',  label: t('col_totalProfit'),cls: 'td-num td-profit' },
       { key: 'jumps',        label: t('col_jumps'),      cls: 'td-num td-jumps' },
       { key: 'travelTime',   label: t('col_time'),       cls: 'td-num td-time', format: v => fmtTime(v) },
-      { key: 'profitPerMin', label: t('col_ppm'),        cls: 'td-num td-ppm', format: v => v != null ? fmt(v) : '–' },
+      { key: 'profitPerMin', label: t('col_ppm'),        cls: 'td-num td-ppm', format: v => v != null ? fmt(v) : '-' },
     ]; }
 
     function colsInner() { return [
       { key: 'srcSys',       label: t('col_system') },
       { key: 'buyBase',      label: t('col_buyBase'), format: (v, r) => tBase(r.buyBaseNick, v) },
       { key: 'sellBase',     label: t('col_sellBase'), format: (v, r) => tBase(r.sellBaseNick, v) },
-      { key: 'commodity',    label: t('col_commodity'), format: v => tCommodity(v) },
+      { key: 'commodity',    label: t('col_commodity'), format: v => tCommodity(v), html: (v, r) => commodityButtonHtml(getCommodityNickByName(v), tCommodity(v)) },
       { key: 'buyPrice',     label: t('col_buyPrice'),   cls: 'td-num' },
       { key: 'sellPrice',    label: t('col_sellPrice'),  cls: 'td-num' },
       { key: 'profitPerUnit',label: t('col_profitUnit'), cls: 'td-num td-profit' },
       { key: 'totalProfit',  label: t('col_totalProfit'),cls: 'td-num td-profit' },
       { key: 'travelTime',   label: t('col_time'),       cls: 'td-num td-time', format: v => fmtTime(v) },
-      { key: 'profitPerMin', label: t('col_ppm'),        cls: 'td-num td-ppm', format: v => v != null ? fmt(v) : '–' },
+      { key: 'profitPerMin', label: t('col_ppm'),        cls: 'td-num td-ppm', format: v => v != null ? fmt(v) : '-' },
     ]; }
 
     function colsLoop() { return [
       { key: 'routeText',    label: t('col_route') },
-      { key: 'commodities',  label: t('col_commodities'), format: v => Array.isArray(v) ? v.map(tCommodity).join(', ') : tCommodity(v) },
+      { key: 'commodities',  label: t('col_commodities'), format: v => Array.isArray(v) ? v.map(tCommodity).join(', ') : tCommodity(v), html: v => Array.isArray(v) ? v.map(name => commodityButtonHtml(getCommodityNickByName(name), tCommodity(name))).join(', ') : commodityButtonHtml(getCommodityNickByName(v), tCommodity(v)) },
       { key: 'totalProfit',  label: t('col_totalProfit'), cls: 'td-num td-profit' },
       { key: 'totalJumps',   label: t('col_jumps'),       cls: 'td-num td-jumps' },
       { key: 'travelTime',   label: t('col_time'),       cls: 'td-num td-time', format: v => fmtTime(v) },
-      { key: 'profitPerMin', label: t('col_ppm'),        cls: 'td-num td-ppm', format: v => v != null ? fmt(v) : '–' },
+      { key: 'profitPerMin', label: t('col_ppm'),        cls: 'td-num td-ppm', format: v => v != null ? fmt(v) : '-' },
     ]; }
 
     function colsJourney() { return colsRoute(); }
@@ -725,16 +1020,16 @@
       if (currentMode === 'loop') {
         statsBar.innerHTML = '<span>' + t('stats_routes') + ': <strong>' + rows.length + '</strong></span>';
       } else if (currentMode === 'journey') {
-        const best = rows.length ? fmt(rows[0].totalProfit) : 'â€“';
+        const best = rows.length ? fmt(rows[0].totalProfit) : '-';
         const pathText = currentJourneyPath.length
           ? currentJourneyPath.map(sysNick => engine.data.systems[sysNick] || sysNick).join(' \u2192 ')
-          : 'â€“';
+          : '-';
         statsBar.innerHTML =
           '<span>' + t('stats_routes') + ': <strong>' + rows.length + '</strong></span>' +
           '<span>' + t('stats_best') + ': <strong>' + best + '</strong></span>' +
           '<span>' + t('stats_path') + ': <strong>' + pathText + '</strong></span>';
       } else {
-        const best = rows.length ? fmt(rows[0].totalProfit) : '–';
+        const best = rows.length ? fmt(rows[0].totalProfit) : '-';
         statsBar.innerHTML =
           '<span>' + t('stats_routes') + ': <strong>' + rows.length + '</strong></span>' +
           '<span>' + t('stats_best') + ': <strong>' + best + '</strong></span>';
@@ -754,7 +1049,8 @@
         for (const c of cols) {
           const raw = r[c.key];
           const val = c.format ? c.format(raw, r) : (typeof raw === 'number' ? fmt(raw) : String(raw || ''));
-          html += '<td' + (c.cls ? ' class="' + c.cls + '"' : '') + '>' + escHtml(val) + '</td>';
+          const inner = c.html ? c.html(raw, r) : escHtml(val);
+          html += '<td' + (c.cls ? ' class="' + c.cls + '"' : '') + '>' + inner + '</td>';
         }
         html += '</tr>';
 
@@ -773,7 +1069,7 @@
             html += '<div class="tr-leg-row">' +
               '<span class="tr-leg-label">' + t('leg') + ' ' + (li + 1) + '</span>' +
               '<span class="tr-leg-info">' +
-                '<span class="leg-commodity">' + escHtml(tCommodity(leg.commodity)) + '</span> &mdash; ' +
+                '<span class="leg-commodity">' + commodityButtonHtml(getCommodityNickByName(leg.commodity), tCommodity(leg.commodity)) + '</span> &mdash; ' +
                 '<span class="leg-route">' + escHtml(leg.srcSys) + ' (' + escHtml(tBase(leg.buyBaseNick, leg.buyBase)) + ') \u2192 ' +
                 escHtml(leg.dstSys) + ' (' + escHtml(tBase(leg.sellBaseNick, leg.sellBase)) + ')</span>' +
                 ' <span class="leg-jumps">' + leg.jumps + ' ' + (leg.jumps !== 1 ? t('jump_p') : t('jump_s')) + '</span>' +
@@ -804,6 +1100,15 @@
     });
 
     calcBtn.addEventListener('click', calculate);
+    commodityModalClose.addEventListener('click', closeCommodityModal);
+    commodityFilterInput.addEventListener('input', renderCommodityModal);
+    commodityRoleFilter.addEventListener('change', renderCommodityModal);
+    commodityModal.addEventListener('click', e => {
+      if (e.target === commodityModal) closeCommodityModal();
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && commodityModal.classList.contains('open')) closeCommodityModal();
+    });
 
     document.querySelectorAll('.tr-tab').forEach(tab => {
       tab.addEventListener('click', () => {
@@ -840,6 +1145,13 @@
 
     // Expand/collapse loop legs
     tableBody.addEventListener('click', e => {
+      const commodityBtn = e.target.closest('.tr-commodity-btn');
+      if (commodityBtn && commodityBtn.dataset.commodity) {
+        e.preventDefault();
+        e.stopPropagation();
+        openCommodityModal(commodityBtn.dataset.commodity);
+        return;
+      }
       const parent = e.target.closest('.tr-loop-parent');
       if (parent) {
         const idx = parent.dataset.idx;
