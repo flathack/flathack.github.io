@@ -244,6 +244,45 @@ class TradeEngine {
     );
   }
 
+  routesAlongJourney(cargoCapacity, startSysNick, targetSysNick, tlOnly) {
+    const journeyPath = this.findPath(startSysNick, targetSysNick);
+    if (!journeyPath.length) return [];
+
+    const journeyIndex = Object.create(null);
+    journeyPath.forEach((sysNick, idx) => { journeyIndex[sysNick] = idx; });
+
+    const candidates = this.candidateRoutes(cargoCapacity, journeyPath.length - 1, tlOnly);
+    const filtered = candidates.filter(route => {
+      if (!(route.srcSysNick in journeyIndex) || !(route.dstSysNick in journeyIndex)) return false;
+      const srcIdx = journeyIndex[route.srcSysNick];
+      const dstIdx = journeyIndex[route.dstSysNick];
+      if (srcIdx > dstIdx) return false;
+
+      const expectedPath = journeyPath.slice(srcIdx, dstIdx + 1);
+      if (expectedPath.length !== route.pathNicks.length) return false;
+      for (let i = 0; i < expectedPath.length; i++) {
+        if (expectedPath[i] !== route.pathNicks[i]) return false;
+      }
+      return true;
+    });
+
+    for (const r of filtered) {
+      const tt = this.travelTime(r);
+      r.travelTime = tt;
+      r.profitPerMin = (tt && tt > 0) ? Math.round(r.totalProfit / (tt / 60)) : null;
+      r.corridorStart = this.data.systems[startSysNick] || startSysNick;
+      r.corridorTarget = this.data.systems[targetSysNick] || targetSysNick;
+      r.corridorPath = journeyPath.map(sysNick => this.data.systems[sysNick] || sysNick);
+      r.corridorPathNicks = journeyPath.slice();
+    }
+
+    return filtered.sort((a, b) =>
+      (b.profitPerMin || -1) - (a.profitPerMin || -1) ||
+      b.totalProfit - a.totalProfit ||
+      a.jumps - b.jumps
+    );
+  }
+
   roundTrips(cargoCapacity, maxJumps, legCount, maxResults, tlOnly) {
     legCount = Math.max(3, Math.min(legCount || 3, 6));
     maxResults = maxResults || 20;

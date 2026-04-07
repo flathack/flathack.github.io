@@ -335,6 +335,20 @@
             <input type="number" id="legs-input" value="3" min="3" max="6">
           </div>
 
+          <div class="tr-field" id="start-system-field" style="display:none;">
+            <label for="start-system-select" data-i18n="lbl_start_system">Aktuelles System</label>
+            <select id="start-system-select">
+              <option value="">Loading...</option>
+            </select>
+          </div>
+
+          <div class="tr-field" id="target-system-field" style="display:none;">
+            <label for="target-system-select" data-i18n="lbl_target_system">Zielsystem</label>
+            <select id="target-system-select">
+              <option value="">Loading...</option>
+            </select>
+          </div>
+
           <label class="tr-check">
             <input type="checkbox" id="tl-only">
             <span data-i18n="lbl_tl_only">Nur Trade-Lane-Basen</span>
@@ -347,6 +361,7 @@
           <button class="tr-tab active" data-mode="system" data-i18n="tab_system">Handelsrouten</button>
           <button class="tr-tab" data-mode="inner" data-i18n="tab_inner">Innersystem</button>
           <button class="tr-tab" data-mode="loop" data-i18n="tab_loop">Rundkurs</button>
+          <button class="tr-tab" data-mode="journey" data-i18n="tab_journey">Reiseroute</button>
         </div>
       </section>
 
@@ -380,15 +395,17 @@
         intro: 'Finde die profitabelsten Handelsrouten über alle Systeme. Wähle deinen Mod, dein Schiff und starte den Handel.',
         lbl_mod: 'Mod', lbl_ship: 'Schiff', lbl_cargo: 'Fracht',
         lbl_jumps: 'Max. Sprünge', lbl_legs: 'Etappen',
+        lbl_start_system: 'Aktuelles System', lbl_target_system: 'Zielsystem',
         lbl_tl_only: 'Nur Trade-Lane-Basen',
         btn_calc: 'Berechnen',
-        tab_system: 'Handelsrouten', tab_inner: 'Innersystem', tab_loop: 'Rundkurs',
+        tab_system: 'Handelsrouten', tab_inner: 'Innersystem', tab_loop: 'Rundkurs', tab_journey: 'Trade Along Route',
         search_placeholder: 'Routen durchsuchen...',
         loading: 'Routen werden berechnet...',
         custom_cargo: 'Eigene Fracht',
         no_routes: 'Keine Routen gefunden.',
+        no_path: 'Zwischen diesen Systemen wurde kein Pfad gefunden.',
         load_fail: 'Mod-Daten konnten nicht geladen werden: ',
-        stats_routes: 'Routen', stats_best: 'Bester Profit',
+        stats_routes: 'Routen', stats_best: 'Bester Profit', stats_path: 'Reiseweg',
         col_srcSys: 'Quell-System', col_buyBase: 'Kauf-Basis',
         col_dstSys: 'Ziel-System', col_sellBase: 'Verkauf-Basis',
         col_commodity: 'Ware', col_buyPrice: 'Kauf $', col_sellPrice: 'Verkauf $',
@@ -405,15 +422,17 @@
         intro: 'Find the most profitable trade routes across systems. Select your mod, your ship, and start trading.',
         lbl_mod: 'Mod', lbl_ship: 'Ship', lbl_cargo: 'Cargo',
         lbl_jumps: 'Max Jumps', lbl_legs: 'Legs',
+        lbl_start_system: 'Current System', lbl_target_system: 'Target System',
         lbl_tl_only: 'Trade Lane bases only',
         btn_calc: 'Calculate',
-        tab_system: 'Trade Routes', tab_inner: 'Inner System', tab_loop: 'Round Trip',
+        tab_system: 'Trade Routes', tab_inner: 'Inner System', tab_loop: 'Round Trip', tab_journey: 'Trade Along Route',
         search_placeholder: 'Search routes...',
         loading: 'Calculating routes...',
         custom_cargo: 'Custom cargo',
         no_routes: 'No routes found.',
+        no_path: 'No path was found between these systems.',
         load_fail: 'Failed to load mod data: ',
-        stats_routes: 'Routes', stats_best: 'Best profit',
+        stats_routes: 'Routes', stats_best: 'Best profit', stats_path: 'Journey path',
         col_srcSys: 'Source System', col_buyBase: 'Buy Base',
         col_dstSys: 'Target System', col_sellBase: 'Sell Base',
         col_commodity: 'Commodity', col_buyPrice: 'Buy $', col_sellPrice: 'Sell $',
@@ -473,13 +492,15 @@
       document.querySelectorAll('.tr-lang-btn').forEach(b => {
         b.classList.toggle('active', b.dataset.lang === lang);
       });
-      if (currentResults.length) renderResults();
+      if (resultsSection.style.display !== 'none') renderResults();
     }
 
     /* ── State ─────────────────────────────────────────── */
     let engine = null;
     let currentResults = [];
     let currentMode = 'system';
+    let currentEmptyKey = 'no_routes';
+    let currentJourneyPath = [];
     let sortCol = -1;
     let sortAsc = false;
 
@@ -489,8 +510,12 @@
     const cargoInput   = $('cargo-input');
     const jumpsInput   = $('jumps-input');
     const legsInput    = $('legs-input');
+    const startSystemSelect = $('start-system-select');
+    const targetSystemSelect = $('target-system-select');
     const jumpsField   = $('jumps-field');
     const legsField    = $('legs-field');
+    const startSystemField = $('start-system-field');
+    const targetSystemField = $('target-system-field');
     const calcBtn      = $('calc-btn');
     const tlOnlyCheck  = $('tl-only');
     const searchInput  = $('search-input');
@@ -519,6 +544,18 @@
         if (!resp.ok) throw new Error('HTTP ' + resp.status);
         const data = await resp.json();
         engine = new TradeEngine(data);
+
+        const systemEntries = Object.entries(data.systems || {})
+          .sort((a, b) => String(a[1] || a[0]).localeCompare(String(b[1] || b[0])));
+        const systemOptions = systemEntries.map(([nick, name]) =>
+          '<option value="' + escHtml(nick) + '">' + escHtml(name || nick) + '</option>'
+        ).join('');
+        startSystemSelect.innerHTML = '<option value=""></option>' + systemOptions;
+        targetSystemSelect.innerHTML = '<option value=""></option>' + systemOptions;
+        if (systemEntries.length) {
+          startSystemSelect.value = systemEntries[0][0];
+          targetSystemSelect.value = systemEntries[Math.min(1, systemEntries.length - 1)][0];
+        }
 
         shipSelect.innerHTML = '';
         const cOpt = document.createElement('option');
@@ -554,6 +591,8 @@
       const cargo = Math.max(1, parseInt(cargoInput.value) || 1);
       const jumps = Math.max(0, parseInt(jumpsInput.value) || 0);
       const legs  = Math.max(3, Math.min(6, parseInt(legsInput.value) || 3));
+      const startSystem = startSystemSelect.value;
+      const targetSystem = targetSystemSelect.value;
 
       loading.style.display = 'flex';
       resultsSection.style.display = 'none';
@@ -561,10 +600,20 @@
       setTimeout(() => {
         try {
           const tlOnly = tlOnlyCheck.checked;
+          currentEmptyKey = 'no_routes';
+          currentJourneyPath = [];
           if (currentMode === 'system') {
             currentResults = engine.bestRoutesBySystem(cargo, jumps, tlOnly);
           } else if (currentMode === 'inner') {
             currentResults = engine.innerSystemRoutes(cargo, tlOnly);
+          } else if (currentMode === 'journey') {
+            currentJourneyPath = engine.findPath(startSystem, targetSystem);
+            if (!currentJourneyPath.length) {
+              currentEmptyKey = 'no_path';
+              currentResults = [];
+            } else {
+              currentResults = engine.routesAlongJourney(cargo, startSystem, targetSystem, tlOnly);
+            }
           } else {
             currentResults = engine.roundTrips(cargo, jumps, legs, 50, tlOnly);
           }
@@ -621,9 +670,12 @@
       { key: 'profitPerMin', label: t('col_ppm'),        cls: 'td-num td-ppm', format: v => v != null ? fmt(v) : '–' },
     ]; }
 
+    function colsJourney() { return colsRoute(); }
+
     function getCols() {
       if (currentMode === 'inner') return colsInner();
       if (currentMode === 'loop') return colsLoop();
+      if (currentMode === 'journey') return colsJourney();
       return colsRoute();
     }
 
@@ -672,6 +724,15 @@
       // Stats
       if (currentMode === 'loop') {
         statsBar.innerHTML = '<span>' + t('stats_routes') + ': <strong>' + rows.length + '</strong></span>';
+      } else if (currentMode === 'journey') {
+        const best = rows.length ? fmt(rows[0].totalProfit) : 'â€“';
+        const pathText = currentJourneyPath.length
+          ? currentJourneyPath.map(sysNick => engine.data.systems[sysNick] || sysNick).join(' \u2192 ')
+          : 'â€“';
+        statsBar.innerHTML =
+          '<span>' + t('stats_routes') + ': <strong>' + rows.length + '</strong></span>' +
+          '<span>' + t('stats_best') + ': <strong>' + best + '</strong></span>' +
+          '<span>' + t('stats_path') + ': <strong>' + pathText + '</strong></span>';
       } else {
         const best = rows.length ? fmt(rows[0].totalProfit) : '–';
         statsBar.innerHTML =
@@ -681,7 +742,7 @@
 
       // Body
       if (!rows.length) {
-        tableBody.innerHTML = '<tr><td colspan="' + cols.length + '" class="tr-empty">' + escHtml(t('no_routes')) + '</td></tr>';
+        tableBody.innerHTML = '<tr><td colspan="' + cols.length + '" class="tr-empty">' + escHtml(t(currentEmptyKey)) + '</td></tr>';
         return;
       }
 
@@ -751,11 +812,15 @@
         currentMode = tab.dataset.mode;
 
         // Toggle field visibility
-        jumpsField.style.display = currentMode === 'inner' ? 'none' : '';
+        jumpsField.style.display = (currentMode === 'inner' || currentMode === 'journey') ? 'none' : '';
         legsField.style.display = currentMode === 'loop' ? '' : 'none';
+        startSystemField.style.display = currentMode === 'journey' ? '' : 'none';
+        targetSystemField.style.display = currentMode === 'journey' ? '' : 'none';
 
         // Clear results when switching modes
         currentResults = [];
+        currentJourneyPath = [];
+        currentEmptyKey = 'no_routes';
         resultsSection.style.display = 'none';
       });
     });
