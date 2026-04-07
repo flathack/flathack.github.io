@@ -93,6 +93,77 @@ def parse_solar_meta(data_root: Path) -> dict[str, dict]:
     return out
 
 
+def parse_item_names(data_root: Path, res: DLLResolver) -> dict[str, str]:
+    names: dict[str, str] = {}
+    equipment_root = data_root / "EQUIPMENT"
+    if not equipment_root.exists():
+        return names
+
+    for ini_path in equipment_root.rglob("*.ini"):
+        try:
+            sections = parse_ini(ini_path)
+        except Exception:
+            continue
+        for _, entries in sections:
+            vals = {k.lower(): v.strip() for k, v in entries}
+            nick = vals.get("nickname", "").lower()
+            if not nick or nick in names:
+                continue
+            ids = vals.get("ids_name") or vals.get("strid_name") or ""
+            name = res.get(ids) if ids else ""
+            if name:
+                names[nick] = name
+    return names
+
+
+def parse_loadouts(data_root: Path, fl_sections: list[tuple[str, list[tuple[str, str]]]], item_names: dict[str, str]) -> dict[str, dict]:
+    loadout_files: list[Path] = []
+    for sec, entries in fl_sections:
+        for key, value in entries:
+            if key.lower() != "loadouts":
+                continue
+            rel = value.strip().replace("\\", "/")
+            candidate = data_root / rel
+            if candidate.exists():
+                loadout_files.append(candidate)
+
+    loadouts: dict[str, dict] = {}
+    for loadout_file in loadout_files:
+        for sec, entries in parse_ini(loadout_file):
+            if sec.lower() != "loadout":
+                continue
+            nickname = ""
+            equip_items: list[dict] = []
+            cargo_items: list[dict] = []
+            for key, value in entries:
+                kl = key.lower()
+                raw = value.strip()
+                if kl == "nickname":
+                    nickname = raw.lower()
+                    continue
+                parts = [p.strip() for p in raw.split(",")]
+                if kl == "equip" and parts and parts[0]:
+                    item_nick = parts[0].lower()
+                    equip_items.append({
+                        "item": parts[0],
+                        "name": item_names.get(item_nick, parts[0]),
+                        "hardpoint": parts[1] if len(parts) > 1 else "",
+                    })
+                elif kl == "cargo" and parts and parts[0]:
+                    item_nick = parts[0].lower()
+                    cargo_items.append({
+                        "item": parts[0],
+                        "name": item_names.get(item_nick, parts[0]),
+                        "count": parse_float(parts[1], 1.0) if len(parts) > 1 else 1.0,
+                    })
+            if nickname:
+                loadouts[nickname] = {
+                    "equip": equip_items,
+                    "cargo": cargo_items,
+                }
+    return loadouts
+
+
 def extract_universe(fl_ini: Path, res: DLLResolver) -> dict:
     """Extract all universe data for a Freelancer installation."""
     fl_sections = parse_ini(fl_ini)
@@ -102,6 +173,8 @@ def extract_universe(fl_ini: Path, res: DLLResolver) -> dict:
     data_root = parent.parent / "DATA" if parent.name.lower() == "exe" else parent / "DATA"
     universe_file = data_root / "UNIVERSE" / "universe.ini"
     solar_meta = parse_solar_meta(data_root)
+    item_names = parse_item_names(data_root, res)
+    loadouts = parse_loadouts(data_root, fl_sections, item_names)
 
     if not universe_file.exists():
         print(f"  ERROR: {universe_file} not found")
@@ -208,7 +281,7 @@ def extract_universe(fl_ini: Path, res: DLLResolver) -> dict:
                     kl = k.lower()
                     if kl in ("nickname", "archetype", "pos", "base", "goto",
                               "ids_name", "ids_info", "reputation",
-                              "prev_ring", "next_ring", "rotate"):
+                              "prev_ring", "next_ring", "rotate", "loadout"):
                         vals[kl] = v.strip()
 
                 archetype = vals.get("archetype", "")
@@ -288,6 +361,12 @@ def extract_universe(fl_ini: Path, res: DLLResolver) -> dict:
                     obj["base"] = base_nick
                 if goto_system:
                     obj["goto"] = goto_system
+                loadout_nick = vals.get("loadout", "").lower()
+                if loadout_nick:
+                    obj["loadout"] = loadout_nick
+                    loadout_info = loadouts.get(loadout_nick)
+                    if loadout_info:
+                        obj["loadout_items"] = loadout_info
                 # Store archetype for icon lookup (lowercase, stripped)
                 arch_key = archetype.lower().strip()
                 if arch_key:
