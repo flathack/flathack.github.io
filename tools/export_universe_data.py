@@ -27,7 +27,7 @@ INTERESTING_ARCHETYPES = {
     "planet", "sun", "station", "jumpgate", "jumphole",
     "gate", "base",  # Crossfire custom archetypes (nomad_gate, frgate, co_base …)
     "dock_ring", "docking_fixture", "trade_lane_ring",
-    "depot", "weapons_platform", "dreadnought",
+    "depot", "weapons_platform", "dreadnought", "buoy", "bouy",
     "battleship", "mining", "surprise", "suprise",
 }
 
@@ -55,6 +55,8 @@ def classify_object(archetype: str) -> str:
         return "dock"
     if "trade_lane" in a:
         return "trade_lane"
+    if "buoy" in a or "bouy" in a:
+        return "buoy"
     if "depot" in a:
         return "depot"
     if "weapons_platform" in a:
@@ -66,6 +68,31 @@ def classify_object(archetype: str) -> str:
     return "other"
 
 
+def parse_float(value: str, default: float = 0.0) -> float:
+    try:
+        return float(value.strip())
+    except (AttributeError, ValueError):
+        return default
+
+
+def parse_solar_meta(data_root: Path) -> dict[str, dict]:
+    solararch = data_root / "SOLAR" / "solararch.ini"
+    out: dict[str, dict] = {}
+    if not solararch.exists():
+        return out
+    for sec, entries in parse_ini(solararch):
+        if sec.lower() != "solar":
+            continue
+        vals = {k.lower(): v.strip() for k, v in entries}
+        nick = vals.get("nickname", "").lower()
+        if not nick:
+            continue
+        radius = parse_float(vals.get("solar_radius", "") or vals.get("radius", ""), 0.0)
+        if radius > 0:
+            out[nick] = {"radius": radius}
+    return out
+
+
 def extract_universe(fl_ini: Path, res: DLLResolver) -> dict:
     """Extract all universe data for a Freelancer installation."""
     fl_sections = parse_ini(fl_ini)
@@ -74,6 +101,7 @@ def extract_universe(fl_ini: Path, res: DLLResolver) -> dict:
     parent = fl_ini.parent
     data_root = parent.parent / "DATA" if parent.name.lower() == "exe" else parent / "DATA"
     universe_file = data_root / "UNIVERSE" / "universe.ini"
+    solar_meta = parse_solar_meta(data_root)
 
     if not universe_file.exists():
         print(f"  ERROR: {universe_file} not found")
@@ -180,7 +208,7 @@ def extract_universe(fl_ini: Path, res: DLLResolver) -> dict:
                     kl = k.lower()
                     if kl in ("nickname", "archetype", "pos", "base", "goto",
                               "ids_name", "ids_info", "reputation",
-                              "prev_ring", "next_ring"):
+                              "prev_ring", "next_ring", "rotate"):
                         vals[kl] = v.strip()
 
                 archetype = vals.get("archetype", "")
@@ -206,6 +234,13 @@ def extract_universe(fl_ini: Path, res: DLLResolver) -> dict:
                     obj_z = float(pos_parts[2]) if len(pos_parts) > 2 else 0.0
                 except (ValueError, IndexError):
                     obj_x, obj_z = 0.0, 0.0
+
+                rotate_str = vals.get("rotate", "")
+                rotate_parts = [p.strip() for p in rotate_str.split(",")] if rotate_str else []
+                try:
+                    rotate_y = float(rotate_parts[1]) if len(rotate_parts) > 1 else 0.0
+                except (ValueError, IndexError):
+                    rotate_y = 0.0
 
                 # Trade lane rings: collect for polyline building
                 if category == "trade_lane":
@@ -257,6 +292,11 @@ def extract_universe(fl_ini: Path, res: DLLResolver) -> dict:
                 arch_key = archetype.lower().strip()
                 if arch_key:
                     obj["arch"] = arch_key
+                    radius = solar_meta.get(arch_key, {}).get("radius", 0.0)
+                    if radius > 0:
+                        obj["radius"] = radius
+                if rotate_y:
+                    obj["rotate"] = rotate_y
 
                 objects.append(obj)
 
@@ -264,7 +304,7 @@ def extract_universe(fl_ini: Path, res: DLLResolver) -> dict:
                 vals_z: dict[str, str] = {}
                 for k, v in entries:
                     kl = k.lower()
-                    if kl in ("nickname", "pos", "size", "shape"):
+                    if kl in ("nickname", "pos", "size", "shape", "damage"):
                         vals_z[kl] = v.strip()
                 zone_nick = vals_z.get("nickname", "")
                 if zone_nick:
@@ -287,6 +327,7 @@ def extract_universe(fl_ini: Path, res: DLLResolver) -> dict:
                         "pos": [zx, zz],
                         "size": [sx, sz],
                         "shape": vals_z.get("shape", "SPHERE").upper(),
+                        "damage": parse_float(vals_z.get("damage", ""), 0.0),
                     }
 
             elif sec_lower == "nebula":
@@ -344,6 +385,18 @@ def extract_universe(fl_ini: Path, res: DLLResolver) -> dict:
                     "size": z["size"],
                     "shape": z["shape"],
                 })
+        for zone_nick, z in zones_raw.items():
+            if z.get("damage", 0.0) <= 0:
+                continue
+            zone_objects.append({
+                "type": "death_zone",
+                "kind": "sun_death" if "sun" in zone_nick.lower() else "death",
+                "nick": zone_nick,
+                "pos": z["pos"],
+                "size": z["size"],
+                "shape": z["shape"],
+                "damage": z["damage"],
+            })
 
         sys_entry = {
             "nick": sys_info["nick"],

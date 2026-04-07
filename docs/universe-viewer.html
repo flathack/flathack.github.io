@@ -166,6 +166,45 @@
       color: var(--muted);
       font-family: "IBM Plex Mono", monospace;
     }
+    .uv-info-section {
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(132, 177, 255, 0.12);
+    }
+    .uv-info-section h4 {
+      margin: 0 0 8px;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .uv-mini-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .uv-mini-list li {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 10px;
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(132, 177, 255, 0.06);
+      align-items: start;
+    }
+    .uv-mini-list li:last-child { border-bottom: none; }
+    .uv-mini-list .name {
+      color: var(--text);
+    }
+    .uv-mini-list .meta {
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-family: "IBM Plex Mono", monospace;
+      white-space: nowrap;
+    }
+    .uv-empty-note {
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
 
     /* ── Legend ── */
     .uv-legend {
@@ -293,11 +332,19 @@
         legend_system: 'System',
         legend_gate: 'Jump Gate Verbindung',
         legend_hole: 'Jump Hole Verbindung',
+        legend_buoy: 'Boje',
         info_type: 'Typ',
         info_nick: 'Nickname',
         info_pos: 'Position',
         info_base: 'Basis',
         info_jump: 'Sprung',
+        info_rotation: 'Rotation',
+        info_commodities_sells: 'Verkauft Commodities',
+        info_commodities_buys: 'Kauft Commodities',
+        info_ships: 'Schiffe',
+        info_none: 'Keine Einträge',
+        action_sells: 'Verkauft',
+        action_buys: 'Kauft',
       },
       en: {
         title: 'Universe',
@@ -319,11 +366,19 @@
         legend_system: 'System',
         legend_gate: 'Jump Gate connection',
         legend_hole: 'Jump Hole connection',
+        legend_buoy: 'Buoy',
         info_type: 'Type',
         info_nick: 'Nickname',
         info_pos: 'Position',
         info_base: 'Base',
         info_jump: 'Jump',
+        info_rotation: 'Rotation',
+        info_commodities_sells: 'Sells commodities',
+        info_commodities_buys: 'Buys commodities',
+        info_ships: 'Ships',
+        info_none: 'No entries',
+        action_sells: 'Sells',
+        action_buys: 'Buys',
       }
     };
 
@@ -332,13 +387,13 @@
         sun: "Sonne", planet: "Planet", jump_gate: "Jump Gate", jump_hole: "Jump Hole",
         station: "Station", dock: "Dock", depot: "Depot", weapons_platform: "Waffenplattform",
         mining: "Mining", nebula: "Nebel", asteroid_field: "Asteroidenfeld",
-        trade_lane: "Trade Lane", surprise: "Surprise", other: "Sonstige",
+        death_zone: "Death Zone", trade_lane: "Trade Lane", buoy: "Boje", surprise: "Surprise", other: "Sonstige",
       },
       en: {
         sun: "Sun", planet: "Planet", jump_gate: "Jump Gate", jump_hole: "Jump Hole",
         station: "Station", dock: "Dock", depot: "Depot", weapons_platform: "Weapons Platform",
         mining: "Mining", nebula: "Nebula", asteroid_field: "Asteroid Field",
-        trade_lane: "Trade Lane", surprise: "Surprise", other: "Other",
+        death_zone: "Death Zone", trade_lane: "Trade Lane", buoy: "Buoy", surprise: "Surprise", other: "Other",
       }
     };
 
@@ -383,7 +438,9 @@
       mining:           "#d97706",
       nebula:           "#c084fc",
       asteroid_field:   "#a8763e",
+      death_zone:       "#ff7a59",
       trade_lane:       "#38bdf8",
+      buoy:             "#facc15",
       surprise:         "#ff0000",
       other:            "#6b7280",
     };
@@ -395,6 +452,9 @@
     var currentSystem = null;
     var showJumpHoles = true;
     var iconCache = {};  // arch -> true/false (whether icon exists)
+    var tradeData = null;
+    var baseCommodityIndex = {};
+    var baseShipIndex = {};
 
     // Pan & zoom state
     var viewBox = { x: 0, y: 0, w: 1000, h: 800 };
@@ -421,12 +481,17 @@
     /* ── Data loading ── */
     function loadMod(mod) {
       currentMod = mod;
-      var url = "../data/universe/" + mod + ".json";
-      fetch(url)
-        .then(function (r) { return r.json(); })
-        .then(function (d) {
+      Promise.all([
+        fetch("../data/universe/" + mod + ".json").then(function (r) { return r.json(); }),
+        fetch("../data/trade-routes/" + mod + ".json")
+          .then(function (r) { return r.ok ? r.json() : null; })
+          .catch(function () { return null; })
+      ])
+        .then(function (results) {
+          var d = results[0];
           data = d;
-          // Probe which solar icons exist for this mod
+          tradeData = results[1];
+          rebuildTradeIndexes();
           iconCache = {};
           var archs = {};
           d.systems.forEach(function (s) {
@@ -448,6 +513,58 @@
         .catch(function () {
           svg.innerHTML = '<text x="50%" y="50%" text-anchor="middle" fill="#ef4444" font-size="16">' + escXml(t('err_load')) + '</text>';
         });
+    }
+
+    function rebuildTradeIndexes() {
+      baseCommodityIndex = {};
+      baseShipIndex = {};
+      if (!tradeData) return;
+
+      Object.keys(tradeData.by_commodity || {}).forEach(function (commodityNick) {
+        var info = (tradeData.commodities || {})[commodityNick] || {};
+        (tradeData.by_commodity[commodityNick] || []).forEach(function (entry) {
+          var baseNick = (entry.base || "").toLowerCase();
+          if (!baseNick) return;
+          if (!baseCommodityIndex[baseNick]) baseCommodityIndex[baseNick] = [];
+          baseCommodityIndex[baseNick].push({
+            nick: commodityNick,
+            name: info.name || commodityNick,
+            price: entry.price || 0,
+            action: entry.src ? "sells" : "buys"
+          });
+        });
+      });
+
+      Object.keys(baseCommodityIndex).forEach(function (baseNick) {
+        baseCommodityIndex[baseNick].sort(function (a, b) {
+          if (a.action !== b.action) return a.action === "sells" ? -1 : 1;
+          if (b.price !== a.price) return b.price - a.price;
+          return a.name.localeCompare(b.name);
+        });
+      });
+
+      (tradeData.ships || []).forEach(function (ship) {
+        (ship.dealers || []).forEach(function (dealer) {
+          var baseNick = (dealer.base || "").toLowerCase();
+          if (!baseNick) return;
+          if (!baseShipIndex[baseNick]) baseShipIndex[baseNick] = [];
+          baseShipIndex[baseNick].push({
+            nick: ship.nick,
+            name: ship.name || ship.nick,
+            type: ship.type || "",
+            cargo: ship.cargo || 0,
+            price: ship.price || 0
+          });
+        });
+      });
+
+      Object.keys(baseShipIndex).forEach(function (baseNick) {
+        baseShipIndex[baseNick].sort(function (a, b) {
+          if (b.cargo !== a.cargo) return b.cargo - a.cargo;
+          if (b.price !== a.price) return b.price - a.price;
+          return a.name.localeCompare(b.name);
+        });
+      });
     }
 
     /* ── Universe map (all systems) ── */
@@ -647,6 +764,7 @@
       // ── Draw zones (nebulae + asteroid fields) as background ellipses ──
       var zones = sys.zones || [];
       zones.forEach(function (z) {
+        if (z.type === "death_zone") return;
         var cx = mapObjX(z.pos[0]);
         var cy = mapObjZ(z.pos[1]);
         var color = COLORS[z.type] || COLORS.other;
@@ -675,6 +793,18 @@
       // ── Draw objects ──
       // Pre-compute icon path base
       var iconBase = "../data/universe/icons/" + currentMod + "/";
+      zones.forEach(function (z) {
+        if (z.type !== "death_zone" || z.kind !== "sun_death") return;
+        var zx = mapObjX(z.pos[0]);
+        var zy = mapObjZ(z.pos[1]);
+        var zrx = (z.size[0] / fullRange) * gridW;
+        var zry = (z.size[1] / fullRange) * gridH;
+        if (zrx < 2) zrx = 2;
+        if (zry < 2) zry = 2;
+        content += '<ellipse cx="' + zx + '" cy="' + zy + '" rx="' + zrx + '" ry="' + zry + '"' +
+                   ' fill="none" stroke="' + COLORS.death_zone + '" stroke-width="1"' +
+                   ' stroke-opacity="0.7" stroke-dasharray="5,4"/>';
+      });
 
       objects.forEach(function (o) {
         if (o.type === "jump_hole" && !showJumpHoles) return;
@@ -682,19 +812,14 @@
         var cx = mapObjX(o.pos[0]);
         var cy = mapObjZ(o.pos[1]);
         var color = COLORS[o.type] || COLORS.other;
-        var r = getObjectRadius(o.type);
+        var r = objectVisualRadius(o, fullRange, gridW, gridH);
         var label = o.name || o.nick;
-        var hasIcon = o.arch && iconCache[o.arch] !== false;
-        var iconSize = Math.max(r * 3, 24);
+        var hasIcon = o.arch && iconCache[o.arch] !== false && o.type !== "sun" && o.type !== "planet" && o.type !== "buoy";
+        var iconSize = objectIconSize(o, r);
+        var rotation = objectRotation(o);
+        var showLabel = shouldShowLabel(o);
 
         content += '<g class="uv-obj-node" data-nick="' + escAttr(o.nick) + '" style="cursor:pointer;">';
-
-        if (o.type === "sun") {
-          content += '<circle cx="' + cx + '" cy="' + cy + '" r="' + (r + 10) + '"' +
-                     ' fill="' + color + '" opacity="0.08"/>';
-          content += '<circle cx="' + cx + '" cy="' + cy + '" r="' + (r + 4) + '"' +
-                     ' fill="' + color + '" opacity="0.15"/>';
-        }
 
         if (o.type === "surprise") {
           var s = r + 2;
@@ -702,30 +827,32 @@
                      ' stroke="' + color + '" stroke-width="3" stroke-linecap="round" opacity="0.9"/>';
           content += '<line x1="' + (cx + s) + '" y1="' + (cy - s) + '" x2="' + (cx - s) + '" y2="' + (cy + s) + '"' +
                      ' stroke="' + color + '" stroke-width="3" stroke-linecap="round" opacity="0.9"/>';
-        } else if (hasIcon && o.type !== "sun" && o.type !== "planet") {
-          // Render icon image with colored glow behind
-          content += '<circle cx="' + cx + '" cy="' + cy + '" r="' + (iconSize / 2 + 2) + '"' +
-                     ' fill="' + color + '" opacity="0.12"/>';
+        } else if (o.type === "buoy") {
+          content += '<circle cx="' + cx + '" cy="' + cy + '" r="2.2" fill="' + COLORS.buoy + '" opacity="0.95"/>';
+        } else if (hasIcon) {
           content += '<image href="' + iconBase + encodeURIComponent(o.arch) + '.png"' +
                      ' x="' + (cx - iconSize / 2) + '" y="' + (cy - iconSize / 2) + '"' +
                      ' width="' + iconSize + '" height="' + iconSize + '"' +
-                     ' style="filter: drop-shadow(0 0 2px ' + color + ');"/>';
+                     ' transform="rotate(' + rotation + ' ' + cx + ' ' + cy + ')"/>';
         } else {
           content += '<circle cx="' + cx + '" cy="' + cy + '" r="' + r + '"' +
-                     ' fill="' + color + '" opacity="0.85"' +
-                     ' stroke="' + color + '" stroke-width="0.8" stroke-opacity="0.5"/>';
+                     ' fill="' + color + '" opacity="' + (o.type === "sun" ? "0.88" : "0.85") + '"' +
+                     ' stroke="' + color + '" stroke-width="' + (o.type === "sun" || o.type === "planet" ? "0.3" : "0.8") + '"' +
+                     ' stroke-opacity="' + (o.type === "sun" || o.type === "planet" ? "0.25" : "0.5") + '"/>';
         }
 
         // Hit area
-        var hitR = hasIcon && o.type !== "sun" && o.type !== "planet" ? iconSize / 2 + 4 : Math.max(r + 8, 16);
+        var hitR = hasIcon ? iconSize / 2 + 4 : Math.max(r + 6, 10);
         content += '<circle cx="' + cx + '" cy="' + cy + '" r="' + hitR + '"' +
                    ' fill="transparent"/>';
 
         // Label
-        var labelY = hasIcon && o.type !== "sun" && o.type !== "planet" ? cy + iconSize / 2 + 12 : cy + r + 14;
-        content += '<text x="' + cx + '" y="' + labelY + '"' +
-                   ' text-anchor="middle" fill="#9fb2cf" font-size="9" font-family="Space Grotesk, sans-serif">' +
-                   escXml(label) + '</text>';
+        var labelY = hasIcon ? cy + iconSize / 2 + 12 : cy + r + 14;
+        if (showLabel) {
+          content += '<text x="' + cx + '" y="' + labelY + '"' +
+                     ' text-anchor="middle" fill="#9fb2cf" font-size="9" font-family="Space Grotesk, sans-serif">' +
+                     escXml(label) + '</text>';
+        }
 
         // Goto indicator for jump gates/holes
         if (o.goto) {
@@ -787,6 +914,7 @@
       items += infoRow(t('info_nick'), obj.nick);
       items += infoRow(t('info_pos'), Math.round(obj.pos[0]) + ", " + Math.round(obj.pos[1]));
       if (obj.base) items += infoRow(t('info_base'), obj.base);
+      if (typeof obj.rotate === "number" && obj.rotate) items += infoRow(t('info_rotation'), Math.round(obj.rotate) + " deg");
       if (obj.goto) {
         var targetSys = data.systems.find(function (s) { return s.nick.toUpperCase() === obj.goto.toUpperCase(); });
         var gotoLabel = targetSys ? targetSys.name : obj.goto;
@@ -795,6 +923,7 @@
                  '<span class="uv-obj-label">→ ' + escXml(gotoLabel) + '</span>' +
                  '<span class="uv-obj-type">' + t('info_jump') + '</span></li>';
       }
+      if (obj.base) items += renderBaseTradeSections(obj.base);
       infoPanelList.innerHTML = items;
       infoPanel.classList.add("visible");
 
@@ -816,6 +945,45 @@
     }
 
     /* ── Breadcrumb ── */
+    function renderBaseTradeSections(baseNick) {
+      var baseKey = (baseNick || "").toLowerCase();
+      var entries = baseCommodityIndex[baseKey] || [];
+      var ships = baseShipIndex[baseKey] || [];
+      var sells = entries.filter(function (entry) { return entry.action === "sells"; });
+      var buys = entries.filter(function (entry) { return entry.action === "buys"; });
+      var html = "";
+      html += renderInfoSection(t('info_commodities_sells'), sells.map(function (entry) {
+        return { name: entry.name, meta: fmtNum(entry.price) + " | " + t('action_sells') };
+      }));
+      html += renderInfoSection(t('info_commodities_buys'), buys.map(function (entry) {
+        return { name: entry.name, meta: fmtNum(entry.price) + " | " + t('action_buys') };
+      }));
+      html += renderInfoSection(t('info_ships'), ships.map(function (ship) {
+        var meta = [];
+        if (ship.type) meta.push(ship.type);
+        if (ship.cargo) meta.push("Cargo " + fmtNum(ship.cargo));
+        if (ship.price) meta.push(fmtNum(ship.price));
+        return { name: ship.name, meta: meta.join(" | ") };
+      }));
+      return html;
+    }
+
+    function renderInfoSection(title, rows) {
+      var html = '<li class="uv-info-section"><div style="width:100%;">' +
+        '<h4>' + escXml(title) + '</h4>';
+      if (!rows.length) {
+        html += '<div class="uv-empty-note">' + escXml(t('info_none')) + '</div>';
+      } else {
+        html += '<ul class="uv-mini-list">';
+        rows.forEach(function (row) {
+          html += '<li><span class="name">' + escXml(row.name) + '</span><span class="meta">' + escXml(row.meta || "") + '</span></li>';
+        });
+        html += '</ul>';
+      }
+      html += '</div></li>';
+      return html;
+    }
+
     function updateBreadcrumb(sys) {
       breadcrumb.innerHTML =
         '<a id="bcUniverse">' + escXml(t('bc_universe')) + '</a>' +
@@ -964,18 +1132,49 @@
     });
 
     /* ── Helpers ── */
-    function getObjectRadius(type) {
-      switch (type) {
-        case "sun": return 16;
-        case "planet": return 10;
-        case "station": return 8;
-        case "jump_gate": return 6;
-        case "jump_hole": return 5;
-        case "dock": return 4;
-        case "depot": return 5;
-        case "weapons_platform": return 6;
-        default: return 5;
+    function fmtNum(value) {
+      return new Intl.NumberFormat(lang === "de" ? "de-DE" : "en-US").format(Math.round(value || 0));
+    }
+
+    function objectVisualRadius(obj, fullRange, gridW, gridH) {
+      if (obj.radius && (obj.type === "sun" || obj.type === "planet")) {
+        var mapped = (obj.radius / fullRange) * Math.min(gridW, gridH);
+        return Math.max(2, mapped);
       }
+      switch (obj.type) {
+        case "sun": return 7;
+        case "planet": return 5;
+        case "station": return 5;
+        case "jump_gate": return 5;
+        case "jump_hole": return 4.5;
+        case "dock": return 3;
+        case "depot": return 3.5;
+        case "weapons_platform": return 4;
+        case "buoy": return 2.2;
+        default: return 3.5;
+      }
+    }
+
+    function objectIconSize(obj, radius) {
+      switch (obj.type) {
+        case "jump_gate": return Math.max(16, radius * 2.3);
+        case "jump_hole": return Math.max(14, radius * 2.2);
+        case "station": return Math.max(14, radius * 2.5);
+        case "dock": return Math.max(10, radius * 2.2);
+        case "depot": return Math.max(11, radius * 2.2);
+        case "weapons_platform": return Math.max(12, radius * 2.2);
+        default: return Math.max(12, radius * 2.2);
+      }
+    }
+
+    function objectRotation(obj) {
+      if (typeof obj.rotate !== "number") return 0;
+      return -obj.rotate;
+    }
+
+    function shouldShowLabel(obj) {
+      return obj.type === "planet" || obj.type === "jump_gate" || obj.type === "jump_hole" ||
+        (obj.type === "station" && !!obj.base);
     }
 
     function legendItem(color, label) {
