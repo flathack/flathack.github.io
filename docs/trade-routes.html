@@ -539,7 +539,7 @@
         col_system: 'System', col_route: 'Route', col_commodities: 'Waren',
         commodity_filter: 'Filter', commodity_role: 'Typ',
         commodity_role_all: 'Alle', commodity_role_sell: 'Verkauft', commodity_role_buy: 'Kauft',
-        commodity_base_price: 'Basispreis', commodity_locations: 'Basen',
+        commodity_base_price: 'Basispreis', commodity_volume: 'Volumen', commodity_locations: 'Basen',
         commodity_best_buy: 'Best Buy', commodity_best_sell: 'Best Sell',
         commodity_col_system: 'System', commodity_col_base: 'Basis', commodity_col_faction: 'Fraktion', commodity_col_buy: 'Kaufpreis',
         commodity_col_sell: 'Verkaufspreis', commodity_col_role: 'Aktion',
@@ -574,7 +574,7 @@
         col_system: 'System', col_route: 'Route', col_commodities: 'Commodities',
         commodity_filter: 'Filter', commodity_role: 'Type',
         commodity_role_all: 'All', commodity_role_sell: 'Sells', commodity_role_buy: 'Buys',
-        commodity_base_price: 'Base price', commodity_locations: 'Bases',
+        commodity_base_price: 'Base price', commodity_volume: 'Volume', commodity_locations: 'Bases',
         commodity_best_buy: 'Best Buy', commodity_best_sell: 'Best Sell',
         commodity_col_system: 'System', commodity_col_base: 'Base', commodity_col_faction: 'Faction', commodity_col_buy: 'Buy price',
         commodity_col_sell: 'Sell price', commodity_col_role: 'Action',
@@ -877,6 +877,7 @@
 
       commodityModalTitle.textContent = tCommodity(info.name);
       commodityModalMeta.textContent = t('commodity_base_price') + ': ' + fmt(Math.round(info.price || 0)) +
+        ' | ' + t('commodity_volume') + ': ' + String(info.volume || 1) +
         ' | ' + t('commodity_best_buy') + ': ' + (bestBuy ? (bestBuy.system + ' -> ' + bestBuy.base + ' (' + fmt(bestBuy.buyPrice) + ')') : '-') +
         ' | ' + t('commodity_best_sell') + ': ' + (bestSell ? (bestSell.system + ' -> ' + bestSell.base + ' (' + fmt(bestSell.sellPrice) + ')') : '-') +
         ' | ' + t('commodity_locations') + ': ' + rows.length;

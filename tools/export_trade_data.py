@@ -510,10 +510,11 @@ def build_adjacency(universe_file: Path, locked: set[int]) -> dict[str, list[str
 
 
 def extract_commodity_prices(
-    goods_files: list[Path], res: DLLResolver
-) -> tuple[dict[str, int], dict[str, str]]:
+    goods_files: list[Path], equip_files: list[Path], res: DLLResolver
+) -> tuple[dict[str, int], dict[str, str], dict[str, float]]:
     prices: dict[str, int] = {}
     names: dict[str, str] = {}
+    volumes: dict[str, float] = {}
     for gf in goods_files:
         for sec, entries in parse_ini(gf):
             if sec.lower() != "good":
@@ -537,7 +538,27 @@ def extract_commodity_prices(
             prices[nick.lower()] = price
             resolved = res.get(ids) if ids else ""
             names[nick.lower()] = resolved or commodity_fallback(nick)
-    return prices, names
+    for ef in equip_files:
+        for sec, entries in parse_ini(ef):
+            if sec.lower() != "commodity":
+                continue
+            nick = ""
+            volume = 1.0
+            for k, v in entries:
+                kl = k.lower()
+                if kl == "nickname":
+                    nick = v.strip().lower()
+                elif kl == "volume":
+                    try:
+                        volume = float(v.strip())
+                    except ValueError:
+                        pass
+            if not nick.startswith("commodity_"):
+                continue
+            if volume <= 0:
+                volume = 1.0
+            volumes[nick] = volume
+    return prices, names, volumes
 
 
 def extract_market_entries(
@@ -859,6 +880,7 @@ def export_installation(inst: dict):
     res = DLLResolver(get_dll_paths(fl_ini, sections))
     try:
         goods_files = find_data_files(fl_ini, sections, "goods")
+        equip_files = find_data_files(fl_ini, sections, "equipment")
         market_files = find_data_files(fl_ini, sections, "markets")
         universe_files = find_data_files(fl_ini, sections, "universe")
         universe_file = universe_files[0] if universe_files else None
@@ -871,7 +893,7 @@ def export_installation(inst: dict):
         enrich_bases(universe_file, systems, bases)
         locked = extract_locked_hashes(universe_file)
         adjacency = build_adjacency(universe_file, locked)
-        comm_prices, comm_names = extract_commodity_prices(goods_files, res)
+        comm_prices, comm_names, comm_volumes = extract_commodity_prices(goods_files, equip_files, res)
         markets = extract_market_entries(market_files, bases, comm_prices)
         ships = extract_ships(fl_ini, res, bases)
         travel = extract_travel_data(universe_file, systems)
@@ -896,6 +918,7 @@ def export_installation(inst: dict):
                 nick: {
                     "name": comm_names.get(nick, commodity_fallback(nick)),
                     "price": price,
+                    "volume": comm_volumes.get(nick, 1.0),
                 }
                 for nick, price in comm_prices.items()
                 if price > 0

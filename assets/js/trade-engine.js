@@ -178,6 +178,9 @@ class TradeEngine {
     if (source.base === sink.base) return;
     const ppu = Math.round(sink.price - source.price);
     if (ppu <= 0) return;
+    const volume = (commInfo && Number(commInfo.volume) > 0) ? Number(commInfo.volume) : 1;
+    const units = Math.floor(cargo / volume);
+    if (units <= 0) return;
 
     const ss = source.sys, ds = sink.sys;
     let path, jumps;
@@ -201,11 +204,13 @@ class TradeEngine {
       sellBaseNick: sink.base,
       sellBase: (bases[sink.base] && bases[sink.base].name) || sink.base,
       commodity: commInfo.name,
+      commodityVolume: volume,
       buyPrice: Math.round(source.price),
       sellPrice: Math.round(sink.price),
       profitPerUnit: ppu,
       cargo: cargo,
-      totalProfit: ppu * cargo,
+      cargoUnits: units,
+      totalProfit: ppu * units,
       jumps: jumps,
       path: path.map(s => sys[s] || s),
       pathNicks: path.slice(),
