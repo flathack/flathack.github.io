@@ -35,43 +35,49 @@
     .uv-controls {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
+      gap: 10px;
       align-items: center;
       margin-bottom: 14px;
     }
+    .uv-controls.in-subnav {
+      margin: 0 0 0 auto;
+      flex: 1 1 420px;
+      justify-content: flex-end;
+      min-width: 0;
+    }
     .uv-controls .uv-field {
       display: flex;
-      flex-direction: column;
-      gap: 5px;
-    }
-    .uv-controls label {
-      font-size: 0.82rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--muted);
+      align-items: center;
+      min-width: 0;
     }
     .uv-controls input[type="text"] {
-      min-height: 40px;
-      padding: 0 14px;
+      min-height: 34px;
+      padding: 0 12px;
       border: 1px solid rgba(132, 177, 255, 0.2);
-      border-radius: 12px;
+      border-radius: 999px;
       background: rgba(6, 14, 26, 0.8);
       color: var(--text);
       font-family: inherit;
-      font-size: 0.95rem;
-      min-width: 240px;
+      font-size: 0.9rem;
+      min-width: 220px;
+      width: min(280px, 100%);
+    }
+    .uv-controls label {
+      display: none;
     }
 
     .uv-btn {
-      padding: 8px 18px;
+      min-height: 34px;
+      padding: 0 14px;
       border: 1px solid rgba(132, 177, 255, 0.25);
-      border-radius: 10px;
+      border-radius: 999px;
       background: rgba(6, 14, 26, 0.7);
       color: var(--text);
       font-family: inherit;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       cursor: pointer;
       transition: background 200ms, border-color 200ms;
+      white-space: nowrap;
     }
     .uv-btn:hover {
       background: rgba(88, 196, 255, 0.12);
@@ -86,16 +92,15 @@
     .uv-zoom-controls {
       display: flex;
       gap: 6px;
-      margin-left: auto;
     }
-    .uv-zoom-controls .uv-btn { font-size: 1.1rem; padding: 6px 14px; }
+    .uv-zoom-controls .uv-btn { min-width: 34px; padding: 0 10px; font-size: 1rem; }
 
     /* ── Breadcrumb ── */
     .uv-breadcrumb {
       display: flex;
       align-items: center;
       gap: 8px;
-      margin-bottom: 12px;
+      margin: 0;
       font-size: 0.88rem;
       color: var(--muted);
     }
@@ -106,6 +111,10 @@
     }
     .uv-breadcrumb a:hover { color: var(--accent-strong); }
     .uv-breadcrumb .separator { opacity: 0.4; }
+    .uv-breadcrumb.in-subnav {
+      flex: 0 0 auto;
+      white-space: nowrap;
+    }
 
     /* ── Info panel (right side overlay) ── */
     .uv-info-panel {
@@ -230,17 +239,41 @@
     /* ── Stats bar ── */
     .uv-stats {
       display: flex;
-      gap: 24px;
-      margin-bottom: 12px;
+      gap: 14px;
       font-family: "IBM Plex Mono", monospace;
-      font-size: 0.82rem;
+      font-size: 0.76rem;
       color: var(--muted);
+      white-space: nowrap;
     }
     .uv-stats strong { color: var(--accent-strong); }
+    .uv-toolbar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+      min-width: 0;
+    }
+    .uv-legend {
+      display: none;
+    }
+    main > h2[data-i18n="title"],
+    main > p[data-i18n="subtitle"] {
+      display: none;
+    }
 
     /* ── Responsive ── */
     @media (max-width: 768px) {
       .uv-info-panel { width: 240px; }
+      .uv-controls.in-subnav {
+        margin-left: 0;
+        justify-content: flex-start;
+        flex-basis: 100%;
+      }
+      .uv-stats {
+        order: 10;
+        width: 100%;
+        white-space: normal;
+      }
     }
     @media (max-width: 520px) {
       .uv-info-panel {
@@ -252,6 +285,10 @@
         width: 100%;
         max-height: 50vh;
         border-radius: 14px 14px 0 0;
+      }
+      .uv-controls input[type="text"] {
+        min-width: 0;
+        width: 100%;
       }
     }
   </style>
@@ -473,6 +510,7 @@
     var statsEl = document.getElementById("stats");
     var searchInput = document.getElementById("search");
     var legendEl = document.getElementById("legend");
+    var controlsEl = document.querySelector(".uv-controls");
     var btnShowHoles = document.getElementById("btnShowHoles");
     var btnZoomIn = document.getElementById("btnZoomIn");
     var btnZoomOut = document.getElementById("btnZoomOut");
@@ -1169,12 +1207,30 @@
 
     function objectRotation(obj) {
       if (typeof obj.rotate !== "number") return 0;
-      return -obj.rotate;
+      return 90 - obj.rotate;
     }
 
     function shouldShowLabel(obj) {
       return obj.type === "planet" || obj.type === "jump_gate" || obj.type === "jump_hole" ||
         (obj.type === "station" && !!obj.base);
+    }
+
+    function mountControlsIntoSubnav() {
+      var subNav = document.querySelector(".project-sub-nav");
+      if (!subNav || !controlsEl || !breadcrumb || !statsEl) return;
+
+      breadcrumb.classList.add("in-subnav");
+      controlsEl.classList.add("in-subnav");
+
+      if (!controlsEl.contains(statsEl)) {
+        controlsEl.insertBefore(statsEl, controlsEl.querySelector(".uv-zoom-controls"));
+      }
+      if (!subNav.contains(breadcrumb)) {
+        subNav.appendChild(breadcrumb);
+      }
+      if (!subNav.contains(controlsEl)) {
+        subNav.appendChild(controlsEl);
+      }
     }
 
     function legendItem(color, label) {
@@ -1194,6 +1250,7 @@
 
     /* ── Init ── */
     window.addEventListener("mod-change", function (e) { loadMod(e.detail.mod); });
+    window.addEventListener("load", mountControlsIntoSubnav);
     if (lang !== 'de') applyLang();
   })();
   </script>
