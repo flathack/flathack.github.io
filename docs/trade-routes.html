@@ -404,6 +404,13 @@
       <section class="page-section" style="margin-bottom: 24px;">
         <div class="tr-controls">
           <div class="tr-field">
+            <label for="dataset-select" data-i18n="lbl_dataset">Preisdaten</label>
+            <select id="dataset-select">
+              <option value="default">Standard</option>
+            </select>
+          </div>
+
+          <div class="tr-field">
             <label for="ship-select" data-i18n="lbl_ship">Schiff</label>
             <select id="ship-select">
               <option value="">Loading...</option>
@@ -517,7 +524,7 @@
         back: '\u2190 Zurück zur Startseite',
         title: 'Handelsrouten-Rechner',
         intro: 'Finde die profitabelsten Handelsrouten über alle Systeme. Wähle deinen Mod, dein Schiff und starte den Handel.',
-        lbl_mod: 'Mod', lbl_ship: 'Schiff', lbl_cargo: 'Fracht',
+        lbl_mod: 'Mod', lbl_dataset: 'Preisdaten', lbl_ship: 'Schiff', lbl_cargo: 'Fracht',
         lbl_jumps: 'Max. Sprünge', lbl_legs: 'Etappen',
         lbl_start_system: 'Aktuelles System', lbl_target_system: 'Zielsystem',
         lbl_tl_only: 'Nur Trade-Lane-Basen',
@@ -525,6 +532,7 @@
         tab_system: 'Handelsrouten', tab_inner: 'Innersystem', tab_loop: 'Rundkurs', tab_journey: 'Trade Along Route',
         search_placeholder: 'Routen durchsuchen...',
         loading: 'Routen werden berechnet...',
+        dataset_default: 'Standard',
         custom_cargo: 'Eigene Fracht',
         no_routes: 'Keine Routen gefunden.',
         no_path: 'Zwischen diesen Systemen wurde kein Pfad gefunden.',
@@ -552,7 +560,7 @@
         back: '\u2190 Back to Home',
         title: 'Trade Route Calculator',
         intro: 'Find the most profitable trade routes across systems. Select your mod, your ship, and start trading.',
-        lbl_mod: 'Mod', lbl_ship: 'Ship', lbl_cargo: 'Cargo',
+        lbl_mod: 'Mod', lbl_dataset: 'Price Data', lbl_ship: 'Ship', lbl_cargo: 'Cargo',
         lbl_jumps: 'Max Jumps', lbl_legs: 'Legs',
         lbl_start_system: 'Current System', lbl_target_system: 'Target System',
         lbl_tl_only: 'Trade Lane bases only',
@@ -560,6 +568,7 @@
         tab_system: 'Trade Routes', tab_inner: 'Inner System', tab_loop: 'Round Trip', tab_journey: 'Trade Along Route',
         search_placeholder: 'Search routes...',
         loading: 'Calculating routes...',
+        dataset_default: 'Default',
         custom_cargo: 'Custom cargo',
         no_routes: 'No routes found.',
         no_path: 'No path was found between these systems.',
@@ -643,6 +652,10 @@
       document.querySelectorAll('.tr-lang-btn').forEach(b => {
         b.classList.toggle('active', b.dataset.lang === lang);
       });
+      if (tradePayload) {
+        populateDatasetOptions();
+        applyDataset(selectedDatasetId);
+      }
       if (activeCommodityNick && commodityModal.classList.contains('open')) {
         const currentRole = commodityRoleFilter.value || 'all';
         commodityRoleFilter.innerHTML =
@@ -657,6 +670,9 @@
 
     /* ── State ─────────────────────────────────────────── */
     let engine = null;
+    let tradePayload = null;
+    let datasetMap = Object.create(null);
+    let selectedDatasetId = '';
     let currentModId = '';
     let factionNames = Object.create(null);
     let currentResults = [];
@@ -669,6 +685,7 @@
 
     /* ── DOM refs ──────────────────────────────────────── */
     const $ = id => document.getElementById(id);
+    const datasetSelect = $('dataset-select');
     const shipSelect   = $('ship-select');
     const cargoInput   = $('cargo-input');
     const jumpsInput   = $('jumps-input');
@@ -704,10 +721,156 @@
       return m + ':' + String(sec).padStart(2, '0');
     }
 
+    function snapshotFromLegacyPayload(payload) {
+      return {
+        id: 'default',
+        label: t('dataset_default'),
+        ships: payload.ships || [],
+        systems: payload.systems || {},
+        bases: payload.bases || {},
+        adjacency: payload.adjacency || {},
+        commodities: payload.commodities || {},
+        markets: payload.markets || {},
+        travel: payload.travel || {},
+      };
+    }
+
+    function normalizeTradePayload(payload) {
+      if (payload && payload.datasets && typeof payload.datasets === 'object') {
+        const order = Array.isArray(payload.dataset_order) && payload.dataset_order.length
+          ? payload.dataset_order.slice()
+          : Object.keys(payload.datasets);
+        const mapped = Object.create(null);
+        order.forEach(id => {
+          const entry = payload.datasets[id];
+          if (!entry) return;
+          mapped[id] = {
+            id,
+            label: entry.label || entry.name || id,
+            cycleDays: entry.cycle_days || null,
+            notes: entry.notes || '',
+            ships: entry.ships || [],
+            systems: entry.systems || {},
+            bases: entry.bases || {},
+            adjacency: entry.adjacency || {},
+            commodities: entry.commodities || {},
+            markets: entry.markets || {},
+            travel: entry.travel || {},
+          };
+        });
+        const selected = payload.default_dataset && mapped[payload.default_dataset]
+          ? payload.default_dataset
+          : order.find(id => !!mapped[id]) || '';
+        return {
+          id: payload.id || '',
+          name: payload.name || '',
+          datasets: mapped,
+          datasetOrder: order.filter(id => !!mapped[id]),
+          defaultDataset: selected,
+        };
+      }
+
+      const fallback = snapshotFromLegacyPayload(payload || {});
+      return {
+        id: payload && payload.id || '',
+        name: payload && payload.name || '',
+        datasets: { default: fallback },
+        datasetOrder: ['default'],
+        defaultDataset: 'default',
+      };
+    }
+
+    function currentDataset() {
+      return datasetMap[selectedDatasetId] || null;
+    }
+
+    function populateDatasetOptions() {
+      const options = (tradePayload.datasetOrder || []).map(id => {
+        const dataset = datasetMap[id];
+        if (!dataset) return '';
+        let label = dataset.label || id;
+        if (dataset.cycleDays) label += ' [' + dataset.cycleDays + 'd]';
+        return '<option value="' + escHtml(id) + '">' + escHtml(label) + '</option>';
+      }).join('');
+      datasetSelect.innerHTML = options || '<option value="default">' + escHtml(t('dataset_default')) + '</option>';
+      if (!selectedDatasetId || !datasetMap[selectedDatasetId]) {
+        selectedDatasetId = tradePayload.defaultDataset || tradePayload.datasetOrder[0] || 'default';
+      }
+      datasetSelect.value = selectedDatasetId;
+      datasetSelect.disabled = (tradePayload.datasetOrder || []).length <= 1;
+    }
+
+    function applyDataset(datasetId) {
+      const prevStartSystem = startSystemSelect.value;
+      const prevTargetSystem = targetSystemSelect.value;
+      const prevShip = shipSelect.value;
+      const prevCargo = cargoInput.value;
+      selectedDatasetId = datasetId;
+      const data = currentDataset();
+      engine = data ? new TradeEngine(data) : null;
+      closeCommodityModal();
+
+      if (!data) {
+        calcBtn.disabled = true;
+        return;
+      }
+
+      const systemEntries = Object.entries(data.systems || {})
+        .sort((a, b) => String(a[1] || a[0]).localeCompare(String(b[1] || b[0])));
+      const systemOptions = systemEntries.map(([nick, name]) =>
+        '<option value="' + escHtml(nick) + '">' + escHtml(name || nick) + '</option>'
+      ).join('');
+      startSystemSelect.innerHTML = '<option value=""></option>' + systemOptions;
+      targetSystemSelect.innerHTML = '<option value=""></option>' + systemOptions;
+      if (prevStartSystem && data.systems && data.systems[prevStartSystem]) {
+        startSystemSelect.value = prevStartSystem;
+      } else if (systemEntries.length) {
+        startSystemSelect.value = systemEntries[0][0];
+      }
+      if (prevTargetSystem && data.systems && data.systems[prevTargetSystem]) {
+        targetSystemSelect.value = prevTargetSystem;
+      } else if (systemEntries.length) {
+        targetSystemSelect.value = systemEntries[Math.min(1, systemEntries.length - 1)][0];
+      }
+
+      shipSelect.innerHTML = '';
+      const cOpt = document.createElement('option');
+      cOpt.value = 'custom';
+      cOpt.textContent = t('custom_cargo');
+      shipSelect.appendChild(cOpt);
+
+      for (const ship of (data.ships || [])) {
+        if (!ship.dealers || ship.dealers.length === 0) continue;
+        const opt = document.createElement('option');
+        opt.value = ship.cargo;
+        opt.textContent = tShip(ship) + '  [' + ship.cargo + ']';
+        shipSelect.appendChild(opt);
+      }
+      const buyableShips = (data.ships || []).filter(s => s.dealers && s.dealers.length > 0);
+      if (prevShip && Array.from(shipSelect.options).some(opt => opt.value === prevShip)) {
+        shipSelect.value = prevShip;
+      } else if (buyableShips.length) {
+        shipSelect.value = buyableShips[0].cargo;
+      } else {
+        shipSelect.value = 'custom';
+      }
+
+      if (shipSelect.value === 'custom') {
+        cargoInput.value = prevCargo || cargoInput.value;
+      } else {
+        cargoInput.value = shipSelect.value;
+      }
+
+      calcBtn.disabled = false;
+    }
+
     /* ── Mod Loading ───────────────────────────────────── */
     async function loadMod(modId) {
       currentModId = modId;
       engine = null;
+      tradePayload = null;
+      datasetMap = Object.create(null);
+      selectedDatasetId = '';
       factionNames = Object.create(null);
       closeCommodityModal();
       calcBtn.disabled = true;
@@ -716,8 +879,8 @@
       try {
         const resp = await fetch('../data/trade-routes/' + modId + '.json');
         if (!resp.ok) throw new Error('HTTP ' + resp.status);
-        const data = await resp.json();
-        engine = new TradeEngine(data);
+        tradePayload = normalizeTradePayload(await resp.json());
+        datasetMap = tradePayload.datasets || Object.create(null);
         try {
           const repResp = await fetch('../data/reputation/' + modId + '.json');
           if (repResp.ok) {
@@ -728,37 +891,8 @@
           }
         } catch (e) {}
 
-        const systemEntries = Object.entries(data.systems || {})
-          .sort((a, b) => String(a[1] || a[0]).localeCompare(String(b[1] || b[0])));
-        const systemOptions = systemEntries.map(([nick, name]) =>
-          '<option value="' + escHtml(nick) + '">' + escHtml(name || nick) + '</option>'
-        ).join('');
-        startSystemSelect.innerHTML = '<option value=""></option>' + systemOptions;
-        targetSystemSelect.innerHTML = '<option value=""></option>' + systemOptions;
-        if (systemEntries.length) {
-          startSystemSelect.value = systemEntries[0][0];
-          targetSystemSelect.value = systemEntries[Math.min(1, systemEntries.length - 1)][0];
-        }
-
-        shipSelect.innerHTML = '';
-        const cOpt = document.createElement('option');
-        cOpt.value = 'custom';
-        cOpt.textContent = t('custom_cargo');
-        shipSelect.appendChild(cOpt);
-
-        for (const ship of data.ships) {
-          if (!ship.dealers || ship.dealers.length === 0) continue;
-          const opt = document.createElement('option');
-          opt.value = ship.cargo;
-          opt.textContent = tShip(ship) + '  [' + ship.cargo + ']';
-          shipSelect.appendChild(opt);
-        }
-        const buyableShips = data.ships.filter(s => s.dealers && s.dealers.length > 0);
-        if (buyableShips.length) {
-          shipSelect.value = buyableShips[0].cargo;
-          cargoInput.value = buyableShips[0].cargo;
-        }
-        calcBtn.disabled = false;
+        populateDatasetOptions();
+        applyDataset(selectedDatasetId);
       } catch (err) {
         tableBody.innerHTML = '<tr><td colspan="99" class="tr-empty">' + escHtml(t('load_fail')) +
           escHtml(err.message) + '</td></tr>';
@@ -1104,6 +1238,11 @@
     commodityModalClose.addEventListener('click', closeCommodityModal);
     commodityFilterInput.addEventListener('input', renderCommodityModal);
     commodityRoleFilter.addEventListener('change', renderCommodityModal);
+    datasetSelect.addEventListener('change', () => {
+      if (!tradePayload) return;
+      applyDataset(datasetSelect.value);
+      if (resultsSection.style.display !== 'none') calculate();
+    });
     commodityModal.addEventListener('click', e => {
       if (e.target === commodityModal) closeCommodityModal();
     });

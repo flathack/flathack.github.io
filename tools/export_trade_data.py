@@ -898,9 +898,8 @@ def export_installation(inst: dict):
         ships = extract_ships(fl_ini, res, bases)
         travel = extract_travel_data(universe_file, systems)
 
-        output = {
-            "id": inst["id"],
-            "name": inst["name"],
+        snapshot = {
+            "label": "Default",
             "ships": ships,
             "systems": {nick: info["name"] for nick, info in systems.items()},
             "bases": {
@@ -931,6 +930,15 @@ def export_installation(inst: dict):
                 }
                 for sys_nick in systems
                 if sys_nick in travel["system_gates"] or sys_nick in travel["system_tl"]
+            },
+        }
+        output = {
+            "id": inst["id"],
+            "name": inst["name"],
+            "default_dataset": "default",
+            "dataset_order": ["default"],
+            "datasets": {
+                "default": snapshot
             },
         }
 
@@ -976,7 +984,9 @@ def export_installation(inst: dict):
                 data = json.load(f)
 
             en_base_count = 0
-            for nick, base_info in data["bases"].items():
+            snapshot = ((data.get("datasets") or {}).get("default")) or data
+
+            for nick, base_info in snapshot["bases"].items():
                 en_info = en_bases.get(nick, {})
                 en_name = en_info.get("name", "")
                 if en_name and en_name != base_info.get("name"):
@@ -984,7 +994,7 @@ def export_installation(inst: dict):
                     en_base_count += 1
 
             en_ship_count = 0
-            for ship in data["ships"]:
+            for ship in snapshot["ships"]:
                 en_name = en_ship_map.get(ship.get("nick", ""), "")
                 if en_name and en_name != ship.get("name"):
                     ship["nameEn"] = en_name
