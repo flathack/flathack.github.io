@@ -59,15 +59,23 @@ class TradeEngine {
     return gate ? gate.pos : null;
   }
 
-  _intraSystemTime(systemNick, fromPos, toPos) {
+  _intraSystemBreakdown(systemNick, fromPos, toPos) {
     const dx = toPos[0] - fromPos[0], dz = toPos[1] - fromPos[1];
     const directDist = Math.hypot(dx, dz);
     const directTime = directDist / TradeEngine.CRUISE_SPEED;
 
     const sysTravel = (this.data.travel || {})[systemNick];
-    if (!sysTravel || !sysTravel.tl || !sysTravel.tl.length) return directTime;
+    if (!sysTravel || !sysTravel.tl || !sysTravel.tl.length) {
+      return {
+        totalTime: directTime,
+        segments: [{ type: 'open_space', systemNick, seconds: directTime, distance: directDist }],
+      };
+    }
 
-    let bestTime = directTime;
+    let best = {
+      totalTime: directTime,
+      segments: [{ type: 'open_space', systemNick, seconds: directTime, distance: directDist }],
+    };
 
     for (const polyline of sysTravel.tl) {
       let nearFromIdx = 0, nearFromDist = Infinity;
@@ -97,10 +105,20 @@ class TradeEngine {
       const timeTL = tlDist / TradeEngine.TL_SPEED;
 
       const total = timeToTL + timeTL + timeFromTL;
-      if (total < bestTime) bestTime = total;
+      if (total < best.totalTime) {
+        const segments = [];
+        if (timeToTL > 0.01) segments.push({ type: 'open_space', systemNick, seconds: timeToTL, distance: nearFromDist });
+        if (timeTL > 0.01) segments.push({ type: 'trade_lane', systemNick, seconds: timeTL });
+        if (timeFromTL > 0.01) segments.push({ type: 'open_space', systemNick, seconds: timeFromTL, distance: nearToDist });
+        best = { totalTime: total, segments };
+      }
     }
 
-    return bestTime;
+    return best;
+  }
+
+  _intraSystemTime(systemNick, fromPos, toPos) {
+    return this._intraSystemBreakdown(systemNick, fromPos, toPos).totalTime;
   }
 
   travelBreakdown(route) {
@@ -117,16 +135,32 @@ class TradeEngine {
     let totalTime = 0;
 
     if (path.length === 1) {
-      const intraTime = this._intraSystemTime(path[0], srcBase.pos, dstBase.pos);
       segments.push({
-        type: 'intra',
+        type: 'buy_start',
         systemNick: path[0],
         system: systems[path[0]] || path[0],
-        from: srcBase.name || route.buyBase,
-        to: dstBase.name || route.sellBase,
-        seconds: intraTime,
+        station: srcBase.name || route.buyBase,
+        seconds: TradeEngine.BUY_AND_LAUNCH_TIME,
       });
-      totalTime += intraTime;
+      totalTime += TradeEngine.BUY_AND_LAUNCH_TIME;
+
+      const intra = this._intraSystemBreakdown(path[0], srcBase.pos, dstBase.pos);
+      intra.segments.forEach(segment => {
+        segments.push({
+          ...segment,
+          system: systems[path[0]] || path[0],
+        });
+      });
+      totalTime += intra.totalTime;
+
+      segments.push({
+        type: 'dock_sell',
+        systemNick: path[0],
+        system: systems[path[0]] || path[0],
+        station: dstBase.name || route.sellBase,
+        seconds: TradeEngine.LAND_AND_SELL_TIME,
+      });
+      totalTime += TradeEngine.LAND_AND_SELL_TIME;
     } else {
       for (let i = 0; i < path.length; i++) {
         let fromPos, toPos, fromLabel, toLabel;
@@ -149,16 +183,27 @@ class TradeEngine {
         }
 
         if (!fromPos || !toPos) return null;
-        const intraTime = this._intraSystemTime(path[i], fromPos, toPos);
-        segments.push({
-          type: 'intra',
-          systemNick: path[i],
-          system: systems[path[i]] || path[i],
-          from: fromLabel,
-          to: toLabel,
-          seconds: intraTime,
+        if (i === 0) {
+          segments.push({
+            type: 'buy_start',
+            systemNick: path[i],
+            system: systems[path[i]] || path[i],
+            station: srcBase.name || route.buyBase,
+            seconds: TradeEngine.BUY_AND_LAUNCH_TIME,
+          });
+          totalTime += TradeEngine.BUY_AND_LAUNCH_TIME;
+        }
+
+        const intra = this._intraSystemBreakdown(path[i], fromPos, toPos);
+        intra.segments.forEach(segment => {
+          segments.push({
+            ...segment,
+            system: systems[path[i]] || path[i],
+            from: fromLabel,
+            to: toLabel,
+          });
         });
-        totalTime += intraTime;
+        totalTime += intra.totalTime;
 
         if (i < path.length - 1) {
           segments.push({
@@ -171,16 +216,19 @@ class TradeEngine {
           });
           totalTime += TradeEngine.GATE_TIME;
         }
+
+        if (i === path.length - 1) {
+          segments.push({
+            type: 'dock_sell',
+            systemNick: path[i],
+            system: systems[path[i]] || path[i],
+            station: dstBase.name || route.sellBase,
+            seconds: TradeEngine.LAND_AND_SELL_TIME,
+          });
+          totalTime += TradeEngine.LAND_AND_SELL_TIME;
+        }
       }
     }
-
-    segments.push({
-      type: 'base_ops',
-      from: srcBase.name || route.buyBase,
-      to: dstBase.name || route.sellBase,
-      seconds: TradeEngine.BUY_AND_LAUNCH_TIME + TradeEngine.LAND_AND_SELL_TIME,
-    });
-    totalTime += TradeEngine.BUY_AND_LAUNCH_TIME + TradeEngine.LAND_AND_SELL_TIME;
 
     return {
       totalTime: Math.round(totalTime),
