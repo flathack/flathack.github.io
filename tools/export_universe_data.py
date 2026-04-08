@@ -75,6 +75,24 @@ def parse_float(value: str, default: float = 0.0) -> float:
         return default
 
 
+def is_offmap_helper_object(vals: dict[str, str], obj_x: float, obj_z: float) -> bool:
+    """Ignore beam-target helper objects far outside the playable navmap."""
+    nickname = vals.get("nickname", "").strip().lower()
+    archetype = vals.get("archetype", "").strip().lower()
+    dock_with = vals.get("dock_with", "").strip().lower()
+    base = vals.get("base", "").strip().lower()
+
+    if "beam_target" in nickname and max(abs(obj_x), abs(obj_z)) >= 900000:
+        return True
+
+    is_jump_object = "jumphole" in archetype or "jump_hole" in archetype
+    is_self_linked = bool(nickname) and (dock_with == nickname or base == nickname)
+    if is_jump_object and is_self_linked and max(abs(obj_x), abs(obj_z)) >= 900000:
+        return True
+
+    return False
+
+
 def parse_solar_meta(data_root: Path) -> dict[str, dict]:
     solararch = data_root / "SOLAR" / "solararch.ini"
     out: dict[str, dict] = {}
@@ -280,7 +298,7 @@ def extract_universe(fl_ini: Path, res: DLLResolver) -> dict:
                 for k, v in entries:
                     kl = k.lower()
                     if kl in ("nickname", "archetype", "pos", "base", "goto",
-                              "ids_name", "ids_info", "reputation",
+                              "ids_name", "ids_info", "reputation", "dock_with",
                               "prev_ring", "next_ring", "rotate", "loadout"):
                         vals[kl] = v.strip()
 
@@ -307,6 +325,9 @@ def extract_universe(fl_ini: Path, res: DLLResolver) -> dict:
                     obj_z = float(pos_parts[2]) if len(pos_parts) > 2 else 0.0
                 except (ValueError, IndexError):
                     obj_x, obj_z = 0.0, 0.0
+
+                if is_offmap_helper_object(vals, obj_x, obj_z):
+                    continue
 
                 rotate_str = vals.get("rotate", "")
                 rotate_parts = [p.strip() for p in rotate_str.split(",")] if rotate_str else []

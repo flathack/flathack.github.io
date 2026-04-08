@@ -34,6 +34,11 @@ INSTALLATIONS = [
         name="Discovery 5.3.2",
         path=Path(r"C:\Users\steve\Github\FL-Installationen\Discovery Freelancer 5.3.2"),
     ),
+    dict(
+        id="freelancer-universe",
+        name="Freelancer-Universe",
+        path=Path(r"C:\C-Installed-Apps\FLUniverse+MOD"),
+    ),
 ]
 
 SCRIPT_DIR = Path(__file__).resolve().parent

@@ -9,6 +9,7 @@
     { label: "Hamburg City", hash: "hamburg-city" },
     { label: "Crossfire 2.0", hash: "crossfire" },
     { label: "Discovery 5.3.2", hash: "discovery" },
+    { label: "Freelancer-Universe", hash: "freelancer-universe" },
   ];
 
   const NAV_ITEMS = [

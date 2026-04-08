@@ -41,6 +41,17 @@ LIGHT_DIR = np.array([0.4, 0.6, 0.8])
 LIGHT_DIR = LIGHT_DIR / np.linalg.norm(LIGHT_DIR)
 
 
+def extract_ship_nicks(data: dict) -> list[str]:
+    datasets = data.get("datasets")
+    if isinstance(datasets, dict):
+        default_key = data.get("default_dataset") or "default"
+        snapshot = datasets.get(default_key) or datasets.get("default") or {}
+        ships = snapshot.get("ships", [])
+    else:
+        ships = data.get("ships", [])
+    return [ship["nick"] for ship in ships if isinstance(ship, dict) and ship.get("nick")]
+
+
 def parse_shiparch(game_path: Path) -> dict[str, str]:
     """Return {nickname_lower: da_archetype_rel_path}."""
     shiparch = game_path / "DATA" / "SHIPS" / "shiparch.ini"
@@ -178,7 +189,7 @@ def main():
 
     with open(json_path, "r", encoding="utf-8") as f:
         data = json.load(f)
-    ship_nicks = [s["nick"] for s in data["ships"]]
+    ship_nicks = extract_ship_nicks(data)
 
     arch_map = parse_shiparch(game_path)
 
