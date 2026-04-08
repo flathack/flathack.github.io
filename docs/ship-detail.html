@@ -331,6 +331,15 @@
     const modId = params.get('mod') || 'hamburg-city';
     const shipNick = params.get('ship') || '';
 
+    function getSnapshot(payload) {
+      const datasets = payload && payload.datasets;
+      if (datasets && typeof datasets === 'object') {
+        const defaultKey = payload.default_dataset || 'default';
+        return datasets[defaultKey] || datasets.default || {};
+      }
+      return payload || {};
+    }
+
     /* ── Load & render ── */
     async function init() {
       if (!shipNick) {
@@ -341,7 +350,8 @@
       try {
         const resp = await fetch('../data/trade-routes/' + encodeURIComponent(modId) + '.json');
         if (!resp.ok) throw new Error(resp.status);
-        const data = await resp.json();
+        const payload = await resp.json();
+        const data = getSnapshot(payload);
         const ship = (data.ships || []).find(s => s.nick === shipNick);
         if (!ship) { showError(); return; }
         renderShip(ship, data);

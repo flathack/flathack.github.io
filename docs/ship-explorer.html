@@ -354,6 +354,15 @@
     let sortCol = 'name';
     let sortAsc = true;
 
+    function getSnapshot(payload) {
+      const datasets = payload && payload.datasets;
+      if (datasets && typeof datasets === 'object') {
+        const defaultKey = payload.default_dataset || 'default';
+        return datasets[defaultKey] || datasets.default || {};
+      }
+      return payload || {};
+    }
+
     const COLS = [
       { key: 'image',     i18n: 'col_image',     num: false },
       { key: 'name',      i18n: 'col_name',      num: false },
@@ -382,7 +391,8 @@
       try {
         const resp = await fetch('../data/trade-routes/' + modId + '.json');
         if (!resp.ok) throw new Error(resp.status);
-        data = await resp.json();
+        const payload = await resp.json();
+        data = getSnapshot(payload);
         ships = data.ships || [];
         populateTypeFilter();
         renderTable();
