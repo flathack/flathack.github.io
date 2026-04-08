@@ -151,6 +151,28 @@
     .tr-path-row { display: none; }
     .tr-path-row.open { display: table-row; }
     .tr-path-row td { padding: 4px 12px 8px; border-bottom: 1px solid rgba(132, 177, 255, 0.08); font-size: 0.84rem; color: var(--muted); }
+    .tr-path-summary { margin-bottom: 6px; }
+    .tr-path-segments {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-top: 6px;
+    }
+    .tr-path-segment {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 10px;
+      align-items: baseline;
+      padding: 4px 8px;
+      border-radius: 6px;
+      background: rgba(88, 196, 255, 0.03);
+    }
+    .tr-path-segment strong { color: var(--accent-strong); }
+    .tr-path-segment-time {
+      color: var(--accent);
+      font-family: "IBM Plex Mono", monospace;
+      white-space: nowrap;
+    }
 
     /* ── Round trip legs ───────────────────────────────── */
     .tr-loop-legs {
@@ -544,6 +566,7 @@
         col_profitUnit: 'Profit/E', col_totalProfit: 'Gesamtprofit',
         col_jumps: 'Sprünge', col_path: 'Pfad',
         col_time: 'Reisezeit', col_ppm: '$/Min',
+        detail_segments: 'Abschnitte', detail_jump: 'Sprung', detail_service: 'Docken + Verkaufen',
         col_system: 'System', col_route: 'Route', col_commodities: 'Waren',
         commodity_filter: 'Filter', commodity_role: 'Typ',
         commodity_role_all: 'Alle', commodity_role_sell: 'Verkauft', commodity_role_buy: 'Kauft',
@@ -580,6 +603,7 @@
         col_profitUnit: 'Profit/U', col_totalProfit: 'Total Profit',
         col_jumps: 'Jumps', col_path: 'Path',
         col_time: 'Travel Time', col_ppm: '$/Min',
+        detail_segments: 'Segments', detail_jump: 'Jump', detail_service: 'Dock + Sell',
         col_system: 'System', col_route: 'Route', col_commodities: 'Commodities',
         commodity_filter: 'Filter', commodity_role: 'Type',
         commodity_role_all: 'All', commodity_role_sell: 'Sells', commodity_role_buy: 'Buys',
@@ -719,6 +743,35 @@
       if (s == null) return '-';
       const m = Math.floor(s / 60), sec = Math.round(s % 60);
       return m + ':' + String(sec).padStart(2, '0');
+    }
+
+    function routeSegmentLabel(segment) {
+      if (!segment) return '-';
+      if (segment.type === 'jump') {
+        return escHtml(t('detail_jump')) + ': ' + escHtml(segment.from || '-') + ' \u2192 ' + escHtml(segment.to || '-');
+      }
+      if (segment.type === 'dock_sell') {
+        return escHtml(t('detail_service')) + ': ' + escHtml(segment.from || '-') + ' \u2192 ' + escHtml(segment.to || '-');
+      }
+      const systemText = segment.system ? '<strong>' + escHtml(segment.system) + '</strong>: ' : '';
+      return systemText + escHtml(segment.from || '-') + ' \u2192 ' + escHtml(segment.to || '-');
+    }
+
+    function renderRoutePathDetails(route) {
+      const pathText = Array.isArray(route.path) ? route.path.join(' \u2192 ') : route.path;
+      const breakdown = engine && typeof engine.travelBreakdown === 'function' ? engine.travelBreakdown(route) : null;
+      let html = '<div class="tr-path-summary"><strong>' + escHtml(t('col_path')) + ':</strong> ' + escHtml(pathText || '-') + '</div>';
+      if (!breakdown || !Array.isArray(breakdown.segments) || !breakdown.segments.length) return html;
+      html += '<div><strong>' + escHtml(t('detail_segments')) + ':</strong></div>';
+      html += '<div class="tr-path-segments">';
+      breakdown.segments.forEach(segment => {
+        html += '<div class="tr-path-segment">' +
+          '<span>' + routeSegmentLabel(segment) + '</span>' +
+          '<span class="tr-path-segment-time">' + escHtml(fmtTime(segment.seconds)) + '</span>' +
+          '</div>';
+      });
+      html += '</div>';
+      return html;
     }
 
     function snapshotFromLegacyPayload(payload) {
@@ -1191,9 +1244,8 @@
 
         // Path detail row (hidden, expand on click)
         if (hasPath) {
-          const pathText = Array.isArray(r.path) ? r.path.join(' \u2192 ') : r.path;
           html += '<tr class="tr-path-row" data-parent="' + i + '"><td colspan="' + cols.length + '">' +
-            '<strong>' + escHtml(t('col_path')) + ':</strong> ' + escHtml(pathText) + '</td></tr>';
+            renderRoutePathDetails(r) + '</td></tr>';
         }
 
         // Loop legs (hidden, expand on click)

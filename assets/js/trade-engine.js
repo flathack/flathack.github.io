@@ -103,8 +103,9 @@ class TradeEngine {
     return bestTime;
   }
 
-  travelTime(route) {
+  travelBreakdown(route) {
     const bases = this.data.bases;
+    const systems = this.data.systems || {};
     const srcBase = bases[route.buyBaseNick];
     const dstBase = bases[route.sellBaseNick];
     if (!srcBase || !srcBase.pos || !dstBase || !dstBase.pos) return null;
@@ -112,36 +113,87 @@ class TradeEngine {
     const path = route.pathNicks;
     if (!path || !path.length) return null;
 
+    const segments = [];
     let totalTime = 0;
 
     if (path.length === 1) {
-      totalTime = this._intraSystemTime(path[0], srcBase.pos, dstBase.pos);
+      const intraTime = this._intraSystemTime(path[0], srcBase.pos, dstBase.pos);
+      segments.push({
+        type: 'intra',
+        systemNick: path[0],
+        system: systems[path[0]] || path[0],
+        from: srcBase.name || route.buyBase,
+        to: dstBase.name || route.sellBase,
+        seconds: intraTime,
+      });
+      totalTime += intraTime;
     } else {
       for (let i = 0; i < path.length; i++) {
-        let fromPos, toPos;
+        let fromPos, toPos, fromLabel, toLabel;
 
         if (i === 0) {
           fromPos = srcBase.pos;
           toPos = this._findGatePos(path[i], path[i + 1]);
+          fromLabel = srcBase.name || route.buyBase;
+          toLabel = systems[path[i + 1]] || path[i + 1];
         } else if (i === path.length - 1) {
           fromPos = this._findGatePos(path[i], path[i - 1]);
           toPos = dstBase.pos;
+          fromLabel = systems[path[i - 1]] || path[i - 1];
+          toLabel = dstBase.name || route.sellBase;
         } else {
           fromPos = this._findGatePos(path[i], path[i - 1]);
           toPos = this._findGatePos(path[i], path[i + 1]);
+          fromLabel = systems[path[i - 1]] || path[i - 1];
+          toLabel = systems[path[i + 1]] || path[i + 1];
         }
 
         if (!fromPos || !toPos) return null;
-        totalTime += this._intraSystemTime(path[i], fromPos, toPos);
+        const intraTime = this._intraSystemTime(path[i], fromPos, toPos);
+        segments.push({
+          type: 'intra',
+          systemNick: path[i],
+          system: systems[path[i]] || path[i],
+          from: fromLabel,
+          to: toLabel,
+          seconds: intraTime,
+        });
+        totalTime += intraTime;
+
+        if (i < path.length - 1) {
+          segments.push({
+            type: 'jump',
+            fromSystemNick: path[i],
+            toSystemNick: path[i + 1],
+            from: systems[path[i]] || path[i],
+            to: systems[path[i + 1]] || path[i + 1],
+            seconds: TradeEngine.GATE_TIME,
+          });
+          totalTime += TradeEngine.GATE_TIME;
+        }
       }
-      // Add gate transition times
-      totalTime += (path.length - 1) * TradeEngine.GATE_TIME;
     }
 
-    // Dock at buy base + sell at destination
+    segments.push({
+      type: 'dock_sell',
+      from: srcBase.name || route.buyBase,
+      to: dstBase.name || route.sellBase,
+      seconds: TradeEngine.DOCK_TIME + TradeEngine.SELL_TIME,
+    });
     totalTime += TradeEngine.DOCK_TIME + TradeEngine.SELL_TIME;
 
-    return Math.round(totalTime);
+    return {
+      totalTime: Math.round(totalTime),
+      segments: segments.map(segment => ({
+        ...segment,
+        seconds: Math.round(segment.seconds),
+      })),
+    };
+  }
+
+  travelTime(route) {
+    const breakdown = this.travelBreakdown(route);
+    return breakdown ? breakdown.totalTime : null;
   }
 
   /* ── Candidate route generation ─────────────────────────── */
