@@ -709,7 +709,7 @@
                  ' fill="transparent" stroke="transparent"/>' + // hit area
                  '<text x="' + sp.x + '" y="' + (sp.y + r + 14) + '"' +
                  ' text-anchor="middle" fill="#9fb2cf" font-size="9" font-family="Space Grotesk, sans-serif">' +
-                 escXml(s.name) + '</text>' +
+                 escXml(systemDisplayName(s)) + '</text>' +
                  '</g>';
       });
 
@@ -903,7 +903,7 @@
         // Goto indicator for jump gates/holes
         if (o.goto) {
           var targetSys = data.systems.find(function (s) { return s.nick.toUpperCase() === o.goto.toUpperCase(); });
-          var targetName = targetSys ? targetSys.name : o.goto;
+          var targetName = targetSys ? systemDisplayName(targetSys) : o.goto;
           content += '<text x="' + cx + '" y="' + (labelY + 10) + '"' +
                      ' text-anchor="middle" fill="' + color + '" font-size="7.5" opacity="0.7"' +
                      ' font-family="IBM Plex Mono, monospace">→ ' + escXml(targetName) + '</text>';
@@ -966,7 +966,7 @@
       if (obj.type === "surprise" && obj.loadout) items += infoRow(t('info_loadout'), obj.loadout);
       if (obj.goto) {
         var targetSys = data.systems.find(function (s) { return s.nick.toUpperCase() === obj.goto.toUpperCase(); });
-        var gotoLabel = targetSys ? targetSys.name : obj.goto;
+        var gotoLabel = targetSys ? systemDisplayName(targetSys) : obj.goto;
         items += '<li style="cursor:pointer;color:var(--accent);" data-goto="' + escAttr(obj.goto) + '">' +
                  '<span class="uv-obj-icon" style="background:' + (COLORS[obj.type] || COLORS.other) + ';"></span>' +
                  '<span class="uv-obj-label">→ ' + escXml(gotoLabel) + '</span>' +
@@ -1052,7 +1052,7 @@
       breadcrumb.innerHTML =
         '<a id="bcUniverse">' + escXml(t('bc_universe')) + '</a>' +
         '<span class="separator">›</span>' +
-        '<span>' + escXml(sys.name) + '</span>';
+        '<span>' + escXml(systemDisplayName(sys)) + '</span>';
       document.getElementById("bcUniverse").addEventListener("click", function () {
         showUniverse();
       });
@@ -1263,6 +1263,21 @@
       return '<div class="uv-legend-item">' +
              '<span class="uv-legend-dot" style="background:' + color + ';"></span>' +
              '<span>' + escXml(label) + '</span></div>';
+    }
+
+    function hasDuplicateSystemName(sys) {
+      if (!data || !sys || !sys.name) return false;
+      var name = String(sys.name).toLowerCase();
+      var count = 0;
+      data.systems.forEach(function (candidate) {
+        if ((candidate.name || "").toLowerCase() === name) count++;
+      });
+      return count > 1;
+    }
+
+    function systemDisplayName(sys) {
+      if (!sys) return "";
+      return hasDuplicateSystemName(sys) ? (sys.name + " (" + sys.nick + ")") : sys.name;
     }
 
     function escXml(s) {
