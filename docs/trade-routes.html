@@ -206,6 +206,7 @@
     .tr-leg-info .leg-commodity { color: var(--text); font-weight: 500; }
     .tr-leg-info .leg-route { color: var(--muted); }
     .tr-leg-info .leg-jumps { color: var(--accent-warm); font-size: 0.8rem; }
+    .tr-leg-info .leg-time { color: var(--accent); font-size: 0.8rem; font-family: "IBM Plex Mono", monospace; }
     .tr-leg-profit { color: var(--success); font-weight: 600; font-family: 'IBM Plex Mono', monospace; white-space: nowrap; }
 
     .tr-commodity-btn {
@@ -473,6 +474,11 @@
             <span data-i18n="lbl_tl_only">Nur Trade-Lane-Basen</span>
           </label>
 
+          <label class="tr-check" id="return-flight-wrap">
+            <input type="checkbox" id="return-flight">
+            <span data-i18n="lbl_return_flight">Rückflug einberechnen</span>
+          </label>
+
           <button class="tr-calc-btn" id="calc-btn" disabled data-i18n="btn_calc">Berechnen</button>
         </div>
 
@@ -550,6 +556,7 @@
         lbl_jumps: 'Max. Sprünge', lbl_legs: 'Etappen',
         lbl_start_system: 'Aktuelles System', lbl_target_system: 'Zielsystem',
         lbl_tl_only: 'Nur Trade-Lane-Basen',
+        lbl_return_flight: 'Rückflug einberechnen',
         btn_calc: 'Berechnen',
         tab_system: 'Handelsrouten', tab_inner: 'Innersystem', tab_loop: 'Rundkurs', tab_journey: 'Trade Along Route',
         search_placeholder: 'Routen durchsuchen...',
@@ -566,7 +573,7 @@
         col_profitUnit: 'Profit/E', col_totalProfit: 'Gesamtprofit',
         col_jumps: 'Sprünge', col_path: 'Pfad',
         col_time: 'Reisezeit', col_ppm: '$/Min',
-        detail_segments: 'Abschnitte', detail_jump: 'Sprung', detail_service: 'Docken + Verkaufen',
+        detail_segments: 'Abschnitte', detail_jump: 'Sprung', detail_service: 'Kaufen + Starten / Landen + Verkaufen', detail_return: 'Rückflug',
         col_system: 'System', col_route: 'Route', col_commodities: 'Waren',
         commodity_filter: 'Filter', commodity_role: 'Typ',
         commodity_role_all: 'Alle', commodity_role_sell: 'Verkauft', commodity_role_buy: 'Kauft',
@@ -587,6 +594,7 @@
         lbl_jumps: 'Max Jumps', lbl_legs: 'Legs',
         lbl_start_system: 'Current System', lbl_target_system: 'Target System',
         lbl_tl_only: 'Trade Lane bases only',
+        lbl_return_flight: 'Include return flight',
         btn_calc: 'Calculate',
         tab_system: 'Trade Routes', tab_inner: 'Inner System', tab_loop: 'Round Trip', tab_journey: 'Trade Along Route',
         search_placeholder: 'Search routes...',
@@ -603,7 +611,7 @@
         col_profitUnit: 'Profit/U', col_totalProfit: 'Total Profit',
         col_jumps: 'Jumps', col_path: 'Path',
         col_time: 'Travel Time', col_ppm: '$/Min',
-        detail_segments: 'Segments', detail_jump: 'Jump', detail_service: 'Dock + Sell',
+        detail_segments: 'Segments', detail_jump: 'Jump', detail_service: 'Buy + Launch / Land + Sell', detail_return: 'Return flight',
         col_system: 'System', col_route: 'Route', col_commodities: 'Commodities',
         commodity_filter: 'Filter', commodity_role: 'Type',
         commodity_role_all: 'All', commodity_role_sell: 'Sells', commodity_role_buy: 'Buys',
@@ -722,6 +730,8 @@
     const targetSystemField = $('target-system-field');
     const calcBtn      = $('calc-btn');
     const tlOnlyCheck  = $('tl-only');
+    const returnFlightWrap = $('return-flight-wrap');
+    const returnFlightCheck = $('return-flight');
     const searchInput  = $('search-input');
     const resultsSection = $('results-section');
     const statsBar     = $('stats-bar');
@@ -750,7 +760,7 @@
       if (segment.type === 'jump') {
         return escHtml(t('detail_jump')) + ': ' + escHtml(segment.from || '-') + ' \u2192 ' + escHtml(segment.to || '-');
       }
-      if (segment.type === 'dock_sell') {
+      if (segment.type === 'base_ops') {
         return escHtml(t('detail_service')) + ': ' + escHtml(segment.from || '-') + ' \u2192 ' + escHtml(segment.to || '-');
       }
       const systemText = segment.system ? '<strong>' + escHtml(segment.system) + '</strong>: ' : '';
@@ -761,6 +771,9 @@
       const pathText = Array.isArray(route.path) ? route.path.join(' \u2192 ') : route.path;
       const breakdown = engine && typeof engine.travelBreakdown === 'function' ? engine.travelBreakdown(route) : null;
       let html = '<div class="tr-path-summary"><strong>' + escHtml(t('col_path')) + ':</strong> ' + escHtml(pathText || '-') + '</div>';
+      if (route && route.returnTravelIncluded) {
+        html += '<div class="tr-path-summary"><strong>' + escHtml(t('detail_return')) + ':</strong> ' + escHtml(fmtTime(route.returnTravelTime || 0)) + '</div>';
+      }
       if (!breakdown || !Array.isArray(breakdown.segments) || !breakdown.segments.length) return html;
       html += '<div><strong>' + escHtml(t('detail_segments')) + ':</strong></div>';
       html += '<div class="tr-path-segments">';
@@ -963,6 +976,7 @@
       const legs  = Math.max(3, Math.min(6, parseInt(legsInput.value) || 3));
       const startSystem = startSystemSelect.value;
       const targetSystem = targetSystemSelect.value;
+      const includeReturnFlight = returnFlightCheck.checked && (currentMode === 'system' || currentMode === 'inner');
 
       loading.style.display = 'flex';
       resultsSection.style.display = 'none';
@@ -973,9 +987,9 @@
           currentEmptyKey = 'no_routes';
           currentJourneyPath = [];
           if (currentMode === 'system') {
-            currentResults = engine.bestRoutesBySystem(cargo, jumps, tlOnly);
+            currentResults = engine.bestRoutesBySystem(cargo, jumps, tlOnly, includeReturnFlight);
           } else if (currentMode === 'inner') {
-            currentResults = engine.innerSystemRoutes(cargo, tlOnly);
+            currentResults = engine.innerSystemRoutes(cargo, tlOnly, includeReturnFlight);
           } else if (currentMode === 'journey') {
             currentJourneyPath = engine.findPath(startSystem, targetSystem);
             if (!currentJourneyPath.length) {
@@ -1260,6 +1274,7 @@
                 '<span class="leg-route">' + escHtml(leg.srcSys) + ' (' + escHtml(tBase(leg.buyBaseNick, leg.buyBase)) + ') \u2192 ' +
                 escHtml(leg.dstSys) + ' (' + escHtml(tBase(leg.sellBaseNick, leg.sellBase)) + ')</span>' +
                 ' <span class="leg-jumps">' + leg.jumps + ' ' + (leg.jumps !== 1 ? t('jump_p') : t('jump_s')) + '</span>' +
+                ' <span class="leg-time">' + escHtml(fmtTime(leg.travelTime)) + '</span>' +
               '</span>' +
               '<span class="tr-leg-profit">+' + fmt(leg.totalProfit) + '</span>' +
             '</div>';
@@ -1295,6 +1310,9 @@
       applyDataset(datasetSelect.value);
       if (resultsSection.style.display !== 'none') calculate();
     });
+    returnFlightCheck.addEventListener('change', () => {
+      if (resultsSection.style.display !== 'none' && (currentMode === 'system' || currentMode === 'inner')) calculate();
+    });
     commodityModal.addEventListener('click', e => {
       if (e.target === commodityModal) closeCommodityModal();
     });
@@ -1313,6 +1331,7 @@
         legsField.style.display = currentMode === 'loop' ? '' : 'none';
         startSystemField.style.display = currentMode === 'journey' ? '' : 'none';
         targetSystemField.style.display = currentMode === 'journey' ? '' : 'none';
+        returnFlightWrap.style.display = (currentMode === 'system' || currentMode === 'inner') ? '' : 'none';
 
         // Clear results when switching modes
         currentResults = [];

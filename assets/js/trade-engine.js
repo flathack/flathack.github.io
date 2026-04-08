@@ -49,8 +49,8 @@ class TradeEngine {
   static CRUISE_SPEED = 300;   // m/s
   static TL_SPEED = 2500;     // m/s
   static GATE_TIME = 10;      // seconds per jump gate/hole docking+transition
-  static DOCK_TIME = 10;      // seconds to dock at a base
-  static SELL_TIME = 5;       // seconds to sell cargo
+  static BUY_AND_LAUNCH_TIME = 15; // seconds to buy cargo and launch from a base
+  static LAND_AND_SELL_TIME = 20;  // seconds to land and sell cargo at a base
 
   _findGatePos(systemNick, targetSystem) {
     const sysTravel = (this.data.travel || {})[systemNick];
@@ -175,12 +175,12 @@ class TradeEngine {
     }
 
     segments.push({
-      type: 'dock_sell',
+      type: 'base_ops',
       from: srcBase.name || route.buyBase,
       to: dstBase.name || route.sellBase,
-      seconds: TradeEngine.DOCK_TIME + TradeEngine.SELL_TIME,
+      seconds: TradeEngine.BUY_AND_LAUNCH_TIME + TradeEngine.LAND_AND_SELL_TIME,
     });
-    totalTime += TradeEngine.DOCK_TIME + TradeEngine.SELL_TIME;
+    totalTime += TradeEngine.BUY_AND_LAUNCH_TIME + TradeEngine.LAND_AND_SELL_TIME;
 
     return {
       totalTime: Math.round(totalTime),
@@ -191,9 +191,34 @@ class TradeEngine {
     };
   }
 
-  travelTime(route) {
-    const breakdown = this.travelBreakdown(route);
-    return breakdown ? breakdown.totalTime : null;
+  travelTime(route, options = {}) {
+    const includeReturnTrip = !!options.includeReturnTrip;
+    const outbound = this.travelBreakdown(route);
+    if (!outbound) return null;
+    if (!includeReturnTrip) return outbound.totalTime;
+
+    const returnRoute = {
+      buyBaseNick: route.sellBaseNick,
+      buyBase: route.sellBase,
+      sellBaseNick: route.buyBaseNick,
+      sellBase: route.buyBase,
+      pathNicks: Array.isArray(route.pathNicks) ? route.pathNicks.slice().reverse() : [],
+    };
+    const inbound = this.travelBreakdown(returnRoute);
+    if (!inbound) return null;
+    return outbound.totalTime + inbound.totalTime;
+  }
+
+  _applyTravelMetrics(routes, includeReturnTrip) {
+    for (const r of routes) {
+      const oneWay = this.travelTime(r);
+      const effective = this.travelTime(r, { includeReturnTrip });
+      r.oneWayTravelTime = oneWay;
+      r.travelTime = effective;
+      r.returnTravelIncluded = !!includeReturnTrip;
+      r.returnTravelTime = includeReturnTrip && oneWay != null && effective != null ? Math.max(0, effective - oneWay) : 0;
+      r.profitPerMin = (effective && effective > 0) ? Math.round(r.totalProfit / (effective / 60)) : null;
+    }
   }
 
   /* ── Candidate route generation ─────────────────────────── */
@@ -271,14 +296,9 @@ class TradeEngine {
 
   /* ── Public API ─────────────────────────────────────────── */
 
-  bestRoutesBySystem(cargoCapacity, maxJumps, tlOnly) {
+  bestRoutesBySystem(cargoCapacity, maxJumps, tlOnly, includeReturnTrip) {
     const candidates = this.candidateRoutes(cargoCapacity, maxJumps, tlOnly);
-    // Compute travel time + $/min for each route
-    for (const r of candidates) {
-      const tt = this.travelTime(r);
-      r.travelTime = tt;
-      r.profitPerMin = (tt && tt > 0) ? Math.round(r.totalProfit / (tt / 60)) : null;
-    }
+    this._applyTravelMetrics(candidates, includeReturnTrip);
     const best = Object.create(null);
     for (const r of candidates) {
       const cur = best[r.srcSysNick];
@@ -289,13 +309,9 @@ class TradeEngine {
     );
   }
 
-  innerSystemRoutes(cargoCapacity, tlOnly) {
+  innerSystemRoutes(cargoCapacity, tlOnly, includeReturnTrip) {
     const candidates = this.candidateRoutes(cargoCapacity, 0, tlOnly);
-    for (const r of candidates) {
-      const tt = this.travelTime(r);
-      r.travelTime = tt;
-      r.profitPerMin = (tt && tt > 0) ? Math.round(r.totalProfit / (tt / 60)) : null;
-    }
+    this._applyTravelMetrics(candidates, includeReturnTrip);
     return candidates.sort((a, b) =>
       b.totalProfit - a.totalProfit || b.profitPerUnit - a.profitPerUnit
     );
