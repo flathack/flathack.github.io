@@ -32,7 +32,7 @@ INSTALLATIONS = [
     dict(
         id="discovery",
         name="Discovery 5.3.2",
-        path=Path(r"C:\C-Installed-Apps\Discovery Freelancer 5.3.2"),
+        path=Path(r"C:\Users\steve\Github\FL-Installationen\Discovery Freelancer 5.3.2"),
     ),
     dict(
         id="freelancer-universe",

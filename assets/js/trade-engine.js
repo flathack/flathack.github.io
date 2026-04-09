@@ -6,6 +6,36 @@ class TradeEngine {
   constructor(data) {
     this.data = data;
     this._pathCache = new Map();
+    this._pathAdjacency = this._buildPathAdjacency();
+  }
+
+  _buildPathAdjacency() {
+    const rawAdj = this.data.adjacency || {};
+    const travel = this.data.travel || {};
+    const timedAdj = Object.create(null);
+    let timedEdgeCount = 0;
+
+    for (const [systemNick, neighbors] of Object.entries(rawAdj)) {
+      const gateTargets = new Set(((travel[systemNick] && travel[systemNick].gates) || [])
+        .map(gate => gate.goto)
+        .filter(Boolean));
+      for (const next of neighbors || []) {
+        const reverseTargets = new Set(((travel[next] && travel[next].gates) || [])
+          .map(gate => gate.goto)
+          .filter(Boolean));
+        if (!gateTargets.has(next) || !reverseTargets.has(systemNick)) continue;
+        if (!timedAdj[systemNick]) timedAdj[systemNick] = [];
+        timedAdj[systemNick].push(next);
+        timedEdgeCount++;
+      }
+    }
+
+    if (!timedEdgeCount) return rawAdj;
+
+    for (const systemNick of Object.keys(timedAdj)) {
+      timedAdj[systemNick].sort();
+    }
+    return timedAdj;
   }
 
   /* ── BFS shortest path ──────────────────────────────────── */
@@ -16,7 +46,7 @@ class TradeEngine {
     const key = src + '|' + dst;
     if (this._pathCache.has(key)) return this._pathCache.get(key);
 
-    const adj = this.data.adjacency;
+    const adj = this._pathAdjacency;
     const queue = [src];
     const prev = Object.create(null);
     prev[src] = '';
@@ -257,55 +287,60 @@ class TradeEngine {
     return outbound.totalTime + inbound.totalTime;
   }
 
+  _setTravelMetrics(route, includeReturnTrip) {
+    const outbound = this.travelBreakdown(route);
+    if (!outbound) {
+      route.oneWayTravelTime = null;
+      route.travelTime = null;
+      route.returnTravelIncluded = !!includeReturnTrip;
+      route.returnTravelTime = 0;
+      route.profitPerMin = null;
+      return;
+    }
+
+    const oneWay = outbound.totalTime;
+    let effective = oneWay;
+    let returnTravelTime = 0;
+
+    if (includeReturnTrip) {
+      const returnRoute = {
+        buyBaseNick: route.sellBaseNick,
+        buyBase: route.sellBase,
+        sellBaseNick: route.buyBaseNick,
+        sellBase: route.buyBase,
+        pathNicks: Array.isArray(route.pathNicks) ? route.pathNicks.slice().reverse() : [],
+      };
+      const inbound = this.travelBreakdown(returnRoute);
+      if (!inbound) {
+        effective = null;
+      } else {
+        returnTravelTime = inbound.totalTime;
+        effective += inbound.totalTime;
+      }
+    }
+
+    route.oneWayTravelTime = oneWay;
+    route.travelTime = effective;
+    route.returnTravelIncluded = !!includeReturnTrip;
+    route.returnTravelTime = returnTravelTime;
+    route.profitPerMin = (effective && effective > 0) ? Math.round(route.totalProfit / (effective / 60)) : null;
+  }
+
   _applyTravelMetrics(routes, includeReturnTrip) {
     for (const r of routes) {
-      const oneWay = this.travelTime(r);
-      const effective = this.travelTime(r, { includeReturnTrip });
-      r.oneWayTravelTime = oneWay;
-      r.travelTime = effective;
-      r.returnTravelIncluded = !!includeReturnTrip;
-      r.returnTravelTime = includeReturnTrip && oneWay != null && effective != null ? Math.max(0, effective - oneWay) : 0;
-      r.profitPerMin = (effective && effective > 0) ? Math.round(r.totalProfit / (effective / 60)) : null;
+      this._setTravelMetrics(r, includeReturnTrip);
     }
   }
 
   /* ── Candidate route generation ─────────────────────────── */
 
-  candidateRoutes(cargoCapacity, maxJumps, tlOnly) {
-    const routes = [];
-    const { markets, commodities, bases, systems } = this.data;
-
-    for (const commodity in markets) {
-      const commInfo = commodities[commodity];
-      if (!commInfo || commInfo.price <= 0) continue;
-
-      const rawEntries = markets[commodity];
-      const accessible = rawEntries.filter(e => !e.base.includes('_miner'));
-
-      let sources = accessible.filter(e => e.src);
-      if (!sources.length) sources = accessible.slice();
-      const explicitSinks = accessible.filter(e => !e.src);
-
-      if (!sources.length) continue;
-
-      for (const source of sources) {
-        if (tlOnly && !(bases[source.base] && bases[source.base].tl)) continue;
-        for (const sink of explicitSinks) {
-          if (tlOnly && !(bases[sink.base] && bases[sink.base].tl)) continue;
-          this._tryAdd(routes, source, sink, commInfo, cargoCapacity, maxJumps);
-        }
-      }
-    }
-    return routes;
-  }
-
-  _tryAdd(routes, source, sink, commInfo, cargo, maxJumps) {
-    if (source.base === sink.base) return;
+  _buildCandidateRoute(source, sink, commInfo, cargo, maxJumps) {
+    if (source.base === sink.base) return null;
     const ppu = Math.round(sink.price - source.price);
-    if (ppu <= 0) return;
+    if (ppu <= 0) return null;
     const volume = (commInfo && Number(commInfo.volume) > 0) ? Number(commInfo.volume) : 1;
     const units = Math.floor(cargo / volume);
-    if (units <= 0) return;
+    if (units <= 0) return null;
 
     const ss = source.sys, ds = sink.sys;
     let path, jumps;
@@ -313,13 +348,13 @@ class TradeEngine {
       path = [ss]; jumps = 0;
     } else {
       path = this.findPath(ss, ds);
-      if (!path.length) return;
+      if (!path.length) return null;
       jumps = path.length - 1;
     }
-    if (jumps > maxJumps) return;
+    if (jumps > maxJumps) return null;
 
     const sys = this.data.systems, bases = this.data.bases;
-    routes.push({
+    return {
       srcSysNick: ss,
       srcSys: sys[ss] || ss,
       buyBaseNick: source.base,
@@ -339,20 +374,62 @@ class TradeEngine {
       jumps: jumps,
       path: path.map(s => sys[s] || s),
       pathNicks: path.slice(),
-    });
+    };
+  }
+
+  _forEachCandidateRoute(cargoCapacity, maxJumps, tlOnly, visit) {
+    const { markets, commodities, bases } = this.data;
+
+    for (const commodity in markets) {
+      const commInfo = commodities[commodity];
+      if (!commInfo || commInfo.price <= 0) continue;
+
+      const rawEntries = markets[commodity];
+      const accessible = rawEntries.filter(e => !e.base.includes('_miner'));
+
+      let sources = accessible.filter(e => e.src);
+      if (!sources.length) sources = accessible.slice();
+      const explicitSinks = accessible.filter(e => !e.src);
+
+      if (!sources.length) continue;
+
+      for (const source of sources) {
+        if (tlOnly && !(bases[source.base] && bases[source.base].tl)) continue;
+        for (const sink of explicitSinks) {
+          if (tlOnly && !(bases[sink.base] && bases[sink.base].tl)) continue;
+          const route = this._buildCandidateRoute(source, sink, commInfo, cargoCapacity, maxJumps);
+          if (route) visit(route);
+        }
+      }
+    }
+  }
+
+  candidateRoutes(cargoCapacity, maxJumps, tlOnly) {
+    const routes = [];
+    this._forEachCandidateRoute(cargoCapacity, maxJumps, tlOnly, route => routes.push(route));
+    return routes;
+  }
+
+  _tryAdd(routes, source, sink, commInfo, cargo, maxJumps) {
+    const route = this._buildCandidateRoute(source, sink, commInfo, cargo, maxJumps);
+    if (route) routes.push(route);
   }
 
   /* ── Public API ─────────────────────────────────────────── */
 
   bestRoutesBySystem(cargoCapacity, maxJumps, tlOnly, includeReturnTrip) {
-    const candidates = this.candidateRoutes(cargoCapacity, maxJumps, tlOnly);
-    this._applyTravelMetrics(candidates, includeReturnTrip);
     const best = Object.create(null);
-    for (const r of candidates) {
-      const cur = best[r.srcSysNick];
-      if (!cur || r.totalProfit > cur.totalProfit) best[r.srcSysNick] = r;
-    }
-    return Object.values(best).sort((a, b) =>
+    this._forEachCandidateRoute(cargoCapacity, maxJumps, tlOnly, route => {
+      const cur = best[route.srcSysNick];
+      if (!cur || route.totalProfit > cur.totalProfit ||
+          (route.totalProfit === cur.totalProfit && route.profitPerUnit > cur.profitPerUnit)) {
+        best[route.srcSysNick] = route;
+      }
+    });
+
+    const routes = Object.values(best);
+    this._applyTravelMetrics(routes, includeReturnTrip);
+    return routes.sort((a, b) =>
       b.totalProfit - a.totalProfit || b.profitPerUnit - a.profitPerUnit
     );
   }
