@@ -968,6 +968,7 @@
       datasetMap = Object.create(null);
       selectedDatasetId = '';
       factionNames = Object.create(null);
+      let shouldAutoCalculate = false;
       closeCommodityModal();
       calcBtn.disabled = true;
       resultsSection.style.display = 'none';
@@ -989,6 +990,7 @@
 
         populateDatasetOptions();
         applyDataset(selectedDatasetId);
+        shouldAutoCalculate = !!engine;
       } catch (err) {
         tableBody.innerHTML = '<tr><td colspan="99" class="tr-empty">' + escHtml(t('load_fail')) +
           escHtml(err.message) + '</td></tr>';
@@ -996,6 +998,7 @@
       } finally {
         loading.style.display = 'none';
       }
+      if (shouldAutoCalculate) calculate();
     }
 
     /* ── Calculation ───────────────────────────────────── */
@@ -1354,6 +1357,7 @@
 
     document.querySelectorAll('.tr-tab').forEach(tab => {
       tab.addEventListener('click', () => {
+        if (!engine) return;
         document.querySelectorAll('.tr-tab').forEach(t => t.classList.remove('active'));
         tab.classList.add('active');
         currentMode = tab.dataset.mode;
@@ -1366,11 +1370,7 @@
         targetSystemField.style.display = currentMode === 'journey' ? '' : 'none';
         returnFlightWrap.style.display = currentMode === 'system' ? '' : 'none';
 
-        // Clear results when switching modes
-        currentResults = [];
-        currentJourneyPath = [];
-        currentEmptyKey = 'no_routes';
-        resultsSection.style.display = 'none';
+        calculate();
       });
     });
 
