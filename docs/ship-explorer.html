@@ -17,34 +17,34 @@
     .se-controls {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
+      gap: 10px;
       align-items: flex-end;
     }
-    .se-field { display: flex; flex-direction: column; gap: 5px; }
+    .se-field { display: flex; flex-direction: column; gap: 3px; }
     .se-field label {
-      font-size: 0.82rem;
+      font-size: 0.78rem;
       text-transform: uppercase;
       letter-spacing: 0.1em;
       color: var(--muted);
     }
     .se-field select, .se-field input {
-      min-height: 40px;
-      padding: 0 14px;
+      min-height: 34px;
+      padding: 0 10px;
       border: 1px solid rgba(132, 177, 255, 0.2);
-      border-radius: 12px;
+      border-radius: 8px;
       background: rgba(6, 14, 26, 0.8);
       color: var(--text);
       font-family: inherit;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
     }
-    .se-field select { min-width: 180px; }
-    .se-field input[type="text"] { min-width: 240px; }
+    .se-field select { min-width: 160px; }
+    .se-field input[type="text"] { min-width: 220px; }
 
     /* ── Stats bar ── */
     .se-stats {
       display: flex;
       gap: 24px;
-      margin-bottom: 12px;
+      margin-bottom: 8px;
       font-family: "IBM Plex Mono", monospace;
       font-size: 0.82rem;
       color: var(--muted);
@@ -190,22 +190,19 @@
     </header>
 
     <main>
-      <a class="back-link" href="../index.html">&larr; Zurück zur Startseite</a>
-
-      <section class="page-hero-copy" style="margin-bottom: 24px; display: flex; align-items: flex-start; justify-content: space-between; gap: 20px;">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
         <div>
-          <p class="eyebrow">Freelancer Tools</p>
-          <h1 style="max-width: 20ch;" data-i18n="title">Schiff-Explorer</h1>
-          <p class="page-intro" data-i18n="intro">Alle Schiffe im Überblick — mit Armor, Cargo, Agilität, Preis und Kauforten.</p>
+          <h2 style="margin: 0 0 2px;" data-i18n="title">Schiff-Explorer</h2>
+          <p style="color: var(--muted); margin: 0; font-size: 0.88rem;" data-i18n="intro">Alle Schiffe im Überblick — mit Armor, Cargo, Agilität, Preis und Kauforten.</p>
         </div>
         <div class="se-lang-toggle" id="lang-toggle">
           <button class="se-lang-btn active" data-lang="de">DE</button>
           <button class="se-lang-btn" data-lang="en">EN</button>
         </div>
-      </section>
+      </div>
 
       <!-- Controls -->
-      <section class="page-section" style="margin-bottom: 24px;">
+      <section class="page-section" style="margin-bottom: 10px;">
         <div class="se-controls">
           <div class="se-field">
             <label for="type-filter" data-i18n="lbl_type">Typ</label>

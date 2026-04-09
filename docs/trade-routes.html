@@ -20,34 +20,35 @@
     .tr-controls {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
+      gap: 10px;
       align-items: flex-end;
-      margin-bottom: 18px;
+      margin-bottom: 10px;
     }
     .tr-field {
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 3px;
     }
     .tr-field label {
-      font-size: 0.82rem;
+      font-size: 0.78rem;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.1em;
       color: var(--muted);
     }
     .tr-field select,
     .tr-field input[type="number"] {
       background: rgba(4, 14, 23, 0.85);
       border: 1px solid var(--panel-border);
-      border-radius: 10px;
+      border-radius: 8px;
       color: var(--text);
-      padding: 10px 14px;
+      padding: 6px 10px;
       font-family: inherit;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       min-width: 100px;
+      min-height: 34px;
     }
-    .tr-field select { min-width: 190px; }
-    .tr-field input[type="number"] { width: 90px; }
+    .tr-field select { min-width: 170px; }
+    .tr-field input[type="number"] { width: 80px; }
     .tr-field select:focus,
     .tr-field input:focus {
       outline: none;
@@ -62,14 +63,14 @@
       margin-top: 6px;
     }
     .tr-tab {
-      padding: 10px 18px;
+      padding: 6px 14px;
       border: 1px solid var(--panel-border);
       border-radius: 999px;
       background: rgba(7, 16, 29, 0.72);
       color: var(--muted);
       font-family: inherit;
       font-weight: 600;
-      font-size: 0.92rem;
+      font-size: 0.84rem;
       cursor: pointer;
       transition: 160ms ease;
     }
@@ -93,8 +94,8 @@
     /* ── Search ────────────────────────────────────────── */
     .tr-search {
       width: 100%;
-      padding: 10px 16px;
-      margin-bottom: 14px;
+      padding: 7px 14px;
+      margin-bottom: 10px;
       background: rgba(4, 14, 23, 0.7);
       border: 1px solid var(--panel-border);
       border-radius: 10px;
@@ -329,13 +330,13 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 42px;
-      padding: 0 22px;
+      min-height: 34px;
+      padding: 0 16px;
       border: none;
       border-radius: 999px;
       font-family: inherit;
       font-weight: 600;
-      font-size: 0.95rem;
+      font-size: 0.88rem;
       cursor: pointer;
       color: #04111f;
       background: linear-gradient(135deg, var(--accent), var(--accent-strong));
@@ -373,10 +374,10 @@
     .tr-check {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       align-self: center;
       cursor: pointer;
-      font-size: 0.88rem;
+      font-size: 0.82rem;
       color: var(--muted);
       user-select: none;
     }
@@ -409,22 +410,19 @@
     </header>
 
     <main>
-      <a class="back-link" href="../index.html" data-i18n="back">&larr; Zurück zur Startseite</a>
-
-      <section class="page-hero-copy" style="margin-bottom: 24px; display: flex; align-items: flex-start; justify-content: space-between; gap: 20px;">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
         <div>
-          <p class="eyebrow">Freelancer Tools</p>
-          <h1 style="max-width: 20ch;" data-i18n="title">Handelsrouten-Rechner</h1>
-          <p class="page-intro" data-i18n="intro">Finde die profitabelsten Handelsrouten über alle Systeme. Wähle deinen Mod, dein Schiff und starte den Handel.</p>
+          <h2 style="margin: 0 0 2px;" data-i18n="title">Handelsrouten-Rechner</h2>
+          <p style="color: var(--muted); margin: 0; font-size: 0.88rem;" data-i18n="intro">Finde die profitabelsten Handelsrouten über alle Systeme.</p>
         </div>
         <div class="tr-lang-toggle" id="lang-toggle">
           <button class="tr-lang-btn active" data-lang="de">DE</button>
           <button class="tr-lang-btn" data-lang="en">EN</button>
         </div>
-      </section>
+      </div>
 
       <!-- Controls -->
-      <section class="page-section" style="margin-bottom: 24px;">
+      <section class="page-section" style="margin-bottom: 14px;">
         <div class="tr-controls">
           <div class="tr-field">
             <label for="dataset-select" data-i18n="lbl_dataset">Preisdaten</label>
