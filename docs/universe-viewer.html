@@ -214,6 +214,69 @@
       color: var(--muted);
       font-size: 0.82rem;
     }
+    .uv-market-trigger {
+      width: 100%;
+      justify-content: center;
+      margin-top: 4px;
+    }
+    .uv-market-modal {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(2, 8, 15, 0.72);
+      z-index: 30;
+    }
+    .uv-market-modal.visible { display: flex; }
+    .uv-market-dialog {
+      width: min(980px, 100%);
+      max-height: min(86vh, 920px);
+      overflow: hidden;
+      border: 1px solid var(--panel-border);
+      border-radius: 18px;
+      background: rgba(8, 18, 32, 0.98);
+      box-shadow: var(--shadow);
+    }
+    .uv-market-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px 20px 14px;
+      border-bottom: 1px solid rgba(132, 177, 255, 0.12);
+    }
+    .uv-market-header h3 {
+      margin: 0 0 4px;
+      color: var(--accent-strong);
+    }
+    .uv-market-subtitle {
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+    .uv-market-body {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      padding: 18px 20px 20px;
+      max-height: calc(min(86vh, 920px) - 88px);
+      overflow: auto;
+    }
+    .uv-market-section {
+      min-width: 0;
+    }
+    .uv-market-section h4 {
+      margin: 0 0 10px;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .uv-market-note {
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
 
     /* ── Legend ── */
     .uv-legend {
@@ -264,6 +327,7 @@
     /* ── Responsive ── */
     @media (max-width: 768px) {
       .uv-info-panel { width: 240px; }
+      .uv-market-body { grid-template-columns: 1fr; }
       .uv-controls.in-subnav {
         margin-left: 0;
         justify-content: flex-start;
@@ -285,6 +349,15 @@
         width: 100%;
         max-height: 50vh;
         border-radius: 14px 14px 0 0;
+      }
+      .uv-market-modal {
+        padding: 0;
+        align-items: flex-end;
+      }
+      .uv-market-dialog {
+        width: 100%;
+        max-height: 84vh;
+        border-radius: 18px 18px 0 0;
       }
       .uv-controls input[type="text"] {
         min-width: 0;
@@ -335,6 +408,19 @@
         </div>
       </div>
 
+      <div class="uv-market-modal" id="marketModal" aria-hidden="true">
+        <div class="uv-market-dialog" role="dialog" aria-modal="true" aria-labelledby="marketTitle">
+          <div class="uv-market-header">
+            <div>
+              <h3 id="marketTitle"></h3>
+              <div class="uv-market-subtitle" id="marketSubtitle"></div>
+            </div>
+            <button class="uv-info-close" id="marketClose" aria-label="Close">✕</button>
+          </div>
+          <div class="uv-market-body" id="marketBody"></div>
+        </div>
+      </div>
+
       <div class="uv-legend" id="legend"></div>
 
       <footer class="page-footer" style="margin-top: 32px;">
@@ -381,10 +467,17 @@
         info_loadout_cargo: 'Loadout Cargo',
         info_commodities_sells: 'Verkauft Commodities',
         info_commodities_buys: 'Kauft Commodities',
+        info_equipment: 'Ausrüstung',
         info_ships: 'Schiffe',
         info_none: 'Keine Einträge',
         action_sells: 'Verkauft',
         action_buys: 'Kauft',
+        action_open_market: 'Stationsmarkt öffnen',
+        market_title: 'Stationsmarkt',
+        market_commodities_sells: 'Verkauft Commodities',
+        market_commodities_buys: 'Kauft Commodities',
+        market_equipment: 'Verkaufte Ausrüstung',
+        market_ships: 'Schiffshändler',
       },
       en: {
         title: 'Universe',
@@ -418,10 +511,17 @@
         info_loadout_cargo: 'Loadout Cargo',
         info_commodities_sells: 'Sells commodities',
         info_commodities_buys: 'Buys commodities',
+        info_equipment: 'Equipment',
         info_ships: 'Ships',
         info_none: 'No entries',
         action_sells: 'Sells',
         action_buys: 'Buys',
+        action_open_market: 'Open base market',
+        market_title: 'Base Market',
+        market_commodities_sells: 'Sells commodities',
+        market_commodities_buys: 'Buys commodities',
+        market_equipment: 'Equipment sold',
+        market_ships: 'Ship dealer',
       }
     };
 
@@ -496,8 +596,10 @@
     var showJumpHoles = true;
     var iconCache = {};  // arch -> true/false (whether icon exists)
     var tradeData = null;
+    var equipmentData = null;
     var baseCommodityIndex = {};
     var baseShipIndex = {};
+    var baseEquipmentIndex = {};
 
     // Pan & zoom state
     var viewBox = { x: 0, y: 0, w: 1000, h: 800 };
@@ -512,6 +614,11 @@
     var infoPanelTitle = document.getElementById("infoPanelTitle");
     var infoPanelList = document.getElementById("infoPanelList");
     var infoClose = document.getElementById("infoClose");
+    var marketModal = document.getElementById("marketModal");
+    var marketTitle = document.getElementById("marketTitle");
+    var marketSubtitle = document.getElementById("marketSubtitle");
+    var marketBody = document.getElementById("marketBody");
+    var marketClose = document.getElementById("marketClose");
     var breadcrumb = document.getElementById("breadcrumb");
     var statsEl = document.getElementById("stats");
     var searchInput = document.getElementById("search");
@@ -529,12 +636,16 @@
         fetch("../data/universe/" + mod + ".json").then(function (r) { return r.json(); }),
         fetch("../data/trade-routes/" + mod + ".json")
           .then(function (r) { return r.ok ? r.json() : null; })
+          .catch(function () { return null; }),
+        fetch("../data/equipment/" + mod + ".json")
+          .then(function (r) { return r.ok ? r.json() : null; })
           .catch(function () { return null; })
       ])
         .then(function (results) {
           var d = results[0];
           data = d;
           tradeData = results[1];
+          equipmentData = results[2];
           rebuildTradeIndexes();
           iconCache = {};
           var archs = {};
@@ -562,9 +673,10 @@
     function rebuildTradeIndexes() {
       baseCommodityIndex = {};
       baseShipIndex = {};
-      if (!tradeData) return;
+      baseEquipmentIndex = {};
+      if (!tradeData && !equipmentData) return;
 
-      Object.keys(tradeData.by_commodity || {}).forEach(function (commodityNick) {
+      Object.keys((tradeData && tradeData.by_commodity) || {}).forEach(function (commodityNick) {
         var info = (tradeData.commodities || {})[commodityNick] || {};
         (tradeData.by_commodity[commodityNick] || []).forEach(function (entry) {
           var baseNick = (entry.base || "").toLowerCase();
@@ -587,7 +699,7 @@
         });
       });
 
-      (tradeData.ships || []).forEach(function (ship) {
+      ((tradeData && tradeData.ships) || []).forEach(function (ship) {
         (ship.dealers || []).forEach(function (dealer) {
           var baseNick = (dealer.base || "").toLowerCase();
           if (!baseNick) return;
@@ -606,6 +718,32 @@
         baseShipIndex[baseNick].sort(function (a, b) {
           if (b.cargo !== a.cargo) return b.cargo - a.cargo;
           if (b.price !== a.price) return b.price - a.price;
+          return a.name.localeCompare(b.name);
+        });
+      });
+
+      Object.keys((equipmentData && equipmentData.items) || {}).forEach(function (itemNick) {
+        var item = equipmentData.items[itemNick] || {};
+        (item.offers || []).forEach(function (offer) {
+          var baseNick = (offer.base || "").toLowerCase();
+          if (!baseNick) return;
+          if (!baseEquipmentIndex[baseNick]) baseEquipmentIndex[baseNick] = [];
+          baseEquipmentIndex[baseNick].push({
+            nick: item.nick || itemNick,
+            name: item.name || itemNick,
+            category: item.category || "",
+            price: offer.price || item.price || 0,
+            system: offer.system || "",
+            systemName: offer.systemName || "",
+            faction: offer.faction || ""
+          });
+        });
+      });
+
+      Object.keys(baseEquipmentIndex).forEach(function (baseNick) {
+        baseEquipmentIndex[baseNick].sort(function (a, b) {
+          if (a.category !== b.category) return a.category.localeCompare(b.category);
+          if (a.price !== b.price) return a.price - b.price;
           return a.name.localeCompare(b.name);
         });
       });
@@ -985,6 +1123,14 @@
           if (sys) showSystem(sys);
         });
       });
+      infoPanelList.querySelectorAll("[data-open-market]").forEach(function (el) {
+        el.addEventListener("click", function () {
+          openBaseMarketModal(el.getAttribute("data-open-market"));
+        });
+      });
+      if (obj.base) {
+        openBaseMarketModal(obj.base);
+      }
     }
 
     function infoRow(label, value, color) {
@@ -999,14 +1145,19 @@
       var baseKey = (baseNick || "").toLowerCase();
       var entries = baseCommodityIndex[baseKey] || [];
       var ships = baseShipIndex[baseKey] || [];
+      var equipment = baseEquipmentIndex[baseKey] || [];
       var sells = entries.filter(function (entry) { return entry.action === "sells"; });
       var buys = entries.filter(function (entry) { return entry.action === "buys"; });
       var html = "";
+      html += '<li class="uv-info-section"><div style="width:100%;"><button class="uv-btn uv-market-trigger" type="button" data-open-market="' + escAttr(baseNick) + '">' + escXml(t('action_open_market')) + '</button></div></li>';
       html += renderInfoSection(t('info_commodities_sells'), sells.map(function (entry) {
         return { name: entry.name, meta: fmtNum(entry.price) + " | " + t('action_sells') };
       }));
       html += renderInfoSection(t('info_commodities_buys'), buys.map(function (entry) {
         return { name: entry.name, meta: fmtNum(entry.price) + " | " + t('action_buys') };
+      }));
+      html += renderInfoSection(t('info_equipment'), equipment.slice(0, 8).map(function (item) {
+        return { name: item.name, meta: categoryLabel(item.category) + ' | ' + fmtNum(item.price) };
       }));
       html += renderInfoSection(t('info_ships'), ships.map(function (ship) {
         var meta = [];
@@ -1015,6 +1166,61 @@
         if (ship.price) meta.push(fmtNum(ship.price));
         return { name: ship.name, meta: meta.join(" | ") };
       }));
+      return html;
+    }
+
+    function openBaseMarketModal(baseNick) {
+      var baseKey = (baseNick || "").toLowerCase();
+      if (!baseKey) return;
+
+      var commodityEntries = baseCommodityIndex[baseKey] || [];
+      var sells = commodityEntries.filter(function (entry) { return entry.action === "sells"; });
+      var buys = commodityEntries.filter(function (entry) { return entry.action === "buys"; });
+      var equipment = baseEquipmentIndex[baseKey] || [];
+      var ships = baseShipIndex[baseKey] || [];
+      var baseInfo = (equipmentData && equipmentData.bases && equipmentData.bases[baseKey]) || null;
+
+      if (!baseInfo && !commodityEntries.length && !equipment.length && !ships.length) return;
+
+      marketTitle.textContent = (baseInfo && baseInfo.baseName) || baseNick;
+      marketSubtitle.textContent = [
+        baseInfo && baseInfo.systemName,
+        baseInfo && baseInfo.faction
+      ].filter(Boolean).join(' · ');
+      marketBody.innerHTML = [
+        renderMarketSection(t('market_commodities_sells'), sells.map(function (entry) {
+          return { name: entry.name, meta: fmtNum(entry.price) };
+        })),
+        renderMarketSection(t('market_commodities_buys'), buys.map(function (entry) {
+          return { name: entry.name, meta: fmtNum(entry.price) };
+        })),
+        renderMarketSection(t('market_equipment'), equipment.map(function (item) {
+          return { name: item.name, meta: categoryLabel(item.category) + ' | ' + fmtNum(item.price) };
+        })),
+        renderMarketSection(t('market_ships'), ships.map(function (ship) {
+          var meta = [];
+          if (ship.type) meta.push(ship.type);
+          if (ship.cargo) meta.push('Cargo ' + fmtNum(ship.cargo));
+          if (ship.price) meta.push(fmtNum(ship.price));
+          return { name: ship.name, meta: meta.join(' | ') };
+        }))
+      ].join('');
+      marketModal.classList.add('visible');
+      marketModal.setAttribute('aria-hidden', 'false');
+    }
+
+    function renderMarketSection(title, rows) {
+      var html = '<section class="uv-market-section"><h4>' + escXml(title) + '</h4>';
+      if (!rows.length) {
+        html += '<div class="uv-market-note">' + escXml(t('info_none')) + '</div>';
+      } else {
+        html += '<ul class="uv-mini-list">';
+        rows.forEach(function (row) {
+          html += '<li><span class="name">' + escXml(row.name) + '</span><span class="meta">' + escXml(row.meta || '') + '</span></li>';
+        });
+        html += '</ul>';
+      }
+      html += '</section>';
       return html;
     }
 
@@ -1194,10 +1400,39 @@
     infoClose.addEventListener("click", function () {
       infoPanel.classList.remove("visible");
     });
+    marketClose.addEventListener("click", closeMarketModal);
+    marketModal.addEventListener("click", function (e) {
+      if (e.target === marketModal) closeMarketModal();
+    });
+    window.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") closeMarketModal();
+    });
+
+    function closeMarketModal() {
+      marketModal.classList.remove('visible');
+      marketModal.setAttribute('aria-hidden', 'true');
+    }
 
     /* ── Helpers ── */
     function fmtNum(value) {
       return new Intl.NumberFormat(lang === "de" ? "de-DE" : "en-US").format(Math.round(value || 0));
+    }
+
+    function categoryLabel(category) {
+      var labels = {
+        weapon: lang === 'de' ? 'Waffe' : 'Weapon',
+        shield: lang === 'de' ? 'Schild' : 'Shield',
+        thruster: lang === 'de' ? 'Schubdüse' : 'Thruster',
+        mine: lang === 'de' ? 'Mine' : 'Mine',
+        missile: lang === 'de' ? 'Rakete' : 'Missile',
+        countermeasure: lang === 'de' ? 'Gegenmaßnahme' : 'Countermeasure',
+        scanner: lang === 'de' ? 'Scanner' : 'Scanner',
+        tractor: lang === 'de' ? 'Traktorstrahl' : 'Tractor Beam',
+        armor: lang === 'de' ? 'Armor' : 'Armor',
+        nanobot: lang === 'de' ? 'Nanobots' : 'Nanobots',
+        battery: lang === 'de' ? 'Shield-Batterie' : 'Shield Battery'
+      };
+      return labels[category] || category || '';
     }
 
     function objectVisualRadius(obj, fullRange, gridW, gridH) {
@@ -1292,6 +1527,7 @@
     /* ── Init ── */
     window.addEventListener("mod-change", function (e) { loadMod(e.detail.mod); });
     window.addEventListener("load", mountControlsIntoSubnav);
+    loadMod((window.location.hash || '').replace(/^#/, '') || localStorage.getItem('flathack-mod') || 'vanilla');
     if (lang !== 'de') applyLang();
   })();
   </script>

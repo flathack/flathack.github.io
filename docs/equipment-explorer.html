@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Equipment Explorer | Flathack</title>
+  <meta name="description" content="Kaufbare Freelancer-Ausrüstung durchsuchen: Waffen, Schilde, Scanner, Raketen, Minen, Thruster und mehr mit Preis und Verkaufsorten.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    .site-shell { width: calc(100% - 32px); max-width: none; }
+
+    .ee-hero {
+      margin-bottom: 16px;
+      padding: 24px 26px;
+      border: 1px solid var(--panel-border);
+      border-radius: 16px;
+      background: linear-gradient(180deg, rgba(10, 24, 37, 0.96), rgba(5, 15, 24, 0.94));
+      box-shadow: var(--shadow);
+    }
+    .ee-hero h1 { margin: 0 0 6px; }
+    .ee-hero p { margin: 0; color: var(--muted); max-width: 72ch; }
+
+    .ee-toolbar,
+    .ee-results,
+    .ee-detail {
+      border: 1px solid var(--panel-border);
+      border-radius: 16px;
+      background: rgba(6, 14, 26, 0.82);
+    }
+
+    .ee-toolbar {
+      margin-bottom: 14px;
+      padding: 16px;
+    }
+
+    .ee-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-bottom: 14px;
+      color: var(--muted);
+      font-size: 0.84rem;
+      font-family: "IBM Plex Mono", monospace;
+    }
+    .ee-stats strong { color: var(--accent-strong); }
+
+    .ee-controls {
+      display: grid;
+      grid-template-columns: minmax(220px, 1.4fr) repeat(5, minmax(140px, 1fr));
+      gap: 10px;
+    }
+    .ee-field {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 0;
+    }
+    .ee-field label {
+      color: var(--muted);
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .ee-field input,
+    .ee-field select {
+      min-height: 36px;
+      padding: 0 12px;
+      border: 1px solid rgba(132, 177, 255, 0.2);
+      border-radius: 10px;
+      background: rgba(5, 13, 24, 0.9);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.92rem;
+    }
+
+    .ee-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.55fr) minmax(320px, 0.9fr);
+      gap: 14px;
+      align-items: start;
+    }
+
+    .ee-results {
+      overflow: hidden;
+    }
+    .ee-table-wrap {
+      overflow: auto;
+      max-height: calc(100vh - 300px);
+    }
+    .ee-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      white-space: nowrap;
+    }
+    .ee-table th {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      padding: 8px 10px;
+      background: rgba(10, 22, 36, 0.98);
+      border-bottom: 1px solid var(--panel-border);
+      text-align: left;
+      font-size: 0.77rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-strong);
+      cursor: pointer;
+      user-select: none;
+    }
+    .ee-table td {
+      padding: 7px 10px;
+      border-bottom: 1px solid rgba(132, 177, 255, 0.08);
+      color: var(--text);
+    }
+    .ee-table td.num {
+      text-align: right;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.84rem;
+    }
+    .ee-table tbody tr {
+      cursor: pointer;
+      transition: background 160ms ease;
+    }
+    .ee-table tbody tr:hover td,
+    .ee-table tbody tr.active td {
+      background: rgba(88, 196, 255, 0.08);
+    }
+
+    .ee-badge {
+      display: inline-flex;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 0.74rem;
+      font-weight: 600;
+      background: rgba(88, 196, 255, 0.12);
+      color: var(--accent-strong);
+    }
+
+    .ee-results-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 14px;
+      border-top: 1px solid rgba(132, 177, 255, 0.08);
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+
+    .ee-btn {
+      min-height: 34px;
+      padding: 0 14px;
+      border: 1px solid rgba(132, 177, 255, 0.22);
+      border-radius: 999px;
+      background: rgba(7, 16, 29, 0.76);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.84rem;
+      cursor: pointer;
+      transition: background 160ms ease, border-color 160ms ease;
+    }
+    .ee-btn:hover {
+      background: rgba(88, 196, 255, 0.12);
+      border-color: var(--accent);
+    }
+
+    .ee-detail {
+      position: sticky;
+      top: 12px;
+      padding: 18px;
+      min-height: 420px;
+    }
+    .ee-detail h2 {
+      margin: 0 0 6px;
+      font-size: 1.2rem;
+    }
+    .ee-detail-sub {
+      margin-bottom: 14px;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+    .ee-detail-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .ee-metric {
+      padding: 10px 12px;
+      border: 1px solid rgba(132, 177, 255, 0.1);
+      border-radius: 12px;
+      background: rgba(5, 13, 24, 0.7);
+    }
+    .ee-metric-label {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--muted);
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .ee-metric-value {
+      color: var(--text);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.92rem;
+    }
+    .ee-section + .ee-section {
+      margin-top: 16px;
+    }
+    .ee-section h3 {
+      margin: 0 0 10px;
+      font-size: 0.88rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-strong);
+    }
+    .ee-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .ee-list li {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 10px;
+      padding: 7px 0;
+      border-bottom: 1px solid rgba(132, 177, 255, 0.08);
+    }
+    .ee-list li:last-child { border-bottom: none; }
+    .ee-list small {
+      display: block;
+      color: var(--muted);
+      font-size: 0.76rem;
+      margin-top: 2px;
+    }
+    .ee-empty {
+      color: var(--muted);
+      font-size: 0.9rem;
+      padding: 22px;
+    }
+
+    @media (max-width: 1100px) {
+      .ee-controls {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+      .ee-layout {
+        grid-template-columns: 1fr;
+      }
+      .ee-detail {
+        position: static;
+        min-height: 0;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .ee-controls,
+      .ee-detail-grid {
+        grid-template-columns: 1fr;
+      }
+      .site-shell { width: calc(100% - 20px); }
+      .ee-hero,
+      .ee-toolbar,
+      .ee-detail { padding: 14px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark">FH</span>
+        <span class="brand-text">Flathack Projects</span>
+      </a>
+      <nav class="project-top-nav" aria-label="Projekt-Navigation"></nav>
+    </header>
+
+    <main>
+      <section class="ee-hero">
+        <p class="eyebrow" data-i18n="eyebrow">Equipment Explorer</p>
+        <h1 data-i18n="title">Equipment Explorer</h1>
+        <p data-i18n="intro">Durchsuche ausschliesslich kaufbare Ausruestung mit Preis, Basis, System und Fraktion. Geeignet fuer Waffen, Schilde, Scanner, Raketen, Minen, Thruster und Verbrauchsgueter.</p>
+      </section>
+
+      <section class="ee-toolbar">
+        <div class="ee-stats" id="stats"></div>
+        <div class="ee-controls">
+          <div class="ee-field">
+            <label for="searchInput" data-i18n="lbl_search">Suche</label>
+            <input id="searchInput" type="text" data-i18n-placeholder="search_ph" placeholder="Item, Basis, System oder Fraktion suchen…">
+          </div>
+          <div class="ee-field">
+            <label for="categoryFilter" data-i18n="lbl_category">Kategorie</label>
+            <select id="categoryFilter"></select>
+          </div>
+          <div class="ee-field">
+            <label for="systemFilter" data-i18n="lbl_system">System</label>
+            <select id="systemFilter"></select>
+          </div>
+          <div class="ee-field">
+            <label for="baseFilter" data-i18n="lbl_base">Basis</label>
+            <select id="baseFilter"></select>
+          </div>
+          <div class="ee-field">
+            <label for="factionFilter" data-i18n="lbl_faction">Fraktion</label>
+            <select id="factionFilter"></select>
+          </div>
+          <div class="ee-field">
+            <label for="sortFilter" data-i18n="lbl_sort">Sortierung</label>
+            <select id="sortFilter"></select>
+          </div>
+        </div>
+      </section>
+
+      <section class="ee-layout">
+        <div class="ee-results">
+          <div class="ee-table-wrap">
+            <table class="ee-table">
+              <thead>
+                <tr>
+                  <th data-sort="itemName" data-i18n="col_item">Item</th>
+                  <th data-sort="category" data-i18n="col_category">Kategorie</th>
+                  <th data-sort="price" data-i18n="col_price">Preis</th>
+                  <th data-sort="baseName" data-i18n="col_base">Basis</th>
+                  <th data-sort="systemName" data-i18n="col_system">System</th>
+                  <th data-sort="factionName" data-i18n="col_faction">Fraktion</th>
+                </tr>
+              </thead>
+              <tbody id="resultsBody"></tbody>
+            </table>
+          </div>
+          <div class="ee-results-footer">
+            <span id="resultsSummary"></span>
+            <button class="ee-btn" id="loadMoreBtn" data-i18n="btn_load_more">Mehr laden</button>
+          </div>
+        </div>
+
+        <aside class="ee-detail" id="detailPanel">
+          <div class="ee-empty" data-i18n="detail_empty">Wähle links ein Item oder einen Verkaufsort aus, um Details zu sehen.</div>
+        </aside>
+      </section>
+
+      <footer class="page-footer" style="margin-top: 28px;">
+        &copy; 2026 Steven Schödel — Flathack Projects
+      </footer>
+    </main>
+  </div>
+
+  <script>
+  (function () {
+    "use strict";
+
+    var I18N = {
+      de: {
+        eyebrow: 'Equipment Explorer',
+        title: 'Equipment Explorer',
+        intro: 'Durchsuche ausschliesslich kaufbare Ausruestung mit Preis, Basis, System und Fraktion. Geeignet fuer Waffen, Schilde, Scanner, Raketen, Minen, Thruster und Verbrauchsgueter.',
+        lbl_search: 'Suche',
+        lbl_category: 'Kategorie',
+        lbl_system: 'System',
+        lbl_base: 'Basis',
+        lbl_faction: 'Fraktion',
+        lbl_sort: 'Sortierung',
+        search_ph: 'Item, Basis, System oder Fraktion suchen…',
+        opt_all: 'Alle',
+        col_item: 'Item',
+        col_category: 'Kategorie',
+        col_price: 'Preis',
+        col_base: 'Basis',
+        col_system: 'System',
+        col_faction: 'Fraktion',
+        stat_items: 'Items',
+        stat_offers: 'Angebote',
+        stat_bases: 'Basen',
+        stat_visible: 'Sichtbar',
+        summary_showing: '{visible} / {total} Angebote',
+        btn_load_more: 'Mehr laden',
+        detail_empty: 'Wähle links ein Item oder einen Verkaufsort aus, um Details zu sehen.',
+        detail_category: 'Kategorie',
+        detail_price: 'Basispreis',
+        detail_offers: 'Verkaufsorte',
+        detail_stats: 'Item-Details',
+        detail_offer_count: 'Verkaufsorte',
+        detail_none: 'Keine Details vorhanden.',
+        sort_price_asc: 'Preis aufsteigend',
+        sort_price_desc: 'Preis absteigend',
+        sort_name_asc: 'Item A-Z',
+        sort_system_asc: 'System A-Z',
+        sort_base_asc: 'Basis A-Z',
+        sort_faction_asc: 'Fraktion A-Z',
+        category_weapon: 'Waffen',
+        category_shield: 'Schilde',
+        category_thruster: 'Schubduesen',
+        category_mine: 'Minen',
+        category_missile: 'Raketen',
+        category_countermeasure: 'Gegenmassnahmen-Werfer',
+        category_scanner: 'Scanner',
+        category_tractor: 'Traktorstrahl',
+        category_armor: 'Armor',
+        category_nanobot: 'Nanobots',
+        category_battery: 'Shield Batteries',
+        err_load: 'Equipment-Daten konnten nicht geladen werden.',
+        no_results: 'Keine Treffer fuer die aktuelle Filterung.',
+      },
+      en: {
+        eyebrow: 'Equipment Explorer',
+        title: 'Equipment Explorer',
+        intro: 'Browse purchasable equipment only, including price, base, system, and faction. Suitable for weapons, shields, scanners, missiles, mines, thrusters, and consumables.',
+        lbl_search: 'Search',
+        lbl_category: 'Category',
+        lbl_system: 'System',
+        lbl_base: 'Base',
+        lbl_faction: 'Faction',
+        lbl_sort: 'Sort',
+        search_ph: 'Search item, base, system, or faction…',
+        opt_all: 'All',
+        col_item: 'Item',
+        col_category: 'Category',
+        col_price: 'Price',
+        col_base: 'Base',
+        col_system: 'System',
+        col_faction: 'Faction',
+        stat_items: 'Items',
+        stat_offers: 'Offers',
+        stat_bases: 'Bases',
+        stat_visible: 'Visible',
+        summary_showing: '{visible} / {total} offers',
+        btn_load_more: 'Load more',
+        detail_empty: 'Select an item or offer on the left to inspect its details.',
+        detail_category: 'Category',
+        detail_price: 'Base price',
+        detail_offers: 'Sale locations',
+        detail_stats: 'Item details',
+        detail_offer_count: 'Locations',
+        detail_none: 'No details available.',
+        sort_price_asc: 'Price ascending',
+        sort_price_desc: 'Price descending',
+        sort_name_asc: 'Item A-Z',
+        sort_system_asc: 'System A-Z',
+        sort_base_asc: 'Base A-Z',
+        sort_faction_asc: 'Faction A-Z',
+        category_weapon: 'Weapons',
+        category_shield: 'Shields',
+        category_thruster: 'Thrusters',
+        category_mine: 'Mines',
+        category_missile: 'Missiles',
+        category_countermeasure: 'Countermeasure Droppers',
+        category_scanner: 'Scanners',
+        category_tractor: 'Tractor Beams',
+        category_armor: 'Armor',
+        category_nanobot: 'Nanobots',
+        category_battery: 'Shield Batteries',
+        err_load: 'Unable to load equipment data.',
+        no_results: 'No results for the current filter set.',
+      }
+    };
+
+    var CATEGORY_KEYS = ['weapon', 'shield', 'thruster', 'mine', 'missile', 'countermeasure', 'scanner', 'tractor', 'armor', 'nanobot', 'battery'];
+    var VALID_MOD_IDS = ['vanilla', 'hamburg-city', 'crossfire', 'discovery', 'freelancer-universe'];
+    var PAGE_SIZE = 100;
+
+    var lang = (function () {
+      try { return sessionStorage.getItem('flathack-lang') || 'en'; } catch (e) { return 'en'; }
+    })();
+
+    var payload = null;
+    var factionMap = {};
+    var itemsMap = {};
+    var offers = [];
+    var filteredOffers = [];
+    var visibleCount = PAGE_SIZE;
+    var selectedItemNick = '';
+    var sortKey = 'price';
+    var sortAsc = true;
+    var searchTimer = null;
+
+    var statsEl = document.getElementById('stats');
+    var searchInput = document.getElementById('searchInput');
+    var categoryFilter = document.getElementById('categoryFilter');
+    var systemFilter = document.getElementById('systemFilter');
+    var baseFilter = document.getElementById('baseFilter');
+    var factionFilter = document.getElementById('factionFilter');
+    var sortFilter = document.getElementById('sortFilter');
+    var resultsBody = document.getElementById('resultsBody');
+    var resultsSummary = document.getElementById('resultsSummary');
+    var loadMoreBtn = document.getElementById('loadMoreBtn');
+    var detailPanel = document.getElementById('detailPanel');
+
+    function t(key) {
+      return (I18N[lang] || I18N.de)[key] || key;
+    }
+
+    function tf(key, vars) {
+      var text = t(key);
+      Object.keys(vars || {}).forEach(function (name) {
+        text = text.replace(new RegExp('\\{' + name + '\\}', 'g'), vars[name]);
+      });
+      return text;
+    }
+
+    function categoryLabel(key) {
+      return t('category_' + key);
+    }
+
+    function fmtNum(value) {
+      return new Intl.NumberFormat(lang === 'de' ? 'de-DE' : 'en-US').format(Math.round(value || 0));
+    }
+
+    function escHtml(value) {
+      var div = document.createElement('div');
+      div.textContent = value == null ? '' : String(value);
+      return div.innerHTML;
+    }
+
+    function itemName(item) {
+      if (lang === 'en' && item.nameEn) return item.nameEn;
+      return item.name || item.nick;
+    }
+
+    function offerBaseName(offer) {
+      if (lang === 'en' && offer.baseNameEn) return offer.baseNameEn;
+      return offer.baseName || offer.base;
+    }
+
+    function offerSystemName(offer) {
+      if (lang === 'en' && offer.systemNameEn) return offer.systemNameEn;
+      return offer.systemName || offer.system;
+    }
+
+    function factionName(nick) {
+      var faction = factionMap[nick || ''];
+      if (!faction) return nick || '—';
+      if (lang === 'en' && faction.nameEn) return faction.nameEn;
+      return faction.name || faction.shortName || nick;
+    }
+
+    function getModId() {
+      var hash = window.location.hash.replace('#', '');
+      if (VALID_MOD_IDS.indexOf(hash) !== -1) return hash;
+      try {
+        var stored = localStorage.getItem('flathack-mod');
+        if (VALID_MOD_IDS.indexOf(stored) !== -1) return stored;
+      } catch (e) {}
+      return 'vanilla';
+    }
+
+    function queryDefaults() {
+      var params = new URLSearchParams(window.location.search);
+      return {
+        q: params.get('q') || '',
+        category: params.get('category') || '',
+        system: params.get('system') || '',
+        base: params.get('base') || '',
+        faction: params.get('faction') || '',
+      };
+    }
+
+    function populateSelect(select, rows, valueKey, labelFn, keepValue) {
+      var currentValue = keepValue != null ? keepValue : select.value;
+      var html = '<option value="">' + escHtml(t('opt_all')) + '</option>';
+      rows.forEach(function (row) {
+        html += '<option value="' + escHtml(row[valueKey]) + '">' + escHtml(labelFn(row)) + '</option>';
+      });
+      select.innerHTML = html;
+      if (currentValue && Array.from(select.options).some(function (opt) { return opt.value === currentValue; })) {
+        select.value = currentValue;
+      }
+    }
+
+    function populateFilters(initial) {
+      categoryFilter.innerHTML = '<option value="">' + escHtml(t('opt_all')) + '</option>' +
+        CATEGORY_KEYS.map(function (key) {
+          return '<option value="' + escHtml(key) + '">' + escHtml(categoryLabel(key)) + '</option>';
+        }).join('');
+
+      var systemRows = uniqueRows(offers, 'system', function (offer) {
+        return offer.system && offer.systemName;
+      }).sort(function (a, b) {
+        return offerSystemName(a).localeCompare(offerSystemName(b));
+      });
+      var baseRows = uniqueRows(offers, 'base', function (offer) {
+        return offer.base && offer.baseName;
+      }).sort(function (a, b) {
+        return offerBaseName(a).localeCompare(offerBaseName(b));
+      });
+      var factionRows = uniqueRows(offers, 'faction', function (offer) {
+        return offer.faction;
+      }).sort(function (a, b) {
+        return factionName(a.faction).localeCompare(factionName(b.faction));
+      });
+
+      populateSelect(systemFilter, systemRows, 'system', offerSystemName, initial.system);
+      populateSelect(baseFilter, baseRows, 'base', offerBaseName, initial.base);
+      populateSelect(factionFilter, factionRows, 'faction', function (row) { return factionName(row.faction); }, initial.faction);
+
+      sortFilter.innerHTML = [
+        ['price-asc', t('sort_price_asc')],
+        ['price-desc', t('sort_price_desc')],
+        ['name-asc', t('sort_name_asc')],
+        ['system-asc', t('sort_system_asc')],
+        ['base-asc', t('sort_base_asc')],
+        ['faction-asc', t('sort_faction_asc')],
+      ].map(function (row) {
+        return '<option value="' + escHtml(row[0]) + '">' + escHtml(row[1]) + '</option>';
+      }).join('');
+
+      searchInput.value = initial.q;
+      categoryFilter.value = initial.category;
+      sortFilter.value = 'price-asc';
+    }
+
+    function uniqueRows(rows, key, predicate) {
+      var seen = Object.create(null);
+      var result = [];
+      rows.forEach(function (row) {
+        if (predicate && !predicate(row)) return;
+        var value = row[key];
+        if (!value || seen[value]) return;
+        seen[value] = true;
+        result.push(row);
+      });
+      return result;
+    }
+
+    function normalizePayload(data) {
+      payload = data || { items: {}, bases: {}, summary: {} };
+      itemsMap = payload.items || {};
+      offers = [];
+      Object.keys(itemsMap).forEach(function (nick) {
+        var item = itemsMap[nick];
+        item.nick = item.nick || nick;
+        (item.offers || []).forEach(function (offer) {
+          offers.push({
+            itemNick: item.nick,
+            itemName: itemName(item),
+            category: item.category || '',
+            price: offer.price || item.price || 0,
+            base: offer.base || '',
+            baseName: offer.baseName || offer.base || '',
+            baseNameEn: offer.baseNameEn || '',
+            system: offer.system || '',
+            systemName: offer.systemName || offer.system || '',
+            systemNameEn: offer.systemNameEn || '',
+            faction: offer.faction || '',
+            factionName: factionName(offer.faction || ''),
+          });
+        });
+      });
+    }
+
+    function applyLanguage() {
+      document.querySelectorAll('[data-i18n]').forEach(function (el) {
+        el.textContent = t(el.dataset.i18n);
+      });
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(function (el) {
+        el.placeholder = t(el.dataset.i18nPlaceholder);
+      });
+      if (!payload) return;
+      normalizePayload(payload);
+      populateFilters(queryDefaults());
+      applyFilters();
+    }
+
+    function currentSort() {
+      var value = sortFilter.value || 'price-asc';
+      if (value === 'price-desc') return ['price', false];
+      if (value === 'name-asc') return ['itemName', true];
+      if (value === 'system-asc') return ['systemName', true];
+      if (value === 'base-asc') return ['baseName', true];
+      if (value === 'faction-asc') return ['factionName', true];
+      return ['price', true];
+    }
+
+    function compareOffers(a, b) {
+      var key = sortKey;
+      var av = a[key];
+      var bv = b[key];
+      if (typeof av === 'number' || typeof bv === 'number') {
+        return sortAsc ? (av - bv) : (bv - av);
+      }
+      av = String(av || '').toLowerCase();
+      bv = String(bv || '').toLowerCase();
+      if (av < bv) return sortAsc ? -1 : 1;
+      if (av > bv) return sortAsc ? 1 : -1;
+      return 0;
+    }
+
+    function applyFilters() {
+      var query = searchInput.value.toLowerCase().trim();
+      var category = categoryFilter.value;
+      var system = systemFilter.value;
+      var base = baseFilter.value;
+      var faction = factionFilter.value;
+      var sort = currentSort();
+      sortKey = sort[0];
+      sortAsc = sort[1];
+
+      filteredOffers = offers.filter(function (offer) {
+        if (category && offer.category !== category) return false;
+        if (system && offer.system !== system) return false;
+        if (base && offer.base !== base) return false;
+        if (faction && offer.faction !== faction) return false;
+        if (!query) return true;
+        return [
+          offer.itemName,
+          offer.itemNick,
+          offer.baseName,
+          offer.systemName,
+          offer.factionName,
+        ].some(function (part) {
+          return String(part || '').toLowerCase().indexOf(query) >= 0;
+        });
+      }).sort(compareOffers);
+
+      visibleCount = PAGE_SIZE;
+      if (filteredOffers.length && !itemsMap[selectedItemNick]) {
+        selectedItemNick = filteredOffers[0].itemNick;
+      }
+      if (!filteredOffers.some(function (offer) { return offer.itemNick === selectedItemNick; })) {
+        selectedItemNick = filteredOffers.length ? filteredOffers[0].itemNick : '';
+      }
+      render();
+    }
+
+    function renderStats() {
+      var visibleItems = {};
+      var visibleBases = {};
+      filteredOffers.forEach(function (offer) {
+        visibleItems[offer.itemNick] = true;
+        visibleBases[offer.base] = true;
+      });
+      statsEl.innerHTML = [
+        t('stat_items') + ': <strong>' + Object.keys(visibleItems).length + '</strong>',
+        t('stat_offers') + ': <strong>' + filteredOffers.length + '</strong>',
+        t('stat_bases') + ': <strong>' + Object.keys(visibleBases).length + '</strong>',
+        t('stat_visible') + ': <strong>' + Math.min(visibleCount, filteredOffers.length) + '</strong>',
+      ].map(function (part) { return '<span>' + part + '</span>'; }).join('');
+    }
+
+    function renderResults() {
+      if (!filteredOffers.length) {
+        resultsBody.innerHTML = '<tr><td colspan="6" class="ee-empty">' + escHtml(t('no_results')) + '</td></tr>';
+        resultsSummary.textContent = tf('summary_showing', { visible: 0, total: 0 });
+        loadMoreBtn.style.display = 'none';
+        return;
+      }
+
+      var visibleRows = filteredOffers.slice(0, visibleCount);
+      resultsBody.innerHTML = visibleRows.map(function (offer) {
+        var active = offer.itemNick === selectedItemNick ? ' class="active"' : '';
+        return '<tr data-item="' + escHtml(offer.itemNick) + '"' + active + '>' +
+          '<td>' + escHtml(offer.itemName) + '</td>' +
+          '<td><span class="ee-badge">' + escHtml(categoryLabel(offer.category)) + '</span></td>' +
+          '<td class="num">' + escHtml(fmtNum(offer.price)) + '</td>' +
+          '<td>' + escHtml(offerBaseName(offer)) + '</td>' +
+          '<td>' + escHtml(offerSystemName(offer)) + '</td>' +
+          '<td>' + escHtml(factionName(offer.faction)) + '</td>' +
+          '</tr>';
+      }).join('');
+
+      resultsSummary.textContent = tf('summary_showing', {
+        visible: Math.min(visibleCount, filteredOffers.length),
+        total: filteredOffers.length,
+      });
+      loadMoreBtn.style.display = visibleCount < filteredOffers.length ? '' : 'none';
+
+      resultsBody.querySelectorAll('tr[data-item]').forEach(function (row) {
+        row.addEventListener('click', function () {
+          selectedItemNick = row.getAttribute('data-item') || '';
+          renderDetail();
+          resultsBody.querySelectorAll('tr').forEach(function (other) { other.classList.remove('active'); });
+          row.classList.add('active');
+        });
+      });
+    }
+
+    function renderDetail() {
+      var item = itemsMap[selectedItemNick];
+      if (!item) {
+        detailPanel.innerHTML = '<div class="ee-empty">' + escHtml(t('detail_empty')) + '</div>';
+        return;
+      }
+      var itemOffers = (item.offers || []).slice().sort(function (a, b) {
+        var as = offerSystemName(a);
+        var bs = offerSystemName(b);
+        if (as !== bs) return as.localeCompare(bs);
+        return offerBaseName(a).localeCompare(offerBaseName(b));
+      });
+      var statEntries = Object.keys(item.stats || {}).filter(function (key) {
+        var value = item.stats[key];
+        return value !== '' && value !== 0 && value !== 0.0;
+      });
+      detailPanel.innerHTML =
+        '<h2>' + escHtml(itemName(item)) + '</h2>' +
+        '<div class="ee-detail-sub">' + escHtml(item.nick) + '</div>' +
+        '<div class="ee-detail-grid">' +
+          metricCard(t('detail_category'), categoryLabel(item.category || '')) +
+          metricCard(t('detail_price'), fmtNum(item.price || firstOfferPrice(itemOffers))) +
+          metricCard(t('detail_offer_count'), String(itemOffers.length)) +
+          metricCard('Nick', item.nick) +
+        '</div>' +
+        '<div class="ee-section"><h3>' + escHtml(t('detail_offers')) + '</h3>' + renderOffersList(itemOffers) + '</div>' +
+        '<div class="ee-section"><h3>' + escHtml(t('detail_stats')) + '</h3>' + renderStatsList(item.stats || {}, statEntries) + '</div>';
+    }
+
+    function metricCard(label, value) {
+      return '<div class="ee-metric"><span class="ee-metric-label">' + escHtml(label) + '</span><span class="ee-metric-value">' + escHtml(value || '—') + '</span></div>';
+    }
+
+    function firstOfferPrice(itemOffers) {
+      return itemOffers.length ? itemOffers[0].price || 0 : 0;
+    }
+
+    function renderOffersList(itemOffers) {
+      if (!itemOffers.length) return '<div class="ee-empty">' + escHtml(t('detail_none')) + '</div>';
+      return '<ul class="ee-list">' + itemOffers.map(function (offer) {
+        return '<li><span>' + escHtml(offerBaseName(offer)) + '<small>' + escHtml(offerSystemName(offer)) + ' · ' + escHtml(factionName(offer.faction)) + '</small></span><span>' + escHtml(fmtNum(offer.price)) + '</span></li>';
+      }).join('') + '</ul>';
+    }
+
+    function renderStatsList(stats, keys) {
+      if (!keys.length) return '<div class="ee-empty">' + escHtml(t('detail_none')) + '</div>';
+      return '<ul class="ee-list">' + keys.map(function (key) {
+        return '<li><span>' + escHtml(key) + '</span><span>' + escHtml(String(stats[key])) + '</span></li>';
+      }).join('') + '</ul>';
+    }
+
+    function render() {
+      renderStats();
+      renderResults();
+      renderDetail();
+    }
+
+    function fetchJson(url) {
+      return fetch(url).then(function (response) {
+        if (!response.ok) throw new Error(response.status + ' ' + response.statusText);
+        return response.json();
+      });
+    }
+
+    function buildFactionMap(repData) {
+      factionMap = {};
+      (repData && repData.factions || []).forEach(function (faction) {
+        if (faction && faction.nick) factionMap[faction.nick] = faction;
+      });
+    }
+
+    async function loadMod(modId) {
+      selectedItemNick = '';
+      resultsBody.innerHTML = '<tr><td colspan="6" class="ee-empty">Loading…</td></tr>';
+      detailPanel.innerHTML = '<div class="ee-empty">Loading…</div>';
+      try {
+        var results = await Promise.all([
+          fetchJson('../data/equipment/' + modId + '.json'),
+          fetch('../data/reputation/' + modId + '.json').then(function (response) {
+            return response.ok ? response.json() : { factions: [] };
+          }).catch(function () { return { factions: [] }; })
+        ]);
+        buildFactionMap(results[1]);
+        normalizePayload(results[0]);
+        populateFilters(queryDefaults());
+        applyFilters();
+      } catch (error) {
+        resultsBody.innerHTML = '<tr><td colspan="6" class="ee-empty">' + escHtml(t('err_load')) + ' ' + escHtml(error.message) + '</td></tr>';
+        detailPanel.innerHTML = '<div class="ee-empty">' + escHtml(t('err_load')) + '</div>';
+      }
+    }
+
+    searchInput.addEventListener('input', function () {
+      clearTimeout(searchTimer);
+      searchTimer = window.setTimeout(applyFilters, 120);
+    });
+    [categoryFilter, systemFilter, baseFilter, factionFilter, sortFilter].forEach(function (el) {
+      el.addEventListener('change', applyFilters);
+    });
+    loadMoreBtn.addEventListener('click', function () {
+      visibleCount += PAGE_SIZE;
+      renderResults();
+    });
+    document.querySelectorAll('.ee-table th[data-sort]').forEach(function (th) {
+      th.addEventListener('click', function () {
+        var key = th.getAttribute('data-sort');
+        if (!key) return;
+        if (key === 'price') {
+          sortFilter.value = sortFilter.value === 'price-asc' ? 'price-desc' : 'price-asc';
+        } else if (key === 'itemName') {
+          sortFilter.value = 'name-asc';
+        } else if (key === 'systemName') {
+          sortFilter.value = 'system-asc';
+        } else if (key === 'baseName') {
+          sortFilter.value = 'base-asc';
+        } else if (key === 'factionName') {
+          sortFilter.value = 'faction-asc';
+        } else {
+          return;
+        }
+        applyFilters();
+      });
+    });
+
+    window.addEventListener('lang-change', function (e) {
+      if (e.detail && e.detail.lang && e.detail.lang !== lang) {
+        lang = e.detail.lang;
+        applyLanguage();
+      }
+    });
+    window.addEventListener('mod-change', function (e) {
+      if (e.detail && e.detail.mod) loadMod(e.detail.mod);
+    });
+
+    if (lang !== 'de') {
+      document.querySelectorAll('[data-i18n]').forEach(function (el) {
+        el.textContent = t(el.dataset.i18n);
+      });
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(function (el) {
+        el.placeholder = t(el.dataset.i18nPlaceholder);
+      });
+    }
+    loadMod(getModId());
+  })();
+  </script>
+  <script src="../assets/js/nav.js"></script>
+</body>
+</html>

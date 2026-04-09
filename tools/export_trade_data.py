@@ -37,7 +37,7 @@ INSTALLATIONS = [
     dict(
         id="freelancer-universe",
         name="Freelancer-Universe",
-        path=Path(r"C:\C-Installed-Apps\FLUniverse+MOD"),
+        path=Path(r"C:\Users\steve\Github\FL-Installationen\Freelancer-Universe-ARM"),
     ),
 ]
 
