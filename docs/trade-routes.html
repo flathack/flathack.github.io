@@ -495,7 +495,6 @@
 
         <div class="tr-tabs">
           <button class="tr-tab active" data-mode="system" data-i18n="tab_system">Handelsrouten</button>
-          <button class="tr-tab" data-mode="inner" data-i18n="tab_inner">Innersystem</button>
           <button class="tr-tab" data-mode="loop" data-i18n="tab_loop">Rundkurs</button>
           <button class="tr-tab" data-mode="journey" data-i18n="tab_journey">Reiseroute</button>
         </div>
@@ -573,7 +572,7 @@
         lbl_tl_only: 'Nur Trade-Lane-Basen',
         lbl_return_flight: 'Rückflug einberechnen',
         btn_calc: 'Berechnen',
-        tab_system: 'Handelsrouten', tab_inner: 'Innersystem', tab_loop: 'Rundkurs', tab_journey: 'Trade Along Route',
+        tab_system: 'Handelsrouten', tab_loop: 'Rundkurs', tab_journey: 'Trade Along Route',
         search_placeholder: 'Routen durchsuchen...',
         loading: 'Routen werden berechnet...',
         dataset_default: 'Standard',
@@ -612,7 +611,7 @@
         lbl_tl_only: 'Trade Lane bases only',
         lbl_return_flight: 'Include return flight',
         btn_calc: 'Calculate',
-        tab_system: 'Trade Routes', tab_inner: 'Inner System', tab_loop: 'Round Trip', tab_journey: 'Trade Along Route',
+        tab_system: 'Trade Routes', tab_loop: 'Round Trip', tab_journey: 'Trade Along Route',
         search_placeholder: 'Search routes...',
         loading: 'Calculating routes...',
         dataset_default: 'Default',
@@ -1007,7 +1006,7 @@
       const legs  = Math.max(3, Math.min(6, parseInt(legsInput.value) || 3));
       const startSystem = startSystemSelect.value;
       const targetSystem = targetSystemSelect.value;
-      const includeReturnFlight = returnFlightCheck.checked && (currentMode === 'system' || currentMode === 'inner');
+      const includeReturnFlight = returnFlightCheck.checked && currentMode === 'system';
       visibleResultsCount = RESULTS_PAGE_SIZE;
 
       loading.style.display = 'flex';
@@ -1019,9 +1018,9 @@
           currentEmptyKey = 'no_routes';
           currentJourneyPath = [];
           if (currentMode === 'system') {
-            currentResults = engine.bestRoutesBySystem(cargo, jumps, tlOnly, includeReturnFlight);
-          } else if (currentMode === 'inner') {
-            currentResults = engine.innerSystemRoutes(cargo, tlOnly, includeReturnFlight);
+            currentResults = jumps === 0
+              ? engine.innerSystemRoutes(cargo, tlOnly, includeReturnFlight)
+              : engine.bestRoutesBySystem(cargo, jumps, tlOnly, includeReturnFlight);
           } else if (currentMode === 'journey') {
             currentJourneyPath = engine.findPath(startSystem, targetSystem);
             if (!currentJourneyPath.length) {
@@ -1177,19 +1176,6 @@
       { key: 'profitPerMin', label: t('col_ppm'),        cls: 'td-num td-ppm', format: v => v != null ? fmt(v) : '-' },
     ]; }
 
-    function colsInner() { return [
-      { key: 'srcSys',       label: t('col_system') },
-      { key: 'buyBase',      label: t('col_buyBase'), format: (v, r) => tBase(r.buyBaseNick, v) },
-      { key: 'sellBase',     label: t('col_sellBase'), format: (v, r) => tBase(r.sellBaseNick, v) },
-      { key: 'commodity',    label: t('col_commodity'), format: v => tCommodity(v), html: (v, r) => commodityButtonHtml(getCommodityNickByName(v), tCommodity(v)) },
-      { key: 'buyPrice',     label: t('col_buyPrice'),   cls: 'td-num' },
-      { key: 'sellPrice',    label: t('col_sellPrice'),  cls: 'td-num' },
-      { key: 'profitPerUnit',label: t('col_profitUnit'), cls: 'td-num td-profit' },
-      { key: 'totalProfit',  label: t('col_totalProfit'),cls: 'td-num td-profit' },
-      { key: 'travelTime',   label: t('col_time'),       cls: 'td-num td-time', format: v => fmtTime(v) },
-      { key: 'profitPerMin', label: t('col_ppm'),        cls: 'td-num td-ppm', format: v => v != null ? fmt(v) : '-' },
-    ]; }
-
     function colsLoop() { return [
       { key: 'routeText',    label: t('col_route') },
       { key: 'commodities',  label: t('col_commodities'), format: v => Array.isArray(v) ? v.map(tCommodity).join(', ') : tCommodity(v), html: v => Array.isArray(v) ? v.map(name => commodityButtonHtml(getCommodityNickByName(name), tCommodity(name))).join(', ') : commodityButtonHtml(getCommodityNickByName(v), tCommodity(v)) },
@@ -1202,7 +1188,6 @@
     function colsJourney() { return colsRoute(); }
 
     function getCols() {
-      if (currentMode === 'inner') return colsInner();
       if (currentMode === 'loop') return colsLoop();
       if (currentMode === 'journey') return colsJourney();
       return colsRoute();
@@ -1358,7 +1343,7 @@
       if (resultsSection.style.display !== 'none') calculate();
     });
     returnFlightCheck.addEventListener('change', () => {
-      if (resultsSection.style.display !== 'none' && (currentMode === 'system' || currentMode === 'inner')) calculate();
+      if (resultsSection.style.display !== 'none' && currentMode === 'system') calculate();
     });
     commodityModal.addEventListener('click', e => {
       if (e.target === commodityModal) closeCommodityModal();
@@ -1375,11 +1360,11 @@
         visibleResultsCount = RESULTS_PAGE_SIZE;
 
         // Toggle field visibility
-        jumpsField.style.display = (currentMode === 'inner' || currentMode === 'journey') ? 'none' : '';
+        jumpsField.style.display = currentMode === 'journey' ? 'none' : '';
         legsField.style.display = currentMode === 'loop' ? '' : 'none';
         startSystemField.style.display = currentMode === 'journey' ? '' : 'none';
         targetSystemField.style.display = currentMode === 'journey' ? '' : 'none';
-        returnFlightWrap.style.display = (currentMode === 'system' || currentMode === 'inner') ? '' : 'none';
+        returnFlightWrap.style.display = currentMode === 'system' ? '' : 'none';
 
         // Clear results when switching modes
         currentResults = [];
