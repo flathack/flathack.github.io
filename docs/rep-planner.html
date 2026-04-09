@@ -1218,11 +1218,17 @@
     var startReps  = {};
     var targetReps = {};
     var lastAutoResult = null;
+    var validModIds = ['vanilla', 'hamburg-city', 'crossfire', 'discovery', 'freelancer-universe'];
 
     /* ── Mod loading (via hash, shared with nav.js) ── */
     function getModId() {
       var h = window.location.hash.replace("#", "");
-      return h || "hamburg-city";
+      if (validModIds.indexOf(h) !== -1) return h;
+      try {
+        var storedMod = localStorage.getItem('flathack-mod');
+        if (validModIds.indexOf(storedMod) !== -1) return storedMod;
+      } catch (e) {}
+      return 'vanilla';
     }
 
     async function init(modId) {
@@ -2024,6 +2030,7 @@
 
     /* Init sim when data loads — hook into the existing init */
     if (lang !== 'de') applyLang();
+    init(getModId());
   })();
   </script>
 </body>
