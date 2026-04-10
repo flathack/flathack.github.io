@@ -14,6 +14,7 @@
 
   const NAV_ITEMS = [
     { label: "Home", href: "index.html" },
+    { label: "Help", href: "help/index.html" },
     { label: "Trade Routes", href: "docs/trade-routes.html", children: MOD_CHILDREN },
     { label: "Schiff-Explorer", href: "docs/ship-explorer.html", children: MOD_CHILDREN },
     { label: "Equipment Explorer", href: "docs/equipment-explorer.html", children: MOD_CHILDREN },
@@ -27,6 +28,7 @@
   const depth = (function () {
     if (/\/docs\//.test(path)) return 1;
     if (/\/about\//.test(path)) return 1;
+    if (/\/help\//.test(path)) return 1;
     return 0;
   })();
   const prefix = depth ? "../" : "";
@@ -48,7 +50,8 @@
   var activeItem = null;
   nav.innerHTML = NAV_ITEMS.map(function (item) {
     const href = prefix + item.href;
-    const isActive = current === item.href;
+    const isHelpSection = item.href === "help/index.html" && current.indexOf("help/") === 0;
+    const isActive = current === item.href || isHelpSection;
     if (isActive) activeItem = item;
     return '<a href="' + href + '"' + (isActive ? ' class="active"' : "") + ">" + item.label + "</a>";
   }).join("\n");

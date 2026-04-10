@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Installing Freelancer on Linux with Lutris or Bottles | Flathack Help Center</title>
+  <meta id="page-description" name="description" content="Step-by-step guide for installing Freelancer on Linux with Lutris or Bottles.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    .wiki-article {
+      padding: 36px;
+    }
+
+    .wiki-article h1 {
+      max-width: none;
+      margin-bottom: 14px;
+    }
+
+    .wiki-article h2 {
+      margin-top: 34px;
+      margin-bottom: 12px;
+    }
+
+    .wiki-article h3 {
+      margin-top: 24px;
+      margin-bottom: 10px;
+    }
+
+    .wiki-article p,
+    .wiki-article li {
+      max-width: 78ch;
+    }
+
+    .wiki-article ul,
+    .wiki-article ol {
+      margin: 12px 0 0;
+      padding-left: 22px;
+      color: var(--muted);
+    }
+
+    .wiki-article li {
+      margin-bottom: 10px;
+      line-height: 1.7;
+    }
+
+    .wiki-lead {
+      margin-bottom: 22px;
+      font-size: 1.05rem;
+    }
+
+    .wiki-toc {
+      margin: 22px 0 28px;
+      padding: 18px 20px;
+      border: 1px solid rgba(132, 177, 255, 0.18);
+      border-radius: var(--radius-md);
+      background: rgba(8, 20, 34, 0.45);
+    }
+
+    .wiki-toc h2 {
+      margin: 0 0 12px;
+      font-size: 1rem;
+    }
+
+    .wiki-toc ol {
+      margin: 0;
+    }
+
+    .wiki-note {
+      margin-top: 28px;
+      padding: 18px 20px;
+      border-left: 3px solid var(--accent);
+      background: rgba(88, 196, 255, 0.08);
+      border-radius: 0 12px 12px 0;
+    }
+
+    .wiki-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin: 20px 0 28px;
+    }
+
+    .wiki-figure {
+      margin: 22px 0 28px;
+      padding: 14px;
+      border: 1px solid rgba(132, 177, 255, 0.16);
+      border-radius: var(--radius-md);
+      background: rgba(8, 20, 34, 0.34);
+    }
+
+    .wiki-gallery .wiki-figure {
+      margin: 0;
+    }
+
+    .wiki-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      border: 1px solid rgba(132, 177, 255, 0.14);
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    .wiki-figure figcaption {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    .wiki-article code {
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: rgba(88, 196, 255, 0.12);
+      border: 1px solid rgba(132, 177, 255, 0.16);
+      color: var(--text);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.92em;
+    }
+
+    .wiki-subhead {
+      margin-top: 18px;
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    @media (max-width: 640px) {
+      .wiki-article {
+        padding: 24px;
+      }
+
+      .wiki-gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body class="gaming-theme">
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark">FH</span>
+        <span class="brand-text">Flathack Projects</span>
+      </a>
+      <nav class="project-top-nav" aria-label="Project navigation"></nav>
+    </header>
+
+    <main>
+      <div class="breadcrumb">
+        <a href="../index.html" data-i18n="bc_home">Home</a>
+        <span>•</span>
+        <a href="index.html" data-i18n="bc_help">Help Center</a>
+        <span>•</span>
+        <span data-i18n="bc_article">Installing Freelancer on Linux with Lutris or Bottles</span>
+      </div>
+
+      <article class="page-section wiki-article">
+        <p class="eyebrow" data-i18n="eyebrow">Installation Guide</p>
+        <h1 data-i18n="title">Installing Freelancer on Linux with Lutris or Bottles</h1>
+        <p class="wiki-lead" data-i18n="lead">This is a simple setup guide for installing vanilla Freelancer and multiple mods on Linux. The recommended approach is to keep vanilla and every mod in its own separate Lutris prefix or Bottles bottle. That makes updates, saves, and MPID handling much easier.</p>
+
+        <nav class="wiki-toc" aria-label="Table of contents">
+          <h2 data-i18n="toc_title">Contents</h2>
+          <ol>
+            <li><a href="#runner-installation" data-i18n="toc_1">Install a runner</a></li>
+            <li><a href="#vanilla-install" data-i18n="toc_2">Install vanilla Freelancer</a></li>
+            <li><a href="#mod-install" data-i18n="toc_3">Install a mod</a></li>
+            <li><a href="#dependencies" data-i18n="toc_4">Install dependencies</a></li>
+            <li><a href="#launcher" data-i18n="toc_5">Use FL Atlas Launcher for MPIDs</a></li>
+          </ol>
+        </nav>
+
+        <h2 id="runner-installation" data-i18n="section_1">1. Install a runner</h2>
+        <p data-i18n="section_1_intro">You can use either Lutris or Bottles. Lutris is a very good choice if you want to manage several Freelancer installations side by side. Bottles is a good alternative if you prefer separate self-contained bottles.</p>
+
+        <h3 id="lutris-install" data-i18n="section_1_1">1.1 Install Lutris</h3>
+        <ol>
+          <li data-i18n="lutris_1">Install Lutris using your distribution package manager or the official Lutris installation method.</li>
+          <li data-i18n="lutris_2">Start Lutris once so it can initialize its folders and Wine runners.</li>
+          <li data-i18n="lutris_3">Create a separate game entry for each Freelancer installation you want to maintain, for example one for vanilla, one for Discovery, and one for Crossfire.</li>
+          <li data-i18n="lutris_4">Use a separate Wine prefix for each installation. This keeps registry data, saves, and dependencies isolated.</li>
+        </ol>
+
+        <p data-i18n="lutris_todo_intro">Detailed todo list for Lutris:</p>
+        <ol>
+          <li data-i18n="lutris_todo_1">Open the Lutris website or your distribution software manager and install Lutris.</li>
+          <li data-i18n="lutris_todo_2">Start Lutris and wait until the first-time setup is finished.</li>
+          <li data-i18n="lutris_todo_3">Click the plus button and create a new local game entry.</li>
+          <li data-i18n="lutris_todo_4">Choose Wine as the runner.</li>
+          <li data-i18n="lutris_todo_5">Enter a clear game name such as Freelancer Vanilla, Freelancer Discovery, or Freelancer Crossfire.</li>
+          <li data-i18n="lutris_todo_6">Set the executable to the Freelancer installer first, or later to the final Freelancer EXE after installation.</li>
+          <li data-i18n="lutris_todo_7">Open the runner options and set a dedicated Wine prefix path for this installation.</li>
+          <li data-i18n="lutris_todo_8">Save the entry and start it once so Lutris creates the Wine prefix.</li>
+          <li data-i18n="lutris_todo_9">Run the installation and then update the executable path to the real Freelancer game EXE if necessary.</li>
+        </ol>
+
+        <p class="wiki-subhead" data-i18n="lutris_distro_title">Examples by distribution:</p>
+        <ul>
+          <li data-i18n="lutris_distro_ubuntu">Ubuntu / Debian: update package sources, then install Lutris with <code>sudo apt install lutris</code>.</li>
+          <li data-i18n="lutris_distro_fedora">Fedora: install Lutris with <code>sudo dnf install lutris</code>.</li>
+          <li data-i18n="lutris_distro_arch">Arch Linux: install Lutris with <code>sudo pacman -S lutris</code>.</li>
+        </ul>
+
+        <div class="wiki-gallery">
+          <figure class="wiki-figure">
+            <img src="../assets/img/lutris/add-lutris-game1.png" alt="Lutris add game dialog">
+            <figcaption data-i18n="img_lutris_1">In Lutris, add a local game entry first and prepare a dedicated installation for Freelancer.</figcaption>
+          </figure>
+          <figure class="wiki-figure">
+            <img src="../assets/img/lutris/add-lutris-game2.png" alt="Lutris game configuration">
+            <figcaption data-i18n="img_lutris_2">Set the game name, runner, executable, and working directory for the Freelancer installation.</figcaption>
+          </figure>
+          <figure class="wiki-figure">
+            <img src="../assets/img/lutris/add-lutris-game3.png" alt="Lutris runner options and prefix path">
+            <figcaption data-i18n="img_lutris_3">Use a separate Wine prefix for each installation so mods and registry data stay isolated.</figcaption>
+          </figure>
+          <figure class="wiki-figure">
+            <img src="../assets/img/lutris/lutris-gameinfo1.png" alt="Lutris game entry overview">
+            <figcaption data-i18n="img_lutris_4">Review the final Lutris game configuration and verify that the executable and prefix paths are correct.</figcaption>
+          </figure>
+        </div>
+
+        <h3 id="bottles-install" data-i18n="section_1_2">1.2 Alternative: Install Bottles</h3>
+        <ol>
+          <li data-i18n="bottles_1">Install Bottles from your distribution source, Flatpak, or your preferred package source.</li>
+          <li data-i18n="bottles_2">Create one Gaming bottle for vanilla Freelancer.</li>
+          <li data-i18n="bottles_3">Create additional bottles for every major mod you want to keep separate.</li>
+          <li data-i18n="bottles_4">Name the bottles clearly so you always know which bottle belongs to which Freelancer installation.</li>
+        </ol>
+
+        <p data-i18n="bottles_todo_intro">Detailed todo list for Bottles:</p>
+        <ol>
+          <li data-i18n="bottles_todo_1">Install Bottles and start it once.</li>
+          <li data-i18n="bottles_todo_2">Create a new bottle and choose the Gaming environment.</li>
+          <li data-i18n="bottles_todo_3">Name the bottle clearly, for example Freelancer Vanilla or Freelancer Discovery.</li>
+          <li data-i18n="bottles_todo_4">Open the bottle and use the option to run an executable.</li>
+          <li data-i18n="bottles_todo_5">Run the Freelancer installer inside that bottle.</li>
+          <li data-i18n="bottles_todo_6">After installation, add or select the correct Freelancer EXE as the launch target.</li>
+          <li data-i18n="bottles_todo_7">Create one separate bottle per major mod or separate installation.</li>
+        </ol>
+
+        <p class="wiki-subhead" data-i18n="bottles_distro_title">Examples by distribution:</p>
+        <ul>
+          <li data-i18n="bottles_distro_ubuntu">Ubuntu / Debian: install Flatpak if needed, add Flathub, then install Bottles with <code>flatpak install flathub com.usebottles.bottles</code>.</li>
+          <li data-i18n="bottles_distro_fedora">Fedora: Flatpak support is usually already available, so install Bottles with <code>flatpak install flathub com.usebottles.bottles</code>.</li>
+          <li data-i18n="bottles_distro_arch">Arch Linux: install Bottles from Flathub with <code>flatpak install flathub com.usebottles.bottles</code>, or use your preferred Arch package source if you already maintain it there.</li>
+        </ul>
+
+        <h2 id="vanilla-install" data-i18n="section_2">2. Install vanilla Freelancer</h2>
+        <ol>
+          <li data-i18n="vanilla_1">Create a fresh Lutris prefix or Bottles bottle for vanilla Freelancer.</li>
+          <li data-i18n="vanilla_2">Run the original Freelancer installer inside that environment.</li>
+          <li data-i18n="vanilla_3">Finish the installation and start the game once to verify that the base installation works.</li>
+          <li data-i18n="vanilla_4">After the first successful start, keep this installation as your clean vanilla base.</li>
+          <li data-i18n="vanilla_5">If you want, make a backup copy before applying any widescreen patch, HD pack, or mod.</li>
+        </ol>
+
+        <div class="wiki-note">
+          <span data-i18n="note_1">Tip: do not install your first mod into the same prefix or bottle that you want to keep as a clean vanilla reference.</span>
+        </div>
+
+        <h2 id="mod-install" data-i18n="section_3">3. Install a mod</h2>
+        <ol>
+          <li data-i18n="mod_1">Create a new Lutris entry with a new prefix, or create a new bottle in Bottles.</li>
+          <li data-i18n="mod_2">Install vanilla Freelancer again inside that new environment, or copy a clean working vanilla installation into it.</li>
+          <li data-i18n="mod_3">Install the mod into this separate environment.</li>
+          <li data-i18n="mod_4">Launch the mod once directly from Lutris or Bottles and confirm that it starts correctly.</li>
+          <li data-i18n="mod_5">Repeat this process for every additional mod. One mod should ideally have its own prefix or bottle.</li>
+        </ol>
+
+        <p data-i18n="mod_structure_intro">This structure is simple and reliable:</p>
+        <ul>
+          <li data-i18n="mod_list_1">one vanilla install</li>
+          <li data-i18n="mod_list_2">one separate install for Discovery</li>
+          <li data-i18n="mod_list_3">one separate install for Crossfire</li>
+          <li data-i18n="mod_list_4">one separate install for any other total conversion or heavily modified setup</li>
+        </ul>
+
+        <h2 id="dependencies" data-i18n="section_4">4. Install dependencies</h2>
+        <p data-i18n="deps_intro">After vanilla or a mod is installed, add the common Windows components inside the same Lutris prefix or Bottles bottle.</p>
+        <ul>
+          <li><strong>dotnet40</strong></li>
+          <li><strong>directplay</strong></li>
+        </ul>
+
+        <p data-i18n="deps_text">Install these dependencies separately for each Freelancer environment where they are needed. If you use several mods in several prefixes or bottles, each one may need its own dependency setup.</p>
+
+        <h3 data-i18n="deps_lutris_title">Install dependencies in Lutris</h3>
+        <ol>
+          <li data-i18n="deps_lutris_1">Open the Lutris game entry for the Freelancer installation.</li>
+          <li data-i18n="deps_lutris_2">Open the game menu and choose the option to run Winetricks.</li>
+          <li data-i18n="deps_lutris_3">Select the default wineprefix.</li>
+          <li data-i18n="deps_lutris_4">Open the category for installing a Windows DLL or component.</li>
+          <li data-i18n="deps_lutris_5">Install directplay.</li>
+          <li data-i18n="deps_lutris_6">Repeat the same process and install dotnet40.</li>
+          <li data-i18n="deps_lutris_7">Wait until both installs are complete, then launch the game again.</li>
+        </ol>
+
+        <h3 data-i18n="deps_bottles_title">Install dependencies in Bottles</h3>
+        <ol>
+          <li data-i18n="deps_bottles_1">Open the correct Freelancer bottle in Bottles.</li>
+          <li data-i18n="deps_bottles_2">Go to the dependencies section of that bottle.</li>
+          <li data-i18n="deps_bottles_3">Search for and install directplay.</li>
+          <li data-i18n="deps_bottles_4">Search for and install dotnet40.</li>
+          <li data-i18n="deps_bottles_5">Wait until Bottles finishes both dependency installs.</li>
+          <li data-i18n="deps_bottles_6">Start Freelancer again from that bottle and verify that the setup still works.</li>
+        </ol>
+
+        <h2 id="launcher" data-i18n="section_5">5. Use FL Atlas Launcher for managing different MPIDs on Freelancer installations within Lutris and Bottles</h2>
+        <p data-i18n="launcher_intro">Once your installs are working, use FL Atlas Launcher to manage them more comfortably.</p>
+        <ol>
+          <li data-i18n="launcher_1">Add each Freelancer installation to FL Atlas Launcher.</li>
+          <li data-i18n="launcher_2">For Lutris installs, point the launcher to the correct game EXE and prefix.</li>
+          <li data-i18n="launcher_3">For Bottles installs, point the launcher to the bottle path or to the correct Wine environment for that install.</li>
+          <li data-i18n="launcher_4">Use the launcher to keep different MPIDs separate between your vanilla and modded installations.</li>
+          <li data-i18n="launcher_5">This is especially useful if you use different multiplayer identities on different Freelancer servers or mods.</li>
+        </ol>
+
+        <p data-i18n="launcher_structure_intro">Recommended structure:</p>
+        <ul>
+          <li data-i18n="launcher_list_1">Vanilla Freelancer → own prefix or bottle → own MPID profile if needed</li>
+          <li data-i18n="launcher_list_2">Discovery → own prefix or bottle → own MPID profile</li>
+          <li data-i18n="launcher_list_3">Crossfire → own prefix or bottle → own MPID profile</li>
+        </ul>
+
+        <div class="wiki-gallery">
+          <figure class="wiki-figure">
+            <img src="../assets/img/lutris/flatlas-launcher-start.png" alt="FL Atlas Launcher preview window">
+            <figcaption data-i18n="img_launcher_1">FL Atlas Launcher can manage multiple Freelancer installations and lets you keep vanilla and modded setups clearly separated.</figcaption>
+          </figure>
+          <figure class="wiki-figure">
+            <img src="../assets/img/lutris/flatlas-launcher-addgames.png" alt="FL Atlas Launcher add games screenshot">
+            <figcaption data-i18n="img_launcher_2">Use FL Atlas Launcher to point each installation to the correct EXE and prefix and manage different MPIDs for different servers or mods.</figcaption>
+          </figure>
+        </div>
+
+        <div class="wiki-note">
+          <span data-i18n="note_2">Keeping installs separated is the cleanest approach. It reduces registry conflicts, avoids mixed save data, and makes FL Atlas Launcher much easier to use with Lutris and Bottles.</span>
+        </div>
+
+        <div class="section-actions">
+          <a class="button button-secondary" href="index.html" data-i18n="cta_back">Back to Help Center</a>
+        </div>
+      </article>
+
+      <footer class="page-footer">
+        &copy; 2026 Steven Schödel — <span data-i18n="footer_label">Flathack Help Center</span>
+      </footer>
+    </main>
+  </div>
+  <script>
+    (function() {
+      var I18N = {
+        de: {
+          page_title: 'Freelancer unter Linux mit Lutris oder Bottles installieren | Flathack Hilfebereich',
+          page_description: 'Schritt-für-Schritt-Anleitung für die Installation von Freelancer unter Linux mit Lutris oder Bottles.',
+          bc_home: 'Startseite',
+          bc_help: 'Hilfebereich',
+          bc_article: 'Freelancer unter Linux mit Lutris oder Bottles installieren',
+          eyebrow: 'Installationsanleitung',
+          title: 'Freelancer unter Linux mit Lutris oder Bottles installieren',
+          lead: 'Dies ist eine einfache Setup-Anleitung für die Installation von Vanilla-Freelancer und mehreren Mods unter Linux. Der empfohlene Weg ist, Vanilla und jeden Mod in einem eigenen Lutris-Prefix oder einer eigenen Bottles-Bottle zu halten. Das macht Updates, Savegames und MPID-Verwaltung deutlich einfacher.',
+          toc_title: 'Inhalt',
+          toc_1: 'Einen Runner installieren',
+          toc_2: 'Vanilla Freelancer installieren',
+          toc_3: 'Einen Mod installieren',
+          toc_4: 'Abhängigkeiten installieren',
+          toc_5: 'FL Atlas Launcher für MPIDs nutzen',
+          section_1: '1. Einen Runner installieren',
+          section_1_intro: 'Du kannst entweder Lutris oder Bottles verwenden. Lutris ist eine sehr gute Wahl, wenn du mehrere Freelancer-Installationen parallel verwalten willst. Bottles ist eine gute Alternative, wenn du getrennte, in sich geschlossene Bottles bevorzugst.',
+          section_1_1: '1.1 Lutris installieren',
+          lutris_1: 'Installiere Lutris über den Paketmanager deiner Distribution oder über die offizielle Lutris-Installationsmethode.',
+          lutris_2: 'Starte Lutris einmal, damit die Ordner und Wine-Runner initialisiert werden.',
+          lutris_3: 'Erstelle für jede Freelancer-Installation, die du behalten willst, einen separaten Spieleintrag, zum Beispiel für Vanilla, Discovery und Crossfire.',
+          lutris_4: 'Verwende für jede Installation ein eigenes Wine-Prefix. Dadurch bleiben Registry-Daten, Savegames und Abhängigkeiten sauber getrennt.',
+          lutris_todo_intro: 'Detaillierte Todo-Liste für Lutris:',
+          lutris_todo_1: 'Öffne die Lutris-Webseite oder die Software-Verwaltung deiner Distribution und installiere Lutris.',
+          lutris_todo_2: 'Starte Lutris und warte, bis die erste Einrichtung abgeschlossen ist.',
+          lutris_todo_3: 'Klicke auf das Plus-Symbol und erstelle einen neuen lokalen Spieleintrag.',
+          lutris_todo_4: 'Wähle Wine als Runner aus.',
+          lutris_todo_5: 'Vergib einen klaren Namen wie Freelancer Vanilla, Freelancer Discovery oder Freelancer Crossfire.',
+          lutris_todo_6: 'Setze zuerst den Installer als ausführbare Datei oder später nach der Installation die endgültige Freelancer-EXE.',
+          lutris_todo_7: 'Öffne die Runner-Optionen und setze einen eigenen Wine-Prefix-Pfad für diese Installation.',
+          lutris_todo_8: 'Speichere den Eintrag und starte ihn einmal, damit Lutris das Wine-Prefix anlegt.',
+          lutris_todo_9: 'Führe die Installation aus und aktualisiere danach bei Bedarf den EXE-Pfad auf die echte Freelancer-Spiel-EXE.',
+          img_lutris_1: 'Lege in Lutris zuerst einen lokalen Spieleintrag an und bereite eine eigene Installation für Freelancer vor.',
+          img_lutris_2: 'Setze Spielname, Runner, ausführbare Datei und Arbeitsverzeichnis für die Freelancer-Installation.',
+          img_lutris_3: 'Nutze für jede Installation ein separates Wine-Prefix, damit Mods und Registry-Daten sauber getrennt bleiben.',
+          img_lutris_4: 'Prüfe die finale Lutris-Spielkonfiguration und kontrolliere, dass EXE- und Prefix-Pfad korrekt gesetzt sind.',
+          section_1_2: '1.2 Alternative: Bottles installieren',
+          bottles_1: 'Installiere Bottles über deine Distribution, Flatpak oder eine andere bevorzugte Paketquelle.',
+          bottles_2: 'Erstelle eine Gaming-Bottle für Vanilla Freelancer.',
+          bottles_3: 'Erstelle zusätzliche Bottles für jeden größeren Mod, den du separat halten möchtest.',
+          bottles_4: 'Benenne die Bottles klar, damit du immer weißt, welche Bottle zu welcher Freelancer-Installation gehört.',
+          bottles_todo_intro: 'Detaillierte Todo-Liste für Bottles:',
+          bottles_todo_1: 'Installiere Bottles und starte es einmal.',
+          bottles_todo_2: 'Erstelle eine neue Bottle und wähle die Gaming-Umgebung.',
+          bottles_todo_3: 'Vergib einen klaren Namen, zum Beispiel Freelancer Vanilla oder Freelancer Discovery.',
+          bottles_todo_4: 'Öffne die Bottle und nutze die Option zum Starten einer ausführbaren Datei.',
+          bottles_todo_5: 'Führe den Freelancer-Installer innerhalb dieser Bottle aus.',
+          bottles_todo_6: 'Nach der Installation solltest du die richtige Freelancer-EXE als Startziel hinzufügen oder auswählen.',
+          bottles_todo_7: 'Erstelle für jeden größeren Mod oder jede getrennte Installation eine eigene Bottle.',
+          section_2: '2. Vanilla Freelancer installieren',
+          vanilla_1: 'Erstelle ein frisches Lutris-Prefix oder eine neue Bottles-Bottle für Vanilla Freelancer.',
+          vanilla_2: 'Führe den originalen Freelancer-Installer in dieser Umgebung aus.',
+          vanilla_3: 'Schließe die Installation ab und starte das Spiel einmal, um zu prüfen, dass die Grundinstallation funktioniert.',
+          vanilla_4: 'Nach dem ersten erfolgreichen Start solltest du diese Installation als saubere Vanilla-Basis behalten.',
+          vanilla_5: 'Wenn du möchtest, lege eine Backup-Kopie an, bevor du einen Widescreen-Patch, ein HD-Pack oder einen Mod installierst.',
+          note_1: 'Tipp: Installiere deinen ersten Mod nicht in dasselbe Prefix oder dieselbe Bottle, die du als saubere Vanilla-Referenz behalten willst.',
+          section_3: '3. Einen Mod installieren',
+          mod_1: 'Erstelle einen neuen Lutris-Eintrag mit neuem Prefix oder eine neue Bottle in Bottles.',
+          mod_2: 'Installiere Vanilla Freelancer erneut in dieser neuen Umgebung oder kopiere eine saubere funktionierende Vanilla-Installation dorthin.',
+          mod_3: 'Installiere den Mod in dieser separaten Umgebung.',
+          mod_4: 'Starte den Mod einmal direkt aus Lutris oder Bottles und prüfe, dass alles korrekt startet.',
+          mod_5: 'Wiederhole diesen Vorgang für jeden weiteren Mod. Idealerweise hat jeder Mod sein eigenes Prefix oder seine eigene Bottle.',
+          mod_structure_intro: 'Diese Struktur ist einfach und zuverlässig:',
+          mod_list_1: 'eine Vanilla-Installation',
+          mod_list_2: 'eine separate Installation für Discovery',
+          mod_list_3: 'eine separate Installation für Crossfire',
+          mod_list_4: 'eine separate Installation für jede andere Total Conversion oder stark modifizierte Variante',
+          section_4: '4. Abhängigkeiten installieren',
+          deps_intro: 'Nachdem Vanilla oder ein Mod installiert wurde, solltest du die üblichen Windows-Komponenten innerhalb desselben Lutris-Prefixes oder derselben Bottles-Bottle hinzufügen.',
+          deps_text: 'Installiere diese Abhängigkeiten separat für jede Freelancer-Umgebung, in der sie gebraucht werden. Wenn du mehrere Mods in mehreren Prefixes oder Bottles verwendest, kann jede Umgebung ihre eigene Dependency-Konfiguration benötigen.',
+          deps_lutris_title: 'Abhängigkeiten in Lutris installieren',
+          deps_lutris_1: 'Öffne den Lutris-Spieleintrag der jeweiligen Freelancer-Installation.',
+          deps_lutris_2: 'Öffne das Spielmenü und wähle die Option zum Starten von Winetricks.',
+          deps_lutris_3: 'Wähle das Standard-Wine-Prefix aus.',
+          deps_lutris_4: 'Öffne die Kategorie zum Installieren einer Windows-DLL oder Komponente.',
+          deps_lutris_5: 'Installiere directplay.',
+          deps_lutris_6: 'Wiederhole den Vorgang und installiere dotnet40.',
+          deps_lutris_7: 'Warte, bis beide Installationen abgeschlossen sind, und starte das Spiel danach erneut.',
+          lutris_distro_title: 'Beispiele nach Distribution:',
+          lutris_distro_ubuntu: 'Ubuntu / Debian: aktualisiere die Paketquellen und installiere Lutris dann mit <code>sudo apt install lutris</code>.',
+          lutris_distro_fedora: 'Fedora: installiere Lutris mit <code>sudo dnf install lutris</code>.',
+          lutris_distro_arch: 'Arch Linux: installiere Lutris mit <code>sudo pacman -S lutris</code>.',
+          bottles_distro_title: 'Beispiele nach Distribution:',
+          bottles_distro_ubuntu: 'Ubuntu / Debian: installiere bei Bedarf Flatpak, füge Flathub hinzu und installiere Bottles dann mit <code>flatpak install flathub com.usebottles.bottles</code>.',
+          bottles_distro_fedora: 'Fedora: Flatpak-Unterstützung ist meist schon vorhanden, daher kannst du Bottles mit <code>flatpak install flathub com.usebottles.bottles</code> installieren.',
+          bottles_distro_arch: 'Arch Linux: installiere Bottles über Flathub mit <code>flatpak install flathub com.usebottles.bottles</code> oder über deine bevorzugte Arch-Paketquelle, wenn du sie dort bereits pflegst.',
+          deps_bottles_title: 'Abhängigkeiten in Bottles installieren',
+          deps_bottles_1: 'Öffne die richtige Freelancer-Bottle in Bottles.',
+          deps_bottles_2: 'Gehe in den Dependencies-Bereich dieser Bottle.',
+          deps_bottles_3: 'Suche nach directplay und installiere es.',
+          deps_bottles_4: 'Suche nach dotnet40 und installiere es.',
+          deps_bottles_5: 'Warte, bis Bottles beide Dependency-Installationen abgeschlossen hat.',
+          deps_bottles_6: 'Starte Freelancer erneut aus dieser Bottle und prüfe, dass die Installation weiter funktioniert.',
+          section_5: '5. FL Atlas Launcher für unterschiedliche MPIDs in Freelancer-Installationen innerhalb von Lutris und Bottles nutzen',
+          launcher_intro: 'Sobald deine Installationen funktionieren, kannst du FL Atlas Launcher verwenden, um sie komfortabler zu verwalten.',
+          launcher_1: 'Füge jede Freelancer-Installation dem FL Atlas Launcher hinzu.',
+          launcher_2: 'Bei Lutris-Installationen solltest du im Launcher auf die richtige Spiel-EXE und das passende Prefix zeigen.',
+          launcher_3: 'Bei Bottles-Installationen solltest du auf den Bottle-Pfad oder die korrekte Wine-Umgebung dieser Installation zeigen.',
+          launcher_4: 'Verwende den Launcher, um unterschiedliche MPIDs zwischen Vanilla- und Mod-Installationen sauber zu trennen.',
+          launcher_5: 'Das ist besonders nützlich, wenn du unterschiedliche Multiplayer-Identitäten auf verschiedenen Freelancer-Servern oder Mods benutzt.',
+          launcher_structure_intro: 'Empfohlene Struktur:',
+          launcher_list_1: 'Vanilla Freelancer → eigenes Prefix oder eigene Bottle → eigenes MPID-Profil bei Bedarf',
+          launcher_list_2: 'Discovery → eigenes Prefix oder eigene Bottle → eigenes MPID-Profil',
+          launcher_list_3: 'Crossfire → eigenes Prefix oder eigene Bottle → eigenes MPID-Profil',
+          img_launcher_1: 'FL Atlas Launcher kann mehrere Freelancer-Installationen verwalten und hilft dir dabei, Vanilla- und Mod-Setups sauber getrennt zu halten.',
+          img_launcher_2: 'Mit FL Atlas Launcher kannst du für jede Installation die richtige EXE und das richtige Prefix setzen und unterschiedliche MPIDs für verschiedene Server oder Mods verwalten.',
+          note_2: 'Getrennte Installationen sind der sauberste Ansatz. Das reduziert Registry-Konflikte, vermeidet gemischte Savegame-Daten und macht FL Atlas Launcher zusammen mit Lutris und Bottles deutlich einfacher nutzbar.',
+          cta_back: 'Zurück zum Hilfebereich',
+          footer_label: 'Flathack Hilfebereich'
+        },
+        en: {
+          page_title: 'Installing Freelancer on Linux with Lutris or Bottles | Flathack Help Center',
+          page_description: 'Step-by-step guide for installing Freelancer on Linux with Lutris or Bottles.',
+          bc_home: 'Home',
+          bc_help: 'Help Center',
+          bc_article: 'Installing Freelancer on Linux with Lutris or Bottles',
+          eyebrow: 'Installation Guide',
+          title: 'Installing Freelancer on Linux with Lutris or Bottles',
+          lead: 'This is a simple setup guide for installing vanilla Freelancer and multiple mods on Linux. The recommended approach is to keep vanilla and every mod in its own separate Lutris prefix or Bottles bottle. That makes updates, saves, and MPID handling much easier.',
+          toc_title: 'Contents',
+          toc_1: 'Install a runner',
+          toc_2: 'Install vanilla Freelancer',
+          toc_3: 'Install a mod',
+          toc_4: 'Install dependencies',
+          toc_5: 'Use FL Atlas Launcher for MPIDs',
+          section_1: '1. Install a runner',
+          section_1_intro: 'You can use either Lutris or Bottles. Lutris is a very good choice if you want to manage several Freelancer installations side by side. Bottles is a good alternative if you prefer separate self-contained bottles.',
+          section_1_1: '1.1 Install Lutris',
+          lutris_1: 'Install Lutris using your distribution package manager or the official Lutris installation method.',
+          lutris_2: 'Start Lutris once so it can initialize its folders and Wine runners.',
+          lutris_3: 'Create a separate game entry for each Freelancer installation you want to maintain, for example one for vanilla, one for Discovery, and one for Crossfire.',
+          lutris_4: 'Use a separate Wine prefix for each installation. This keeps registry data, saves, and dependencies isolated.',
+          lutris_todo_intro: 'Detailed todo list for Lutris:',
+          lutris_todo_1: 'Open the Lutris website or your distribution software manager and install Lutris.',
+          lutris_todo_2: 'Start Lutris and wait until the first-time setup is finished.',
+          lutris_todo_3: 'Click the plus button and create a new local game entry.',
+          lutris_todo_4: 'Choose Wine as the runner.',
+          lutris_todo_5: 'Enter a clear game name such as Freelancer Vanilla, Freelancer Discovery, or Freelancer Crossfire.',
+          lutris_todo_6: 'Set the executable to the Freelancer installer first, or later to the final Freelancer EXE after installation.',
+          lutris_todo_7: 'Open the runner options and set a dedicated Wine prefix path for this installation.',
+          lutris_todo_8: 'Save the entry and start it once so Lutris creates the Wine prefix.',
+          lutris_todo_9: 'Run the installation and then update the executable path to the real Freelancer game EXE if necessary.',
+          img_lutris_1: 'In Lutris, add a local game entry first and prepare a dedicated installation for Freelancer.',
+          img_lutris_2: 'Set the game name, runner, executable, and working directory for the Freelancer installation.',
+          img_lutris_3: 'Use a separate Wine prefix for each installation so mods and registry data stay isolated.',
+          img_lutris_4: 'Review the final Lutris game configuration and verify that the executable and prefix paths are correct.',
+          section_1_2: '1.2 Alternative: Install Bottles',
+          bottles_1: 'Install Bottles from your distribution source, Flatpak, or your preferred package source.',
+          bottles_2: 'Create one Gaming bottle for vanilla Freelancer.',
+          bottles_3: 'Create additional bottles for every major mod you want to keep separate.',
+          bottles_4: 'Name the bottles clearly so you always know which bottle belongs to which Freelancer installation.',
+          bottles_todo_intro: 'Detailed todo list for Bottles:',
+          bottles_todo_1: 'Install Bottles and start it once.',
+          bottles_todo_2: 'Create a new bottle and choose the Gaming environment.',
+          bottles_todo_3: 'Name the bottle clearly, for example Freelancer Vanilla or Freelancer Discovery.',
+          bottles_todo_4: 'Open the bottle and use the option to run an executable.',
+          bottles_todo_5: 'Run the Freelancer installer inside that bottle.',
+          bottles_todo_6: 'After installation, add or select the correct Freelancer EXE as the launch target.',
+          bottles_todo_7: 'Create one separate bottle per major mod or separate installation.',
+          section_2: '2. Install vanilla Freelancer',
+          vanilla_1: 'Create a fresh Lutris prefix or Bottles bottle for vanilla Freelancer.',
+          vanilla_2: 'Run the original Freelancer installer inside that environment.',
+          vanilla_3: 'Finish the installation and start the game once to verify that the base installation works.',
+          vanilla_4: 'After the first successful start, keep this installation as your clean vanilla base.',
+          vanilla_5: 'If you want, make a backup copy before applying any widescreen patch, HD pack, or mod.',
+          note_1: 'Tip: do not install your first mod into the same prefix or bottle that you want to keep as a clean vanilla reference.',
+          section_3: '3. Install a mod',
+          mod_1: 'Create a new Lutris entry with a new prefix, or create a new bottle in Bottles.',
+          mod_2: 'Install vanilla Freelancer again inside that new environment, or copy a clean working vanilla installation into it.',
+          mod_3: 'Install the mod into this separate environment.',
+          mod_4: 'Launch the mod once directly from Lutris or Bottles and confirm that it starts correctly.',
+          mod_5: 'Repeat this process for every additional mod. One mod should ideally have its own prefix or bottle.',
+          mod_structure_intro: 'This structure is simple and reliable:',
+          mod_list_1: 'one vanilla install',
+          mod_list_2: 'one separate install for Discovery',
+          mod_list_3: 'one separate install for Crossfire',
+          mod_list_4: 'one separate install for any other total conversion or heavily modified setup',
+          section_4: '4. Install dependencies',
+          deps_intro: 'After vanilla or a mod is installed, add the common Windows components inside the same Lutris prefix or Bottles bottle.',
+          deps_text: 'Install these dependencies separately for each Freelancer environment where they are needed. If you use several mods in several prefixes or bottles, each one may need its own dependency setup.',
+          deps_lutris_title: 'Install dependencies in Lutris',
+          deps_lutris_1: 'Open the Lutris game entry for the Freelancer installation.',
+          deps_lutris_2: 'Open the game menu and choose the option to run Winetricks.',
+          deps_lutris_3: 'Select the default wineprefix.',
+          deps_lutris_4: 'Open the category for installing a Windows DLL or component.',
+          deps_lutris_5: 'Install directplay.',
+          deps_lutris_6: 'Repeat the same process and install dotnet40.',
+          deps_lutris_7: 'Wait until both installs are complete, then launch the game again.',
+          lutris_distro_title: 'Examples by distribution:',
+          lutris_distro_ubuntu: 'Ubuntu / Debian: update package sources, then install Lutris with <code>sudo apt install lutris</code>.',
+          lutris_distro_fedora: 'Fedora: install Lutris with <code>sudo dnf install lutris</code>.',
+          lutris_distro_arch: 'Arch Linux: install Lutris with <code>sudo pacman -S lutris</code>.',
+          bottles_distro_title: 'Examples by distribution:',
+          bottles_distro_ubuntu: 'Ubuntu / Debian: install Flatpak if needed, add Flathub, then install Bottles with <code>flatpak install flathub com.usebottles.bottles</code>.',
+          bottles_distro_fedora: 'Fedora: Flatpak support is usually already available, so install Bottles with <code>flatpak install flathub com.usebottles.bottles</code>.',
+          bottles_distro_arch: 'Arch Linux: install Bottles from Flathub with <code>flatpak install flathub com.usebottles.bottles</code>, or use your preferred Arch package source if you already maintain it there.',
+          deps_bottles_title: 'Install dependencies in Bottles',
+          deps_bottles_1: 'Open the correct Freelancer bottle in Bottles.',
+          deps_bottles_2: 'Go to the dependencies section of that bottle.',
+          deps_bottles_3: 'Search for and install directplay.',
+          deps_bottles_4: 'Search for and install dotnet40.',
+          deps_bottles_5: 'Wait until Bottles finishes both dependency installs.',
+          deps_bottles_6: 'Start Freelancer again from that bottle and verify that the setup still works.',
+          section_5: '5. Use FL Atlas Launcher for managing different MPIDs on Freelancer installations within Lutris and Bottles',
+          launcher_intro: 'Once your installs are working, use FL Atlas Launcher to manage them more comfortably.',
+          launcher_1: 'Add each Freelancer installation to FL Atlas Launcher.',
+          launcher_2: 'For Lutris installs, point the launcher to the correct game EXE and prefix.',
+          launcher_3: 'For Bottles installs, point the launcher to the bottle path or to the correct Wine environment for that install.',
+          launcher_4: 'Use the launcher to keep different MPIDs separate between your vanilla and modded installations.',
+          launcher_5: 'This is especially useful if you use different multiplayer identities on different Freelancer servers or mods.',
+          launcher_structure_intro: 'Recommended structure:',
+          launcher_list_1: 'Vanilla Freelancer → own prefix or bottle → own MPID profile if needed',
+          launcher_list_2: 'Discovery → own prefix or bottle → own MPID profile',
+          launcher_list_3: 'Crossfire → own prefix or bottle → own MPID profile',
+          img_launcher_1: 'FL Atlas Launcher can manage multiple Freelancer installations and lets you keep vanilla and modded setups clearly separated.',
+          img_launcher_2: 'Use FL Atlas Launcher to point each installation to the correct EXE and prefix and manage different MPIDs for different servers or mods.',
+          note_2: 'Keeping installs separated is the cleanest approach. It reduces registry conflicts, avoids mixed save data, and makes FL Atlas Launcher much easier to use with Lutris and Bottles.',
+          cta_back: 'Back to Help Center',
+          footer_label: 'Flathack Help Center'
+        }
+      };
+      var lang = (function() { try { return sessionStorage.getItem('flathack-lang') || 'en'; } catch(e) { return 'en'; } })();
+      function t(key) { return (I18N[lang] || I18N.en)[key] || key; }
+      function applyLang() {
+        document.title = t('page_title');
+        var meta = document.getElementById('page-description');
+        if (meta) meta.setAttribute('content', t('page_description'));
+        document.querySelectorAll('[data-i18n]').forEach(function(el) {
+          el.innerHTML = t(el.dataset.i18n);
+        });
+      }
+      window.addEventListener('lang-change', function(e) {
+        if (e.detail && e.detail.lang && e.detail.lang !== lang) {
+          lang = e.detail.lang;
+          applyLang();
+        }
+      });
+      if (lang !== 'en') applyLang();
+    })();
+  </script>
+  <script src="../assets/js/nav.js"></script>
+</body>
+</html>
