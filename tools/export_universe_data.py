@@ -38,11 +38,27 @@ def is_interesting(archetype: str) -> bool:
     return any(kw in arch_lower for kw in INTERESTING_ARCHETYPES)
 
 
-def classify_object(archetype: str) -> str:
-    """Classify an object by its archetype into a display category."""
+def classify_object(archetype: str, vals: dict[str, str] | None = None, solar_info: dict | None = None) -> str:
+    """Classify an object into a display category using archetype, links and solar metadata."""
+    vals = vals or {}
+    solar_info = solar_info or {}
     a = archetype.lower()
+    solar_type = str(solar_info.get("type", "")).lower()
+    solar_shape = str(solar_info.get("shape", "")).lower()
+    solar_model = str(solar_info.get("da_archetype", "")).lower()
+
+    if vals.get("prev_ring") or vals.get("next_ring"):
+        return "trade_lane"
+    if vals.get("goto"):
+        if "hole" in a or "hole" in solar_model or solar_type == "jump_hole":
+            return "jump_hole"
+        if "gate" in a or "gate" in solar_model or solar_type == "jump_gate" or "jumpgate" in solar_shape:
+            return "jump_gate"
+
     if "sun" in a:
         return "sun"
+    if solar_type in ("planet", "moon", "satellite"):
+        return "planet"
     if "planet" in a or "moon" in a:
         return "planet"
     if "jumpgate" in a or ("gate" in a and "hole" not in a):
@@ -106,8 +122,20 @@ def parse_solar_meta(data_root: Path) -> dict[str, dict]:
         if not nick:
             continue
         radius = parse_float(vals.get("solar_radius", "") or vals.get("radius", ""), 0.0)
+        entry: dict[str, object] = {}
         if radius > 0:
-            out[nick] = {"radius": radius}
+            entry["radius"] = radius
+        solar_type = vals.get("type", "").strip()
+        if solar_type:
+            entry["type"] = solar_type
+        da_archetype = vals.get("da_archetype", "").strip()
+        if da_archetype:
+            entry["da_archetype"] = da_archetype
+        shape_name = vals.get("shape_name", "").strip()
+        if shape_name:
+            entry["shape"] = shape_name
+        if entry:
+            out[nick] = entry
     return out
 
 
@@ -379,13 +407,14 @@ def extract_universe(fl_ini: Path, res: DLLResolver) -> dict:
                 archetype = vals.get("archetype", "")
                 nickname = vals.get("nickname", "")
                 has_base = bool(vals.get("base", ""))
+                solar_info = solar_meta.get(archetype.lower().strip(), {}) if archetype else {}
                 # Detect surprise objects by archetype or nickname
                 is_surprise_nick = "surprise" in nickname.lower()
+                category = classify_object(archetype, vals, solar_info)
                 # Objects with a base= field are always dockable stations
-                if not archetype or (not is_interesting(archetype) and not is_surprise_nick and not has_base):
+                if not archetype or (category == "other" and not is_surprise_nick and not has_base):
                     continue
 
-                category = classify_object(archetype)
                 if is_surprise_nick and category not in ("surprise",):
                     category = "surprise"
                 elif has_base and category in ("other",):
