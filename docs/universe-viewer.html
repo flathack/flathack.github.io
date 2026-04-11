@@ -680,6 +680,7 @@
         legend_gate: 'Jump Gate Verbindung',
         legend_hole: 'Jump Hole Verbindung',
         legend_buoy: 'Boje',
+        flag_one_way: 'Einbahn',
         info_type: 'Typ',
         info_nick: 'Nickname',
         info_pos: 'Position',
@@ -754,6 +755,7 @@
         legend_gate: 'Jump Gate connection',
         legend_hole: 'Jump Hole connection',
         legend_buoy: 'Buoy',
+        flag_one_way: 'One-way',
         info_type: 'Type',
         info_nick: 'Nickname',
         info_pos: 'Position',
@@ -1406,6 +1408,23 @@
       return 'jump_gate';
     }
 
+    function connectionDirectionState(fromSystemNick, toSystemNick) {
+      var forward = edgeHasTravelData(fromSystemNick, toSystemNick);
+      var reverse = edgeHasTravelData(toSystemNick, fromSystemNick);
+      return {
+        forward: forward,
+        reverse: reverse,
+        oneWay: forward !== reverse,
+      };
+    }
+
+    function jumpObjectDirectionState(systemNick, obj) {
+      if (!obj || !obj.goto || (obj.type !== 'jump_gate' && obj.type !== 'jump_hole')) {
+        return { forward: false, reverse: false, oneWay: false };
+      }
+      return connectionDirectionState(systemNick, obj.goto);
+    }
+
     function universeConnectionsForDisplay() {
       if (!data) return [];
 
@@ -1442,7 +1461,30 @@
       });
 
       return Object.keys(byEdge).map(function (edgeKey) {
-        return byEdge[edgeKey];
+        var entry = byEdge[edgeKey];
+        var direction = connectionDirectionState(entry.from, entry.to);
+        var resolvedType = entry.type;
+        var oneWayFrom = '';
+        var oneWayTo = '';
+        if (direction.oneWay) {
+          if (direction.forward) {
+            oneWayFrom = entry.from;
+            oneWayTo = entry.to;
+            resolvedType = inferUniverseConnectionType(entry.from, entry.to);
+          } else if (direction.reverse) {
+            oneWayFrom = entry.to;
+            oneWayTo = entry.from;
+            resolvedType = inferUniverseConnectionType(entry.to, entry.from);
+          }
+        }
+        return {
+          from: entry.from,
+          to: entry.to,
+          type: resolvedType,
+          oneWay: direction.oneWay,
+          oneWayFrom: oneWayFrom,
+          oneWayTo: oneWayTo,
+        };
       });
     }
 
@@ -1527,6 +1569,32 @@
         var opacity = isHole ? "0.4" : "0.35";
         lines += '<line x1="' + from.x + '" y1="' + from.y + '" x2="' + to.x + '" y2="' + to.y + '"' +
                  ' stroke="' + color + '" stroke-width="1.2" opacity="' + opacity + '"' + dash + '/>';
+
+        if (c.oneWay && c.oneWayFrom && c.oneWayTo) {
+          var arrowFrom = sysPos[c.oneWayFrom.toUpperCase()];
+          var arrowTo = sysPos[c.oneWayTo.toUpperCase()];
+          if (arrowFrom && arrowTo) {
+            var dx = arrowTo.x - arrowFrom.x;
+            var dy = arrowTo.y - arrowFrom.y;
+            var len = Math.hypot(dx, dy) || 1;
+            var ux = dx / len;
+            var uy = dy / len;
+            var px = -uy;
+            var py = ux;
+            var tipX = arrowFrom.x + dx * 0.62;
+            var tipY = arrowFrom.y + dy * 0.62;
+            var head = 10;
+            var halfWidth = 4.5;
+            var baseX = tipX - ux * head;
+            var baseY = tipY - uy * head;
+            var leftX = baseX + px * halfWidth;
+            var leftY = baseY + py * halfWidth;
+            var rightX = baseX - px * halfWidth;
+            var rightY = baseY - py * halfWidth;
+            lines += '<polygon points="' + tipX + ',' + tipY + ' ' + leftX + ',' + leftY + ' ' + rightX + ',' + rightY + '"' +
+                     ' fill="' + color + '" opacity="0.85"/>';
+          }
+        }
       });
 
       if (activeRouteResult && Array.isArray(activeRouteResult.systemPath) && activeRouteResult.systemPath.length > 1) {
@@ -1730,6 +1798,8 @@
         var iconSize = objectIconSize(o, r);
         var rotation = objectRotation(o);
         var showLabel = shouldShowLabel(o);
+        var jumpDirection = jumpObjectDirectionState(sys.nick, o);
+        var showOneWay = jumpDirection.forward && !jumpDirection.reverse;
 
         content += '<g class="uv-obj-node" data-nick="' + escAttr(o.nick) + '" style="cursor:pointer;">';
 
@@ -1772,7 +1842,7 @@
           var targetName = targetSys ? systemDisplayName(targetSys) : o.goto;
           content += '<text x="' + cx + '" y="' + (labelY + 10) + '"' +
                      ' text-anchor="middle" fill="' + color + '" font-size="7.5" opacity="0.7"' +
-                     ' font-family="IBM Plex Mono, monospace">→ ' + escXml(targetName) + '</text>';
+                     ' font-family="IBM Plex Mono, monospace">→ ' + escXml(targetName) + (showOneWay ? ' • ' + escXml(t('flag_one_way')) : '') + '</text>';
         }
 
         content += '</g>';
@@ -1833,10 +1903,11 @@
       if (obj.goto) {
         var targetSys = data.systems.find(function (s) { return s.nick.toUpperCase() === obj.goto.toUpperCase(); });
         var gotoLabel = targetSys ? systemDisplayName(targetSys) : obj.goto;
+        var jumpDirection = jumpObjectDirectionState(currentSystem && currentSystem.nick, obj);
         items += '<li style="cursor:pointer;color:var(--accent);" data-goto="' + escAttr(obj.goto) + '">' +
                  '<span class="uv-obj-icon" style="background:' + (COLORS[obj.type] || COLORS.other) + ';"></span>' +
                  '<span class="uv-obj-label">→ ' + escXml(gotoLabel) + '</span>' +
-                 '<span class="uv-obj-type">' + t('info_jump') + '</span></li>';
+                 '<span class="uv-obj-type">' + t('info_jump') + (jumpDirection.forward && !jumpDirection.reverse ? ' · ' + t('flag_one_way') : '') + '</span></li>';
       }
       items += renderLoadoutSections(obj);
       if (obj.base) items += renderBaseTradeSections(obj.base);
@@ -2104,7 +2175,7 @@
           }
           node.style.opacity = match ? "1" : "0.15";
         });
-        svg.querySelectorAll("#connections line").forEach(function (line) {
+        svg.querySelectorAll("#connections line, #connections polygon").forEach(function (line) {
           line.style.opacity = "0.08";
         });
       } else {
@@ -2125,7 +2196,7 @@
     searchInput.addEventListener("change", function () {
       if (!searchInput.value.trim()) {
         svg.querySelectorAll(".uv-system-node, .uv-obj-node").forEach(function (n) { n.style.opacity = "1"; });
-        svg.querySelectorAll("#connections line").forEach(function (l) { l.style.opacity = ""; });
+        svg.querySelectorAll("#connections line, #connections polygon").forEach(function (l) { l.style.opacity = ""; });
       }
     });
 
