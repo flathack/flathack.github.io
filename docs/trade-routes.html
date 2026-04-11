@@ -820,12 +820,30 @@
       return html;
     }
 
+    function annotateDuplicateSystemNames(systems) {
+      const source = systems || {};
+      const counts = Object.create(null);
+      const annotated = Object.create(null);
+
+      Object.entries(source).forEach(([nick, name]) => {
+        const label = String(name || nick);
+        counts[label] = (counts[label] || 0) + 1;
+      });
+
+      Object.entries(source).forEach(([nick, name]) => {
+        const label = String(name || nick);
+        annotated[nick] = counts[label] > 1 ? (label + ' (' + nick + ')') : label;
+      });
+
+      return annotated;
+    }
+
     function snapshotFromLegacyPayload(payload) {
       return {
         id: 'default',
         label: t('dataset_default'),
         ships: payload.ships || [],
-        systems: payload.systems || {},
+        systems: annotateDuplicateSystemNames(payload.systems || {}),
         bases: payload.bases || {},
         adjacency: payload.adjacency || {},
         commodities: payload.commodities || {},
@@ -849,7 +867,7 @@
             cycleDays: entry.cycle_days || null,
             notes: entry.notes || '',
             ships: entry.ships || [],
-            systems: entry.systems || {},
+            systems: annotateDuplicateSystemNames(entry.systems || {}),
             bases: entry.bases || {},
             adjacency: entry.adjacency || {},
             commodities: entry.commodities || {},
