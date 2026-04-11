@@ -66,6 +66,197 @@
       display: none;
     }
 
+    .uv-route-panel {
+      margin-bottom: 14px;
+      padding: 20px;
+      border: 1px solid var(--panel-border);
+      border-radius: 14px;
+      background: linear-gradient(180deg, rgba(8, 18, 32, 0.96), rgba(6, 14, 26, 0.92));
+      box-shadow: var(--shadow);
+    }
+    .uv-route-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+    .uv-route-head h3 {
+      margin: 4px 0 6px;
+      color: var(--accent-strong);
+      font-size: 1.02rem;
+    }
+    .uv-route-note {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.86rem;
+      line-height: 1.5;
+    }
+    .uv-route-fields {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+      gap: 12px;
+      align-items: end;
+    }
+    .uv-route-field {
+      min-width: 0;
+    }
+    .uv-route-field label {
+      display: block;
+      margin: 0 0 6px;
+      color: var(--muted);
+      font-size: 0.76rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .uv-route-field input {
+      width: 100%;
+      min-height: 38px;
+      padding: 0 12px;
+      border: 1px solid rgba(132, 177, 255, 0.2);
+      border-radius: 12px;
+      background: rgba(6, 14, 26, 0.82);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.9rem;
+    }
+    .uv-route-submit {
+      min-height: 38px;
+      padding: 0 18px;
+    }
+    .uv-route-summary {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .uv-route-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(88, 196, 255, 0.1);
+      border: 1px solid rgba(88, 196, 255, 0.18);
+      color: var(--text);
+      font-size: 0.78rem;
+      font-family: "IBM Plex Mono", monospace;
+    }
+    .uv-route-pill.warning {
+      background: rgba(245, 158, 11, 0.12);
+      border-color: rgba(245, 158, 11, 0.24);
+      color: #fcd34d;
+    }
+    .uv-route-results {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 14px;
+      margin-top: 16px;
+    }
+    .uv-sector-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0 0 12px;
+    }
+    .uv-sector-tabs[hidden] {
+      display: none;
+    }
+    .uv-sector-tab {
+      min-height: 34px;
+      padding: 0 14px;
+      border: 1px solid rgba(132, 177, 255, 0.22);
+      border-radius: 999px;
+      background: rgba(6, 14, 26, 0.72);
+      color: var(--muted);
+      font-family: inherit;
+      font-size: 0.82rem;
+      cursor: pointer;
+      transition: background 180ms ease, border-color 180ms ease, color 180ms ease;
+      white-space: nowrap;
+    }
+    .uv-sector-tab:hover {
+      border-color: rgba(88, 196, 255, 0.34);
+      color: var(--text);
+    }
+    .uv-sector-tab.active {
+      background: rgba(88, 196, 255, 0.16);
+      border-color: rgba(88, 196, 255, 0.42);
+      color: var(--accent-strong);
+      box-shadow: inset 0 0 0 1px rgba(88, 196, 255, 0.1);
+    }
+    .uv-route-card {
+      width: 100%;
+      padding: 16px;
+      border: 1px solid rgba(132, 177, 255, 0.16);
+      border-radius: 14px;
+      background: rgba(10, 18, 32, 0.88);
+      color: var(--text);
+      text-align: left;
+      cursor: pointer;
+      transition: border-color 180ms ease, transform 180ms ease, background 180ms ease;
+    }
+    .uv-route-card:hover {
+      border-color: rgba(88, 196, 255, 0.32);
+      transform: translateY(-2px);
+    }
+    .uv-route-card.active {
+      border-color: rgba(88, 196, 255, 0.48);
+      background: rgba(12, 26, 46, 0.94);
+      box-shadow: 0 0 0 1px rgba(88, 196, 255, 0.16);
+    }
+    .uv-route-card-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .uv-route-card-title {
+      font-weight: 700;
+      color: var(--accent-strong);
+    }
+    .uv-route-card-time {
+      font-family: "IBM Plex Mono", monospace;
+      color: var(--text);
+      white-space: nowrap;
+    }
+    .uv-route-meta,
+    .uv-route-systems,
+    .uv-route-endpoints {
+      margin: 0 0 8px;
+      color: var(--muted);
+      font-size: 0.84rem;
+      line-height: 1.5;
+    }
+    .uv-route-systems {
+      color: var(--text);
+    }
+    .uv-route-segments {
+      display: grid;
+      gap: 6px;
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(132, 177, 255, 0.1);
+    }
+    .uv-route-segment {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 10px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .uv-route-segment strong {
+      color: var(--text);
+    }
+    .uv-route-empty {
+      padding: 14px 16px;
+      border: 1px dashed rgba(132, 177, 255, 0.18);
+      border-radius: 12px;
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
     .uv-btn {
       min-height: 34px;
       padding: 0 14px;
@@ -328,6 +519,11 @@
     @media (max-width: 768px) {
       .uv-info-panel { width: 240px; }
       .uv-market-body { grid-template-columns: 1fr; }
+      .uv-route-fields { grid-template-columns: 1fr; }
+      .uv-route-head {
+        flex-direction: column;
+        align-items: stretch;
+      }
       .uv-controls.in-subnav {
         margin-left: 0;
         justify-content: flex-start;
@@ -397,6 +593,33 @@
         </div>
       </div>
 
+      <section class="uv-route-panel" id="routePanel">
+        <div class="uv-route-head">
+          <div>
+            <p class="eyebrow" data-i18n="route_eyebrow">Route Planner</p>
+            <h3 data-i18n="route_title">Schnellste Verbindung</h3>
+            <p class="uv-route-note" id="routeNote" data-i18n="route_desc">Berechnet die schnellste Verbindung anhand derselben Flugzeitlogik wie im Trade Route Calculator und meidet gesperrte Sprungtore automatisch.</p>
+          </div>
+          <button class="uv-btn" id="routeClear" type="button" data-i18n="route_clear">Route zurücksetzen</button>
+        </div>
+        <div class="uv-route-fields">
+          <div class="uv-route-field">
+            <label for="routeStart" data-i18n="route_start">Startpunkt</label>
+            <input type="text" id="routeStart" list="routePoints" placeholder="System • Objekt [Typ]">
+          </div>
+          <div class="uv-route-field">
+            <label for="routeEnd" data-i18n="route_end">Zielpunkt</label>
+            <input type="text" id="routeEnd" list="routePoints" placeholder="System • Objekt [Typ]">
+          </div>
+          <button class="uv-btn uv-route-submit" id="routeFind" type="button" data-i18n="route_button">Route finden</button>
+        </div>
+        <datalist id="routePoints"></datalist>
+        <div class="uv-route-summary" id="routeSummary"></div>
+        <div class="uv-route-results" id="routeResults"></div>
+      </section>
+
+      <div class="uv-sector-tabs" id="sectorTabs" hidden></div>
+
       <div class="uv-stats" id="stats"></div>
 
       <div class="uv-container" id="viewer">
@@ -429,6 +652,7 @@
     </main>
   </div>
 
+  <script src="../assets/js/trade-engine.js"></script>
   <script>
   (function () {
     "use strict";
@@ -478,6 +702,36 @@
         market_commodities_buys: 'Kauft Commodities',
         market_equipment: 'Verkaufte Ausrüstung',
         market_ships: 'Schiffshändler',
+        route_eyebrow: 'Route Planner',
+        route_title: 'Schnellste Verbindung',
+        route_desc: 'Berechnet die schnellste Verbindung anhand derselben Flugzeitlogik wie im Trade Route Calculator und meidet gesperrte Sprungtore automatisch.',
+        route_start: 'Startpunkt',
+        route_end: 'Zielpunkt',
+        route_start_ph: 'System • Objekt [Typ]',
+        route_end_ph: 'System • Objekt [Typ]',
+        route_button: 'Route finden',
+        route_clear: 'Route zurücksetzen',
+        route_no_trade_data: 'Für diesen Mod sind keine Reisedaten verfügbar. Die Route-Funktion bleibt deaktiviert.',
+        route_no_points: 'Keine geeigneten Start- und Zielpunkte gefunden.',
+        route_invalid_start: 'Startpunkt konnte nicht eindeutig aufgelöst werden.',
+        route_invalid_end: 'Zielpunkt konnte nicht eindeutig aufgelöst werden.',
+        route_same_point: 'Start und Ziel müssen unterschiedlich sein.',
+        route_no_path: 'Keine erreichbare Verbindung gefunden.',
+        route_select_hint: 'Wähle Start- und Zielpunkt, um die schnellste Verbindung samt Alternativen anzuzeigen.',
+        route_fastest: 'Schnellste Route',
+        route_alternative: 'Alternative',
+        route_time: 'Flugzeit',
+        route_jumps: 'Sprünge',
+        route_systems: 'Systeme',
+        route_locked_avoided: 'Gesperrte Sprungtore werden automatisch gemieden.',
+        route_alt_none: 'Keine sinnvolle Alternativroute verfügbar.',
+        route_start_label: 'Start',
+        route_end_label: 'Ziel',
+        route_jump: 'Sprung',
+        route_trade_lane: 'Trade Lane',
+        route_open_space: 'Freiflug',
+        sector_sirius: 'Sirius',
+        sector_galaxy: 'Galaxie',
       },
       en: {
         title: 'Universe',
@@ -522,6 +776,36 @@
         market_commodities_buys: 'Buys commodities',
         market_equipment: 'Equipment sold',
         market_ships: 'Ship dealer',
+        route_eyebrow: 'Route Planner',
+        route_title: 'Fastest connection',
+        route_desc: 'Calculates the fastest connection with the same travel-time logic as the Trade Route Calculator and automatically avoids locked jump gates.',
+        route_start: 'Start point',
+        route_end: 'Destination',
+        route_start_ph: 'System • Object [Type]',
+        route_end_ph: 'System • Object [Type]',
+        route_button: 'Find route',
+        route_clear: 'Clear route',
+        route_no_trade_data: 'No travel dataset is available for this mod. The route planner is disabled.',
+        route_no_points: 'No suitable start and destination points were found.',
+        route_invalid_start: 'The start point could not be resolved uniquely.',
+        route_invalid_end: 'The destination point could not be resolved uniquely.',
+        route_same_point: 'Start and destination must be different.',
+        route_no_path: 'No reachable connection was found.',
+        route_select_hint: 'Choose a start and destination to show the fastest connection and available alternatives.',
+        route_fastest: 'Fastest route',
+        route_alternative: 'Alternative',
+        route_time: 'Travel time',
+        route_jumps: 'Jumps',
+        route_systems: 'Systems',
+        route_locked_avoided: 'Locked jump gates are skipped automatically.',
+        route_alt_none: 'No meaningful alternative route is available.',
+        route_start_label: 'Start',
+        route_end_label: 'Destination',
+        route_jump: 'Jump',
+        route_trade_lane: 'Trade Lane',
+        route_open_space: 'Open space',
+        sector_sirius: 'Sirius',
+        sector_galaxy: 'Galaxy',
       }
     };
 
@@ -549,16 +833,16 @@
         el.textContent = t(el.dataset.i18n);
       });
       searchInput.placeholder = t('search_ph');
+      routeStartInput.placeholder = t('route_start_ph');
+      routeEndInput.placeholder = t('route_end_ph');
       btnShowHoles.title = t('btn_holes_title');
       btnZoomIn.title = t('btn_zoomin');
       btnZoomOut.title = t('btn_zoomout');
       btnZoomReset.title = t('btn_zoomreset');
-      // Re-render current view
-      if (viewMode === 'system' && currentSystem) {
-        showSystem(currentSystem);
-      } else if (data) {
-        showUniverse();
-      }
+      renderUniverseSectorTabs();
+      if (data) rebuildRoutePlanner();
+      rerenderCurrentView();
+      renderRouteResults();
     }
 
     window.addEventListener('lang-change', function(e) {
@@ -600,6 +884,20 @@
     var baseCommodityIndex = {};
     var baseShipIndex = {};
     var baseEquipmentIndex = {};
+    var routeEngine = null;
+    var routePointCatalog = [];
+    var routePointLookup = Object.create(null);
+    var routePointLabelLookup = Object.create(null);
+    var routePortalIdsBySystem = Object.create(null);
+    var routePortalLinks = Object.create(null);
+    var routeStartPointId = "";
+    var routeEndPointId = "";
+    var activeRouteOptions = [];
+    var activeRouteIndex = -1;
+    var activeRouteResult = null;
+    var universeSectorDefs = Object.create(null);
+    var universeSectorOrder = [];
+    var activeUniverseSector = 'universe';
 
     // Pan & zoom state
     var viewBox = { x: 0, y: 0, w: 1000, h: 800 };
@@ -624,12 +922,85 @@
     var searchInput = document.getElementById("search");
     var legendEl = document.getElementById("legend");
     var controlsEl = document.querySelector(".uv-controls");
+    var routePanel = document.getElementById("routePanel");
+    var routeNote = document.getElementById("routeNote");
+    var routeStartInput = document.getElementById("routeStart");
+    var routeEndInput = document.getElementById("routeEnd");
+    var routePointsList = document.getElementById("routePoints");
+    var routeFindBtn = document.getElementById("routeFind");
+    var routeClearBtn = document.getElementById("routeClear");
+    var routeSummary = document.getElementById("routeSummary");
+    var routeResults = document.getElementById("routeResults");
+    var sectorTabs = document.getElementById("sectorTabs");
     var btnShowHoles = document.getElementById("btnShowHoles");
     var btnZoomIn = document.getElementById("btnZoomIn");
     var btnZoomOut = document.getElementById("btnZoomOut");
     var btnZoomReset = document.getElementById("btnZoomReset");
 
     /* ── Data loading ── */
+    function snapshotFromLegacyPayload(payload) {
+      return {
+        id: 'default',
+        label: 'Default',
+        ships: payload.ships || [],
+        systems: payload.systems || {},
+        bases: payload.bases || {},
+        adjacency: payload.adjacency || {},
+        commodities: payload.commodities || {},
+        markets: payload.markets || {},
+        travel: payload.travel || {},
+      };
+    }
+
+    function normalizeTradePayload(payload) {
+      if (payload && payload.datasets && typeof payload.datasets === 'object') {
+        var order = Array.isArray(payload.dataset_order) && payload.dataset_order.length
+          ? payload.dataset_order.slice()
+          : Object.keys(payload.datasets);
+        var mapped = Object.create(null);
+        order.forEach(function (id) {
+          var entry = payload.datasets[id];
+          if (!entry) return;
+          mapped[id] = {
+            id: id,
+            label: entry.label || entry.name || id,
+            cycleDays: entry.cycle_days || null,
+            notes: entry.notes || '',
+            ships: entry.ships || [],
+            systems: entry.systems || {},
+            bases: entry.bases || {},
+            adjacency: entry.adjacency || {},
+            commodities: entry.commodities || {},
+            markets: entry.markets || {},
+            travel: entry.travel || {},
+          };
+        });
+        var selected = payload.default_dataset && mapped[payload.default_dataset]
+          ? payload.default_dataset
+          : order.find(function (id) { return !!mapped[id]; }) || '';
+        return {
+          id: payload.id || '',
+          name: payload.name || '',
+          datasets: mapped,
+          datasetOrder: order.filter(function (id) { return !!mapped[id]; }),
+          defaultDataset: selected,
+        };
+      }
+
+      return {
+        id: payload && payload.id || '',
+        name: payload && payload.name || '',
+        datasets: { default: snapshotFromLegacyPayload(payload || {}) },
+        datasetOrder: ['default'],
+        defaultDataset: 'default',
+      };
+    }
+
+    function defaultTradeDataset(payload) {
+      var normalized = normalizeTradePayload(payload || {});
+      return normalized.datasets[normalized.defaultDataset] || null;
+    }
+
     function loadMod(mod) {
       currentMod = mod;
       Promise.all([
@@ -644,9 +1015,13 @@
         .then(function (results) {
           var d = results[0];
           data = d;
-          tradeData = results[1];
+          tradeData = defaultTradeDataset(results[1]);
+          routeEngine = tradeData && typeof TradeEngine === "function" ? new TradeEngine(tradeData) : null;
           equipmentData = results[2];
           rebuildTradeIndexes();
+          rebuildUniverseSectors();
+          rebuildRoutePlanner();
+          clearRouteSelection(false);
           iconCache = {};
           var archs = {};
           d.systems.forEach(function (s) {
@@ -676,9 +1051,9 @@
       baseEquipmentIndex = {};
       if (!tradeData && !equipmentData) return;
 
-      Object.keys((tradeData && tradeData.by_commodity) || {}).forEach(function (commodityNick) {
+      Object.keys((tradeData && tradeData.markets) || {}).forEach(function (commodityNick) {
         var info = (tradeData.commodities || {})[commodityNick] || {};
-        (tradeData.by_commodity[commodityNick] || []).forEach(function (entry) {
+        (tradeData.markets[commodityNick] || []).forEach(function (entry) {
           var baseNick = (entry.base || "").toLowerCase();
           if (!baseNick) return;
           if (!baseCommodityIndex[baseNick]) baseCommodityIndex[baseNick] = [];
@@ -749,24 +1124,347 @@
       });
     }
 
+    function rebuildRoutePlanner() {
+      var prevStartId = routeStartPointId;
+      var prevEndId = routeEndPointId;
+      routePointCatalog = [];
+      routePointLookup = Object.create(null);
+      routePointLabelLookup = Object.create(null);
+      routePortalIdsBySystem = Object.create(null);
+      routePortalLinks = Object.create(null);
+
+      if (!data || !Array.isArray(data.systems) || !data.systems.length) {
+        routePointsList.innerHTML = '';
+        routeFindBtn.disabled = true;
+        routeClearBtn.disabled = true;
+        routeResults.innerHTML = '<div class="uv-route-empty">' + escXml(t('route_no_points')) + '</div>';
+        return;
+      }
+
+      data.systems.forEach(function (sys) {
+        (sys.objects || []).forEach(function (obj) {
+          if (!isRoutePointObject(obj)) return;
+          var point = {
+            id: sys.nick + '|' + obj.nick,
+            systemNick: sys.nick,
+            systemName: systemDisplayName(sys),
+            nick: obj.nick,
+            name: obj.name || obj.nick,
+            type: obj.type || 'other',
+            pos: [Number(obj.pos[0]) || 0, Number(obj.pos[1]) || 0],
+            goto: obj.goto || '',
+            base: obj.base || '',
+            baseLabel: '',
+            label: '',
+            search: '',
+          };
+          point.baseLabel = point.systemName + ' • ' + point.name + ' [' + typeLabel(point.type) + ']';
+          routePointCatalog.push(point);
+          routePointLookup[point.id] = point;
+          if ((obj.type === 'jump_gate' || obj.type === 'jump_hole') && !isBlockedJumpObject(obj)) {
+            var systemKey = routeSystemKey(sys.nick);
+            if (!routePortalIdsBySystem[systemKey]) routePortalIdsBySystem[systemKey] = [];
+            routePortalIdsBySystem[systemKey].push(point.id);
+          }
+        });
+      });
+
+      var labelCounts = Object.create(null);
+      routePointCatalog.forEach(function (point) {
+        labelCounts[point.baseLabel] = (labelCounts[point.baseLabel] || 0) + 1;
+      });
+      routePointCatalog.forEach(function (point) {
+        point.label = labelCounts[point.baseLabel] > 1 ? (point.baseLabel + ' · ' + point.nick) : point.baseLabel;
+        point.search = [point.label, point.name, point.nick, point.systemName, point.base].join(' ').toLowerCase();
+        routePointLabelLookup[point.label.toLowerCase()] = point.id;
+        if (!routePointLabelLookup[point.nick.toLowerCase()]) routePointLabelLookup[point.nick.toLowerCase()] = point.id;
+        if (point.base && !routePointLabelLookup[point.base.toLowerCase()]) routePointLabelLookup[point.base.toLowerCase()] = point.id;
+        var systemScopedName = (point.systemName + ' • ' + point.name).toLowerCase();
+        if (!routePointLabelLookup[systemScopedName]) routePointLabelLookup[systemScopedName] = point.id;
+      });
+
+      routePointCatalog.sort(function (a, b) {
+        return a.label.localeCompare(b.label);
+      });
+      routePointsList.innerHTML = routePointCatalog.map(function (point) {
+        return '<option value="' + escAttr(point.label) + '"></option>';
+      }).join('');
+
+      Object.keys(routePortalIdsBySystem).forEach(function (systemNick) {
+        routePortalIdsBySystem[systemNick].forEach(function (portalId) {
+          var portal = routePointLookup[portalId];
+          var targets = (routePortalIdsBySystem[routeSystemKey(portal.goto)] || []).map(function (targetId) {
+            return routePointLookup[targetId];
+          }).filter(function (target) {
+            return target && routeSystemKey(target.goto) === routeSystemKey(systemNick);
+          }).sort(function (a, b) {
+            if (a.type === portal.type && b.type !== portal.type) return -1;
+            if (b.type === portal.type && a.type !== portal.type) return 1;
+            return a.label.localeCompare(b.label);
+          });
+          routePortalLinks[portalId] = targets.map(function (target) { return target.id; });
+        });
+      });
+
+      if (prevStartId && routePointLookup[prevStartId]) {
+        routeStartPointId = prevStartId;
+        routeStartInput.value = routePointLookup[prevStartId].label;
+      } else {
+        routeStartPointId = '';
+        routeStartInput.value = '';
+      }
+      if (prevEndId && routePointLookup[prevEndId]) {
+        routeEndPointId = prevEndId;
+        routeEndInput.value = routePointLookup[prevEndId].label;
+      } else {
+        routeEndPointId = '';
+        routeEndInput.value = '';
+      }
+
+      routeNote.textContent = routeEngine ? t('route_desc') : t('route_no_trade_data');
+      routeFindBtn.disabled = !routeEngine || !routePointCatalog.length;
+      routeClearBtn.disabled = !activeRouteResult;
+      if (!activeRouteOptions.length) {
+        routeResults.innerHTML = '<div class="uv-route-empty">' + escXml(routeEngine ? t('route_select_hint') : t('route_no_trade_data')) + '</div>';
+      }
+    }
+
+    function normalizeSectorMapName(mapName) {
+      return String(mapName || '').trim().toLowerCase();
+    }
+
+    function prettifySectorMapName(mapName) {
+      var txt = String(mapName || '').trim();
+      if (!txt) return '';
+      var sectorMatch = /^sector(\d+)$/i.exec(txt);
+      if (sectorMatch) return 'Sector ' + sectorMatch[1];
+      return txt.replace(/_/g, ' ').replace(/\b([a-z])/g, function (_, ch) {
+        return ch.toUpperCase();
+      });
+    }
+
+    function rebuildUniverseSectors() {
+      var previous = activeUniverseSector;
+      var mapNames = [];
+      var mapMeta = Object.create(null);
+
+      (data && data.systems || []).forEach(function (sys) {
+        (sys.map_positions || []).forEach(function (entry) {
+          var mapKey = normalizeSectorMapName(entry && entry.map);
+          if (!mapKey) return;
+          if (mapNames.indexOf(mapKey) < 0) mapNames.push(mapKey);
+          if (!mapMeta[mapKey]) mapMeta[mapKey] = { labels: [], labelIds: [] };
+          (entry.labels || []).forEach(function (label) {
+            var text = String(label || '').trim();
+            if (text && mapMeta[mapKey].labels.indexOf(text) < 0) mapMeta[mapKey].labels.push(text);
+          });
+          (entry.label_ids || []).forEach(function (labelId) {
+            var text = String(labelId || '').trim();
+            if (text && mapMeta[mapKey].labelIds.indexOf(text) < 0) mapMeta[mapKey].labelIds.push(text);
+          });
+        });
+      });
+
+      universeSectorDefs = Object.create(null);
+      universeSectorOrder = [];
+
+      if (!mapNames.length) {
+        universeSectorDefs.universe = {
+          key: 'universe',
+          sourceMap: 'universe',
+          displayName: t('bc_universe')
+        };
+        universeSectorOrder = ['universe'];
+        activeUniverseSector = 'universe';
+        renderUniverseSectorTabs();
+        return;
+      }
+
+      universeSectorDefs.sirius = {
+        key: 'sirius',
+        sourceMap: mapNames.indexOf('sector01') >= 0 ? 'sector01' : 'universe',
+        displayName: t('sector_sirius')
+      };
+      universeSectorOrder.push('sirius');
+
+      mapNames.slice().sort(function (a, b) {
+        return a.localeCompare(b);
+      }).forEach(function (mapKey) {
+        if (mapKey === 'sector01') return;
+        var meta = mapMeta[mapKey] || { labels: [], labelIds: [] };
+        universeSectorDefs[mapKey] = {
+          key: mapKey,
+          sourceMap: mapKey,
+          displayName: prettifySectorMapName(mapKey),
+          labels: meta.labels.slice(),
+          labelIds: meta.labelIds.slice()
+        };
+        universeSectorOrder.push(mapKey);
+      });
+
+      if (universeSectorOrder.length > 1) {
+        universeSectorDefs.galaxy = {
+          key: 'galaxy',
+          sourceMap: 'galaxy',
+          displayName: t('sector_galaxy')
+        };
+        universeSectorOrder.push('galaxy');
+      }
+
+      activeUniverseSector = universeSectorDefs[previous] ? previous : 'sirius';
+      renderUniverseSectorTabs();
+    }
+
+    function renderUniverseSectorTabs() {
+      if (!sectorTabs) return;
+      if (universeSectorOrder.length <= 1) {
+        sectorTabs.hidden = true;
+        sectorTabs.innerHTML = '';
+        return;
+      }
+
+      sectorTabs.hidden = false;
+      sectorTabs.innerHTML = universeSectorOrder.map(function (key) {
+        var meta = universeSectorDefs[key] || {};
+        var label = meta.displayName || key;
+        return '<button type="button" class="uv-sector-tab' + (key === activeUniverseSector ? ' active' : '') + '" data-sector="' + escAttr(key) + '">' + escXml(label) + '</button>';
+      }).join('');
+
+      sectorTabs.querySelectorAll('[data-sector]').forEach(function (button) {
+        button.addEventListener('click', function () {
+          var sectorKey = button.getAttribute('data-sector') || 'sirius';
+          if (!universeSectorDefs[sectorKey] || sectorKey === activeUniverseSector) return;
+          activeUniverseSector = sectorKey;
+          renderUniverseSectorTabs();
+          showUniverse();
+        });
+      });
+    }
+
+    function universeSystemPosition(sys, sectorKey) {
+      if (!sys) return null;
+      var basePos = Array.isArray(sys.universe_pos) ? sys.universe_pos : sys.pos;
+      if (!sectorKey || sectorKey === 'universe' || sectorKey === 'galaxy') return basePos;
+      var meta = universeSectorDefs[sectorKey] || null;
+      if (!meta) return basePos;
+      var sourceMap = normalizeSectorMapName(meta.sourceMap);
+      if (!sourceMap || sourceMap === 'universe' || sourceMap === 'galaxy') return basePos;
+      var entry = (sys.map_positions || []).find(function (row) {
+        return normalizeSectorMapName(row.map) === sourceMap;
+      });
+      return entry && Array.isArray(entry.pos) ? entry.pos : null;
+    }
+
+    function universeSystemVisible(sys, sectorKey) {
+      if (!sys) return false;
+      if (!sectorKey || sectorKey === 'universe' || sectorKey === 'galaxy') return true;
+      var meta = universeSectorDefs[sectorKey] || null;
+      if (!meta) return true;
+      var sourceMap = normalizeSectorMapName(meta.sourceMap);
+      if (!sourceMap || sourceMap === 'universe' || sourceMap === 'galaxy') return true;
+      var positions = sys.map_positions || [];
+      if (!positions.length) return sourceMap === 'sector01';
+      return positions.some(function (row) {
+        return normalizeSectorMapName(row.map) === sourceMap;
+      });
+    }
+
+    function visibleUniverseSystems() {
+      return (data && data.systems || []).filter(function (sys) {
+        return universeSystemVisible(sys, activeUniverseSector);
+      }).map(function (sys) {
+        return {
+          sys: sys,
+          pos: universeSystemPosition(sys, activeUniverseSector) || universeSystemPosition(sys, 'universe') || sys.pos
+        };
+      }).filter(function (entry) {
+        return Array.isArray(entry.pos) && entry.pos.length >= 2;
+      });
+    }
+
+    function connectionEdgeKey(fromSystemNick, toSystemNick) {
+      var fromKey = routeSystemKey(fromSystemNick);
+      var toKey = routeSystemKey(toSystemNick);
+      return fromKey < toKey ? (fromKey + '::' + toKey) : (toKey + '::' + fromKey);
+    }
+
+    function inferUniverseConnectionType(fromSystemNick, toSystemNick) {
+      var fromKey = routeSystemKey(fromSystemNick);
+      var toKey = routeSystemKey(toSystemNick);
+      var systemsToCheck = [findSystemByNick(fromSystemNick), findSystemByNick(toSystemNick)].filter(Boolean);
+      for (var si = 0; si < systemsToCheck.length; si++) {
+        var system = systemsToCheck[si];
+        var targetKey = routeSystemKey(system.nick) === fromKey ? toKey : fromKey;
+        var objects = system.objects || [];
+        for (var oi = 0; oi < objects.length; oi++) {
+          var obj = objects[oi];
+          if ((obj.type === 'jump_gate' || obj.type === 'jump_hole') && routeSystemKey(obj.goto) === targetKey) {
+            return obj.type;
+          }
+        }
+      }
+      return 'jump_gate';
+    }
+
+    function universeConnectionsForDisplay() {
+      if (!data) return [];
+
+      var byEdge = Object.create(null);
+      (data.connections || []).forEach(function (conn) {
+        if (!conn || !conn.from || !conn.to) return;
+        var edgeKey = connectionEdgeKey(conn.from, conn.to);
+        if (!byEdge[edgeKey]) {
+          byEdge[edgeKey] = {
+            from: routeSystemKey(conn.from),
+            to: routeSystemKey(conn.to),
+            type: conn.type || 'jump_gate',
+          };
+        } else if (byEdge[edgeKey].type !== 'jump_gate' && conn.type === 'jump_gate') {
+          byEdge[edgeKey].type = 'jump_gate';
+        }
+      });
+
+      var rawAdjacency = (tradeData && tradeData.adjacency) || {};
+      Object.keys(rawAdjacency).forEach(function (fromSystemNick) {
+        (rawAdjacency[fromSystemNick] || []).forEach(function (toSystemNick) {
+          if (!toSystemNick || routeSystemKey(fromSystemNick) === routeSystemKey(toSystemNick)) return;
+          if (!findSystemByNick(fromSystemNick) || !findSystemByNick(toSystemNick)) return;
+          if (!edgeHasTravelData(fromSystemNick, toSystemNick)) return;
+          var edgeKey = connectionEdgeKey(fromSystemNick, toSystemNick);
+          if (!byEdge[edgeKey]) {
+            byEdge[edgeKey] = {
+              from: routeSystemKey(fromSystemNick),
+              to: routeSystemKey(toSystemNick),
+              type: inferUniverseConnectionType(fromSystemNick, toSystemNick),
+            };
+          }
+        });
+      });
+
+      return Object.keys(byEdge).map(function (edgeKey) {
+        return byEdge[edgeKey];
+      });
+    }
+
     /* ── Universe map (all systems) ── */
     function showUniverse() {
       viewMode = "universe";
       currentSystem = null;
       infoPanel.classList.remove("visible");
 
-      if (!data || !data.systems.length) {
+      var universeSystems = visibleUniverseSystems();
+      if (!data || !universeSystems.length) {
         svg.innerHTML = '<text x="50%" y="50%" text-anchor="middle" fill="' + COLORS.other + '" font-size="14">' + escXml(t('err_nosys')) + '</text>';
         return;
       }
 
       // Compute bounding box of system positions
       var minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
-      data.systems.forEach(function (s) {
-        if (s.pos[0] < minX) minX = s.pos[0];
-        if (s.pos[1] < minY) minY = s.pos[1];
-        if (s.pos[0] > maxX) maxX = s.pos[0];
-        if (s.pos[1] > maxY) maxY = s.pos[1];
+      universeSystems.forEach(function (entry) {
+        if (entry.pos[0] < minX) minX = entry.pos[0];
+        if (entry.pos[1] < minY) minY = entry.pos[1];
+        if (entry.pos[0] > maxX) maxX = entry.pos[0];
+        if (entry.pos[1] > maxY) maxY = entry.pos[1];
       });
 
       var rangeX = maxX - minX || 1;
@@ -789,10 +1487,11 @@
 
       // Build nick -> screen pos lookup
       var sysPos = {};
-      data.systems.forEach(function (s) {
+      universeSystems.forEach(function (entry) {
+        var s = entry.sys;
         sysPos[s.nick.toUpperCase()] = {
-          x: mapX(s.pos[0]),
-          y: mapY(s.pos[1]),
+          x: mapX(entry.pos[0]),
+          y: mapY(entry.pos[1]),
           name: s.name,
           nick: s.nick,
           obj: s,
@@ -800,10 +1499,18 @@
       });
 
       var lines = "";
+      var routeLines = "";
       var drawnConn = {};
+      var displayConnections = universeConnectionsForDisplay();
+      var routeSystemSet = Object.create(null);
+      if (activeRouteResult && Array.isArray(activeRouteResult.systemPath)) {
+        activeRouteResult.systemPath.forEach(function (systemNick) {
+          routeSystemSet[String(systemNick || '').toUpperCase()] = true;
+        });
+      }
 
       // Draw connections
-      data.connections.forEach(function (c) {
+      displayConnections.forEach(function (c) {
         var from = sysPos[c.from.toUpperCase()];
         var to = sysPos[c.to.toUpperCase()];
         if (!from || !to) return;
@@ -822,8 +1529,19 @@
                  ' stroke="' + color + '" stroke-width="1.2" opacity="' + opacity + '"' + dash + '/>';
       });
 
+      if (activeRouteResult && Array.isArray(activeRouteResult.systemPath) && activeRouteResult.systemPath.length > 1) {
+        for (var ri = 0; ri < activeRouteResult.systemPath.length - 1; ri++) {
+          var routeFrom = sysPos[String(activeRouteResult.systemPath[ri]).toUpperCase()];
+          var routeTo = sysPos[String(activeRouteResult.systemPath[ri + 1]).toUpperCase()];
+          if (!routeFrom || !routeTo) continue;
+          routeLines += '<line x1="' + routeFrom.x + '" y1="' + routeFrom.y + '" x2="' + routeTo.x + '" y2="' + routeTo.y + '"' +
+            ' stroke="#fbbf24" stroke-width="4" opacity="0.92" stroke-linecap="round"/>';
+        }
+      }
+
       var nodes = "";
-      data.systems.forEach(function (s) {
+      universeSystems.forEach(function (entry) {
+        var s = entry.sys;
         var sp = sysPos[s.nick.toUpperCase()];
         if (!sp) return;
 
@@ -840,6 +1558,9 @@
         var fillColor = hasStation ? COLORS.station : COLORS.planet;
 
         nodes += '<g class="uv-system-node" data-nick="' + escAttr(s.nick) + '" style="cursor:pointer;">' +
+                 (routeSystemSet[s.nick.toUpperCase()]
+                  ? '<circle cx="' + sp.x + '" cy="' + sp.y + '" r="' + (r + 5) + '" fill="rgba(251,191,36,0.18)" stroke="#fbbf24" stroke-width="1.5"/>'
+                  : '') +
                  '<circle cx="' + sp.x + '" cy="' + sp.y + '" r="' + r + '"' +
                  ' fill="' + fillColor + '" opacity="0.8"' +
                  ' stroke="' + fillColor + '" stroke-width="0.5" stroke-opacity="0.4"/>' +
@@ -853,7 +1574,7 @@
 
       viewBox = { x: 0, y: 0, w: w, h: h };
       svg.setAttribute("viewBox", viewBox.x + " " + viewBox.y + " " + viewBox.w + " " + viewBox.h);
-      svg.innerHTML = '<g id="connections">' + lines + '</g><g id="nodes">' + nodes + '</g>';
+      svg.innerHTML = '<g id="connections">' + lines + '</g><g id="routeOverlay">' + routeLines + '</g><g id="nodes">' + nodes + '</g>';
 
       // Adjust container height
       var aspect = h / w;
@@ -870,14 +1591,21 @@
       });
 
       // Update breadcrumb
-      breadcrumb.innerHTML = '<span>' + escXml(t('bc_universe')) + '</span>';
+      var activeSectorMeta = universeSectorDefs[activeUniverseSector] || null;
+      var sectorLabel = activeSectorMeta && universeSectorOrder.length > 1 ? activeSectorMeta.displayName : '';
+      breadcrumb.innerHTML = sectorLabel
+        ? '<span>' + escXml(t('bc_universe')) + '</span><span class="separator">›</span><span>' + escXml(sectorLabel) + '</span>'
+        : '<span>' + escXml(t('bc_universe')) + '</span>';
 
       // Update stats
       var totalObj = 0;
-      data.systems.forEach(function (s) { totalObj += (s.objects ? s.objects.length : 0); });
-      statsEl.innerHTML = "Systeme: <strong>" + data.systems.length + "</strong> · " +
-                          "Verbindungen: <strong>" + data.connections.length + "</strong> · " +
-                          "Objekte: <strong>" + totalObj + "</strong>";
+      universeSystems.forEach(function (entry) { totalObj += (entry.sys.objects ? entry.sys.objects.length : 0); });
+      var visibleConnections = displayConnections.filter(function (c) {
+        return !!sysPos[c.from.toUpperCase()] && !!sysPos[c.to.toUpperCase()];
+      });
+      statsEl.innerHTML = t('stats_systems') + ': <strong>' + universeSystems.length + '</strong> · ' +
+                          t('stats_connections') + ': <strong>' + visibleConnections.length + '</strong> · ' +
+                          t('stats_objects') + ': <strong>' + totalObj + '</strong>';
 
       // Legend
       legendEl.innerHTML =
@@ -1255,13 +1983,29 @@
     }
 
     function updateBreadcrumb(sys) {
-      breadcrumb.innerHTML =
-        '<a id="bcUniverse">' + escXml(t('bc_universe')) + '</a>' +
-        '<span class="separator">›</span>' +
-        '<span>' + escXml(systemDisplayName(sys)) + '</span>';
+      var activeSectorMeta = universeSectorDefs[activeUniverseSector] || null;
+      var hasSectorBreadcrumb = activeSectorMeta && universeSectorOrder.length > 1;
+      breadcrumb.innerHTML = hasSectorBreadcrumb
+        ? '<a id="bcUniverse">' + escXml(t('bc_universe')) + '</a>' +
+          '<span class="separator">›</span>' +
+          '<a id="bcSector">' + escXml(activeSectorMeta.displayName) + '</a>' +
+          '<span class="separator">›</span>' +
+          '<span>' + escXml(systemDisplayName(sys)) + '</span>'
+        : '<a id="bcUniverse">' + escXml(t('bc_universe')) + '</a>' +
+          '<span class="separator">›</span>' +
+          '<span>' + escXml(systemDisplayName(sys)) + '</span>';
       document.getElementById("bcUniverse").addEventListener("click", function () {
+        if (universeSectorDefs.universe) {
+          activeUniverseSector = 'universe';
+          renderUniverseSectorTabs();
+        }
         showUniverse();
       });
+      if (hasSectorBreadcrumb) {
+        document.getElementById("bcSector").addEventListener("click", function () {
+          showUniverse();
+        });
+      }
     }
 
     /* ── Pan & Zoom ── */
@@ -1396,6 +2140,23 @@
       }
     });
 
+    routeFindBtn.addEventListener("click", findRoutes);
+    routeClearBtn.addEventListener("click", function () {
+      clearRouteSelection(true);
+    });
+    routeStartInput.addEventListener("change", function () {
+      syncRouteInput(routeStartInput, true);
+    });
+    routeEndInput.addEventListener("change", function () {
+      syncRouteInput(routeEndInput, false);
+    });
+    routeStartInput.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") findRoutes();
+    });
+    routeEndInput.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") findRoutes();
+    });
+
     /* ── Info panel close ── */
     infoClose.addEventListener("click", function () {
       infoPanel.classList.remove("visible");
@@ -1416,6 +2177,36 @@
     /* ── Helpers ── */
     function fmtNum(value) {
       return new Intl.NumberFormat(lang === "de" ? "de-DE" : "en-US").format(Math.round(value || 0));
+    }
+
+    function fmtTime(seconds) {
+      var total = Math.max(0, Math.round(seconds || 0));
+      var hours = Math.floor(total / 3600);
+      var minutes = Math.floor((total % 3600) / 60);
+      var secs = total % 60;
+      if (hours) return hours + 'h ' + String(minutes).padStart(2, '0') + 'm ' + String(secs).padStart(2, '0') + 's';
+      if (minutes) return minutes + 'm ' + String(secs).padStart(2, '0') + 's';
+      return secs + 's';
+    }
+
+    function rerenderCurrentView() {
+      if (!data) return;
+      if (viewMode === 'system' && currentSystem) {
+        showSystem(currentSystem);
+      } else {
+        showUniverse();
+      }
+    }
+
+    function routeSystemKey(systemNick) {
+      return String(systemNick || '').toUpperCase();
+    }
+
+    function findSystemByNick(systemNick) {
+      var lookup = routeSystemKey(systemNick);
+      return (data && data.systems || []).find(function (entry) {
+        return routeSystemKey(entry.nick) === lookup;
+      }) || null;
     }
 
     function categoryLabel(category) {
@@ -1469,6 +2260,535 @@
     function objectRotation(obj) {
       if (typeof obj.rotate !== "number") return 0;
       return 90 - obj.rotate;
+    }
+
+    function isRoutePointObject(obj) {
+      if (!obj || !Array.isArray(obj.pos) || obj.pos.length < 2) return false;
+      return obj.type === 'station' || obj.type === 'dock' || obj.type === 'depot' ||
+        obj.type === 'weapons_platform' || obj.type === 'mining' || obj.type === 'planet' ||
+        obj.type === 'surprise' || obj.type === 'jump_gate' || obj.type === 'jump_hole';
+    }
+
+    function isBlockedJumpObject(obj) {
+      if (!obj || !obj.goto) return true;
+      var haystack = [obj.nick, obj.name, obj.arch, obj.loadout].join(' ').toLowerCase();
+      return /locked|inactive|sealed|collapsed|disabled|destroyed/.test(haystack) || /nodock|notransport/.test(haystack);
+    }
+
+    function syncRouteInput(input, isStart) {
+      var pointId = resolveRoutePointId(input.value);
+      if (!pointId) return;
+      input.value = routePointLookup[pointId].label;
+      if (isStart) routeStartPointId = pointId;
+      else routeEndPointId = pointId;
+    }
+
+    function resolveRoutePointId(value) {
+      var query = String(value || '').trim().toLowerCase();
+      if (!query) return '';
+      if (routePointLabelLookup[query]) return routePointLabelLookup[query];
+      var exact = routePointCatalog.filter(function (point) {
+        return point.nick.toLowerCase() === query ||
+          (point.base && point.base.toLowerCase() === query) ||
+          point.name.toLowerCase() === query ||
+          ((point.systemName + ' • ' + point.name).toLowerCase() === query);
+      });
+      if (exact.length === 1) return exact[0].id;
+      var partial = routePointCatalog.filter(function (point) {
+        return point.search.indexOf(query) >= 0;
+      });
+      if (partial.length === 1) return partial[0].id;
+      return '';
+    }
+
+    function computeIntraBreakdown(systemNick, fromPos, toPos) {
+      if (!fromPos || !toPos) return null;
+      if (routeEngine && typeof routeEngine._intraSystemBreakdown === 'function') {
+        return routeEngine._intraSystemBreakdown(systemNick, fromPos, toPos);
+      }
+      var dx = Number(toPos[0] || 0) - Number(fromPos[0] || 0);
+      var dz = Number(toPos[1] || 0) - Number(fromPos[1] || 0);
+      var distance = Math.hypot(dx, dz);
+      var seconds = distance / (typeof TradeEngine === 'function' ? TradeEngine.CRUISE_SPEED : 300);
+      return {
+        totalTime: seconds,
+        segments: [{ type: 'open_space', systemNick: systemNick, seconds: seconds, distance: distance }]
+      };
+    }
+
+    function canonicalTradeSystemNick(systemNick) {
+      var lookup = routeSystemKey(systemNick);
+      var systems = (tradeData && tradeData.systems) || {};
+      var match = Object.keys(systems).find(function (nick) {
+        return routeSystemKey(nick) === lookup;
+      });
+      return match || String(systemNick || '');
+    }
+
+    function rawAdjacencyNeighbors(systemNick) {
+      var lookup = routeSystemKey(systemNick);
+      var source = (tradeData && tradeData.adjacency) || {};
+      var entryKey = Object.keys(source).find(function (nick) {
+        return routeSystemKey(nick) === lookup;
+      });
+      return (entryKey ? source[entryKey] : []) || [];
+    }
+
+    function systemGateEntries(systemNick) {
+      var canonical = canonicalTradeSystemNick(systemNick);
+      var travelEntry = (tradeData && tradeData.travel && tradeData.travel[canonical]) || null;
+      return (travelEntry && travelEntry.gates) || [];
+    }
+
+    function adjacencyNeighbors(systemNick) {
+      var merged = Object.create(null);
+      rawAdjacencyNeighbors(systemNick).forEach(function (neighbor) {
+        merged[canonicalTradeSystemNick(neighbor)] = true;
+      });
+      var timedSource = (routeEngine && routeEngine._pathAdjacency) || {};
+      Object.keys(timedSource).forEach(function (nick) {
+        if (routeSystemKey(nick) !== routeSystemKey(systemNick)) return;
+        (timedSource[nick] || []).forEach(function (neighbor) {
+          merged[canonicalTradeSystemNick(neighbor)] = true;
+        });
+      });
+      return Object.keys(merged).filter(function (neighbor) {
+        return edgeHasTravelData(systemNick, neighbor);
+      });
+    }
+
+    function gateOptions(systemNick, targetSystemNick) {
+      var canonical = canonicalTradeSystemNick(systemNick);
+      var targetKey = routeSystemKey(targetSystemNick);
+      var gates = systemGateEntries(canonical);
+      return gates.filter(function (gate) {
+        return routeSystemKey(gate.goto) === targetKey && Array.isArray(gate.pos);
+      }).map(function (gate, index) {
+        return {
+          id: canonical + '=>' + targetKey + '#' + index,
+          systemNick: canonical,
+          targetSystemNick: canonicalTradeSystemNick(targetSystemNick),
+          pos: [Number(gate.pos[0]) || 0, Number(gate.pos[1]) || 0]
+        };
+      });
+    }
+
+    function arrivalGateOptions(systemNick, sourceSystemNick) {
+      var explicit = gateOptions(systemNick, sourceSystemNick);
+      if (explicit.length) return explicit;
+
+      var canonical = canonicalTradeSystemNick(systemNick);
+      var selfKey = routeSystemKey(canonical);
+      return systemGateEntries(canonical).filter(function (gate) {
+        return routeSystemKey(gate.goto) === selfKey && Array.isArray(gate.pos);
+      }).map(function (gate, index) {
+        return {
+          id: canonical + '=>SELF#' + index,
+          systemNick: canonical,
+          targetSystemNick: canonical,
+          pos: [Number(gate.pos[0]) || 0, Number(gate.pos[1]) || 0]
+        };
+      });
+    }
+
+    function edgeHasTravelData(fromSystemNick, toSystemNick) {
+      return gateOptions(fromSystemNick, toSystemNick).length > 0 && arrivalGateOptions(toSystemNick, fromSystemNick).length > 0;
+    }
+
+    function annotateBreakdown(systemNick, breakdown) {
+      var system = findSystemByNick(systemNick);
+      var systemLabel = system ? systemDisplayName(system) : systemNick;
+      return (breakdown && breakdown.segments || []).map(function (segment) {
+        return {
+          type: segment.type,
+          systemNick: systemNick,
+          system: systemLabel,
+          seconds: Math.round(segment.seconds || 0),
+          distance: segment.distance,
+        };
+      });
+    }
+
+    function systemEdgeKey(fromSystemNick, toSystemNick) {
+      return routeSystemKey(fromSystemNick) + '=>' + routeSystemKey(toSystemNick);
+    }
+
+    function copyBlockedEdges(source) {
+      var clone = Object.create(null);
+      Object.keys(source || {}).forEach(function (key) {
+        clone[key] = !!source[key];
+      });
+      return clone;
+    }
+
+    function shortestSystemPath(startSystemNick, endSystemNick, blockedEdges) {
+      var start = canonicalTradeSystemNick(startSystemNick);
+      var end = canonicalTradeSystemNick(endSystemNick);
+      if (!start || !end) return [];
+      if (routeSystemKey(start) === routeSystemKey(end)) return [[start]];
+
+      var queue = [start];
+      var prev = Object.create(null);
+      prev[routeSystemKey(start)] = '';
+      var actualNick = Object.create(null);
+      actualNick[routeSystemKey(start)] = start;
+      var head = 0;
+
+      while (head < queue.length) {
+        var current = queue[head++];
+        if (routeSystemKey(current) === routeSystemKey(end)) break;
+
+        adjacencyNeighbors(current).forEach(function (neighbor) {
+          var canonicalNeighbor = canonicalTradeSystemNick(neighbor);
+          var edgeKey = systemEdgeKey(current, canonicalNeighbor);
+          var neighborKey = routeSystemKey(canonicalNeighbor);
+          if (blockedEdges && blockedEdges[edgeKey]) return;
+          if (neighborKey in prev) return;
+          prev[neighborKey] = routeSystemKey(current);
+          actualNick[neighborKey] = canonicalNeighbor;
+          queue.push(canonicalNeighbor);
+        });
+      }
+
+      var endKey = routeSystemKey(end);
+      if (!(endKey in prev)) return [];
+
+      var path = [];
+      var cursorKey = endKey;
+      while (cursorKey !== '') {
+        path.push(actualNick[cursorKey] || cursorKey);
+        cursorKey = prev[cursorKey];
+      }
+      path.reverse();
+      return [path];
+    }
+
+    function enumerateSystemPaths(startSystemNick, endSystemNick, blockedEdges, maxResults) {
+      var primary = shortestSystemPath(startSystemNick, endSystemNick, blockedEdges);
+      if (!primary.length) return [];
+      return primary.slice(0, Math.max(1, maxResults || 1));
+    }
+
+    function evaluateSystemPath(systemPath, startPoint, endPoint) {
+      if (!Array.isArray(systemPath) || !systemPath.length) return null;
+      if (routeSystemKey(systemPath[0]) !== routeSystemKey(startPoint.systemNick)) return null;
+      if (routeSystemKey(systemPath[systemPath.length - 1]) !== routeSystemKey(endPoint.systemNick)) return null;
+
+      if (systemPath.length === 1) {
+        var direct = computeIntraBreakdown(canonicalTradeSystemNick(startPoint.systemNick), startPoint.pos, endPoint.pos);
+        if (!direct) return null;
+        return {
+          startPointId: startPoint.id,
+          endPointId: endPoint.id,
+          totalTime: Math.round(direct.totalTime),
+          systemPath: systemPath.slice(),
+          systemLabels: systemPath.map(function (systemNick) {
+            var system = findSystemByNick(systemNick);
+            return system ? systemDisplayName(system) : systemNick;
+          }),
+          jumps: 0,
+          jumpEdges: [],
+          segments: annotateBreakdown(systemPath[0], direct),
+          routeKey: systemPath.join('|') + '|' + startPoint.id + '|' + endPoint.id,
+        };
+      }
+
+      var gateTime = typeof TradeEngine === 'function' ? TradeEngine.GATE_TIME : 10;
+      var firstExitOptions = gateOptions(systemPath[0], systemPath[1]);
+      var firstArrivalOptions = arrivalGateOptions(systemPath[1], systemPath[0]);
+      if (!firstExitOptions.length || !firstArrivalOptions.length) return null;
+
+      var bestFirst = null;
+      firstExitOptions.forEach(function (exitGate) {
+        var breakdown = computeIntraBreakdown(systemPath[0], startPoint.pos, exitGate.pos);
+        if (!breakdown) return;
+        if (!bestFirst || breakdown.totalTime < bestFirst.breakdown.totalTime) {
+          bestFirst = { gate: exitGate, breakdown: breakdown };
+        }
+      });
+      if (!bestFirst) return null;
+
+      var states = firstArrivalOptions.map(function (arrivalGate) {
+        return {
+          arrivalGate: arrivalGate,
+          totalTime: bestFirst.breakdown.totalTime + gateTime,
+          segments: annotateBreakdown(systemPath[0], bestFirst.breakdown).concat([{
+            type: 'jump',
+            fromSystemNick: systemPath[0],
+            toSystemNick: systemPath[1],
+            from: (findSystemByNick(systemPath[0]) || {}).name || systemPath[0],
+            to: (findSystemByNick(systemPath[1]) || {}).name || systemPath[1],
+            seconds: Math.round(gateTime),
+          }]),
+          jumpEdges: [{
+            edgeKey: systemEdgeKey(systemPath[0], systemPath[1]),
+            fromSystemNick: systemPath[0],
+            toSystemNick: systemPath[1],
+          }],
+        };
+      });
+
+      for (var i = 1; i < systemPath.length - 1; i++) {
+        var currentSystem = systemPath[i];
+        var nextSystem = systemPath[i + 1];
+        var exitOptions = gateOptions(currentSystem, nextSystem);
+        if (!exitOptions.length) return null;
+
+        if (i === systemPath.length - 1) break;
+        var nextArrivalOptions = arrivalGateOptions(nextSystem, currentSystem);
+        if (!nextArrivalOptions.length) return null;
+
+        var nextStates = Object.create(null);
+        states.forEach(function (state) {
+          exitOptions.forEach(function (exitGate) {
+            var midBreakdown = computeIntraBreakdown(currentSystem, state.arrivalGate.pos, exitGate.pos);
+            if (!midBreakdown) return;
+            var candidateTime = state.totalTime + midBreakdown.totalTime + gateTime;
+            var candidateSegments = state.segments.concat(annotateBreakdown(currentSystem, midBreakdown), [{
+              type: 'jump',
+              fromSystemNick: currentSystem,
+              toSystemNick: nextSystem,
+              from: (findSystemByNick(currentSystem) || {}).name || currentSystem,
+              to: (findSystemByNick(nextSystem) || {}).name || nextSystem,
+              seconds: Math.round(gateTime),
+            }]);
+            var candidateEdges = state.jumpEdges.concat([{
+              edgeKey: systemEdgeKey(currentSystem, nextSystem),
+              fromSystemNick: currentSystem,
+              toSystemNick: nextSystem,
+            }]);
+            nextArrivalOptions.forEach(function (arrivalGate) {
+              var stateKey = arrivalGate.id;
+              if (!nextStates[stateKey] || candidateTime < nextStates[stateKey].totalTime) {
+                nextStates[stateKey] = {
+                  arrivalGate: arrivalGate,
+                  totalTime: candidateTime,
+                  segments: candidateSegments,
+                  jumpEdges: candidateEdges,
+                };
+              }
+            });
+          });
+        });
+        states = Object.values(nextStates);
+        if (!states.length) return null;
+      }
+
+      var bestFinal = null;
+      states.forEach(function (state) {
+        var finalBreakdown = computeIntraBreakdown(systemPath[systemPath.length - 1], state.arrivalGate.pos, endPoint.pos);
+        if (!finalBreakdown) return;
+        var totalTime = state.totalTime + finalBreakdown.totalTime;
+        if (!bestFinal || totalTime < bestFinal.totalTime) {
+          bestFinal = {
+            totalTime: totalTime,
+            segments: state.segments.concat(annotateBreakdown(systemPath[systemPath.length - 1], finalBreakdown)),
+            jumpEdges: state.jumpEdges,
+          };
+        }
+      });
+      if (!bestFinal) return null;
+
+      return {
+        startPointId: startPoint.id,
+        endPointId: endPoint.id,
+        totalTime: Math.round(bestFinal.totalTime),
+        systemPath: systemPath.slice(),
+        systemLabels: systemPath.map(function (systemNick) {
+          var system = findSystemByNick(systemNick);
+          return system ? systemDisplayName(system) : systemNick;
+        }),
+        jumps: bestFinal.jumpEdges.length,
+        jumpEdges: bestFinal.jumpEdges,
+        segments: bestFinal.segments,
+        routeKey: systemPath.map(routeSystemKey).join('|'),
+      };
+    }
+
+    function findFastestRoute(startPointId, endPointId, blockedEdges) {
+      var startPoint = routePointLookup[startPointId];
+      var endPoint = routePointLookup[endPointId];
+      if (!startPoint || !endPoint) return null;
+
+      var systemPaths = enumerateSystemPaths(startPoint.systemNick, endPoint.systemNick, blockedEdges || Object.create(null), 1);
+      var best = null;
+      systemPaths.forEach(function (path) {
+        var evaluated = evaluateSystemPath(path, startPoint, endPoint);
+        if (!evaluated) return;
+        if (!best || evaluated.totalTime < best.totalTime) best = evaluated;
+      });
+      return best;
+    }
+
+    function findRouteAlternatives(startPointId, endPointId) {
+      var startPoint = routePointLookup[startPointId];
+      var endPoint = routePointLookup[endPointId];
+      if (!startPoint || !endPoint) return [];
+
+      var routes = [];
+      var seenRoutes = Object.create(null);
+      var triedBlockSets = Object.create(null);
+      var pending = [];
+
+      function enqueueRoute(route) {
+        if (!route || seenRoutes[route.routeKey]) return;
+        seenRoutes[route.routeKey] = true;
+        pending.push(route);
+      }
+
+      function queueEdgeBlockedVariants(route) {
+        (route.jumpEdges || []).forEach(function (edge) {
+          var blocked = Object.create(null);
+          blocked[edge.edgeKey] = true;
+          var blockKey = Object.keys(blocked).sort().join('|');
+          if (triedBlockSets[blockKey]) return;
+          triedBlockSets[blockKey] = true;
+          enqueueRoute(findFastestRoute(startPointId, endPointId, blocked));
+        });
+      }
+
+      var primary = findFastestRoute(startPointId, endPointId, Object.create(null));
+      if (!primary) return [];
+      enqueueRoute(primary);
+      queueEdgeBlockedVariants(primary);
+
+      while (pending.length && routes.length < 4) {
+        pending.sort(function (a, b) {
+          if (a.totalTime !== b.totalTime) return a.totalTime - b.totalTime;
+          return a.jumps - b.jumps;
+        });
+        var next = pending.shift();
+        if (routes.some(function (route) { return route.routeKey === next.routeKey; })) continue;
+        routes.push(next);
+        queueEdgeBlockedVariants(next);
+      }
+
+      return routes;
+    }
+
+    function routeSegmentLabel(segment) {
+      if (segment.type === 'jump') {
+        return '<strong>' + escXml(t('route_jump')) + ':</strong> ' + escXml(segment.from || '-') + ' → ' + escXml(segment.to || '-');
+      }
+      if (segment.type === 'trade_lane') {
+        return '<strong>' + escXml(segment.system || segment.systemNick || '-') + '</strong>: ' + escXml(t('route_trade_lane'));
+      }
+      if (segment.type === 'open_space') {
+        var distanceText = typeof segment.distance === 'number' ? ' (' + escXml(fmtNum(segment.distance)) + ' m)' : '';
+        return '<strong>' + escXml(segment.system || segment.systemNick || '-') + '</strong>: ' + escXml(t('route_open_space')) + distanceText;
+      }
+      return '<strong>' + escXml(segment.system || segment.systemNick || '-') + '</strong>';
+    }
+
+    function renderRouteResults() {
+      routeClearBtn.disabled = !activeRouteResult;
+      if (!routeEngine) {
+        routeSummary.innerHTML = '<span class="uv-route-pill warning">' + escXml(t('route_no_trade_data')) + '</span>';
+        routeResults.innerHTML = '<div class="uv-route-empty">' + escXml(t('route_no_trade_data')) + '</div>';
+        return;
+      }
+      if (!activeRouteOptions.length) {
+        routeSummary.innerHTML = '<span class="uv-route-pill warning">' + escXml(t('route_locked_avoided')) + '</span>';
+        routeResults.innerHTML = '<div class="uv-route-empty">' + escXml(t('route_select_hint')) + '</div>';
+        return;
+      }
+
+      var startPoint = routePointLookup[routeStartPointId];
+      var endPoint = routePointLookup[routeEndPointId];
+      routeSummary.innerHTML = [
+        '<span class="uv-route-pill"><strong>' + escXml(t('route_start_label')) + '</strong> ' + escXml(startPoint ? startPoint.label : '-') + '</span>',
+        '<span class="uv-route-pill"><strong>' + escXml(t('route_end_label')) + '</strong> ' + escXml(endPoint ? endPoint.label : '-') + '</span>',
+        '<span class="uv-route-pill warning">' + escXml(t('route_locked_avoided')) + '</span>',
+        (activeRouteOptions.length > 1 ? '' : '<span class="uv-route-pill">' + escXml(t('route_alt_none')) + '</span>')
+      ].join('');
+
+      routeResults.innerHTML = activeRouteOptions.map(function (route, index) {
+        var title = index === 0 ? t('route_fastest') : (t('route_alternative') + ' ' + index);
+        var segments = route.segments.map(function (segment) {
+          return '<div class="uv-route-segment"><span>' + routeSegmentLabel(segment) + '</span><span>' + escXml(fmtTime(segment.seconds)) + '</span></div>';
+        }).join('');
+        return '<button type="button" class="uv-route-card' + (index === activeRouteIndex ? ' active' : '') + '" data-route-index="' + index + '">' +
+          '<div class="uv-route-card-head">' +
+            '<span class="uv-route-card-title">' + escXml(title) + '</span>' +
+            '<span class="uv-route-card-time">' + escXml(fmtTime(route.totalTime)) + '</span>' +
+          '</div>' +
+          '<p class="uv-route-meta"><strong>' + escXml(t('route_time')) + ':</strong> ' + escXml(fmtTime(route.totalTime)) + ' · <strong>' + escXml(t('route_jumps')) + ':</strong> ' + escXml(String(route.jumps)) + '</p>' +
+          '<p class="uv-route-endpoints"><strong>' + escXml(t('route_start_label')) + ':</strong> ' + escXml(startPoint ? startPoint.label : '-') + '<br><strong>' + escXml(t('route_end_label')) + ':</strong> ' + escXml(endPoint ? endPoint.label : '-') + '</p>' +
+          '<p class="uv-route-systems"><strong>' + escXml(t('route_systems')) + ':</strong> ' + escXml((route.systemLabels || route.systemPath).join(' → ')) + '</p>' +
+          '<div class="uv-route-segments">' + segments + '</div>' +
+        '</button>';
+      }).join('');
+
+      routeResults.querySelectorAll('[data-route-index]').forEach(function (button) {
+        button.addEventListener('click', function () {
+          var index = parseInt(button.getAttribute('data-route-index'), 10);
+          if (!isFinite(index)) return;
+          activeRouteIndex = index;
+          activeRouteResult = activeRouteOptions[index] || null;
+          showUniverse();
+          renderRouteResults();
+        });
+      });
+    }
+
+    function clearRouteSelection(clearInputs) {
+      activeRouteOptions = [];
+      activeRouteIndex = -1;
+      activeRouteResult = null;
+      if (clearInputs) {
+        routeStartPointId = '';
+        routeEndPointId = '';
+        routeStartInput.value = '';
+        routeEndInput.value = '';
+      }
+      rerenderCurrentView();
+      renderRouteResults();
+    }
+
+    function findRoutes() {
+      if (!routeEngine) {
+        renderRouteResults();
+        return;
+      }
+
+      var startPointId = resolveRoutePointId(routeStartInput.value);
+      var endPointId = resolveRoutePointId(routeEndInput.value);
+
+      if (!startPointId) {
+        routeSummary.innerHTML = '<span class="uv-route-pill warning">' + escXml(t('route_invalid_start')) + '</span>';
+        routeResults.innerHTML = '<div class="uv-route-empty">' + escXml(t('route_invalid_start')) + '</div>';
+        return;
+      }
+      if (!endPointId) {
+        routeSummary.innerHTML = '<span class="uv-route-pill warning">' + escXml(t('route_invalid_end')) + '</span>';
+        routeResults.innerHTML = '<div class="uv-route-empty">' + escXml(t('route_invalid_end')) + '</div>';
+        return;
+      }
+      if (startPointId === endPointId) {
+        routeSummary.innerHTML = '<span class="uv-route-pill warning">' + escXml(t('route_same_point')) + '</span>';
+        routeResults.innerHTML = '<div class="uv-route-empty">' + escXml(t('route_same_point')) + '</div>';
+        return;
+      }
+
+      routeStartPointId = startPointId;
+      routeEndPointId = endPointId;
+      routeStartInput.value = routePointLookup[startPointId].label;
+      routeEndInput.value = routePointLookup[endPointId].label;
+
+      activeRouteOptions = findRouteAlternatives(startPointId, endPointId);
+      if (!activeRouteOptions.length) {
+        activeRouteIndex = -1;
+        activeRouteResult = null;
+        routeSummary.innerHTML = '<span class="uv-route-pill warning">' + escXml(t('route_no_path')) + '</span>';
+        routeResults.innerHTML = '<div class="uv-route-empty">' + escXml(t('route_no_path')) + '</div>';
+        rerenderCurrentView();
+        return;
+      }
+
+      activeRouteIndex = 0;
+      activeRouteResult = activeRouteOptions[0];
+      showUniverse();
+      renderRouteResults();
     }
 
     function shouldShowLabel(obj) {

@@ -134,6 +134,74 @@ def parse_item_names(data_root: Path, res: DLLResolver) -> dict[str, str]:
     return names
 
 
+def parse_multiuniverse(universe_dir: Path, res: DLLResolver) -> tuple[dict[str, list[dict]], dict[str, dict[str, list[str]]]]:
+    multi_file = universe_dir / "multiuniverse.ini"
+    if not multi_file.exists():
+        return {}, {}
+
+    positions_by_system: dict[str, list[dict]] = {}
+    labels_by_map: dict[str, dict[str, list[str]]] = {}
+
+    try:
+        sections = parse_ini(multi_file)
+    except Exception:
+        return {}, {}
+
+    for sec, entries in sections:
+        if sec.lower() != "sector":
+            continue
+
+        mapping = ""
+        for key, value in entries:
+            if key.lower() == "mapping":
+                mapping = value.split(",", 1)[0].strip()
+                break
+        if not mapping:
+            continue
+
+        map_key = mapping.lower()
+        label_bucket = labels_by_map.setdefault(map_key, {"ids": [], "names": []})
+
+        for key, value in entries:
+            if key.lower() != "label":
+                continue
+            label_id = value.split(",", 1)[0].strip()
+            if not label_id:
+                continue
+            if label_id not in label_bucket["ids"]:
+                label_bucket["ids"].append(label_id)
+            label_name = res.get(label_id) or ""
+            if label_name and label_name not in label_bucket["names"]:
+                label_bucket["names"].append(label_name)
+
+        for key, value in entries:
+            if key.lower() != "system":
+                continue
+            parts = [part.strip() for part in value.split(",")]
+            if len(parts) < 3:
+                continue
+            nick = parts[0]
+            if not nick:
+                continue
+            try:
+                pos_x = float(parts[1]) if parts[1] else 0.0
+                pos_y = float(parts[2]) if parts[2] else 0.0
+            except ValueError:
+                continue
+
+            bucket = positions_by_system.setdefault(nick.upper(), [])
+            if any(str(entry.get("map", "")).lower() == map_key for entry in bucket):
+                continue
+            bucket.append({
+                "map": mapping,
+                "pos": [pos_x, pos_y],
+                "label_ids": list(label_bucket["ids"]),
+                "labels": list(label_bucket["names"]),
+            })
+
+    return positions_by_system, labels_by_map
+
+
 def parse_loadouts(data_root: Path, fl_sections: list[tuple[str, list[tuple[str, str]]]], item_names: dict[str, str]) -> dict[str, dict]:
     loadout_files: list[Path] = []
     for sec, entries in fl_sections:
@@ -190,9 +258,11 @@ def extract_universe(fl_ini: Path, res: DLLResolver) -> dict:
     parent = fl_ini.parent
     data_root = parent.parent / "DATA" if parent.name.lower() == "exe" else parent / "DATA"
     universe_file = data_root / "UNIVERSE" / "universe.ini"
+    universe_dir = universe_file.parent
     solar_meta = parse_solar_meta(data_root)
     item_names = parse_item_names(data_root, res)
     loadouts = parse_loadouts(data_root, fl_sections, item_names)
+    multi_positions, _multi_labels = parse_multiuniverse(universe_dir, res)
 
     if not universe_file.exists():
         print(f"  ERROR: {universe_file} not found")
@@ -233,8 +303,10 @@ def extract_universe(fl_ini: Path, res: DLLResolver) -> dict:
                 "nick": nick,
                 "name": name,
                 "pos": [pos_x, pos_y],
+                "universe_pos": [pos_x, pos_y],
                 "file": sys_file,
                 "navmapscale": navmap_scale,
+                "map_positions": multi_positions.get(nick.upper(), []),
             }
         elif sec_lower == "base":
             vals = {k.lower(): v for k, v in entries}
@@ -279,6 +351,8 @@ def extract_universe(fl_ini: Path, res: DLLResolver) -> dict:
                 "nick": sys_info["nick"],
                 "name": sys_info["name"],
                 "pos": sys_info["pos"],
+                "universe_pos": sys_info.get("universe_pos", sys_info["pos"]),
+                "map_positions": sys_info.get("map_positions", []),
                 "objects": [],
             })
             continue
@@ -502,6 +576,8 @@ def extract_universe(fl_ini: Path, res: DLLResolver) -> dict:
             "nick": sys_info["nick"],
             "name": sys_info["name"],
             "pos": sys_info["pos"],
+            "universe_pos": sys_info.get("universe_pos", sys_info["pos"]),
+            "map_positions": sys_info.get("map_positions", []),
             "objects": objects,
         }
         if trade_lanes:
