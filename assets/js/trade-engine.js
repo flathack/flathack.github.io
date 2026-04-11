@@ -80,23 +80,7 @@ class TradeEngine {
     return (sysTravel && sysTravel.gates) || [];
   }
 
-  _findGatePos(systemNick, targetSystem) {
-    const gate = this._gateEntries(systemNick).find(g => g.goto === targetSystem && Array.isArray(g.pos));
-    return gate ? gate.pos : null;
-  }
-
-  _findArrivalGatePos(systemNick, sourceSystem) {
-    const explicit = this._findGatePos(systemNick, sourceSystem);
-    if (explicit) return explicit;
-    const gate = this._gateEntries(systemNick).find(g => g.goto === systemNick && Array.isArray(g.pos));
-    return gate ? gate.pos : null;
-  }
-
-  _hasTravelData(fromSystemNick, toSystemNick) {
-    return !!this._findGatePos(fromSystemNick, toSystemNick) && !!this._findArrivalGatePos(toSystemNick, fromSystemNick);
-  }
-
-  _intraSystemBreakdown(systemNick, fromPos, toPos) {
+  _surfaceIntraSystemBreakdown(systemNick, fromPos, toPos) {
     const dx = toPos[0] - fromPos[0], dz = toPos[1] - fromPos[1];
     const directDist = Math.hypot(dx, dz);
     const directTime = directDist / TradeEngine.CRUISE_SPEED;
@@ -126,7 +110,6 @@ class TradeEngine {
         if (dT < nearToDist) { nearToDist = dT; nearToIdx = j; }
       }
 
-      // Fly to TL, ride it, fly from TL
       const timeToTL = nearFromDist / TradeEngine.CRUISE_SPEED;
       const timeFromTL = nearToDist / TradeEngine.CRUISE_SPEED;
 
@@ -152,6 +135,145 @@ class TradeEngine {
     }
 
     return best;
+  }
+
+  _gateNodeLabel(gate, fallback) {
+    return gate.nick || gate.target || fallback;
+  }
+
+  _findGatePos(systemNick, targetSystem) {
+    const gate = this._gateEntries(systemNick).find(g => g.goto === targetSystem && Array.isArray(g.pos));
+    return gate ? gate.pos : null;
+  }
+
+  _findArrivalGatePos(systemNick, sourceSystem) {
+    const explicit = this._findGatePos(systemNick, sourceSystem);
+    if (explicit) return explicit;
+    const gate = this._gateEntries(systemNick).find(g => g.goto === systemNick && Array.isArray(g.pos));
+    return gate ? gate.pos : null;
+  }
+
+  _hasTravelData(fromSystemNick, toSystemNick) {
+    return !!this._findGatePos(fromSystemNick, toSystemNick) && !!this._findArrivalGatePos(toSystemNick, fromSystemNick);
+  }
+
+  _intraSystemBreakdown(systemNick, fromPos, toPos) {
+    const gates = this._gateEntries(systemNick)
+      .map((gate, index) => ({ ...gate, _index: index }))
+      .filter(gate => Array.isArray(gate.pos));
+    const gateByNick = new Map();
+    for (const gate of gates) {
+      if (gate.nick) gateByNick.set(gate.nick, gate);
+    }
+
+    const shortcutEdges = gates
+      .filter(gate => gate.goto === systemNick && gate.target && gateByNick.has(gate.target))
+      .map(gate => ({
+        fromId: 'gate:' + gate._index,
+        toId: 'gate:' + gateByNick.get(gate.target)._index,
+        fromLabel: this._gateNodeLabel(gate, 'Gate ' + (gate._index + 1)),
+        toLabel: this._gateNodeLabel(gateByNick.get(gate.target), 'Gate ' + (gateByNick.get(gate.target)._index + 1)),
+      }));
+
+    if (!shortcutEdges.length) {
+      return this._surfaceIntraSystemBreakdown(systemNick, fromPos, toPos);
+    }
+
+    const nodes = [
+      { id: 'start', pos: fromPos, label: 'Start' },
+      { id: 'end', pos: toPos, label: 'Destination' },
+      ...gates.map(gate => ({
+        id: 'gate:' + gate._index,
+        pos: gate.pos,
+        label: this._gateNodeLabel(gate, 'Gate ' + (gate._index + 1)),
+      })),
+    ];
+
+    const nodeById = new Map(nodes.map(node => [node.id, node]));
+    const moveCache = new Map();
+    const dist = new Map();
+    const prev = new Map();
+    const visited = new Set();
+
+    const moveBreakdown = (fromId, toId) => {
+      const cacheKey = fromId + '=>' + toId;
+      if (!moveCache.has(cacheKey)) {
+        const fromNode = nodeById.get(fromId);
+        const toNode = nodeById.get(toId);
+        moveCache.set(cacheKey, this._surfaceIntraSystemBreakdown(systemNick, fromNode.pos, toNode.pos));
+      }
+      return moveCache.get(cacheKey);
+    };
+
+    for (const node of nodes) dist.set(node.id, Infinity);
+    dist.set('start', 0);
+
+    while (visited.size < nodes.length) {
+      let currentId = '';
+      let currentDist = Infinity;
+      for (const node of nodes) {
+        if (visited.has(node.id)) continue;
+        const candidate = dist.get(node.id);
+        if (candidate < currentDist) {
+          currentDist = candidate;
+          currentId = node.id;
+        }
+      }
+      if (!currentId || !isFinite(currentDist)) break;
+      if (currentId === 'end') break;
+      visited.add(currentId);
+
+      for (const node of nodes) {
+        if (node.id === currentId || visited.has(node.id)) continue;
+        const breakdown = moveBreakdown(currentId, node.id);
+        const nextDist = currentDist + breakdown.totalTime;
+        if (nextDist < dist.get(node.id)) {
+          dist.set(node.id, nextDist);
+          prev.set(node.id, { fromId: currentId, kind: 'move', breakdown });
+        }
+      }
+
+      for (const edge of shortcutEdges) {
+        if (edge.fromId !== currentId || visited.has(edge.toId)) continue;
+        const nextDist = currentDist + TradeEngine.GATE_TIME;
+        if (nextDist < dist.get(edge.toId)) {
+          dist.set(edge.toId, nextDist);
+          prev.set(edge.toId, {
+            fromId: currentId,
+            kind: 'intra_jump',
+            segment: {
+              type: 'intra_jump',
+              systemNick,
+              from: edge.fromLabel,
+              to: edge.toLabel,
+              seconds: TradeEngine.GATE_TIME,
+            },
+          });
+        }
+      }
+    }
+
+    if (!isFinite(dist.get('end'))) {
+      return this._surfaceIntraSystemBreakdown(systemNick, fromPos, toPos);
+    }
+
+    const segments = [];
+    let cursor = 'end';
+    while (cursor !== 'start') {
+      const step = prev.get(cursor);
+      if (!step) break;
+      if (step.kind === 'move') {
+        segments.unshift(...step.breakdown.segments);
+      } else if (step.kind === 'intra_jump') {
+        segments.unshift(step.segment);
+      }
+      cursor = step.fromId;
+    }
+
+    return {
+      totalTime: dist.get('end'),
+      segments,
+    };
   }
 
   _intraSystemTime(systemNick, fromPos, toPos) {

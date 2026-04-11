@@ -361,7 +361,7 @@ def extract_travel_data(universe_file: Path, systems: dict) -> dict:
 
         tl_rings: dict[str, dict] = {}  # nick -> {pos, prev, next}
         base_objs: list[dict] = []      # [{nick, pos}]
-        gate_objs: list[dict] = []      # [{pos, goto}]
+        gate_objs: list[dict] = []      # [{nick, pos, goto, target}]
 
         for sec, entries in parse_ini(sys_file):
             if sec.lower() != "object":
@@ -397,10 +397,13 @@ def extract_travel_data(universe_file: Path, systems: dict) -> dict:
             if goto_str:
                 goto_parts = [p.strip() for p in goto_str.split(",")]
                 goto_sys = goto_parts[0].upper() if goto_parts else ""
+                goto_target = goto_parts[1] if len(goto_parts) > 1 else ""
                 if goto_sys:
                     gate_objs.append({
+                        "nick": nickname,
                         "pos": [round(x), round(z)],
                         "goto": goto_sys,
+                        "target": goto_target,
                     })
 
         # Build TL polylines

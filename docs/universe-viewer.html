@@ -729,6 +729,7 @@
         route_start_label: 'Start',
         route_end_label: 'Ziel',
         route_jump: 'Sprung',
+        route_inner_jump: 'Interner Sprung',
         route_trade_lane: 'Trade Lane',
         route_open_space: 'Freiflug',
         sector_sirius: 'Sirius',
@@ -804,6 +805,7 @@
         route_start_label: 'Start',
         route_end_label: 'Destination',
         route_jump: 'Jump',
+        route_inner_jump: 'Internal jump',
         route_trade_lane: 'Trade Lane',
         route_open_space: 'Open space',
         sector_sirius: 'Sirius',
@@ -2639,6 +2641,8 @@
           system: systemLabel,
           seconds: Math.round(segment.seconds || 0),
           distance: segment.distance,
+          from: segment.from,
+          to: segment.to,
         };
       });
     }
@@ -2903,6 +2907,9 @@
     function routeSegmentLabel(segment) {
       if (segment.type === 'jump') {
         return '<strong>' + escXml(t('route_jump')) + ':</strong> ' + escXml(segment.from || '-') + ' → ' + escXml(segment.to || '-');
+      }
+      if (segment.type === 'intra_jump') {
+        return '<strong>' + escXml(segment.system || segment.systemNick || '-') + '</strong>: ' + escXml(t('route_inner_jump')) + ' ' + escXml(segment.from || '-') + ' → ' + escXml(segment.to || '-');
       }
       if (segment.type === 'trade_lane') {
         return '<strong>' + escXml(segment.system || segment.systemNick || '-') + '</strong>: ' + escXml(t('route_trade_lane'));
