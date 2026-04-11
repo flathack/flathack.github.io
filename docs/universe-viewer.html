@@ -1384,6 +1384,129 @@
       });
     }
 
+    function systemGlobalUniversePosition(sys) {
+      if (!sys) return null;
+      if (Array.isArray(sys.universe_pos) && sys.universe_pos.length >= 2) return sys.universe_pos;
+      if (Array.isArray(sys.pos) && sys.pos.length >= 2) return sys.pos;
+      return null;
+    }
+
+    function sectorComparablePosition(sys, sectorKey) {
+      return universeSystemPosition(sys, sectorKey) || systemGlobalUniversePosition(sys);
+    }
+
+    function preferredSectorKeyForSystem(sys, excludeSectorKey) {
+      if (!sys) return '';
+      var sectorKeys = [];
+      (sys.map_positions || []).forEach(function (entry) {
+        var mapKey = normalizeSectorMapName(entry && entry.map);
+        if (!mapKey) return;
+        var sectorKey = mapKey === 'sector01' ? 'sirius' : mapKey;
+        if (!universeSectorDefs[sectorKey]) return;
+        if (sectorKeys.indexOf(sectorKey) < 0) sectorKeys.push(sectorKey);
+      });
+      if (!sectorKeys.length && universeSectorDefs.sirius) sectorKeys.push('sirius');
+      return sectorKeys.find(function (key) { return key !== excludeSectorKey; }) || sectorKeys[0] || '';
+    }
+
+    function sectorDisplayNameForSystem(sys, excludeSectorKey) {
+      var sectorKey = preferredSectorKeyForSystem(sys, excludeSectorKey);
+      var meta = sectorKey ? (universeSectorDefs[sectorKey] || null) : null;
+      return meta ? (meta.displayName || sectorKey) : '';
+    }
+
+    function sectorConnectionIndicators(displayConnections, sysPos, mapX, mapY, bounds) {
+      if (!data || !activeUniverseSector || activeUniverseSector === 'universe' || activeUniverseSector === 'galaxy') return [];
+
+      var indicators = [];
+      displayConnections.forEach(function (conn) {
+        var fromVisible = !!sysPos[String(conn.from || '').toUpperCase()];
+        var toVisible = !!sysPos[String(conn.to || '').toUpperCase()];
+        if (fromVisible === toVisible) return;
+
+        var visibleNick = fromVisible ? conn.from : conn.to;
+        var hiddenNick = fromVisible ? conn.to : conn.from;
+        var visibleNode = sysPos[String(visibleNick || '').toUpperCase()];
+        var visibleSystem = findSystemByNick(visibleNick);
+        var hiddenSystem = findSystemByNick(hiddenNick);
+        if (!visibleNode || !visibleSystem || !hiddenSystem) return;
+
+        var hiddenSectorKey = preferredSectorKeyForSystem(hiddenSystem, activeUniverseSector);
+        var visibleComparable = sectorComparablePosition(visibleSystem, activeUniverseSector);
+        var hiddenComparable = sectorComparablePosition(hiddenSystem, hiddenSectorKey);
+        var visibleGlobal = systemGlobalUniversePosition(visibleSystem);
+        var hiddenGlobal = systemGlobalUniversePosition(hiddenSystem);
+
+        var dxWorld = 0;
+        var dyWorld = 0;
+        if (visibleComparable && hiddenComparable) {
+          dxWorld = hiddenComparable[0] - visibleComparable[0];
+          dyWorld = hiddenComparable[1] - visibleComparable[1];
+        }
+        if (!dxWorld && !dyWorld && visibleGlobal && hiddenGlobal) {
+          dxWorld = hiddenGlobal[0] - visibleGlobal[0];
+          dyWorld = hiddenGlobal[1] - visibleGlobal[1];
+        }
+        if (!dxWorld && !dyWorld) {
+          var visibleCenterX = (bounds.minX + bounds.maxX) / 2;
+          var visibleCenterY = (bounds.minY + bounds.maxY) / 2;
+          dxWorld = visibleNode.x - visibleCenterX;
+          dyWorld = visibleNode.y - visibleCenterY;
+          if (!dxWorld && !dyWorld) dxWorld = 1;
+        }
+
+        var distance = Math.hypot(dxWorld, dyWorld) || 1;
+        var ux = dxWorld / distance;
+        var uy = dyWorld / distance;
+
+        var travelToHidden = edgeHasTravelData(visibleNick, hiddenNick);
+        var travelFromHidden = edgeHasTravelData(hiddenNick, visibleNick);
+        if (!travelToHidden && !travelFromHidden) return;
+
+        var startX = visibleNode.x;
+        var startY = visibleNode.y;
+        var edgeCandidates = [];
+        var minX = bounds.minX, minY = bounds.minY, maxX = bounds.maxX, maxY = bounds.maxY;
+
+        if (ux > 0.0001) edgeCandidates.push((maxX - startX) / ux);
+        if (ux < -0.0001) edgeCandidates.push((minX - startX) / ux);
+        if (uy > 0.0001) edgeCandidates.push((maxY - startY) / uy);
+        if (uy < -0.0001) edgeCandidates.push((minY - startY) / uy);
+
+        edgeCandidates = edgeCandidates.filter(function (value) { return value > 0; }).sort(function (a, b) { return a - b; });
+        if (!edgeCandidates.length) return;
+
+        var edgeT = edgeCandidates[0];
+        var endX = startX + ux * edgeT;
+        var endY = startY + uy * edgeT;
+        var inset = 18;
+        endX = Math.max(minX + 4, Math.min(maxX - 4, endX - ux * inset));
+        endY = Math.max(minY + 4, Math.min(maxY - 4, endY - uy * inset));
+
+        var targetSectorLabel = sectorDisplayNameForSystem(hiddenSystem, activeUniverseSector);
+        var targetSystemLabel = systemDisplayName(hiddenSystem);
+        var labelPrefix = travelToHidden && travelFromHidden ? '↔ ' : (travelToHidden ? '→ ' : '← ');
+        var label = labelPrefix + (targetSectorLabel ? (targetSectorLabel + ' / ') : '') + targetSystemLabel;
+
+        indicators.push({
+          key: connectionEdgeKey(conn.from, conn.to),
+          fromX: startX,
+          fromY: startY,
+          toX: endX,
+          toY: endY,
+          color: conn.type === 'jump_hole' ? COLORS.jump_hole : COLORS.jump_gate,
+          isHole: conn.type === 'jump_hole',
+          arrowOut: !!travelToHidden,
+          arrowIn: !!travelFromHidden,
+          label: label,
+          labelX: endX - ux * 8 + (-uy * 10),
+          labelY: endY - uy * 8 + (ux * 10),
+        });
+      });
+
+      return indicators;
+    }
+
     function connectionEdgeKey(fromSystemNick, toSystemNick) {
       var fromKey = routeSystemKey(fromSystemNick);
       var toKey = routeSystemKey(toSystemNick);
@@ -1542,6 +1665,7 @@
 
       var lines = "";
       var routeLines = "";
+      var sectorMarkers = "";
       var drawnConn = {};
       var displayConnections = universeConnectionsForDisplay();
       var routeSystemSet = Object.create(null);
@@ -1597,6 +1721,45 @@
         }
       });
 
+      sectorConnectionIndicators(displayConnections, sysPos, mapX, mapY, {
+        minX: 0,
+        minY: 0,
+        maxX: w,
+        maxY: h,
+      }).forEach(function (indicator) {
+        var dash = indicator.isHole ? ' stroke-dasharray="6,4"' : '';
+        sectorMarkers += '<line x1="' + indicator.fromX + '" y1="' + indicator.fromY + '" x2="' + indicator.toX + '" y2="' + indicator.toY + '"' +
+                         ' stroke="' + indicator.color + '" stroke-width="1.6" opacity="0.78"' + dash + '/>';
+
+        function renderArrow(tipX, tipY, ux, uy) {
+          var px = -uy;
+          var py = ux;
+          var head = 10;
+          var halfWidth = 4.5;
+          var baseX = tipX - ux * head;
+          var baseY = tipY - uy * head;
+          var leftX = baseX + px * halfWidth;
+          var leftY = baseY + py * halfWidth;
+          var rightX = baseX - px * halfWidth;
+          var rightY = baseY - py * halfWidth;
+          sectorMarkers += '<polygon points="' + tipX + ',' + tipY + ' ' + leftX + ',' + leftY + ' ' + rightX + ',' + rightY + '"' +
+                           ' fill="' + indicator.color + '" opacity="0.92"/>';
+        }
+
+        var dx = indicator.toX - indicator.fromX;
+        var dy = indicator.toY - indicator.fromY;
+        var len = Math.hypot(dx, dy) || 1;
+        var ux = dx / len;
+        var uy = dy / len;
+        if (indicator.arrowOut) renderArrow(indicator.toX, indicator.toY, ux, uy);
+        if (indicator.arrowIn) renderArrow(indicator.fromX, indicator.fromY, -ux, -uy);
+
+        sectorMarkers += '<text x="' + indicator.labelX + '" y="' + indicator.labelY + '"' +
+                         ' fill="' + indicator.color + '" font-size="9" font-family="IBM Plex Mono, monospace"' +
+                         ' stroke="rgba(6,14,26,0.92)" stroke-width="2" paint-order="stroke" opacity="0.95">' +
+                         escXml(indicator.label) + '</text>';
+      });
+
       if (activeRouteResult && Array.isArray(activeRouteResult.systemPath) && activeRouteResult.systemPath.length > 1) {
         for (var ri = 0; ri < activeRouteResult.systemPath.length - 1; ri++) {
           var routeFrom = sysPos[String(activeRouteResult.systemPath[ri]).toUpperCase()];
@@ -1642,7 +1805,7 @@
 
       viewBox = { x: 0, y: 0, w: w, h: h };
       svg.setAttribute("viewBox", viewBox.x + " " + viewBox.y + " " + viewBox.w + " " + viewBox.h);
-      svg.innerHTML = '<g id="connections">' + lines + '</g><g id="routeOverlay">' + routeLines + '</g><g id="nodes">' + nodes + '</g>';
+      svg.innerHTML = '<g id="connections">' + lines + sectorMarkers + '</g><g id="routeOverlay">' + routeLines + '</g><g id="nodes">' + nodes + '</g>';
 
       // Adjust container height
       var aspect = h / w;
@@ -2175,7 +2338,7 @@
           }
           node.style.opacity = match ? "1" : "0.15";
         });
-        svg.querySelectorAll("#connections line, #connections polygon").forEach(function (line) {
+        svg.querySelectorAll("#connections line, #connections polygon, #connections text").forEach(function (line) {
           line.style.opacity = "0.08";
         });
       } else {
@@ -2196,7 +2359,7 @@
     searchInput.addEventListener("change", function () {
       if (!searchInput.value.trim()) {
         svg.querySelectorAll(".uv-system-node, .uv-obj-node").forEach(function (n) { n.style.opacity = "1"; });
-        svg.querySelectorAll("#connections line, #connections polygon").forEach(function (l) { l.style.opacity = ""; });
+        svg.querySelectorAll("#connections line, #connections polygon, #connections text").forEach(function (l) { l.style.opacity = ""; });
       }
     });
 
