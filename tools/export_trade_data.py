@@ -279,6 +279,15 @@ def commodity_fallback(nick: str) -> str:
     return " ".join(p.capitalize() for p in raw.split("_") if p) or nick
 
 
+def market_item_fallback(nick: str) -> str:
+    raw = nick.strip()
+    for prefix in ("ge_", "li_", "br_", "rh_", "ku_", "co_", "gd_", "fc_", "commodity_"):
+        if raw.lower().startswith(prefix):
+            raw = raw[len(prefix) :]
+            break
+    return " ".join(p.capitalize() for p in raw.split("_") if p) or nick
+
+
 # ── Extraction Functions ─────────────────────────────────────────
 
 
@@ -619,6 +628,133 @@ def extract_market_entries(
     return by_commodity
 
 
+def extract_special_market_items(
+    goods_files: list[Path],
+    equip_files: list[Path],
+    market_files: list[Path],
+    bases: dict[str, dict],
+    res: DLLResolver,
+) -> tuple[dict[str, dict], dict[str, list[dict]]]:
+    goods_map: dict[str, dict] = {}
+    volumes: dict[str, float] = {}
+
+    for gf in goods_files:
+        for sec, entries in parse_ini(gf):
+            if sec.lower() != "good":
+                continue
+            vals = {k.lower(): v.strip() for k, v in entries}
+            good_nick = vals.get("nickname", "").lower()
+            if not good_nick:
+                continue
+            item_nick = vals.get("equipment", "").lower() or good_nick
+            category = vals.get("category", "").lower()
+            if (
+                good_nick.startswith("commodity_")
+                or item_nick.startswith("commodity_")
+                or category in {"commodity", "ship", "shiphull"}
+            ):
+                continue
+            try:
+                price = int(float(vals.get("price", "0")))
+            except ValueError:
+                price = 0
+            if price <= 0:
+                continue
+            ids = vals.get("ids_name") or vals.get("strid_name") or ""
+            goods_map[good_nick] = {
+                "item_nick": item_nick,
+                "price": price,
+                "name": res.get(ids) if ids else "",
+            }
+
+    for ef in equip_files:
+        for _, entries in parse_ini(ef):
+            vals = {k.lower(): v.strip() for k, v in entries}
+            nick = vals.get("nickname", "").lower()
+            if not nick or nick.startswith("commodity_"):
+                continue
+            if "volume" in vals:
+                try:
+                    volume = float(vals["volume"])
+                except ValueError:
+                    volume = 1.0
+                if volume > 0:
+                    volumes[nick] = volume
+
+    item_meta: dict[str, dict] = {}
+    item_markets: dict[str, list[dict]] = {}
+    for mf in market_files:
+        if mf.name.lower() != "market_misc.ini":
+            continue
+        for sec, entries in parse_ini(mf):
+            if sec.lower() != "basegood":
+                continue
+            base_nick = ""
+            for k, v in entries:
+                if k.lower() == "base":
+                    base_nick = v.strip().lower()
+                    break
+            if not base_nick or base_nick not in bases:
+                continue
+            for k, v in entries:
+                if k.lower() != "marketgood":
+                    continue
+                fields = [f.strip() for f in v.split(",")]
+                if len(fields) < 7:
+                    continue
+                good_nick = fields[0].lower()
+                if len(fields) >= 5 and fields[3] == "0" and fields[4] == "0":
+                    continue
+                mapping = goods_map.get(good_nick)
+                if not mapping:
+                    continue
+                try:
+                    rel_flag = int(float(fields[5]))
+                    mult = float(fields[6])
+                except ValueError:
+                    continue
+                try:
+                    resale_multiplier = abs(float(fields[2]))
+                except (ValueError, IndexError):
+                    resale_multiplier = 0.3
+                if resale_multiplier <= 0 or resale_multiplier > 1:
+                    resale_multiplier = 0.3
+                if mult <= 0:
+                    continue
+                item_nick = mapping["item_nick"]
+                base_price = int(mapping["price"])
+                item_meta.setdefault(
+                    item_nick,
+                    {
+                        "name": mapping.get("name") or market_item_fallback(item_nick),
+                        "price": base_price,
+                        "volume": volumes.get(item_nick, 1.0),
+                        "resaleMultiplier": resale_multiplier,
+                    },
+                )
+                item_markets.setdefault(item_nick, []).append(
+                    {
+                        "base": base_nick,
+                        "sys": bases[base_nick].get("sys", "").upper(),
+                        "price": round(base_price * mult, 2),
+                        "resalePrice": round(base_price * mult * resale_multiplier, 2),
+                        "multiplier": mult,
+                        "resaleMultiplier": resale_multiplier,
+                        "src": rel_flag == 0,
+                    }
+                )
+
+    filtered_meta: dict[str, dict] = {}
+    filtered_markets: dict[str, list[dict]] = {}
+    for item_nick, offers in item_markets.items():
+        distinct_multipliers = {round(float(offer.get("multiplier", 0)), 4) for offer in offers}
+        if len(distinct_multipliers) <= 1:
+            continue
+        filtered_meta[item_nick] = item_meta[item_nick]
+        filtered_markets[item_nick] = offers
+    return filtered_meta, filtered_markets
+
+
 def extract_ships(fl_ini: Path, res: DLLResolver, bases: dict[str, dict]) -> list[dict]:
     parent = fl_ini.parent
     data_root = (
@@ -903,6 +1039,7 @@ def export_installation(inst: dict):
         adjacency = build_adjacency(universe_file, locked)
         comm_prices, comm_names, comm_volumes = extract_commodity_prices(goods_files, equip_files, res)
         markets = extract_market_entries(market_files, bases, comm_prices)
+        special_items, special_markets = extract_special_market_items(goods_files, equip_files, market_files, bases, res)
         ships = extract_ships(fl_ini, res, bases)
         travel = extract_travel_data(universe_file, systems)
 
@@ -931,6 +1068,8 @@ def export_installation(inst: dict):
                 if price > 0
             },
             "markets": markets,
+            "specialItems": special_items,
+            "specialMarkets": special_markets,
             "travel": {
                 sys_nick: {
                     **({"gates": travel["system_gates"][sys_nick]} if sys_nick in travel["system_gates"] else {}),
@@ -959,7 +1098,7 @@ def export_installation(inst: dict):
         print(f"  -> {out_file.name} ({size_kb:.1f} KB)")
         print(
             f"    Systems: {len(systems)}, Bases: {len(bases)}, "
-            f"Commodities: {len(comm_prices)}, Ships: {len(ships)}, "
+            f"Commodities: {len(comm_prices)}, Special items: {len(special_items)}, Ships: {len(ships)}, "
             f"Market entries: {sum(len(v) for v in markets.values())}"
         )
     finally:

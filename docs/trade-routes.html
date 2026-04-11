@@ -496,6 +496,7 @@
         <div class="tr-tabs">
           <button class="tr-tab active" data-mode="system" data-i18n="tab_system">Handelsrouten</button>
           <button class="tr-tab" data-mode="loop" data-i18n="tab_loop">Rundkurs</button>
+          <button class="tr-tab" data-mode="pods" data-i18n="tab_pods" style="display:none;">Markt-Items</button>
           <button class="tr-tab" data-mode="journey" data-i18n="tab_journey">Reiseroute</button>
         </div>
       </section>
@@ -555,6 +556,26 @@
           </div>
         </div>
       </div>
+
+      <div class="tr-modal" id="item-modal" aria-hidden="true">
+        <div class="tr-modal-card" role="dialog" aria-modal="true" aria-labelledby="item-modal-title">
+          <div class="tr-modal-head">
+            <div>
+              <h3 id="item-modal-title">Item</h3>
+              <div class="tr-modal-meta" id="item-modal-meta"></div>
+            </div>
+            <button class="tr-modal-close" id="item-modal-close" aria-label="Close">×</button>
+          </div>
+          <div class="tr-modal-body">
+            <div class="tr-table-wrap">
+              <table class="tr-table">
+                <thead id="item-modal-head"></thead>
+                <tbody id="item-modal-body"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
   </div>
 
@@ -572,12 +593,13 @@
         lbl_tl_only: 'Nur Trade-Lane-Basen',
         lbl_return_flight: 'Rückflug einberechnen',
         btn_calc: 'Berechnen',
-        tab_system: 'Handelsrouten', tab_loop: 'Rundkurs', tab_journey: 'Trade Along Route',
+        tab_system: 'Handelsrouten', tab_loop: 'Rundkurs', tab_pods: 'Markt-Items', tab_journey: 'Trade Along Route',
         search_placeholder: 'Routen durchsuchen...',
         loading: 'Routen werden berechnet...',
         dataset_default: 'Standard',
         custom_cargo: 'Eigene Fracht',
         no_routes: 'Keine Routen gefunden.',
+        no_pod_capacity: 'Nicht genug Frachtraum fuer einen Cargo Pod.',
         no_path: 'Zwischen diesen Systemen wurde kein Pfad gefunden.',
         load_fail: 'Mod-Daten konnten nicht geladen werden: ',
         stats_routes: 'Routen', stats_best: 'Bester Profit', stats_path: 'Reiseweg', stats_showing: 'Angezeigt',
@@ -588,6 +610,9 @@
         col_profitUnit: 'Profit/E', col_totalProfit: 'Gesamtprofit',
         col_jumps: 'Sprünge', col_path: 'Pfad',
         col_time: 'Reisezeit', col_ppm: '$/Min',
+        col_item: 'Item', col_buyBases: 'Kaufbasen', col_sellLocation: 'Verkauf',
+        col_units: 'Stueck', col_volume_unit: 'Vol./St.', col_factor: 'Faktor',
+        col_marketFactor: 'Markt', col_resaleFactor: 'Resale',
         detail_segments: 'Abschnitte', detail_jump: 'Sprung', detail_inner_jump: 'Interner Sprung', detail_buy_start: 'Kaufen + Starten', detail_open_space: 'Flug im offenen Raum', detail_trade_lane: 'Traderoute', detail_dock_sell: 'Landen und verkaufen', detail_return: 'Rückflug',
         col_system: 'System', col_route: 'Route', col_commodities: 'Waren',
         commodity_filter: 'Filter', commodity_role: 'Typ',
@@ -611,12 +636,13 @@
         lbl_tl_only: 'Trade Lane bases only',
         lbl_return_flight: 'Include return flight',
         btn_calc: 'Calculate',
-        tab_system: 'Trade Routes', tab_loop: 'Round Trip', tab_journey: 'Trade Along Route',
+        tab_system: 'Trade Routes', tab_loop: 'Round Trip', tab_pods: 'Market Items', tab_journey: 'Trade Along Route',
         search_placeholder: 'Search routes...',
         loading: 'Calculating routes...',
         dataset_default: 'Default',
         custom_cargo: 'Custom cargo',
         no_routes: 'No routes found.',
+        no_pod_capacity: 'Not enough cargo space for a cargo pod.',
         no_path: 'No path was found between these systems.',
         load_fail: 'Failed to load mod data: ',
         stats_routes: 'Routes', stats_best: 'Best profit', stats_path: 'Journey path', stats_showing: 'Showing',
@@ -627,6 +653,9 @@
         col_profitUnit: 'Profit/U', col_totalProfit: 'Total Profit',
         col_jumps: 'Jumps', col_path: 'Path',
         col_time: 'Travel Time', col_ppm: '$/Min',
+        col_item: 'Item', col_buyBases: 'Buy Bases', col_sellLocation: 'Sell Location',
+        col_units: 'Units', col_volume_unit: 'Vol./Unit', col_factor: 'Factor',
+        col_marketFactor: 'Market', col_resaleFactor: 'Resale',
         detail_segments: 'Segments', detail_jump: 'Jump', detail_inner_jump: 'Internal jump', detail_buy_start: 'Buy and Start', detail_open_space: 'Travel open space', detail_trade_lane: 'Traderoute', detail_dock_sell: 'Dock and Sell', detail_return: 'Return flight',
         col_system: 'System', col_route: 'Route', col_commodities: 'Commodities',
         commodity_filter: 'Filter', commodity_role: 'Type',
@@ -662,11 +691,149 @@
       'Vips': 'VIPs', 'Water': 'Wasser',
       'Energycrystals': 'Energiekristalle', 'Energycrystals2': 'Energiekristalle II',
       'Rum': 'Rum', 'Vodka': 'Wodka', 'Whiskey': 'Whiskey', 'Supply': 'Nachschub',
+      'Titanium Container': 'Titan-Container', 'Berylium Container': 'Beryllium-Container',
+      'Iridium Container': 'Iridium-Container', 'Cobalt Container': 'Kobalt-Container',
+      'Zinc Container': 'Zink-Container', 'Carbon Container': 'Kohlenstoff-Container',
+      'Barium Container': 'Barium-Container',
     };
+    const POD_ROUTES = [
+      {
+        item: 'Titanium Container',
+        buyPrice: 200000,
+        sellPrice: 3600000,
+        volume: 400,
+        sellSystem: 'New York',
+        sellSystemNick: 'LI01',
+        sellBase: 'Planet Manhattan',
+        sellBaseNick: 'li01_01_base',
+        buyLocations: [
+          { sys: 'BR01', name: 'New London', base: 'Planet New London', baseNick: 'br01_01_base' },
+          { sys: 'RH01', name: 'New Berlin', base: 'Planet New Berlin', baseNick: 'rh01_01_base' },
+          { sys: 'KU01', name: 'New Tokyo', base: 'Planet New Tokyo', baseNick: 'ku01_01_base' },
+          { sys: 'HI01', name: 'Omicron Alpha', base: 'Planet Malta', baseNick: 'hi01_01_base' },
+          { sys: 'HI02', name: 'Omicron Gamma', base: 'Planet Crete', baseNick: 'hi02_01_base' },
+          { sys: 'CF20', name: 'Sol', base: 'Earth', baseNick: 'cf20_01_base' }
+        ]
+      },
+      {
+        item: 'Berylium Container',
+        buyPrice: 200000,
+        sellPrice: 3600000,
+        volume: 400,
+        sellSystem: 'New Berlin',
+        sellSystemNick: 'RH01',
+        sellBase: 'Planet New Berlin',
+        sellBaseNick: 'rh01_01_base',
+        buyLocations: [
+          { sys: 'BR01', name: 'New London', base: 'Planet New London', baseNick: 'br01_01_base' },
+          { sys: 'LI01', name: 'New York', base: 'Planet Manhattan', baseNick: 'li01_01_base' },
+          { sys: 'KU01', name: 'New Tokyo', base: 'Planet New Tokyo', baseNick: 'ku01_01_base' },
+          { sys: 'HI01', name: 'Omicron Alpha', base: 'Planet Malta', baseNick: 'hi01_01_base' },
+          { sys: 'HI02', name: 'Omicron Gamma', base: 'Planet Crete', baseNick: 'hi02_01_base' },
+          { sys: 'CF20', name: 'Sol', base: 'Earth', baseNick: 'cf20_01_base' }
+        ]
+      },
+      {
+        item: 'Iridium Container',
+        buyPrice: 200000,
+        sellPrice: 3600000,
+        volume: 400,
+        sellSystem: 'New Tokyo',
+        sellSystemNick: 'KU01',
+        sellBase: 'Planet New Tokyo',
+        sellBaseNick: 'ku01_01_base',
+        buyLocations: [
+          { sys: 'BR01', name: 'New London', base: 'Planet New London', baseNick: 'br01_01_base' },
+          { sys: 'LI01', name: 'New York', base: 'Planet Manhattan', baseNick: 'li01_01_base' },
+          { sys: 'RH01', name: 'New Berlin', base: 'Planet New Berlin', baseNick: 'rh01_01_base' },
+          { sys: 'HI01', name: 'Omicron Alpha', base: 'Planet Malta', baseNick: 'hi01_01_base' },
+          { sys: 'HI02', name: 'Omicron Gamma', base: 'Planet Crete', baseNick: 'hi02_01_base' },
+          { sys: 'CF20', name: 'Sol', base: 'Earth', baseNick: 'cf20_01_base' }
+        ]
+      },
+      {
+        item: 'Cobalt Container',
+        buyPrice: 200000,
+        sellPrice: 3600000,
+        volume: 400,
+        sellSystem: 'New London',
+        sellSystemNick: 'BR01',
+        sellBase: 'Planet New London',
+        sellBaseNick: 'br01_01_base',
+        buyLocations: [
+          { sys: 'LI01', name: 'New York', base: 'Planet Manhattan', baseNick: 'li01_01_base' },
+          { sys: 'RH01', name: 'New Berlin', base: 'Planet New Berlin', baseNick: 'rh01_01_base' },
+          { sys: 'KU01', name: 'New Tokyo', base: 'Planet New Tokyo', baseNick: 'ku01_01_base' },
+          { sys: 'HI01', name: 'Omicron Alpha', base: 'Planet Malta', baseNick: 'hi01_01_base' },
+          { sys: 'HI02', name: 'Omicron Gamma', base: 'Planet Crete', baseNick: 'hi02_01_base' },
+          { sys: 'CF20', name: 'Sol', base: 'Earth', baseNick: 'cf20_01_base' }
+        ]
+      },
+      {
+        item: 'Zinc Container',
+        buyPrice: 200000,
+        sellPrice: 3600000,
+        volume: 400,
+        sellSystem: 'Omicron Alpha',
+        sellSystemNick: 'HI01',
+        sellBase: 'Planet Malta',
+        sellBaseNick: 'hi01_01_base',
+        buyLocations: [
+          { sys: 'BR01', name: 'New London', base: 'Planet New London', baseNick: 'br01_01_base' },
+          { sys: 'LI01', name: 'New York', base: 'Planet Manhattan', baseNick: 'li01_01_base' },
+          { sys: 'RH01', name: 'New Berlin', base: 'Planet New Berlin', baseNick: 'rh01_01_base' },
+          { sys: 'KU01', name: 'New Tokyo', base: 'Planet New Tokyo', baseNick: 'ku01_01_base' },
+          { sys: 'HI02', name: 'Omicron Gamma', base: 'Planet Crete', baseNick: 'hi02_01_base' },
+          { sys: 'CF20', name: 'Sol', base: 'Earth', baseNick: 'cf20_01_base' }
+        ]
+      },
+      {
+        item: 'Carbon Container',
+        buyPrice: 200000,
+        sellPrice: 3600000,
+        volume: 400,
+        sellSystem: 'Omicron Gamma',
+        sellSystemNick: 'HI02',
+        sellBase: 'Planet Crete',
+        sellBaseNick: 'hi02_01_base',
+        buyLocations: [
+          { sys: 'BR01', name: 'New London', base: 'Planet New London', baseNick: 'br01_01_base' },
+          { sys: 'LI01', name: 'New York', base: 'Planet Manhattan', baseNick: 'li01_01_base' },
+          { sys: 'RH01', name: 'New Berlin', base: 'Planet New Berlin', baseNick: 'rh01_01_base' },
+          { sys: 'KU01', name: 'New Tokyo', base: 'Planet New Tokyo', baseNick: 'ku01_01_base' },
+          { sys: 'HI01', name: 'Omicron Alpha', base: 'Planet Malta', baseNick: 'hi01_01_base' },
+          { sys: 'CF20', name: 'Sol', base: 'Earth', baseNick: 'cf20_01_base' }
+        ]
+      },
+      {
+        item: 'Barium Container',
+        buyPrice: 200000,
+        sellPrice: 3600000,
+        volume: 400,
+        sellSystem: 'Sol',
+        sellSystemNick: 'CF20',
+        sellBase: 'Earth',
+        sellBaseNick: 'cf20_01_base',
+        buyLocations: [
+          { sys: 'BR01', name: 'New London', base: 'Planet New London', baseNick: 'br01_01_base' },
+          { sys: 'LI01', name: 'New York', base: 'Planet Manhattan', baseNick: 'li01_01_base' },
+          { sys: 'RH01', name: 'New Berlin', base: 'Planet New Berlin', baseNick: 'rh01_01_base' },
+          { sys: 'KU01', name: 'New Tokyo', base: 'Planet New Tokyo', baseNick: 'ku01_01_base' },
+          { sys: 'HI01', name: 'Omicron Alpha', base: 'Planet Malta', baseNick: 'hi01_01_base' },
+          { sys: 'HI02', name: 'Omicron Gamma', base: 'Planet Crete', baseNick: 'hi02_01_base' }
+        ]
+      }
+    ];
+    const SPECIAL_ITEM_RESALE_FACTOR = 0.3;
 
     let lang = (function() { try { return sessionStorage.getItem('flathack-lang') || 'en'; } catch(e) { return 'en'; } })();
     function t(key) { return (I18N[lang] || I18N.de)[key] || key; }
     function tCommodity(name) { return lang === 'de' ? (COMMODITY_DE[name] || name) : name; }
+    function tItem(itemNick, fallback) {
+      const info = engine && engine.data && engine.data.specialItems && engine.data.specialItems[itemNick];
+      const name = (info && info.name) || fallback || itemNick || '';
+      return lang === 'de' ? (COMMODITY_DE[name] || name) : name;
+    }
     function tFaction(nick) {
       if (!nick) return '-';
       const info = factionNames[nick];
@@ -703,6 +870,7 @@
       if (tradePayload) {
         populateDatasetOptions();
         applyDataset(selectedDatasetId);
+        updateModeTabs();
       }
       if (activeCommodityNick && commodityModal.classList.contains('open')) {
         const currentRole = commodityRoleFilter.value || 'all';
@@ -712,6 +880,9 @@
           '<option value="buy">' + escHtml(t('commodity_role_buy')) + '</option>';
         commodityRoleFilter.value = currentRole;
         renderCommodityModal();
+      }
+      if (activeItemNick && itemModal.classList.contains('open')) {
+        renderItemModal();
       }
       if (resultsSection.style.display !== 'none') renderResults();
     }
@@ -728,6 +899,7 @@
     let currentEmptyKey = 'no_routes';
     let currentJourneyPath = [];
     let activeCommodityNick = '';
+    let activeItemNick = '';
     let sortCol = -1;
     let sortAsc = false;
     const RESULTS_PAGE_SIZE = 30;
@@ -766,6 +938,13 @@
     const commodityModalClose = $('commodity-modal-close');
     const commodityFilterInput = $('commodity-filter-input');
     const commodityRoleFilter = $('commodity-role-filter');
+    const itemModal = $('item-modal');
+    const itemModalTitle = $('item-modal-title');
+    const itemModalMeta = $('item-modal-meta');
+    const itemModalHead = $('item-modal-head');
+    const itemModalBody = $('item-modal-body');
+    const itemModalClose = $('item-modal-close');
+    const podsTab = document.querySelector('.tr-tab[data-mode="pods"]');
 
     /* ── Formatters ────────────────────────────────────── */
     const fmt = n => Number(n).toLocaleString('de-DE');
@@ -801,7 +980,11 @@
     }
 
     function renderRoutePathDetails(route) {
-      const pathText = Array.isArray(route.path) ? route.path.join(' \u2192 ') : route.path;
+      const pathText = Array.isArray(route.path)
+        ? route.path.join(' \u2192 ')
+        : (Array.isArray(route.pathNicks)
+          ? route.pathNicks.map(sysNick => (engine && engine.data && engine.data.systems && engine.data.systems[sysNick]) || sysNick).join(' \u2192 ')
+          : route.path);
       const breakdown = engine && typeof engine.travelBreakdown === 'function' ? engine.travelBreakdown(route) : null;
       let html = '<div class="tr-path-summary"><strong>' + escHtml(t('col_path')) + ':</strong> ' + escHtml(pathText || '-') + '</div>';
       if (route && route.returnTravelIncluded) {
@@ -848,6 +1031,8 @@
         adjacency: payload.adjacency || {},
         commodities: payload.commodities || {},
         markets: payload.markets || {},
+        specialItems: payload.specialItems || {},
+        specialMarkets: payload.specialMarkets || {},
         travel: payload.travel || {},
       };
     }
@@ -872,6 +1057,8 @@
             adjacency: entry.adjacency || {},
             commodities: entry.commodities || {},
             markets: entry.markets || {},
+            specialItems: entry.specialItems || {},
+            specialMarkets: entry.specialMarkets || {},
             travel: entry.travel || {},
           };
         });
@@ -926,6 +1113,7 @@
       const data = currentDataset();
       engine = data ? new TradeEngine(data) : null;
       closeCommodityModal();
+      closeItemModal();
 
       if (!data) {
         calcBtn.disabled = true;
@@ -981,6 +1169,126 @@
       calcBtn.disabled = false;
     }
 
+    function buildPodRoutes(cargo, maxJumps, includeReturnTrip) {
+      const jumpLimit = maxJumps > 0 ? maxJumps : Number.POSITIVE_INFINITY;
+      if (engine && engine.data && engine.data.specialItems && Object.keys(engine.data.specialItems).length) {
+        return Object.entries(engine.data.specialItems).flatMap(([itemNick, meta]) => {
+          const offers = ((engine.data.specialMarkets && engine.data.specialMarkets[itemNick]) || []).slice();
+          if (!offers.length) return [];
+          const volume = Math.max(1, Math.round(meta.volume || 1));
+          const units = Math.floor(cargo / volume);
+          if (units <= 0) return [];
+          return offers.map(buyOffer => {
+            const candidates = offers.map(sellOffer => {
+              if (sellOffer.base === buyOffer.base) return null;
+              const pathNicks = engine.findPath(buyOffer.sys, sellOffer.sys);
+              if (!pathNicks.length) return null;
+              const jumps = Math.max(0, pathNicks.length - 1);
+              if (jumps > jumpLimit) return null;
+              const sellPrice = Math.round(sellOffer.resalePrice != null
+                ? sellOffer.resalePrice
+                : (sellOffer.price || 0) * (sellOffer.resaleMultiplier || meta.resaleMultiplier || SPECIAL_ITEM_RESALE_FACTOR));
+              const buyPrice = Math.round(buyOffer.price || 0);
+              const profitPerUnit = sellPrice - buyPrice;
+              if (profitPerUnit <= 0) return null;
+              return {
+                sellOffer,
+                pathNicks,
+                jumps,
+                sellPrice,
+                buyPrice,
+                profitPerUnit,
+                totalProfit: profitPerUnit * units,
+              };
+            }).filter(Boolean);
+            const bestSell = candidates.sort((a, b) =>
+              b.totalProfit - a.totalProfit ||
+              b.profitPerUnit - a.profitPerUnit ||
+              a.jumps - b.jumps
+            )[0];
+            if (!bestSell) return null;
+            return {
+              itemNick,
+              item: tItem(itemNick, meta.name || itemNick),
+              srcSys: engine.data.systems[buyOffer.sys] || buyOffer.sys,
+              srcSysNick: buyOffer.sys,
+              buyBase: tBase(buyOffer.base, (engine.data.bases[buyOffer.base] || {}).name || buyOffer.base),
+              buyBaseNick: buyOffer.base,
+              dstSys: engine.data.systems[bestSell.sellOffer.sys] || bestSell.sellOffer.sys,
+              dstSysNick: bestSell.sellOffer.sys,
+              sellBase: tBase(bestSell.sellOffer.base, (engine.data.bases[bestSell.sellOffer.base] || {}).name || bestSell.sellOffer.base),
+              sellBaseNick: bestSell.sellOffer.base,
+              buyPrice: bestSell.buyPrice,
+              sellPrice: bestSell.sellPrice,
+              marketFactor: Number(bestSell.sellOffer.multiplier || 1),
+              resaleFactor: Number(bestSell.sellOffer.resaleMultiplier || meta.resaleMultiplier || SPECIAL_ITEM_RESALE_FACTOR),
+              profitPerUnit: bestSell.profitPerUnit,
+              units,
+              volume,
+              totalProfit: bestSell.totalProfit,
+              jumps: bestSell.jumps,
+              pathNicks: bestSell.pathNicks,
+            };
+          }).filter(route => route && route.profitPerUnit > 0);
+        });
+      }
+
+      if (currentModId !== 'crossfire') return [];
+      return POD_ROUTES.flatMap(route => {
+        const units = Math.floor(cargo / route.volume);
+        if (units <= 0) return [];
+        const sellPrice = Math.round(route.sellPrice * SPECIAL_ITEM_RESALE_FACTOR);
+        const profitPerUnit = sellPrice - route.buyPrice;
+        return route.buyLocations.map(location => {
+          const srcSys = location.name || 'Various';
+          const buyBase = location.base || '';
+          const pathNicks = engine && location.sys && route.sellSystemNick ? engine.findPath(location.sys, route.sellSystemNick) : [];
+          if (!pathNicks.length) return null;
+          const jumps = Math.max(0, pathNicks.length - 1);
+          if (jumps > jumpLimit) return null;
+          return {
+            item: route.item,
+            itemNick: '',
+            srcSys,
+            srcSysNick: location.sys,
+            buyBase,
+            buyBaseNick: location.baseNick || '',
+            dstSys: route.sellSystem,
+            dstSysNick: route.sellSystemNick,
+            sellBase: route.sellBase,
+            sellBaseNick: route.sellBaseNick || '',
+            buyPrice: route.buyPrice,
+            sellPrice,
+            marketFactor: Math.round(route.sellPrice / route.buyPrice),
+            resaleFactor: SPECIAL_ITEM_RESALE_FACTOR,
+            profitPerUnit,
+            units,
+            volume: route.volume,
+            totalProfit: profitPerUnit * units,
+            jumps,
+            pathNicks,
+          };
+        }).filter(Boolean);
+      }).filter(route => route.profitPerUnit > 0);
+    }
+
+    function updateModeTabs() {
+      const hasSpecialItems = !!(engine && engine.data && engine.data.specialItems && Object.keys(engine.data.specialItems).length);
+      const showFallback = currentModId === 'crossfire';
+      const tlOnlyWrap = tlOnlyCheck.closest('.tr-check');
+      if (podsTab) podsTab.style.display = (hasSpecialItems || showFallback) ? '' : 'none';
+      if (!(hasSpecialItems || showFallback) && currentMode === 'pods') {
+        currentMode = 'system';
+        document.querySelectorAll('.tr-tab').forEach(t => t.classList.toggle('active', t.dataset.mode === currentMode));
+      }
+      jumpsField.style.display = currentMode === 'journey' ? 'none' : '';
+      legsField.style.display = currentMode === 'loop' ? '' : 'none';
+      startSystemField.style.display = currentMode === 'journey' ? '' : 'none';
+      targetSystemField.style.display = currentMode === 'journey' ? '' : 'none';
+      returnFlightWrap.style.display = currentMode === 'system' ? '' : 'none';
+      if (tlOnlyWrap) tlOnlyWrap.style.display = currentMode === 'pods' ? 'none' : '';
+    }
+
     /* ── Mod Loading ───────────────────────────────────── */
     async function loadMod(modId) {
       currentModId = modId;
@@ -991,6 +1299,7 @@
       factionNames = Object.create(null);
       let shouldAutoCalculate = false;
       closeCommodityModal();
+      closeItemModal();
       calcBtn.disabled = true;
       resultsSection.style.display = 'none';
       loading.style.display = 'flex';
@@ -1011,6 +1320,7 @@
 
         populateDatasetOptions();
         applyDataset(selectedDatasetId);
+        updateModeTabs();
         shouldAutoCalculate = !!engine;
       } catch (err) {
         tableBody.innerHTML = '<tr><td colspan="99" class="tr-empty">' + escHtml(t('load_fail')) +
@@ -1045,6 +1355,15 @@
             currentResults = jumps === 0
               ? engine.innerSystemRoutes(cargo, tlOnly, includeReturnFlight)
               : engine.bestRoutesBySystem(cargo, jumps, tlOnly, includeReturnFlight);
+          } else if (currentMode === 'pods') {
+            const hasSpecialItems = !!(engine.data.specialItems && Object.keys(engine.data.specialItems).length);
+            if (!hasSpecialItems && currentModId === 'crossfire' && cargo < 400) {
+              currentEmptyKey = 'no_pod_capacity';
+              currentResults = [];
+            } else {
+              currentResults = buildPodRoutes(cargo, jumps, false);
+              engine._applyTravelMetrics(currentResults, false);
+            }
           } else if (currentMode === 'journey') {
             currentJourneyPath = engine.findPath(startSystem, targetSystem);
             if (!currentJourneyPath.length) {
@@ -1057,10 +1376,11 @@
             currentResults = engine.roundTrips(cargo, jumps, legs, 50, tlOnly);
           }
           sortCol = -1;
-          // Default sort: $/Min descending
+          // Default sort: $/Min descending, or total profit for market items
           const cols = getCols();
           for (let i = 0; i < cols.length; i++) {
-            if (cols[i].key === 'profitPerMin') { sortCol = i; sortAsc = false; break; }
+            if (currentMode === 'pods' && cols[i].key === 'totalProfit') { sortCol = i; sortAsc = false; break; }
+            if (currentMode !== 'pods' && cols[i].key === 'profitPerMin') { sortCol = i; sortAsc = false; break; }
           }
           renderResults();
           resultsSection.style.display = '';
@@ -1075,6 +1395,12 @@
     function commodityButtonHtml(raw, label) {
       if (!raw) return escHtml(label);
       return '<button type="button" class="tr-commodity-btn" data-commodity="' + escHtml(raw) + '">' +
+        escHtml(label) + '</button>';
+    }
+
+    function itemButtonHtml(raw, label) {
+      if (!raw) return escHtml(label);
+      return '<button type="button" class="tr-commodity-btn" data-item="' + escHtml(raw) + '">' +
         escHtml(label) + '</button>';
     }
 
@@ -1104,6 +1430,35 @@
       }).sort((a, b) =>
         (b.sellPrice ?? -1) - (a.sellPrice ?? -1) ||
         (a.buyPrice ?? Number.MAX_SAFE_INTEGER) - (b.buyPrice ?? Number.MAX_SAFE_INTEGER) ||
+        (a.system + ' -> ' + a.base).localeCompare(b.system + ' -> ' + b.base)
+      );
+    }
+
+    function getItemResaleMultiplier(itemNick, entry) {
+      const info = (engine && engine.data && engine.data.specialItems && engine.data.specialItems[itemNick]) || {};
+      const value = Number((entry && entry.resaleMultiplier) || info.resaleMultiplier || SPECIAL_ITEM_RESALE_FACTOR);
+      return value > 0 ? value : SPECIAL_ITEM_RESALE_FACTOR;
+    }
+
+    function getSpecialItemRows(itemNick) {
+      if (!engine || !itemNick) return [];
+      const entries = (engine.data.specialMarkets && engine.data.specialMarkets[itemNick]) || [];
+      return entries.map(entry => {
+        const base = engine.data.bases[entry.base] || {};
+        const systemName = engine.data.systems[entry.sys] || entry.sys;
+        const baseName = tBase(entry.base, base.name || entry.base);
+        const resaleMultiplier = getItemResaleMultiplier(itemNick, entry);
+        return {
+          system: systemName,
+          base: baseName,
+          faction: base.faction || '',
+          buyPrice: Math.round(entry.price),
+          sellPrice: Math.round(entry.resalePrice != null ? entry.resalePrice : (entry.price || 0) * resaleMultiplier),
+          multiplier: entry.multiplier || 1,
+          resaleMultiplier,
+        };
+      }).sort((a, b) =>
+        a.buyPrice - b.buyPrice ||
         (a.system + ' -> ' + a.base).localeCompare(b.system + ' -> ' + b.base)
       );
     }
@@ -1185,6 +1540,61 @@
       activeCommodityNick = '';
     }
 
+    function renderItemModal() {
+      if (!engine || !activeItemNick) return;
+      const info = (engine.data.specialItems || {})[activeItemNick];
+      if (!info) return;
+      const rows = getSpecialItemRows(activeItemNick);
+      const bestBuy = rows[0];
+      const bestSell = rows.slice().sort((a, b) => b.sellPrice - a.sellPrice)[0];
+
+      itemModalTitle.textContent = tItem(activeItemNick, info.name || activeItemNick);
+      itemModalMeta.textContent =
+        t('commodity_base_price') + ': ' + fmt(Math.round(info.price || 0)) +
+        ' | ' + t('commodity_volume') + ': ' + String(info.volume || 1) +
+        ' | ' + t('col_resaleFactor') + ': ' + String(info.resaleMultiplier || SPECIAL_ITEM_RESALE_FACTOR) +
+        ' | ' + t('commodity_best_buy') + ': ' + (bestBuy ? (bestBuy.system + ' -> ' + bestBuy.base + ' (' + fmt(bestBuy.buyPrice) + ')') : '-') +
+        ' | ' + t('commodity_best_sell') + ': ' + (bestSell ? (bestSell.system + ' -> ' + bestSell.base + ' (' + fmt(bestSell.sellPrice) + ')') : '-') +
+        ' | ' + t('commodity_locations') + ': ' + rows.length;
+      itemModalHead.innerHTML = '<tr>' +
+        '<th>' + escHtml(t('commodity_col_system')) + '</th>' +
+        '<th>' + escHtml(t('commodity_col_base')) + '</th>' +
+        '<th>' + escHtml(t('commodity_col_faction')) + '</th>' +
+        '<th>' + escHtml(t('commodity_col_buy')) + '</th>' +
+        '<th>' + escHtml(t('commodity_col_sell')) + '</th>' +
+        '<th>' + escHtml(t('col_marketFactor')) + '</th>' +
+        '<th>' + escHtml(t('col_resaleFactor')) + '</th>' +
+        '</tr>';
+      if (!rows.length) {
+        itemModalBody.innerHTML = '<tr><td colspan="7" class="tr-empty">' + escHtml(t('commodity_no_results')) + '</td></tr>';
+        return;
+      }
+      itemModalBody.innerHTML = rows.map(row =>
+        '<tr>' +
+          '<td>' + escHtml(row.system) + '</td>' +
+          '<td>' + escHtml(row.base) + '</td>' +
+          '<td title="' + escHtml(tFaction(row.faction)) + '">' + escHtml(truncateText(tFaction(row.faction), 30)) + '</td>' +
+          '<td class="td-num">' + escHtml(fmt(row.buyPrice)) + '</td>' +
+          '<td class="td-num">' + escHtml(fmt(row.sellPrice)) + '</td>' +
+          '<td class="td-num">' + escHtml(String(row.multiplier)) + '</td>' +
+          '<td class="td-num">' + escHtml(String(row.resaleMultiplier)) + '</td>' +
+        '</tr>'
+      ).join('');
+    }
+
+    function openItemModal(itemNick) {
+      activeItemNick = itemNick;
+      renderItemModal();
+      itemModal.classList.add('open');
+      itemModal.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeItemModal() {
+      itemModal.classList.remove('open');
+      itemModal.setAttribute('aria-hidden', 'true');
+      activeItemNick = '';
+    }
+
     function colsRoute() { return [
       { key: 'srcSys',       label: t('col_srcSys') },
       { key: 'buyBase',      label: t('col_buyBase'), format: (v, r) => tBase(r.buyBaseNick, v) },
@@ -1210,8 +1620,27 @@
     ]; }
 
     function colsJourney() { return colsRoute(); }
+    function colsPods() { return [
+      { key: 'item',         label: t('col_item'), format: (v, r) => tItem(r.itemNick, v), html: (v, r) => itemButtonHtml((engine && engine.data && engine.data.specialItems && engine.data.specialItems[r.itemNick]) ? r.itemNick : '', tItem(r.itemNick, v)) },
+      { key: 'srcSys',       label: t('col_srcSys') },
+      { key: 'buyBase',      label: t('col_buyBase'), format: (v, r) => r.buyBaseNick ? tBase(r.buyBaseNick, v) : v },
+      { key: 'dstSys',       label: t('col_dstSys') },
+      { key: 'sellBase',     label: t('col_sellBase'), format: (v, r) => r.sellBaseNick ? tBase(r.sellBaseNick, v) : v },
+      { key: 'buyPrice',     label: t('col_buyPrice'), cls: 'td-num' },
+      { key: 'sellPrice',    label: t('col_sellPrice'), cls: 'td-num' },
+      { key: 'marketFactor', label: t('col_marketFactor'), cls: 'td-num' },
+      { key: 'resaleFactor', label: t('col_resaleFactor'), cls: 'td-num' },
+      { key: 'profitPerUnit',label: t('col_profitUnit'), cls: 'td-num td-profit' },
+      { key: 'units',        label: t('col_units'), cls: 'td-num' },
+      { key: 'volume',       label: t('col_volume_unit'), cls: 'td-num' },
+      { key: 'totalProfit',  label: t('col_totalProfit'), cls: 'td-num td-profit' },
+      { key: 'jumps',        label: t('col_jumps'), cls: 'td-num td-jumps' },
+      { key: 'travelTime',   label: t('col_time'), cls: 'td-num td-time', format: v => fmtTime(v) },
+      { key: 'profitPerMin', label: t('col_ppm'), cls: 'td-num td-ppm', format: v => v != null ? fmt(v) : '-' },
+    ]; }
 
     function getCols() {
+      if (currentMode === 'pods') return colsPods();
       if (currentMode === 'loop') return colsLoop();
       if (currentMode === 'journey') return colsJourney();
       return colsRoute();
@@ -1266,6 +1695,12 @@
         statsBar.innerHTML =
           '<span>' + t('stats_routes') + ': <strong>' + rows.length + '</strong></span>' +
           '<span>' + t('stats_showing') + ': <strong>' + visibleRows.length + ' / ' + rows.length + '</strong></span>';
+      } else if (currentMode === 'pods') {
+        const best = rows.length ? fmt(rows[0].totalProfit) : '-';
+        statsBar.innerHTML =
+          '<span>' + t('stats_routes') + ': <strong>' + rows.length + '</strong></span>' +
+          '<span>' + t('stats_showing') + ': <strong>' + visibleRows.length + ' / ' + rows.length + '</strong></span>' +
+          '<span>' + t('stats_best') + ': <strong>' + best + '</strong></span>';
       } else if (currentMode === 'journey') {
         const best = rows.length ? fmt(rows[0].totalProfit) : '-';
         const pathText = currentJourneyPath.length
@@ -1295,7 +1730,7 @@
       let html = '';
       for (let i = 0; i < visibleRows.length; i++) {
         const r = visibleRows[i];
-        const hasPath = currentMode !== 'loop' && r.path;
+        const hasPath = currentMode !== 'loop' && (r.path || (Array.isArray(r.pathNicks) && r.pathNicks.length));
         html += '<tr' + (currentMode === 'loop' ? ' class="tr-loop-parent" data-idx="' + i + '"' : (hasPath ? ' class="tr-route-parent" data-idx="' + i + '"' : '')) + '>';
         for (const c of cols) {
           const raw = r[c.key];
@@ -1359,11 +1794,13 @@
 
     calcBtn.addEventListener('click', calculate);
     commodityModalClose.addEventListener('click', closeCommodityModal);
+    itemModalClose.addEventListener('click', closeItemModal);
     commodityFilterInput.addEventListener('input', renderCommodityModal);
     commodityRoleFilter.addEventListener('change', renderCommodityModal);
     datasetSelect.addEventListener('change', () => {
       if (!tradePayload) return;
       applyDataset(datasetSelect.value);
+      updateModeTabs();
       if (resultsSection.style.display !== 'none') calculate();
     });
     returnFlightCheck.addEventListener('change', () => {
@@ -1372,8 +1809,12 @@
     commodityModal.addEventListener('click', e => {
       if (e.target === commodityModal) closeCommodityModal();
     });
+    itemModal.addEventListener('click', e => {
+      if (e.target === itemModal) closeItemModal();
+    });
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape' && commodityModal.classList.contains('open')) closeCommodityModal();
+      if (e.key === 'Escape' && itemModal.classList.contains('open')) closeItemModal();
     });
 
     document.querySelectorAll('.tr-tab').forEach(tab => {
@@ -1383,14 +1824,7 @@
         tab.classList.add('active');
         currentMode = tab.dataset.mode;
         visibleResultsCount = RESULTS_PAGE_SIZE;
-
-        // Toggle field visibility
-        jumpsField.style.display = currentMode === 'journey' ? 'none' : '';
-        legsField.style.display = currentMode === 'loop' ? '' : 'none';
-        startSystemField.style.display = currentMode === 'journey' ? '' : 'none';
-        targetSystemField.style.display = currentMode === 'journey' ? '' : 'none';
-        returnFlightWrap.style.display = currentMode === 'system' ? '' : 'none';
-
+        updateModeTabs();
         calculate();
       });
     });
@@ -1424,6 +1858,13 @@
         e.preventDefault();
         e.stopPropagation();
         openCommodityModal(commodityBtn.dataset.commodity);
+        return;
+      }
+      const itemBtn = e.target.closest('.tr-commodity-btn');
+      if (itemBtn && itemBtn.dataset.item) {
+        e.preventDefault();
+        e.stopPropagation();
+        openItemModal(itemBtn.dataset.item);
         return;
       }
       const parent = e.target.closest('.tr-loop-parent');
