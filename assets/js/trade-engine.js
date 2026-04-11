@@ -11,19 +11,12 @@ class TradeEngine {
 
   _buildPathAdjacency() {
     const rawAdj = this.data.adjacency || {};
-    const travel = this.data.travel || {};
     const timedAdj = Object.create(null);
     let timedEdgeCount = 0;
 
     for (const [systemNick, neighbors] of Object.entries(rawAdj)) {
-      const gateTargets = new Set(((travel[systemNick] && travel[systemNick].gates) || [])
-        .map(gate => gate.goto)
-        .filter(Boolean));
       for (const next of neighbors || []) {
-        const reverseTargets = new Set(((travel[next] && travel[next].gates) || [])
-          .map(gate => gate.goto)
-          .filter(Boolean));
-        if (!gateTargets.has(next) || !reverseTargets.has(systemNick)) continue;
+        if (!this._hasTravelData(systemNick, next)) continue;
         if (!timedAdj[systemNick]) timedAdj[systemNick] = [];
         timedAdj[systemNick].push(next);
         timedEdgeCount++;
@@ -82,11 +75,25 @@ class TradeEngine {
   static BUY_AND_LAUNCH_TIME = 15; // seconds to buy cargo and launch from a base
   static LAND_AND_SELL_TIME = 20;  // seconds to land and sell cargo at a base
 
-  _findGatePos(systemNick, targetSystem) {
+  _gateEntries(systemNick) {
     const sysTravel = (this.data.travel || {})[systemNick];
-    if (!sysTravel || !sysTravel.gates) return null;
-    const gate = sysTravel.gates.find(g => g.goto === targetSystem);
+    return (sysTravel && sysTravel.gates) || [];
+  }
+
+  _findGatePos(systemNick, targetSystem) {
+    const gate = this._gateEntries(systemNick).find(g => g.goto === targetSystem && Array.isArray(g.pos));
     return gate ? gate.pos : null;
+  }
+
+  _findArrivalGatePos(systemNick, sourceSystem) {
+    const explicit = this._findGatePos(systemNick, sourceSystem);
+    if (explicit) return explicit;
+    const gate = this._gateEntries(systemNick).find(g => g.goto === systemNick && Array.isArray(g.pos));
+    return gate ? gate.pos : null;
+  }
+
+  _hasTravelData(fromSystemNick, toSystemNick) {
+    return !!this._findGatePos(fromSystemNick, toSystemNick) && !!this._findArrivalGatePos(toSystemNick, fromSystemNick);
   }
 
   _intraSystemBreakdown(systemNick, fromPos, toPos) {
@@ -201,12 +208,12 @@ class TradeEngine {
           fromLabel = srcBase.name || route.buyBase;
           toLabel = systems[path[i + 1]] || path[i + 1];
         } else if (i === path.length - 1) {
-          fromPos = this._findGatePos(path[i], path[i - 1]);
+          fromPos = this._findArrivalGatePos(path[i], path[i - 1]);
           toPos = dstBase.pos;
           fromLabel = systems[path[i - 1]] || path[i - 1];
           toLabel = dstBase.name || route.sellBase;
         } else {
-          fromPos = this._findGatePos(path[i], path[i - 1]);
+          fromPos = this._findArrivalGatePos(path[i], path[i - 1]);
           toPos = this._findGatePos(path[i], path[i + 1]);
           fromLabel = systems[path[i - 1]] || path[i - 1];
           toLabel = systems[path[i + 1]] || path[i + 1];
