@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>pcloud-sync-app Hilfe | Flathack</title>
+  <meta name="description" content="Hilfe zur pcloud-sync-app: Einrichtung, rclone, Telegram, Sync-Läufe, Fehlerdiagnose und Portainer-Update.">
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      background: #f6f8fb;
+      color: #172b4d;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        color-scheme: dark;
+        background: #0f1722;
+        color: #e6edf5;
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      min-height: 100vh;
+      background: inherit;
+      color: inherit;
+    }
+
+    .page-shell {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 24px 0 48px;
+    }
+
+    .hero,
+    .panel,
+    .stat-card {
+      background: #ffffff;
+      border: 1px solid #dfe7f1;
+      border-radius: 8px;
+      box-shadow: 0 1px 2px rgba(16, 24, 40, 0.06);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 24px;
+      align-items: end;
+      padding: 24px;
+      margin-bottom: 16px;
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #6b7c93;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    .hero-copy,
+    .panel p,
+    .panel li {
+      color: #5e6c84;
+      line-height: 1.65;
+    }
+
+    .panel {
+      padding: 20px;
+      margin-bottom: 16px;
+    }
+
+    .panel-grid,
+    .stats-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .panel-grid {
+      grid-template-columns: 1.1fr 0.9fr;
+    }
+
+    .stats-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-bottom: 16px;
+    }
+
+    .stat-card {
+      padding: 18px;
+      border-top: 3px solid #1d8fcc;
+    }
+
+    .stat-card span {
+      display: block;
+      font-size: 0.84rem;
+      color: #6b7c93;
+    }
+
+    .stat-card strong {
+      display: block;
+      margin: 10px 0 8px;
+      font-size: 1.8rem;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      padding: 0 14px;
+      border: 1px solid #b8c7d9;
+      border-radius: 6px;
+      background: #ffffff;
+      color: #17324d;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .button-primary {
+      background: #1d8fcc;
+      border-color: #177fb6;
+      color: #ffffff;
+    }
+
+    .code-block,
+    code {
+      font-family: Consolas, "Courier New", monospace;
+    }
+
+    code {
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: #f3f7fb;
+      color: #17324d;
+    }
+
+    .code-block {
+      margin: 14px 0 0;
+      padding: 16px;
+      border-radius: 6px;
+      background: #1f2d3d;
+      color: #ebf3fb;
+      overflow: auto;
+      white-space: pre-wrap;
+      line-height: 1.55;
+    }
+
+    .note {
+      padding: 14px 16px;
+      border-radius: 6px;
+      border: 1px solid #dfe7f1;
+      background: #f8fafc;
+    }
+
+    .footer {
+      padding: 18px 4px 8px;
+      color: #6b7c93;
+      font-size: 0.9rem;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .hero,
+      .panel,
+      .stat-card {
+        background: #16202b;
+        border-color: #2a3948;
+        color: #e6edf5;
+      }
+
+      .eyebrow,
+      .stat-card span,
+      .footer {
+        color: #88a0b8;
+      }
+
+      .hero-copy,
+      .panel p,
+      .panel li {
+        color: #9fb0c3;
+      }
+
+      .button {
+        background: #192531;
+        border-color: #334455;
+        color: #dce6f2;
+      }
+
+      .button-primary {
+        background: #1d8fcc;
+        border-color: #1d8fcc;
+        color: #ffffff;
+      }
+
+      code {
+        background: #1b2835;
+        color: #dce6f2;
+      }
+
+      .note {
+        background: #1b2835;
+        border-color: #2a3948;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .hero,
+      .panel-grid,
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page-shell">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Hilfe</p>
+        <h1>pcloud-sync-app Hilfe</h1>
+        <p class="hero-copy">Diese Seite erklärt die wichtigsten Schritte für Einrichtung, Portainer-Updates, Telegram-Benachrichtigungen, Fehlerdiagnose und typische Sync-Probleme.</p>
+        <div class="button-row">
+          <a class="button button-primary" href="https://flathack.github.io/">Zur Flathack Startseite</a>
+          <a class="button" href="https://github.com/flathack/docker-pcloud-sync-app">Zum GitHub-Projekt</a>
+        </div>
+      </div>
+      <div class="note">
+        <p class="eyebrow">Schnellinfo</p>
+        <p>Die App ist für den Betrieb mit Portainer, rclone und optional Telegram-Benachrichtigungen gedacht. Die Oberfläche orientiert sich optisch an der pcloud-sync-app selbst.</p>
+      </div>
+    </section>
+
+    <section class="stats-grid">
+      <article class="stat-card">
+        <span>Bereitstellen</span>
+        <strong>Portainer</strong>
+        <p>Stack aktualisieren, neues Image ziehen und anschließend die Weboberfläche testen.</p>
+      </article>
+      <article class="stat-card">
+        <span>Dateiübertragung</span>
+        <strong>rclone</strong>
+        <p>Sync-Läufe, Zielpfade, Remote-Browser und Run-Berichte basieren auf deiner rclone-Konfiguration.</p>
+      </article>
+      <article class="stat-card">
+        <span>Benachrichtigung</span>
+        <strong>Telegram</strong>
+        <p>Optional für Erfolgs- oder Fehlernachrichten nach abgeschlossenen Läufen.</p>
+      </article>
+    </section>
+
+    <section class="panel-grid">
+      <section class="panel">
+        <p class="eyebrow">Erste Schritte</p>
+        <h2>So bringst du die App schnell online</h2>
+        <ol>
+          <li>In Portainer den Stack mit dem aktuellen Image oder Build aktualisieren.</li>
+          <li>Unter <code>Settings</code> die <code>rclone.conf</code> hochladen und den Remote testen.</li>
+          <li>Einen ersten Sync anlegen und Quelle sowie Ziel über den Browser auswählen.</li>
+          <li>Den Lauf manuell starten und danach den Bericht prüfen.</li>
+        </ol>
+      </section>
+
+      <section class="panel">
+        <p class="eyebrow">Portainer</p>
+        <h2>Stack aktualisieren</h2>
+        <p>Wenn ein neues Image veröffentlicht wurde, öffne den Stack in Portainer und führe ein Redeploy mit neuem Pull aus.</p>
+        <div class="code-block">image: ghcr.io/flathack/docker-pcloud-sync-app:latest</div>
+      </section>
+    </section>
+
+    <section class="panel">
+      <p class="eyebrow">Telegram</p>
+      <h2>Telegram einrichten</h2>
+      <p>Du kannst Telegram direkt in der App konfigurieren. Öffne <code>Settings</code>, aktiviere Telegram, hinterlege Bot-Token und Chat-ID und sende anschließend eine Testnachricht.</p>
+      <div class="code-block">TELEGRAM_ENABLED=true
+TELEGRAM_BOT_TOKEN=123456:ABC...
+TELEGRAM_CHAT_ID=123456789
+TELEGRAM_NOTIFY_ON_SUCCESS=false
+TELEGRAM_NOTIFY_ON_ERROR=true</div>
+    </section>
+
+    <section class="panel">
+      <p class="eyebrow">Fehlersuche</p>
+      <h2>Typische Probleme</h2>
+      <h3>1. Sync erfolgreich, aber im Browser steht NetworkError</h3>
+      <p>Dieses Problem wurde durch den asynchronen Hintergrundstart gelöst. Wenn es noch auftritt, Stack aktualisieren und die neue Version deployen.</p>
+
+      <h3>2. rclone meldet unbekannte Flags</h3>
+      <p>Prüfe <code>RCLONE_GLOBAL_FLAGS</code>. Die kompatible Standardkonfiguration ist:</p>
+      <div class="code-block">--use-json-log --log-level INFO --stats 10s</div>
+
+      <h3>3. Dateien kommen nicht im Ziel an</h3>
+      <p>Prüfe den Zielpfad genau. Ein kleiner Schreibfehler wie <code>pcloud:/TESTrclone</code> statt <code>pcloud:/TEST/rclone</code> kann zu unerwarteten Zielordnern führen.</p>
+    </section>
+
+    <section class="panel">
+      <p class="eyebrow">Berichte</p>
+      <h2>Was du nach einem Lauf sehen solltest</h2>
+      <ul>
+        <li>einen Run-Status wie <code>running</code>, <code>success</code> oder <code>error</code></li>
+        <li>eine verständliche Kurzbeschreibung im Bericht</li>
+        <li>bei Fehlern die vermutete Ursache und die letzten stderr/stdout-Zeilen</li>
+        <li>bei Telegram-Problemen einen zusätzlichen Hinweis direkt im Run-Report</li>
+      </ul>
+    </section>
+
+    <footer class="footer">
+      Entwickelt von Steven Schödel für Flathack Projekte
+    </footer>
+  </main>
+</body>
+</html>
