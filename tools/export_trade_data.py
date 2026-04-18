@@ -568,6 +568,72 @@ def filter_ships_by_bases(ships: list[dict], bases: dict[str, dict]) -> list[dic
     return filtered
 
 
+def preserve_existing_datasets(out_file: Path, snapshot: dict) -> dict:
+    if not out_file.exists():
+        return {
+            "default_dataset": "default",
+            "dataset_order": ["default"],
+            "datasets": {"default": snapshot},
+        }
+
+    try:
+        existing = json.loads(out_file.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return {
+            "default_dataset": "default",
+            "dataset_order": ["default"],
+            "datasets": {"default": snapshot},
+        }
+
+    snapshot_bases = set(snapshot.get("bases", {}))
+    snapshot_systems = set(snapshot.get("systems", {}))
+    snapshot_commodities = set(snapshot.get("commodities", {}))
+
+    datasets: dict[str, dict] = {"default": snapshot}
+    dataset_order = ["default"]
+
+    ordered_ids = [
+        ds_id
+        for ds_id in existing.get("dataset_order", [])
+        if ds_id != "default" and ds_id in existing.get("datasets", {})
+    ]
+    for ds_id in existing.get("datasets", {}):
+        if ds_id != "default" and ds_id not in ordered_ids:
+            ordered_ids.append(ds_id)
+
+    for ds_id in ordered_ids:
+        existing_dataset = existing["datasets"].get(ds_id) or {}
+        filtered_markets: dict[str, list[dict]] = {}
+        for commodity, offers in (existing_dataset.get("markets") or {}).items():
+            if commodity not in snapshot_commodities:
+                continue
+            kept = [
+                offer
+                for offer in offers
+                if offer.get("base", "").lower() in snapshot_bases
+                and str(offer.get("sys", "")).upper() in snapshot_systems
+            ]
+            if kept:
+                filtered_markets[commodity] = kept
+
+        datasets[ds_id] = {
+            **snapshot,
+            "label": existing_dataset.get("label", ds_id.upper()),
+            "markets": filtered_markets,
+        }
+        dataset_order.append(ds_id)
+
+    default_dataset = existing.get("default_dataset", "default")
+    if default_dataset not in datasets:
+        default_dataset = "default"
+
+    return {
+        "default_dataset": default_dataset,
+        "dataset_order": dataset_order,
+        "datasets": datasets,
+    }
+
+
 def extract_commodity_prices(
     goods_files: list[Path], equip_files: list[Path], res: DLLResolver
 ) -> tuple[dict[str, int], dict[str, str], dict[str, float]]:
@@ -1137,18 +1203,17 @@ def export_installation(inst: dict):
                 if sys_nick in travel["system_gates"] or sys_nick in travel["system_tl"]
             },
         }
+        out_file = OUTPUT_DIR / f"{inst['id']}.json"
+        preserved = preserve_existing_datasets(out_file, snapshot)
         output = {
             "id": inst["id"],
             "name": inst["name"],
-            "default_dataset": "default",
-            "dataset_order": ["default"],
-            "datasets": {
-                "default": snapshot
-            },
+            "default_dataset": preserved["default_dataset"],
+            "dataset_order": preserved["dataset_order"],
+            "datasets": preserved["datasets"],
         }
 
         OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-        out_file = OUTPUT_DIR / f"{inst['id']}.json"
         with open(out_file, "w", encoding="utf-8") as f:
             json.dump(output, f, ensure_ascii=False, separators=(",", ":"))
 
