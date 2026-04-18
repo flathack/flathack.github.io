@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trade Data Comparison | Flathack</title>
+  <meta name="description" content="Compare multiple Freelancer trade datasets side-by-side. See which days and commodities are the most profitable.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    /* ── Full-width ─────────────────────────────────── */
+    .site-shell { width: calc(100% - 32px); max-width: none; }
+
+    /* ── Controls ───────────────────────────────────── */
+    .tc-controls {
+      display: flex; flex-wrap: wrap; gap: 10px;
+      align-items: flex-end; margin-bottom: 14px;
+    }
+    .tc-field { display: flex; flex-direction: column; gap: 3px; }
+    .tc-field label {
+      font-size: 0.78rem; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--muted);
+    }
+    .tc-field select, .tc-field input[type="number"] {
+      background: rgba(4, 14, 23, 0.85);
+      border: 1px solid var(--panel-border); border-radius: 8px;
+      color: var(--text); padding: 6px 10px;
+      font-family: inherit; font-size: 0.9rem;
+      min-width: 100px; min-height: 34px;
+    }
+    .tc-field select { min-width: 170px; }
+    .tc-field select:focus, .tc-field input:focus {
+      outline: none; border-color: var(--accent);
+      box-shadow: 0 0 0 2px rgba(88, 196, 255, 0.15);
+    }
+
+    /* ── Dataset picker pills ───────────────────────── */
+    .tc-dataset-pills {
+      display: flex; flex-wrap: wrap; gap: 6px;
+      margin-bottom: 14px;
+    }
+    .tc-pill {
+      padding: 5px 14px; border: 1px solid var(--panel-border);
+      border-radius: 999px; background: rgba(7, 16, 29, 0.72);
+      color: var(--muted); font-family: inherit;
+      font-weight: 600; font-size: 0.82rem;
+      cursor: pointer; transition: 160ms ease;
+      user-select: none;
+    }
+    .tc-pill:hover { color: var(--text); background: rgba(88, 196, 255, 0.08); }
+    .tc-pill.active {
+      color: var(--text); background: rgba(88, 196, 255, 0.14);
+      border-color: rgba(88, 196, 255, 0.3);
+    }
+    .tc-pill-actions { display: flex; gap: 4px; margin-left: auto; }
+    .tc-pill-action {
+      padding: 4px 10px; border: 1px solid var(--panel-border);
+      border-radius: 999px; background: rgba(7, 16, 29, 0.5);
+      color: var(--accent); font-family: inherit;
+      font-size: 0.78rem; cursor: pointer; transition: 160ms ease;
+    }
+    .tc-pill-action:hover { background: rgba(88, 196, 255, 0.12); color: var(--text); }
+
+    /* ── Tabs ───────────────────────────────────────── */
+    .tc-tabs { display: flex; gap: 8px; margin-bottom: 14px; }
+    .tc-tab {
+      padding: 6px 14px; border: 1px solid var(--panel-border);
+      border-radius: 999px; background: rgba(7, 16, 29, 0.72);
+      color: var(--muted); font-family: inherit;
+      font-weight: 600; font-size: 0.84rem;
+      cursor: pointer; transition: 160ms ease;
+    }
+    .tc-tab:hover { color: var(--text); background: rgba(88, 196, 255, 0.08); }
+    .tc-tab.active {
+      color: var(--text); background: rgba(88, 196, 255, 0.14);
+      border-color: rgba(88, 196, 255, 0.3);
+    }
+
+    /* ── Summary cards row ──────────────────────────── */
+    .tc-summary-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px; margin-bottom: 18px;
+    }
+    .tc-summary-card {
+      padding: 16px 18px;
+      border: 1px solid var(--panel-border);
+      border-radius: var(--radius-md);
+      background: rgba(8, 20, 34, 0.7);
+    }
+    .tc-summary-card h4 {
+      margin: 0 0 6px; font-size: 0.82rem;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+    .tc-summary-card .val {
+      font-size: 1.6rem; font-weight: 700;
+      font-family: "IBM Plex Mono", monospace;
+    }
+    .tc-summary-card .val.green { color: var(--success); }
+    .tc-summary-card .val.accent { color: var(--accent-strong); }
+    .tc-summary-card .val.warm { color: var(--accent-warm); }
+    .tc-summary-card .sub {
+      margin-top: 4px; font-size: 0.82rem; color: var(--muted);
+    }
+
+    /* ── Tables ─────────────────────────────────────── */
+    .tc-table-wrap {
+      overflow-x: auto; border-radius: 14px;
+      border: 1px solid var(--panel-border); margin-bottom: 18px;
+    }
+    .tc-table {
+      width: 100%; border-collapse: collapse;
+      font-size: 0.86rem; white-space: nowrap;
+    }
+    .tc-table th {
+      position: sticky; top: 0; padding: 6px 10px;
+      text-align: left; font-weight: 600; font-size: 0.78rem;
+      text-transform: uppercase; letter-spacing: 0.06em;
+      color: var(--accent-strong);
+      background: rgba(8, 20, 34, 0.95);
+      border-bottom: 1px solid var(--panel-border);
+      cursor: pointer; user-select: none;
+    }
+    .tc-table th:hover { color: var(--text); }
+    .tc-table th .sort-arrow { margin-left: 4px; font-size: 0.7rem; }
+    .tc-table td {
+      padding: 4px 10px;
+      border-bottom: 1px solid rgba(132, 177, 255, 0.08);
+    }
+    .tc-table tbody tr:nth-child(even) { background: rgba(4, 14, 23, 0.35); }
+    .tc-table tbody tr:hover { background: rgba(88, 196, 255, 0.06); }
+    .td-num { text-align: right; font-family: "IBM Plex Mono", monospace; }
+    .td-profit { color: var(--success); font-weight: 600; }
+    .td-neg { color: #ef4444; }
+    .td-warm { color: var(--accent-warm); font-weight: 600; }
+
+    /* ── Heatmap cell ───────────────────────────────── */
+    .hm-cell {
+      text-align: right; font-family: "IBM Plex Mono", monospace;
+      font-size: 0.82rem; padding: 3px 8px;
+    }
+    .hm-best { background: rgba(52, 211, 153, 0.18); color: var(--success); font-weight: 700; }
+    .hm-worst { background: rgba(239, 68, 68, 0.12); color: #ef4444; }
+
+    /* ── Search ─────────────────────────────────────── */
+    .tc-search {
+      width: 100%; padding: 7px 14px; margin-bottom: 10px;
+      background: rgba(4, 14, 23, 0.7);
+      border: 1px solid var(--panel-border); border-radius: 10px;
+      color: var(--text); font-family: inherit; font-size: 0.95rem;
+    }
+    .tc-search:focus { outline: none; border-color: var(--accent); }
+    .tc-search::placeholder { color: rgba(159, 178, 207, 0.5); }
+
+    /* ── Chart bar ──────────────────────────────────── */
+    .tc-bar-chart { display: flex; flex-direction: column; gap: 6px; margin-bottom: 18px; }
+    .tc-bar-row {
+      display: grid; grid-template-columns: 160px 1fr 80px;
+      gap: 10px; align-items: center; font-size: 0.86rem;
+    }
+    .tc-bar-label { color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .tc-bar-track {
+      height: 22px; border-radius: 6px;
+      background: rgba(88, 196, 255, 0.06);
+      overflow: hidden;
+    }
+    .tc-bar-fill {
+      height: 100%; border-radius: 6px;
+      background: linear-gradient(90deg, var(--accent), var(--success));
+      transition: width 400ms ease;
+    }
+    .tc-bar-value {
+      text-align: right; font-family: "IBM Plex Mono", monospace;
+      font-weight: 600; color: var(--success);
+    }
+
+    /* ── Loading / Empty ────────────────────────────── */
+    .tc-loading {
+      display: none; flex-direction: column;
+      align-items: center; gap: 14px; padding: 48px 0;
+    }
+    .tc-spinner {
+      width: 36px; height: 36px;
+      border: 3px solid var(--panel-border);
+      border-top-color: var(--accent); border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .tc-empty { text-align: center; padding: 40px 20px; color: var(--muted); }
+    .tc-info {
+      padding: 14px 18px; margin-bottom: 14px;
+      border-radius: 12px; background: rgba(88, 196, 255, 0.06);
+      border: 1px solid rgba(88, 196, 255, 0.15);
+      color: var(--muted); font-size: 0.9rem;
+    }
+
+    /* ── Responsive ─────────────────────────────────── */
+    @media (max-width: 700px) {
+      .tc-controls { flex-direction: column; align-items: stretch; }
+      .tc-field select { min-width: unset; width: 100%; }
+      .tc-bar-row { grid-template-columns: 120px 1fr 60px; }
+    }
+  </style>
+</head>
+<body class="gaming-theme">
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark">FH</span>
+        <span class="brand-text">Flathack Projects</span>
+      </a>
+      <nav class="project-top-nav" aria-label="Projekt-Navigation"></nav>
+    </header>
+
+    <main>
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+        <div>
+          <h2 style="margin:0 0 2px;" data-i18n="title">Dataset-Vergleich</h2>
+          <p style="color:var(--muted);margin:0;font-size:0.88rem;" data-i18n="intro">Vergleiche mehrere Preisdaten-Sets und finde die profitabelsten Tage und Waren.</p>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <section class="page-section" style="margin-bottom:14px;">
+        <div class="tc-controls" id="controls">
+          <div class="tc-field">
+            <label for="cargo-input" data-i18n="lbl_cargo">Fracht</label>
+            <input type="number" id="cargo-input" value="250" min="1" max="20000">
+          </div>
+          <div class="tc-field">
+            <label for="jumps-input" data-i18n="lbl_jumps">Max. Sprünge</label>
+            <input type="number" id="jumps-input" value="10" min="0" max="50">
+          </div>
+        </div>
+
+        <label style="font-size:0.78rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);display:block;margin-bottom:4px;" data-i18n="lbl_datasets">Datasets auswählen</label>
+        <div class="tc-dataset-pills" id="dataset-pills"></div>
+
+        <div class="tc-tabs" id="view-tabs">
+          <button class="tc-tab active" data-view="overview" data-i18n="tab_overview">Übersicht</button>
+          <button class="tc-tab" data-view="days" data-i18n="tab_days">Tage-Ranking</button>
+          <button class="tc-tab" data-view="commodities" data-i18n="tab_commodities">Waren-Ranking</button>
+          <button class="tc-tab" data-view="heatmap" data-i18n="tab_heatmap">Preis-Heatmap</button>
+        </div>
+      </section>
+
+      <!-- Summary -->
+      <div class="tc-summary-row" id="summary-row" style="display:none;"></div>
+
+      <!-- Content -->
+      <section class="page-section" id="results-section" style="display:none;">
+        <input type="text" id="search-input" class="tc-search" placeholder="Suchen...">
+        <div id="content-area"></div>
+      </section>
+
+      <!-- Loading -->
+      <div class="tc-loading" id="loading">
+        <div class="tc-spinner"></div>
+        <p data-i18n="loading">Daten werden geladen...</p>
+      </div>
+
+      <!-- Info for single-dataset mods -->
+      <div class="tc-info" id="single-ds-info" style="display:none;">
+        <span data-i18n="single_ds_info">Dieser Mod hat nur ein einzelnes Dataset. Wähle einen Mod mit mehreren Datasets (z.B. Crossfire 2.0) für den vollen Vergleich.</span>
+      </div>
+    </main>
+  </div>
+
+  <script src="../assets/js/trade-engine.js"></script>
+  <script>
+    /* ══════════════════════════════════════════════════════
+       i18n
+    ══════════════════════════════════════════════════════ */
+    const I18N = {
+      de: {
+        title: 'Dataset-Vergleich',
+        intro: 'Vergleiche mehrere Preisdaten-Sets und finde die profitabelsten Tage und Waren.',
+        lbl_cargo: 'Fracht', lbl_jumps: 'Max. Sprünge', lbl_datasets: 'Datasets auswählen',
+        tab_overview: 'Übersicht', tab_days: 'Tage-Ranking', tab_commodities: 'Waren-Ranking', tab_heatmap: 'Preis-Heatmap',
+        search_placeholder: 'Suchen...',
+        loading: 'Daten werden geladen...',
+        single_ds_info: 'Dieser Mod hat nur ein einzelnes Dataset. Wähle einen Mod mit mehreren Datasets (z.B. Crossfire 2.0) für den vollen Vergleich.',
+        card_best_day: 'Bester Tag', card_best_commodity: 'Beste Ware',
+        card_avg_profit: 'Ø Bester $/Min', card_datasets: 'Datasets verglichen',
+        col_rank: '#', col_dataset: 'Dataset', col_best_route: 'Beste Route',
+        col_ppm: '$/Min', col_total_profit: 'Gesamtprofit',
+        col_avg_ppm: 'Ø $/Min', col_top_routes: 'Routen mit $/Min',
+        col_commodity: 'Ware', col_avg_ppm_comm: 'Ø $/Min', col_max_ppm: 'Max $/Min',
+        col_best_in: 'Bester Tag',
+        col_min_ppm: 'Min $/Min', col_volatility: 'Volatilität',
+        btn_select_all: 'Alle', btn_select_none: 'Keine',
+        hm_commodity: 'Ware',
+        overview_days_chart: 'Tage-Ranking (Bester $/Min)',
+        overview_comms_chart: 'Top Commodities (Ø $/Min über alle Tage)',
+      },
+      en: {
+        title: 'Dataset Comparison',
+        intro: 'Compare multiple price datasets side-by-side to find the most profitable days and commodities.',
+        lbl_cargo: 'Cargo', lbl_jumps: 'Max Jumps', lbl_datasets: 'Select Datasets',
+        tab_overview: 'Overview', tab_days: 'Day Ranking', tab_commodities: 'Commodity Ranking', tab_heatmap: 'Price Heatmap',
+        search_placeholder: 'Search...',
+        loading: 'Loading data...',
+        single_ds_info: 'This mod only has a single dataset. Choose a mod with multiple datasets (e.g. Crossfire 2.0) for the full comparison.',
+        card_best_day: 'Best Day', card_best_commodity: 'Best Commodity',
+        card_avg_profit: 'Avg Best $/Min', card_datasets: 'Datasets Compared',
+        col_rank: '#', col_dataset: 'Dataset', col_best_route: 'Best Route',
+        col_ppm: '$/Min', col_total_profit: 'Total Profit',
+        col_avg_ppm: 'Avg $/Min', col_top_routes: 'Routes with $/Min',
+        col_commodity: 'Commodity', col_avg_ppm_comm: 'Avg $/Min', col_max_ppm: 'Max $/Min',
+        col_best_in: 'Best Day',
+        col_min_ppm: 'Min $/Min', col_volatility: 'Volatility',
+        btn_select_all: 'All', btn_select_none: 'None',
+        hm_commodity: 'Commodity',
+        overview_days_chart: 'Day Ranking (Best $/Min)',
+        overview_comms_chart: 'Top Commodities (Avg $/Min across all Days)',
+      }
+    };
+    const COMMODITY_DE = {
+      'Alien Artifacts': 'Alien-Artefakte', 'Alien Organisms': 'Alien-Organismen',
+      'Basic Alloys': 'Basislegierungen', 'Beryllium': 'Beryllium', 'Boron': 'Bor',
+      'Cardamine': 'Cardamin', 'Cobalt': 'Kobalt',
+      'Construction Machinery': 'Baumaschinen', 'Consumer Goods': 'Konsumgüter',
+      'Copper': 'Kupfer', 'Diamonds': 'Diamanten',
+      'Engine Components': 'Triebwerksteile', 'Fertilizers': 'Düngemittel',
+      'Food': 'Nahrung', 'Gold': 'Gold', 'H Fuel': 'H-Treibstoff',
+      'High Temp Alloys': 'Hochtemperaturlegierungen', 'Hydrocarbons': 'Kohlenwasserstoffe',
+      'Luxury Consumer Goods': 'Luxusgüter', 'Luxury Food': 'Luxusnahrung',
+      'Mining Machinery': 'Bergbaumaschinen', 'Mox Fuel': 'MOX-Brennstoff',
+      'Niobium': 'Niob', 'Optical Chips': 'Optochips', 'Optronics': 'Optronik',
+      'Oxygen': 'Sauerstoff', 'Pharm': 'Pharmazeutika', 'Polymers': 'Polymere',
+      'Prisoners': 'Gefangene', 'Scrap Metal': 'Schrott',
+      'Ship Hull Panels': 'Rumpfplatten', 'Sidearms': 'Handfeuerwaffen',
+      'Silver': 'Silber', 'Super Alloys': 'Superlegierungen',
+      'Superconductors': 'Supraleiter', 'Terraforming Gases': 'Terraforming-Gase',
+      'Toxic Waste': 'Giftmüll', 'Tradelane Parts': 'Handelsrouten-Teile',
+      'Vips': 'VIPs', 'Water': 'Wasser',
+      'Energycrystals': 'Energiekristalle', 'Energycrystals2': 'Energiekristalle II',
+      'Rum': 'Rum', 'Vodka': 'Wodka', 'Whiskey': 'Whiskey', 'Supply': 'Nachschub',
+    };
+
+    let lang = (function() { try { return sessionStorage.getItem('flathack-lang') || 'en'; } catch(e) { return 'en'; } })();
+    function t(key) { return (I18N[lang] || I18N.de)[key] || key; }
+    function tCommodity(name) { return lang === 'de' ? (COMMODITY_DE[name] || name) : name; }
+    function escHtml(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+    function fmtNum(n) { return n.toLocaleString('de-DE', { maximumFractionDigits: 0 }); }
+
+    function applyLang() {
+      document.querySelectorAll('[data-i18n]').forEach(el => { el.textContent = t(el.dataset.i18n); });
+      searchInput.placeholder = t('search_placeholder');
+      if (tradePayload) renderCurrentView();
+    }
+
+    /* ══════════════════════════════════════════════════════
+       State
+    ══════════════════════════════════════════════════════ */
+    let tradePayload = null;
+    let currentModId = '';
+    let selectedDatasets = new Set();
+    let currentView = 'overview';
+    let analysisCache = null;
+    let sortCol = null;
+    let sortAsc = true;
+
+    const summaryRow = document.getElementById('summary-row');
+    const resultsSection = document.getElementById('results-section');
+    const contentArea = document.getElementById('content-area');
+    const searchInput = document.getElementById('search-input');
+    const loadingEl = document.getElementById('loading');
+    const pillsContainer = document.getElementById('dataset-pills');
+    const singleDsInfo = document.getElementById('single-ds-info');
+    const cargoInput = document.getElementById('cargo-input');
+    const jumpsInput = document.getElementById('jumps-input');
+
+    /* ══════════════════════════════════════════════════════
+       Data loading
+    ══════════════════════════════════════════════════════ */
+    const MOD_FILES = {
+      'vanilla': 'vanilla.json',
+      'hamburg-city': 'hamburg-city.json',
+      'crossfire': 'crossfire.json',
+      'discovery': 'discovery.json',
+      'freelancer-universe': 'freelancer-universe.json',
+    };
+
+    async function loadMod(modId) {
+      const file = MOD_FILES[modId];
+      if (!file) return;
+      loadingEl.style.display = 'flex';
+      resultsSection.style.display = 'none';
+      summaryRow.style.display = 'none';
+      singleDsInfo.style.display = 'none';
+      currentModId = modId;
+      analysisCache = null;
+
+      try {
+        const resp = await fetch('../data/trade-routes/' + file);
+        if (!resp.ok) throw new Error(resp.status);
+        tradePayload = await resp.json();
+      } catch (e) {
+        loadingEl.style.display = 'none';
+        contentArea.innerHTML = '<div class="tc-empty">Failed to load: ' + escHtml(e.message) + '</div>';
+        resultsSection.style.display = '';
+        return;
+      }
+
+      // Build dataset pills
+      const dsOrder = tradePayload.dataset_order || Object.keys(tradePayload.datasets);
+      selectedDatasets = new Set(dsOrder);
+      renderPills(dsOrder);
+
+      if (dsOrder.length <= 1) {
+        singleDsInfo.style.display = '';
+      }
+
+      loadingEl.style.display = 'none';
+      renderCurrentView();
+    }
+
+    function renderPills(dsOrder) {
+      pillsContainer.innerHTML = '';
+      for (const dsId of dsOrder) {
+        const ds = tradePayload.datasets[dsId];
+        const label = (ds && ds.label) || dsId;
+        const pill = document.createElement('button');
+        pill.className = 'tc-pill' + (selectedDatasets.has(dsId) ? ' active' : '');
+        pill.textContent = label;
+        pill.dataset.ds = dsId;
+        pill.addEventListener('click', () => {
+          if (selectedDatasets.has(dsId)) { selectedDatasets.delete(dsId); }
+          else { selectedDatasets.add(dsId); }
+          pill.classList.toggle('active', selectedDatasets.has(dsId));
+          analysisCache = null;
+          renderCurrentView();
+        });
+        pillsContainer.appendChild(pill);
+      }
+
+      // Select All / None buttons
+      const actions = document.createElement('div');
+      actions.className = 'tc-pill-actions';
+      const btnAll = document.createElement('button');
+      btnAll.className = 'tc-pill-action';
+      btnAll.textContent = t('btn_select_all');
+      btnAll.dataset.i18n = 'btn_select_all';
+      btnAll.addEventListener('click', () => {
+        selectedDatasets = new Set(dsOrder);
+        pillsContainer.querySelectorAll('.tc-pill').forEach(p => p.classList.add('active'));
+        analysisCache = null;
+        renderCurrentView();
+      });
+      const btnNone = document.createElement('button');
+      btnNone.className = 'tc-pill-action';
+      btnNone.textContent = t('btn_select_none');
+      btnNone.dataset.i18n = 'btn_select_none';
+      btnNone.addEventListener('click', () => {
+        selectedDatasets.clear();
+        pillsContainer.querySelectorAll('.tc-pill').forEach(p => p.classList.remove('active'));
+        analysisCache = null;
+        renderCurrentView();
+      });
+      actions.appendChild(btnAll);
+      actions.appendChild(btnNone);
+      pillsContainer.appendChild(actions);
+    }
+
+    /* ══════════════════════════════════════════════════════
+       Analysis engine
+    ══════════════════════════════════════════════════════ */
+    function analyzeDatasets() {
+      if (analysisCache) return analysisCache;
+      const maxJumps = parseInt(jumpsInput.value) || 10;
+      const cargo = parseInt(cargoInput.value) || 250;
+      const dsIds = [...selectedDatasets];
+      if (!tradePayload || !dsIds.length) return null;
+
+      const dayStats = [];
+      const commodityMap = {}; // nick -> { name, perDay: [{dsId, label, bestPPM, ...}] }
+
+      for (const dsId of dsIds) {
+        const ds = tradePayload.datasets[dsId];
+        if (!ds) continue;
+        const label = ds.label || dsId;
+        const engine = new TradeEngine(ds);
+
+        // Build commodity name → nick lookup
+        const nameToNick = {};
+        for (const [nick, info] of Object.entries(ds.commodities || {})) {
+          nameToNick[info.name || nick] = nick;
+        }
+
+        // Use engine's built-in route generation + travel metrics
+        const routes = engine.candidateRoutes(cargo, maxJumps, false);
+        engine._applyTravelMetrics(routes, false);
+
+        // Sort by $/min (routes without travel time go to end)
+        routes.sort((a, b) => (b.profitPerMin || 0) - (a.profitPerMin || 0));
+
+        // Track best route per commodity by $/min
+        const commBest = {};
+        for (const r of routes) {
+          const nick = nameToNick[r.commodity] || r.commodity;
+          if (!commBest[nick] || (r.profitPerMin || 0) > (commBest[nick].profitPerMin || 0)) {
+            commBest[nick] = r;
+          }
+        }
+
+        for (const [nick, r] of Object.entries(commBest)) {
+          if (!commodityMap[nick]) {
+            commodityMap[nick] = { name: r.commodity, nick, perDay: [] };
+          }
+          commodityMap[nick].perDay.push({
+            dsId, label,
+            bestPPM: r.profitPerMin || 0,
+            bestMargin: r.profitPerUnit,
+            totalProfit: r.totalProfit,
+          });
+        }
+
+        const validPPM = routes.filter(r => r.profitPerMin > 0);
+        const topCount = validPPM.length;
+        const avgPPM = validPPM.length ? Math.round(validPPM.reduce((s, r) => s + r.profitPerMin, 0) / validPPM.length) : 0;
+        const best = routes[0] || null;
+
+        dayStats.push({
+          dsId, label,
+          bestRoute: best,
+          bestPPM: best ? (best.profitPerMin || 0) : 0,
+          avgPPM,
+          topRouteCount: topCount,
+        });
+      }
+
+      // Sort days by best $/min
+      dayStats.sort((a, b) => b.bestPPM - a.bestPPM);
+
+      // Compute commodity stats based on $/min
+      const commodityStats = Object.values(commodityMap).map(c => {
+        const ppms = c.perDay.map(d => d.bestPPM);
+        const avg = ppms.reduce((s, m) => s + m, 0) / ppms.length;
+        const max = Math.max(...ppms);
+        const min = Math.min(...ppms);
+        const bestEntry = c.perDay.reduce((best, d) => d.bestPPM > best.bestPPM ? d : best, c.perDay[0]);
+        return {
+          ...c,
+          avgPPM: Math.round(avg),
+          maxPPM: max,
+          minPPM: min,
+          bestDay: bestEntry.label,
+          appearances: c.perDay.length,
+          volatility: Math.round(max - min),
+        };
+      });
+      commodityStats.sort((a, b) => b.avgPPM - a.avgPPM);
+
+      // Heatmap data: commodity → dsId → ppm
+      const heatmapData = {};
+      for (const c of Object.values(commodityMap)) {
+        heatmapData[c.nick] = { name: c.name };
+        for (const d of c.perDay) {
+          heatmapData[c.nick][d.dsId] = { ppm: d.bestPPM, margin: d.bestMargin };
+        }
+      }
+
+      analysisCache = { dayStats, commodityStats, heatmapData, dsIds, cargo };
+      return analysisCache;
+    }
+
+    /* ══════════════════════════════════════════════════════
+       Rendering
+    ══════════════════════════════════════════════════════ */
+    function renderCurrentView() {
+      sortCol = null;
+      sortAsc = true;
+      const data = analyzeDatasets();
+      if (!data) {
+        summaryRow.style.display = 'none';
+        resultsSection.style.display = '';
+        contentArea.innerHTML = '<div class="tc-empty">' + escHtml(t('single_ds_info')) + '</div>';
+        return;
+      }
+      renderSummary(data);
+      switch (currentView) {
+        case 'overview': renderOverview(data); break;
+        case 'days': renderDaysTable(data); break;
+        case 'commodities': renderCommoditiesTable(data); break;
+        case 'heatmap': renderHeatmap(data); break;
+      }
+      resultsSection.style.display = '';
+    }
+
+    function renderSummary(data) {
+      const { dayStats, commodityStats, dsIds, cargo } = data;
+      const bestDay = dayStats[0];
+      const bestComm = commodityStats[0];
+      const overallAvg = dayStats.length
+        ? Math.round(dayStats.reduce((s, d) => s + d.bestPPM, 0) / dayStats.length) : 0;
+
+      summaryRow.innerHTML = `
+        <div class="tc-summary-card">
+          <h4>${escHtml(t('card_best_day'))}</h4>
+          <div class="val green">${bestDay ? escHtml(bestDay.label) : '-'}</div>
+          <div class="sub">${bestDay && bestDay.bestRoute ? escHtml(tCommodity(bestDay.bestRoute.commodity)) + ' — ' + fmtNum(bestDay.bestPPM) + ' $/Min' : ''}</div>
+        </div>
+        <div class="tc-summary-card">
+          <h4>${escHtml(t('card_best_commodity'))}</h4>
+          <div class="val accent">${bestComm ? escHtml(tCommodity(bestComm.name)) : '-'}</div>
+          <div class="sub">Ø ${bestComm ? fmtNum(bestComm.avgPPM) + ' $/Min' : '-'}</div>
+        </div>
+        <div class="tc-summary-card">
+          <h4>${escHtml(t('card_avg_profit'))}</h4>
+          <div class="val warm">${fmtNum(overallAvg)} $/Min</div>
+          <div class="sub">Ø ${escHtml(t('card_best_day'))} $/Min (${dsIds.length} Datasets)</div>
+        </div>
+        <div class="tc-summary-card">
+          <h4>${escHtml(t('card_datasets'))}</h4>
+          <div class="val accent">${dsIds.length}</div>
+        </div>`;
+      summaryRow.style.display = '';
+    }
+
+    /* ── Overview ──────────────────────────────────────── */
+    function renderOverview(data) {
+      const { dayStats, commodityStats } = data;
+      let html = '';
+
+      // Day bar chart
+      html += '<h3 style="margin:0 0 10px;font-size:1rem;color:var(--accent-strong);">' + escHtml(t('overview_days_chart')) + '</h3>';
+      const maxDay = dayStats.length ? dayStats[0].bestPPM : 1;
+      html += '<div class="tc-bar-chart">';
+      for (const d of dayStats) {
+        const pct = maxDay > 0 ? (d.bestPPM / maxDay * 100).toFixed(1) : 0;
+        html += `<div class="tc-bar-row">
+          <span class="tc-bar-label">${escHtml(d.label)}</span>
+          <div class="tc-bar-track"><div class="tc-bar-fill" style="width:${pct}%"></div></div>
+          <span class="tc-bar-value">${fmtNum(d.bestPPM)} $/Min</span>
+        </div>`;
+      }
+      html += '</div>';
+
+      // Commodity bar chart (top 15)
+      html += '<h3 style="margin:18px 0 10px;font-size:1rem;color:var(--accent-strong);">' + escHtml(t('overview_comms_chart')) + '</h3>';
+      const topComms = commodityStats.slice(0, 15);
+      const maxComm = topComms.length ? topComms[0].avgPPM : 1;
+      html += '<div class="tc-bar-chart">';
+      for (const c of topComms) {
+        const pct = maxComm > 0 ? (c.avgPPM / maxComm * 100).toFixed(1) : 0;
+        html += `<div class="tc-bar-row">
+          <span class="tc-bar-label">${escHtml(tCommodity(c.name))}</span>
+          <div class="tc-bar-track"><div class="tc-bar-fill" style="width:${pct}%"></div></div>
+          <span class="tc-bar-value">${fmtNum(c.avgPPM)} $/Min</span>
+        </div>`;
+      }
+      html += '</div>';
+
+      contentArea.innerHTML = html;
+    }
+
+    /* ── Days table ────────────────────────────────────── */
+    function renderDaysTable(data) {
+      const { dayStats, cargo } = data;
+      const filter = searchInput.value.toLowerCase();
+      const filtered = filter
+        ? dayStats.filter(d => d.label.toLowerCase().includes(filter) || (d.bestRoute && d.bestRoute.commodity.toLowerCase().includes(filter)))
+        : dayStats;
+
+      let rows = [...filtered];
+      if (sortCol !== null) {
+        rows.sort((a, b) => {
+          let va, vb;
+          switch (sortCol) {
+            case 1: va = a.label; vb = b.label; return sortAsc ? va.localeCompare(vb) : vb.localeCompare(va);
+            case 2: va = a.bestRoute ? a.bestRoute.commodity : ''; vb = b.bestRoute ? b.bestRoute.commodity : ''; return sortAsc ? va.localeCompare(vb) : vb.localeCompare(va);
+            case 3: va = a.bestPPM; vb = b.bestPPM; break;
+            case 4: va = a.bestRoute ? a.bestRoute.totalProfit : 0; vb = b.bestRoute ? b.bestRoute.totalProfit : 0; break;
+            case 5: va = a.avgPPM; vb = b.avgPPM; break;
+            case 6: va = a.topRouteCount; vb = b.topRouteCount; break;
+            default: va = 0; vb = 0;
+          }
+          return sortAsc ? va - vb : vb - va;
+        });
+      }
+
+      const cols = [
+        { label: t('col_rank'), idx: 0 },
+        { label: t('col_dataset'), idx: 1 },
+        { label: t('col_best_route'), idx: 2 },
+        { label: t('col_ppm'), idx: 3 },
+        { label: t('col_total_profit'), idx: 4 },
+        { label: t('col_avg_ppm'), idx: 5 },
+        { label: t('col_top_routes'), idx: 6 },
+      ];
+
+      let html = '<div class="tc-table-wrap"><table class="tc-table"><thead><tr>';
+      for (const c of cols) {
+        const arrow = sortCol === c.idx ? (sortAsc ? ' ▲' : ' ▼') : '';
+        html += `<th data-col="${c.idx}">${escHtml(c.label)}<span class="sort-arrow">${arrow}</span></th>`;
+      }
+      html += '</tr></thead><tbody>';
+
+      rows.forEach((d, i) => {
+        const route = d.bestRoute;
+        const routeLabel = route ? tCommodity(route.commodity) + ' (' + route.srcSys + ' → ' + route.dstSys + ')' : '-';
+        html += `<tr>
+          <td class="td-num">${i + 1}</td>
+          <td><strong>${escHtml(d.label)}</strong></td>
+          <td>${escHtml(routeLabel)}</td>
+          <td class="td-num td-profit">${route && route.profitPerMin ? fmtNum(route.profitPerMin) : '-'}</td>
+          <td class="td-num td-profit">${route ? fmtNum(route.totalProfit) : '-'}</td>
+          <td class="td-num">${fmtNum(d.avgPPM)}</td>
+          <td class="td-num td-warm">${fmtNum(d.topRouteCount)}</td>
+        </tr>`;
+      });
+
+      html += '</tbody></table></div>';
+      contentArea.innerHTML = html;
+      attachTableSort();
+    }
+
+    /* ── Commodities table ─────────────────────────────── */
+    function renderCommoditiesTable(data) {
+      const { commodityStats } = data;
+      const filter = searchInput.value.toLowerCase();
+      const filtered = filter
+        ? commodityStats.filter(c => c.name.toLowerCase().includes(filter) || tCommodity(c.name).toLowerCase().includes(filter))
+        : commodityStats;
+
+      let rows = [...filtered];
+      if (sortCol !== null) {
+        rows.sort((a, b) => {
+          let va, vb;
+          switch (sortCol) {
+            case 1: va = tCommodity(a.name); vb = tCommodity(b.name); return sortAsc ? va.localeCompare(vb) : vb.localeCompare(va);
+            case 2: va = a.avgPPM; vb = b.avgPPM; break;
+            case 3: va = a.maxPPM; vb = b.maxPPM; break;
+            case 4: va = a.minPPM; vb = b.minPPM; break;
+            case 5: va = a.volatility; vb = b.volatility; break;
+            case 6: va = a.bestDay; vb = b.bestDay; return sortAsc ? va.localeCompare(vb) : vb.localeCompare(va);
+            default: va = 0; vb = 0;
+          }
+          if (typeof va === 'number') return sortAsc ? va - vb : vb - va;
+          return 0;
+        });
+      }
+
+      const cols = [
+        { label: t('col_rank'), idx: 0 },
+        { label: t('col_commodity'), idx: 1 },
+        { label: t('col_avg_ppm_comm'), idx: 2 },
+        { label: t('col_max_ppm'), idx: 3 },
+        { label: t('col_min_ppm'), idx: 4 },
+        { label: t('col_volatility'), idx: 5 },
+        { label: t('col_best_in'), idx: 6 },
+      ];
+
+      let html = '<div class="tc-table-wrap"><table class="tc-table"><thead><tr>';
+      for (const c of cols) {
+        const arrow = sortCol === c.idx ? (sortAsc ? ' ▲' : ' ▼') : '';
+        html += `<th data-col="${c.idx}">${escHtml(c.label)}<span class="sort-arrow">${arrow}</span></th>`;
+      }
+      html += '</tr></thead><tbody>';
+
+      rows.forEach((c, i) => {
+        html += `<tr>
+          <td class="td-num">${i + 1}</td>
+          <td><strong>${escHtml(tCommodity(c.name))}</strong></td>
+          <td class="td-num td-profit">${fmtNum(c.avgPPM)}</td>
+          <td class="td-num td-profit">${fmtNum(Math.round(c.maxPPM))}</td>
+          <td class="td-num">${fmtNum(Math.round(c.minPPM))}</td>
+          <td class="td-num td-warm">${fmtNum(c.volatility)}</td>
+          <td>${escHtml(c.bestDay)}</td>
+        </tr>`;
+      });
+
+      html += '</tbody></table></div>';
+      contentArea.innerHTML = html;
+      attachTableSort();
+    }
+
+    /* ── Heatmap ───────────────────────────────────────── */
+    function renderHeatmap(data) {
+      const { heatmapData, dsIds, commodityStats } = data;
+      const filter = searchInput.value.toLowerCase();
+      // Use top 40 commodities by avg $/min, filtered
+      let comms = commodityStats.slice(0, 40);
+      if (filter) {
+        comms = commodityStats.filter(c =>
+          c.name.toLowerCase().includes(filter) || tCommodity(c.name).toLowerCase().includes(filter)
+        );
+      }
+
+      // Get labels
+      const dsLabels = dsIds.map(id => {
+        const ds = tradePayload.datasets[id];
+        return (ds && ds.label) || id;
+      });
+
+      let html = '<div class="tc-table-wrap"><table class="tc-table"><thead><tr>';
+      html += `<th>${escHtml(t('hm_commodity'))}</th>`;
+      for (const label of dsLabels) {
+        html += `<th style="text-align:right;">${escHtml(label)}</th>`;
+      }
+      html += '<th style="text-align:right;">Ø</th>';
+      html += '</tr></thead><tbody>';
+
+      for (const c of comms) {
+        const hmRow = heatmapData[c.nick];
+        if (!hmRow) continue;
+        const ppms = dsIds.map(id => hmRow[id] ? hmRow[id].ppm : null);
+        const validPPMs = ppms.filter(m => m !== null);
+        const avg = validPPMs.length ? validPPMs.reduce((s, m) => s + m, 0) / validPPMs.length : 0;
+        const max = validPPMs.length ? Math.max(...validPPMs) : 0;
+        const min = validPPMs.length ? Math.min(...validPPMs) : 0;
+
+        html += `<tr><td><strong>${escHtml(tCommodity(c.name))}</strong></td>`;
+        for (const m of ppms) {
+          if (m === null) {
+            html += '<td class="hm-cell">-</td>';
+          } else {
+            let cls = 'hm-cell';
+            if (m === max && validPPMs.length > 1) cls += ' hm-best';
+            else if (m === min && validPPMs.length > 1 && min !== max) cls += ' hm-worst';
+            html += `<td class="${cls}">${fmtNum(Math.round(m))}</td>`;
+          }
+        }
+        html += `<td class="hm-cell" style="font-weight:600;">${fmtNum(Math.round(avg))}</td>`;
+        html += '</tr>';
+      }
+
+      html += '</tbody></table></div>';
+      contentArea.innerHTML = html;
+    }
+
+    /* ── Table sort ────────────────────────────────────── */
+    function attachTableSort() {
+      contentArea.querySelectorAll('th[data-col]').forEach(th => {
+        th.addEventListener('click', () => {
+          const col = parseInt(th.dataset.col);
+          if (sortCol === col) { sortAsc = !sortAsc; }
+          else { sortCol = col; sortAsc = false; }
+          renderCurrentView();
+        });
+      });
+    }
+
+    /* ══════════════════════════════════════════════════════
+       Event handlers
+    ══════════════════════════════════════════════════════ */
+    // View tabs
+    document.getElementById('view-tabs').addEventListener('click', e => {
+      const tab = e.target.closest('.tc-tab');
+      if (!tab) return;
+      document.querySelectorAll('.tc-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      currentView = tab.dataset.view;
+      sortCol = null; sortAsc = true;
+      renderCurrentView();
+    });
+
+    // Search
+    searchInput.addEventListener('input', () => renderCurrentView());
+
+    // Cargo / jumps change
+    cargoInput.addEventListener('change', () => { analysisCache = null; renderCurrentView(); });
+    jumpsInput.addEventListener('change', () => { analysisCache = null; renderCurrentView(); });
+
+    // Language
+    window.addEventListener('lang-change', e => {
+      lang = e.detail.lang;
+      applyLang();
+    });
+
+    // Mod change (from sub-nav)
+    window.addEventListener('mod-change', e => {
+      const mod = e.detail.mod;
+      if (mod !== currentModId) loadMod(mod);
+    });
+  </script>
+  <script src="../assets/js/nav.js"></script>
+</body>
+</html>
