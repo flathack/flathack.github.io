@@ -481,28 +481,20 @@ def extract_locked_hashes(universe_file: Path) -> set[int]:
     return hashes
 
 
-def build_adjacency(universe_file: Path, locked: set[int]) -> dict[str, list[str]]:
-    systems_dir = universe_file.parent / "SYSTEMS"
-    if not systems_dir.exists():
-        return {}
-    adj: dict[str, set[str]] = {}
-    for sys_dir in systems_dir.iterdir():
-        if not sys_dir.is_dir():
+def build_adjacency(
+    universe_file: Path, systems: dict[str, dict], locked: set[int]
+) -> dict[str, list[str]]:
+    root = universe_file.parent
+    adj: dict[str, set[str]] = {sys_nick: set() for sys_nick in systems}
+
+    for sys_nick, sys_info in systems.items():
+        rel = (sys_info.get("file") or "").strip()
+        if not rel:
             continue
-        sys_file = next(
-            (
-                f
-                for f in sys_dir.iterdir()
-                if f.is_file()
-                and f.suffix.lower() == ".ini"
-                and f.stem.lower() == sys_dir.name.lower()
-            ),
-            None,
-        )
-        if not sys_file:
+        sys_file = root / rel.replace("\\", "/")
+        if not sys_file.exists():
             continue
-        current = sys_dir.name.upper()
-        adj.setdefault(current, set())
+
         for sec, entries in parse_ini(sys_file):
             if sec.lower() != "object":
                 continue
@@ -516,14 +508,64 @@ def build_adjacency(universe_file: Path, locked: set[int]) -> dict[str, list[str
                     goto = v.strip()
             if not goto:
                 continue
-            if locked and nick:
-                if fl_hash(nick) in locked:
-                    continue
+            if locked and nick and fl_hash(nick) in locked:
+                continue
+
             target = goto.split(",", 1)[0].strip().upper()
-            if target:
-                adj.setdefault(current, set()).add(target)
-                adj.setdefault(target, set()).add(current)
+            if target and target in systems and target != sys_nick:
+                adj[sys_nick].add(target)
+
     return {k: sorted(v) for k, v in adj.items()}
+
+
+def externally_reachable_systems(
+    systems: dict[str, dict], adjacency: dict[str, list[str]]
+) -> set[str]:
+    inbound: dict[str, set[str]] = {sys_nick: set() for sys_nick in systems}
+    for src, targets in adjacency.items():
+        for dst in targets:
+            if dst != src and dst in inbound:
+                inbound[dst].add(src)
+    return {sys_nick for sys_nick, sources in inbound.items() if sources}
+
+
+def filter_market_entries(
+    markets: dict[str, list[dict]], bases: dict[str, dict]
+) -> dict[str, list[dict]]:
+    filtered: dict[str, list[dict]] = {}
+    for commodity, offers in markets.items():
+        kept = [offer for offer in offers if offer.get("base", "").lower() in bases]
+        if kept:
+            filtered[commodity] = kept
+    return filtered
+
+
+def filter_special_market_entries(
+    special_items: dict[str, dict],
+    special_markets: dict[str, list[dict]],
+    bases: dict[str, dict],
+) -> tuple[dict[str, dict], dict[str, list[dict]]]:
+    filtered_items: dict[str, dict] = {}
+    filtered_markets: dict[str, list[dict]] = {}
+    for item_nick, offers in special_markets.items():
+        kept = [offer for offer in offers if offer.get("base", "").lower() in bases]
+        if not kept:
+            continue
+        filtered_markets[item_nick] = kept
+        if item_nick in special_items:
+            filtered_items[item_nick] = special_items[item_nick]
+    return filtered_items, filtered_markets
+
+
+def filter_ships_by_bases(ships: list[dict], bases: dict[str, dict]) -> list[dict]:
+    allowed_bases = set(bases)
+    filtered: list[dict] = []
+    for ship in ships:
+        dealers = [dealer for dealer in ship.get("dealers", []) if dealer.get("base", "").lower() in allowed_bases]
+        if dealers:
+            ship = {**ship, "dealers": dealers}
+        filtered.append(ship)
+    return filtered
 
 
 def extract_commodity_prices(
@@ -1036,11 +1078,27 @@ def export_installation(inst: dict):
         bases = extract_bases(universe_file, res)
         enrich_bases(universe_file, systems, bases)
         locked = extract_locked_hashes(universe_file)
-        adjacency = build_adjacency(universe_file, locked)
+        adjacency = build_adjacency(universe_file, systems, locked)
+        reachable_systems = externally_reachable_systems(systems, adjacency)
+        hidden_systems = sorted(set(systems) - reachable_systems)
+        systems = {nick: info for nick, info in systems.items() if nick in reachable_systems}
+        bases = {
+            nick: info
+            for nick, info in bases.items()
+            if (info.get("sys") or "").strip().upper() in reachable_systems
+        }
+        adjacency = {
+            sys_nick: [dst for dst in targets if dst in reachable_systems]
+            for sys_nick, targets in adjacency.items()
+            if sys_nick in reachable_systems
+        }
         comm_prices, comm_names, comm_volumes = extract_commodity_prices(goods_files, equip_files, res)
         markets = extract_market_entries(market_files, bases, comm_prices)
         special_items, special_markets = extract_special_market_items(goods_files, equip_files, market_files, bases, res)
         ships = extract_ships(fl_ini, res, bases)
+        markets = filter_market_entries(markets, bases)
+        special_items, special_markets = filter_special_market_entries(special_items, special_markets, bases)
+        ships = filter_ships_by_bases(ships, bases)
         travel = extract_travel_data(universe_file, systems)
 
         snapshot = {
@@ -1101,6 +1159,8 @@ def export_installation(inst: dict):
             f"Commodities: {len(comm_prices)}, Special items: {len(special_items)}, Ships: {len(ships)}, "
             f"Market entries: {sum(len(v) for v in markets.values())}"
         )
+        if hidden_systems:
+            print(f"    Hidden unreachable systems: {', '.join(hidden_systems)}")
     finally:
         res.close()
 
