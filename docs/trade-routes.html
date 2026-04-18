@@ -1352,9 +1352,7 @@
           currentEmptyKey = 'no_routes';
           currentJourneyPath = [];
           if (currentMode === 'system') {
-            currentResults = jumps === 0
-              ? engine.innerSystemRoutes(cargo, tlOnly, includeReturnFlight)
-              : engine.bestRoutesBySystem(cargo, jumps, tlOnly, includeReturnFlight);
+                 currentResults = engine.bestRoutesBySystem(cargo, jumps, tlOnly, includeReturnFlight);
           } else if (currentMode === 'pods') {
             const hasSpecialItems = !!(engine.data.specialItems && Object.keys(engine.data.specialItems).length);
             if (!hasSpecialItems && currentModId === 'crossfire' && cargo < 400) {
