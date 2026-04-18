@@ -544,20 +544,39 @@ class TradeEngine {
     if (route) routes.push(route);
   }
 
+  _compareSystemRoutePreference(left, right) {
+    const leftPpm = Number(left && left.profitPerMin);
+    const rightPpm = Number(right && right.profitPerMin);
+    const safeLeftPpm = Number.isFinite(leftPpm) ? leftPpm : -Infinity;
+    const safeRightPpm = Number.isFinite(rightPpm) ? rightPpm : -Infinity;
+    if (safeLeftPpm !== safeRightPpm) return safeLeftPpm - safeRightPpm;
+
+    const leftProfit = Number(left && left.totalProfit);
+    const rightProfit = Number(right && right.totalProfit);
+    if (leftProfit !== rightProfit) return leftProfit - rightProfit;
+
+    const leftPpu = Number(left && left.profitPerUnit);
+    const rightPpu = Number(right && right.profitPerUnit);
+    if (leftPpu !== rightPpu) return leftPpu - rightPpu;
+
+    const leftJumps = Number(left && left.jumps);
+    const rightJumps = Number(right && right.jumps);
+    return rightJumps - leftJumps;
+  }
+
   /* ── Public API ─────────────────────────────────────────── */
 
   bestRoutesBySystem(cargoCapacity, maxJumps, tlOnly, includeReturnTrip) {
     const best = Object.create(null);
     this._forEachCandidateRoute(cargoCapacity, maxJumps, tlOnly, route => {
+      this._setTravelMetrics(route, includeReturnTrip);
       const cur = best[route.srcSysNick];
-      if (!cur || route.totalProfit > cur.totalProfit ||
-          (route.totalProfit === cur.totalProfit && route.profitPerUnit > cur.profitPerUnit)) {
+      if (!cur || this._compareSystemRoutePreference(route, cur) > 0) {
         best[route.srcSysNick] = route;
       }
     });
 
     const routes = Object.values(best);
-    this._applyTravelMetrics(routes, includeReturnTrip);
     return routes.sort((a, b) =>
       b.totalProfit - a.totalProfit || b.profitPerUnit - a.profitPerUnit
     );
