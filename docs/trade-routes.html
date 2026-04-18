@@ -27,6 +27,44 @@
     .tr-controls-section {
       overflow: visible;
     }
+    .tr-reboot-status {
+      display: none;
+      margin: 6px 0 14px;
+      padding: 12px 14px;
+      border: 1px solid rgba(88, 196, 255, 0.22);
+      border-radius: 14px;
+      background: linear-gradient(180deg, rgba(8, 20, 34, 0.82), rgba(6, 14, 26, 0.92));
+      gap: 6px;
+    }
+    .tr-reboot-status.active {
+      display: grid;
+    }
+    .tr-reboot-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: baseline;
+      flex-wrap: wrap;
+    }
+    .tr-reboot-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .tr-reboot-countdown {
+      font-family: "IBM Plex Mono", monospace;
+      color: var(--accent-strong);
+      font-size: 0.88rem;
+    }
+    .tr-reboot-note,
+    .tr-reboot-message {
+      color: var(--muted);
+      font-size: 0.84rem;
+      line-height: 1.5;
+    }
+    .tr-reboot-message {
+      color: #ffd08c;
+    }
     .tr-field {
       display: flex;
       flex-direction: column;
@@ -872,6 +910,15 @@
           <button class="tr-calc-btn" id="calc-btn" disabled data-i18n="btn_calc">Berechnen</button>
         </div>
 
+        <div class="tr-reboot-status" id="reboot-status">
+          <div class="tr-reboot-head">
+            <div class="tr-reboot-title" id="reboot-title">Crossfire-Reboot</div>
+            <div class="tr-reboot-countdown" id="reboot-countdown"></div>
+          </div>
+          <div class="tr-reboot-note" id="reboot-note"></div>
+          <div class="tr-reboot-message" id="reboot-message"></div>
+        </div>
+
         <div class="tr-tabs">
           <button class="tr-tab active" data-mode="system" data-i18n="tab_system">Handelsrouten</button>
           <button class="tr-tab" data-mode="loop" data-i18n="tab_loop">Rundkurs</button>
@@ -988,7 +1035,14 @@
         dataset_timeline_summary: 'Zeitraum {start} bis {end}: {available} Preis-Tage, {history} historische Tage, {missing} Luecken, {repeats} Pattern-Tage.',
         dataset_calendar_placeholder: 'Preisstand auswaehlen',
         dataset_calendar_selected: 'Ausgewaehlter Preisstand',
+        dataset_calendar_no_data: 'Noch keine Preisdaten',
         dataset_calendar_weekdays: 'Mo,Di,Mi,Do,Fr,Sa,So',
+        reboot_title: 'Crossfire-Reboot',
+        reboot_countdown: 'Naechster Preiswechsel in {time}',
+        reboot_schedule: 'Taeglicher Reboot um 08:00 Berlin. Das entspricht aktuell {utc} UTC.',
+        reboot_prices_soon: 'Fuer {date} sind noch keine Crossfire-Preise verfuegbar. Die Preise erscheinen in Kuerze nach dem Reboot.',
+        no_prices_soon: 'Fuer diesen Tag sind noch keine Crossfire-Preise verfuegbar. Die Preise erscheinen in Kuerze nach dem Reboot.',
+        no_prices_for_day: 'Fuer diesen Tag liegen keine Crossfire-Preisdaten vor.',
         custom_cargo: 'Eigene Fracht',
         no_routes: 'Keine Routen gefunden.',
         no_pod_capacity: 'Nicht genug Frachtraum fuer einen Cargo Pod.',
@@ -1044,7 +1098,14 @@
         dataset_timeline_summary: 'Range {start} to {end}: {available} price days, {history} historical days, {missing} gaps, {repeats} pattern days.',
         dataset_calendar_placeholder: 'Select price snapshot',
         dataset_calendar_selected: 'Selected price snapshot',
+        dataset_calendar_no_data: 'No price data yet',
         dataset_calendar_weekdays: 'Mo,Tu,We,Th,Fr,Sa,Su',
+        reboot_title: 'Crossfire Reboot',
+        reboot_countdown: 'Next price update in {time}',
+        reboot_schedule: 'Daily reboot at 08:00 Berlin time. That is currently {utc} UTC.',
+        reboot_prices_soon: 'No Crossfire prices are available for {date} yet. They will appear shortly after reboot.',
+        no_prices_soon: 'No Crossfire prices are available for this day yet. They will appear shortly after reboot.',
+        no_prices_for_day: 'No Crossfire price data exists for this day.',
         custom_cargo: 'Custom cargo',
         no_routes: 'No routes found.',
         no_pod_capacity: 'Not enough cargo space for a cargo pod.',
@@ -1276,6 +1337,7 @@
         populateDatasetOptions();
         applyDataset(selectedDatasetId);
         renderDatasetCalendar();
+        updateRebootStatus();
         updateModeTabs();
       }
       if (activeCommodityNick && commodityModal.classList.contains('open')) {
@@ -1312,6 +1374,7 @@
     let patternHistory = null;
     let datasetCalendarOpen = false;
     let datasetCalendarMonth = '';
+    let selectedCalendarDate = '';
     let persistedShipSelection = (function() {
       try {
         const raw = localStorage.getItem('flathack-trade-ship');
@@ -1335,6 +1398,11 @@
     const datasetCalendarMonthLabel = $('dataset-calendar-month');
     const datasetCalendarWeekdays = $('dataset-calendar-weekdays');
     const datasetCalendarGrid = $('dataset-calendar-grid');
+    const rebootStatus = $('reboot-status');
+    const rebootTitle = $('reboot-title');
+    const rebootCountdown = $('reboot-countdown');
+    const rebootNote = $('reboot-note');
+    const rebootMessage = $('reboot-message');
     const shipSelect   = $('ship-select');
     const cargoInput   = $('cargo-input');
     const jumpsInput   = $('jumps-input');
@@ -1540,6 +1608,76 @@
       return isoDateText(date);
     }
 
+    function timeZoneDateParts(date, timeZone) {
+      const parts = new Intl.DateTimeFormat('en-CA', {
+        timeZone,
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hourCycle: 'h23',
+      }).formatToParts(date);
+      const map = Object.create(null);
+      parts.forEach(part => {
+        if (part.type !== 'literal') map[part.type] = part.value;
+      });
+      return map;
+    }
+
+    function currentBerlinDateText() {
+      const parts = timeZoneDateParts(new Date(), 'Europe/Berlin');
+      return parts.year + '-' + parts.month + '-' + parts.day;
+    }
+
+    function timeZoneOffsetMinutes(date, timeZone) {
+      const parts = new Intl.DateTimeFormat('en-US', {
+        timeZone,
+        timeZoneName: 'shortOffset',
+        hour: '2-digit',
+        minute: '2-digit',
+        hourCycle: 'h23',
+      }).formatToParts(date);
+      const zoneName = (parts.find(part => part.type === 'timeZoneName') || {}).value || 'GMT+0';
+      const match = /(GMT|UTC)([+-]\d{1,2})(?::?(\d{2}))?/.exec(zoneName);
+      if (!match) return 0;
+      const hours = parseInt(match[2], 10) || 0;
+      const minutes = parseInt(match[3] || '0', 10) || 0;
+      return hours * 60 + (hours >= 0 ? minutes : -minutes);
+    }
+
+    function berlinLocalToUtc(dateText, hour, minute, second) {
+      const parts = String(dateText || '').split('-').map(Number);
+      if (parts.length !== 3 || parts.some(Number.isNaN)) return null;
+      const guess = new Date(Date.UTC(parts[0], parts[1] - 1, parts[2], hour, minute, second || 0));
+      const offsetMinutes = timeZoneOffsetMinutes(guess, 'Europe/Berlin');
+      return new Date(guess.getTime() - offsetMinutes * 60000);
+    }
+
+    function nextCrossfireRebootUtc(now) {
+      const current = now || new Date();
+      let reboot = berlinLocalToUtc(currentBerlinDateText(), 8, 0, 0);
+      if (!reboot || reboot <= current) reboot = berlinLocalToUtc(nextIsoDate(currentBerlinDateText()), 8, 0, 0);
+      return reboot;
+    }
+
+    function formatUtcClock(date) {
+      return String(date.getUTCHours()).padStart(2, '0') + ':' + String(date.getUTCMinutes()).padStart(2, '0');
+    }
+
+    function formatTimelineText(template, values) {
+      return String(template || '').replace(/\{(\w+)\}/g, (_, key) => values[key] != null ? values[key] : '');
+    }
+
+    function formatCountdown(ms) {
+      const totalSeconds = Math.max(0, Math.floor(ms / 1000));
+      const hours = Math.floor(totalSeconds / 3600);
+      const minutes = Math.floor((totalSeconds % 3600) / 60);
+      const seconds = totalSeconds % 60;
+      return String(hours).padStart(2, '0') + ':' + String(minutes).padStart(2, '0') + ':' + String(seconds).padStart(2, '0');
+    }
+
     function monthStartIso(dateText) {
       const date = isoDateParts(dateText);
       if (!date) return '';
@@ -1563,8 +1701,43 @@
       return datasetTimeline.segments.find(segment => segment.type === 'day' && segment.datasetId === datasetId) || null;
     }
 
+    function selectedCalendarInfo() {
+      return selectedCalendarDate ? calendarCellInfo(selectedCalendarDate) : null;
+    }
+
+    function hasSelectedDatasetCalendarEntry() {
+      const info = selectedCalendarInfo();
+      return !!(info && info.type === 'day' && info.hasDataset && info.datasetId === selectedDatasetId);
+    }
+
+    function updateRebootStatus() {
+      if (!rebootStatus || !rebootTitle || !rebootCountdown || !rebootNote || !rebootMessage) return;
+      if (currentModId !== 'crossfire') {
+        rebootStatus.classList.remove('active');
+        return;
+      }
+      rebootStatus.classList.add('active');
+      const nextReboot = nextCrossfireRebootUtc(new Date());
+      rebootTitle.textContent = t('reboot_title');
+      rebootCountdown.textContent = formatTimelineText(t('reboot_countdown'), {
+        time: formatCountdown(nextReboot.getTime() - Date.now()),
+      });
+      rebootNote.textContent = formatTimelineText(t('reboot_schedule'), {
+        utc: formatUtcClock(nextReboot),
+      });
+
+      const berlinToday = currentBerlinDateText();
+      if (selectedCalendarDate && !hasSelectedDatasetCalendarEntry()) {
+        rebootMessage.textContent = selectedCalendarDate >= berlinToday
+          ? formatTimelineText(t('reboot_prices_soon'), { date: selectedCalendarDate })
+          : t('no_prices_for_day');
+      } else {
+        rebootMessage.textContent = '';
+      }
+    }
+
     function syncDatasetCalendarMonth() {
-      const selected = findDatasetTimelineEntry(selectedDatasetId);
+      const selected = selectedCalendarDate ? { date: selectedCalendarDate } : findDatasetTimelineEntry(selectedDatasetId);
       if (selected && selected.date) {
         datasetCalendarMonth = monthStartIso(selected.date);
         return;
@@ -1582,6 +1755,12 @@
 
     function updateDatasetCalendarButton() {
       if (!datasetCalendarValue || !datasetCalendarMeta) return;
+      const selectedInfo = selectedCalendarInfo();
+      if (selectedCalendarDate && (!selectedInfo || !selectedInfo.hasDataset)) {
+        datasetCalendarValue.textContent = selectedCalendarDate;
+        datasetCalendarMeta.textContent = t('dataset_calendar_no_data');
+        return;
+      }
       const dataset = currentDataset();
       const entry = findDatasetTimelineEntry(selectedDatasetId);
       if (!dataset || !entry) {
@@ -1595,6 +1774,18 @@
       if (entry.stateIndex != null) parts.push('S' + entry.stateIndex);
       if (entry.repeated) parts.push(t('dataset_timeline_repeat'));
       datasetCalendarMeta.textContent = parts.join(' · ');
+    }
+
+    function chooseInitialCalendarDate() {
+      if (currentModId === 'crossfire') return currentBerlinDateText();
+      const entry = findDatasetTimelineEntry(selectedDatasetId);
+      if (entry && entry.date) return entry.date;
+      if (datasetTimeline && datasetTimeline.lastDate) return datasetTimeline.lastDate;
+      return '';
+    }
+
+    function applyDefaultCalendarDate() {
+      selectedCalendarDate = chooseInitialCalendarDate();
     }
 
     function saveShipSelection() {
@@ -1618,6 +1809,9 @@
       if (dateText >= datasetTimeline.firstDate && dateText <= datasetTimeline.lastDate) {
         return { type: 'gap', date: dateText };
       }
+      if (currentModId === 'crossfire' && datasetTimeline.lastDate && dateText > datasetTimeline.lastDate) {
+        return { type: 'future', date: dateText };
+      }
       return null;
     }
 
@@ -1637,7 +1831,6 @@
       const monthStart = isoDateParts(datasetCalendarMonth);
       const firstGridDate = new Date(monthStart);
       firstGridDate.setDate(monthStart.getDate() - ((monthStart.getDay() + 6) % 7));
-      const selectedEntry = findDatasetTimelineEntry(selectedDatasetId);
       const html = [];
       for (let index = 0; index < 42; index += 1) {
         const day = new Date(firstGridDate);
@@ -1651,23 +1844,31 @@
         let attrs = '';
         if (!inMonth) classes.push('outside');
         if (info && info.type === 'day') {
-          if (info.hasDataset) {
-            tag = 'button';
-            attrs = ' type="button" data-dataset-id="' + escHtml(info.datasetId) + '"';
-          }
+          tag = 'button';
+          attrs = ' type="button" data-calendar-date="' + escHtml(iso) + '"' + (info.hasDataset ? ' data-dataset-id="' + escHtml(info.datasetId) + '"' : '');
           if (info.hasHistory) classes.push('history');
           if (info.repeated) classes.push('repeat');
-          if (info.datasetId === selectedDatasetId) classes.push('selected');
+          if (iso === selectedCalendarDate) classes.push('selected');
           if (info.datasetId && info.datasetId === datasetTimeline.latestDatasetId) classes.push('latest');
           if (info.hasDataset) title.push(t('dataset_timeline_available'));
           else title.push(t('dataset_timeline_history'));
           if (info.stateIndex != null) title.push('S' + info.stateIndex);
           if (info.repeated) title.push(t('dataset_timeline_repeat'));
         } else if (info && info.type === 'future') {
+          if (inMonth) {
+            tag = 'button';
+            attrs = ' type="button" data-calendar-date="' + escHtml(iso) + '"';
+          }
           classes.push('future');
+          if (iso === selectedCalendarDate) classes.push('selected');
           title.push(t('dataset_timeline_future'));
         } else if (info && info.type === 'gap') {
+          if (inMonth) {
+            tag = 'button';
+            attrs = ' type="button" data-calendar-date="' + escHtml(iso) + '"';
+          }
           classes.push('gap');
+          if (iso === selectedCalendarDate) classes.push('selected');
           title.push(t('dataset_timeline_gap'));
         } else {
           classes.push('outside');
@@ -1784,9 +1985,11 @@
       datasetSelect.value = selectedDatasetId;
       datasetSelect.disabled = (tradePayload.datasetOrder || []).length <= 1;
       datasetTimeline = buildDatasetTimeline();
+      applyDefaultCalendarDate();
       syncDatasetCalendarMonth();
       updateDatasetCalendarButton();
       renderDatasetCalendar();
+      updateRebootStatus();
     }
 
     function applyDataset(datasetId) {
@@ -1795,6 +1998,8 @@
       const prevShip = shipSelect.value;
       const prevCargo = cargoInput.value;
       selectedDatasetId = datasetId;
+      const entry = findDatasetTimelineEntry(datasetId);
+      if (entry && entry.date && !selectedCalendarDate) selectedCalendarDate = entry.date;
       syncDatasetCalendarMonth();
       const data = currentDataset();
       engine = data ? new TradeEngine(data) : null;
@@ -1808,6 +2013,7 @@
 
       updateDatasetCalendarButton();
       renderDatasetCalendar();
+  updateRebootStatus();
 
       const systemEntries = Object.entries(data.systems || {})
         .sort((a, b) => String(a[1] || a[0]).localeCompare(String(b[1] || b[0])));
@@ -1994,6 +2200,7 @@
       selectedDatasetId = '';
       datasetTimeline = null;
       patternHistory = null;
+      selectedCalendarDate = '';
       factionNames = Object.create(null);
       let shouldAutoCalculate = false;
       closeCommodityModal();
@@ -2052,6 +2259,15 @@
 
       setTimeout(() => {
         try {
+          if (currentModId === 'crossfire' && selectedCalendarDate && !hasSelectedDatasetCalendarEntry()) {
+            currentEmptyKey = selectedCalendarDate >= currentBerlinDateText() ? 'no_prices_soon' : 'no_prices_for_day';
+            currentResults = [];
+            sortCol = -1;
+            renderResults();
+            resultsSection.style.display = '';
+            updateRebootStatus();
+            return;
+          }
           const tlOnly = tlOnlyCheck.checked;
           currentEmptyKey = 'no_routes';
           currentJourneyPath = [];
@@ -2505,6 +2721,8 @@
     commodityRoleFilter.addEventListener('change', renderCommodityModal);
     datasetSelect.addEventListener('change', () => {
       if (!tradePayload) return;
+      const entry = findDatasetTimelineEntry(datasetSelect.value);
+      if (entry && entry.date) selectedCalendarDate = entry.date;
       applyDataset(datasetSelect.value);
       updateModeTabs();
       if (resultsSection.style.display !== 'none') calculate();
@@ -2526,11 +2744,25 @@
       renderDatasetCalendar();
     });
     datasetCalendarGrid.addEventListener('click', e => {
-      const btn = e.target.closest('button[data-dataset-id]');
+      const btn = e.target.closest('button[data-calendar-date]');
       if (!btn) return;
+      const dateText = btn.dataset.calendarDate;
       const datasetId = btn.dataset.datasetId;
-      if (!datasetId || datasetId === selectedDatasetId) {
+      selectedCalendarDate = dateText || selectedCalendarDate;
+      if (!datasetId) {
+        updateDatasetCalendarButton();
+        renderDatasetCalendar();
+        updateRebootStatus();
         setDatasetCalendarOpen(false);
+        if (resultsSection.style.display !== 'none') calculate();
+        return;
+      }
+      if (datasetId === selectedDatasetId) {
+        updateDatasetCalendarButton();
+        renderDatasetCalendar();
+        updateRebootStatus();
+        setDatasetCalendarOpen(false);
+        if (resultsSection.style.display !== 'none') calculate();
         return;
       }
       datasetSelect.value = datasetId;
@@ -2643,6 +2875,8 @@
 
     // Apply initial language from session
     if (lang !== 'de') applyLang();
+
+    window.setInterval(updateRebootStatus, 1000);
 
     /* ── Init ──────────────────────────────────────────── */
   </script>
