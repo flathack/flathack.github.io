@@ -7,6 +7,8 @@ class TradeEngine {
     this.data = data;
     this._pathCache = new Map();
     this._pathAdjacency = this._buildPathAdjacency();
+    this._jumpDistanceIndex = this._buildJumpDistanceIndex();
+    this._commodityRouteIndex = this._buildCommodityRouteIndex();
   }
 
   _buildPathAdjacency() {
@@ -29,6 +31,70 @@ class TradeEngine {
       timedAdj[systemNick].sort();
     }
     return timedAdj;
+  }
+
+  _buildJumpDistanceIndex() {
+    const adjacency = this._pathAdjacency || {};
+    const systems = new Set([
+      ...Object.keys(this.data.systems || {}),
+      ...Object.keys(adjacency),
+    ]);
+    for (const neighbors of Object.values(adjacency)) {
+      for (const next of neighbors || []) systems.add(next);
+    }
+
+    const index = Object.create(null);
+    for (const start of systems) {
+      const distances = Object.create(null);
+      distances[start] = 0;
+      const queue = [start];
+      let head = 0;
+      while (head < queue.length) {
+        const current = queue[head++];
+        const currentDistance = distances[current];
+        for (const next of (adjacency[current] || [])) {
+          if (next in distances) continue;
+          distances[next] = currentDistance + 1;
+          queue.push(next);
+        }
+      }
+      index[start] = distances;
+    }
+    return index;
+  }
+
+  _buildCommodityRouteIndex() {
+    const markets = this.data.markets || {};
+    const index = Object.create(null);
+
+    for (const commodity of Object.keys(markets)) {
+      const rawEntries = Array.isArray(markets[commodity]) ? markets[commodity] : [];
+      const accessible = rawEntries.filter(entry => entry && entry.base && !entry.base.includes('_miner'));
+
+      let sources = accessible.filter(entry => entry.src);
+      if (!sources.length) sources = accessible.slice();
+      const sinks = accessible.filter(entry => !entry.src);
+      const sinksBySystem = Object.create(null);
+
+      for (const sink of sinks) {
+        if (!sinksBySystem[sink.sys]) sinksBySystem[sink.sys] = [];
+        sinksBySystem[sink.sys].push(sink);
+      }
+      for (const sinkList of Object.values(sinksBySystem)) {
+        sinkList.sort((left, right) => {
+          const profitDelta = Number(right.price || 0) - Number(left.price || 0);
+          if (profitDelta) return profitDelta;
+          return String(left.base || '').localeCompare(String(right.base || ''));
+        });
+      }
+
+      index[commodity] = {
+        sources,
+        sinksBySystem,
+      };
+    }
+
+    return index;
   }
 
   /* ── BFS shortest path ──────────────────────────────────── */
@@ -513,21 +579,30 @@ class TradeEngine {
       const commInfo = commodities[commodity];
       if (!commInfo || commInfo.price <= 0) continue;
 
-      const rawEntries = markets[commodity];
-      const accessible = rawEntries.filter(e => !e.base.includes('_miner'));
-
-      let sources = accessible.filter(e => e.src);
-      if (!sources.length) sources = accessible.slice();
-      const explicitSinks = accessible.filter(e => !e.src);
+      const indexed = this._commodityRouteIndex[commodity];
+      if (!indexed) continue;
+      const sources = indexed.sources;
+      const sinksBySystem = indexed.sinksBySystem;
 
       if (!sources.length) continue;
 
       for (const source of sources) {
         if (tlOnly && !(bases[source.base] && bases[source.base].tl)) continue;
-        for (const sink of explicitSinks) {
-          if (tlOnly && !(bases[sink.base] && bases[sink.base].tl)) continue;
-          const route = this._buildCandidateRoute(source, sink, commInfo, cargoCapacity, maxJumps);
-          if (route) visit(route);
+
+        const sourcePrice = Number(source.price || 0);
+        const reachableSystems = this._jumpDistanceIndex[source.sys] || {};
+        for (const [sinkSystem, sinkList] of Object.entries(sinksBySystem)) {
+          const jumps = sinkSystem === source.sys ? 0 : reachableSystems[sinkSystem];
+          if (jumps == null || jumps > maxJumps) continue;
+          if (!sinkList.length || Number(sinkList[0].price || 0) <= sourcePrice) continue;
+
+          for (const sink of sinkList) {
+            if (Number(sink.price || 0) <= sourcePrice) break;
+            if (tlOnly && !(bases[sink.base] && bases[sink.base].tl)) continue;
+            if (source.base === sink.base) continue;
+            const route = this._buildCandidateRoute(source, sink, commInfo, cargoCapacity, maxJumps);
+            if (route) visit(route);
+          }
         }
       }
     }

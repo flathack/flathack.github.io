@@ -12,11 +12,18 @@
     { label: "Freelancer-Universe", hash: "freelancer-universe" },
   ];
 
+  const TRADE_SUB_LINKS = [
+    { label: "Trade Routes", href: "docs/trade-routes.html" },
+    { label: "Trade Compare", href: "docs/trade-compare.html" },
+    { label: "Preis-Pattern", href: "docs/price-pattern.html" },
+  ];
+
+  const TRADE_TOOL_PAGES = new Set(TRADE_SUB_LINKS.map(function (item) { return item.href; }));
+
   const NAV_ITEMS = [
     { label: "Home", href: "index.html" },
     { label: "Help", href: "help/index.html" },
     { label: "Trade Routes", href: "docs/trade-routes.html", children: MOD_CHILDREN },
-    { label: "Trade Compare", href: "docs/trade-compare.html", children: MOD_CHILDREN },
     { label: "Schiff-Explorer", href: "docs/ship-explorer.html", children: MOD_CHILDREN },
     { label: "Equipment Explorer", href: "docs/equipment-explorer.html", children: MOD_CHILDREN },
     { label: "Universum", href: "docs/universe-viewer.html", children: MOD_CHILDREN },
@@ -49,13 +56,19 @@
   nav.className = "project-top-nav";
 
   var activeItem = null;
+  var tradeRoutesItem = NAV_ITEMS.find(function (item) { return item.href === "docs/trade-routes.html"; }) || null;
   nav.innerHTML = NAV_ITEMS.map(function (item) {
     const href = prefix + item.href;
     const isHelpSection = item.href === "help/index.html" && current.indexOf("help/") === 0;
-    const isActive = current === item.href || isHelpSection;
+    const isTradeGroup = item.href === "docs/trade-routes.html" && TRADE_TOOL_PAGES.has(current);
+    const isActive = current === item.href || isHelpSection || isTradeGroup;
     if (isActive) activeItem = item;
     return '<a href="' + href + '"' + (isActive ? ' class="active"' : "") + ">" + item.label + "</a>";
   }).join("\n");
+
+  if (!activeItem && TRADE_TOOL_PAGES.has(current)) {
+    activeItem = tradeRoutesItem;
+  }
 
   // ── Global language toggle ──
   var storedLang = null;
@@ -98,12 +111,25 @@
     subNav.className = "project-sub-nav";
     subNav.setAttribute("aria-label", "Mod-Auswahl");
 
-    subNav.innerHTML = activeItem.children.map(function (child) {
+    var modLinksHtml = activeItem.children.map(function (child) {
       var isActive = currentHash === child.hash;
       return '<a href="#' + child.hash + '"' +
         (isActive ? ' class="active"' : '') +
         ' data-mod="' + child.hash + '">' + child.label + '</a>';
     }).join("\n");
+
+    var tradeLinksHtml = "";
+    if (activeItem.href === "docs/trade-routes.html") {
+      tradeLinksHtml = TRADE_SUB_LINKS.map(function (item) {
+        var href = prefix + item.href + (currentHash ? ('#' + currentHash) : '');
+        var isActive = current === item.href;
+        return '<a href="' + href + '"' + (isActive ? ' class="active"' : '') + '>' + item.label + '</a>';
+      }).join("\n");
+    }
+
+    subNav.innerHTML =
+      '<div class="project-sub-nav-main">' + modLinksHtml + '</div>' +
+      (tradeLinksHtml ? '<div class="project-sub-nav-side">' + tradeLinksHtml + '</div>' : '');
 
     // Insert sub-nav after the header
     var header = nav.closest(".site-header");

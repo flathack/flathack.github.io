@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preis-Pattern | Flathack</title>
+  <meta name="description" content="Visualisiert wiederkehrende Crossfire-Preiszustände und zeigt, wo der aktuelle Snapshot im historischen Pattern liegt.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    .site-shell {
+      width: calc(100% - 32px);
+      max-width: none;
+    }
+
+    .pp-hero {
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 18px;
+      padding: 30px;
+      border: 1px solid rgba(88, 196, 255, 0.24);
+      border-radius: var(--radius-lg);
+      background:
+        radial-gradient(circle at top right, rgba(88, 196, 255, 0.16), transparent 28%),
+        radial-gradient(circle at bottom left, rgba(245, 158, 11, 0.1), transparent 26%),
+        linear-gradient(180deg, rgba(8, 18, 32, 0.95), rgba(4, 12, 23, 0.96));
+      box-shadow: var(--shadow);
+    }
+    .pp-hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(88, 196, 255, 0.28);
+      background: rgba(88, 196, 255, 0.1);
+      color: var(--accent-strong);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .pp-hero h2 {
+      margin: 0 0 10px;
+      font-size: clamp(1.8rem, 4vw, 2.7rem);
+    }
+    .pp-hero p {
+      max-width: 72ch;
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 1rem;
+    }
+
+    .pp-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px;
+      align-items: start;
+    }
+    .pp-stack {
+      display: grid;
+      gap: 18px;
+    }
+    .pp-card {
+      border: 1px solid var(--panel-border);
+      border-radius: var(--radius-md);
+      background: linear-gradient(180deg, rgba(8, 18, 32, 0.94), rgba(4, 12, 23, 0.92));
+      box-shadow: var(--shadow);
+    }
+    .pp-card-head {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 18px 20px 0;
+    }
+    .pp-card-head h3 {
+      margin: 0;
+      font-size: 1.05rem;
+    }
+    .pp-card-head p {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+    .pp-card-body {
+      padding: 18px 20px 20px;
+    }
+
+    .pp-metrics {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    .pp-metric {
+      padding: 16px;
+      border: 1px solid rgba(132, 177, 255, 0.16);
+      border-radius: 16px;
+      background: rgba(8, 20, 34, 0.72);
+    }
+    .pp-metric-label {
+      color: var(--muted);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .pp-metric-value {
+      margin-top: 8px;
+      color: var(--text);
+      font-size: 1.7rem;
+      font-weight: 700;
+    }
+    .pp-metric-sub {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    .pp-timeline {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
+      gap: 10px;
+    }
+    .pp-calendar-stack {
+      display: grid;
+      gap: 16px;
+    }
+    .pp-calendar-month {
+      padding: 16px;
+      border: 1px solid rgba(132, 177, 255, 0.14);
+      border-radius: 16px;
+      background: rgba(8, 20, 34, 0.6);
+    }
+    .pp-calendar-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .pp-calendar-head h4 {
+      margin: 0;
+      font-size: 1rem;
+    }
+    .pp-calendar-meta {
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-family: "IBM Plex Mono", monospace;
+    }
+    .pp-calendar-weekdays {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    .pp-calendar-weekdays span {
+      color: var(--muted);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      text-align: center;
+    }
+    .pp-calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 8px;
+    }
+    .pp-cal-day {
+      min-height: 84px;
+      padding: 8px;
+      border: 1px solid rgba(132, 177, 255, 0.12);
+      border-radius: 12px;
+      background: rgba(6, 14, 26, 0.82);
+    }
+    .pp-cal-day.empty {
+      border-style: dashed;
+      border-color: rgba(132, 177, 255, 0.08);
+      background: rgba(6, 14, 26, 0.28);
+    }
+    .pp-cal-day.missing {
+      border-style: dashed;
+      border-color: rgba(245, 158, 11, 0.26);
+      background: rgba(245, 158, 11, 0.06);
+    }
+    .pp-cal-day.has-data {
+      cursor: pointer;
+      transition: transform 160ms ease, border-color 160ms ease;
+    }
+    .pp-cal-day.archive-only {
+      border-style: solid;
+      border-color: rgba(236, 72, 153, 0.34);
+      background: rgba(236, 72, 153, 0.08);
+    }
+    .pp-cal-day.both-sources {
+      box-shadow: inset 0 0 0 1px rgba(236, 72, 153, 0.22);
+    }
+    .pp-cal-day.has-data:hover,
+    .pp-cal-day.has-data:focus-visible {
+      transform: translateY(-2px);
+      border-color: rgba(88, 196, 255, 0.34);
+      outline: none;
+    }
+    .pp-cal-day.current {
+      box-shadow: inset 0 0 0 1px rgba(74, 222, 128, 0.24);
+      border-color: rgba(74, 222, 128, 0.36);
+    }
+    .pp-cal-daynum {
+      display: block;
+      margin-bottom: 6px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.76rem;
+      color: var(--text);
+    }
+    .pp-cal-state {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--accent-strong);
+    }
+    .pp-cal-note {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 0.7rem;
+      line-height: 1.35;
+    }
+    .pp-cal-source {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 6px;
+      padding: 3px 6px;
+      border-radius: 999px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.62rem;
+      line-height: 1;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+    }
+    .pp-cal-source.archive {
+      background: rgba(236, 72, 153, 0.14);
+      color: #f9a8d4;
+      border: 1px solid rgba(236, 72, 153, 0.22);
+    }
+    .pp-cal-source.db {
+      background: rgba(88, 196, 255, 0.12);
+      color: var(--accent-strong);
+      border: 1px solid rgba(88, 196, 255, 0.18);
+    }
+    .pp-day {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-height: 92px;
+      padding: 10px;
+      border: 1px solid rgba(132, 177, 255, 0.12);
+      border-radius: 14px;
+      background: rgba(6, 14, 26, 0.84);
+      color: var(--text);
+      text-align: left;
+      cursor: pointer;
+      transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+    }
+    .pp-day:hover,
+    .pp-day:focus-visible {
+      transform: translateY(-2px);
+      border-color: rgba(88, 196, 255, 0.32);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.26);
+      outline: none;
+    }
+    .pp-day.active {
+      border-color: rgba(88, 196, 255, 0.52);
+      box-shadow: inset 0 0 0 1px rgba(88, 196, 255, 0.28);
+    }
+    .pp-day-repeat::after {
+      content: "";
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-warm);
+      box-shadow: 0 0 10px rgba(245, 158, 11, 0.6);
+    }
+    .pp-day-current {
+      border-color: rgba(74, 222, 128, 0.46);
+      box-shadow: inset 0 0 0 1px rgba(74, 222, 128, 0.22);
+    }
+    .pp-day-date {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      color: var(--muted);
+    }
+    .pp-day-state {
+      font-weight: 700;
+      font-size: 1rem;
+    }
+    .pp-day-count {
+      margin-top: auto;
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+
+    .pp-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 14px;
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+    .pp-legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .pp-swatch {
+      width: 12px;
+      height: 12px;
+      border-radius: 4px;
+      background: rgba(88, 196, 255, 0.18);
+      border: 1px solid rgba(132, 177, 255, 0.2);
+    }
+    .pp-swatch.repeat {
+      border-radius: 999px;
+      background: var(--accent-warm);
+      border: none;
+      box-shadow: 0 0 8px rgba(245, 158, 11, 0.45);
+    }
+    .pp-swatch.current {
+      background: rgba(74, 222, 128, 0.22);
+      border-color: rgba(74, 222, 128, 0.35);
+    }
+    .pp-swatch.missing {
+      background: rgba(245, 158, 11, 0.18);
+      border-color: rgba(245, 158, 11, 0.28);
+      border-style: dashed;
+    }
+    .pp-swatch.archive {
+      background: rgba(236, 72, 153, 0.18);
+      border-color: rgba(236, 72, 153, 0.3);
+    }
+
+    .pp-detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .pp-detail-box {
+      padding: 16px;
+      border: 1px solid rgba(132, 177, 255, 0.14);
+      border-radius: 16px;
+      background: rgba(8, 20, 34, 0.64);
+    }
+    .pp-detail-box h4 {
+      margin: 0 0 10px;
+      font-size: 0.96rem;
+    }
+    .pp-detail-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+    .pp-detail-list strong {
+      color: var(--text);
+    }
+
+    .pp-window {
+      display: grid;
+      grid-template-columns: 120px minmax(0, 1fr);
+      gap: 14px;
+      align-items: start;
+      margin-bottom: 16px;
+    }
+    .pp-window-label {
+      padding-top: 8px;
+      color: var(--muted);
+      font-size: 0.84rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .pp-window-track {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 8px;
+    }
+    .pp-window-chip {
+      padding: 10px 8px;
+      border: 1px solid rgba(132, 177, 255, 0.14);
+      border-radius: 12px;
+      background: rgba(6, 14, 26, 0.82);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+      color: var(--text);
+      text-align: center;
+    }
+    .pp-window-chip.match {
+      border-color: rgba(88, 196, 255, 0.3);
+      background: rgba(88, 196, 255, 0.1);
+    }
+    .pp-window-chip.future {
+      border-color: rgba(74, 222, 128, 0.3);
+      background: rgba(74, 222, 128, 0.1);
+    }
+    .pp-window-chip strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--accent-strong);
+      font-size: 0.82rem;
+    }
+
+    .pp-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .pp-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(132, 177, 255, 0.18);
+      background: rgba(8, 20, 34, 0.68);
+      color: var(--text);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.8rem;
+    }
+
+    .pp-repeat-list {
+      display: grid;
+      gap: 10px;
+    }
+    .pp-repeat-row {
+      display: grid;
+      gap: 10px;
+      padding: 12px 14px;
+      border: 1px solid rgba(132, 177, 255, 0.14);
+      border-radius: 14px;
+      background: rgba(8, 20, 34, 0.64);
+    }
+    .pp-repeat-row {
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+    }
+    .pp-repeat-dates,
+    .pp-match-title {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+    .pp-date-badge {
+      display: inline-flex;
+      padding: 5px 9px;
+      border-radius: 999px;
+      background: rgba(88, 196, 255, 0.1);
+      color: var(--accent-strong);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.76rem;
+    }
+    .pp-sim {
+      min-width: 70px;
+      text-align: right;
+      color: var(--success);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .pp-loading,
+    .pp-error {
+      padding: 40px 20px;
+      text-align: center;
+      color: var(--muted);
+    }
+    .pp-error {
+      color: #fca5a5;
+    }
+
+    @media (max-width: 1180px) {
+      .pp-grid,
+      .pp-detail-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 820px) {
+      .pp-metrics {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .pp-window {
+        grid-template-columns: 1fr;
+      }
+      .pp-window-track {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+      .pp-calendar-grid,
+      .pp-calendar-weekdays {
+        grid-template-columns: repeat(7, minmax(38px, 1fr));
+      }
+      .pp-repeat-row {
+        grid-template-columns: 1fr;
+      }
+      .pp-sim,
+      .pp-next {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body class="gaming-theme">
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark">FH</span>
+        <span class="brand-text">Flathack Projects</span>
+      </a>
+      <nav class="project-top-nav" aria-label="Projekt-Navigation"></nav>
+    </header>
+
+    <main>
+      <section class="pp-hero">
+        <div class="pp-hero-kicker" id="hero-kicker">Crossfire Price Cycle</div>
+        <h2 id="hero-title">Preis-Pattern und Zyklusabgleich</h2>
+        <p id="hero-copy">
+          Diese Ansicht zeigt historische Tageszustände, markiert exakte Wiederholungen und legt den aktuellen Verlauf auf den bisher besten historischen Pattern-Abschnitt. Ziel ist nicht nur Historie zu lesen, sondern den aktuellen Punkt im Preiszyklus sichtbar zu machen.
+        </p>
+      </section>
+
+      <div id="app" class="pp-loading">Lade Pattern-Daten...</div>
+    </main>
+  </div>
+
+  <script>
+    const I18N = {
+      de: {
+        page_title: 'Preis-Pattern | Flathack',
+        page_description: 'Visualisiert wiederkehrende Crossfire-Preiszustände und zeigt, wo der aktuelle Snapshot im historischen Pattern liegt.',
+        hero_kicker: 'Crossfire Price Cycle',
+        hero_title: 'Preis-Pattern und Zyklusabgleich',
+        hero_copy: 'Diese Ansicht zeigt historische Tageszustände, markiert exakte Wiederholungen und legt den aktuellen Verlauf auf den bisher besten historischen Pattern-Abschnitt. Ziel ist nicht nur Historie zu lesen, sondern den aktuellen Punkt im Preiszyklus sichtbar zu machen.',
+        loading: 'Lade Pattern-Daten...',
+        metric_snapshot_days: 'Snapshot-Tage',
+        metric_snapshot_days_sub: 'gespeicherte Tageslisten',
+        metric_unique_states: 'Eindeutige Zustände',
+        metric_unique_states_sub: 'wirklich verschiedene Preisbilder',
+        metric_repeat_groups: 'Exakte Wiederholungen',
+        metric_repeat_groups_sub: 'Gruppen mit identischem Tageszustand',
+        metric_latest_snapshot: 'Aktueller Snapshot',
+        metric_archive_days: 'Deine Archivtage',
+        metric_archive_days_sub: 'Tage aus deinen Tageslisten',
+        timeline_title: 'Tageszustände im Verlauf',
+        timeline_copy: 'Jede Kachel ist ein gespeicherter Snapshot. Gleiche Farben bedeuten denselben Pattern-Zustand. Gelber Punkt bedeutet exakte Wiederholung.',
+        legend_own_state: 'eigener Zustand',
+        legend_repeat: 'exakt wiederholt',
+        legend_current: 'aktuellster Snapshot',
+        calendar_title: 'Kalendarische Ansicht',
+        calendar_copy: 'Jeder Monat wird als Kalender angezeigt. Orange gestrichelte Felder sind echte Datumlücken ohne Snapshot. Pink markiert deine eigenen Archivtage.',
+        legend_snapshot_day: 'Tag mit Snapshot',
+        legend_archive_day: 'dein Archivtag',
+        legend_missing_day: 'Tag ohne Daten',
+        selected_snapshot_title: 'Ausgewaehlter Snapshot',
+        selected_snapshot_copy: 'Klick auf eine Kachel, um ihren Zustand und eventuelle Wiederholungen zu sehen.',
+        snapshot_box_title: 'Snapshot',
+        repeat_box_title: 'Wiederholung',
+        repeat_groups_title: 'Exakte Wiederholungsgruppen',
+        repeat_groups_copy: 'Die auffaelligsten Belege dafuer, dass das System wirklich durch einen endlichen Satz von Tageszuständen laeuft.',
+        detail_date: 'Datum',
+        detail_state: 'Pattern-State',
+        detail_rows: 'Marktzeilen',
+        detail_status: 'Status',
+        detail_current_status: 'aktueller Snapshot',
+        detail_historical_status: 'historischer Snapshot',
+        detail_archive: 'Dein Archiv',
+        yes: 'ja',
+        no: 'nein',
+        repeat_same_state: 'teilt denselben Zustand.',
+        repeat_none_title: 'Keine exakte Wiederholung',
+        repeat_none_copy: 'in den bisher gespeicherten Tagen.',
+        day_rows: 'Zeilen',
+        month_meta: '{data} DB · {archive} Archiv · {missing} Luecken',
+        weekday_labels: ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'],
+        missing_data: 'keine Daten',
+        archive_only: 'nur deine Daten',
+        archive_badge: 'Archiv',
+        db_archive_badge: 'DB + Archiv',
+        db_badge: 'DB',
+        state_label: 'State',
+        load_error: 'Pattern-Daten konnten nicht geladen werden: '
+      },
+      en: {
+        page_title: 'Price Pattern | Flathack',
+        page_description: 'Visualizes recurring Crossfire price states and shows where the current snapshot sits within the historical pattern.',
+        hero_kicker: 'Crossfire Price Cycle',
+        hero_title: 'Price Pattern and Cycle Alignment',
+        hero_copy: 'This view shows historical day states, marks exact repeats, and overlays the current progression onto the best matching historical pattern section so the current point within the price cycle becomes visible.',
+        loading: 'Loading pattern data...',
+        metric_snapshot_days: 'Snapshot Days',
+        metric_snapshot_days_sub: 'stored daily snapshots',
+        metric_unique_states: 'Unique States',
+        metric_unique_states_sub: 'truly distinct price layouts',
+        metric_repeat_groups: 'Exact Repeats',
+        metric_repeat_groups_sub: 'groups with an identical day state',
+        metric_latest_snapshot: 'Latest Snapshot',
+        metric_archive_days: 'Your Archive Days',
+        metric_archive_days_sub: 'days from your own snapshots',
+        timeline_title: 'Day States Over Time',
+        timeline_copy: 'Each tile is a stored snapshot. Matching colors mean the same pattern state. The yellow dot marks an exact repeat.',
+        legend_own_state: 'individual state',
+        legend_repeat: 'exact repeat',
+        legend_current: 'latest snapshot',
+        calendar_title: 'Calendar View',
+        calendar_copy: 'Each month is shown as a calendar. Orange dashed cells are real date gaps without a snapshot. Pink marks your own archive days.',
+        legend_snapshot_day: 'day with snapshot',
+        legend_archive_day: 'your archive day',
+        legend_missing_day: 'day without data',
+        selected_snapshot_title: 'Selected Snapshot',
+        selected_snapshot_copy: 'Click a tile to inspect its state and any exact repeats.',
+        snapshot_box_title: 'Snapshot',
+        repeat_box_title: 'Repeat',
+        repeat_groups_title: 'Exact Repeat Groups',
+        repeat_groups_copy: 'The clearest evidence that the system really moves through a finite set of daily states.',
+        detail_date: 'Date',
+        detail_state: 'Pattern State',
+        detail_rows: 'Market Rows',
+        detail_status: 'Status',
+        detail_current_status: 'latest snapshot',
+        detail_historical_status: 'historical snapshot',
+        detail_archive: 'Your Archive',
+        yes: 'yes',
+        no: 'no',
+        repeat_same_state: 'shares the same state.',
+        repeat_none_title: 'No exact repeat',
+        repeat_none_copy: 'among the stored days so far.',
+        day_rows: 'rows',
+        month_meta: '{data} DB · {archive} archive · {missing} gaps',
+        weekday_labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        missing_data: 'no data',
+        archive_only: 'only your data',
+        archive_badge: 'Archive',
+        db_archive_badge: 'DB + Archive',
+        db_badge: 'DB',
+        state_label: 'State',
+        load_error: 'Failed to load pattern data: '
+      }
+    };
+
+    let lang = (function () {
+      try { return sessionStorage.getItem('flathack-lang') || 'en'; } catch (e) { return 'en'; }
+    })();
+    let appData = null;
+
+    function t(key) {
+      return (I18N[lang] || I18N.de)[key] || key;
+    }
+
+    function formatText(template, values) {
+      return String(template || '').replace(/\{(\w+)\}/g, (_, key) => values[key] != null ? values[key] : '');
+    }
+
+    function applyStaticText() {
+      document.documentElement.lang = lang === 'de' ? 'de' : 'en';
+      document.title = t('page_title');
+      const description = document.querySelector('meta[name="description"]');
+      if (description) description.setAttribute('content', t('page_description'));
+      const heroKicker = document.getElementById('hero-kicker');
+      const heroTitle = document.getElementById('hero-title');
+      const heroCopy = document.getElementById('hero-copy');
+      const app = document.getElementById('app');
+      if (heroKicker) heroKicker.textContent = t('hero_kicker');
+      if (heroTitle) heroTitle.textContent = t('hero_title');
+      if (heroCopy) heroCopy.textContent = t('hero_copy');
+      if (app && !appData) app.textContent = t('loading');
+    }
+
+    function colorForState(index) {
+      const hue = (index * 37) % 360;
+      return `hsla(${hue}, 74%, 58%, 0.28)`;
+    }
+
+    function shortDate(dateText) {
+      return dateText.slice(5);
+    }
+
+    function parseIsoDate(dateText) {
+      const [year, month, day] = dateText.split("-").map(Number);
+      return new Date(year, month - 1, day);
+    }
+
+    function isoDate(date) {
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, "0");
+      const day = String(date.getDate()).padStart(2, "0");
+      return `${year}-${month}-${day}`;
+    }
+
+    function monthLabel(date) {
+      return date.toLocaleDateString(lang === 'de' ? 'de-DE' : 'en-US', { month: 'long', year: 'numeric' });
+    }
+
+    function buildCalendarMonths(days, archiveDays) {
+      const months = [];
+      const dayLookup = new Map(days.map((day) => [day.date, day]));
+      const archiveLookup = new Set(archiveDays);
+      const first = parseIsoDate(days[0].date);
+      const archiveLast = archiveDays.length ? parseIsoDate(archiveDays[archiveDays.length - 1]) : null;
+      const last = archiveLast && archiveLast > parseIsoDate(days[days.length - 1].date)
+        ? archiveLast
+        : parseIsoDate(days[days.length - 1].date);
+      let cursor = new Date(first.getFullYear(), first.getMonth(), 1);
+      while (cursor <= last) {
+        const monthStart = new Date(cursor.getFullYear(), cursor.getMonth(), 1);
+        const monthEnd = new Date(cursor.getFullYear(), cursor.getMonth() + 1, 0);
+        const slots = [];
+        const startOffset = (monthStart.getDay() + 6) % 7;
+        for (let i = 0; i < startOffset; i += 1) slots.push({ type: "empty" });
+        for (let dayNum = 1; dayNum <= monthEnd.getDate(); dayNum += 1) {
+          const dayDate = new Date(cursor.getFullYear(), cursor.getMonth(), dayNum);
+          const key = isoDate(dayDate);
+          const entry = dayLookup.get(key);
+          const inArchive = archiveLookup.has(key);
+          if (entry) {
+            slots.push({ type: "data", day: entry, inArchive });
+          } else if (inArchive) {
+            slots.push({ type: "archive", date: key });
+          } else {
+            slots.push({ type: "missing", date: key });
+          }
+        }
+        while (slots.length % 7 !== 0) slots.push({ type: "empty" });
+        months.push({
+          label: monthLabel(monthStart),
+          slots,
+          dataCount: slots.filter((slot) => slot.type === "data").length,
+          archiveCount: slots.filter((slot) => slot.type === "archive" || (slot.type === "data" && slot.inArchive)).length,
+          missingCount: slots.filter((slot) => slot.type === "missing").length,
+        });
+        cursor = new Date(cursor.getFullYear(), cursor.getMonth() + 1, 1);
+      }
+      return months;
+    }
+
+    function renderApp(data) {
+      appData = data;
+      const app = document.getElementById("app");
+      const repeatMap = new Map();
+      for (const group of data.repeatGroups) {
+        for (const date of group) repeatMap.set(date, group);
+      }
+      const daysByDate = new Map(data.days.map((day) => [day.date, day]));
+      const archiveDays = data.archiveDays || [];
+      const archiveLookup = new Set(archiveDays);
+      const calendarMonths = buildCalendarMonths(data.days, archiveDays);
+      const selectedDate = data.summary.latestDay;
+
+      app.className = "pp-stack";
+      app.innerHTML = `
+        <section class="pp-card">
+          <div class="pp-card-body">
+            <div class="pp-metrics">
+              <div class="pp-metric">
+                <div class="pp-metric-label">${t('metric_snapshot_days')}</div>
+                <div class="pp-metric-value">${data.summary.snapshotDays}</div>
+                <div class="pp-metric-sub">${t('metric_snapshot_days_sub')}</div>
+              </div>
+              <div class="pp-metric">
+                <div class="pp-metric-label">${t('metric_unique_states')}</div>
+                <div class="pp-metric-value">${data.summary.uniqueStates}</div>
+                <div class="pp-metric-sub">${t('metric_unique_states_sub')}</div>
+              </div>
+              <div class="pp-metric">
+                <div class="pp-metric-label">${t('metric_repeat_groups')}</div>
+                <div class="pp-metric-value">${data.summary.repeatGroups}</div>
+                <div class="pp-metric-sub">${t('metric_repeat_groups_sub')}</div>
+              </div>
+              <div class="pp-metric">
+                <div class="pp-metric-label">${t('metric_latest_snapshot')}</div>
+                <div class="pp-metric-value">${shortDate(data.summary.latestDay)}</div>
+                <div class="pp-metric-sub">${data.summary.latestDay}</div>
+              </div>
+              <div class="pp-metric">
+                <div class="pp-metric-label">${t('metric_archive_days')}</div>
+                <div class="pp-metric-value">${data.summary.archiveDays || archiveDays.length}</div>
+                <div class="pp-metric-sub">${t('metric_archive_days_sub')}</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="pp-grid">
+          <div class="pp-stack">
+            <section class="pp-card">
+              <div class="pp-card-head">
+                <div>
+                  <h3>${t('timeline_title')}</h3>
+                  <p>${t('timeline_copy')}</p>
+                </div>
+              </div>
+              <div class="pp-card-body">
+                <div class="pp-timeline" id="timeline"></div>
+                <div class="pp-legend">
+                  <span class="pp-legend-item"><span class="pp-swatch"></span> ${t('legend_own_state')}</span>
+                  <span class="pp-legend-item"><span class="pp-swatch repeat"></span> ${t('legend_repeat')}</span>
+                  <span class="pp-legend-item"><span class="pp-swatch current"></span> ${t('legend_current')}</span>
+                </div>
+              </div>
+            </section>
+
+            <section class="pp-card">
+              <div class="pp-card-head">
+                <div>
+                  <h3>${t('calendar_title')}</h3>
+                  <p>${t('calendar_copy')}</p>
+                </div>
+              </div>
+              <div class="pp-card-body">
+                <div class="pp-calendar-stack" id="calendar-stack"></div>
+                <div class="pp-legend">
+                  <span class="pp-legend-item"><span class="pp-swatch"></span> ${t('legend_snapshot_day')}</span>
+                  <span class="pp-legend-item"><span class="pp-swatch archive"></span> ${t('legend_archive_day')}</span>
+                  <span class="pp-legend-item"><span class="pp-swatch missing"></span> ${t('legend_missing_day')}</span>
+                  <span class="pp-legend-item"><span class="pp-swatch current"></span> ${t('legend_current')}</span>
+                </div>
+              </div>
+            </section>
+
+          </div>
+
+          <div class="pp-stack">
+            <section class="pp-card">
+              <div class="pp-card-head">
+                <div>
+                  <h3>${t('selected_snapshot_title')}</h3>
+                  <p>${t('selected_snapshot_copy')}</p>
+                </div>
+              </div>
+              <div class="pp-card-body">
+                <div class="pp-detail-grid">
+                  <div class="pp-detail-box">
+                    <h4>${t('snapshot_box_title')}</h4>
+                    <ul class="pp-detail-list" id="detail-snapshot"></ul>
+                  </div>
+                  <div class="pp-detail-box">
+                    <h4>${t('repeat_box_title')}</h4>
+                    <ul class="pp-detail-list" id="detail-repeat"></ul>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="pp-card">
+              <div class="pp-card-head">
+                <div>
+                  <h3>${t('repeat_groups_title')}</h3>
+                  <p>${t('repeat_groups_copy')}</p>
+                </div>
+              </div>
+              <div class="pp-card-body">
+                <div class="pp-repeat-list">
+                  ${data.repeatGroups.map((group) => `<div class="pp-repeat-row"><div class="pp-repeat-dates">${group.map((date) => `<span class="pp-date-badge">${date}</span>`).join("")}</div><div class="pp-sim">${t('state_label')} ${daysByDate.get(group[0]).stateIndex}</div></div>`).join("")}
+                </div>
+              </div>
+            </section>
+
+          </div>
+        </div>
+      `;
+
+      const timeline = document.getElementById("timeline");
+      const calendarStack = document.getElementById("calendar-stack");
+      const detailSnapshot = document.getElementById("detail-snapshot");
+      const detailRepeat = document.getElementById("detail-repeat");
+
+      function updateDetail(day) {
+        const repeatGroup = repeatMap.get(day.date);
+        detailSnapshot.innerHTML = `
+          <li><strong>${t('detail_date')}:</strong> ${day.date}</li>
+          <li><strong>${t('detail_state')}:</strong> ${day.stateIndex}</li>
+          <li><strong>${t('detail_rows')}:</strong> ${day.entryCount}</li>
+          <li><strong>${t('detail_status')}:</strong> ${day.date === data.summary.latestDay ? t('detail_current_status') : t('detail_historical_status')}</li>
+          <li><strong>${t('detail_archive')}:</strong> ${archiveLookup.has(day.date) ? t('yes') : t('no')}</li>
+        `;
+        if (repeatGroup) {
+          detailRepeat.innerHTML = repeatGroup.map((date) => `<li><strong>${date}</strong> ${t('repeat_same_state')}</li>`).join("");
+        } else {
+          detailRepeat.innerHTML = `<li><strong>${t('repeat_none_title')}</strong> ${t('repeat_none_copy')}</li>`;
+        }
+      }
+
+      data.days.forEach((day) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "pp-day" +
+          (repeatMap.has(day.date) ? " pp-day-repeat" : "") +
+          (day.date === data.summary.latestDay ? " pp-day-current" : "") +
+          (day.date === selectedDate ? " active" : "");
+        button.style.background = `linear-gradient(180deg, ${colorForState(day.stateIndex)}, rgba(6, 14, 26, 0.92))`;
+        button.innerHTML = `
+          <span class="pp-day-date">${shortDate(day.date)}</span>
+          <span class="pp-day-state">S${day.stateIndex}</span>
+          <span class="pp-day-count">${day.entryCount} ${t('day_rows')}</span>
+        `;
+        button.addEventListener("click", () => {
+          timeline.querySelectorAll('.pp-day').forEach((node) => node.classList.remove('active'));
+          button.classList.add('active');
+          updateDetail(day);
+        });
+        timeline.appendChild(button);
+      });
+
+      calendarMonths.forEach((month) => {
+        const section = document.createElement("section");
+        section.className = "pp-calendar-month";
+        section.innerHTML = `
+          <div class="pp-calendar-head">
+            <h4>${month.label}</h4>
+            <div class="pp-calendar-meta">${formatText(t('month_meta'), { data: month.dataCount, archive: month.archiveCount, missing: month.missingCount })}</div>
+          </div>
+          <div class="pp-calendar-weekdays">
+            ${t('weekday_labels').map((label) => `<span>${label}</span>`).join('')}
+          </div>
+          <div class="pp-calendar-grid"></div>
+        `;
+        const grid = section.querySelector(".pp-calendar-grid");
+        month.slots.forEach((slot) => {
+          if (slot.type === "empty") {
+            const empty = document.createElement("div");
+            empty.className = "pp-cal-day empty";
+            grid.appendChild(empty);
+            return;
+          }
+          if (slot.type === "missing") {
+            const missing = document.createElement("div");
+            missing.className = "pp-cal-day missing";
+            missing.innerHTML = `
+              <span class="pp-cal-daynum">${slot.date.slice(8)}</span>
+              <span class="pp-cal-note">${t('missing_data')}</span>
+            `;
+            grid.appendChild(missing);
+            return;
+          }
+          if (slot.type === "archive") {
+            const archiveOnly = document.createElement("div");
+            archiveOnly.className = "pp-cal-day archive-only";
+            archiveOnly.innerHTML = `
+              <span class="pp-cal-daynum">${slot.date.slice(8)}</span>
+              <span class="pp-cal-source archive">${t('archive_badge')}</span>
+              <span class="pp-cal-note">${t('archive_only')}</span>
+            `;
+            grid.appendChild(archiveOnly);
+            return;
+          }
+          const day = slot.day;
+          const dayButton = document.createElement("button");
+          dayButton.type = "button";
+          dayButton.className = "pp-cal-day has-data" +
+            (slot.inArchive ? " both-sources" : "") +
+            (day.date === data.summary.latestDay ? " current" : "");
+          dayButton.style.background = `linear-gradient(180deg, ${colorForState(day.stateIndex)}, rgba(6, 14, 26, 0.92))`;
+          dayButton.innerHTML = `
+            <span class="pp-cal-daynum">${day.date.slice(8)}</span>
+            <span class="pp-cal-state">S${day.stateIndex}</span>
+            <span class="pp-cal-source ${slot.inArchive ? "archive" : "db"}">${slot.inArchive ? t('db_archive_badge') : t('db_badge')}</span>
+            <span class="pp-cal-note">${day.entryCount} ${t('day_rows')}</span>
+          `;
+          dayButton.addEventListener("click", () => {
+            timeline.querySelectorAll('.pp-day').forEach((node) => node.classList.toggle('active', node.querySelector('.pp-day-date')?.textContent === shortDate(day.date)));
+            updateDetail(day);
+          });
+          grid.appendChild(dayButton);
+        });
+        calendarStack.appendChild(section);
+      });
+
+      updateDetail(daysByDate.get(selectedDate));
+    }
+
+    async function init() {
+      const app = document.getElementById("app");
+      try {
+        const response = await fetch("../data/price-pattern/crossfire-cycle.json");
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const data = await response.json();
+        renderApp(data);
+      } catch (error) {
+        app.className = "pp-error";
+        app.textContent = t('load_error') + error.message;
+      }
+    }
+
+    applyStaticText();
+    init();
+
+    window.addEventListener('lang-change', (event) => {
+      if (!event.detail || !event.detail.lang || event.detail.lang === lang) return;
+      lang = event.detail.lang;
+      applyStaticText();
+      if (appData) renderApp(appData);
+    });
+  </script>
+  <script src="../assets/js/nav.js"></script>
+</body>
+</html>

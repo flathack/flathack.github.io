@@ -237,12 +237,27 @@ body.gaming-theme .domain-tab.active {
 .project-sub-nav {
   display: flex;
   gap: 8px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
   margin-bottom: 24px;
   padding: 10px 16px;
   border: 1px solid var(--panel-border);
   border-radius: var(--radius-lg);
   background: rgba(5, 13, 23, 0.55);
   backdrop-filter: blur(12px);
+}
+
+.project-sub-nav-main,
+.project-sub-nav-side {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.project-sub-nav-side {
+  margin-left: auto;
 }
 
 .project-sub-nav a {

@@ -24,6 +24,9 @@
       align-items: flex-end;
       margin-bottom: 10px;
     }
+    .tr-controls-section {
+      overflow: visible;
+    }
     .tr-field {
       display: flex;
       flex-direction: column;
@@ -55,6 +58,190 @@
       border-color: var(--accent);
       box-shadow: 0 0 0 2px rgba(88, 196, 255, 0.15);
     }
+    .tr-field input[type="hidden"] {
+      display: none;
+    }
+    .tr-calendar-field {
+      position: relative;
+      min-width: 220px;
+      z-index: 8;
+    }
+    .tr-calendar-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      min-height: 34px;
+      width: 100%;
+      padding: 6px 10px;
+      border: 1px solid var(--panel-border);
+      border-radius: 8px;
+      background: rgba(4, 14, 23, 0.85);
+      color: var(--text);
+      font: inherit;
+      text-align: left;
+      cursor: pointer;
+    }
+    .tr-calendar-toggle:focus-visible {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px rgba(88, 196, 255, 0.15);
+    }
+    .tr-calendar-toggle[aria-expanded="true"] {
+      border-color: rgba(88, 196, 255, 0.32);
+      background: rgba(88, 196, 255, 0.08);
+    }
+    .tr-calendar-toggle-main {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      min-width: 0;
+    }
+    .tr-calendar-value {
+      font-size: 0.9rem;
+      color: var(--text);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .tr-calendar-meta {
+      font-size: 0.72rem;
+      color: var(--muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .tr-calendar-toggle-icon {
+      color: var(--muted);
+      font-size: 0.78rem;
+      flex: 0 0 auto;
+    }
+    .tr-calendar-panel {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      z-index: 30;
+      width: min(320px, calc(100vw - 48px));
+      padding: 12px;
+      border: 1px solid var(--panel-border);
+      border-radius: 14px;
+      background: rgba(6, 14, 26, 0.98);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.34);
+    }
+    .tr-calendar-panel.open {
+      display: grid;
+      gap: 10px;
+    }
+    .tr-calendar-header {
+      display: grid;
+      grid-template-columns: 32px minmax(0, 1fr) 32px;
+      gap: 8px;
+      align-items: center;
+    }
+    .tr-calendar-month {
+      text-align: center;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .tr-calendar-nav {
+      min-width: 32px;
+      min-height: 32px;
+      border: 1px solid var(--panel-border);
+      border-radius: 999px;
+      background: rgba(8, 20, 34, 0.7);
+      color: var(--text);
+      font: inherit;
+      cursor: pointer;
+    }
+    .tr-calendar-weekdays,
+    .tr-calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 6px;
+    }
+    .tr-calendar-weekdays span {
+      font-size: 0.68rem;
+      color: var(--muted);
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .tr-calendar-day {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 34px;
+      border: 1px solid rgba(132, 177, 255, 0.14);
+      border-radius: 10px;
+      background: rgba(8, 20, 34, 0.72);
+      color: var(--text);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.8rem;
+    }
+    button.tr-calendar-day {
+      cursor: pointer;
+    }
+    button.tr-calendar-day:hover,
+    button.tr-calendar-day:focus-visible {
+      outline: none;
+      border-color: rgba(88, 196, 255, 0.34);
+      background: rgba(88, 196, 255, 0.08);
+    }
+    .tr-calendar-day.selected {
+      border-color: rgba(88, 196, 255, 0.42);
+      background: rgba(88, 196, 255, 0.14);
+      box-shadow: inset 0 0 0 1px rgba(88, 196, 255, 0.18);
+    }
+    .tr-calendar-day.latest {
+      box-shadow: inset 0 0 0 1px rgba(74, 222, 128, 0.22);
+    }
+    .tr-calendar-day.history {
+      border-color: rgba(74, 222, 128, 0.26);
+      background: rgba(24, 84, 62, 0.26);
+    }
+    .tr-calendar-day.repeat {
+      box-shadow: inset 0 0 0 1px rgba(245, 158, 11, 0.3);
+    }
+    .tr-calendar-day.gap {
+      border-style: dashed;
+      border-color: rgba(245, 158, 11, 0.28);
+      background: rgba(245, 158, 11, 0.05);
+      color: var(--muted);
+    }
+    .tr-calendar-day.future {
+      border-style: dashed;
+      border-color: rgba(148, 163, 184, 0.24);
+      background: rgba(148, 163, 184, 0.08);
+      color: rgba(237, 243, 255, 0.55);
+    }
+    .tr-calendar-day.outside {
+      opacity: 0.28;
+    }
+    .tr-calendar-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 12px;
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+    .tr-calendar-legend span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .tr-calendar-legend i {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(132, 177, 255, 0.2);
+      background: rgba(8, 20, 34, 0.72);
+    }
+    .tr-calendar-legend .is-dataset { background: rgba(88, 196, 255, 0.18); border-color: rgba(88, 196, 255, 0.32); }
+    .tr-calendar-legend .is-history { background: rgba(24, 84, 62, 0.34); border-color: rgba(74, 222, 128, 0.26); }
+    .tr-calendar-legend .is-repeat { background: rgba(245, 158, 11, 0.22); border-color: rgba(245, 158, 11, 0.4); }
+    .tr-calendar-legend .is-gap { background: rgba(245, 158, 11, 0.08); border-color: rgba(245, 158, 11, 0.28); }
 
     /* ── Tabs ──────────────────────────────────────────── */
     .tr-tabs {
@@ -79,6 +266,173 @@
       color: var(--text);
       background: rgba(88, 196, 255, 0.14);
       border-color: rgba(88, 196, 255, 0.3);
+    }
+
+    .tr-dataset-timeline {
+      display: none;
+      gap: 10px;
+      margin-top: 14px;
+      padding: 12px 14px;
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      overflow: hidden;
+      border: 1px solid var(--panel-border);
+      border-radius: 14px;
+      background: rgba(6, 14, 26, 0.68);
+    }
+    .tr-dataset-timeline.active {
+      display: grid;
+    }
+    .tr-dataset-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      min-width: 0;
+    }
+    .tr-dataset-title {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      min-width: 0;
+    }
+    .tr-dataset-title strong {
+      font-size: 0.88rem;
+      color: var(--text);
+    }
+    .tr-dataset-title span {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .tr-dataset-nav {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .tr-dataset-nav-btn {
+      min-width: 34px;
+      min-height: 34px;
+      padding: 0 10px;
+      border: 1px solid var(--panel-border);
+      border-radius: 999px;
+      background: rgba(8, 20, 34, 0.7);
+      color: var(--text);
+      font: inherit;
+      cursor: pointer;
+      transition: 160ms ease;
+    }
+    .tr-dataset-nav-btn:hover:not(:disabled) {
+      border-color: rgba(88, 196, 255, 0.32);
+      background: rgba(88, 196, 255, 0.1);
+    }
+    .tr-dataset-nav-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+    .tr-dataset-strip {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(56px, 1fr);
+      gap: 8px;
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding-bottom: 4px;
+      overscroll-behavior-x: contain;
+      scrollbar-width: thin;
+    }
+    .tr-dataset-day {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      min-height: 58px;
+      padding: 8px 6px;
+      border: 1px solid rgba(132, 177, 255, 0.14);
+      border-radius: 12px;
+      background: rgba(8, 20, 34, 0.72);
+      color: var(--text);
+      font-family: inherit;
+      text-align: center;
+    }
+    button.tr-dataset-day {
+      cursor: pointer;
+      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+    }
+    button.tr-dataset-day:hover,
+    button.tr-dataset-day:focus-visible {
+      transform: translateY(-1px);
+      border-color: rgba(88, 196, 255, 0.34);
+      background: rgba(88, 196, 255, 0.08);
+      outline: none;
+    }
+    .tr-dataset-day.active {
+      border-color: rgba(88, 196, 255, 0.42);
+      background: rgba(88, 196, 255, 0.14);
+      box-shadow: inset 0 0 0 1px rgba(88, 196, 255, 0.18);
+    }
+    .tr-dataset-day.is-latest {
+      box-shadow: inset 0 0 0 1px rgba(74, 222, 128, 0.22);
+      border-color: rgba(74, 222, 128, 0.32);
+    }
+    .tr-dataset-day.missing {
+      border-style: dashed;
+      border-color: rgba(245, 158, 11, 0.28);
+      background: rgba(245, 158, 11, 0.05);
+      color: var(--muted);
+    }
+    .tr-dataset-day.future {
+      border-style: dashed;
+      border-color: rgba(148, 163, 184, 0.24);
+      background: rgba(148, 163, 184, 0.08);
+      color: rgba(237, 243, 255, 0.55);
+    }
+    .tr-dataset-day.history {
+      border-color: rgba(74, 222, 128, 0.26);
+      background: rgba(24, 84, 62, 0.26);
+      color: #ddfff0;
+    }
+    .tr-dataset-day.is-repeat {
+      box-shadow: inset 0 0 0 1px rgba(245, 158, 11, 0.3);
+    }
+    .tr-dataset-day.gap {
+      background: rgba(36, 45, 61, 0.52);
+    }
+    .tr-dataset-day .day-num {
+      font-family: "IBM Plex Mono", monospace;
+      font-weight: 700;
+      font-size: 0.92rem;
+      line-height: 1;
+    }
+    .tr-dataset-day .day-meta {
+      font-size: 0.7rem;
+      color: var(--muted);
+      line-height: 1;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .tr-dataset-day.active .day-meta,
+    .tr-dataset-day.is-latest .day-meta {
+      color: var(--text);
+    }
+    .tr-dataset-day .day-state {
+      font-size: 0.62rem;
+      color: rgba(237, 243, 255, 0.72);
+      line-height: 1.1;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .tr-dataset-day.is-repeat .day-state {
+      color: #ffd27a;
+    }
+    .tr-dataset-summary {
+      font-size: 0.8rem;
+      color: var(--muted);
     }
 
     /* ── Stats Bar ────────────────────────────────────── */
@@ -408,7 +762,10 @@
     @media (max-width: 700px) {
       .tr-controls { flex-direction: column; align-items: stretch; }
       .tr-field select, .tr-field input[type="number"] { min-width: unset; width: 100%; }
+      .tr-calendar-field { min-width: unset; }
+      .tr-calendar-panel { width: 100%; }
       .tr-tabs { flex-wrap: wrap; }
+      .tr-dataset-strip { grid-auto-columns: minmax(62px, 62px); }
     }
   </style>
 </head>
@@ -435,13 +792,35 @@
       </div>
 
       <!-- Controls -->
-      <section class="page-section" style="margin-bottom: 14px;">
+      <section class="page-section tr-controls-section" style="margin-bottom: 14px;">
         <div class="tr-controls">
-          <div class="tr-field">
-            <label for="dataset-select" data-i18n="lbl_dataset">Preisdaten</label>
-            <select id="dataset-select">
+          <div class="tr-field tr-calendar-field">
+            <label for="dataset-calendar-toggle" data-i18n="lbl_dataset">Preisdaten</label>
+            <select id="dataset-select" hidden aria-hidden="true" tabindex="-1">
               <option value="default">Standard</option>
             </select>
+            <button id="dataset-calendar-toggle" class="tr-calendar-toggle" type="button" aria-expanded="false" aria-controls="dataset-calendar-panel">
+              <span class="tr-calendar-toggle-main">
+                <span class="tr-calendar-value" id="dataset-calendar-value">Standard</span>
+                <span class="tr-calendar-meta" id="dataset-calendar-meta">Preisstand auswählen</span>
+              </span>
+              <span class="tr-calendar-toggle-icon">▼</span>
+            </button>
+            <div id="dataset-calendar-panel" class="tr-calendar-panel" role="dialog" aria-label="Preisdaten-Kalender">
+              <div class="tr-calendar-header">
+                <button id="dataset-calendar-prev" class="tr-calendar-nav" type="button" aria-label="Vorheriger Monat">&#x2039;</button>
+                <div id="dataset-calendar-month" class="tr-calendar-month"></div>
+                <button id="dataset-calendar-next" class="tr-calendar-nav" type="button" aria-label="Nächster Monat">&#x203A;</button>
+              </div>
+              <div id="dataset-calendar-weekdays" class="tr-calendar-weekdays"></div>
+              <div id="dataset-calendar-grid" class="tr-calendar-grid"></div>
+              <div class="tr-calendar-legend">
+                <span><i class="is-dataset"></i><span data-i18n="dataset_timeline_available">Verfuegbarer Tag</span></span>
+                <span><i class="is-history"></i><span data-i18n="dataset_timeline_history">Historischer Tag</span></span>
+                <span><i class="is-repeat"></i><span data-i18n="dataset_timeline_repeat">Pattern</span></span>
+                <span><i class="is-gap"></i><span data-i18n="dataset_timeline_gap">Luecke</span></span>
+              </div>
+            </div>
           </div>
 
           <div class="tr-field">
@@ -458,7 +837,7 @@
 
           <div class="tr-field" id="jumps-field">
             <label for="jumps-input" data-i18n="lbl_jumps">Max. Sprünge</label>
-            <input type="number" id="jumps-input" value="5" min="0" max="50">
+            <input type="number" id="jumps-input" value="1" min="0" max="50">
           </div>
 
           <div class="tr-field" id="legs-field" style="display:none;">
@@ -597,6 +976,19 @@
         search_placeholder: 'Routen durchsuchen...',
         loading: 'Routen werden berechnet...',
         dataset_default: 'Standard',
+        dataset_timeline_title: 'Preisverlauf',
+        dataset_timeline_meta: 'Historische Preis-Tage und Luecken. Klickbar sind nur echte Preis-Datasets.',
+        dataset_timeline_gap: 'Luecke',
+        dataset_timeline_latest: 'Aktuellster Tag',
+        dataset_timeline_selected: 'Ausgewaehlt',
+        dataset_timeline_available: 'Preis-Dataset',
+        dataset_timeline_history: 'Historischer Tag',
+        dataset_timeline_repeat: 'Pattern',
+        dataset_timeline_future: 'Zukunft gesperrt',
+        dataset_timeline_summary: 'Zeitraum {start} bis {end}: {available} Preis-Tage, {history} historische Tage, {missing} Luecken, {repeats} Pattern-Tage.',
+        dataset_calendar_placeholder: 'Preisstand auswaehlen',
+        dataset_calendar_selected: 'Ausgewaehlter Preisstand',
+        dataset_calendar_weekdays: 'Mo,Di,Mi,Do,Fr,Sa,So',
         custom_cargo: 'Eigene Fracht',
         no_routes: 'Keine Routen gefunden.',
         no_pod_capacity: 'Nicht genug Frachtraum fuer einen Cargo Pod.',
@@ -640,6 +1032,19 @@
         search_placeholder: 'Search routes...',
         loading: 'Calculating routes...',
         dataset_default: 'Default',
+        dataset_timeline_title: 'Price history',
+        dataset_timeline_meta: 'Historical price days and gaps. Only real price datasets are clickable.',
+        dataset_timeline_gap: 'Gap',
+        dataset_timeline_latest: 'Latest day',
+        dataset_timeline_selected: 'Selected',
+        dataset_timeline_available: 'Price dataset',
+        dataset_timeline_history: 'Historical day',
+        dataset_timeline_repeat: 'Pattern',
+        dataset_timeline_future: 'Future locked',
+        dataset_timeline_summary: 'Range {start} to {end}: {available} price days, {history} historical days, {missing} gaps, {repeats} pattern days.',
+        dataset_calendar_placeholder: 'Select price snapshot',
+        dataset_calendar_selected: 'Selected price snapshot',
+        dataset_calendar_weekdays: 'Mo,Tu,We,Th,Fr,Sa,Su',
         custom_cargo: 'Custom cargo',
         no_routes: 'No routes found.',
         no_pod_capacity: 'Not enough cargo space for a cargo pod.',
@@ -870,6 +1275,7 @@
       if (tradePayload) {
         populateDatasetOptions();
         applyDataset(selectedDatasetId);
+        renderDatasetCalendar();
         updateModeTabs();
       }
       if (activeCommodityNick && commodityModal.classList.contains('open')) {
@@ -902,12 +1308,33 @@
     let activeItemNick = '';
     let sortCol = -1;
     let sortAsc = false;
+    let datasetTimeline = null;
+    let patternHistory = null;
+    let datasetCalendarOpen = false;
+    let datasetCalendarMonth = '';
+    let persistedShipSelection = (function() {
+      try {
+        const raw = localStorage.getItem('flathack-trade-ship');
+        return raw ? JSON.parse(raw) : null;
+      } catch (e) {
+        return null;
+      }
+    })();
     const RESULTS_PAGE_SIZE = 30;
     let visibleResultsCount = RESULTS_PAGE_SIZE;
 
     /* ── DOM refs ──────────────────────────────────────── */
     const $ = id => document.getElementById(id);
     const datasetSelect = $('dataset-select');
+    const datasetCalendarToggle = $('dataset-calendar-toggle');
+    const datasetCalendarValue = $('dataset-calendar-value');
+    const datasetCalendarMeta = $('dataset-calendar-meta');
+    const datasetCalendarPanel = $('dataset-calendar-panel');
+    const datasetCalendarPrev = $('dataset-calendar-prev');
+    const datasetCalendarNext = $('dataset-calendar-next');
+    const datasetCalendarMonthLabel = $('dataset-calendar-month');
+    const datasetCalendarWeekdays = $('dataset-calendar-weekdays');
+    const datasetCalendarGrid = $('dataset-calendar-grid');
     const shipSelect   = $('ship-select');
     const cargoInput   = $('cargo-input');
     const jumpsInput   = $('jumps-input');
@@ -1088,6 +1515,260 @@
       return datasetMap[selectedDatasetId] || null;
     }
 
+    function parseDatasetDate(label) {
+      const match = /\((\d{4}-\d{2}-\d{2})\)/.exec(String(label || ''));
+      return match ? match[1] : '';
+    }
+
+    function isoDateParts(dateText) {
+      const parts = String(dateText || '').split('-').map(Number);
+      if (parts.length !== 3 || parts.some(Number.isNaN)) return null;
+      return new Date(parts[0], parts[1] - 1, parts[2]);
+    }
+
+    function isoDateText(date) {
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const day = String(date.getDate()).padStart(2, '0');
+      return year + '-' + month + '-' + day;
+    }
+
+    function nextIsoDate(dateText) {
+      const date = isoDateParts(dateText);
+      if (!date) return '';
+      date.setDate(date.getDate() + 1);
+      return isoDateText(date);
+    }
+
+    function monthStartIso(dateText) {
+      const date = isoDateParts(dateText);
+      if (!date) return '';
+      return isoDateText(new Date(date.getFullYear(), date.getMonth(), 1));
+    }
+
+    function shiftIsoMonth(monthText, delta) {
+      const date = isoDateParts(monthText);
+      if (!date) return monthText;
+      return isoDateText(new Date(date.getFullYear(), date.getMonth() + delta, 1));
+    }
+
+    function formatMonthLabel(monthText) {
+      const date = isoDateParts(monthText);
+      if (!date) return '';
+      return date.toLocaleDateString(lang === 'de' ? 'de-DE' : 'en-US', { month: 'long', year: 'numeric' });
+    }
+
+    function findDatasetTimelineEntry(datasetId) {
+      if (!datasetTimeline || !Array.isArray(datasetTimeline.segments)) return null;
+      return datasetTimeline.segments.find(segment => segment.type === 'day' && segment.datasetId === datasetId) || null;
+    }
+
+    function syncDatasetCalendarMonth() {
+      const selected = findDatasetTimelineEntry(selectedDatasetId);
+      if (selected && selected.date) {
+        datasetCalendarMonth = monthStartIso(selected.date);
+        return;
+      }
+      if (datasetTimeline && datasetTimeline.lastDate) {
+        datasetCalendarMonth = monthStartIso(datasetTimeline.lastDate);
+      }
+    }
+
+    function setDatasetCalendarOpen(open) {
+      datasetCalendarOpen = !!open;
+      if (datasetCalendarPanel) datasetCalendarPanel.classList.toggle('open', datasetCalendarOpen);
+      if (datasetCalendarToggle) datasetCalendarToggle.setAttribute('aria-expanded', datasetCalendarOpen ? 'true' : 'false');
+    }
+
+    function updateDatasetCalendarButton() {
+      if (!datasetCalendarValue || !datasetCalendarMeta) return;
+      const dataset = currentDataset();
+      const entry = findDatasetTimelineEntry(selectedDatasetId);
+      if (!dataset || !entry) {
+        datasetCalendarValue.textContent = t('dataset_default');
+        datasetCalendarMeta.textContent = t('dataset_calendar_placeholder');
+        return;
+      }
+      datasetCalendarValue.textContent = entry.date;
+      const parts = [];
+      parts.push(dataset.label || selectedDatasetId);
+      if (entry.stateIndex != null) parts.push('S' + entry.stateIndex);
+      if (entry.repeated) parts.push(t('dataset_timeline_repeat'));
+      datasetCalendarMeta.textContent = parts.join(' · ');
+    }
+
+    function saveShipSelection() {
+      persistedShipSelection = {
+        value: shipSelect.value || 'custom',
+        cargo: cargoInput.value || '',
+      };
+      try {
+        localStorage.setItem('flathack-trade-ship', JSON.stringify(persistedShipSelection));
+      } catch (e) {}
+    }
+
+    function calendarCellInfo(dateText) {
+      if (!datasetTimeline) return null;
+      if (Array.isArray(datasetTimeline.segments)) {
+        const exact = datasetTimeline.segments.find(segment => segment.type === 'day' && segment.date === dateText);
+        if (exact) return exact;
+        const future = datasetTimeline.segments.find(segment => segment.type === 'future' && segment.date === dateText);
+        if (future) return future;
+      }
+      if (dateText >= datasetTimeline.firstDate && dateText <= datasetTimeline.lastDate) {
+        return { type: 'gap', date: dateText };
+      }
+      return null;
+    }
+
+    function renderDatasetCalendar() {
+      if (!datasetCalendarPanel || !datasetCalendarWeekdays || !datasetCalendarGrid || !datasetCalendarMonthLabel) return;
+      if (!datasetTimeline) {
+        datasetCalendarMonthLabel.textContent = '';
+        datasetCalendarWeekdays.innerHTML = '';
+        datasetCalendarGrid.innerHTML = '';
+        return;
+      }
+      if (!datasetCalendarMonth) syncDatasetCalendarMonth();
+      datasetCalendarMonthLabel.textContent = formatMonthLabel(datasetCalendarMonth);
+      const weekdayLabels = String(t('dataset_calendar_weekdays')).split(',');
+      datasetCalendarWeekdays.innerHTML = weekdayLabels.map(label => '<span>' + escHtml(label) + '</span>').join('');
+
+      const monthStart = isoDateParts(datasetCalendarMonth);
+      const firstGridDate = new Date(monthStart);
+      firstGridDate.setDate(monthStart.getDate() - ((monthStart.getDay() + 6) % 7));
+      const selectedEntry = findDatasetTimelineEntry(selectedDatasetId);
+      const html = [];
+      for (let index = 0; index < 42; index += 1) {
+        const day = new Date(firstGridDate);
+        day.setDate(firstGridDate.getDate() + index);
+        const iso = isoDateText(day);
+        const info = calendarCellInfo(iso);
+        const inMonth = day.getMonth() === monthStart.getMonth();
+        const classes = ['tr-calendar-day'];
+        const title = [iso];
+        let tag = 'div';
+        let attrs = '';
+        if (!inMonth) classes.push('outside');
+        if (info && info.type === 'day') {
+          if (info.hasDataset) {
+            tag = 'button';
+            attrs = ' type="button" data-dataset-id="' + escHtml(info.datasetId) + '"';
+          }
+          if (info.hasHistory) classes.push('history');
+          if (info.repeated) classes.push('repeat');
+          if (info.datasetId === selectedDatasetId) classes.push('selected');
+          if (info.datasetId && info.datasetId === datasetTimeline.latestDatasetId) classes.push('latest');
+          if (info.hasDataset) title.push(t('dataset_timeline_available'));
+          else title.push(t('dataset_timeline_history'));
+          if (info.stateIndex != null) title.push('S' + info.stateIndex);
+          if (info.repeated) title.push(t('dataset_timeline_repeat'));
+        } else if (info && info.type === 'future') {
+          classes.push('future');
+          title.push(t('dataset_timeline_future'));
+        } else if (info && info.type === 'gap') {
+          classes.push('gap');
+          title.push(t('dataset_timeline_gap'));
+        } else {
+          classes.push('outside');
+        }
+        html.push('<' + tag + ' class="' + classes.join(' ') + '" title="' + escHtml(title.join(' · ')) + '"' + attrs + '>' + escHtml(String(day.getDate())) + '</' + tag + '>');
+      }
+      datasetCalendarGrid.innerHTML = html.join('');
+    }
+
+    function normalizePatternHistory(payload) {
+      if (!payload || !Array.isArray(payload.days) || !payload.days.length) return null;
+      const repeatDates = new Set();
+      (payload.repeatGroups || []).forEach(group => {
+        if (!Array.isArray(group)) return;
+        group.forEach(date => {
+          if (date) repeatDates.add(date);
+        });
+      });
+      const days = payload.days
+        .filter(day => day && day.date)
+        .map(day => ({
+          date: day.date,
+          stateIndex: typeof day.stateIndex === 'number' ? day.stateIndex : null,
+          entryCount: typeof day.entryCount === 'number' ? day.entryCount : 0,
+          repeated: repeatDates.has(day.date),
+        }))
+        .sort((a, b) => a.date.localeCompare(b.date));
+      if (!days.length) return null;
+      return { days, repeatDates };
+    }
+
+    function buildDatasetTimeline() {
+      const dated = (tradePayload.datasetOrder || []).map(id => {
+        const dataset = datasetMap[id];
+        if (!dataset) return null;
+        const date = parseDatasetDate(dataset.label);
+        if (!date) return null;
+        return { id, date, label: dataset.label };
+      }).filter(Boolean).sort((a, b) => a.date.localeCompare(b.date));
+      const historyDays = patternHistory && Array.isArray(patternHistory.days)
+        ? patternHistory.days.slice()
+        : [];
+      if (!dated.length && !historyDays.length) return null;
+
+      const datasetByDate = Object.create(null);
+      dated.forEach(item => { datasetByDate[item.date] = item; });
+      const historyByDate = Object.create(null);
+      historyDays.forEach(item => { historyByDate[item.date] = item; });
+      const allDates = Array.from(new Set(
+        dated.map(item => item.date).concat(historyDays.map(item => item.date))
+      )).sort((a, b) => a.localeCompare(b));
+      const segments = [];
+      let gapCount = 0;
+      for (let index = 0; index < allDates.length; index += 1) {
+        const date = allDates[index];
+        if (index > 0) {
+          const prevDate = isoDateParts(allDates[index - 1]);
+          const currentDate = isoDateParts(date);
+          const gapDays = Math.round((currentDate - prevDate) / 86400000) - 1;
+          if (gapDays > 0) {
+            gapCount += 1;
+            const gapStart = new Date(prevDate);
+            gapStart.setDate(gapStart.getDate() + 1);
+            const gapEnd = new Date(currentDate);
+            gapEnd.setDate(gapEnd.getDate() - 1);
+            segments.push({
+              type: 'gap',
+              startDate: isoDateText(gapStart),
+              endDate: isoDateText(gapEnd),
+              gapDays,
+            });
+          }
+        }
+        const dataset = datasetByDate[date];
+        const history = historyByDate[date];
+        segments.push({
+          type: 'day',
+          date,
+          datasetId: dataset ? dataset.id : '',
+          label: dataset ? dataset.label : '',
+          hasDataset: !!dataset,
+          hasHistory: !!history,
+          stateIndex: history ? history.stateIndex : null,
+          entryCount: history ? history.entryCount : 0,
+          repeated: !!(history && history.repeated),
+        });
+      }
+      const lastDate = allDates[allDates.length - 1];
+      segments.push({ type: 'future', date: nextIsoDate(lastDate) });
+      return {
+        firstDate: allDates[0],
+        lastDate,
+        latestDatasetId: dated.length ? dated[dated.length - 1].id : '',
+        dated,
+        historyDays,
+        segments,
+        gapCount,
+        repeatCount: patternHistory ? patternHistory.repeatDates.size : 0,
+      };
+    }
+
     function populateDatasetOptions() {
       const options = (tradePayload.datasetOrder || []).map(id => {
         const dataset = datasetMap[id];
@@ -1102,6 +1783,10 @@
       }
       datasetSelect.value = selectedDatasetId;
       datasetSelect.disabled = (tradePayload.datasetOrder || []).length <= 1;
+      datasetTimeline = buildDatasetTimeline();
+      syncDatasetCalendarMonth();
+      updateDatasetCalendarButton();
+      renderDatasetCalendar();
     }
 
     function applyDataset(datasetId) {
@@ -1110,6 +1795,7 @@
       const prevShip = shipSelect.value;
       const prevCargo = cargoInput.value;
       selectedDatasetId = datasetId;
+      syncDatasetCalendarMonth();
       const data = currentDataset();
       engine = data ? new TradeEngine(data) : null;
       closeCommodityModal();
@@ -1119,6 +1805,9 @@
         calcBtn.disabled = true;
         return;
       }
+
+      updateDatasetCalendarButton();
+      renderDatasetCalendar();
 
       const systemEntries = Object.entries(data.systems || {})
         .sort((a, b) => String(a[1] || a[0]).localeCompare(String(b[1] || b[0])));
@@ -1152,8 +1841,13 @@
         shipSelect.appendChild(opt);
       }
       const buyableShips = (data.ships || []).filter(s => s.dealers && s.dealers.length > 0);
+      const savedShip = persistedShipSelection && persistedShipSelection.value;
       if (prevShip && Array.from(shipSelect.options).some(opt => opt.value === prevShip)) {
         shipSelect.value = prevShip;
+      } else if (savedShip && Array.from(shipSelect.options).some(opt => opt.value === savedShip)) {
+        shipSelect.value = savedShip;
+      } else if (savedShip === 'custom') {
+        shipSelect.value = 'custom';
       } else if (buyableShips.length) {
         shipSelect.value = buyableShips[0].cargo;
       } else {
@@ -1161,10 +1855,12 @@
       }
 
       if (shipSelect.value === 'custom') {
-        cargoInput.value = prevCargo || cargoInput.value;
+        cargoInput.value = prevCargo || (persistedShipSelection && persistedShipSelection.cargo) || cargoInput.value;
       } else {
         cargoInput.value = shipSelect.value;
       }
+
+      saveShipSelection();
 
       calcBtn.disabled = false;
     }
@@ -1296,6 +1992,8 @@
       tradePayload = null;
       datasetMap = Object.create(null);
       selectedDatasetId = '';
+      datasetTimeline = null;
+      patternHistory = null;
       factionNames = Object.create(null);
       let shouldAutoCalculate = false;
       closeCommodityModal();
@@ -1315,6 +2013,12 @@
             for (const faction of (repData.factions || [])) {
               if (faction && faction.nick) factionNames[faction.nick] = faction;
             }
+          }
+        } catch (e) {}
+        try {
+          const historyResp = await fetch('../data/price-pattern/' + modId + '-cycle.json');
+          if (historyResp.ok) {
+            patternHistory = normalizePatternHistory(await historyResp.json());
           }
         } catch (e) {}
 
@@ -1788,6 +2492,10 @@
       if (shipSelect.value !== 'custom') {
         cargoInput.value = shipSelect.value;
       }
+      saveShipSelection();
+    });
+    cargoInput.addEventListener('change', () => {
+      if (shipSelect.value === 'custom') saveShipSelection();
     });
 
     calcBtn.addEventListener('click', calculate);
@@ -1799,6 +2507,36 @@
       if (!tradePayload) return;
       applyDataset(datasetSelect.value);
       updateModeTabs();
+      if (resultsSection.style.display !== 'none') calculate();
+    });
+    datasetCalendarToggle.addEventListener('click', () => {
+      if (!datasetTimeline) return;
+      if (!datasetCalendarOpen) syncDatasetCalendarMonth();
+      setDatasetCalendarOpen(!datasetCalendarOpen);
+      renderDatasetCalendar();
+    });
+    datasetCalendarPrev.addEventListener('click', () => {
+      if (!datasetTimeline || !datasetCalendarMonth) return;
+      datasetCalendarMonth = shiftIsoMonth(datasetCalendarMonth, -1);
+      renderDatasetCalendar();
+    });
+    datasetCalendarNext.addEventListener('click', () => {
+      if (!datasetTimeline || !datasetCalendarMonth) return;
+      datasetCalendarMonth = shiftIsoMonth(datasetCalendarMonth, 1);
+      renderDatasetCalendar();
+    });
+    datasetCalendarGrid.addEventListener('click', e => {
+      const btn = e.target.closest('button[data-dataset-id]');
+      if (!btn) return;
+      const datasetId = btn.dataset.datasetId;
+      if (!datasetId || datasetId === selectedDatasetId) {
+        setDatasetCalendarOpen(false);
+        return;
+      }
+      datasetSelect.value = datasetId;
+      applyDataset(datasetId);
+      updateModeTabs();
+      setDatasetCalendarOpen(false);
       if (resultsSection.style.display !== 'none') calculate();
     });
     returnFlightCheck.addEventListener('change', () => {
@@ -1813,6 +2551,12 @@
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape' && commodityModal.classList.contains('open')) closeCommodityModal();
       if (e.key === 'Escape' && itemModal.classList.contains('open')) closeItemModal();
+      if (e.key === 'Escape' && datasetCalendarOpen) setDatasetCalendarOpen(false);
+    });
+    document.addEventListener('click', e => {
+      if (!datasetCalendarOpen) return;
+      if (datasetCalendarPanel.contains(e.target) || datasetCalendarToggle.contains(e.target)) return;
+      setDatasetCalendarOpen(false);
     });
 
     document.querySelectorAll('.tr-tab').forEach(tab => {
