@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FL Atlas V2 - Development Tracker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0a0e14;
+            --bg-sidebar: #111921;
+            --bg-card: #151d28;
+            --bg-hover: #1a2634;
+            --border: #1e2a38;
+            --text: #e0e6ed;
+            --text-dim: #7a8a9a;
+            --text-muted: #5a6a7a;
+            --accent: #00b894;
+            --accent-hover: #00d9a5;
+            --accent-bg: rgba(0,184,148,0.15);
+            --danger: #ff6b6b;
+            --danger-bg: rgba(255,107,107,0.15);
+            --warning: #feca57;
+            --warning-bg: rgba(254,202,87,0.15);
+            --purple: #a55eea;
+            --purple-bg: rgba(165,94,234,0.15);
+            --blue: #54a0ff;
+            --blue-bg: rgba(84,160,255,0.15);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--bg-dark);
+            color: var(--text);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .site-header {
+            background: var(--bg-sidebar);
+            border-bottom: 1px solid var(--border);
+            padding: 16px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .brand-mark {
+            width: 36px;
+            height: 36px;
+            background: var(--accent);
+            color: var(--bg-dark);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .brand-text {
+            color: var(--text);
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .header-badge {
+            background: var(--accent-bg);
+            color: var(--accent);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* Main Content */
+        .main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 32px;
+        }
+
+        .hero-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 24px;
+        }
+
+        .hero-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .hero-subtitle {
+            color: var(--text-dim);
+            font-size: 14px;
+        }
+
+        .overall-stats {
+            display: flex;
+            gap: 32px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 32px;
+            font-weight: 700;
+            font-family: 'IBM Plex Mono', monospace;
+        }
+
+        .stat-value.done { color: var(--accent); }
+        .stat-value.progress { color: var(--warning); }
+        .stat-value.todo { color: var(--text-muted); }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Progress Bar */
+        .progress-section {
+            margin-top: 24px;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .progress-label {
+            font-size: 13px;
+            color: var(--text-dim);
+        }
+
+        .progress-value {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--accent);
+            font-family: 'IBM Plex Mono', monospace;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: var(--bg-dark);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent), var(--blue));
+            border-radius: 4px;
+            transition: width 0.6s ease;
+        }
+
+        /* Module Cards */
+        .module-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin-bottom: 16px;
+            overflow: hidden;
+            transition: border-color 0.2s;
+        }
+
+        .module-card:hover {
+            border-color: var(--accent);
+        }
+
+        .module-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 24px;
+            background: var(--bg-hover);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .module-title {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .module-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--accent-bg);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .module-name {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .module-status {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .status-badge {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .status-badge.done {
+            background: var(--accent-bg);
+            color: var(--accent);
+        }
+
+        .status-badge.in-progress {
+            background: var(--warning-bg);
+            color: var(--warning);
+        }
+
+        .status-badge.not-started {
+            background: rgba(90,106,122,0.2);
+            color: var(--text-muted);
+        }
+
+        .module-progress-text {
+            font-size: 13px;
+            color: var(--text-dim);
+            font-family: 'IBM Plex Mono', monospace;
+        }
+
+        .module-progress-bar {
+            height: 4px;
+            background: var(--bg-dark);
+        }
+
+        .module-progress-fill {
+            height: 100%;
+            transition: width 0.4s ease;
+        }
+
+        .module-progress-fill.done { background: var(--accent); }
+        .module-progress-fill.in-progress { background: var(--warning); }
+        .module-progress-fill.todo { background: var(--text-muted); }
+
+        /* Task List */
+        .task-list {
+            padding: 16px 24px;
+        }
+
+        .task-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .task-item:last-child {
+            border-bottom: none;
+        }
+
+        .task-checkbox {
+            width: 20px;
+            height: 20px;
+            border-radius: 6px;
+            border: 2px solid var(--border);
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 2px;
+            font-size: 11px;
+        }
+
+        .task-checkbox.done {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: var(--bg-dark);
+        }
+
+        .task-checkbox.in-progress {
+            background: var(--warning);
+            border-color: var(--warning);
+            animation: pulse 2s infinite;
+        }
+
+        .task-checkbox.in-progress::after {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--bg-dark);
+            border-radius: 50%;
+        }
+
+        .task-checkbox.todo {
+            border-color: var(--border);
+        }
+
+        .task-content {
+            flex: 1;
+        }
+
+        .task-title {
+            font-size: 14px;
+            color: var(--text);
+        }
+
+        .task-item.completed .task-title {
+            color: var(--text-muted);
+            text-decoration: line-through;
+        }
+
+        .task-meta {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 4px;
+        }
+
+        .task-date {
+            font-size: 11px;
+            color: var(--text-muted);
+            font-family: 'IBM Plex Mono', monospace;
+            background: var(--bg-dark);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .task-interrupted {
+            font-size: 11px;
+            color: var(--warning);
+            background: var(--warning-bg);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .task-note {
+            font-size: 12px;
+            color: var(--text-dim);
+            font-style: italic;
+            margin-top: 4px;
+            padding-left: 12px;
+            border-left: 2px solid var(--warning);
+        }
+
+        /* Footer */
+        .page-footer {
+            text-align: center;
+            padding: 32px;
+            color: var(--text-muted);
+            font-size: 13px;
+            border-top: 1px solid var(--border);
+            margin-top: 40px;
+        }
+
+        /* Legend */
+        .legend {
+            display: flex;
+            gap: 24px;
+            padding: 16px 24px;
+            background: var(--bg-hover);
+            border-top: 1px solid var(--border);
+            font-size: 12px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-dim);
+        }
+
+        .legend-icon {
+            width: 16px;
+            height: 16px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+        }
+
+        .legend-icon.done { background: var(--accent); color: var(--bg-dark); }
+        .legend-icon.in-progress { background: var(--warning); }
+        .legend-icon.todo { border: 2px solid var(--border); }
+        .legend-icon.interrupted { background: var(--warning-bg); border: 1px solid var(--warning); }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        @media (max-width: 768px) {
+            .site-header { padding: 12px 20px; }
+            .main { padding: 20px; }
+            .hero { padding: 20px; }
+            .hero-header { flex-direction: column; gap: 16px; }
+            .overall-stats { gap: 16px; }
+            .stat-value { font-size: 24px; }
+            .legend { flex-wrap: wrap; gap: 12px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="#">
+            <span class="brand-mark">FL</span>
+            <span class="brand-text">FL Atlas V2</span>
+        </a>
+        <span class="header-badge">Development Tracker</span>
+    </header>
+
+    <main class="main">
+        <div class="hero">
+            <div class="hero-header">
+                <div>
+                    <h1 class="hero-title">Development Progress</h1>
+                    <p class="hero-subtitle">Migration from FL Atlas V1 to V2 | Freelancer Tool Suite</p>
+                </div>
+                <div class="overall-stats">
+                    <div class="stat-item">
+                        <div class="stat-value done" id="stat-done">0</div>
+                        <div class="stat-label">Modules Done</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value progress" id="stat-progress">0</div>
+                        <div class="stat-label">In Progress</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value todo" id="stat-todo">0</div>
+                        <div class="stat-label">Not Started</div>
+                    </div>
+                </div>
+            </div>
+            <div class="progress-section">
+                <div class="progress-header">
+                    <span class="progress-label">Overall Completion</span>
+                    <span class="progress-value" id="overall-percent">0%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="overall-fill" style="width: 0%"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="modules-container"></div>
+
+        <footer class="page-footer">
+            FL Atlas V2 Development Tracker | Last updated: April 2026
+        </footer>
+    </main>
+
+    <script>
+        const modulesData = [
+            {
+                id: 'general',
+                name: 'General',
+                icon: '⚙️',
+                status: 'feature-complete',
+                tasks: [
+                    { state: 'done', date: '2026-04-21', title: 'Complete logging of changes done in the freelancer folder' },
+                    { state: 'done', date: '2026-04-21', title: 'Dirty state: close warning, save, discard' },
+                    { state: 'done', date: '2026-04-21', title: 'Moving Tabs, Display: nickname - Ingame Name' },
+                    { state: 'done', date: '2026-04-21', title: 'IDS functions' },
+                    { state: 'done', date: '2026-04-22', title: 'Loading States when opening tools, loading items' }
+                ]
+            },
+            {
+                id: 'menubar',
+                name: 'Menubar',
+                icon: '📋',
+                status: 'not-started',
+                tasks: [
+                    { state: 'todo', title: 'Language DE / EN' },
+                    { state: 'todo', title: 'Help' },
+                    { state: 'todo', title: 'FL Atlas Suite App Links' },
+                    { state: 'todo', title: 'Tools' }
+                ]
+            },
+            {
+                id: 'universe-view',
+                name: 'Universe View',
+                icon: '🌌',
+                status: 'in-progress',
+                tasks: [
+                    { state: 'done', date: '2026-04-21', title: 'Create System' },
+                    { state: 'done', date: '2026-04-21', title: 'Edit Basic System Settings' },
+                    { state: 'todo', title: 'Create New Sector if Multiverse Plugin found' },
+                    { state: 'todo', title: 'Harden New System Creation on Multiverse Sectors' },
+                    { state: 'done', date: '2026-04-21', title: 'Delete System Function Created' },
+                    { state: 'done', date: '2026-04-21', title: 'Delete System Tested', note: 'nur kleines System ohne Abhängigkeiten gelöscht' },
+                    { state: 'todo', title: 'Erase All Systems', note: 'keep all nebula and astroid data for reference' },
+                    { state: 'interrupted', title: 'Universe ini Sections splitted to own INI files', note: 'we need to think about structure first' }
+                ]
+            },
+            {
+                id: '3d-model-viewer',
+                name: '3D Model Viewer',
+                icon: '🎮',
+                status: 'in-progress',
+                tasks: [
+                    { state: 'done', date: '2026-04-21', title: 'Create first layout iteration this module' },
+                    { state: 'in-progress', date: '2026-04-21', title: 'Fully implement 3D Decoder Functions from V1 to V2' },
+                    { state: 'in-progress', date: '2026-04-21', title: 'Add Material Support (was not included in V1)' },
+                    { state: 'todo', title: 'Implement all needed Features and Fix all bugs' },
+                    { state: 'todo', title: 'Test Final implementation' }
+                ]
+            },
+            {
+                id: 'ids-editor',
+                name: 'IDS Editor',
+                icon: '🔤',
+                status: 'not-started',
+                tasks: [
+                    { state: 'todo', title: 'Create first layout iteration this module' },
+                    { state: 'todo', title: 'Implement all Features' },
+                    { state: 'todo', title: 'Test Final implementation' }
+                ]
+            },
+            {
+                id: '2d-system-view',
+                name: '2D System View',
+                icon: '🗺️',
+                status: 'in-progress',
+                tasks: [
+                    { state: 'done', title: 'Ausgefilterte Objekte sollen in der Sidebar ausgegraut werden' },
+                    { state: 'done', title: 'Suche' },
+                    { state: 'todo', title: 'System Settings bearbeiten' },
+                    { state: 'todo', title: 'Base Creation' },
+                    { state: 'todo', title: 'Edit Base' },
+                    { state: 'todo', title: 'Trade Lane Creation' },
+                    { state: 'todo', title: 'Trade Lane Edit' },
+                    { state: 'todo', title: 'Astroid / Nebula Creation' },
+                    { state: 'todo', title: 'Object Creation' },
+                    { state: 'todo', title: 'Weapon Platform Creation' },
+                    { state: 'todo', title: 'Buoy Creation' },
+                    { state: 'todo', title: 'Sun Creation' },
+                    { state: 'todo', title: 'Planet Creation' },
+                    { state: 'todo', title: 'LightSource Creation' },
+                    { state: 'todo', title: 'Ring Create / Edit' },
+                    { state: 'todo', title: 'Jumpgate / Hole Creation / Delete' },
+                    { state: 'todo', title: 'Zone Creation' },
+                    { state: 'todo', title: 'Exclusion Zone Creation' },
+                    { state: 'todo', title: 'Patrol Zone Creation' },
+                    { state: 'todo', title: 'Surprise Creation' },
+                    { state: 'interrupted', title: 'System Objects', note: 'first iteration done, more to come' }
+                ]
+            },
+            {
+                id: '3d-system-view',
+                name: '3D System View',
+                icon: '🎲',
+                status: 'not-started',
+                tasks: [
+                    { state: 'todo', title: 'Create first layout iteration of this module' },
+                    { state: 'todo', title: 'Implement all Features' },
+                    { state: 'todo', title: 'Test Final implementation' }
+                ]
+            },
+            {
+                id: 'file-explorer',
+                name: 'File Explorer',
+                icon: '📁',
+                status: 'not-started',
+                tasks: [
+                    { state: 'todo', title: 'Create first layout iteration this module' },
+                    { state: 'todo', title: 'Implement all Features' },
+                    { state: 'todo', title: 'Test Final implementation' }
+                ]
+            },
+            {
+                id: 'npc-editor',
+                name: 'NPC Editor',
+                icon: '👤',
+                status: 'not-started',
+                tasks: [
+                    { state: 'todo', title: 'Create first layout iteration this module' },
+                    { state: 'todo', title: 'Implement all Features' },
+                    { state: 'todo', title: 'Test Final implementation' }
+                ]
+            },
+            {
+                id: 'rumor-editor',
+                name: 'Rumor Editor',
+                icon: '💬',
+                status: 'not-started',
+                tasks: [
+                    { state: 'todo', title: 'Create first layout iteration this module' },
+                    { state: 'todo', title: 'Implement all Features' },
+                    { state: 'todo', title: 'Test Final implementation' }
+                ]
+            },
+            {
+                id: 'news-editor',
+                name: 'News Editor',
+                icon: '📰',
+                status: 'not-started',
+                tasks: [
+                    { state: 'todo', title: 'Create first layout iteration this module' },
+                    { state: 'todo', title: 'Implement all Features' },
+                    { state: 'todo', title: 'Test Final implementation' }
+                ]
+            },
+            {
+                id: 'trade-route-editor',
+                name: 'Trade Route Editor',
+                icon: '🚢',
+                status: 'not-started',
+                tasks: [
+                    { state: 'todo', title: 'Create first layout iteration this module' },
+                    { state: 'todo', title: 'Implement all Features' },
+                    { state: 'todo', title: 'Test Final implementation' }
+                ]
+            },
+            {
+                id: 'faction-editor',
+                name: 'Faction Editor',
+                icon: '⚔️',
+                status: 'not-started',
+                tasks: [
+                    { state: 'todo', title: 'Create first layout iteration this module' },
+                    { state: 'todo', title: 'Implement all Features' },
+                    { state: 'todo', title: 'Test Final implementation' }
+                ]
+            },
+            {
+                id: '3d-base-modeler',
+                name: '3D Base Modeler',
+                icon: '🏗️',
+                status: 'not-started',
+                tasks: [
+                    { state: 'todo', title: 'Create first layout iteration this module' },
+                    { state: 'todo', title: 'Implement all Features' },
+                    { state: 'todo', title: 'Test Final implementation' }
+                ]
+            },
+            {
+                id: 'guide-system',
+                name: 'Guide System',
+                icon: '📖',
+                status: 'not-started',
+                tasks: [
+                    { state: 'todo', title: 'First iteration' },
+                    { state: 'todo', title: 'Implement Guide for Each Program Part 1' },
+                    { state: 'todo', title: 'Implement Guide for Each Program Part 2' },
+                    { state: 'todo', title: 'Implement Guide for Each Program Part 3' },
+                    { state: 'todo', title: 'Implement Guide for Each Program Part 4' },
+                    { state: 'todo', title: 'Implement Guide for Each Program Part 5' },
+                    { state: 'todo', title: 'Implement Guide for Each Program Part 6' },
+                    { state: 'todo', title: 'Implement Guide for Each Program Part 7' },
+                    { state: 'todo', title: 'Implement Guide for Each Program Part 8' },
+                    { state: 'todo', title: 'Test Final implementation' }
+                ]
+            },
+            {
+                id: 'settings',
+                name: 'FL Atlas Settings',
+                icon: '⚡',
+                status: 'not-started',
+                tasks: [
+                    { state: 'todo', title: 'First iteration' },
+                    { state: 'todo', title: 'Implement all Features' },
+                    { state: 'todo', title: 'Test Final implementation' }
+                ]
+            }
+        ];
+
+        function getStatusClass(status) {
+            if (status === 'feature-complete') return 'status-badge done';
+            if (status === 'in-progress') return 'status-badge in-progress';
+            return 'status-badge not-started';
+        }
+
+        function getStatusText(status) {
+            if (status === 'feature-complete') return 'Complete';
+            if (status === 'in-progress') return 'In Progress';
+            return 'Not Started';
+        }
+
+        function getTaskIconClass(state) {
+            if (state === 'done') return 'task-checkbox done';
+            if (state === 'in-progress' || state === 'interrupted') return 'task-checkbox in-progress';
+            return 'task-checkbox todo';
+        }
+
+        function renderModules() {
+            const container = document.getElementById('modules-container');
+            let modulesDone = 0, modulesProgress = 0, modulesTodo = 0;
+            let totalTasks = 0, totalDone = 0;
+
+            modulesData.forEach(module => {
+                const doneTasks = module.tasks.filter(t => t.state === 'done').length;
+                const totalModuleTasks = module.tasks.length;
+                totalTasks += totalModuleTasks;
+                totalDone += doneTasks;
+
+                if (module.status === 'feature-complete') modulesDone++;
+                else if (module.status === 'in-progress') modulesProgress++;
+                else modulesTodo++;
+
+                const progressPercent = (doneTasks / totalModuleTasks) * 100;
+                let progressFillClass = 'todo';
+                if (module.status === 'feature-complete') progressFillClass = 'done';
+                else if (module.status === 'in-progress') progressFillClass = 'in-progress';
+
+                const moduleEl = document.createElement('div');
+                moduleEl.className = 'module-card';
+                moduleEl.innerHTML = `
+                    <div class="module-header">
+                        <div class="module-title">
+                            <div class="module-icon">${module.icon}</div>
+                            <span class="module-name">${module.name}</span>
+                        </div>
+                        <div class="module-status">
+                            <span class="${getStatusClass(module.status)}">${getStatusText(module.status)}</span>
+                            <span class="module-progress-text">${doneTasks}/${totalModuleTasks}</span>
+                        </div>
+                    </div>
+                    <div class="module-progress-bar">
+                        <div class="module-progress-fill ${progressFillClass}" style="width: ${progressPercent}%"></div>
+                    </div>
+                    <ul class="task-list">
+                        ${module.tasks.map(task => `
+                            <li class="task-item ${task.state === 'done' ? 'completed' : ''}">
+                                <div class="${getTaskIconClass(task.state)}">${task.state === 'done' ? '✓' : ''}</div>
+                                <div class="task-content">
+                                    <div class="task-title">${task.title}</div>
+                                    <div class="task-meta">
+                                        ${task.date ? `<span class="task-date">${task.date}</span>` : ''}
+                                        ${task.state === 'interrupted' ? `<span class="task-interrupted">⏸ INTERRUPTED</span>` : ''}
+                                    </div>
+                                    ${task.note ? `<div class="task-note">${task.note}</div>` : ''}
+                                </div>
+                            </li>
+                        `).join('')}
+                    </ul>
+                `;
+                container.appendChild(moduleEl);
+            });
+
+            const overallPercent = totalTasks > 0 ? Math.round((totalDone / totalTasks) * 100) : 0;
+            document.getElementById('overall-percent').textContent = overallPercent + '%';
+            document.getElementById('overall-fill').style.width = overallPercent + '%';
+            document.getElementById('stat-done').textContent = modulesDone;
+            document.getElementById('stat-progress').textContent = modulesProgress;
+            document.getElementById('stat-todo').textContent = modulesTodo;
+        }
+
+        renderModules();
+    </script>
+</body>
+</html>
