@@ -1,0 +1,497 @@
+{
+  "total": 61,
+  "v1_ok": 61,
+  "v1_fail": 0,
+  "v2_ok": 61,
+  "v2_fail": 0,
+  "items": [
+    {
+      "nick": "li_fighter",
+      "archetype": "ships\\liberty\\li_fighter\\li_fighter.cmp",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\li_fighter.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\li_fighter.png"
+    },
+    {
+      "nick": "li_elite",
+      "archetype": "ships\\liberty\\li_elite\\li_elite.cmp",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\li_elite.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\li_elite.png"
+    },
+    {
+      "nick": "li_elite2",
+      "archetype": "ships\\liberty\\li_elite2\\li_elite2.cmp",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\li_elite2.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\li_elite2.png"
+    },
+    {
+      "nick": "li_freighter",
+      "archetype": "ships\\liberty\\li_freighter\\li_freighter.cmp",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\li_freighter.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\li_freighter.png"
+    },
+    {
+      "nick": "li_cruiser",
+      "archetype": "ships\\liberty\\li_cruiser\\li_cruiser.cmp",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\li_cruiser.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\li_cruiser.png"
+    },
+    {
+      "nick": "li_dreadnought",
+      "archetype": "ships\\liberty\\li_dreadnought\\li_dreadnought.cmp",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\li_dreadnought.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\li_dreadnought.png"
+    },
+    {
+      "nick": "br_fighter",
+      "archetype": "ships\\bretonia\\br_fighter\\br_fighter.cmp",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\br_fighter.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\br_fighter.png"
+    },
+    {
+      "nick": "br_elite",
+      "archetype": "ships\\bretonia\\br_elite\\br_elite.cmp",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\br_elite.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\br_elite.png"
+    },
+    {
+      "nick": "br_freighter",
+      "archetype": "ships\\bretonia\\br_freighter\\br_freighter.cmp",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\br_freighter.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\br_freighter.png"
+    },
+    {
+      "nick": "br_gunboat",
+      "archetype": "ships\\bretonia\\br_gunship\\br_gunship.cmp",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\br_gunboat.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\br_gunboat.png"
+    },
+    {
+      "nick": "br_destroyer",
+      "archetype": "ships\\bretonia\\br_destroyer\\br_destroyer.cmp",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\br_destroyer.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\br_destroyer.png"
+    },
+    {
+      "nick": "br_battleship",
+      "archetype": "ships\\bretonia\\br_battleship\\br_battleship.cmp",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\br_battleship.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\br_battleship.png"
+    },
+    {
+      "nick": "ku_fighter",
+      "archetype": "ships\\kusari\\ku_fighter\\ku_fighter.cmp",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\ku_fighter.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\ku_fighter.png"
+    },
+    {
+      "nick": "ku_elite",
+      "archetype": "ships\\kusari\\ku_elite\\ku_elite.cmp",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\ku_elite.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\ku_elite.png"
+    },
+    {
+      "nick": "ku_dragon",
+      "archetype": "ships\\kusari\\ku_blood_dragon\\ku_dragon.cmp",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\ku_dragon.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\ku_dragon.png"
+    },
+    {
+      "nick": "ku_freighter",
+      "archetype": "ships\\kusari\\ku_freighter\\ku_freighter.cmp",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\ku_freighter.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\ku_freighter.png"
+    },
+    {
+      "nick": "ku_gunboat",
+      "archetype": "ships\\kusari\\ku_gunship\\ku_gunship.cmp",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\ku_gunboat.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\ku_gunboat.png"
+    },
+    {
+      "nick": "ku_destroyer",
+      "archetype": "ships\\kusari\\ku_destroyer\\ku_destroyer.cmp",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\ku_destroyer.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\ku_destroyer.png"
+    },
+    {
+      "nick": "ku_battleship",
+      "archetype": "ships\\kusari\\ku_battleship\\ku_battleship.cmp",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\ku_battleship.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\ku_battleship.png"
+    },
+    {
+      "nick": "rh_fighter",
+      "archetype": "ships\\rheinland\\rh_fighter\\rh_fighter.cmp",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\rh_fighter.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\rh_fighter.png"
+    },
+    {
+      "nick": "rh_elite",
+      "archetype": "ships\\rheinland\\rh_elite\\rh_elite.cmp",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\rh_elite.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\rh_elite.png"
+    },
+    {
+      "nick": "rh_freighter",
+      "archetype": "ships\\rheinland\\rh_freighter\\rh_freighter.cmp",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\rh_freighter.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\rh_freighter.png"
+    },
+    {
+      "nick": "rh_gunboat",
+      "archetype": "ships\\rheinland\\rh_gunship\\rh_gunship.cmp",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\rh_gunboat.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\rh_gunboat.png"
+    },
+    {
+      "nick": "rh_cruiser",
+      "archetype": "ships\\rheinland\\rh_cruiser\\rh_cruiser.cmp",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\rh_cruiser.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\rh_cruiser.png"
+    },
+    {
+      "nick": "rh_battleship",
+      "archetype": "ships\\rheinland\\rh_battleship\\rh_battleship.cmp",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\rh_battleship.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\rh_battleship.png"
+    },
+    {
+      "nick": "bh_fighter",
+      "archetype": "ships\\bounty_hunter\\bh_fighter\\bh_fighter.cmp",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\bh_fighter.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\bh_fighter.png"
+    },
+    {
+      "nick": "bh_elite",
+      "archetype": "ships\\bounty_hunter\\bh_elite\\bh_elite.cmp",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\bh_elite.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\bh_elite.png"
+    },
+    {
+      "nick": "bh_elite2",
+      "archetype": "ships\\bounty_hunter\\bh_vheavy_fighter\\bh_vheavy_fighter.cmp",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\bh_elite2.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\bh_elite2.png"
+    },
+    {
+      "nick": "pi_fighter",
+      "archetype": "Ships\\corsair\\co_fighter\\co_fighter.cmp",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\pi_fighter.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\pi_fighter.png"
+    },
+    {
+      "nick": "pi_elite",
+      "archetype": "Ships\\corsair\\co_elite\\co_elite.cmp",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\pi_elite.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\pi_elite.png"
+    },
+    {
+      "nick": "pi_freighter",
+      "archetype": "Ships\\corsair\\co_freighter\\co_freighter.cmp",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\pi_freighter.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\pi_freighter.png"
+    },
+    {
+      "nick": "co_fighter",
+      "archetype": "Ships\\pirate\\pi_fighter\\pi_fighter.cmp",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\co_fighter.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\co_fighter.png"
+    },
+    {
+      "nick": "co_elite",
+      "archetype": "Ships\\pirate\\pi_elite\\pi_elite.cmp",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\co_elite.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\co_elite.png"
+    },
+    {
+      "nick": "co_elite2",
+      "archetype": "Ships\\pirate\\pi_vheavy_fighter\\pi_vheavy_fighter.cmp",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\co_elite2.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\co_elite2.png"
+    },
+    {
+      "nick": "ge_fighter",
+      "archetype": "ships\\civilian\\cv_starflier\\cv_starflier.cmp",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\ge_fighter.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\ge_fighter.png"
+    },
+    {
+      "nick": "ge_fighter2",
+      "archetype": "ships\\civilian\\cv_startracker\\cv_startracker.cmp",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\ge_fighter2.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\ge_fighter2.png"
+    },
+    {
+      "nick": "ge_fighter4",
+      "archetype": "ships\\civilian\\cv_fighter\\cv_fighter.cmp",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\ge_fighter4.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\ge_fighter4.png"
+    },
+    {
+      "nick": "ge_fighter5",
+      "archetype": "ships\\civilian\\cv_elite\\cv_elite.cmp",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\ge_fighter5.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\ge_fighter5.png"
+    },
+    {
+      "nick": "ge_fighter6",
+      "archetype": "ships\\civilian\\cv_vheavy_fighter\\cv_vheavy_fighter.cmp",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\ge_fighter6.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\ge_fighter6.png"
+    },
+    {
+      "nick": "bw_fighter",
+      "archetype": "ships\\border_world\\bw_fighter\\bw_fighter.cmp",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\bw_fighter.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\bw_fighter.png"
+    },
+    {
+      "nick": "bw_elite",
+      "archetype": "ships\\border_world\\bw_elite\\bw_elite.cmp",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\bw_elite.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\bw_elite.png"
+    },
+    {
+      "nick": "bw_elite2",
+      "archetype": "ships\\border_world\\bw_vheavy_fighter\\bw_vheavy_fighter.cmp",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\bw_elite2.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\bw_elite2.png"
+    },
+    {
+      "nick": "bw_freighter",
+      "archetype": "Ships\\border_world\\bw_freighter\\bw_freighter.cmp",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\bw_freighter.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\bw_freighter.png"
+    },
+    {
+      "nick": "or_elite",
+      "archetype": "ships\\order\\or_elite\\or_elite.cmp",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\or_elite.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\or_elite.png"
+    },
+    {
+      "nick": "or_osiris",
+      "archetype": "ships\\order\\or_osiris\\or_osiris.cmp",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\or_osiris.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\or_osiris.png"
+    },
+    {
+      "nick": "no_fighter",
+      "archetype": "ships\\nomad\\no_fighter\\no_fighter.3db",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\no_fighter.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\no_fighter.png"
+    },
+    {
+      "nick": "no_gunboat",
+      "archetype": "ships\\nomad\\no_gunship\\no_gunship.3db",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\no_gunboat.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\no_gunboat.png"
+    },
+    {
+      "nick": "no_battleship",
+      "archetype": "ships\\nomad\\no_battleship\\no_battleship.3db",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\no_battleship.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\no_battleship.png"
+    },
+    {
+      "nick": "ge_liner",
+      "archetype": "ships\\utility\\luxury_liner\\luxury_liner.cmp",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\ge_liner.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\ge_liner.png"
+    },
+    {
+      "nick": "ge_prison",
+      "archetype": "Ships\\utility\\prison_liner\\prison_liner.cmp",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\ge_prison.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\ge_prison.png"
+    },
+    {
+      "nick": "ge_miner",
+      "archetype": "ships\\utility\\mining\\mining.cmp",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\ge_miner.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\ge_miner.png"
+    },
+    {
+      "nick": "ge_repair",
+      "archetype": "ships\\utility\\repair\\repair.cmp",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\ge_repair.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\ge_repair.png"
+    },
+    {
+      "nick": "ge_lifter",
+      "archetype": "ships\\utility\\heavy_lifter\\heavy_lifter.cmp",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\ge_lifter.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\ge_lifter.png"
+    },
+    {
+      "nick": "ge_armored",
+      "archetype": "ships\\utility\\transport_armored\\transport_armored.cmp",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\ge_armored.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\ge_armored.png"
+    },
+    {
+      "nick": "ge_transport",
+      "archetype": "ships\\utility\\transport_small\\transport_small.cmp",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\ge_transport.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\ge_transport.png"
+    },
+    {
+      "nick": "ge_large_transport",
+      "archetype": "ships\\utility\\transport_large\\transport_large.cmp",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\ge_large_transport.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\ge_large_transport.png"
+    },
+    {
+      "nick": "ge_train",
+      "archetype": "ships\\utility\\freight_train\\freight_trainx2.3db",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\ge_train.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\ge_train.png"
+    },
+    {
+      "nick": "ge_large_train",
+      "archetype": "ships\\utility\\freight_train\\freight_trainx3.3db",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\ge_large_train.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\ge_large_train.png"
+    },
+    {
+      "nick": "ge_csv",
+      "archetype": "ships\\utility\\csv\\csv.cmp",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\ge_csv.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\ge_csv.png"
+    },
+    {
+      "nick": "ge_armored_nobay",
+      "archetype": "ships\\utility\\transport_armored\\transport_armored_nobay.3db",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\ge_armored_nobay.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\ge_armored_nobay.png"
+    },
+    {
+      "nick": "rtc_lifeboat",
+      "archetype": "Solar\\misc\\space_lifeboat.cmp",
+      "v1": "ok",
+      "v2": "ok",
+      "v1_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships\\testmod1\\rtc_lifeboat.png",
+      "v2_path": "C:\\Users\\steve\\Github\\flathack.github.io\\data\\ships-v2\\testmod1\\rtc_lifeboat.png"
+    }
+  ]
+}

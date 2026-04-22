@@ -1,0 +1,186 @@
+{
+  "count": 61,
+  "failed": [],
+  "mean_mad": 0.6298433637215284,
+  "mean_rms": 2.3056788641012838,
+  "mean_iou": 0.9764406884573752,
+  "worst": [
+    {
+      "name": "ge_miner",
+      "mad": 11.726780891418457,
+      "rms": 27.999231338500977,
+      "iou": 0.6392093069111703,
+      "failed": false
+    },
+    {
+      "name": "or_osiris",
+      "mad": 6.05841064453125,
+      "rms": 19.465364456176758,
+      "iou": 0.7415993537964459,
+      "failed": false
+    },
+    {
+      "name": "li_dreadnought",
+      "mad": 5.503870487213135,
+      "rms": 18.338428497314453,
+      "iou": 0.781387181738367,
+      "failed": false
+    },
+    {
+      "name": "br_destroyer",
+      "mad": 4.0153656005859375,
+      "rms": 17.371782302856445,
+      "iou": 0.8135405105438401,
+      "failed": false
+    },
+    {
+      "name": "ku_battleship",
+      "mad": 2.43536376953125,
+      "rms": 8.800971984863281,
+      "iou": 0.9539577836411609,
+      "failed": false
+    },
+    {
+      "name": "rh_battleship",
+      "mad": 2.347686767578125,
+      "rms": 9.177583694458008,
+      "iou": 0.9563969382176053,
+      "failed": false
+    },
+    {
+      "name": "ge_transport",
+      "mad": 2.1384785175323486,
+      "rms": 11.649297714233398,
+      "iou": 0.8793155208646052,
+      "failed": false
+    },
+    {
+      "name": "ku_destroyer",
+      "mad": 1.8122659921646118,
+      "rms": 8.535547256469727,
+      "iou": 0.94077981038857,
+      "failed": false
+    },
+    {
+      "name": "ge_large_transport",
+      "mad": 1.4044393301010132,
+      "rms": 7.821479320526123,
+      "iou": 0.8810620012277471,
+      "failed": false
+    },
+    {
+      "name": "br_battleship",
+      "mad": 0.7992756962776184,
+      "rms": 7.1173095703125,
+      "iou": 0.9792959115031019,
+      "failed": false
+    },
+    {
+      "name": "bh_elite2",
+      "mad": 0.1146291121840477,
+      "rms": 3.032071113586426,
+      "iou": 0.9965315095261358,
+      "failed": false
+    },
+    {
+      "name": "bh_fighter",
+      "mad": 0.0423431396484375,
+      "rms": 0.7303364276885986,
+      "iou": 0.9998855704313995,
+      "failed": false
+    },
+    {
+      "name": "bh_elite",
+      "mad": 0.02042134664952755,
+      "rms": 0.4403333067893982,
+      "iou": 1.0,
+      "failed": false
+    },
+    {
+      "name": "li_elite2",
+      "mad": 0.00015767414879519492,
+      "rms": 0.012556836940348148,
+      "iou": 1.0,
+      "failed": false
+    },
+    {
+      "name": "ku_freighter",
+      "mad": 9.663899982115254e-05,
+      "rms": 0.009830513969063759,
+      "iou": 1.0,
+      "failed": false
+    }
+  ],
+  "best": [
+    {
+      "name": "li_freighter",
+      "mad": 0.0,
+      "rms": 0.0,
+      "iou": 1.0,
+      "failed": false
+    },
+    {
+      "name": "br_gunboat",
+      "mad": 0.0,
+      "rms": 0.0,
+      "iou": 1.0,
+      "failed": false
+    },
+    {
+      "name": "ku_elite",
+      "mad": 0.0,
+      "rms": 0.0,
+      "iou": 1.0,
+      "failed": false
+    },
+    {
+      "name": "rh_fighter",
+      "mad": 0.0,
+      "rms": 0.0,
+      "iou": 1.0,
+      "failed": false
+    },
+    {
+      "name": "rh_elite",
+      "mad": 0.0,
+      "rms": 0.0,
+      "iou": 1.0,
+      "failed": false
+    },
+    {
+      "name": "rh_gunboat",
+      "mad": 0.0,
+      "rms": 0.0,
+      "iou": 1.0,
+      "failed": false
+    },
+    {
+      "name": "co_elite",
+      "mad": 0.0,
+      "rms": 0.0,
+      "iou": 1.0,
+      "failed": false
+    },
+    {
+      "name": "co_elite2",
+      "mad": 0.0,
+      "rms": 0.0,
+      "iou": 1.0,
+      "failed": false
+    },
+    {
+      "name": "ge_fighter2",
+      "mad": 0.0,
+      "rms": 0.0,
+      "iou": 1.0,
+      "failed": false
+    },
+    {
+      "name": "ge_fighter5",
+      "mad": 0.0,
+      "rms": 0.0,
+      "iou": 1.0,
+      "failed": false
+    }
+  ]
+}
