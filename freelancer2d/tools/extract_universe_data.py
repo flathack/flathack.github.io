@@ -33,6 +33,7 @@ RESOURCE_DLLS = [
 ]
 RESOURCE_STRINGS = {}
 RESOURCE_INFOCARDS = {}
+SOLAR_ARCH = {}
 
 def parse_ini_file_with_duplicates(filepath: Path) -> list:
     """Parse a Freelancer INI file, handling duplicate section names like [Object]."""
@@ -79,6 +80,43 @@ def get_prop(props: dict, key: str, default=''):
     if upper_key in props:
         return props[upper_key]
     return default
+
+def parse_float(value: str, default: float = 0.0) -> float:
+    try:
+        return float(str(value).split(',', 1)[0].strip())
+    except Exception:
+        return default
+
+def load_solar_arch() -> dict:
+    solar = {}
+    solararch = FL_DATA / 'SOLAR' / 'solararch.ini'
+    for section_name, props in parse_ini_file_with_duplicates(solararch):
+        if section_name.lower() != 'solar':
+            continue
+        nickname = get_prop(props, 'nickname', '').lower()
+        if not nickname:
+            continue
+        solar[nickname] = {
+            'nickname': nickname,
+            'type': get_prop(props, 'type', '').upper(),
+            'ids_name': get_prop(props, 'ids_name', ''),
+            'ids_info': get_prop(props, 'ids_info', ''),
+            'solar_radius': parse_float(get_prop(props, 'solar_radius', ''), 600),
+            'shape_name': get_prop(props, 'shape_name', ''),
+            'da_archetype': get_prop(props, 'DA_archetype', get_prop(props, 'da_archetype', '')),
+        }
+    return solar
+
+def solar_info(archetype: str) -> dict:
+    return SOLAR_ARCH.get(str(archetype or '').lower(), {})
+
+def is_true_planet_archetype(archetype: str, solar_type: str) -> bool:
+    value = str(archetype or '').lower()
+    return solar_type == 'PLANET' or value.startswith('planet_') or value.startswith('planetform_')
+
+def is_true_sun_archetype(archetype: str, solar_type: str) -> bool:
+    value = str(archetype or '').lower()
+    return solar_type == 'SUN' or value.startswith('sun_')
 
 def extract_string_table(dll_path: Path) -> dict:
     """Extract string table resources from a Windows DLL."""
@@ -380,9 +418,11 @@ def extract_system_data(system_name: str) -> dict:
         'jumpholes': [],
         'stations': [],
         'planets': [],
+        'suns': [],
         'tradelanes': [],
         'asteroidfields': [],
-        'nebulae': []
+        'nebulae': [],
+        'zones': []
     }
     
     if not system_ini.exists():
@@ -414,7 +454,11 @@ def extract_system_data(system_name: str) -> dict:
                     'shape': get_prop(props, 'shape', 'ELLIPSOID'),
                     'rotate_y': parse_rotation_y(get_prop(props, 'rotate', '0,0,0')),
                     'sort': get_prop(props, 'sort', '0'),
-                    'music': get_prop(props, 'Music', '')
+                    'music': get_prop(props, 'Music', ''),
+                    'damage': parse_float(get_prop(props, 'damage', '0'), 0),
+                    'interference': parse_float(get_prop(props, 'interference', '0'), 0),
+                    'drag_modifier': parse_float(get_prop(props, 'drag_modifier', '1'), 1),
+                    'visit': get_prop(props, 'visit', '0')
                 }
                 pos = parse_position_3d(get_prop(props, 'pos', '0,0,0'))
                 zone_map[zone_nickname]['x'] = pos[0]
@@ -436,6 +480,8 @@ def extract_system_data(system_name: str) -> dict:
                         zone_map[zone_nickname]['size_z'] = size
                     except:
                         pass
+                if zone_map[zone_nickname]['damage'] > 0:
+                    result['zones'].append(zone_map[zone_nickname])
     
     # Second pass: process all sections
     for section_name, props in sections:
@@ -578,9 +624,39 @@ def extract_system_data(system_name: str) -> dict:
             result['jumpholes'].append(hole)
             continue
         
-        # Stations
-        if any(stype in archetype 
-                for stype in ['station', 'smallstation', 'outpost', 'depot', 'dreadnought', 'dock_ring', 'miningbase', 'shipyard']):
+        arch = solar_info(archetype)
+        solar_type = arch.get('type', '')
+
+        # Planets/Suns must be classified before dockable stations; many planets have a base.
+        # Do not classify weapon platforms like wplatform_planet_frag as planets just because
+        # their nickname contains the word "planet".
+        if is_true_planet_archetype(archetype, solar_type) or is_true_sun_archetype(archetype, solar_type):
+            pos = parse_position_3d(get_prop(props, 'pos', '0,0,0'))
+            radius = arch.get('solar_radius', parse_float(get_prop(props, 'atmosphere_range', ''), 1000))
+            planet = {
+                'nickname': get_prop(props, 'nickname', section_name),
+                'name': resolve_id(get_prop(props, 'ids_name', ''), get_prop(props, 'nickname', section_name)),
+                'ids_name': get_prop(props, 'ids_name', ''),
+                'ids_info': get_prop(props, 'ids_info', ''),
+                'info': resolve_info(get_prop(props, 'ids_info', '')),
+                'x': pos[0], 'y': pos[1], 'z': pos[2],
+                'archetype': archetype,
+                'size': radius,
+                'solar_radius': radius,
+                'atmosphere_range': parse_float(get_prop(props, 'atmosphere_range', ''), radius * 1.25),
+                'spin': get_prop(props, 'spin', ''),
+                'has_ring': 'ring' in archetype or 'ring' in arch.get('da_archetype', '').lower() or 'ring' in arch.get('shape_name', '').lower()
+            }
+            if is_true_sun_archetype(archetype, solar_type):
+                result['suns'].append(planet)
+            else:
+                result['planets'].append(planet)
+            continue
+
+        # Stations and other important solar objects
+        if (any(stype in archetype for stype in ['station', 'smallstation', 'outpost', 'depot', 'dreadnought', 'battleship', 'battlecruiser', 'dock_ring', 'miningbase', 'shipyard'])
+            or get_prop(props, 'base', '') or get_prop(props, 'dock_with', '')
+            or solar_type in ['STATION', 'SATELLITE', 'DOCKABLE', 'WEAPONS_PLATFORM']):
             pos = parse_position_3d(get_prop(props, 'pos', '0,0,0'))
             station = {
                 'nickname': get_prop(props, 'nickname', section_name),
@@ -590,30 +666,14 @@ def extract_system_data(system_name: str) -> dict:
                 'info': resolve_info(get_prop(props, 'ids_info', '')),
                 'x': pos[0], 'y': pos[1], 'z': pos[2],
                 'archetype': archetype,
+                'solar_type': solar_type,
+                'solar_radius': arch.get('solar_radius', 600),
                 'rotate_y': parse_rotation_y(get_prop(props, 'rotate', '0,0,0')),
                 'base': get_prop(props, 'base', ''),
                 'faction': get_prop(props, 'faction', ''),
                 'dock_with': get_prop(props, 'dock_with', '')
             }
             result['stations'].append(station)
-            continue
-        
-        # Planets/Suns
-        if any(ptype in archetype 
-                for ptype in ['planet', 'sun']):
-            pos = parse_position_3d(get_prop(props, 'pos', '0,0,0'))
-            planet = {
-                'nickname': get_prop(props, 'nickname', section_name),
-                'name': resolve_id(get_prop(props, 'ids_name', ''), get_prop(props, 'nickname', section_name)),
-                'ids_name': get_prop(props, 'ids_name', ''),
-                'ids_info': get_prop(props, 'ids_info', ''),
-                'info': resolve_info(get_prop(props, 'ids_info', '')),
-                'x': pos[0], 'y': pos[1], 'z': pos[2],
-                'archetype': archetype,
-                'size': float(get_prop(props, 'atmosphere_range', '1000') or '1000'),
-                'spin': get_prop(props, 'spin', '')
-            }
-            result['planets'].append(planet)
             continue
     
     # Build trade lanes from collected rings
@@ -703,7 +763,7 @@ def extract_all_systems() -> dict:
     return all_systems
 
 def main():
-    global RESOURCE_STRINGS, RESOURCE_INFOCARDS
+    global RESOURCE_STRINGS, RESOURCE_INFOCARDS, SOLAR_ARCH
     print("=== Freelancer Data Extractor v8 ===")
     print("Fixed: Parse Trade Lane Rings with next_ring/prev_ring connections")
     print()
@@ -711,8 +771,10 @@ def main():
     print("0. Loading Freelancer resource strings and infocards...")
     RESOURCE_STRINGS = load_resource_strings()
     RESOURCE_INFOCARDS = load_resource_infocards()
+    SOLAR_ARCH = load_solar_arch()
     print(f"   Loaded {len(RESOURCE_STRINGS)} resource strings")
     print(f"   Loaded {len(RESOURCE_INFOCARDS)} infocards")
+    print(f"   Loaded {len(SOLAR_ARCH)} solar archetypes")
 
     print()
     print("1. Extracting universe map...")
@@ -754,6 +816,7 @@ def main():
     total_holes = sum(len(s.get('jumpholes', [])) for s in all_systems.values())
     total_stations = sum(len(s.get('stations', [])) for s in all_systems.values())
     total_planets = sum(len(s.get('planets', [])) for s in all_systems.values())
+    total_suns = sum(len(s.get('suns', [])) for s in all_systems.values())
     
     # Count trade lanes (groups of rings) and individual rings
     total_tradelanes = 0
@@ -772,6 +835,7 @@ def main():
     print(f"Jump Holes: {total_holes}")
     print(f"Stations: {total_stations}")
     print(f"Planets: {total_planets}")
+    print(f"Suns: {total_suns}")
     print(f"Trade Lane Routes: {total_tradelanes}")
     print(f"Trade Lane Rings: {total_trade_rings}")
     print(f"Asteroid Fields: {total_asteroids}")
@@ -809,6 +873,8 @@ def main():
             'jumpholes': sys_data.get('jumpholes', []),
             'stations': sys_data.get('stations', []),
             'planets': sys_data.get('planets', []),
+            'suns': sys_data.get('suns', []),
+            'zones': sys_data.get('zones', []),
             'asteroidfields': sys_data.get('asteroidfields', []),
             'tradelanes': tradelanes,  # Note: spelled tradelanes in output
             'nebulae': sys_data.get('nebulae', [])
