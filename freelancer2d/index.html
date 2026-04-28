@@ -1,0 +1,3479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freelancer 2D - a 2d adventure</title>
+    <style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #000; overflow: hidden; font-family: 'Courier New', monospace; color: #00ff00; user-select: none; }
+#game-container { position: relative; width: 100vw; height: 100vh; }
+#game-canvas { display: block; background: #000005; }
+#hud { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
+#hud-top { position: absolute; top: 0; left: 0; right: 0; display: flex; justify-content: space-between; align-items: flex-start; padding: 10px; gap: 20px; }
+#command-bar { display: flex; gap: 5px; pointer-events: auto; }
+.cmd-btn { padding: 8px 16px; background: rgba(0,50,80,0.8); border: 1px solid #0088ff; color: #00aaff; cursor: pointer; font-size: 12px; font-family: 'Courier New', monospace; }
+.cmd-btn:hover { background: rgba(0,100,150,0.8); }
+.cmd-btn.active { background: rgba(0,150,50,0.8); border-color: #00ff00; color: #00ff00; }
+.cmd-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+#info-panel { width: 280px; background: rgba(0,15,30,0.9); border: 1px solid #006688; padding: 10px; display: none; }
+#info-panel h3 { color: #00aaff; font-size: 14px; margin-bottom: 10px; border-bottom: 1px solid #333; padding-bottom: 5px; }
+.info-row { display: flex; justify-content: space-between; margin-bottom: 5px; font-size: 11px; }
+.info-row span:first-child { color: #888; }
+.info-row span:last-child { color: #00ff00; }
+.info-text { margin-top: 8px; padding-top: 8px; border-top: 1px solid #223344; color: #aaddff; font-size: 10px; line-height: 1.35; max-height: 140px; overflow-y: auto; white-space: pre-line; }
+#hud-left { position: absolute; top: 60px; left: 10px; }
+.stat-bar { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+.stat-label { width: 80px; font-size: 11px; color: #888; }
+.bar-container { width: 150px; height: 14px; background: rgba(0,0,0,0.7); border: 1px solid #333; }
+.bar-fill { height: 100%; transition: width 0.1s; }
+.bar-fill.hull { background: linear-gradient(to right, #880000, #ff4444); }
+.bar-fill.shield { background: linear-gradient(to right, #004488, #44aaff); }
+.bar-fill.energy { background: linear-gradient(to right, #886600, #ffcc44); }
+#hud-bottom { position: absolute; bottom: 10px; left: 10px; right: 10px; }
+#hud-info { display: flex; gap: 20px; padding: 8px 12px; background: rgba(0,0,0,0.7); border: 1px solid #333; font-size: 12px; }
+#hud-right { position: absolute; top: 60px; right: 10px; text-align: right; }
+.speed-display { font-size: 16px; color: #ffaa00; margin-bottom: 5px; }
+.nav-hint { font-size: 11px; color: #666; }
+#target-info { font-size: 12px; color: #00aaff; margin-bottom: 10px; display: none; }
+.hidden { display: none !important; }
+#start-screen { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; background: linear-gradient(rgba(0,0,8,0.24), rgba(0,0,8,0.62)), url('assets/cover-stellar-drift.svg') center/cover no-repeat; z-index: 1000; }
+#start-screen > div { position: relative; z-index: 1; text-shadow: 0 2px 12px #000; }
+#start-screen h1 { font-size: 42px; letter-spacing: 8px; margin-bottom: 10px; text-shadow: 0 0 20px #0088ff, 0 0 40px #0044aa; }
+#start-screen .subtitle { font-size: 16px; color: #a8c9e8; margin-bottom: 24px; }
+.start-actions { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+#start-screen button { padding: 12px 32px; font-size: 16px; background: rgba(0,50,100,0.56); border: 2px solid #0088ff; color: #b9efff; cursor: pointer; }
+#start-screen button:hover { background: rgba(0,100,200,0.6); box-shadow: 0 0 20px rgba(0,136,255,0.4); }
+#btn-new-game { border-color: #666; color: #bbb; background: rgba(20,20,28,0.62); }
+#btn-new-game:hover { border-color: #ffaa00; color: #ffaa00; background: rgba(70,45,0,0.55); }
+.save-hint { margin-top: 10px; color: #8bb6ca; font-size: 12px; min-height: 16px; }
+.controls { margin-top: 30px; padding: 15px; background: rgba(0,0,0,0.5); border: 1px solid #333; text-align: left; display: inline-block; }
+.controls h3 { color: #00aaff; margin-bottom: 10px; }
+.controls p { margin: 4px 0; font-size: 12px; color: #888; }
+#map-overlay { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 700px; height: 500px; background: rgba(0,10,20,0.95); border: 2px solid #00aaff; z-index: 2000; }
+#map-header { padding: 10px; border-bottom: 1px solid #333; display: flex; justify-content: space-between; align-items: center; }
+#map-header h3 { color: #00aaff; margin: 0; }
+#map-controls { display: flex; gap: 10px; }
+.map-btn { padding: 5px 12px; background: #003355; border: 1px solid #0088ff; color: #00aaff; cursor: pointer; font-size: 11px; }
+.map-btn:hover { background: #005588; }
+#map-canvas { cursor: pointer; }
+#log-area { position: absolute; bottom: 50px; left: 10px; width: 320px; max-height: 180px; background: rgba(0,0,0,0.85); border: 1px solid #333; overflow-y: auto; padding: 5px; font-size: 11px; display: none; }
+#cursor-mode { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 20px; height: 20px; border: 2px solid #00ff00; border-radius: 50%; pointer-events: none; display: none; }
+#landing-overlay { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 860px; max-height: 680px; background: rgba(3,12,24,0.98); border: 2px solid #00aaff; z-index: 2100; display: flex; flex-direction: column; box-shadow: 0 0 28px rgba(0,136,255,0.28); }
+#landing-header { padding: 14px 16px; border-bottom: 1px solid #164466; display: flex; justify-content: space-between; align-items: center; }
+#landing-title { color: #b9efff; margin: 0; font-size: 18px; }
+#landing-tabs { display: flex; gap: 8px; padding: 10px; border-bottom: 1px solid #123047; flex-wrap: wrap; }
+.landing-tab { padding: 8px 12px; background: rgba(0,50,80,0.75); border: 1px solid #0088ff; color: #9edfff; cursor: pointer; font-family: 'Courier New', monospace; font-size: 12px; }
+.landing-tab:hover, .landing-tab.active { background: rgba(0,115,145,0.86); color: #ffffff; }
+#landing-content { padding: 12px; overflow-y: auto; min-height: 260px; }
+.trade-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.trade-table th { text-align: left; padding: 7px; background: #002244; color: #8ee8ff; }
+.trade-table td { padding: 6px; border-bottom: 1px solid #1b2c38; }
+.trade-button { padding: 4px 9px; background: #003300; border: 1px solid #00aa00; color: #00ff00; cursor: pointer; font-family: 'Courier New', monospace; }
+.trade-button:disabled { background: #222; border-color: #555; color: #777; cursor: not-allowed; }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <canvas id="game-canvas"></canvas>
+        
+        <div id="hud">
+            <div id="hud-top">
+                <div id="command-bar">
+                    <button class="cmd-btn" id="btn-freeflight" onclick="setMode('freeflight')">FREEFLIGHT</button>
+                    <button class="cmd-btn" id="btn-approach" onclick="setMode('approach')">ANFLIEGEN</button>
+                    <button class="cmd-btn" id="btn-dock" onclick="setMode('dock')">ANDOCKEN</button>
+                    <button class="cmd-btn" id="btn-map" onclick="toggleMap()">MAP</button>
+    <button class="cmd-btn" id="btn-inventory" onclick="showInventory()">INVENTAR</button>
+                    <button class="cmd-btn" id="btn-info" onclick="toggleInfoPanel()">INFO</button>
+                    <button class="cmd-btn" id="btn-universe" onclick="toggleUniverseView()">UNIVERSE</button>
+                    <button class="cmd-btn" id="btn-language" onclick="toggleLanguage()">DE</button>
+                </div>
+                <div id="info-panel">
+                    <h3>SELECTED OBJECT</h3>
+                    <div id="info-name" class="info-row"><span>Name:</span><span>-</span></div>
+                    <div id="info-type" class="info-row"><span>Type:</span><span>-</span></div>
+                    <div id="info-faction" class="info-row"><span>Faction:</span><span>-</span></div>
+                    <div id="info-distance" class="info-row"><span>Distance:</span><span>-</span></div>
+                    <div id="info-status" class="info-row"><span>Status:</span><span>-</span></div>
+                    <div id="info-desc" class="info-text">-</div>
+                </div>
+            </div>
+            
+            <div id="hud-left">
+                <div class="stat-bar">
+                    <span class="stat-label">HULL (Panzerung)</span>
+                    <div class="bar-container"><div id="hull-bar" class="bar-fill hull"></div></div>
+                </div>
+                <div class="stat-bar">
+                    <span class="stat-label">SHIELD (Schild)</span>
+                    <div class="bar-container"><div id="shield-bar" class="bar-fill shield"></div></div>
+                </div>
+                <div class="stat-bar">
+                    <span class="stat-label">ENERGY</span>
+                    <div class="bar-container"><div id="energy-bar" class="bar-fill energy"></div></div>
+                </div>
+            </div>
+            
+            <div id="hud-right">
+                <div id="target-info">
+                    <div id="target-name" style="color:#ffaa00;">Selected: None</div>
+                    <div id="target-dist" style="color:#888;">Distance: -</div>
+                </div>
+                <div class="speed-display" id="speed-display">SPEED: 0 m/s</div>
+                <div class="nav-hint">
+                    <span id="mode-indicator">FREEFLIGHT</span><br>
+                    LMB: rotate | RMB: fire<br>
+                    Click obj + dock/approach<br>
+                    M: map | Scroll: zoom
+                </div>
+            </div>
+            
+            <div id="hud-bottom">
+                <div id="hud-info">
+                    <span id="credits">CREDITS: 10,000</span>
+                    <span id="cargo">CARGO: 0/50</span>
+                    <span id="system-name">SYSTEM: LI01</span>
+                    <span id="game-time">00:00</span>
+                    <span id="zoom-display">ZOOM: 1.0x</span>
+                </div>
+            </div>
+            
+            <div id="log-area"></div>
+            <div id="cursor-mode"></div>
+        </div>
+    </div>
+    
+    <div id="start-screen">
+        <div style="text-align:center;">
+            <h1>Freelancer 2D</h1>
+            <p class="subtitle">a 2d adventure</p>
+            <div class="start-actions">
+                <button id="btn-start">START GAME</button>
+                <button id="btn-new-game" class="hidden">NEUES SPIEL</button>
+            </div>
+            <div id="save-hint" class="save-hint"></div>
+            <div class="controls">
+                <h3>Controls</h3>
+                <p><strong>Left Mouse (hold)</strong> - Rotate ship</p>
+                <p><strong>Left Mouse (release)</strong> - Cursor mode</p>
+                <p><strong>Right Mouse</strong> - Fire (hold = continuous)</p>
+                <p><strong>Click object</strong> - Select target</p>
+                <p><strong>D key</strong> - Dock at selected</p>
+                <p><strong>A key</strong> - Approach selected</p>
+                <p><strong>M key</strong> - Toggle map</p>
+                <p><strong>Scroll</strong> - Zoom in/out</p>
+            </div>
+        </div>
+    </div>
+    
+    <div id="map-overlay" class="hidden">
+        <div id="map-header">
+            <h3>SYSTEM MAP - LI01 MANHATTAN</h3>
+            <div id="map-controls">
+                <button class="map-btn" id="btn-dock-map">DOCK</button>
+                <button class="map-btn" id="btn-approach-map">APPROACH</button>
+                <button class="map-btn" id="btn-close-map" style="background:#330000;border-color:#aa0000;color:#ff4444;">CLOSE</button>
+            </div>
+        </div>
+        <canvas id="map-canvas" width="700" height="460"></canvas>
+    </div>
+    
+    <!-- Universe View Overlay -->
+    <div id="universe-overlay" class="hidden" style="
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 900px;
+        height: 650px;
+        background: rgba(0,5,15,0.98);
+        border: 2px solid #00ff00;
+        z-index: 2000;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+    ">
+        <div style="padding: 15px; border-bottom: 1px solid #333; display: flex; justify-content: space-between; align-items: center;">
+            <h2 style="color: #00ff00; margin: 0;">UNIVERSE VIEW</h2>
+            <button id="btn-close-universe" style="padding: 8px 20px; background: #330000; border: 1px solid #aa0000; color: #ff4444; cursor: pointer;">CLOSE</button>
+        </div>
+        <canvas id="universe-canvas" width="900" height="620"></canvas>
+    </div>
+
+    <div id="landing-overlay" class="hidden">
+        <div id="landing-header">
+            <h2 id="landing-title">LANDED</h2>
+            <button class="cmd-btn" id="btn-launch" onclick="launchFromBase()">LAUNCH</button>
+        </div>
+        <div id="landing-tabs">
+            <button class="landing-tab active" data-deck="launch" onclick="showLandingDeck('launch')">Launch Deck</button>
+            <button class="landing-tab" data-deck="bar" onclick="showLandingDeck('bar')">Bar</button>
+            <button class="landing-tab" data-deck="equipment" onclick="showLandingDeck('equipment')">Equipment Dealer</button>
+            <button class="landing-tab" data-deck="trade" onclick="showLandingDeck('trade')">Trade Dealer</button>
+            <button class="landing-tab" data-deck="ship" onclick="showLandingDeck('ship')">Ship Dealer</button>
+        </div>
+        <div id="landing-content"></div>
+    </div>
+
+<script src="data/game_systems.js"></script>
+<script src="data/ships.js"></script>
+<script src="data/commodities.js"></script>
+<script src="data/object_icons.js"></script>
+<script>
+// Freelancer ID Lookup Table (extracted from INI files)
+// Maps numeric IDs to human-readable names
+const FREELANCER_IDS = {
+    // Systems (strid_name from universe.ini)
+    '196766': 'New York',
+    '196767': 'Tomahawk',
+    '196768': 'Magellan',
+    '196769': 'Colorado',
+    '196770': 'Nebraska',
+    '196771': 'Kyoto',
+    '196772': 'Honshu',
+    '196773': 'Shikoku',
+    '196774': 'Hokkaido',
+    '196775': 'Chugoku',
+    '196776': 'Nagasaki',
+    '196777': 'Osaka',
+    '196778': 'Planet Manhattan',
+    '196779': 'New Berlin',
+    '196658': 'Cambridge',
+    '196659': 'Oxford',
+    '196660': 'Leeds',
+    '196661': 'Manchester',
+    '196662': 'Edinburgh',
+    '196663': 'Belfast',
+    '196664': 'New London',
+    '196665': 'York',
+    '196666': 'Birmingham',
+    '196667': 'Colchester',
+    '196668': 'Caerleon',
+    '196669': 'Basildon',
+    '196670': 'Perth',
+    '196671': 'Durham',
+    '196672': 'Ipswich',
+    '196673': 'Newcastle',
+    '196674': 'Glasgow',
+    '196675': 'Blackpool',
+    '196676': 'Dublin',
+    '196677': 'Luton',
+    '196678': 'Reading',
+    '196679': 'Hull',
+    '196680': 'Norfolk',
+    '196681': 'Hampshire',
+    '196682': 'Kent',
+    '196683': 'Penrith',
+    '196684': 'Somerset',
+    '196685': 'Avon',
+    '196686': 'Lancaster',
+    '196687': 'Preston',
+    '196688': 'Leicester',
+    '196689': 'Sheffield',
+    '196690': 'Frankfurt',
+    '196691': 'Stuttgart',
+    '196692': 'Munich',
+    '196693': 'Hamburg',
+    '196694': 'Nuremberg',
+    '196695': 'Augsburg',
+    '196696': 'Koblenz',
+    '196697': 'Koln',
+    '196698': 'Dusseldorf',
+    '196699': 'Dortmund',
+    '196700': 'Essen',
+    '196701': 'Duisburg',
+    '196702': 'Bochum',
+    '196703': 'Wuppertal',
+    '196704': 'Bielefeld',
+    '196705': 'Mannheim',
+    '196706': 'Karlsruhe',
+    '196707': 'Wiesbaden',
+    '196708': 'Gelsenkirchen',
+    '196709': 'Monchengladbach',
+    '196710': 'Braunschweig',
+    '196711': 'Hannover',
+    '196712': 'Munster',
+    '196713': 'Kiel',
+    '196714': 'Lubeck',
+    '196715': 'Rostock',
+    '196716': 'Magdeburg',
+    '196717': 'Erfurt',
+    '196718': 'Dresden',
+    '196719': 'Leipzig',
+    '196720': 'Halle',
+    '196721': 'Bonn',
+    '196722': 'Mainz',
+    '196735': 'Sigma',
+    '196736': 'Proxton',
+    '196737': 'Omega',
+    '196738': 'Dathomir',
+    '196739': 'Voru',
+    '196740': 'Testre',
+    '196741': 'Kria',
+    '196723': 'Planet Los Angeles',
+    '196724': 'Planet Houston',
+    '196725': 'Planet Chicago',
+    '196726': 'Planet Dallas',
+    '196727': 'Planet Denver',
+    '196728': 'Planet Newark',
+    '196729': 'Planet Detroit',
+    '196730': 'Planet Philadelphia',
+    '196731': 'Planet Pittsburgh',
+    '196732': 'Planet St. Louis',
+    '196733': 'Planet San Francisco',
+    '196734': 'Planet Seattle',
+    '196743': 'Planet Shizuoka',
+    '196744': 'Planet Osaka',
+    '196745': 'Planet Yokohama',
+    '196746': 'Planet Nagoya',
+    '196747': 'Planet Hiroshima',
+    '196748': 'Planet Sapporo',
+    '196749': 'Planet Fukuoka',
+    '196750': 'Planet Sasebo',
+    '196751': 'Planet Kobe',
+    '196752': 'Planet Kyoto',
+    '196753': 'Planet Tokyo',
+    '196754': 'Planet Keiun',
+    '196755': 'Planet Kirishima',
+    '196756': 'Planet Nomad',
+    '196757': 'Planet Tau',
+    '196758': 'Planet Omega',
+    '196759': 'Planet Sigma',
+    '196760': 'Planet Alpha',
+    '196761': 'Planet Beta',
+    '196762': 'Planet Gamma',
+    '196763': 'Planet Delta',
+    '196764': 'Planet Epsilon',
+    '196765': 'Planet Zeta',
+    
+    // Base/Station names (ids_name)
+    '261008': 'New York',
+    '196766': 'New York',
+    '260911': 'Tomahawk Gate',
+    '260912': 'Magellan Gate',
+    '260913': 'Colorado Gate',
+    '260914': 'Nebraska Gate',
+    '196776': 'Nagasaki',
+    '261168': 'BDArmstrong Station',
+    '261211': 'West Point',
+    '196768': 'Magellan',
+    '196774': 'Nagasaki Station',
+    '196777': 'Osaka Base',
+    '196775': 'Chugoku Base',
+    '60245': 'Unknown Location',
+    '261210': 'Detroit Depot',
+    '196767': 'Tomahawk',
+    '261169': 'Freelancer Port',
+    '260910': 'New York Gate',
+    '261212': 'Gate to Colorado',
+    '261208': 'Gate to Nebraska',
+    '261119': 'Gate to Kyushu',
+    '261209': 'Gate to Honshu',
+    '196773': 'Shikoku Base',
+    '55022': 'Iwayama Station',
+    '196771': 'Kyoto',
+    '196779': 'New Berlin',
+    '196772': 'Honshu',
+    '260916': 'Gate to Magellan',
+    '261161': 'Trade Lane Entrance',
+    '261164': 'Trade Lane Junction',
+    '260915': 'Gate to Tomahawk',
+    '60243': 'Jump Gate',
+    '196778': 'Planet Manhattan',
+    '261166': 'Spaceport',
+    '261708': 'Station Entry',
+    '261348': 'Hangar',
+    '261709': 'Repair Bay',
+    '261710': 'Commodity Exchange',
+    '260622': 'Trading Floor',
+    '196770': 'Nebraska',
+};
+
+// Infocards (text descriptions for objects)
+const FREELANCER_INFOCARDS = {
+    '196766': 'The heart of Liberty, New York is the most populous system in the Sirius sector.',
+    '196767': 'Tomahawk system - industrial hub of the Liberty Coalition.',
+    '196768': 'Magellan system - scientific research outpost.',
+    '196769': 'Colorado system - agricultural frontier.',
+    '196770': 'Nebraska system - mining and resource extraction.',
+    '196778': 'Planet Manhattan - the jewel of Liberty, home to millions.',
+    '196779': 'New Berlin - Kusari colony in the Bretonia space.',
+};
+
+// Helper function to get name from ID
+function getNameFromID(id) {
+    if (!id) return 'Unknown';
+    const strId = String(id);
+    return FREELANCER_IDS[strId] || null;
+}
+
+// Freelancer game data
+const FALLBACK_GAME_SYSTEMS = {
+    'li01': {
+        name: 'New York',
+        stations: [
+            { nickname: 'ft_bush_station', name: 'Ft. Bush Station', x: 6173, z: -50515, faction: 'li_p_grp', archetype: 'smallstation1' },
+            { nickname: 'west_point_outpost', name: 'West Point Outpost', x: -35488, z: 28321, faction: 'li_n_grp', archetype: 'outpost' },
+            { nickname: 'detroit_depot', name: 'Detroit Depot', x: -92447, z: -12925, faction: 'co_vr_grp', archetype: 'depot' },
+            { nickname: 'norfolk_station', name: 'USS Missouri (Norfolk)', x: 48523, z: 6690, faction: 'li_n_grp', archetype: 'l_dreadnought' },
+            { nickname: 'freelancer_port', name: 'Freelancer Port', x: 25390, z: 74163, faction: 'fc_lr_grp', archetype: 'miningbase_badlands' }
+        ],
+        jumpgates: [
+            { nickname: 'Li01_to_Li02', name: 'Gate to Tomahawk', x: -83176, z: 44831, dest_system: 'Li02', dest_gate: 'Li02_to_Li01' },
+            { nickname: 'Li01_to_Li03', name: 'Gate to Magellan', x: -12831, z: -81511, dest_system: 'Li03', dest_gate: 'Li03_to_Li01' },
+            { nickname: 'Li01_to_Li04', name: 'Gate to Colorado', x: 68666, z: 60396, dest_system: 'Li04', dest_gate: 'Li04_to_Li01' },
+            { nickname: 'Li01_to_Li05', name: 'Gate to Nebraska', x: 80632, z: 12299, dest_system: 'Li05', dest_gate: 'Li05_to_Li01' },
+            { nickname: 'Li01_to_BR05', name: 'Gate to Edinburgh', x: -120450, z: -52120, dest_system: 'BR05', dest_gate: 'BR05_to_Li01' }
+        ],
+        tradeLanes: [
+            { rings: [{x: 3628, z: -52369}, {x: -70, z: -58894}, {x: -3768, z: -65419}, {x: -7466, z: -71944}, {x: -11163, z: -78469}] }
+        ],
+        asteroidfields: [
+            { nickname: 'Zone_Li01_ice_debris', name: 'Ice Debris Field', x: -50000, z: -40000, size: 8000 },
+            { nickname: 'Zone_Li01_trade_debris', name: 'Trade Lane Debris', x: 30000, z: -40000, size: 5000 }
+        ],
+        nebulae: [
+            { nickname: 'Zone_Li01_cloud', name: 'New York Cloud', x: 60000, z: 20000, size: 15000 }
+        ],
+        planets: [
+            { nickname: 'li01_sun_2000', name: 'New York Sun', x: 0, z: 0, archetype: 'sun_2000', size: 1000 },
+            { nickname: 'li01_earthgrncld', name: 'Manhattan', x: -33270, z: -33039, archetype: 'planet_earthgrncld_4000', size: 400 },
+            { nickname: 'li01_desored', name: 'Desor', x: 54080, z: -74878, archetype: 'planet_desored_1500', size: 150 },
+            { nickname: 'li01_icemoon', name: 'New Berlin Moon', x: -12831, z: -81511, archetype: 'planet_icemoon_800', size: 80 }
+        ]
+    }
+};
+// Game State
+const game = {
+    canvas: null, ctx: null, width: 0, height: 0,
+    running: false, lastTime: 0, gameTime: 0,
+    player: null, entities: [], npcs: [], projectiles: [],
+    isDocked: false, showMap: false, showCursor: false,
+    mouseX: 0, mouseY: 0, mouseDown: false, rightMouseDown: false,
+    zoom: 1.0, minZoom: 0.15, maxZoom: 3.0,
+    stars: [], starLayers: 3,
+    selectedTarget: null,
+    stars: [],
+    approachTarget: null,
+    dockTarget: null,
+    obstacles: [],
+    jumpTransition: null,
+    shipImages: {},
+    objectImages: {},
+    systemWallpapers: {},
+    planetTextures: {},
+    sunTextures: {},
+    saveLoaded: false,
+    lastSavedAt: 0,
+    lastAutoSaveAt: 0,
+    autoSaveInterval: 5000,
+    language: 'de',
+    landedBase: null,
+    landingDeck: 'launch',
+    mapZoom: 1,
+    minMapZoom: 0.45,
+    maxMapZoom: 8,
+    universeZoom: 1,
+    minUniverseZoom: 0.55,
+    maxUniverseZoom: 6
+};
+
+const SAVE_KEY = 'freelancer2d.save.v1';
+const SAVE_VERSION = 1;
+const GAME_TITLE = 'Freelancer 2D - a 2d adventure';
+const I18N = {
+    de: {
+        freeflight: 'FREIFLUG', approach: 'ANFLIEGEN', dock: 'ANDOCKEN', map: 'KARTE', inventory: 'INVENTAR', info: 'INFO', shipShop: 'SCHIFFHÄNDLER', universe: 'UNIVERSUM',
+        launch: 'Starten', launchDeck: 'Launch Deck', bar: 'Bar', equipmentDealer: 'Equipment Dealer', tradeDealer: 'Trade Dealer', shipDealer: 'Ship Dealer',
+        landedAt: 'Gelandet auf', noCommodityMarket: 'Dieser Ort hat keinen Commodity-Markt.', noEquipment: 'Equipment-Handel ist noch nicht implementiert.', barText: 'Piloten, Gerüchte und Jobangebote folgen später.',
+        buy: 'KAUFEN', sell: 'VERKAUFEN', owned: 'BESITZ', credits: 'Credits', cargo: 'Laderaum', price: 'Preis', stock: 'Bestand', commodity: 'Ware', quantity: 'Menge',
+        shipDealerDockOnly: 'Schiffe koennen nur nach dem Andocken gekauft werden.', noShipsSold: 'Hier werden keine Schiffe verkauft.', atmosphereWarning: 'Atmosphaereneintritt', planetImpact: 'Planetare Kollision'
+    },
+    en: {
+        freeflight: 'FREEFLIGHT', approach: 'APPROACH', dock: 'DOCK', map: 'MAP', inventory: 'INVENTORY', info: 'INFO', shipShop: 'SHIP DEALER', universe: 'UNIVERSE',
+        launch: 'Launch', launchDeck: 'Launch Deck', bar: 'Bar', equipmentDealer: 'Equipment Dealer', tradeDealer: 'Trade Dealer', shipDealer: 'Ship Dealer',
+        landedAt: 'Landed at', noCommodityMarket: 'This location has no commodity market.', noEquipment: 'Equipment trading is not implemented yet.', barText: 'Pilots, rumors, and job offers will arrive later.',
+        buy: 'BUY', sell: 'SELL', owned: 'OWNED', credits: 'Credits', cargo: 'Cargo', price: 'Price', stock: 'Stock', commodity: 'Commodity', quantity: 'Qty',
+        shipDealerDockOnly: 'Ships can only be bought while docked.', noShipsSold: 'No ships are sold here.', atmosphereWarning: 'Atmosphere entry', planetImpact: 'Planetary collision'
+    }
+};
+
+function t(key) {
+    return I18N[game.language]?.[key] || I18N.en[key] || key;
+}
+
+function updateDocumentTitle() {
+    document.title = GAME_TITLE + ' - ' + (systemData?.name || currentSystemId);
+}
+
+function cargoUnits() {
+    return (game.player?.cargo || []).reduce((sum, item) => sum + (Number(item.quantity) || 0), 0);
+}
+
+function findCargoItem(id) {
+    return (game.player?.cargo || []).find(item => item.id === id) || null;
+}
+
+function getCommodity(id) {
+    if (typeof FL_COMMODITIES === 'undefined') return null;
+    return FL_COMMODITIES[String(id || '').toLowerCase()] || null;
+}
+
+function applyLanguage() {
+    const labels = [
+        ['btn-freeflight', 'freeflight'], ['btn-approach', 'approach'], ['btn-dock', 'dock'], ['btn-map', 'map'],
+        ['btn-inventory', 'inventory'], ['btn-info', 'info'], ['btn-universe', 'universe'], ['btn-launch', 'launch']
+    ];
+    for (const [id, key] of labels) {
+        const el = document.getElementById(id);
+        if (el) el.textContent = t(key);
+    }
+    const languageButton = document.getElementById('btn-language');
+    if (languageButton) languageButton.textContent = game.language.toUpperCase();
+    const tabs = document.querySelectorAll('.landing-tab');
+    const tabKeys = { launch: 'launchDeck', bar: 'bar', equipment: 'equipmentDealer', trade: 'tradeDealer', ship: 'shipDealer' };
+    tabs.forEach(tab => { tab.textContent = t(tabKeys[tab.dataset.deck] || tab.dataset.deck); });
+    if (game.landedBase) showLandingDeck(game.landingDeck || 'launch');
+}
+
+function toggleLanguage() {
+    game.language = game.language === 'de' ? 'en' : 'de';
+    applyLanguage();
+    saveGame();
+}
+
+// Load real LI01 data from Freelancer INI files
+function getSystemRecord(systemId) {
+    const source = typeof GAME_SYSTEMS !== 'undefined' ? GAME_SYSTEMS : FALLBACK_GAME_SYSTEMS;
+    if (!source) return {};
+    const key = Object.keys(source).find(k => k.toLowerCase() === systemId.toLowerCase());
+    return key ? source[key] : {};
+}
+
+function displayName(value, fallback = 'Unknown') {
+    const resolved = getNameFromID(value);
+    return resolved || value || fallback;
+}
+
+function escapeHtml(value) {
+    return String(value || '').replace(/[&<>"']/g, ch => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;'
+    }[ch]));
+}
+
+function degToRad(value) {
+    return (Number(value) || 0) * Math.PI / 180;
+}
+
+function rotatePoint(x, z, angle) {
+    const cos = Math.cos(angle);
+    const sin = Math.sin(angle);
+    return {
+        x: x * cos - z * sin,
+        z: x * sin + z * cos
+    };
+}
+
+function clamp(value, min, max) {
+    return Math.max(min, Math.min(max, value));
+}
+
+function formatDistance(meters) {
+    if (!Number.isFinite(meters)) return '-';
+    if (meters >= 1000) return (meters / 1000).toFixed(meters >= 10000 ? 0 : 1) + ' km';
+    return Math.round(meters) + ' m';
+}
+
+function formatEta(seconds) {
+    if (!Number.isFinite(seconds) || seconds < 0) return '--:--';
+    const total = Math.ceil(seconds);
+    const minutes = Math.floor(total / 60);
+    const rest = total % 60;
+    return minutes + ':' + rest.toString().padStart(2, '0');
+}
+
+function tradeLaneRingRotation(rings, index) {
+    const current = rings[index];
+    const prev = index > 0 ? rings[index - 1] : null;
+    const next = index < rings.length - 1 ? rings[index + 1] : null;
+    let dx = 0;
+    let dz = 0;
+    if (prev && next) {
+        dx = next.x - prev.x;
+        dz = next.z - prev.z;
+    } else if (next) {
+        dx = next.x - current.x;
+        dz = next.z - current.z;
+    } else if (prev) {
+        dx = current.x - prev.x;
+        dz = current.z - prev.z;
+    }
+    if (Math.abs(dx) + Math.abs(dz) < 0.001) return degToRad(current.rotate_y || current.rotateY || 0);
+    // Match FLAtlas: trade lane rings face along the lane vector using atan2(x, z).
+    return Math.atan2(dx, dz);
+}
+
+function getTradeLaneStartForRing(ring, player) {
+    const rings = ring?.laneRings || [];
+    const i = ring?.index ?? -1;
+    if (rings.length < 2 || i < 0 || i >= rings.length) return null;
+    let direction = 1;
+    if (i === rings.length - 1) direction = -1;
+    else if (i > 0) {
+        const current = rings[i];
+        const forward = rings[i + 1];
+        const backward = rings[i - 1];
+        const vx = Math.cos(player.rotation);
+        const vz = Math.sin(player.rotation);
+        const forwardDot = (forward.x - current.x) * vx + (forward.z - current.z) * vz;
+        const backwardDot = (backward.x - current.x) * vx + (backward.z - current.z) * vz;
+        direction = backwardDot > forwardDot ? -1 : 1;
+    }
+    return { targetIndex: i + direction, direction };
+}
+
+function startTradeLaneFromRing(ring) {
+    if (!(ring instanceof TradeLaneRing) || !game.player) return false;
+    const start = getTradeLaneStartForRing(ring, game.player);
+    if (!start) {
+        addLog('Trade lane route unavailable', 'alert');
+        return false;
+    }
+    game.player.x = ring.x;
+    game.player.z = ring.z;
+    game.player.inTradeLane = true;
+    game.player.laneRoute = ring.laneRings;
+    game.player.laneIndex = start.targetIndex;
+    game.player.laneDirection = start.direction;
+    game.player.maxSpeed = game.player.laneSpeed;
+    game.player.speed = game.player.laneSpeed;
+    game.player.throttle = 1;
+    game.player.tradeLaneCooldownUntil = 0;
+    game.approachTarget = null;
+    game.dockTarget = null;
+    const next = ring.laneRings[start.targetIndex];
+    if (next) game.player.rotation = Math.atan2(next.z - ring.z, next.x - ring.x);
+    addLog('Entered trade lane at ring ' + (ring.index + 1) + ' of ' + ring.laneRings.length);
+    return true;
+}
+
+function findTradeLaneRingEntity(ring, index = null) {
+    return game.entities.find(entity => entity instanceof TradeLaneRing
+        && ((ring.id && entity.id === ring.id) || (entity.x === ring.x && entity.z === ring.z && (index === null || entity.index === index)))) || null;
+}
+
+function getShipPackage(packageId) {
+    if (typeof FL_SHIP_PACKAGES === 'undefined' || !packageId) return null;
+    return FL_SHIP_PACKAGES[String(packageId).toLowerCase()] || null;
+}
+
+function getShipImage(iconPath) {
+    if (!iconPath) return null;
+    if (!game.shipImages[iconPath]) {
+        const img = new Image();
+        img.src = iconPath;
+        game.shipImages[iconPath] = img;
+    }
+    const image = game.shipImages[iconPath];
+    return image.complete && image.naturalWidth > 0 ? image : null;
+}
+
+function getObjectIcon(archetype) {
+    if (typeof FL_OBJECT_ICONS === 'undefined' || !archetype) return '';
+    return FL_OBJECT_ICONS[String(archetype).toLowerCase()] || '';
+}
+
+function getObjectImage(archetype) {
+    const iconPath = getObjectIcon(archetype);
+    if (!iconPath) return null;
+    if (!game.objectImages[iconPath]) {
+        const img = new Image();
+        img.src = iconPath;
+        game.objectImages[iconPath] = img;
+    }
+    const image = game.objectImages[iconPath];
+    return image.complete && image.naturalWidth > 0 ? image : null;
+}
+
+function readSavedGame() {
+    try {
+        const raw = localStorage.getItem(SAVE_KEY);
+        if (!raw) return null;
+        const save = JSON.parse(raw);
+        return save && save.version === SAVE_VERSION ? save : null;
+    } catch (error) {
+        console.warn('Could not read save game:', error);
+        return null;
+    }
+}
+
+function createSaveGameState() {
+    if (!game.player) return null;
+    return {
+        version: SAVE_VERSION,
+        savedAt: new Date().toISOString(),
+        currentSystemId,
+        gameTime: game.gameTime,
+        zoom: game.zoom,
+        language: game.language,
+        player: {
+            x: game.player.x,
+            z: game.player.z,
+            rotation: game.player.rotation,
+            throttle: game.player.throttle,
+            speed: game.player.speed,
+            hull: game.player.hull,
+            shield: game.player.shield,
+            energy: game.player.energy,
+            credits: game.player.credits,
+            cargo: game.player.cargo,
+            shipPackageId: game.player.shipPackageId
+        }
+    };
+}
+
+function saveGame(showMessage = false) {
+    const state = createSaveGameState();
+    if (!state) return;
+    try {
+        localStorage.setItem(SAVE_KEY, JSON.stringify(state));
+        game.lastSavedAt = Date.now();
+        updateSaveHint(state);
+        if (showMessage) addLog('Spielstand gespeichert');
+    } catch (error) {
+        console.warn('Could not save game:', error);
+        if (showMessage) addLog('Spielstand konnte nicht gespeichert werden', 'alert');
+    }
+}
+
+function clearSavedGame() {
+    localStorage.removeItem(SAVE_KEY);
+    game.saveLoaded = false;
+    game.lastSavedAt = 0;
+    updateSaveHint(null);
+}
+
+function restorePlayerFromSave(save) {
+    if (!save?.player || !game.player) return;
+    const savedPlayer = save.player;
+    applyShipPackage(savedPlayer.shipPackageId || 'gf1_package');
+    game.player.x = Number(savedPlayer.x) || game.player.x;
+    game.player.z = Number(savedPlayer.z) || game.player.z;
+    game.player.rotation = Number.isFinite(savedPlayer.rotation) ? savedPlayer.rotation : game.player.rotation;
+    game.player.throttle = Number.isFinite(savedPlayer.throttle) ? savedPlayer.throttle : game.player.throttle;
+    game.player.speed = Number.isFinite(savedPlayer.speed) ? savedPlayer.speed : 0;
+    game.player.hull = Math.max(1, Math.min(game.player.maxHull, Number(savedPlayer.hull) || game.player.maxHull));
+    game.player.shield = Math.max(0, Math.min(game.player.maxShield, Number(savedPlayer.shield) || game.player.maxShield));
+    game.player.energy = Math.max(0, Math.min(game.player.maxEnergy, Number(savedPlayer.energy) || game.player.maxEnergy));
+    game.player.credits = Number.isFinite(savedPlayer.credits) ? savedPlayer.credits : game.player.credits;
+    game.player.cargo = Array.isArray(savedPlayer.cargo) ? savedPlayer.cargo : [];
+    game.player.inTradeLane = false;
+    game.player.laneRoute = null;
+}
+
+function updateSaveHint(save = readSavedGame()) {
+    const hint = document.getElementById('save-hint');
+    const startButton = document.getElementById('btn-start');
+    const newButton = document.getElementById('btn-new-game');
+    if (!hint || !startButton || !newButton) return;
+    if (!save) {
+        hint.textContent = 'Kein gespeicherter Spielstand gefunden.';
+        startButton.textContent = 'START GAME';
+        newButton.classList.add('hidden');
+        return;
+    }
+    const savedAt = save.savedAt ? new Date(save.savedAt) : null;
+    const savedLabel = savedAt && !Number.isNaN(savedAt.getTime()) ? savedAt.toLocaleString() : 'unbekannt';
+    hint.textContent = 'Gespeicherter Spielstand: ' + (save.currentSystemId || 'Li01') + ' - ' + savedLabel;
+    startButton.textContent = 'WEITER';
+    newButton.classList.remove('hidden');
+}
+
+function returnToFreeflight(message = '') {
+    game.approachTarget = null;
+    game.dockTarget = null;
+    if (game.player) {
+        const wasInTradeLane = game.player.inTradeLane;
+        game.player.throttle = 0;
+        game.player.speed = 0;
+        game.player.inTradeLane = false;
+        game.player.laneRoute = null;
+        game.player.laneIndex = 0;
+        game.player.laneDirection = 1;
+        if (wasInTradeLane) game.player.tradeLaneCooldownUntil = performance.now() + 1800;
+        game.player.maxSpeed = game.player.baseMaxSpeed;
+    }
+    document.querySelectorAll('.cmd-btn').forEach(btn => btn.classList.remove('active'));
+    document.getElementById('btn-freeflight')?.classList.add('active');
+    if (message) addLog(message);
+}
+
+function applyShipPackage(packageId, logPurchase = false) {
+    const shipPackage = getShipPackage(packageId);
+    if (!shipPackage || !game.player) return false;
+    const stats = shipPackage.stats || {};
+    game.player.shipPackageId = shipPackage.id;
+    game.player.shipId = shipPackage.ship;
+    game.player.shipName = shipPackage.name;
+    game.player.shipIcon = shipPackage.icon;
+    game.player.maxHull = stats.hull || game.player.maxHull;
+    game.player.hull = game.player.maxHull;
+    game.player.maxShield = stats.shield || game.player.maxShield;
+    game.player.shield = game.player.maxShield;
+    game.player.maxSpeed = stats.maxSpeed || game.player.maxSpeed;
+    game.player.baseMaxSpeed = game.player.maxSpeed;
+    game.player.turnRate = stats.turnRate || game.player.turnRate;
+    game.player.maxCargo = stats.holdSize || game.player.maxCargo;
+    game.player.firePower = stats.firePower || game.player.firePower || 1;
+    game.player.radius = Math.max(18, Math.min(34, Math.sqrt(game.player.maxHull) * 0.28));
+    if (logPurchase) addLog('Purchased ship: ' + shipPackage.name);
+    const currentShip = document.getElementById('shop-current-ship');
+    if (currentShip) currentShip.textContent = shipPackage.name;
+    return true;
+}
+
+function isDockableTarget(target) {
+    return target instanceof Station || target instanceof JumpGate || target instanceof PlanetLocation || target instanceof TradeLaneRing;
+}
+
+function startDocking(target) {
+    if (!isDockableTarget(target)) {
+        addLog('Can only dock at stations, planets, jump gates, jump holes, and trade lane rings!', 'alert');
+        return;
+    }
+    game.approachTarget = target;
+    game.dockTarget = target;
+    const destination = target.dest ? ' -> ' + target.dest.toUpperCase() : '';
+    addLog((target instanceof TradeLaneRing ? 'Docking with trade lane: ' : 'Docking at: ') + target.name + destination);
+}
+
+function startJumpTransition(target) {
+    const angle = Math.atan2(target.z - game.player.z, target.x - game.player.x);
+    game.jumpTransition = {
+        phase: 'out',
+        timer: 0,
+        duration: 1.15,
+        angle,
+        targetSystem: target.dest || currentSystemId,
+        targetObject: target.destObject,
+        gateName: target.name
+    };
+    game.dockTarget = null;
+    game.approachTarget = null;
+    game.player.throttle = 0;
+    game.player.speed = 0;
+    addLog('Jumping through ' + target.name + ' to ' + (target.dest || 'unknown system'));
+}
+
+let currentSystemId = 'Li01';
+
+// Map archetype to visual size
+function getStationSize(archetype) {
+    if (!archetype) return 40;
+    if (archetype.includes('dreadnought')) return 70;
+    if (archetype.includes('largestation')) return 60;
+    if (archetype.includes('outpost')) return 30;
+    if (archetype.includes('depot')) return 35;
+    if (archetype.includes('smallstation')) return 25;
+    return 40;
+}
+
+// Map archetype to color
+function getStationColor(faction) {
+    if (!faction) return '#445566';
+    if (faction.includes('li_n')) return '#0066aa';
+    if (faction.includes('li_p')) return '#00aaff';
+    if (faction.includes('co_vr')) return '#aa6600';
+    if (faction.includes('fc_lr')) return '#aa4400';
+    if (faction.includes('pi_')) return '#aa0000';
+    return '#445566';
+}
+
+// Planet colors
+function getPlanetColor(archetype) {
+    if (!archetype) return '#446688';
+    if (archetype.includes('earthgrncld')) return '#446688';
+    if (archetype.includes('desored')) return '#886644';
+    if (archetype.includes('icemoon')) return '#88aacc';
+    if (archetype.includes('sun')) return '#ffffaa';
+    return '#446688';
+}
+
+function inferPlanetBaseId(planet) {
+    const nickname = String(planet?.nickname || '').trim();
+    if (/^[A-Za-z]{2}\d{2}_\d{2}$/.test(nickname)) return nickname + '_Base';
+    return '';
+}
+
+function buildSystemData(systemId) {
+    const raw = getSystemRecord(systemId);
+    const jumpgates = raw.jumpgates || [];
+    const jumpholes = raw.jumpholes || [];
+    const rawPlanets = raw.planets || [];
+    const suns = rawPlanets.filter(p => String(p.archetype || '').includes('sun'));
+    const planets = rawPlanets.filter(p => !String(p.archetype || '').includes('sun'));
+    return {
+    id: systemId,
+    name: displayName(raw.name, systemId),
+    info: raw.info || '',
+    sun: suns.length ? { x: suns[0].x, z: suns[0].z, radius: Math.max(180, suns[0].size / 42), type: suns[0].archetype || 'sun' } : { x: 0, z: 0, radius: 260, type: 'sun' },
+    suns: suns.map(s => ({
+        id: s.nickname,
+        name: displayName(s.name, s.nickname),
+        x: s.x,
+        z: s.z,
+        radius: Math.max(180, s.size / 42),
+        info: s.info || '',
+        type: s.archetype || 'sun'
+    })),
+    planets: planets.map(p => ({
+        id: p.nickname,
+        name: displayName(p.name, p.nickname),
+        x: p.x,
+        z: p.z,
+        radius: p.size / 2.5,
+        info: p.info || '',
+        color: getPlanetColor(p.archetype),
+        base: p.base || inferPlanetBaseId(p),
+        dockWith: p.dock_with || p.dockWith || inferPlanetBaseId(p),
+        type: p.archetype || 'Planet'
+    })),
+    stations: (raw.stations || []).map(s => ({
+        id: s.nickname,
+        name: displayName(s.name, s.nickname),
+        x: s.x,
+        z: s.z,
+        faction: s.faction,
+        type: s.archetype,
+        rotateY: s.rotate_y || s.rotateY || 0,
+        base: s.base || '',
+        dockWith: s.dock_with || s.dockWith || '',
+        info: s.info || ''
+    })),
+    jumpgates: [
+        ...jumpgates.map(g => ({
+        id: g.nickname,
+        name: displayName(g.name, g.nickname),
+        x: g.x,
+        z: g.z,
+        dest: g.dest_system,
+        destObject: g.dest_gate,
+        type: 'Jump Gate',
+        kind: 'gate',
+        rotateY: g.rotate_y || g.rotateY || 0,
+        info: g.info || ''
+        })),
+        ...jumpholes.map(h => ({
+        id: h.nickname,
+        name: displayName(h.name, h.nickname),
+        x: h.x,
+        z: h.z,
+        dest: h.dest_system,
+        destObject: h.dest_hole,
+        type: 'Jump Hole',
+        kind: 'hole',
+        rotateY: h.rotate_y || h.rotateY || 0,
+        info: h.info || ''
+        }))
+    ],
+    tradeLanes: raw.tradeLanes || raw.tradelanes || [],
+    asteroidfields: raw.asteroidfields || [],
+    nebulae: raw.nebulae || [],
+    raw
+    };
+}
+
+let systemData = buildSystemData(currentSystemId);
+
+function hashString(value) {
+    let hash = 2166136261;
+    for (let i = 0; i < String(value).length; i++) {
+        hash ^= String(value).charCodeAt(i);
+        hash = Math.imul(hash, 16777619);
+    }
+    return hash >>> 0;
+}
+
+function seededRandom(seed) {
+    let value = seed >>> 0;
+    return () => {
+        value = Math.imul(value + 0x6D2B79F5, 1);
+        let t = value;
+        t ^= t >>> 15;
+        t = Math.imul(t, t | 1);
+        t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+        return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+}
+
+function planetPalette(archetype = '') {
+    const type = archetype.toLowerCase();
+    if (type.includes('earthsnw') || type.includes('ice')) return ['#315f8d', '#d9eef7', '#6f8f78', '#ffffff'];
+    if (type.includes('earth')) return ['#1f5f8f', '#2d8b5d', '#8fcf9b', '#f2f8ff'];
+    if (type.includes('des') || type.includes('red') || type.includes('mercury')) return ['#8e4d2f', '#d09a55', '#5a2b22', '#f1c27a'];
+    if (type.includes('moon')) return ['#606978', '#aab3c1', '#343a45', '#d5d9df'];
+    if (type.includes('gas')) return ['#35577c', '#7aa6c9', '#d8b46b', '#ffffff'];
+    return ['#2f597d', '#6f9eb6', '#314f42', '#d8f4ff'];
+}
+
+function makePlanetTexture(planet) {
+    const key = currentSystemId + ':' + planet.id + ':' + planet.type;
+    if (game.planetTextures[key]) return game.planetTextures[key];
+    const canvas = document.createElement('canvas');
+    canvas.width = 256;
+    canvas.height = 256;
+    const ctx = canvas.getContext('2d');
+    const rng = seededRandom(hashString('planet:' + key));
+    const [base, land, dark, cloud] = planetPalette(planet.type);
+
+    const baseGradient = ctx.createRadialGradient(88, 78, 10, 128, 128, 140);
+    baseGradient.addColorStop(0, cloud);
+    baseGradient.addColorStop(0.18, land);
+    baseGradient.addColorStop(0.68, base);
+    baseGradient.addColorStop(1, dark);
+    ctx.fillStyle = baseGradient;
+    ctx.fillRect(0, 0, 256, 256);
+
+    ctx.globalCompositeOperation = 'overlay';
+    for (let i = 0; i < 46; i++) {
+        const x = rng() * 256;
+        const y = rng() * 256;
+        const rx = 12 + rng() * 58;
+        const ry = 5 + rng() * 26;
+        ctx.fillStyle = rng() < 0.55 ? land : dark;
+        ctx.globalAlpha = 0.18 + rng() * 0.3;
+        ctx.beginPath();
+        ctx.ellipse(x, y, rx, ry, rng() * Math.PI, 0, Math.PI * 2);
+        ctx.fill();
+    }
+
+    ctx.globalCompositeOperation = 'screen';
+    for (let i = 0; i < 22; i++) {
+        ctx.strokeStyle = cloud;
+        ctx.globalAlpha = 0.08 + rng() * 0.18;
+        ctx.lineWidth = 2 + rng() * 8;
+        ctx.beginPath();
+        const y = rng() * 256;
+        ctx.moveTo(-20, y);
+        ctx.bezierCurveTo(70, y + rng() * 40 - 20, 150, y + rng() * 50 - 25, 276, y + rng() * 35 - 18);
+        ctx.stroke();
+    }
+
+    ctx.globalAlpha = 1;
+    ctx.globalCompositeOperation = 'source-over';
+    game.planetTextures[key] = canvas;
+    return canvas;
+}
+
+function planetAtmosphereRadius(planet) {
+    return planet.radius * 2.4 + 600;
+}
+
+function drawTexturedPlanet(ctx, planet) {
+    const pos = worldToScreen(planet.x, planet.z);
+    const size = planet.radius * game.zoom;
+    if (size < 1) return;
+    const texture = makePlanetTexture(planet);
+    const atmosphereSize = planetAtmosphereRadius(planet) * game.zoom;
+
+    const atmoGradient = ctx.createRadialGradient(pos.x, pos.y, size * 0.92, pos.x, pos.y, atmosphereSize);
+    atmoGradient.addColorStop(0, 'rgba(120,190,255,0.34)');
+    atmoGradient.addColorStop(0.42, 'rgba(78,150,255,0.14)');
+    atmoGradient.addColorStop(1, 'rgba(80,130,255,0)');
+    ctx.fillStyle = atmoGradient;
+    ctx.beginPath();
+    ctx.arc(pos.x, pos.y, atmosphereSize, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.save();
+    ctx.beginPath();
+    ctx.arc(pos.x, pos.y, size, 0, Math.PI * 2);
+    ctx.clip();
+    ctx.drawImage(texture, pos.x - size, pos.y - size, size * 2, size * 2);
+    const shade = ctx.createLinearGradient(pos.x - size, pos.y - size, pos.x + size, pos.y + size);
+    shade.addColorStop(0, 'rgba(255,255,255,0.18)');
+    shade.addColorStop(0.48, 'rgba(255,255,255,0)');
+    shade.addColorStop(1, 'rgba(0,0,0,0.55)');
+    ctx.fillStyle = shade;
+    ctx.fillRect(pos.x - size, pos.y - size, size * 2, size * 2);
+    ctx.restore();
+
+    ctx.strokeStyle = 'rgba(160,220,255,0.32)';
+    ctx.lineWidth = Math.max(1, game.zoom * 2);
+    ctx.beginPath();
+    ctx.arc(pos.x, pos.y, size, 0, Math.PI * 2);
+    ctx.stroke();
+
+    ctx.fillStyle = '#88aacc';
+    ctx.font = '11px Courier New';
+    ctx.textAlign = 'center';
+    ctx.fillText(planet.name, pos.x, pos.y + size + 15);
+}
+
+function renderSuns(ctx) {
+    const suns = systemData.suns?.length ? systemData.suns : [systemData.sun];
+    for (const sun of suns) {
+        const pos = worldToScreen(sun.x, sun.z);
+        const pulse = (Math.sin(game.gameTime * 3.4 + hashString(sun.type || 'sun')) + 1) * 0.5;
+        const core = Math.max(54, (sun.radius || 240) * game.zoom);
+        const corona = core * (4.3 + pulse * 0.55);
+        const halo = ctx.createRadialGradient(pos.x, pos.y, core * 0.3, pos.x, pos.y, corona);
+        halo.addColorStop(0, 'rgba(255,255,230,0.96)');
+        halo.addColorStop(0.16, 'rgba(255,214,104,0.74)');
+        halo.addColorStop(0.42, 'rgba(255,132,42,0.22)');
+        halo.addColorStop(1, 'rgba(255,80,0,0)');
+        ctx.fillStyle = halo;
+        ctx.beginPath();
+        ctx.arc(pos.x, pos.y, corona, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.save();
+        ctx.translate(pos.x, pos.y);
+        ctx.globalCompositeOperation = 'lighter';
+        for (let i = 0; i < 10; i++) {
+            const angle = i * Math.PI / 5 + game.gameTime * 0.08;
+            ctx.strokeStyle = `rgba(255,190,70,${0.08 + pulse * 0.05})`;
+            ctx.lineWidth = Math.max(1, core * 0.035);
+            ctx.beginPath();
+            ctx.moveTo(Math.cos(angle) * core * 0.75, Math.sin(angle) * core * 0.75);
+            ctx.lineTo(Math.cos(angle) * corona * 0.72, Math.sin(angle) * corona * 0.72);
+            ctx.stroke();
+        }
+        ctx.restore();
+
+        const coreGradient = ctx.createRadialGradient(pos.x - core * 0.28, pos.y - core * 0.32, 0, pos.x, pos.y, core);
+        coreGradient.addColorStop(0, '#fffde8');
+        coreGradient.addColorStop(0.35, '#ffd96a');
+        coreGradient.addColorStop(0.78, '#ff8b24');
+        coreGradient.addColorStop(1, '#7a2200');
+        ctx.fillStyle = coreGradient;
+        ctx.beginPath();
+        ctx.arc(pos.x, pos.y, core, 0, Math.PI * 2);
+        ctx.fill();
+    }
+}
+
+function checkPlanetAtmosphereHazards(dt) {
+    if (!game.player || game.isDocked || game.player.destroyed) return;
+    for (const planet of systemData.planets) {
+        const dx = game.player.x - planet.x;
+        const dz = game.player.z - planet.z;
+        const dist = Math.sqrt(dx * dx + dz * dz);
+        const atmosphere = planetAtmosphereRadius(planet);
+        if (dist > atmosphere) continue;
+        if (game.player.inTradeLane) {
+            game.player.inTradeLane = false;
+            game.player.laneRoute = null;
+            game.player.laneDirection = 1;
+            game.player.maxSpeed = game.player.baseMaxSpeed;
+        }
+        const depth = 1 - Math.max(0, dist - planet.radius) / Math.max(1, atmosphere - planet.radius);
+        const impact = dist < planet.radius * 1.03;
+        const damage = impact ? 140 * dt : (10 + depth * 42) * dt;
+        game.player.takeDamage(damage);
+        game.player.throttle = Math.min(game.player.throttle, impact ? 0 : 0.25);
+        game.player.speed *= impact ? 0.35 : 0.88;
+        if (!game.player.lastAtmosphereWarning || performance.now() - game.player.lastAtmosphereWarning > 1000) {
+            addLog((impact ? t('planetImpact') : t('atmosphereWarning')) + ': ' + planet.name, 'alert');
+            game.player.lastAtmosphereWarning = performance.now();
+        }
+        break;
+    }
+}
+
+function destroyPlayerShip() {
+    if (!game.player || game.player.destroyed) return;
+    game.player.destroyed = true;
+    game.player.throttle = 0;
+    game.player.speed = 0;
+    game.player.inTradeLane = false;
+    game.player.laneRoute = null;
+    game.running = false;
+    saveGame(true);
+}
+
+function getCurrentSystemKey() {
+    const source = typeof GAME_SYSTEMS !== 'undefined' ? GAME_SYSTEMS : FALLBACK_GAME_SYSTEMS;
+    return Object.keys(source || {}).find(k => k.toLowerCase() === currentSystemId.toLowerCase()) || currentSystemId;
+}
+
+function createFieldObstacles(field, kind) {
+    const rng = seededRandom(hashString(currentSystemId + ':' + field.id + ':' + kind));
+    const count = kind === 'asteroid' ? Math.min(220, Math.max(34, Math.floor(field.size / 260))) : Math.min(46, Math.max(10, Math.floor(field.size / 1100)));
+    const radiusX = Math.max(800, (field.sizeX || field.size || 2000) * 0.75);
+    const radiusZ = Math.max(800, (field.sizeZ || field.size || 2000) * 0.75);
+    const fieldRotation = degToRad(field.rotateY || 0);
+    const obstacles = [];
+    for (let i = 0; i < count; i++) {
+        const angle = rng() * Math.PI * 2;
+        const dist = Math.sqrt(rng());
+        const localX = Math.cos(angle) * dist * radiusX;
+        const localZ = Math.sin(angle) * dist * radiusZ;
+        const rotated = rotatePoint(localX, localZ, fieldRotation);
+        const radius = kind === 'asteroid' ? 55 + rng() * 190 : 120 + rng() * 420;
+        obstacles.push({
+            id: field.id + '_obstacle_' + i,
+            fieldId: field.id,
+            kind,
+            x: field.x + rotated.x,
+            z: field.z + rotated.z,
+            radius,
+            rotation: rng() * Math.PI * 2
+        });
+    }
+    return obstacles;
+}
+
+function rebuildEntities() {
+    game.entities = [];
+    game.obstacles = [];
+    for (const planetData of systemData.planets) game.entities.push(new PlanetLocation(planetData));
+    for (const stationData of systemData.stations) game.entities.push(new Station(stationData));
+    for (const gateData of systemData.jumpgates) game.entities.push(new JumpGate(gateData));
+    for (const lane of systemData.tradeLanes) {
+        lane.rings.forEach((ring, i) => {
+            game.entities.push(new TradeLaneRing({
+                ...ring,
+                laneId: lane.id || lane.nickname || 'trade_lane',
+                laneRings: lane.rings,
+                visualRotation: tradeLaneRingRotation(lane.rings, i)
+            }, i));
+        });
+    }
+    for (const fieldData of systemData.asteroidfields) {
+        const field = new AsteroidField(fieldData);
+        game.entities.push(field);
+        game.obstacles.push(...field.obstacles);
+    }
+    for (const nebulaData of systemData.nebulae) {
+        const nebula = new Nebula(nebulaData);
+        game.entities.push(nebula);
+        game.obstacles.push(...nebula.obstacles);
+    }
+}
+
+function updateSystemHud() {
+    document.getElementById('system-name').textContent = 'SYSTEM: ' + systemData.name;
+    const mapTitle = document.querySelector('#map-header h3');
+    if (mapTitle) mapTitle.textContent = 'SYSTEM MAP - ' + systemData.name.toUpperCase();
+    updateDocumentTitle();
+}
+
+function findArrivalObject(destObjectId) {
+    if (!destObjectId) return null;
+    return [...systemData.jumpgates, ...systemData.stations].find(obj => obj.id && obj.id.toLowerCase() === destObjectId.toLowerCase()) || null;
+}
+
+function loadSystem(systemId, arrivalObjectId = null) {
+    currentSystemId = systemId || currentSystemId;
+    systemData = buildSystemData(currentSystemId);
+    game.selectedTarget = null;
+    game.approachTarget = null;
+    game.dockTarget = null;
+    if (game.player) {
+        const arrival = findArrivalObject(arrivalObjectId) || systemData.stations[0] || systemData.jumpgates[0] || { x: 0, z: 0 };
+        const angle = game.jumpTransition ? game.jumpTransition.angle : game.player.rotation;
+        game.player.x = arrival.x + Math.cos(angle) * 200;
+        game.player.z = arrival.z + Math.sin(angle) * 200;
+        game.player.rotation = angle;
+        game.player.throttle = 0.4;
+        game.player.speed = 0;
+        game.player.inTradeLane = false;
+        game.player.laneRoute = null;
+        game.player.laneDirection = 1;
+        game.player.tradeLaneCooldownUntil = performance.now() + 1800;
+    }
+    returnToFreeflight();
+    rebuildEntities();
+    updateSystemHud();
+    if (game.showMap) drawMapCanvas();
+    addLog('Entered system: ' + systemData.name);
+    saveGame();
+}
+
+function getAvoidanceVector(x, z, lookAhead = 1500) {
+    let ax = 0;
+    let az = 0;
+    for (const obstacle of game.obstacles) {
+        const dx = x - obstacle.x;
+        const dz = z - obstacle.z;
+        const dist = Math.sqrt(dx * dx + dz * dz);
+        const avoidRadius = obstacle.radius + lookAhead;
+        if (dist > 0 && dist < avoidRadius) {
+            const strength = (avoidRadius - dist) / avoidRadius;
+            ax += (dx / dist) * strength;
+            az += (dz / dist) * strength;
+        }
+    }
+    return { x: ax, z: az, magnitude: Math.sqrt(ax * ax + az * az) };
+}
+
+// Player Ship
+class PlayerShip {
+    constructor(x, z) {
+        this.x = x; this.z = z;
+        this.rotation = -Math.PI / 2; // Face right
+        this.speed = 0;
+        this.throttle = 0.8; // Start at 80%
+        this.maxSpeed = 300;
+        this.baseMaxSpeed = 300;
+        this.turnRate = 2.0;
+        this.hull = 100; this.maxHull = 100;
+        this.shield = 80; this.maxShield = 80; this.shieldRegen = 8;
+        this.energy = 100; this.maxEnergy = 100; this.powerGen = 15;
+        this.credits = 10000; this.cargo = []; this.maxCargo = 50;
+        this.primaryCooldown = 0; this.radius = 20;
+        this.inTradeLane = false; this.laneSpeed = 2500;
+        this.laneRoute = null; this.laneIndex = 0; this.laneDirection = 1;
+        this.tradeLaneCooldownUntil = 0;
+        this.fireHeld = false; this.lastFireTime = 0;
+        this.shipPackageId = null;
+        this.shipId = null;
+        this.shipName = 'Starflier';
+        this.shipIcon = '';
+        this.firePower = 4;
+        
+        console.log('PlayerShip created at:', x, z, 'throttle:', this.throttle);
+    }
+    
+    update(dt) {
+        // Debug: log every second
+        if (game.frameCount % 60 === 0) {
+            console.log('Player update:', {
+                x: this.x.toFixed(0),
+                z: this.z.toFixed(0),
+                speed: this.speed.toFixed(1),
+                throttle: this.throttle,
+                targetSpeed: (this.throttle * this.maxSpeed).toFixed(0)
+            });
+        }
+        
+        // Energy regen from powerplant
+        this.energy = Math.min(this.maxEnergy, this.energy + this.powerGen * dt);
+        
+        // Shield regen (only when not taking damage)
+        if (this.shield < this.maxShield) {
+            this.shield = Math.min(this.maxShield, this.shield + this.shieldRegen * dt);
+        }
+        
+        // LMB held: Rotate ship toward mouse
+        if (game.mouseDown) {
+            const world = screenToWorld(game.mouseX, game.mouseY);
+            const targetAngle = Math.atan2(world.y - this.z, world.x - this.x);
+            
+            let angleDiff = targetAngle - this.rotation;
+            while (angleDiff > Math.PI) angleDiff -= Math.PI * 2;
+            while (angleDiff < -Math.PI) angleDiff += Math.PI * 2;
+            
+            this.rotation += Math.sign(angleDiff) * Math.min(Math.abs(angleDiff), this.turnRate * dt);
+        }
+        
+        // Approach autopilot (only when not rotating with LMB)
+        if (game.approachTarget && !game.mouseDown) {
+            const dx = game.approachTarget.x - this.x;
+            const dz = game.approachTarget.z - this.z;
+            const dist = Math.sqrt(dx * dx + dz * dz);
+            
+            if (dist > 100) {
+                const avoidance = getAvoidanceVector(this.x, this.z, game.dockTarget ? 1900 : 1500);
+                const steerX = dx + avoidance.x * Math.min(dist, 4500);
+                const steerZ = dz + avoidance.z * Math.min(dist, 4500);
+                const targetAngle = Math.atan2(steerZ, steerX);
+                let angleDiff = targetAngle - this.rotation;
+                while (angleDiff > Math.PI) angleDiff -= Math.PI * 2;
+                while (angleDiff < -Math.PI) angleDiff += Math.PI * 2;
+                if (Math.abs(angleDiff) > 0.05) {
+                    this.rotation += Math.sign(angleDiff) * this.turnRate * dt * (avoidance.magnitude > 0.05 ? 1.1 : 0.5);
+                }
+                this.throttle = avoidance.magnitude > 0.35 ? 0.55 : 1;
+            } else {
+                const finishedName = game.approachTarget.name;
+                this.throttle = 0;
+                if (!game.dockTarget) {
+                    returnToFreeflight('Arrived near ' + finishedName);
+                }
+            }
+        }
+        
+        // Trade lane speed check
+        if (this.inTradeLane) {
+            // In trade lane - move along the route at 2500 m/s
+            this.speed = this.laneSpeed; // 2500 m/s
+            // Check if reached end of lane
+            if (this.laneIndex >= this.laneRoute.length || this.laneIndex < 0) {
+                this.exitTradeLane('Exited trade lane - returning to normal flight');
+            }
+        } else {
+            // Normal speed based on throttle
+            const targetSpeed = this.throttle * this.maxSpeed;
+            this.speed = targetSpeed; // Direct assignment for instant response
+        }
+        
+        // Movement
+        if (this.inTradeLane && this.laneRoute) {
+            let remaining = this.speed * dt;
+            while (remaining > 0 && this.inTradeLane && this.laneRoute) {
+                if (this.laneIndex >= this.laneRoute.length || this.laneIndex < 0) {
+                    this.exitTradeLane('Exited trade lane - returning to normal flight');
+                    break;
+                }
+                const target = this.laneRoute[this.laneIndex];
+                const dx = target.x - this.x;
+                const dz = target.z - this.z;
+                const dist = Math.sqrt(dx * dx + dz * dz);
+                if (dist <= Math.max(1, remaining)) {
+                    this.x = target.x;
+                    this.z = target.z;
+                    if (dist > 0.001) this.rotation = Math.atan2(dz, dx);
+                    remaining -= dist;
+                    this.laneIndex += this.laneDirection || 1;
+                    continue;
+                }
+                this.rotation = Math.atan2(dz, dx);
+                this.x += (dx / dist) * remaining;
+                this.z += (dz / dist) * remaining;
+                remaining = 0;
+            }
+        } else {
+            const oldX = this.x;
+            const oldZ = this.z;
+            this.x += Math.cos(this.rotation) * this.speed * dt;
+            this.z += Math.sin(this.rotation) * this.speed * dt;
+            this.resolveObstacleCollisions(oldX, oldZ);
+        }
+
+        checkPlanetAtmosphereHazards(dt);
+        
+        // Weapon cooldown
+        if (this.primaryCooldown > 0) this.primaryCooldown -= dt;
+        
+        // Fire (right mouse held)
+        if (this.fireHeld && this.primaryCooldown <= 0 && this.energy >= 5) {
+            this.fire();
+        }
+    }
+
+    exitTradeLane(message = '') {
+        this.inTradeLane = false;
+        this.laneIndex = 0;
+        this.laneRoute = null;
+        this.laneDirection = 1;
+        this.maxSpeed = this.baseMaxSpeed;
+        this.speed = 0;
+        this.tradeLaneCooldownUntil = performance.now() + 1800;
+        if (message) addLog(message);
+        returnToFreeflight();
+    }
+    
+    fire() {
+        this.primaryCooldown = 0.15;
+        this.energy -= 8;
+        const proj = {
+            x: this.x + Math.cos(this.rotation) * 30,
+            z: this.z + Math.sin(this.rotation) * 30,
+            vx: Math.cos(this.rotation) * 800,
+            vz: Math.sin(this.rotation) * 800,
+            damage: 8 + this.firePower * 2, radius: 4, lifetime: 1.5
+        };
+        game.projectiles.push(proj);
+    }
+
+    resolveObstacleCollisions(oldX, oldZ) {
+        if (this.inTradeLane) return;
+        for (const obstacle of game.obstacles) {
+            const dx = this.x - obstacle.x;
+            const dz = this.z - obstacle.z;
+            const dist = Math.sqrt(dx * dx + dz * dz);
+            const minDist = this.radius + obstacle.radius;
+            if (dist > 0 && dist < minDist) {
+                const nx = dx / dist;
+                const nz = dz / dist;
+                this.x = obstacle.x + nx * minDist;
+                this.z = obstacle.z + nz * minDist;
+                this.speed *= 0.25;
+                this.throttle = Math.min(this.throttle, 0.25);
+                if (!this.lastObstacleHit || performance.now() - this.lastObstacleHit > 1200) {
+                    this.takeDamage(obstacle.kind === 'asteroid' ? 8 : 3);
+                    addLog('Obstacle impact: ' + (obstacle.kind === 'asteroid' ? 'asteroid' : 'nebula debris'), 'alert');
+                    this.lastObstacleHit = performance.now();
+                }
+                if (this.inTradeLane) {
+                    this.inTradeLane = false;
+                    this.laneRoute = null;
+                    this.laneDirection = 1;
+                    this.maxSpeed = this.baseMaxSpeed;
+                    addLog('Trade lane disrupted by obstacle', 'alert');
+                }
+            }
+        }
+    }
+    
+    takeDamage(amount) {
+        if (this.shield > 0) {
+            const sDamage = Math.min(this.shield, amount * 0.6);
+            this.shield -= sDamage;
+            amount -= sDamage / 0.6;
+        }
+        this.hull -= amount;
+        if (this.hull <= 0) {
+            this.hull = 0;
+            addLog('Ship destroyed!', 'alert');
+            destroyPlayerShip();
+        }
+    }
+    
+    render(ctx) {
+        const pos = worldToScreen(this.x, this.z);
+        
+        // Debug: make sure player is rendering
+        if (game.frameCount % 120 === 0) {
+            console.log('Player render at screen:', pos.x, pos.y, 'zoom:', game.zoom);
+        }
+        
+        ctx.save();
+        ctx.translate(pos.x, pos.y);
+        ctx.rotate(this.rotation);
+        const visualScale = Math.max(0.2, Math.min(3.2, game.zoom));
+        
+        // Shield (blue glow) - always visible
+        if (this.shield > 0) {
+            const shieldAlpha = (this.shield / this.maxShield) * 0.5;
+            ctx.fillStyle = `rgba(100, 180, 255, ${shieldAlpha * 0.5})`;
+            ctx.beginPath();
+            ctx.arc(0, 0, 35 * visualScale, 0, Math.PI * 2);
+            ctx.fill();
+        }
+        
+        const shipImage = getShipImage(this.shipIcon);
+        if (shipImage) {
+            const baseSize = Math.max(42, Math.min(76, this.radius * 2.8));
+            const size = baseSize * visualScale;
+            ctx.save();
+            ctx.rotate(Math.PI / 2);
+            ctx.drawImage(shipImage, -size / 2, -size / 2, size, size);
+            ctx.restore();
+        } else {
+            // Ship body fallback while PNG assets are still loading.
+            ctx.fillStyle = '#ffffff';
+            ctx.strokeStyle = '#00ff00';
+            ctx.lineWidth = 2 * visualScale;
+            ctx.beginPath();
+            ctx.moveTo(25 * visualScale, 0);
+            ctx.lineTo(-18 * visualScale, -15 * visualScale);
+            ctx.lineTo(-10 * visualScale, 0);
+            ctx.lineTo(-18 * visualScale, 15 * visualScale);
+            ctx.closePath();
+            ctx.fill();
+            ctx.stroke();
+            
+            ctx.fillStyle = '#ff0000';
+            ctx.beginPath();
+            ctx.arc(8 * visualScale, 0, 4 * visualScale, 0, Math.PI * 2);
+            ctx.fill();
+        }
+        
+        // Red damage indicator
+        if (this.hull < 50) {
+            ctx.strokeStyle = '#ff4444';
+            ctx.lineWidth = Math.max(1, visualScale);
+            ctx.beginPath();
+            ctx.arc(0, 0, 22 * visualScale, 0, Math.PI * 2 * (1 - this.hull / 50));
+            ctx.stroke();
+        }
+        
+        // Engine glow - use simple color if gradient fails
+        if (this.speed > 20) {
+            const intensity = Math.min(1, this.speed / this.maxSpeed);
+            const glowSize = 20 * intensity * visualScale;
+            if (glowSize > 2) {
+                ctx.fillStyle = `rgba(255, 150, 50, ${intensity * 0.5})`;
+                ctx.beginPath();
+                ctx.arc(-12 * visualScale, 0, glowSize, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+        
+        ctx.restore();
+        
+        // Approach indicator
+        if (game.approachTarget) {
+            ctx.fillStyle = '#ffaa00';
+            ctx.font = '10px Courier New';
+            ctx.textAlign = 'center';
+            ctx.fillText('APPROACHING', pos.x, pos.y - 35);
+        }
+    }
+}
+
+class PlanetLocation {
+    constructor(data) {
+        Object.assign(this, data);
+        this.radius = Math.max(180, Math.min(1200, (data.radius || 500) * 0.45));
+        this.type = 'Planet';
+    }
+    update(dt) {}
+    render(ctx) {}
+    containsPoint(x, z) {
+        const dx = x - this.x;
+        const dz = z - this.z;
+        return Math.sqrt(dx * dx + dz * dz) <= this.radius;
+    }
+}
+
+// Station
+class Station {
+    constructor(data) {
+        Object.assign(this, data);
+        this.radius = 80;
+        this.rotation = degToRad(this.rotateY || 0);
+    }
+    update(dt) {}
+    render(ctx) {
+        const pos = worldToScreen(this.x, this.z);
+        const scale = Math.max(0.5, game.zoom);
+        const objectImage = getObjectImage(this.type);
+        ctx.save();
+        ctx.translate(pos.x, pos.y);
+        
+        let size = 40 * scale;
+        if (this.type === 'dreadnought') size = 70 * scale;
+        if (this.type === 'smallstation') size = 35 * scale;
+        
+        ctx.rotate(this.rotation);
+        if (objectImage) {
+            const imageSize = Math.max(28, size * 2.2);
+            ctx.drawImage(objectImage, -imageSize / 2, -imageSize / 2, imageSize, imageSize);
+        } else {
+            ctx.fillStyle = '#445566';
+            ctx.strokeStyle = '#667788';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.arc(0, 0, size, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.stroke();
+            
+            for (let i = 0; i < 6; i++) {
+                const angle = (i / 6) * Math.PI * 2;
+                ctx.fillStyle = i % 2 === 0 ? '#00ff00' : '#ff4400';
+                ctx.beginPath();
+                ctx.arc(Math.cos(angle) * size * 0.9, Math.sin(angle) * size * 0.9, 3, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+        
+        ctx.restore();
+        
+        // Selected highlight
+        if (game.selectedTarget === this) {
+            ctx.strokeStyle = '#ffaa00';
+            ctx.lineWidth = 3;
+            ctx.setLineDash([5, 5]);
+            ctx.beginPath();
+            ctx.arc(pos.x, pos.y, size + 10, 0, Math.PI * 2);
+            ctx.stroke();
+            ctx.setLineDash([]);
+        }
+        
+        ctx.fillStyle = '#00aaff';
+        ctx.font = '10px Courier New';
+        ctx.textAlign = 'center';
+        ctx.fillText(this.name, pos.x, pos.y + size + 12);
+    }
+    
+    containsPoint(px, pz) {
+        const dx = this.x - px, dz = this.z - pz;
+        return Math.sqrt(dx * dx + dz * dz) < 80;
+    }
+}
+
+// Jump Gate
+class JumpGate {
+    constructor(data) {
+        Object.assign(this, data);
+        this.radius = 100;
+        this.rotation = degToRad(this.rotateY || 0);
+        this.kind = data.kind || 'gate';
+        this.type = data.type || (this.kind === 'hole' ? 'Jump Hole' : 'Jump Gate');
+    }
+    update(dt) {
+        if (this.kind === 'hole') this.rotation += 0.02 * dt;
+    }
+    render(ctx) {
+        const pos = worldToScreen(this.x, this.z);
+        const isHole = this.kind === 'hole';
+        const size = (isHole ? 65 : 80) * Math.max(0.5, game.zoom);
+        ctx.save();
+        ctx.translate(pos.x, pos.y);
+        ctx.rotate(isHole ? -this.rotation * 1.8 : this.rotation);
+        ctx.strokeStyle = isHole ? '#33ddff' : '#8844ff';
+        ctx.lineWidth = 4;
+        ctx.beginPath();
+        ctx.arc(0, 0, size, 0, Math.PI * 2);
+        ctx.stroke();
+        const gradient = ctx.createRadialGradient(0, 0, size * 0.3, 0, 0, size);
+        gradient.addColorStop(0, isHole ? 'rgba(50,220,255,0.35)' : 'rgba(100,50,255,0.3)');
+        gradient.addColorStop(1, 'transparent');
+        ctx.fillStyle = gradient;
+        ctx.fill();
+        if (isHole) {
+            ctx.strokeStyle = 'rgba(80,240,255,0.55)';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.ellipse(0, 0, size * 0.72, size * 0.36, Math.PI / 5, 0, Math.PI * 2);
+            ctx.stroke();
+        }
+        ctx.restore();
+        
+        if (game.selectedTarget === this) {
+            ctx.strokeStyle = '#ffaa00';
+            ctx.lineWidth = 3;
+            ctx.setLineDash([5, 5]);
+            ctx.beginPath();
+            ctx.arc(pos.x, pos.y, size + 10, 0, Math.PI * 2);
+            ctx.stroke();
+            ctx.setLineDash([]);
+        }
+        
+        ctx.fillStyle = isHole ? '#66eaff' : '#aa66ff';
+        ctx.font = '9px Courier New';
+        ctx.textAlign = 'center';
+        ctx.fillText(this.name, pos.x, pos.y + size + 10);
+    }
+    
+    containsPoint(px, pz) {
+        const dx = this.x - px, dz = this.z - pz;
+        return Math.sqrt(dx * dx + dz * dz) < 100;
+    }
+}
+
+// Trade Lane Ring
+class TradeLaneRing {
+    constructor(x, z, index) {
+        if (typeof x === 'object') {
+            const data = x;
+            this.x = data.x;
+            this.z = data.z;
+            this.index = z || 0;
+            this.id = data.id || data.nickname || `${data.laneId || 'trade_lane'}_${this.index}`;
+            this.name = data.name || 'Trade Lane Ring ' + (this.index + 1);
+            this.laneId = data.laneId || 'trade_lane';
+            this.laneRings = data.laneRings || [];
+            this.rotateY = data.rotate_y || data.rotateY || 0;
+            this.visualRotation = data.visualRotation;
+        } else {
+            this.x = x;
+            this.z = z;
+            this.index = index;
+            this.id = 'trade_lane_ring_' + index;
+            this.name = 'Trade Lane Ring ' + ((index || 0) + 1);
+            this.laneId = 'trade_lane';
+            this.laneRings = [];
+            this.rotateY = 0;
+            this.visualRotation = null;
+        }
+        this.radius = 60;
+        this.rotation = Number.isFinite(this.visualRotation) ? this.visualRotation : degToRad(this.rotateY || 0);
+        this.type = 'trade_lane_ring';
+    }
+    update(dt) {}
+    render(ctx) {
+        const pos = worldToScreen(this.x, this.z);
+        const objectImage = getObjectImage(this.type);
+        const scale = Math.max(0.35, game.zoom);
+        ctx.save();
+        ctx.translate(pos.x, pos.y);
+        ctx.rotate(this.rotation);
+        if (objectImage) {
+            const size = 70 * scale;
+            ctx.drawImage(objectImage, -size / 2, -size / 2, size, size);
+        } else {
+            ctx.strokeStyle = this.index === 0 ? '#00ff88' : '#008866';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            ctx.arc(0, 0, 15 * scale, 0, Math.PI * 2);
+            ctx.stroke();
+        }
+        if (this.index === 0 || game.player?.inTradeLane) {
+            const gradient = ctx.createRadialGradient(0, 0, 5 * scale, 0, 0, 30 * scale);
+            gradient.addColorStop(0, 'rgba(0,255,136,0.3)');
+            gradient.addColorStop(1, 'transparent');
+            ctx.fillStyle = gradient;
+            ctx.beginPath();
+            ctx.arc(0, 0, 30 * scale, 0, Math.PI * 2);
+            ctx.fill();
+        }
+        ctx.restore();
+
+        if (game.selectedTarget === this) {
+            ctx.strokeStyle = '#ffaa00';
+            ctx.lineWidth = 3;
+            ctx.setLineDash([5, 5]);
+            ctx.beginPath();
+            ctx.arc(pos.x, pos.y, 46 * scale, 0, Math.PI * 2);
+            ctx.stroke();
+            ctx.setLineDash([]);
+        }
+    }
+
+    containsPoint(px, pz) {
+        const dx = this.x - px;
+        const dz = this.z - pz;
+        return Math.sqrt(dx * dx + dz * dz) < 170;
+    }
+}
+
+// Asteroid Field
+class AsteroidField {
+    constructor(data) {
+        this.id = data.nickname || data.zone || 'asteroid_field';
+        this.name = data.name || this.id;
+        this.x = data.x || 0;
+        this.z = data.z || 0;
+        this.size = data.size || 2000;
+        this.sizeX = data.size_x || data.sizeX || this.size;
+        this.sizeZ = data.size_z || data.sizeZ || this.size;
+        this.shape = data.shape || 'ELLIPSOID';
+        this.rotation = degToRad(data.rotate_y || data.rotateY || 0);
+        this.obstacles = createFieldObstacles(this, 'asteroid');
+    }
+    update(dt) {}
+    render(ctx) {
+        const pos = worldToScreen(this.x, this.z);
+        const screenRadiusX = this.sizeX * 0.8 * game.zoom;
+        const screenRadiusZ = this.sizeZ * 0.8 * game.zoom;
+        const screenSize = Math.max(screenRadiusX, screenRadiusZ);
+        
+        // Only render if visible
+        if (screenSize < 5) return;
+        
+        ctx.save();
+        ctx.translate(pos.x, pos.y);
+        
+        // Debris/cloud appearance
+        ctx.fillStyle = 'rgba(100, 90, 70, 0.3)';
+        ctx.strokeStyle = 'rgba(120, 110, 80, 0.4)';
+        ctx.lineWidth = 1;
+        
+        for (const obstacle of this.obstacles) {
+            const px = (obstacle.x - this.x) * game.zoom;
+            const pz = (obstacle.z - this.z) * game.zoom;
+            const pSize = Math.max(2, obstacle.radius * game.zoom);
+            ctx.save();
+            ctx.translate(px, pz);
+            ctx.rotate(obstacle.rotation + this.rotation);
+            ctx.beginPath();
+            ctx.moveTo(pSize, 0);
+            for (let j = 1; j < 7; j++) {
+                const angle = (j / 7) * Math.PI * 2;
+                const rough = j % 2 === 0 ? 0.72 : 1;
+                ctx.lineTo(Math.cos(angle) * pSize * rough, Math.sin(angle) * pSize * rough);
+            }
+            ctx.closePath();
+            ctx.fill();
+            ctx.strokeStyle = 'rgba(210,190,150,0.35)';
+            ctx.stroke();
+            ctx.restore();
+        }
+        
+        // Zone boundary
+        ctx.save();
+        ctx.rotate(this.rotation);
+        ctx.beginPath();
+        if (this.shape === 'SPHERE') {
+            ctx.arc(0, 0, screenSize, 0, Math.PI * 2);
+        } else {
+            ctx.ellipse(0, 0, screenRadiusX, screenRadiusZ, 0, 0, Math.PI * 2);
+        }
+        ctx.strokeStyle = 'rgba(150, 130, 100, 0.15)';
+        ctx.stroke();
+        ctx.restore();
+        
+        ctx.restore();
+        
+        // Label
+        if (screenSize > 50) {
+            ctx.fillStyle = 'rgba(150, 130, 100, 0.5)';
+            ctx.font = '9px Courier New';
+            ctx.textAlign = 'center';
+            ctx.fillText(this.name, pos.x, pos.y + screenSize * 0.8 + 12);
+        }
+    }
+}
+
+// Nebula
+class Nebula {
+    constructor(data) {
+        this.id = data.nickname || data.zone || 'nebula';
+        this.name = data.name || this.id;
+        this.x = data.x || 0;
+        this.z = data.z || 0;
+        this.size = data.size || 5000;
+        this.sizeX = data.size_x || data.sizeX || this.size;
+        this.sizeZ = data.size_z || data.sizeZ || this.size;
+        this.shape = data.shape || 'ELLIPSOID';
+        this.color = '#8888ff';
+        this.rotation = degToRad(data.rotate_y || data.rotateY || 0);
+        this.obstacles = createFieldObstacles(this, 'nebula');
+    }
+    update(dt) {}
+    render(ctx) {
+        const pos = worldToScreen(this.x, this.z);
+        const screenRadiusX = this.sizeX * game.zoom;
+        const screenRadiusZ = this.sizeZ * game.zoom;
+        const screenSize = Math.max(screenRadiusX, screenRadiusZ);
+        
+        // Only render if visible
+        if (screenSize < 10) return;
+        
+        ctx.save();
+        ctx.translate(pos.x, pos.y);
+
+        ctx.save();
+        ctx.rotate(this.rotation);
+        
+        // Nebula cloud effect - use simple alpha fills
+        ctx.fillStyle = 'rgba(136, 136, 255, 0.15)';
+        ctx.beginPath();
+        if (this.shape === 'SPHERE') {
+            ctx.arc(0, 0, screenSize, 0, Math.PI * 2);
+        } else {
+            ctx.ellipse(0, 0, screenRadiusX, screenRadiusZ, 0, 0, Math.PI * 2);
+        }
+        ctx.fill();
+        
+        // Inner glow
+        ctx.fillStyle = 'rgba(136, 136, 255, 0.05)';
+        ctx.beginPath();
+        ctx.ellipse(0, 0, screenRadiusX * 0.5, screenRadiusZ * 0.5, 0, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+
+        ctx.fillStyle = 'rgba(120, 210, 255, 0.35)';
+        ctx.strokeStyle = 'rgba(180, 240, 255, 0.28)';
+        for (const obstacle of this.obstacles) {
+            const px = (obstacle.x - this.x) * game.zoom;
+            const pz = (obstacle.z - this.z) * game.zoom;
+            const pSize = Math.max(3, obstacle.radius * game.zoom);
+            ctx.beginPath();
+            ctx.arc(px, pz, pSize, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.stroke();
+        }
+        
+        ctx.restore();
+        
+        // Label
+        if (screenSize > 50) {
+            ctx.fillStyle = 'rgba(150, 150, 255, 0.4)';
+            ctx.font = '9px Courier New';
+            ctx.textAlign = 'center';
+            ctx.fillText(this.name, pos.x, pos.y - screenSize - 5);
+        }
+    }
+}
+
+// NPC Ship
+function createNPC(type) {
+    const colors = { trader: '#44aa44', pirate: '#aa4444', police: '#4444aa', civilian: '#888888' };
+    return {
+        id: 'npc-' + Math.random().toString(36).substr(2, 9),
+        name: (type === 'pirate' ? 'SH' : type === 'trader' ? 'MV' : 'PD') + '-' + (Math.floor(Math.random() * 9000) + 1000),
+        x: (Math.random() - 0.5) * 60000,
+        z: (Math.random() - 0.5) * 60000,
+        rotation: Math.random() * Math.PI * 2,
+        speed: 0, throttle: 0.3,
+        role: type, hull: 80, maxHull: 80,
+        shield: 60, maxShield: 60,
+        maxSpeed: 200 + Math.random() * 100,
+        turnRate: 2.0, radius: 18,
+        color: colors[type], stateTimer: 0,
+        shieldRotation: 0
+    };
+}
+
+function updateNPC(npc, dt) {
+    npc.stateTimer += dt;
+    npc.shieldRotation += dt * 0.5;
+    
+    if (npc.role === 'pirate' && game.player) {
+        const dx = game.player.x - npc.x;
+        const dz = game.player.z - npc.z;
+        const dist = Math.sqrt(dx * dx + dz * dz);
+        if (dist < 800) {
+            npc.targetAngle = Math.atan2(dz, dx);
+            npc.throttle = 0.8;
+        }
+    } else {
+        if (npc.stateTimer > 4) {
+            npc.targetAngle = Math.random() * Math.PI * 2;
+            npc.throttle = 0.2 + Math.random() * 0.3;
+            npc.stateTimer = 0;
+        }
+    }
+    
+    let angleDiff = npc.targetAngle - npc.rotation;
+    while (angleDiff > Math.PI) angleDiff -= Math.PI * 2;
+    while (angleDiff < -Math.PI) angleDiff += Math.PI * 2;
+    if (Math.abs(angleDiff) > 0.01) npc.rotation += Math.sign(angleDiff) * Math.min(Math.abs(angleDiff), npc.turnRate * dt);
+    
+    npc.speed += (npc.throttle * npc.maxSpeed - npc.speed) * 0.02;
+    npc.x += Math.cos(npc.rotation) * npc.speed * dt;
+    npc.z += Math.sin(npc.rotation) * npc.speed * dt;
+}
+
+function renderNPC(ctx, npc) {
+    const pos = worldToScreen(npc.x, npc.z);
+    ctx.save();
+    ctx.translate(pos.x, pos.y);
+    ctx.rotate(npc.rotation);
+    
+    // Shield
+    if (npc.shield > 0) {
+        const shieldAlpha = (npc.shield / npc.maxShield) * 0.25;
+        ctx.strokeStyle = `rgba(100,180,255,${shieldAlpha})`;
+        ctx.lineWidth = 3;
+        ctx.save();
+        ctx.rotate(npc.shieldRotation);
+        ctx.beginPath();
+        ctx.arc(0, 0, 25, 0, Math.PI * 1.5);
+        ctx.stroke();
+        ctx.restore();
+    }
+    
+    ctx.fillStyle = npc.color;
+    ctx.strokeStyle = '#333333';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(18, 0);
+    ctx.lineTo(-12, -10);
+    ctx.lineTo(-12, 10);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+    ctx.restore();
+}
+
+// Utility Functions
+function worldToScreen(x, z) {
+    return {
+        x: (x - game.player.x) * game.zoom + game.width / 2,
+        y: (z - game.player.z) * game.zoom + game.height / 2
+    };
+}
+
+function screenToWorld(sx, sy) {
+    return {
+        x: (sx - game.width / 2) / game.zoom + game.player.x,
+        y: (sy - game.height / 2) / game.zoom + game.player.z
+    };
+}
+
+function addLog(message, type = 'system') {
+    const logArea = document.getElementById('log-area');
+    if (logArea) {
+        logArea.style.display = 'block';
+        const entry = document.createElement('div');
+        entry.style.marginBottom = '3px';
+        entry.style.color = type === 'alert' ? '#ff4444' : '#00aa00';
+        const h = Math.floor(game.gameTime / 75);
+        const m = Math.floor((game.gameTime % 75) / 1.25);
+        entry.textContent = `[${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}] ${message}`;
+        logArea.appendChild(entry);
+        logArea.scrollTop = logArea.scrollHeight;
+    }
+}
+
+function initStars() {
+    game.stars = [];
+    for (let layer = 0; layer < game.starLayers; layer++) {
+        const layerStars = [];
+        const count = 50 + layer * 30;
+        for (let i = 0; i < count; i++) {
+            layerStars.push({
+                x: Math.random() * 2000 - 1000,
+                y: Math.random() * 1200 - 600,
+                size: 0.5 + Math.random() * (1.5 - layer * 0.3),
+                brightness: 0.3 + Math.random() * 0.5
+            });
+        }
+        game.stars.push(layerStars);
+    }
+}
+
+function renderStars() {
+    const ctx = game.ctx;
+    for (let layer = 0; layer < game.stars.length; layer++) {
+        const parallax = 0.1 + layer * 0.15;
+        const stars = game.stars[layer];
+        for (const star of stars) {
+            let sx = (star.x - game.player.x * parallax) % 2000;
+            let sy = (star.y - game.player.z * parallax) % 1200;
+            if (sx < 0) sx += 2000;
+            if (sy < 0) sy += 1200;
+            const screenX = sx + (game.width - 2000) / 2;
+            const screenY = sy + (game.height - 1200) / 2;
+            ctx.fillStyle = `rgba(255,255,255,${star.brightness * (1 - layer * 0.2)})`;
+            ctx.beginPath();
+            ctx.arc(screenX, screenY, star.size, 0, Math.PI * 2);
+            ctx.fill();
+        }
+    }
+}
+
+function makeSystemWallpaper(systemId) {
+    const key = String(systemId || 'Li01');
+    if (game.systemWallpapers[key]) return game.systemWallpapers[key];
+
+    const canvas = document.createElement('canvas');
+    canvas.width = 1600;
+    canvas.height = 900;
+    const ctx = canvas.getContext('2d');
+    const rng = seededRandom(hashString('wallpaper:' + key));
+    const hueA = Math.floor(rng() * 360);
+    const hueB = (hueA + 75 + Math.floor(rng() * 120)) % 360;
+    const hueC = (hueA + 180 + Math.floor(rng() * 70)) % 360;
+
+    const base = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+    base.addColorStop(0, `hsl(${hueA}, 55%, 7%)`);
+    base.addColorStop(0.48, `hsl(${hueB}, 48%, 10%)`);
+    base.addColorStop(1, `hsl(${hueC}, 52%, 5%)`);
+    ctx.fillStyle = base;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    for (let i = 0; i < 5; i++) {
+        const x = rng() * canvas.width;
+        const y = rng() * canvas.height;
+        const radius = 240 + rng() * 460;
+        const hue = [hueA, hueB, hueC][i % 3];
+        const nebula = ctx.createRadialGradient(x, y, 0, x, y, radius);
+        nebula.addColorStop(0, `hsla(${hue}, 82%, 58%, ${0.16 + rng() * 0.16})`);
+        nebula.addColorStop(0.42, `hsla(${(hue + 35) % 360}, 75%, 42%, ${0.05 + rng() * 0.08})`);
+        nebula.addColorStop(1, 'rgba(0,0,0,0)');
+        ctx.globalCompositeOperation = 'screen';
+        ctx.fillStyle = nebula;
+        ctx.beginPath();
+        ctx.arc(x, y, radius, 0, Math.PI * 2);
+        ctx.fill();
+    }
+
+    ctx.globalCompositeOperation = 'source-over';
+    for (let i = 0; i < 420; i++) {
+        const x = rng() * canvas.width;
+        const y = rng() * canvas.height;
+        const size = rng() < 0.92 ? 0.6 + rng() * 1.4 : 1.8 + rng() * 2.4;
+        const alpha = 0.25 + rng() * 0.72;
+        const tint = rng() < 0.18 ? `hsl(${(hueB + rng() * 30) % 360}, 90%, 82%)` : '#ffffff';
+        ctx.fillStyle = tint === '#ffffff' ? `rgba(255,255,255,${alpha})` : tint;
+        ctx.globalAlpha = tint === '#ffffff' ? 1 : alpha;
+        ctx.beginPath();
+        ctx.arc(x, y, size, 0, Math.PI * 2);
+        ctx.fill();
+    }
+
+    ctx.globalAlpha = 1;
+
+    game.systemWallpapers[key] = canvas;
+    return canvas;
+}
+
+function renderSystemWallpaper() {
+    const ctx = game.ctx;
+    const wallpaper = makeSystemWallpaper(currentSystemId);
+    const scale = Math.max(game.width / wallpaper.width, game.height / wallpaper.height);
+    const width = wallpaper.width * scale;
+    const height = wallpaper.height * scale;
+    ctx.drawImage(wallpaper, (game.width - width) / 2, (game.height - height) / 2, width, height);
+    ctx.fillStyle = 'rgba(0,0,8,0.36)';
+    ctx.fillRect(0, 0, game.width, game.height);
+}
+
+function updateJumpTransition(dt) {
+    const transition = game.jumpTransition;
+    if (!transition) return false;
+    transition.timer += dt;
+    game.player.rotation = transition.angle;
+
+    if (transition.phase === 'out') {
+        const progress = Math.min(1, transition.timer / transition.duration);
+        const speed = 4500 + progress * 22000;
+        game.player.x += Math.cos(transition.angle) * speed * dt;
+        game.player.z += Math.sin(transition.angle) * speed * dt;
+        if (progress >= 1) {
+            loadSystem(transition.targetSystem, transition.targetObject);
+            game.jumpTransition = {
+                ...transition,
+                phase: 'in',
+                timer: 0,
+                duration: 0.9
+            };
+        }
+        return true;
+    }
+
+    const progress = Math.min(1, transition.timer / transition.duration);
+    if (progress >= 1) {
+        game.jumpTransition = null;
+        game.player.throttle = 0.45;
+    }
+    return true;
+}
+
+function renderJumpTunnel() {
+    const transition = game.jumpTransition;
+    if (!transition) return;
+    const ctx = game.ctx;
+    const cx = game.width / 2;
+    const cy = game.height / 2;
+    const progress = Math.min(1, transition.timer / transition.duration);
+    const pulse = transition.phase === 'out' ? progress : 1 - progress;
+    ctx.save();
+    ctx.globalCompositeOperation = 'lighter';
+    ctx.translate(cx, cy);
+    ctx.rotate(transition.angle);
+    for (let i = 0; i < 46; i++) {
+        const lane = (i - 23) * 28;
+        const length = 250 + pulse * 900 + (i % 7) * 45;
+        const offset = ((transition.timer * 1800 + i * 97) % 900) - 450;
+        const alpha = 0.12 + pulse * 0.45;
+        ctx.strokeStyle = `rgba(90,210,255,${alpha})`;
+        ctx.lineWidth = 1 + pulse * 3;
+        ctx.beginPath();
+        ctx.moveTo(offset - length, lane);
+        ctx.lineTo(offset + length, lane * (0.16 + pulse * 0.18));
+        ctx.stroke();
+    }
+    const gradient = ctx.createRadialGradient(0, 0, 30, 0, 0, Math.max(game.width, game.height) * 0.72);
+    gradient.addColorStop(0, `rgba(210,250,255,${0.22 + pulse * 0.35})`);
+    gradient.addColorStop(0.35, `rgba(70,150,255,${0.08 + pulse * 0.18})`);
+    gradient.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = gradient;
+    ctx.beginPath();
+    ctx.arc(0, 0, Math.max(game.width, game.height), 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+}
+
+function renderTradeLaneTunnel() {
+    if (!game.player?.inTradeLane) return;
+    const ctx = game.ctx;
+    const pulse = (Math.sin(performance.now() * 0.018) + 1) * 0.5;
+    const speed = Math.max(0.6, game.player.speed / game.player.laneSpeed);
+    ctx.save();
+    ctx.translate(game.width / 2, game.height / 2);
+    ctx.rotate(game.player.rotation);
+    ctx.globalCompositeOperation = 'lighter';
+    for (let i = 0; i < 42; i++) {
+        const t = (i / 42 + performance.now() * 0.0016 * speed) % 1;
+        const x = -game.width * 0.62 + t * game.width * 1.24;
+        const lane = ((i % 7) - 3) * 24;
+        const alpha = 0.08 + t * 0.38;
+        const length = 70 + t * 190;
+        ctx.strokeStyle = `rgba(60,255,170,${alpha})`;
+        ctx.lineWidth = 1 + t * 3;
+        ctx.beginPath();
+        ctx.moveTo(x - length, lane * (0.35 + pulse * 0.1));
+        ctx.lineTo(x + length, lane * 0.08);
+        ctx.stroke();
+    }
+    const gradient = ctx.createRadialGradient(0, 0, 18, 0, 0, Math.max(game.width, game.height) * 0.58);
+    gradient.addColorStop(0, `rgba(120,255,210,${0.12 + pulse * 0.12})`);
+    gradient.addColorStop(0.55, 'rgba(0,120,70,0.07)');
+    gradient.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = gradient;
+    ctx.beginPath();
+    ctx.arc(0, 0, Math.max(game.width, game.height), 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+}
+
+function update(dt) {
+    if (!game.running || game.isDocked) return;
+    game.gameTime += dt;
+    if (game.gameTime >= 1800) game.gameTime = 0;
+
+    if (updateJumpTransition(dt)) {
+        updateHUD();
+        return;
+    }
+    
+    game.player.update(dt);
+
+    if (game.dockTarget) {
+        const dx = game.dockTarget.x - game.player.x;
+        const dz = game.dockTarget.z - game.player.z;
+        if (Math.sqrt(dx * dx + dz * dz) < 180) {
+            const target = game.dockTarget;
+            game.dockTarget = null;
+            game.approachTarget = null;
+            game.player.throttle = 0;
+            if (target instanceof TradeLaneRing) {
+                startTradeLaneFromRing(target);
+            } else if (target instanceof JumpGate) {
+                startJumpTransition(target);
+            } else {
+                openLandingWindow(target);
+            }
+        }
+    }
+    
+    for (const entity of game.entities) entity.update(dt);
+    for (const npc of game.npcs) updateNPC(npc, dt);
+    
+    for (let i = game.projectiles.length - 1; i >= 0; i--) {
+        const p = game.projectiles[i];
+        p.x += p.vx * dt;
+        p.z += p.vz * dt;
+        p.lifetime -= dt;
+        
+        for (const npc of game.npcs) {
+            const dx = npc.x - p.x, dz = npc.z - p.z;
+            if (Math.sqrt(dx * dx + dz * dz) < npc.radius + p.radius) {
+                if (npc.shield > 0) {
+                    npc.shield -= p.damage * 0.5;
+                    if (npc.shield < 0) { npc.hull += npc.shield; npc.shield = 0; }
+                }
+                npc.hull -= p.damage;
+                p.lifetime = 0;
+                if (npc.hull <= 0) {
+                    addLog(npc.name + ' destroyed!');
+                    game.npcs = game.npcs.filter(n => n !== npc);
+                }
+            }
+        }
+        
+        if (p.lifetime <= 0) game.projectiles.splice(i, 1);
+    }
+    
+    updateHUD();
+
+    const now = Date.now();
+    if (now - game.lastAutoSaveAt > game.autoSaveInterval) {
+        game.lastAutoSaveAt = now;
+        saveGame();
+    }
+}
+
+function updateHUD() {
+    const p = game.player;
+    document.getElementById('hull-bar').style.width = (p.hull / p.maxHull * 100) + '%';
+    document.getElementById('shield-bar').style.width = (p.shield / p.maxShield * 100) + '%';
+    document.getElementById('energy-bar').style.width = (p.energy / p.maxEnergy * 100) + '%';
+    document.getElementById('credits').textContent = `CREDITS: ${p.credits}`;
+    document.getElementById('cargo').textContent = `CARGO: ${cargoUnits()}/${p.maxCargo}`;
+    const h = Math.floor(game.gameTime / 75);
+    const m = Math.floor((game.gameTime % 75) / 1.25);
+    document.getElementById('game-time').textContent = `${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}`;
+    document.getElementById('zoom-display').textContent = `ZOOM: ${game.zoom.toFixed(1)}x`;
+    document.getElementById('speed-display').textContent = `SPEED: ${Math.round(p.speed)} m/s`;
+    
+    // Mode indicator
+    const modeEl = document.getElementById('mode-indicator');
+    if (game.mouseDown) {
+        modeEl.textContent = 'ROTATE MODE';
+        modeEl.style.color = '#ffaa00';
+    } else {
+        modeEl.textContent = game.approachTarget ? 'APPROACH' : 'FREEFLIGHT';
+        modeEl.style.color = game.approachTarget ? '#ffaa00' : '#00ff00';
+    }
+    
+    // Target info
+    const targetInfo = document.getElementById('target-info');
+    if (game.selectedTarget) {
+        targetInfo.style.display = 'block';
+        document.getElementById('target-name').textContent = `Selected: ${game.selectedTarget.name}`;
+        const dx = game.selectedTarget.x - p.x;
+        const dz = game.selectedTarget.z - p.z;
+        document.getElementById('target-dist').textContent = `Distance: ${Math.round(Math.sqrt(dx*dx+dz*dz))}m`;
+    } else {
+        targetInfo.style.display = 'none';
+    }
+}
+
+function render() {
+    const ctx = game.ctx;
+    renderSystemWallpaper();
+    
+    renderStars();
+    
+    renderSuns(ctx);
+    
+    // Planets
+    for (const planet of systemData.planets) {
+        drawTexturedPlanet(ctx, planet);
+    }
+    
+    // Trade lane lines
+    ctx.strokeStyle = 'rgba(0,200,100,0.3)';
+    ctx.lineWidth = 2;
+    for (const lane of systemData.tradeLanes) {
+        for (let i = 0; i < lane.rings.length - 1; i++) {
+            const p1 = worldToScreen(lane.rings[i].x, lane.rings[i].z);
+            const p2 = worldToScreen(lane.rings[i+1].x, lane.rings[i+1].z);
+            ctx.beginPath();
+            ctx.moveTo(p1.x, p1.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.stroke();
+        }
+    }
+    
+    // Entities
+    for (const entity of game.entities) entity.render(ctx);
+    
+    // NPCs
+    for (const npc of game.npcs) renderNPC(ctx, npc);
+    
+    // Projectiles
+    for (const p of game.projectiles) {
+        const pos = worldToScreen(p.x, p.z);
+        ctx.fillStyle = '#ffff00';
+        ctx.beginPath();
+        ctx.arc(pos.x, pos.y, p.radius, 0, Math.PI * 2);
+        ctx.fill();
+    }
+    
+    // Player
+    game.player.render(ctx);
+
+    renderTradeLaneTunnel();
+    renderJumpTunnel();
+    renderApproachEdgeMarker(ctx);
+    
+    // Compass
+    renderCompass();
+}
+
+function renderApproachEdgeMarker(ctx) {
+    const target = game.approachTarget;
+    const player = game.player;
+    if (!target || !player || game.jumpTransition) return;
+    const dx = target.x - player.x;
+    const dz = target.z - player.z;
+    const distance = Math.sqrt(dx * dx + dz * dz);
+    if (!Number.isFinite(distance) || distance < 1) return;
+
+    const centerX = game.width / 2;
+    const centerY = game.height / 2;
+    const angle = Math.atan2(dz, dx);
+    const margin = 34;
+    const halfW = centerX - margin;
+    const halfH = centerY - margin;
+    const cos = Math.cos(angle);
+    const sin = Math.sin(angle);
+    const edgeScale = Math.min(
+        Math.abs(cos) > 0.001 ? halfW / Math.abs(cos) : Infinity,
+        Math.abs(sin) > 0.001 ? halfH / Math.abs(sin) : Infinity
+    );
+    const x = centerX + cos * edgeScale;
+    const y = centerY + sin * edgeScale;
+    const etaSpeed = Math.max(1, player.speed || 0);
+    const eta = player.speed > 1 ? formatEta(distance / etaSpeed) : '--:--';
+    const label = `${target.name}  ${formatDistance(distance)}  ETA ${eta}`;
+
+    ctx.save();
+    ctx.font = '12px Courier New';
+    const textWidth = ctx.measureText(label).width;
+    const boxWidth = Math.min(game.width - 24, Math.max(190, textWidth + 40));
+    const boxHeight = 38;
+    const boxX = clamp(x - boxWidth / 2, 12, game.width - boxWidth - 12);
+    const boxY = clamp(y - boxHeight / 2, 12, game.height - boxHeight - 12);
+    ctx.fillStyle = 'rgba(0, 18, 30, 0.86)';
+    ctx.strokeStyle = '#ffaa00';
+    ctx.lineWidth = 1.5;
+    ctx.fillRect(boxX, boxY, boxWidth, boxHeight);
+    ctx.strokeRect(boxX, boxY, boxWidth, boxHeight);
+
+    ctx.translate(x, y);
+    ctx.rotate(angle);
+    ctx.fillStyle = '#ffaa00';
+    ctx.beginPath();
+    ctx.moveTo(16, 0);
+    ctx.lineTo(2, -7);
+    ctx.lineTo(2, 7);
+    ctx.closePath();
+    ctx.fill();
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+
+    ctx.fillStyle = '#dff7ff';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(label, boxX + boxWidth / 2, boxY + boxHeight / 2);
+    ctx.restore();
+}
+
+function renderCompass() {
+    const ctx = game.ctx;
+    const compX = game.width / 2;
+    const compY = game.height - 60;
+    const compR = 35;
+    
+    ctx.strokeStyle = 'rgba(0,100,0,0.5)';
+    ctx.beginPath();
+    ctx.arc(compX, compY, compR, 0, Math.PI * 2);
+    ctx.stroke();
+    
+    ctx.fillStyle = '#00aa00';
+    ctx.font = '10px Courier New';
+    ctx.textAlign = 'center';
+    ctx.fillText('N', compX, compY - compR - 3);
+    ctx.fillText('S', compX, compY + compR + 12);
+    ctx.fillText('W', compX - compR - 12, compY + 3);
+    ctx.fillText('E', compX + compR + 12, compY + 3);
+    
+    ctx.save();
+    ctx.translate(compX, compY);
+    ctx.rotate(game.player.rotation);
+    ctx.fillStyle = '#ffffff';
+    ctx.beginPath();
+    ctx.moveTo(0, -compR + 5);
+    ctx.lineTo(-5, 5);
+    ctx.lineTo(5, 5);
+    ctx.closePath();
+    ctx.fill();
+    ctx.restore();
+}
+
+function gameLoop(currentTime) {
+    if (!game.running) return;
+    const dt = Math.min((currentTime - game.lastTime) / 1000, 0.1);
+    game.lastTime = currentTime;
+    game.frameCount = (game.frameCount || 0) + 1;
+    update(dt);
+    render();
+    requestAnimationFrame(gameLoop);
+}
+
+function setupInput() {
+    const canvas = game.canvas;
+    
+    canvas.addEventListener('mousemove', (e) => {
+        game.mouseX = e.clientX;
+        game.mouseY = e.clientY;
+    });
+    
+    canvas.addEventListener('mousedown', (e) => {
+        if (e.button === 0) {
+            game.mouseDown = true;
+            // If approaching, stop approach when taking control
+            if (game.approachTarget) {
+                game.approachTarget = null;
+                game.dockTarget = null;
+                addLog('Control taken - approach cancelled');
+            }
+        }
+        if (e.button === 2) game.rightMouseDown = true;
+    });
+    
+    canvas.addEventListener('mouseup', (e) => {
+        if (e.button === 0) game.mouseDown = false;
+        if (e.button === 2) game.rightMouseDown = false;
+    });
+    
+    canvas.addEventListener('wheel', (e) => {
+        e.preventDefault();
+        if (e.deltaY < 0) game.zoom = Math.min(game.maxZoom, game.zoom + 0.1);
+        else game.zoom = Math.max(game.minZoom, game.zoom - 0.1);
+    });
+    
+    canvas.addEventListener('contextmenu', e => e.preventDefault());
+    
+    // Click on canvas to select target
+    canvas.addEventListener('click', (e) => {
+        if (!game.mouseDown && !game.running) return;
+        
+        const world = screenToWorld(e.clientX, e.clientY);
+        
+        // Check entities
+        for (const entity of game.entities) {
+            if (entity.containsPoint && entity.containsPoint(world.x, world.y)) {
+                game.selectedTarget = entity;
+                addLog('Selected: ' + entity.name);
+                return;
+            }
+        }
+        
+        // Deselect
+        game.selectedTarget = null;
+    });
+    
+    window.addEventListener('keydown', (e) => {
+        if (!game.player || game.isDocked) return;
+        
+        switch (e.code) {
+            case 'KeyW':
+                game.player.throttle = Math.min(1, game.player.throttle + 0.05);
+                break;
+            case 'KeyS':
+                game.player.throttle = Math.max(0, game.player.throttle - 0.05);
+                break;
+            case 'KeyA':
+                if (game.selectedTarget) {
+                    game.approachTarget = game.selectedTarget;
+                    addLog('Approaching: ' + game.selectedTarget.name);
+                }
+                break;
+            case 'KeyD':
+                if (game.selectedTarget) {
+                    startDocking(game.selectedTarget);
+                }
+                break;
+            case 'KeyM':
+                toggleMap();
+                break;
+        }
+    });
+    
+    // Continuous fire while right mouse held
+    setInterval(() => {
+        if (game.rightMouseDown && game.player && !game.isDocked) {
+            game.player.fireHeld = true;
+        } else if (game.player) {
+            game.player.fireHeld = false;
+        }
+    }, 50);
+}
+
+function toggleMap() {
+    game.showMap = !game.showMap;
+    const overlay = document.getElementById('map-overlay');
+    if (overlay) {
+        if (game.showMap) {
+            overlay.classList.remove('hidden');
+            drawMapCanvas();
+        } else {
+            overlay.classList.add('hidden');
+        }
+    }
+}
+
+function getSystemMapTransform(canvas) {
+    const w = canvas.width;
+    const h = canvas.height;
+    return {
+        scaleX: (w / 200000) * game.mapZoom,
+        scaleY: (h / 200000) * game.mapZoom,
+        offsetX: w / 2,
+        offsetY: h / 2
+    };
+}
+
+function systemMapToScreen(x, z, transform) {
+    return { x: transform.offsetX + x * transform.scaleX, y: transform.offsetY + z * transform.scaleY };
+}
+
+function screenToSystemMap(x, y, transform) {
+    return { x: (x - transform.offsetX) / transform.scaleX, z: (y - transform.offsetY) / transform.scaleY };
+}
+
+function drawMapCanvas() {
+    const canvas = document.getElementById('map-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const w = canvas.width, h = canvas.height;
+    const mapTransform = getSystemMapTransform(canvas);
+    
+    ctx.fillStyle = '#000810';
+    ctx.fillRect(0, 0, w, h);
+    
+    // Grid
+    ctx.strokeStyle = 'rgba(0,50,80,0.3)';
+    ctx.lineWidth = 1;
+    for (let i = 0; i <= 10; i++) {
+        ctx.beginPath();
+        ctx.moveTo(i * w/10, 0);
+        ctx.lineTo(i * w/10, h);
+        ctx.moveTo(0, i * h/10);
+        ctx.lineTo(w, i * h/10);
+        ctx.stroke();
+    }
+    
+    // Sun
+    const sunPos = systemMapToScreen(0, 0, mapTransform);
+    ctx.fillStyle = '#ffff44';
+    ctx.beginPath();
+    ctx.arc(sunPos.x, sunPos.y, 20, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.fillStyle = '#aaaa44';
+    ctx.font = '10px Courier New';
+    ctx.textAlign = 'center';
+    ctx.fillText('SUN', sunPos.x, sunPos.y + 35);
+    
+    // Planets
+    for (const planet of systemData.planets) {
+        const pos = systemMapToScreen(planet.x, planet.z, mapTransform);
+        const ex = pos.x;
+        const ey = pos.y;
+        ctx.fillStyle = planet.color;
+        ctx.beginPath();
+        ctx.arc(ex, ey, 12, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = '#88aacc';
+        ctx.fillText(planet.name, ex, ey + 25);
+        const selectedPlanet = game.entities.find(e => e instanceof PlanetLocation && e.id === planet.id);
+        if (game.selectedTarget === selectedPlanet) {
+            ctx.strokeStyle = '#ffaa00';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.arc(ex, ey, 18, 0, Math.PI * 2);
+            ctx.stroke();
+        }
+    }
+    
+    // Trade lanes
+    ctx.strokeStyle = 'rgba(0,200,100,0.5)';
+    ctx.lineWidth = 1;
+    for (const lane of systemData.tradeLanes) {
+        ctx.beginPath();
+        for (let i = 0; i < lane.rings.length; i++) {
+            const ringPos = systemMapToScreen(lane.rings[i].x, lane.rings[i].z, mapTransform);
+            const rx = ringPos.x;
+            const ry = ringPos.y;
+            if (i === 0) ctx.moveTo(rx, ry);
+            else ctx.lineTo(rx, ry);
+        }
+        ctx.stroke();
+        for (let i = 0; i < lane.rings.length; i++) {
+            const ring = lane.rings[i];
+            const ringPos = systemMapToScreen(ring.x, ring.z, mapTransform);
+            const rx = ringPos.x;
+            const ry = ringPos.y;
+            const ringEntity = findTradeLaneRingEntity(ring, i);
+            ctx.strokeStyle = game.selectedTarget === ringEntity ? '#ffaa00' : '#00dd88';
+            ctx.lineWidth = game.selectedTarget === ringEntity ? 2 : 1;
+            ctx.beginPath();
+            ctx.arc(rx, ry, game.selectedTarget === ringEntity ? 5 : 3, 0, Math.PI * 2);
+            ctx.stroke();
+        }
+        ctx.strokeStyle = 'rgba(0,200,100,0.5)';
+        ctx.lineWidth = 1;
+    }
+
+    // Nebulae and asteroid fields with hazard obstacles
+    for (const nebula of systemData.nebulae) {
+        const pos = systemMapToScreen(nebula.x, nebula.z, mapTransform);
+        const ex = pos.x;
+        const ey = pos.y;
+        const rx = Math.max(8, (nebula.size_x || nebula.size || 0) * mapTransform.scaleX);
+        const rz = Math.max(8, (nebula.size_z || nebula.size || 0) * mapTransform.scaleY);
+        ctx.fillStyle = 'rgba(80,120,220,0.12)';
+        ctx.strokeStyle = 'rgba(120,180,255,0.25)';
+        ctx.beginPath();
+        ctx.ellipse(ex, ey, rx, rz, degToRad(nebula.rotate_y || nebula.rotateY || 0), 0, Math.PI * 2);
+        ctx.fill();
+        ctx.stroke();
+    }
+    for (const field of systemData.asteroidfields) {
+        const pos = systemMapToScreen(field.x, field.z, mapTransform);
+        const ex = pos.x;
+        const ey = pos.y;
+        const rx = Math.max(8, (field.size_x || field.size || 0) * 0.8 * mapTransform.scaleX);
+        const rz = Math.max(8, (field.size_z || field.size || 0) * 0.8 * mapTransform.scaleY);
+        ctx.fillStyle = 'rgba(130,110,70,0.12)';
+        ctx.strokeStyle = 'rgba(180,150,90,0.25)';
+        ctx.beginPath();
+        ctx.ellipse(ex, ey, rx, rz, degToRad(field.rotate_y || field.rotateY || 0), 0, Math.PI * 2);
+        ctx.fill();
+        ctx.stroke();
+    }
+    for (const obstacle of game.obstacles) {
+        const pos = systemMapToScreen(obstacle.x, obstacle.z, mapTransform);
+        const ex = pos.x;
+        const ey = pos.y;
+        ctx.fillStyle = obstacle.kind === 'asteroid' ? '#aa8855' : '#66ddee';
+        ctx.beginPath();
+        ctx.arc(ex, ey, Math.max(2, obstacle.radius * mapTransform.scaleX), 0, Math.PI * 2);
+        ctx.fill();
+    }
+    
+    // Stations
+    for (const station of systemData.stations) {
+        const pos = systemMapToScreen(station.x, station.z, mapTransform);
+        const ex = pos.x;
+        const ey = pos.y;
+        ctx.fillStyle = '#00aaff';
+        ctx.beginPath();
+        ctx.arc(ex, ey, 6, 0, Math.PI * 2);
+        ctx.fill();
+        
+        if (game.selectedTarget === station) {
+            ctx.strokeStyle = '#ffaa00';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.arc(ex, ey, 10, 0, Math.PI * 2);
+            ctx.stroke();
+        }
+        
+        ctx.fillStyle = '#00aaff';
+        ctx.font = '8px Courier New';
+        ctx.fillText(station.name, ex, ey + 18);
+    }
+    
+    // Jump Gates and Holes
+    for (const gate of systemData.jumpgates) {
+        const pos = systemMapToScreen(gate.x, gate.z, mapTransform);
+        const ex = pos.x;
+        const ey = pos.y;
+        ctx.strokeStyle = gate.kind === 'hole' ? '#33ddff' : '#8844ff';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.arc(ex, ey, gate.kind === 'hole' ? 8 : 10, 0, Math.PI * 2);
+        ctx.stroke();
+
+        const selectedEntity = game.entities.find(e => e.id === gate.id);
+        if (game.selectedTarget === selectedEntity) {
+            ctx.strokeStyle = '#ffaa00';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.arc(ex, ey, 14, 0, Math.PI * 2);
+            ctx.stroke();
+        }
+
+        ctx.fillStyle = gate.kind === 'hole' ? '#66eaff' : '#aa66ff';
+        ctx.fillText(gate.name, ex, ey + 20);
+    }
+    
+    // Player
+    const playerPos = systemMapToScreen(game.player.x, game.player.z, mapTransform);
+    const ppx = playerPos.x;
+    const ppy = playerPos.y;
+    ctx.fillStyle = '#ffffff';
+    ctx.beginPath();
+    ctx.moveTo(ppx, ppy - 8);
+    ctx.lineTo(ppx - 6, ppy + 6);
+    ctx.lineTo(ppx + 6, ppy + 6);
+    ctx.closePath();
+    ctx.fill();
+    ctx.font = '10px Courier New';
+    ctx.fillText('YOU', ppx, ppy + 20);
+
+    ctx.fillStyle = '#668899';
+    ctx.textAlign = 'right';
+    ctx.fillText('Mouse wheel zoom: ' + game.mapZoom.toFixed(1) + 'x', w - 10, 18);
+}
+
+// Universe View
+function toggleUniverseView() {
+    const overlay = document.getElementById('universe-overlay');
+    if (!overlay) return;
+    
+    if (overlay.classList.contains('hidden')) {
+        overlay.classList.remove('hidden');
+        drawUniverseMap();
+    } else {
+        overlay.classList.add('hidden');
+    }
+}
+
+function getUniverseTransform(canvas, systems) {
+    const w = canvas.width;
+    const h = canvas.height;
+    const xs = systems.map(s => s.x);
+    const ys = systems.map(s => s.y);
+    const minX = Math.min(...xs), maxX = Math.max(...xs);
+    const minY = Math.min(...ys), maxY = Math.max(...ys);
+    const baseScale = Math.min((w - 80) / Math.max(1, maxX - minX), (h - 80) / Math.max(1, maxY - minY));
+    const scale = baseScale * game.universeZoom;
+    const centerX = (minX + maxX) / 2;
+    const centerY = (minY + maxY) / 2;
+    return {
+        scale,
+        offsetX: w / 2 - centerX * scale,
+        offsetY: h / 2 - centerY * scale
+    };
+}
+
+function universeToScreen(system, transform) {
+    return { x: transform.offsetX + system.x * transform.scale, y: transform.offsetY + system.y * transform.scale };
+}
+
+function drawUniverseMap() {
+    const canvas = document.getElementById('universe-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const w = canvas.width, h = canvas.height;
+    
+    ctx.fillStyle = '#000508';
+    ctx.fillRect(0, 0, w, h);
+    
+    // Grid
+    ctx.strokeStyle = 'rgba(0,50,30,0.3)';
+    ctx.lineWidth = 1;
+    for (let i = 0; i <= 20; i++) {
+        ctx.beginPath();
+        ctx.moveTo(i * w/20, 0);
+        ctx.lineTo(i * w/20, h);
+        ctx.moveTo(0, i * h/20);
+        ctx.lineTo(w, i * h/20);
+        ctx.stroke();
+    }
+    
+    const systemColor = (id) => {
+        const lower = id.toLowerCase();
+        if (lower.startsWith('li')) return '#00aaff';
+        if (lower.startsWith('br')) return '#ff6644';
+        if (lower.startsWith('rh')) return '#ffaa00';
+        if (lower.startsWith('ku')) return '#ff55cc';
+        if (lower.startsWith('bw') || lower.startsWith('ew')) return '#aaaaaa';
+        return '#44ff88';
+    };
+    const systems = (typeof UNIVERSE_SYSTEMS !== 'undefined' ? UNIVERSE_SYSTEMS : []).map(sys => ({
+        id: sys.nickname,
+        name: displayName(sys.name, sys.nickname),
+        x: Number(sys.x || 0),
+        y: Number(sys.z || 0),
+        color: systemColor(sys.nickname)
+    }));
+    const connections = [];
+    if (typeof UNIVERSE_CONNECTIONS !== 'undefined') {
+        for (const [from, list] of Object.entries(UNIVERSE_CONNECTIONS)) {
+            const targets = Array.isArray(list) ? list : Object.values(list || {});
+            for (const to of targets) connections.push([from, String(to)]);
+        }
+    }
+    
+    const universeTransform = getUniverseTransform(canvas, systems);
+    
+    // Draw connections like FL Atlas route lines.
+    const systemById = new Map(systems.map(s => [s.id.toLowerCase(), s]));
+    const seenConnections = new Set();
+    for (const [from, to] of connections) {
+        const key = [from.toLowerCase(), to.toLowerCase()].sort().join('>');
+        if (seenConnections.has(key)) continue;
+        seenConnections.add(key);
+        const sys1 = systemById.get(from.toLowerCase());
+        const sys2 = systemById.get(to.toLowerCase());
+        if (sys1 && sys2) {
+            const p1 = universeToScreen(sys1, universeTransform);
+            const p2 = universeToScreen(sys2, universeTransform);
+            const x1 = p1.x;
+            const y1 = p1.y;
+            const x2 = p2.x;
+            const y2 = p2.y;
+            ctx.strokeStyle = 'rgba(38, 210, 255, 0.42)';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            ctx.moveTo(x1, y1);
+            ctx.lineTo(x2, y2);
+            ctx.stroke();
+            ctx.strokeStyle = 'rgba(180, 255, 240, 0.78)';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(x1, y1);
+            ctx.lineTo(x2, y2);
+            ctx.stroke();
+        }
+    }
+    
+    // Draw systems
+    for (const sys of systems) {
+        const pos = universeToScreen(sys, universeTransform);
+        const sx = pos.x;
+        const sy = pos.y;
+        
+        // System dot
+        ctx.fillStyle = sys.color;
+        ctx.beginPath();
+        ctx.arc(sx, sy, sys.id.toLowerCase() === currentSystemId.toLowerCase() ? 8 : 5, 0, Math.PI * 2);
+        ctx.fill();
+        
+        // Name
+        ctx.fillStyle = '#888888';
+        ctx.font = '9px Courier New';
+        ctx.textAlign = 'center';
+        ctx.fillText(sys.name, sx, sy + 15);
+        
+        // ID
+        ctx.fillStyle = '#444444';
+        ctx.font = '8px Courier New';
+        ctx.fillText(sys.id.toUpperCase(), sx, sy - 12);
+    }
+    
+    // Current system highlight
+    const currentSys = systems.find(s => s.id.toLowerCase() === currentSystemId.toLowerCase());
+    if (currentSys) {
+        const pos = universeToScreen(currentSys, universeTransform);
+        const cx = pos.x;
+        const cy = pos.y;
+        ctx.strokeStyle = '#00ff00';
+        ctx.lineWidth = 2;
+        ctx.setLineDash([3, 3]);
+        ctx.beginPath();
+        ctx.arc(cx, cy, 15, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.setLineDash([]);
+    }
+    
+    // Legend
+    ctx.fillStyle = '#666666';
+    ctx.font = '10px Courier New';
+    ctx.textAlign = 'left';
+    ctx.fillText('Legend:', 10, h - 100);
+    const legends = [
+        { color: '#00aaff', text: 'Liberty' },
+        { color: '#ff4400', text: 'Bretonia' },
+        { color: '#ffaa00', text: 'Rheinland' },
+        { color: '#ff00ff', text: 'Kusari' },
+        { color: '#44ff44', text: 'Independent' },
+        { color: '#aaaaaa', text: 'Pirate' }
+    ];
+    legends.forEach((l, i) => {
+        ctx.fillStyle = l.color;
+        ctx.beginPath();
+        ctx.arc(15, h - 80 + i * 15, 4, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = '#888888';
+        ctx.fillText(l.text, 25, h - 76 + i * 15);
+    });
+    
+    // Instructions
+    ctx.fillStyle = '#444444';
+    ctx.textAlign = 'right';
+    ctx.fillText('Mouse wheel zoom: ' + game.universeZoom.toFixed(1) + 'x', w - 10, h - 10);
+}
+
+document.getElementById('universe-canvas')?.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    const factor = e.deltaY < 0 ? 1.15 : 1 / 1.15;
+    game.universeZoom = clamp(game.universeZoom * factor, game.minUniverseZoom, game.maxUniverseZoom);
+    drawUniverseMap();
+});
+
+document.getElementById('btn-close-universe')?.addEventListener('click', toggleUniverseView);
+
+document.getElementById('map-canvas')?.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    const factor = e.deltaY < 0 ? 1.15 : 1 / 1.15;
+    game.mapZoom = clamp(game.mapZoom * factor, game.minMapZoom, game.maxMapZoom);
+    drawMapCanvas();
+});
+
+// Click on map to select
+document.getElementById('map-canvas')?.addEventListener('click', (e) => {
+    const rect = e.target.getBoundingClientRect();
+    const mx = e.clientX - rect.left;
+    const my = e.clientY - rect.top;
+    const world = screenToSystemMap(mx, my, getSystemMapTransform(e.target));
+    const worldX = world.x;
+    const worldZ = world.z;
+    
+    for (const station of systemData.stations) {
+        const dx = station.x - worldX;
+        const dz = station.z - worldZ;
+        if (Math.sqrt(dx * dx + dz * dz) < 5000) {
+            game.selectedTarget = game.entities.find(e => e.id === station.id);
+            addLog('Selected: ' + station.name);
+            drawMapCanvas();
+            return;
+        }
+    }
+
+    let nearestRing = null;
+    let nearestRingDist = Infinity;
+    for (const lane of systemData.tradeLanes) {
+        for (let i = 0; i < lane.rings.length; i++) {
+            const ring = lane.rings[i];
+            const dx = ring.x - worldX;
+            const dz = ring.z - worldZ;
+            const dist = Math.sqrt(dx * dx + dz * dz);
+            if (dist < 4200 && dist < nearestRingDist) {
+                nearestRing = findTradeLaneRingEntity(ring, i);
+                nearestRingDist = dist;
+            }
+        }
+    }
+    if (nearestRing) {
+        game.selectedTarget = nearestRing;
+        addLog('Selected: ' + nearestRing.name);
+        drawMapCanvas();
+        return;
+    }
+
+    for (const planet of systemData.planets) {
+        const dx = planet.x - worldX;
+        const dz = planet.z - worldZ;
+        if (Math.sqrt(dx * dx + dz * dz) < Math.max(8000, planet.radius)) {
+            game.selectedTarget = game.entities.find(e => e instanceof PlanetLocation && e.id === planet.id);
+            addLog('Selected: ' + planet.name);
+            drawMapCanvas();
+            return;
+        }
+    }
+
+    for (const gate of systemData.jumpgates) {
+        const dx = gate.x - worldX;
+        const dz = gate.z - worldZ;
+        if (Math.sqrt(dx * dx + dz * dz) < 5000) {
+            game.selectedTarget = game.entities.find(e => e.id === gate.id);
+            addLog('Selected: ' + gate.name);
+            drawMapCanvas();
+            return;
+        }
+    }
+});
+
+document.getElementById('btn-close-map')?.addEventListener('click', toggleMap);
+document.getElementById('btn-dock-map')?.addEventListener('click', () => {
+    if (game.selectedTarget && isDockableTarget(game.selectedTarget)) {
+        startDocking(game.selectedTarget);
+        toggleMap();
+    } else addLog('Select a station, planet, jump gate, jump hole, or trade lane ring first', 'alert');
+});
+// Command bar functions
+function setMode(mode) {
+    // Update button styles
+    document.querySelectorAll('.cmd-btn').forEach(btn => btn.classList.remove('active'));
+    document.getElementById('btn-' + mode)?.classList.add('active');
+    
+    if (mode === 'freeflight') {
+        returnToFreeflight('Freeflight mode - no autopilot');
+        return;
+    }
+    
+    if (!game.selectedTarget) {
+        addLog('Select a target first!', 'alert');
+        return;
+    }
+    
+    switch(mode) {
+        case 'approach':
+            game.approachTarget = game.selectedTarget;
+            addLog('Approaching: ' + game.selectedTarget.name);
+            break;
+        case 'dock':
+            if (isDockableTarget(game.selectedTarget)) {
+                startDocking(game.selectedTarget);
+            } else {
+                addLog('Can only dock at stations, planets, jump gates, jump holes, and trade lane rings!', 'alert');
+            }
+            break;
+    }
+}
+
+function showInventory() {
+    addLog('--- INVENTORY ---');
+    addLog('Credits: ' + game.player.credits);
+    addLog('Cargo: ' + cargoUnits() + '/' + game.player.maxCargo);
+    if (game.player.cargo.length > 0) {
+        for (const item of game.player.cargo) {
+            addLog('  - ' + item.name + ' x' + item.quantity);
+        }
+    }
+    addLog('Hull: ' + game.player.hull + '/' + game.player.maxHull);
+    addLog('Shield: ' + game.player.shield + '/' + game.player.maxShield);
+    addLog('Energy: ' + Math.round(game.player.energy) + '/' + game.player.maxEnergy);
+}
+
+function toggleInfoPanel() {
+    const panel = document.getElementById('info-panel');
+    if (panel.style.display === 'none') {
+        panel.style.display = 'block';
+        updateInfoPanel();
+    } else {
+        panel.style.display = 'none';
+    }
+}
+
+function updateInfoPanel() {
+    if (!game.selectedTarget) {
+        document.getElementById('info-name').innerHTML = '<span>Name:</span><span>-</span>';
+        document.getElementById('info-type').innerHTML = '<span>Type:</span><span>-</span>';
+        document.getElementById('info-faction').innerHTML = '<span>Faction:</span><span>-</span>';
+        document.getElementById('info-distance').innerHTML = '<span>Distance:</span><span>-</span>';
+        document.getElementById('info-status').innerHTML = '<span>Status:</span><span>-</span>';
+        document.getElementById('info-desc').textContent = '-';
+        return;
+    }
+    
+    const target = game.selectedTarget;
+    const dx = target.x - game.player.x;
+    const dz = target.z - game.player.z;
+    const dist = Math.round(Math.sqrt(dx*dx + dz*dz));
+    
+    document.getElementById('info-name').innerHTML = '<span>Name:</span><span>' + escapeHtml(target.name) + '</span>';
+    document.getElementById('info-type').innerHTML = '<span>Type:</span><span>' + escapeHtml(target.type || target.constructor.name) + '</span>';
+    document.getElementById('info-faction').innerHTML = '<span>Faction:</span><span>' + escapeHtml(target.faction || '-') + '</span>';
+    document.getElementById('info-distance').innerHTML = '<span>Distance:</span><span>' + dist + 'm</span>';
+    document.getElementById('info-status').innerHTML = '<span>Status:</span><span>' + (target instanceof Station ? 'Docked' : 'Active') + '</span>';
+    document.getElementById('info-desc').textContent = target.info || 'No infocard available';
+}
+
+document.getElementById('btn-approach-map')?.addEventListener('click', () => {
+    if (game.selectedTarget) {
+        game.approachTarget = game.selectedTarget;
+        addLog('Approaching: ' + game.selectedTarget.name);
+        toggleMap();
+    }
+});
+
+function getBaseId(location = game.landedBase) {
+    return String(location?.base || location?.dockWith || '').toLowerCase();
+}
+
+function getCommodityMarket(location = game.landedBase) {
+    const baseId = getBaseId(location);
+    if (!baseId || typeof FL_BASE_COMMODITY_MARKETS === 'undefined') return [];
+    return FL_BASE_COMMODITY_MARKETS[baseId] || [];
+}
+
+function openLandingWindow(target) {
+    game.isDocked = true;
+    game.landedBase = target;
+    game.player.throttle = 0;
+    game.player.speed = 0;
+    const overlay = document.getElementById('landing-overlay');
+    if (overlay) overlay.classList.remove('hidden');
+    const title = document.getElementById('landing-title');
+    if (title) title.textContent = t('landedAt') + ': ' + target.name;
+    addLog(t('landedAt') + ': ' + target.name);
+    showLandingDeck('launch');
+    saveGame();
+}
+
+function launchFromBase() {
+    document.getElementById('landing-overlay')?.classList.add('hidden');
+    game.isDocked = false;
+    game.landedBase = null;
+    game.player.throttle = 0;
+    saveGame();
+}
+
+function showLandingDeck(deck) {
+    game.landingDeck = deck;
+    document.querySelectorAll('.landing-tab').forEach(btn => btn.classList.toggle('active', btn.dataset.deck === deck));
+    const content = document.getElementById('landing-content');
+    if (!content) return;
+    const baseName = escapeHtml(game.landedBase?.name || systemData.name);
+    if (deck === 'launch') {
+        content.innerHTML = `<div style="color:#b9efff;font-size:14px;line-height:1.6;">${t('landedAt')}: <strong>${baseName}</strong><br>${t('credits')}: ${game.player.credits.toLocaleString()} CR<br>${t('cargo')}: ${cargoUnits()}/${game.player.maxCargo}</div>`;
+    } else if (deck === 'bar') {
+        content.innerHTML = `<div style="color:#9edfff;line-height:1.6;">${t('barText')}</div>`;
+    } else if (deck === 'equipment') {
+        content.innerHTML = `<div style="color:#ffaa00;">${t('noEquipment')}</div>`;
+    } else if (deck === 'trade') {
+        renderTradeDealer();
+    } else if (deck === 'ship') {
+        openShipShop();
+    }
+}
+
+function renderTradeDealer() {
+    const content = document.getElementById('landing-content');
+    if (!content) return;
+    const market = getCommodityMarket();
+    const cargo = game.player.cargo || [];
+    if (!market.length) {
+        content.innerHTML = `<div style="color:#ffaa00;">${t('noCommodityMarket')}</div>`;
+        return;
+    }
+    let html = `<div style="display:flex;justify-content:space-between;margin-bottom:10px;color:#b9efff;"><span>${t('credits')}: ${game.player.credits.toLocaleString()} CR</span><span>${t('cargo')}: ${cargoUnits()}/${game.player.maxCargo}</span></div>`;
+    html += `<table class="trade-table"><tr><th>${t('commodity')}</th><th>${t('price')}</th><th>${t('stock')}</th><th></th><th>${t('quantity')}</th><th></th></tr>`;
+    for (const entry of market) {
+        const commodity = getCommodity(entry.id);
+        if (!commodity) continue;
+        const cargoItem = findCargoItem(entry.id);
+        const canBuy = entry.forSale && game.player.credits >= entry.price && cargoUnits() < game.player.maxCargo;
+        const canSell = !!cargoItem && cargoItem.quantity > 0;
+        html += `<tr><td style="color:#00ff00;">${escapeHtml(commodity.name)}</td><td style="color:#ffaa00;">${entry.price.toLocaleString()} CR</td><td>${entry.forSale ? `${entry.stockMin}-${entry.stockMax}` : '-'}</td><td><button class="trade-button" onclick="buyCommodity('${entry.id}')" ${canBuy ? '' : 'disabled'}>${t('buy')}</button></td><td>${cargoItem ? cargoItem.quantity : 0}</td><td><button class="trade-button" onclick="sellCommodity('${entry.id}')" ${canSell ? '' : 'disabled'}>${t('sell')}</button></td></tr>`;
+    }
+    html += '</table>';
+    content.innerHTML = html;
+}
+
+function buyCommodity(commodityId) {
+    const marketEntry = getCommodityMarket().find(entry => entry.id === commodityId);
+    const commodity = getCommodity(commodityId);
+    if (!marketEntry || !commodity || !marketEntry.forSale || cargoUnits() >= game.player.maxCargo || game.player.credits < marketEntry.price) return;
+    game.player.credits -= marketEntry.price;
+    let cargoItem = findCargoItem(commodityId);
+    if (!cargoItem) {
+        cargoItem = { id: commodityId, name: commodity.name, quantity: 0, avgPrice: marketEntry.price };
+        game.player.cargo.push(cargoItem);
+    }
+    cargoItem.avgPrice = Math.round(((cargoItem.avgPrice || marketEntry.price) * cargoItem.quantity + marketEntry.price) / (cargoItem.quantity + 1));
+    cargoItem.quantity += 1;
+    saveGame();
+    renderTradeDealer();
+    updateHUD();
+}
+
+function sellCommodity(commodityId) {
+    const marketEntry = getCommodityMarket().find(entry => entry.id === commodityId);
+    const cargoItem = findCargoItem(commodityId);
+    if (!marketEntry || !cargoItem || cargoItem.quantity <= 0) return;
+    game.player.credits += marketEntry.price;
+    cargoItem.quantity -= 1;
+    if (cargoItem.quantity <= 0) game.player.cargo = game.player.cargo.filter(item => item.id !== commodityId);
+    saveGame();
+    renderTradeDealer();
+    updateHUD();
+}
+
+function openShipShop() {
+    const content = document.getElementById('landing-content');
+    if (!game.isDocked || !game.landedBase || !content) {
+        addLog(t('shipDealerDockOnly'), 'alert');
+        return;
+    }
+    
+    const dealer = findCurrentShipDealer();
+    const baseId = dealer ? String(dealer.base || dealer.dockWith || '').toLowerCase() : '';
+    const market = (typeof FL_BASE_SHIP_MARKETS !== 'undefined' && baseId) ? (FL_BASE_SHIP_MARKETS[baseId] || []) : [];
+    const ships = market.map(packageId => getShipPackage(packageId)).filter(Boolean);
+    let html = `<div style="display:flex;justify-content:space-between;gap:12px;margin-bottom:10px;color:#b9efff;flex-wrap:wrap;"><span>${t('shipDealer')}: ${escapeHtml(dealer ? dealer.name : systemData.name)}</span><span>${t('credits')}: ${game.player.credits.toLocaleString()} CR</span><span>Current Ship: ${escapeHtml(game.player.shipName || 'Unknown')}</span></div>`;
+
+    if (!ships.length) {
+        const dealerText = dealer && baseId ? escapeHtml(dealer.name + ' (' + baseId + ')') : 'No selected dockable base';
+        content.innerHTML = html + '<div style="padding:16px;color:#ffaa00;">' + t('noShipsSold') + '<br><span style="color:#88a;">Dealer: ' + dealerText + '</span></div>';
+        return;
+    }
+
+    html += '<table style="width:100%;border-collapse:collapse;">';
+    html += '<tr style="text-align:left;background:#002244;"><th style="padding:8px;">Ship</th><th style="padding:8px;">Type</th><th style="padding:8px;">Hull</th><th style="padding:8px;">Shield</th><th style="padding:8px;">Cargo</th><th style="padding:8px;">Price</th><th></th></tr>';
+    
+    for (const ship of ships) {
+        const canAfford = game.player.credits >= ship.price;
+        const stats = ship.stats || {};
+        const isCurrent = game.player.shipPackageId === ship.id;
+        const icon = ship.icon ? `<img src="${escapeHtml(ship.icon)}" style="width:34px;height:34px;object-fit:contain;vertical-align:middle;margin-right:8px;">` : '';
+        html += `<tr style="border-bottom:1px solid #222;">
+            <td style="padding:6px;color:#00ff00;">${icon}${escapeHtml(ship.name)}</td>
+            <td style="padding:6px;color:#888;">${escapeHtml(ship.type || '-')}</td>
+            <td style="padding:6px;color:#ff4444;">${stats.hull || '-'}</td>
+            <td style="padding:6px;color:#44aaff;">${stats.shield || '-'}</td>
+            <td style="padding:6px;color:#ffaa00;">${stats.holdSize || '-'}</td>
+            <td style="padding:6px;color:#ffaa00;">${ship.price.toLocaleString()} CR</td>
+            <td style="padding:6px;">
+                <button onclick="buyShip('${ship.id}')" ${(!canAfford || isCurrent) ? 'disabled' : ''}
+                    style="padding:5px 10px;background:${canAfford && !isCurrent?'#003300':'#222'};border:1px solid ${canAfford && !isCurrent?'#00aa00':'#555'};color:${canAfford && !isCurrent?'#00ff00':'#888'};cursor:${canAfford && !isCurrent?'pointer':'not-allowed'};">
+                    ${isCurrent ? 'OWNED' : 'BUY'}
+                </button>
+            </td>
+        </tr>`;
+    }
+    
+    html += '</table>';
+    content.innerHTML = html;
+}
+
+function findCurrentShipDealer() {
+    if ((game.landedBase instanceof Station || game.landedBase instanceof PlanetLocation) && (game.landedBase.base || game.landedBase.dockWith)) {
+        return game.landedBase;
+    }
+    if ((game.selectedTarget instanceof Station || game.selectedTarget instanceof PlanetLocation) && (game.selectedTarget.base || game.selectedTarget.dockWith)) {
+        return game.selectedTarget;
+    }
+    let nearest = null;
+    let nearestDist = Infinity;
+    for (const entity of game.entities) {
+        if (!(entity instanceof Station) || !(entity.base || entity.dockWith)) continue;
+        const dx = entity.x - game.player.x;
+        const dz = entity.z - game.player.z;
+        const dist = Math.sqrt(dx * dx + dz * dz);
+        if (dist < nearestDist) {
+            nearestDist = dist;
+            nearest = entity;
+        }
+    }
+    return nearestDist < 2500 ? nearest : (nearest || null);
+}
+
+window.buyShip = function(packageId) {
+    if (!game.isDocked || !game.landedBase) {
+        addLog(t('shipDealerDockOnly'), 'alert');
+        return;
+    }
+    const shipPackage = getShipPackage(packageId);
+    if (!shipPackage) {
+        addLog('Ship package not found: ' + packageId, 'alert');
+        return;
+    }
+    if (game.player.shipPackageId === shipPackage.id) return;
+    if (game.player.credits >= shipPackage.price) {
+        game.player.credits -= shipPackage.price;
+        applyShipPackage(shipPackage.id, true);
+        saveGame(true);
+        openShipShop(); // Refresh list
+    } else {
+        addLog('Not enough credits!', 'alert');
+    }
+};
+
+function init() {
+    game.canvas = document.getElementById('game-canvas');
+    game.ctx = game.canvas.getContext('2d');
+    game.width = window.innerWidth;
+    game.height = window.innerHeight;
+    game.canvas.width = game.width;
+    game.canvas.height = game.height;
+
+    const savedGame = readSavedGame();
+    game.saveLoaded = !!savedGame;
+    if (savedGame?.currentSystemId) {
+        currentSystemId = savedGame.currentSystemId;
+        systemData = buildSystemData(currentSystemId);
+    }
+    if (savedGame?.language === 'en' || savedGame?.language === 'de') game.language = savedGame.language;
+    if (Number.isFinite(savedGame?.gameTime)) game.gameTime = savedGame.gameTime;
+    if (Number.isFinite(savedGame?.zoom)) game.zoom = Math.max(game.minZoom, Math.min(game.maxZoom, savedGame.zoom));
+    updateSystemHud();
+    updateSaveHint(savedGame);
+    applyLanguage();
+    
+    window.addEventListener('resize', () => {
+        game.width = window.innerWidth;
+        game.height = window.innerHeight;
+        game.canvas.width = game.width;
+        game.canvas.height = game.height;
+    });
+    
+    setupInput();
+    initStars();
+    
+    game.player = new PlayerShip(6173, -50515);
+    applyShipPackage('gf1_package');
+    if (savedGame) restorePlayerFromSave(savedGame);
+    rebuildEntities();
+    
+    const npcTypes = ['trader', 'trader', 'civilian', 'pirate', 'police'];
+    for (let i = 0; i < 12; i++) {
+        game.npcs.push(createNPC(npcTypes[i % npcTypes.length]));
+    }
+    
+    document.getElementById('btn-start').addEventListener('click', startGame);
+    document.getElementById('btn-new-game')?.addEventListener('click', () => {
+        clearSavedGame();
+        window.location.reload();
+    });
+    window.addEventListener('beforeunload', () => saveGame());
+}
+
+function startGame() {
+    document.getElementById('start-screen').classList.add('hidden');
+    game.running = true;
+    game.lastTime = performance.now();
+    
+    if (!game.saveLoaded) {
+        // Start ship at Ft. Bush Station position (safe area, not in sun)
+        game.player.x = 6173;
+        game.player.z = -50515;
+        game.player.throttle = 0.8; // 80% throttle
+        game.player.rotation = -Math.PI / 2; // Face right (toward open space)
+        game.zoom = 0.8; // Zoom out a bit
+    }
+    
+    addLog((game.saveLoaded ? 'Spielstand geladen: ' : 'Welcome to ') + systemData.name + ', pilot!');
+    addLog('W/S: throttle | A/D: approach/dock | M: map');
+    saveGame();
+    console.log('Game started! Player at:', game.player.x, game.player.z);
+    console.log('Throttle:', game.player.throttle, 'MaxSpeed:', game.player.maxSpeed);
+    requestAnimationFrame(gameLoop);
+}
+
+document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>

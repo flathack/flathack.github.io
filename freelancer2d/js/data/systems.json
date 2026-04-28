@@ -1,0 +1,134 @@
+{
+  "systems": [
+    {
+      "id": "sigma-7",
+      "name": "Sigma Sector",
+      "description": "A major industrial hub with active mining operations and trade routes",
+      "faction": "trader_guild",
+      "background": "industrial_nebula_blue",
+      "ambientColor": [30, 50, 80],
+      "bounds": { "width": 8000, "height": 6000 },
+      "connectedSystems": [
+        { "system": "nexus-prime", "gate": "sigma-nexus-gate" },
+        { "system": "tau-12", "hole": "sigma-tau-hole" }
+      ],
+      "zones": [
+        {
+          "id": "main-hub",
+          "center": { "x": 0, "y": 0 },
+          "size": { "rx": 3000, "ry": 2000 },
+          "faction": "trader_guild",
+          "lawLevel": "high",
+          "trafficDensity": "high"
+        },
+        {
+          "id": "mining-zone",
+          "center": { "x": 2000, "y": 1000 },
+          "size": { "rx": 1000, "ry": 800 },
+          "faction": "trilon_mining_corp",
+          "lawLevel": "medium",
+          "trafficDensity": "medium"
+        },
+        {
+          "id": "frontier",
+          "center": { "x": -2500, "y": -1500 },
+          "size": { "rx": 1500, "ry": 1200 },
+          "faction": "shadow_syndicate",
+          "lawLevel": "none",
+          "trafficDensity": "low"
+        }
+      ]
+    },
+    {
+      "id": "nexus-prime",
+      "name": "Nexus Prime",
+      "description": "The central trading hub of the region, home to major corporations",
+      "faction": "co_me_grp",
+      "background": "trade_nebula_green",
+      "ambientColor": [40, 70, 50],
+      "bounds": { "width": 10000, "height": 8000 },
+      "connectedSystems": [
+        { "system": "sigma-7", "gate": "nexus-sigma-gate" },
+        { "system": "epsilon-3", "gate": "nexus-epsilon-gate" },
+        { "system": "deep-space-alpha", "hole": "nexus-alpha-hole" }
+      ],
+      "zones": [
+        {
+          "id": "trade-hub",
+          "center": { "x": 0, "y": 0 },
+          "size": { "rx": 4000, "ry": 3000 },
+          "faction": "co_me_grp",
+          "lawLevel": "high",
+          "trafficDensity": "very_high"
+        }
+      ]
+    },
+    {
+      "id": "tau-12",
+      "name": "Tau-12",
+      "description": "Remote mining outpost with valuable asteroid fields",
+      "faction": "trilon_mining_corp",
+      "background": "asteroid_red",
+      "ambientColor": [60, 30, 30],
+      "bounds": { "width": 6000, "height": 6000 },
+      "connectedSystems": [
+        { "system": "sigma-7", "hole": "tau-sigma-hole" }
+      ],
+      "zones": [
+        {
+          "id": "asteroid-belt",
+          "center": { "x": 0, "y": 0 },
+          "size": { "rx": 2500, "ry": 2000 },
+          "faction": "trilon_mining_corp",
+          "lawLevel": "low",
+          "trafficDensity": "medium"
+        }
+      ]
+    },
+    {
+      "id": "epsilon-3",
+      "name": "Epsilon-3",
+      "description": "Lawless frontier sector with pirate activity",
+      "faction": "fc_lr_grp",
+      "background": "frontier_purple",
+      "ambientColor": [50, 20, 60],
+      "bounds": { "width": 7000, "height": 5000 },
+      "connectedSystems": [
+        { "system": "nexus-prime", "gate": "epsilon-nexus-gate" },
+        { "system": "rogue-space", "hole": "epsilon-rogue-hole" }
+      ],
+      "zones": [
+        {
+          "id": "pirate-zone",
+          "center": { "x": -1000, "y": 500 },
+          "size": { "rx": 1500, "ry": 1200 },
+          "faction": "fc_lr_grp",
+          "lawLevel": "none",
+          "trafficDensity": "medium"
+        }
+      ]
+    },
+    {
+      "id": "deep-space-alpha",
+      "name": "Deep Space Alpha",
+      "description": "Unexplored sector with mysterious signals",
+      "faction": "neutral",
+      "background": "deep_space_dark",
+      "ambientColor": [10, 10, 20],
+      "bounds": { "width": 12000, "height": 10000 },
+      "connectedSystems": [
+        { "system": "nexus-prime", "hole": "alpha-nexus-hole" }
+      ],
+      "zones": [
+        {
+          "id": "unknown-zone",
+          "center": { "x": 0, "y": 0 },
+          "size": { "rx": 5000, "ry": 4000 },
+          "faction": "neutral",
+          "lawLevel": "none",
+          "trafficDensity": "very_low"
+        }
+      ]
+    }
+  ]
+}

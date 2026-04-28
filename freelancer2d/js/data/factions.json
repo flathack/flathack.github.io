@@ -1,0 +1,103 @@
+{
+  "factions": [
+    {
+      "id": "trader_guild",
+      "name": "Trader's Guild",
+      "color": "#44AA44",
+      "type": "corporation",
+      "allegiances": ["co_me_grp"],
+      "hostilities": ["fc_lr_grp", "shadow_syndicate"],
+      "baseReputation": 0
+    },
+    {
+      "id": "co_me_grp",
+      "name": "Corporate Holdings",
+      "color": "#4488CC",
+      "type": "corporation",
+      "allegiances": ["trader_guild"],
+      "hostilities": ["fc_lr_grp"],
+      "baseReputation": 0
+    },
+    {
+      "id": "co_os_grp",
+      "name": "Out_SYSTEM Industries",
+      "color": "#884488",
+      "type": "corporation",
+      "allegiances": [],
+      "hostilities": [],
+      "baseReputation": 0
+    },
+    {
+      "id": "trilon_mining_corp",
+      "name": "Trilon Mining Corporation",
+      "color": "#AA8844",
+      "type": "corporation",
+      "allegiances": ["co_me_grp"],
+      "hostilities": ["fc_lr_grp"],
+      "baseReputation": 0
+    },
+    {
+      "id": "li_p_grp",
+      "name": "Planetary Defense Force",
+      "color": "#4488FF",
+      "type": "military",
+      "allegiances": ["co_me_grp"],
+      "hostilities": ["fc_lr_grp", "shadow_syndicate"],
+      "baseReputation": 0
+    },
+    {
+      "id": "fc_lr_grp",
+      "name": "Frontier Corsairs",
+      "color": "#AA4444",
+      "type": "pirate",
+      "allegiances": ["shadow_syndicate"],
+      "hostilities": ["trader_guild", "co_me_grp", "trilon_mining_corp", "li_p_grp"],
+      "baseReputation": -75
+    },
+    {
+      "id": "shadow_syndicate",
+      "name": "Shadow Syndicate",
+      "color": "#884444",
+      "type": "pirate",
+      "allegiances": ["fc_lr_grp"],
+      "hostilities": ["trader_guild", "co_me_grp"],
+      "baseReputation": -90
+    },
+    {
+      "id": "co_nws_grp",
+      "name": "New World Shipping",
+      "color": "#888888",
+      "type": "civilian",
+      "allegiances": [],
+      "hostilities": [],
+      "baseReputation": 0
+    },
+    {
+      "id": "co_be_grp",
+      "name": "Beacon Transport",
+      "color": "#888888",
+      "type": "civilian",
+      "allegiances": [],
+      "hostilities": [],
+      "baseReputation": 0
+    },
+    {
+      "id": "police_force",
+      "name": "System Security",
+      "color": "#4444AA",
+      "type": "law_enforcement",
+      "allegiances": ["li_p_grp"],
+      "hostilities": ["fc_lr_grp", "shadow_syndicate"],
+      "baseReputation": 0
+    },
+    {
+      "id": "neutral",
+      "name": "Independent",
+      "color": "#666666",
+      "type": "neutral",
+      "allegiances": [],
+      "hostilities": [],
+      "baseReputation": 0
+    }
+  ]
+}
