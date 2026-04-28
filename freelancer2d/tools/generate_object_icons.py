@@ -9,16 +9,18 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-FL_ROOT = Path("C:/Users/steve/Github/FL-Installationen/Freelancer-HD")
-FL_DATA = FL_ROOT / "DATA"
 FLATLAS_ROOT = Path("C:/Users/steve/Github/FLAtlas")
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from fl_config import freelancer_data, freelancer_root, output_data_dir  # noqa: E402
 from extract_ship_market_data import first, parse_ini_sections  # noqa: E402
+
+FL_ROOT = freelancer_root()
+FL_DATA = freelancer_data()
 
 
 def used_archetypes() -> set[str]:
-    systems_path = ROOT / "data" / "systems.json"
+    systems_path = output_data_dir(ROOT / "data") / "systems.json"
     systems = json.loads(systems_path.read_text(encoding="utf-8"))
     archetypes = {"trade_lane_ring"}
     for system in systems.values():
@@ -60,7 +62,8 @@ def main() -> None:
     from fl_editor.top_view_icons import render_native_scene_top_view_icon
 
     app = QApplication.instance() or QApplication([])
-    icon_dir = ROOT / "data" / "object_icons"
+    data_dir = output_data_dir(ROOT / "data")
+    icon_dir = data_dir / "object_icons"
     icon_dir.mkdir(parents=True, exist_ok=True)
     solar = solar_archetypes()
     icons: dict[str, str] = {}
@@ -78,7 +81,7 @@ def main() -> None:
             icons[archetype] = f"data/object_icons/{archetype}.png"
             rendered += 1
 
-    output = ROOT / "data" / "object_icons.js"
+    output = data_dir / "object_icons.js"
     with output.open("w", encoding="utf-8") as handle:
         handle.write("// Auto-generated object icon lookup\n")
         handle.write("// Generated from Freelancer HD solararch.ini via FLAtlas top-view renderer\n\n")

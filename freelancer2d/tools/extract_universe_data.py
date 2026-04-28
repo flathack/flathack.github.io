@@ -11,15 +11,17 @@ import json
 from pathlib import Path
 from typing import Optional, Dict, List, Set
 
+from fl_config import freelancer_data, freelancer_exe, freelancer_root, output_data_dir
+
 try:
     import pefile
 except ImportError:
     pefile = None
 
 # Base paths
-FL_DATA = Path('C:/Users/steve/Github/FL-Installationen/Freelancer-HD/DATA')
-FL_ROOT = FL_DATA.parent
-FL_EXE = FL_ROOT / 'EXE'
+FL_ROOT = freelancer_root()
+FL_DATA = freelancer_data()
+FL_EXE = freelancer_exe()
 UNIVERSE_DIR = FL_DATA / 'UNIVERSE'
 RESOURCE_DLLS = [
     'infocards.dll',
@@ -59,7 +61,14 @@ def parse_ini_file_with_duplicates(filepath: Path) -> list:
                     if len(parts) == 2:
                         key = parts[0].strip()
                         value = parts[1].strip()
-                        current_props[key] = value
+                        if key in current_props:
+                            existing = current_props[key]
+                            if isinstance(existing, list):
+                                existing.append(value)
+                            else:
+                                current_props[key] = [existing, value]
+                        else:
+                            current_props[key] = value
         
         if current_section is not None:
             sections.append((current_section, current_props))
@@ -72,14 +81,25 @@ def parse_ini_file_with_duplicates(filepath: Path) -> list:
 def get_prop(props: dict, key: str, default=''):
     """Get property, handling case sensitivity."""
     if key in props:
-        return props[key]
+        value = props[key]
+        return value[-1] if isinstance(value, list) and value else value
     lower_key = key.lower()
     if lower_key in props:
-        return props[lower_key]
+        value = props[lower_key]
+        return value[-1] if isinstance(value, list) and value else value
     upper_key = key.upper()
     if upper_key in props:
-        return props[upper_key]
+        value = props[upper_key]
+        return value[-1] if isinstance(value, list) and value else value
     return default
+
+def get_all_props(props: dict, key: str) -> list[str]:
+    """Get all values for a possibly repeated property."""
+    for candidate in (key, key.lower(), key.upper()):
+        if candidate in props:
+            value = props[candidate]
+            return value if isinstance(value, list) else [value]
+    return []
 
 def parse_float(value: str, default: float = 0.0) -> float:
     try:
@@ -109,6 +129,9 @@ def load_solar_arch() -> dict:
 
 def solar_info(archetype: str) -> dict:
     return SOLAR_ARCH.get(str(archetype or '').lower(), {})
+
+def object_reputation(props: dict) -> str:
+    return get_prop(props, 'reputation', get_prop(props, 'faction', '')).split(',', 1)[0].strip()
 
 def is_true_planet_archetype(archetype: str, solar_type: str) -> bool:
     value = str(archetype or '').lower()
@@ -423,7 +446,8 @@ def extract_system_data(system_name: str) -> dict:
         'asteroidfields': [],
         'nebulae': [],
         'zones': [],
-        'missionZones': []
+        'missionZones': [],
+        'populationZones': []
     }
     
     if not system_ini.exists():
@@ -487,6 +511,34 @@ def extract_system_data(system_name: str) -> dict:
                     mission_zone = dict(zone_map[zone_nickname])
                     mission_zone['vignette_type'] = get_prop(props, 'vignette_type', '')
                     result['missionZones'].append(mission_zone)
+                encounter_values = get_all_props(props, 'encounter')
+                faction_values = get_all_props(props, 'faction')
+                density = parse_float(get_prop(props, 'density', '0'), 0)
+                if encounter_values or faction_values or density > 0:
+                    population_zone = dict(zone_map[zone_nickname])
+                    population_zone['density'] = density
+                    population_zone['population_additive'] = parse_float(get_prop(props, 'population_additive', '0'), 0)
+                    population_zone['relief_time'] = parse_float(get_prop(props, 'relief_time', '30'), 30)
+                    population_zone['encounters'] = []
+                    for value in encounter_values:
+                        parts = [part.strip() for part in str(value).split(',')]
+                        if not parts or not parts[0]:
+                            continue
+                        population_zone['encounters'].append({
+                            'id': parts[0],
+                            'difficulty': parse_float(parts[1], 1) if len(parts) > 1 else 1,
+                            'weight': parse_float(parts[2], 1) if len(parts) > 2 else 1,
+                        })
+                    population_zone['factions'] = []
+                    for value in faction_values:
+                        parts = [part.strip() for part in str(value).split(',')]
+                        if not parts or not parts[0]:
+                            continue
+                        population_zone['factions'].append({
+                            'id': parts[0],
+                            'weight': parse_float(parts[1], 1) if len(parts) > 1 else 1,
+                        })
+                    result['populationZones'].append(population_zone)
     
     # Second pass: process all sections
     for section_name, props in sections:
@@ -573,6 +625,8 @@ def extract_system_data(system_name: str) -> dict:
                 'x': pos[0], 'y': pos[1], 'z': pos[2],
                 'next_ring': get_prop(props, 'next_ring', ''),
                 'prev_ring': get_prop(props, 'prev_ring', ''),
+                'faction': object_reputation(props),
+                'loadout': get_prop(props, 'loadout', ''),
                 'rotate_y': 0
             }
             ring['rotate_y'] = parse_rotation_y(get_prop(props, 'rotate', '0,0,0'))
@@ -603,6 +657,8 @@ def extract_system_data(system_name: str) -> dict:
                 'solar_radius': arch.get('solar_radius', 600),
                 'dest_system': dest_system,
                 'dest_gate': dest_gate,
+                'faction': object_reputation(props),
+                'loadout': get_prop(props, 'loadout', ''),
                 'rotate_y': rotate_y
             }
             result['jumpgates'].append(gate)
@@ -629,6 +685,8 @@ def extract_system_data(system_name: str) -> dict:
                 'solar_radius': arch.get('solar_radius', 600),
                 'dest_system': dest_system,
                 'dest_hole': dest_hole,
+                'faction': object_reputation(props),
+                'loadout': get_prop(props, 'loadout', ''),
                 'rotate_y': parse_rotation_y(get_prop(props, 'rotate', '0,0,0'))
             }
             result['jumpholes'].append(hole)
@@ -655,6 +713,10 @@ def extract_system_data(system_name: str) -> dict:
                 'solar_radius': radius,
                 'atmosphere_range': parse_float(get_prop(props, 'atmosphere_range', ''), radius * 1.25),
                 'spin': get_prop(props, 'spin', ''),
+                'faction': object_reputation(props),
+                'loadout': get_prop(props, 'loadout', ''),
+                'base': get_prop(props, 'base', ''),
+                'dock_with': get_prop(props, 'dock_with', ''),
                 'has_ring': 'ring' in archetype or 'ring' in arch.get('da_archetype', '').lower() or 'ring' in arch.get('shape_name', '').lower()
             }
             if is_true_sun_archetype(archetype, solar_type):
@@ -680,7 +742,8 @@ def extract_system_data(system_name: str) -> dict:
                 'solar_radius': arch.get('solar_radius', 600),
                 'rotate_y': parse_rotation_y(get_prop(props, 'rotate', '0,0,0')),
                 'base': get_prop(props, 'base', ''),
-                'faction': get_prop(props, 'faction', ''),
+                'faction': object_reputation(props),
+                'loadout': get_prop(props, 'loadout', ''),
                 'dock_with': get_prop(props, 'dock_with', '')
             }
             result['stations'].append(station)
@@ -804,8 +867,8 @@ def main():
             sys_data['ids_info'] = universe_entry.get('ids_info', '')
             sys_data['info'] = universe_entry.get('info', '')
     
-    output_dir = Path(__file__).parent.parent
-    systems_file = output_dir / 'data' / 'systems.json'
+    data_dir = output_data_dir(Path(__file__).parent.parent / 'data')
+    systems_file = data_dir / 'systems.json'
     systems_file.parent.mkdir(exist_ok=True)
     
     with open(systems_file, 'w', encoding='utf-8') as f:
@@ -814,7 +877,7 @@ def main():
     
     print()
     print("3. Saving universe map...")
-    universe_file = output_dir / 'data' / 'universe_map.json'
+    universe_file = data_dir / 'universe_map.json'
     with open(universe_file, 'w', encoding='utf-8') as f:
         json.dump(universe_map, f, indent=2, ensure_ascii=False)
     print(f"   Saved to {universe_file}")
@@ -886,12 +949,13 @@ def main():
             'suns': sys_data.get('suns', []),
             'zones': sys_data.get('zones', []),
             'missionZones': sys_data.get('missionZones', []),
+            'populationZones': sys_data.get('populationZones', []),
             'asteroidfields': sys_data.get('asteroidfields', []),
             'tradelanes': tradelanes,  # Note: spelled tradelanes in output
             'nebulae': sys_data.get('nebulae', [])
         }
     
-    game_data_file = output_dir / 'data' / 'game_systems.js'
+    game_data_file = data_dir / 'game_systems.js'
     with open(game_data_file, 'w', encoding='utf-8') as f:
         f.write("// Auto-generated game systems data\n")
         f.write("// Generated from Freelancer HD installation\n\n")

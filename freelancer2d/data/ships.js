@@ -43,8 +43,7 @@ const FL_SHIPS = {
     },
     "turnRate": 1.49,
     "firePower": 6,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\BOUNTY_HUNTER\\BH_ELITE\\bh_elite.cmp",
-    "icon": "data/ship_icons/bh_elite.png"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\BOUNTY_HUNTER\\BH_ELITE\\bh_elite.cmp"
   },
   "bh_elite2": {
     "id": "bh_elite2",
@@ -87,8 +86,7 @@ const FL_SHIPS = {
     },
     "turnRate": 1.11,
     "firePower": 9,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\BOUNTY_HUNTER\\BH_VHEAVY_FIGHTER\\bh_vheavy_fighter.cmp",
-    "icon": "data/ship_icons/bh_elite2.png"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\BOUNTY_HUNTER\\BH_VHEAVY_FIGHTER\\bh_vheavy_fighter.cmp"
   },
   "bh_fighter": {
     "id": "bh_fighter",
@@ -131,8 +129,7 @@ const FL_SHIPS = {
     },
     "turnRate": 2.15,
     "firePower": 4,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\BOUNTY_HUNTER\\BH_FIGHTER\\bh_fighter.cmp",
-    "icon": "data/ship_icons/bh_fighter.png"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\BOUNTY_HUNTER\\BH_FIGHTER\\bh_fighter.cmp"
   },
   "br_elite": {
     "id": "br_elite",
@@ -175,8 +172,7 @@ const FL_SHIPS = {
     },
     "turnRate": 1.49,
     "firePower": 5,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\BRETONIA\\BR_ELITE\\br_elite.cmp",
-    "icon": "data/ship_icons/br_elite.png"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\BRETONIA\\BR_ELITE\\br_elite.cmp"
   },
   "br_fighter": {
     "id": "br_fighter",
@@ -219,8 +215,7 @@ const FL_SHIPS = {
     },
     "turnRate": 2.15,
     "firePower": 5,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\BRETONIA\\BR_FIGHTER\\br_fighter.cmp",
-    "icon": "data/ship_icons/br_fighter.png"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\BRETONIA\\BR_FIGHTER\\br_fighter.cmp"
   },
   "br_freighter": {
     "id": "br_freighter",
@@ -263,8 +258,7 @@ const FL_SHIPS = {
     },
     "turnRate": 1.02,
     "firePower": 4,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\BRETONIA\\BR_FREIGHTER\\br_freighter.cmp",
-    "icon": "data/ship_icons/br_freighter.png"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\BRETONIA\\BR_FREIGHTER\\br_freighter.cmp"
   },
   "bw_elite": {
     "id": "bw_elite",
@@ -307,8 +301,7 @@ const FL_SHIPS = {
     },
     "turnRate": 1.49,
     "firePower": 7,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\BORDER_WORLD\\BW_ELITE\\bw_elite.cmp",
-    "icon": "data/ship_icons/bw_elite.png"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\BORDER_WORLD\\BW_ELITE\\bw_elite.cmp"
   },
   "bw_elite2": {
     "id": "bw_elite2",
@@ -351,8 +344,7 @@ const FL_SHIPS = {
     },
     "turnRate": 1.97,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\BORDER_WORLD\\BW_VHEAVY_FIGHTER\\bw_vheavy_fighter.cmp",
-    "icon": "data/ship_icons/bw_elite2.png"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\BORDER_WORLD\\BW_VHEAVY_FIGHTER\\bw_vheavy_fighter.cmp"
   },
   "bw_fighter": {
     "id": "bw_fighter",
@@ -395,8 +387,7 @@ const FL_SHIPS = {
     },
     "turnRate": 2.15,
     "firePower": 4,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\BORDER_WORLD\\BW_FIGHTER\\bw_fighter.cmp",
-    "icon": "data/ship_icons/bw_fighter.png"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\BORDER_WORLD\\BW_FIGHTER\\bw_fighter.cmp"
   },
   "bw_freighter": {
     "id": "bw_freighter",
@@ -439,8 +430,7 @@ const FL_SHIPS = {
     },
     "turnRate": 0.75,
     "firePower": 6,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\BORDER_WORLD\\BW_FREIGHTER\\bw_freighter.cmp",
-    "icon": "data/ship_icons/bw_freighter.png"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\BORDER_WORLD\\BW_FREIGHTER\\bw_freighter.cmp"
   },
   "co_elite": {
     "id": "co_elite",
@@ -483,8 +473,7 @@ const FL_SHIPS = {
     },
     "turnRate": 1.49,
     "firePower": 9,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\PIRATE\\PI_ELITE\\pi_elite.cmp",
-    "icon": "data/ship_icons/co_elite.png"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\PIRATE\\PI_ELITE\\pi_elite.cmp"
   },
   "co_elite2": {
     "id": "co_elite2",
@@ -527,8 +516,7 @@ const FL_SHIPS = {
     },
     "turnRate": 1.11,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\PIRATE\\PI_VHEAVY_FIGHTER\\pi_vheavy_fighter.cmp",
-    "icon": "data/ship_icons/co_elite2.png"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\PIRATE\\PI_VHEAVY_FIGHTER\\pi_vheavy_fighter.cmp"
   },
   "co_fighter": {
     "id": "co_fighter",
@@ -571,8 +559,7 @@ const FL_SHIPS = {
     },
     "turnRate": 2.57,
     "firePower": 5,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\PIRATE\\PI_FIGHTER\\pi_fighter.cmp",
-    "icon": "data/ship_icons/co_fighter.png"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\PIRATE\\PI_FIGHTER\\pi_fighter.cmp"
   },
   "ge_fighter": {
     "id": "ge_fighter",
@@ -615,8 +602,7 @@ const FL_SHIPS = {
     },
     "turnRate": 2.15,
     "firePower": 3,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\CIVILIAN\\CV_STARFLIER\\cv_starflier.cmp",
-    "icon": "data/ship_icons/ge_fighter.png"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\CIVILIAN\\CV_STARFLIER\\cv_starflier.cmp"
   },
   "ge_fighter2": {
     "id": "ge_fighter2",
@@ -659,8 +645,7 @@ const FL_SHIPS = {
     },
     "turnRate": 2.15,
     "firePower": 4,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\CIVILIAN\\CV_STARTRACKER\\cv_startracker.cmp",
-    "icon": "data/ship_icons/ge_fighter2.png"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\CIVILIAN\\CV_STARTRACKER\\cv_startracker.cmp"
   },
   "ge_fighter4": {
     "id": "ge_fighter4",
@@ -703,8 +688,7 @@ const FL_SHIPS = {
     },
     "turnRate": 2.15,
     "firePower": 6,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\CIVILIAN\\CV_FIGHTER\\cv_fighter.cmp",
-    "icon": "data/ship_icons/ge_fighter4.png"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\CIVILIAN\\CV_FIGHTER\\cv_fighter.cmp"
   },
   "ge_fighter5": {
     "id": "ge_fighter5",
@@ -747,8 +731,7 @@ const FL_SHIPS = {
     },
     "turnRate": 1.72,
     "firePower": 8,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\CIVILIAN\\CV_ELITE\\cv_elite.cmp",
-    "icon": "data/ship_icons/ge_fighter5.png"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\CIVILIAN\\CV_ELITE\\cv_elite.cmp"
   },
   "ge_fighter6": {
     "id": "ge_fighter6",
@@ -791,8 +774,7 @@ const FL_SHIPS = {
     },
     "turnRate": 1.72,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\CIVILIAN\\CV_VHEAVY_FIGHTER\\cv_vheavy_fighter.cmp",
-    "icon": "data/ship_icons/ge_fighter6.png"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\CIVILIAN\\CV_VHEAVY_FIGHTER\\cv_vheavy_fighter.cmp"
   },
   "ku_elite": {
     "id": "ku_elite",
@@ -835,8 +817,7 @@ const FL_SHIPS = {
     },
     "turnRate": 1.49,
     "firePower": 6,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\KUSARI\\KU_ELITE\\ku_elite.cmp",
-    "icon": "data/ship_icons/ku_elite.png"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\KUSARI\\KU_ELITE\\ku_elite.cmp"
   },
   "ku_fighter": {
     "id": "ku_fighter",
@@ -879,8 +860,7 @@ const FL_SHIPS = {
     },
     "turnRate": 2.15,
     "firePower": 6,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\KUSARI\\KU_FIGHTER\\ku_fighter.cmp",
-    "icon": "data/ship_icons/ku_fighter.png"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\KUSARI\\KU_FIGHTER\\ku_fighter.cmp"
   },
   "ku_freighter": {
     "id": "ku_freighter",
@@ -923,8 +903,7 @@ const FL_SHIPS = {
     },
     "turnRate": 1.02,
     "firePower": 6,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\KUSARI\\KU_FREIGHTER\\ku_freighter.cmp",
-    "icon": "data/ship_icons/ku_freighter.png"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\KUSARI\\KU_FREIGHTER\\ku_freighter.cmp"
   },
   "li_elite": {
     "id": "li_elite",
@@ -967,8 +946,7 @@ const FL_SHIPS = {
     },
     "turnRate": 1.49,
     "firePower": 4,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\LIBERTY\\LI_ELITE\\li_elite.cmp",
-    "icon": "data/ship_icons/li_elite.png"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\LIBERTY\\LI_ELITE\\li_elite.cmp"
   },
   "li_fighter": {
     "id": "li_fighter",
@@ -1011,8 +989,7 @@ const FL_SHIPS = {
     },
     "turnRate": 2.15,
     "firePower": 3,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\LIBERTY\\LI_FIGHTER\\li_fighter.cmp",
-    "icon": "data/ship_icons/li_fighter.png"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\LIBERTY\\LI_FIGHTER\\li_fighter.cmp"
   },
   "li_freighter": {
     "id": "li_freighter",
@@ -1055,8 +1032,7 @@ const FL_SHIPS = {
     },
     "turnRate": 1.02,
     "firePower": 3,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\LIBERTY\\LI_FREIGHTER\\li_freighter.cmp",
-    "icon": "data/ship_icons/li_freighter.png"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\LIBERTY\\LI_FREIGHTER\\li_freighter.cmp"
   },
   "or_elite": {
     "id": "or_elite",
@@ -1099,8 +1075,7 @@ const FL_SHIPS = {
     },
     "turnRate": 1.49,
     "firePower": 6,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\ORDER\\OR_ELITE\\or_elite.cmp",
-    "icon": "data/ship_icons/or_elite.png"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\ORDER\\OR_ELITE\\or_elite.cmp"
   },
   "pi_elite": {
     "id": "pi_elite",
@@ -1143,8 +1118,7 @@ const FL_SHIPS = {
     },
     "turnRate": 1.49,
     "firePower": 6,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\CORSAIR\\CO_ELITE\\co_elite.cmp",
-    "icon": "data/ship_icons/pi_elite.png"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\CORSAIR\\CO_ELITE\\co_elite.cmp"
   },
   "pi_fighter": {
     "id": "pi_fighter",
@@ -1187,8 +1161,7 @@ const FL_SHIPS = {
     },
     "turnRate": 2.15,
     "firePower": 4,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\CORSAIR\\CO_FIGHTER\\co_fighter.cmp",
-    "icon": "data/ship_icons/pi_fighter.png"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\CORSAIR\\CO_FIGHTER\\co_fighter.cmp"
   },
   "pi_freighter": {
     "id": "pi_freighter",
@@ -1231,8 +1204,7 @@ const FL_SHIPS = {
     },
     "turnRate": 1.02,
     "firePower": 4,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\CORSAIR\\CO_FREIGHTER\\co_freighter.cmp",
-    "icon": "data/ship_icons/pi_freighter.png"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\CORSAIR\\CO_FREIGHTER\\co_freighter.cmp"
   },
   "rh_elite": {
     "id": "rh_elite",
@@ -1275,8 +1247,7 @@ const FL_SHIPS = {
     },
     "turnRate": 1.49,
     "firePower": 8,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\RHEINLAND\\RH_ELITE\\rh_elite.cmp",
-    "icon": "data/ship_icons/rh_elite.png"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\RHEINLAND\\RH_ELITE\\rh_elite.cmp"
   },
   "rh_fighter": {
     "id": "rh_fighter",
@@ -1319,8 +1290,7 @@ const FL_SHIPS = {
     },
     "turnRate": 2.15,
     "firePower": 7,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\RHEINLAND\\RH_FIGHTER\\rh_fighter.cmp",
-    "icon": "data/ship_icons/rh_fighter.png"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\RHEINLAND\\RH_FIGHTER\\rh_fighter.cmp"
   },
   "rh_freighter": {
     "id": "rh_freighter",
@@ -1363,8 +1333,7 @@ const FL_SHIPS = {
     },
     "turnRate": 1.02,
     "firePower": 7,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\RHEINLAND\\RH_FREIGHTER\\rh_freighter.cmp",
-    "icon": "data/ship_icons/rh_freighter.png"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer-HD\\DATA\\SHIPS\\RHEINLAND\\RH_FREIGHTER\\rh_freighter.cmp"
   }
 };
 

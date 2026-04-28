@@ -9,6 +9,8 @@ import struct
 import json
 from pathlib import Path
 
+from fl_config import freelancer_data
+
 # Freelancer CMP file structure
 CMP_HEADER = b'CMSH'
 CMP_VERSION = 0x00000005
@@ -212,7 +214,7 @@ def generate_ship_data(ships_dir, output_json, icons_dir):
 if __name__ == '__main__':
     import sys
     
-    ships_dir = Path('C:/Users/steve/Github/FL-Installationen/Freelancer-HD/DATA/SHIPS')
+    ships_dir = freelancer_data() / 'SHIPS'
     output_json = Path(__file__).parent.parent / 'ships.json'
     icons_dir = Path(__file__).parent.parent / 'icons'
     

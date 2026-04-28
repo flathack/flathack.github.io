@@ -1831,6 +1831,22 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "co_gun01_mark02",
         "hardpoint": "HpWeapon02"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret04"
       }
     ],
     "shields": [
@@ -2033,6 +2049,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "fc_ou_gun02_mark01",
         "hardpoint": "HpWeapon02"
+      },
+      {
+        "id": "fc_ou_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -2068,6 +2088,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark02",
         "hardpoint": "HpWeapon04"
+      },
+      {
+        "id": "fc_ou_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -2103,6 +2127,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "fc_rh_gun01_mark01",
         "hardpoint": "HpWeapon04"
+      },
+      {
+        "id": "fc_rh_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -2196,6 +2224,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "fc_ou_gun02_mark02",
         "hardpoint": "HpWeapon02"
+      },
+      {
+        "id": "fc_ou_turret02_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [],
@@ -2213,6 +2245,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "fc_ou_gun01_mark02",
         "hardpoint": "HpWeapon02"
+      },
+      {
+        "id": "fc_ou_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [],
@@ -2230,6 +2266,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "fc_ou_gun01_mark02",
         "hardpoint": "HpWeapon02"
+      },
+      {
+        "id": "fc_ou_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [],
@@ -2247,6 +2287,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "fc_ou_gun02_mark02",
         "hardpoint": "HpWeapon02"
+      },
+      {
+        "id": "fc_ou_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [],
@@ -2264,6 +2308,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "fc_bd_gun01_mark02",
         "hardpoint": "HpWeapon02"
+      },
+      {
+        "id": "fc_bd_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [],
@@ -2281,6 +2329,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "fc_bd_gun01_mark01",
         "hardpoint": "HpWeapon02"
+      },
+      {
+        "id": "fc_bd_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [],
@@ -2302,6 +2354,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "fc_ou_gun01_mark01",
         "hardpoint": "HpWeapon03"
+      },
+      {
+        "id": "fc_ou_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -2337,6 +2393,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark01",
         "hardpoint": "HpWeapon04"
+      },
+      {
+        "id": "fc_ou_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -2368,6 +2428,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "fc_lh_gun01_mark02",
         "hardpoint": "HpWeapon03"
+      },
+      {
+        "id": "fc_lh_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -2403,6 +2467,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "fc_lh_gun01_mark02",
         "hardpoint": "HpWeapon04"
+      },
+      {
+        "id": "fc_lh_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -2438,6 +2506,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile02_mark02",
         "hardpoint": "HpWeapon04"
+      },
+      {
+        "id": "gd_z_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -2473,6 +2545,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile02_mark02",
         "hardpoint": "HpWeapon04"
+      },
+      {
+        "id": "gd_z_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -2508,6 +2584,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile02_mark02",
         "hardpoint": "HpWeapon04"
+      },
+      {
+        "id": "fc_ou_turret01_mark02",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -2543,6 +2623,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark04",
         "hardpoint": "HpWeapon04"
+      },
+      {
+        "id": "fc_ou_turret01_mark02",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -2578,6 +2662,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark02",
         "hardpoint": "HpWeapon04"
+      },
+      {
+        "id": "fc_ou_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -2613,6 +2701,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark02",
         "hardpoint": "HpWeapon04"
+      },
+      {
+        "id": "fc_ou_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -2648,6 +2740,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark03",
         "hardpoint": "HpWeapon04"
+      },
+      {
+        "id": "fc_b_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -2683,6 +2779,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark03",
         "hardpoint": "HpWeapon04"
+      },
+      {
+        "id": "fc_b_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -2710,6 +2810,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "fc_m_gun01_mark02",
         "hardpoint": "HpWeapon02"
+      },
+      {
+        "id": "fc_m_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -2741,6 +2845,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark01",
         "hardpoint": "HpWeapon03"
+      },
+      {
+        "id": "fc_lr_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -2772,6 +2880,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "fc_lr_gun01_mark04",
         "hardpoint": "HpWeapon03"
+      },
+      {
+        "id": "fc_lr_turret01_mark02",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -2803,6 +2915,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark01",
         "hardpoint": "HpWeapon03"
+      },
+      {
+        "id": "fc_lr_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -2834,6 +2950,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "fc_lr_gun01_mark04",
         "hardpoint": "HpWeapon03"
+      },
+      {
+        "id": "fc_lr_turret01_mark02",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -2861,6 +2981,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "fc_lr_gun01_mark04",
         "hardpoint": "HpWeapon02"
+      },
+      {
+        "id": "fc_lr_turret01_mark03",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [],
@@ -2878,6 +3002,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "fc_m_gun01_mark01",
         "hardpoint": "HpWeapon02"
+      },
+      {
+        "id": "fc_m_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [],
@@ -2951,6 +3079,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "fc_lr_gun01_mark01",
         "hardpoint": "HpWeapon03"
+      },
+      {
+        "id": "fc_lr_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -2982,6 +3114,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "fc_lr_gun01_mark02",
         "hardpoint": "HpWeapon03"
+      },
+      {
+        "id": "fc_lr_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -3013,6 +3149,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "fc_lr_gun01_mark02",
         "hardpoint": "HpWeapon03"
+      },
+      {
+        "id": "fc_lr_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -3044,6 +3184,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "fc_lr_gun01_mark02",
         "hardpoint": "HpWeapon03"
+      },
+      {
+        "id": "fc_lr_turret01_mark02",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -3110,6 +3254,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "li_gun01_mark04",
         "hardpoint": "HpWeapon04"
+      },
+      {
+        "id": "li_turret02_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -3149,6 +3297,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "li_gun01_mark05",
         "hardpoint": "HpWeapon05"
+      },
+      {
+        "id": "li_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -3188,6 +3340,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "li_gun01_mark06",
         "hardpoint": "HpWeapon05"
+      },
+      {
+        "id": "li_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -3223,6 +3379,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "li_gun01_mark03",
         "hardpoint": "HpWeapon04"
+      },
+      {
+        "id": "li_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [],
@@ -3248,6 +3408,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "li_gun01_mark03",
         "hardpoint": "HpWeapon04"
+      },
+      {
+        "id": "li_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [],
@@ -3277,6 +3441,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile02_mark03",
         "hardpoint": "HpWeapon05"
+      },
+      {
+        "id": "li_turret02_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -3312,6 +3480,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark01",
         "hardpoint": "HpWeapon04"
+      },
+      {
+        "id": "li_turret01_mark03",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -3347,6 +3519,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "li_gun01_mark01",
         "hardpoint": "HpWeapon04"
+      },
+      {
+        "id": "li_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -3374,6 +3550,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "li_gun01_mark01",
         "hardpoint": "HpWeapon02"
+      },
+      {
+        "id": "li_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -3409,6 +3589,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "li_gun01_mark05",
         "hardpoint": "HpWeapon04"
+      },
+      {
+        "id": "li_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -3448,6 +3632,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "li_gun01_mark03",
         "hardpoint": "HpWeapon05"
+      },
+      {
+        "id": "li_turret02_mark03",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -3487,6 +3675,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark01",
         "hardpoint": "HpWeapon05"
+      },
+      {
+        "id": "li_turret02_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -3526,6 +3718,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark01",
         "hardpoint": "HpWeapon05"
+      },
+      {
+        "id": "li_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -3565,6 +3761,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark01",
         "hardpoint": "HpWeapon05"
+      },
+      {
+        "id": "li_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -3604,6 +3804,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark01",
         "hardpoint": "HpWeapon05"
+      },
+      {
+        "id": "li_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -3682,6 +3886,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark01",
         "hardpoint": "HpWeapon05"
+      },
+      {
+        "id": "li_turret02_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -3721,6 +3929,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark01",
         "hardpoint": "HpWeapon05"
+      },
+      {
+        "id": "li_turret02_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -3760,6 +3972,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark02",
         "hardpoint": "HpWeapon05"
+      },
+      {
+        "id": "li_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -3799,6 +4015,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark02",
         "hardpoint": "HpWeapon05"
+      },
+      {
+        "id": "li_turret01_mark03",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -3838,6 +4058,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark02",
         "hardpoint": "HpWeapon05"
+      },
+      {
+        "id": "li_turret01_mark03",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -3877,6 +4101,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark02",
         "hardpoint": "HpWeapon05"
+      },
+      {
+        "id": "li_turret01_mark03",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -3912,6 +4140,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "special_nomad_gun03",
         "hardpoint": "HpWeapon04"
+      },
+      {
+        "id": "li_turret01_mark03",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -3951,6 +4183,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "li_gun02_mark01",
         "hardpoint": "HpWeapon05"
+      },
+      {
+        "id": "li_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -3990,6 +4226,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "li_gun02_mark01",
         "hardpoint": "HpWeapon05"
+      },
+      {
+        "id": "li_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -4029,6 +4269,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "li_gun02_mark03",
         "hardpoint": "HpWeapon05"
+      },
+      {
+        "id": "li_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -4068,6 +4312,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "li_gun02_mark04",
         "hardpoint": "HpWeapon05"
+      },
+      {
+        "id": "li_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -4107,6 +4355,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "li_gun02_mark05",
         "hardpoint": "HpWeapon05"
+      },
+      {
+        "id": "li_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -4146,6 +4398,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "li_gun02_mark05",
         "hardpoint": "HpWeapon05"
+      },
+      {
+        "id": "li_turret02_mark03",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -4185,6 +4441,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "li_gun02_mark06",
         "hardpoint": "HpWeapon05"
+      },
+      {
+        "id": "li_turret02_mark03",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -4224,6 +4484,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark03",
         "hardpoint": "HpWeapon05"
+      },
+      {
+        "id": "fc_or_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -4263,6 +4527,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark03",
         "hardpoint": "HpWeapon05"
+      },
+      {
+        "id": "fc_or_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -4577,6 +4845,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "rh_gun01_mark01",
         "hardpoint": "HpWeapon05"
+      },
+      {
+        "id": "rh_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -4612,6 +4884,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "special_gun01",
         "hardpoint": "HpWeapon04"
+      },
+      {
+        "id": "rh_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [],
@@ -4637,6 +4913,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "special_gun02",
         "hardpoint": "HpWeapon04"
+      },
+      {
+        "id": "rh_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [],
@@ -4662,6 +4942,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "special_gun03",
         "hardpoint": "HpWeapon04"
+      },
+      {
+        "id": "rh_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [],
@@ -4687,6 +4971,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "special_gun04",
         "hardpoint": "HpWeapon04"
+      },
+      {
+        "id": "rh_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [],
@@ -4712,6 +5000,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "special_gun05",
         "hardpoint": "HpWeapon04"
+      },
+      {
+        "id": "rh_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [],
@@ -4737,6 +5029,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "special_gun06",
         "hardpoint": "HpWeapon04"
+      },
+      {
+        "id": "rh_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [],
@@ -4762,6 +5058,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark01",
         "hardpoint": "HpWeapon04"
+      },
+      {
+        "id": "rh_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -4797,6 +5097,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark01",
         "hardpoint": "HpWeapon04"
+      },
+      {
+        "id": "rh_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -4832,6 +5136,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark01",
         "hardpoint": "HpWeapon04"
+      },
+      {
+        "id": "rh_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -4867,6 +5175,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark01",
         "hardpoint": "HpWeapon04"
+      },
+      {
+        "id": "rh_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -4902,6 +5214,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark01",
         "hardpoint": "HpWeapon04"
+      },
+      {
+        "id": "rh_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -4937,6 +5253,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "rh_gun01_mark01_m1",
         "hardpoint": "HpWeapon04"
+      },
+      {
+        "id": "rh_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -4972,6 +5292,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark01",
         "hardpoint": "HpWeapon04"
+      },
+      {
+        "id": "rh_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -5007,6 +5331,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark01",
         "hardpoint": "HpWeapon04"
+      },
+      {
+        "id": "rh_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -5042,6 +5370,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark01",
         "hardpoint": "HpWeapon04"
+      },
+      {
+        "id": "rh_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -5252,6 +5584,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark01",
         "hardpoint": "HpWeapon04"
+      },
+      {
+        "id": "rh_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -5287,6 +5623,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "rh_gun01_mark01",
         "hardpoint": "HpWeapon04"
+      },
+      {
+        "id": "rh_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -5322,6 +5662,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark01",
         "hardpoint": "HpWeapon04"
+      },
+      {
+        "id": "rh_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -5392,6 +5736,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark01",
         "hardpoint": "HpWeapon04"
+      },
+      {
+        "id": "rh_turret01_mark03",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -5431,6 +5779,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "rh_gun01_mark03",
         "hardpoint": "HpWeapon05"
+      },
+      {
+        "id": "rh_turret01_mark03",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -5470,6 +5822,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "rh_gun01_mark03",
         "hardpoint": "HpWeapon05"
+      },
+      {
+        "id": "rh_turret01_mark03",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -5509,6 +5865,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "rh_gun01_mark03",
         "hardpoint": "HpWeapon05"
+      },
+      {
+        "id": "rh_turret01_mark03",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -5704,6 +6064,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "rh_gun01_mark03",
         "hardpoint": "HpWeapon05"
+      },
+      {
+        "id": "rh_turret01_mark03",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -5743,6 +6107,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "rh_gun01_mark03",
         "hardpoint": "HpWeapon05"
+      },
+      {
+        "id": "rh_turret01_mark03",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -5782,6 +6150,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "rh_gun01_mark03",
         "hardpoint": "HpWeapon05"
+      },
+      {
+        "id": "rh_turret01_mark03",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -5821,6 +6193,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "rh_gun01_mark03",
         "hardpoint": "HpWeapon05"
+      },
+      {
+        "id": "rh_turret01_mark03",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -5860,6 +6236,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "rh_gun01_mark03",
         "hardpoint": "HpWeapon05"
+      },
+      {
+        "id": "rh_turret01_mark03",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -5903,6 +6283,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "fc_lh_gun01_mark03",
         "hardpoint": "HpWeapon06"
+      },
+      {
+        "id": "fc_lh_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -5946,6 +6330,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark01",
         "hardpoint": "HpWeapon06"
+      },
+      {
+        "id": "fc_ou_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -5989,6 +6377,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark02",
         "hardpoint": "HpWeapon06"
+      },
+      {
+        "id": "fc_ou_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -6032,6 +6424,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "fc_rh_gun01_mark02",
         "hardpoint": "HpWeapon06"
+      },
+      {
+        "id": "fc_rh_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -6075,6 +6471,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "fc_rh_gun01_mark03",
         "hardpoint": "HpWeapon06"
+      },
+      {
+        "id": "fc_rh_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -6118,6 +6518,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark01",
         "hardpoint": "HpWeapon06"
+      },
+      {
+        "id": "fc_b_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -6161,6 +6565,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "fc_b_gun01_mark01",
         "hardpoint": "HpWeapon06"
+      },
+      {
+        "id": "fc_b_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -6188,6 +6596,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "fc_rh_gun01_mark02",
         "hardpoint": "HpWeapon02"
+      },
+      {
+        "id": "fc_rh_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [],
@@ -6205,6 +6617,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "fc_rh_gun01_mark01",
         "hardpoint": "HpWeapon02"
+      },
+      {
+        "id": "fc_rh_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [],
@@ -6222,6 +6638,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "fc_rh_gun01_mark04",
         "hardpoint": "HpWeapon02"
+      },
+      {
+        "id": "fc_rh_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [],
@@ -6239,6 +6659,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "fc_rh_gun01_mark01",
         "hardpoint": "HpWeapon02"
+      },
+      {
+        "id": "fc_rh_turret01_mark02",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [],
@@ -6256,6 +6680,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "fc_rh_gun01_mark04",
         "hardpoint": "HpWeapon02"
+      },
+      {
+        "id": "fc_rh_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [],
@@ -6273,6 +6701,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "fc_ou_gun01_mark04",
         "hardpoint": "HpWeapon02"
+      },
+      {
+        "id": "fc_ou_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [],
@@ -6306,6 +6738,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark01",
         "hardpoint": "HpWeapon06"
+      },
+      {
+        "id": "fc_ou_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -6349,6 +6785,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark01",
         "hardpoint": "HpWeapon06"
+      },
+      {
+        "id": "fc_ou_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -6392,6 +6832,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark01",
         "hardpoint": "HpWeapon06"
+      },
+      {
+        "id": "fc_bd_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -6470,6 +6914,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "fc_lr_gun01_mark04",
         "hardpoint": "HpWeapon04"
+      },
+      {
+        "id": "fc_lr_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -6509,6 +6957,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "fc_lr_gun01_mark04",
         "hardpoint": "HpWeapon05"
+      },
+      {
+        "id": "fc_lr_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -6544,6 +6996,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "fc_lr_gun01_mark04",
         "hardpoint": "HpWeapon04"
+      },
+      {
+        "id": "fc_lr_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -6583,6 +7039,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "fc_lr_gun01_mark04",
         "hardpoint": "HpWeapon05"
+      },
+      {
+        "id": "fc_lr_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -6618,6 +7078,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark01",
         "hardpoint": "HpWeapon04"
+      },
+      {
+        "id": "fc_m_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -6653,6 +7117,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "fc_lr_gun01_mark01",
         "hardpoint": "HpWeapon04"
+      },
+      {
+        "id": "fc_lr_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -6680,6 +7148,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "fc_m_gun01_mark02",
         "hardpoint": "HpWeapon02"
+      },
+      {
+        "id": "fc_m_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [],
@@ -6751,6 +7223,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark05",
         "hardpoint": "HpWeapon06"
+      },
+      {
+        "id": "fc_or_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -6794,6 +7270,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark05",
         "hardpoint": "HpWeapon06"
+      },
+      {
+        "id": "fc_or_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -6837,6 +7317,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark05",
         "hardpoint": "HpWeapon06"
+      },
+      {
+        "id": "fc_or_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -6880,6 +7364,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark05",
         "hardpoint": "HpWeapon06"
+      },
+      {
+        "id": "fc_or_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -6923,6 +7411,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark05",
         "hardpoint": "HpWeapon06"
+      },
+      {
+        "id": "fc_or_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -6966,6 +7458,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark05",
         "hardpoint": "HpWeapon06"
+      },
+      {
+        "id": "fc_or_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -7009,6 +7505,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark05",
         "hardpoint": "HpWeapon06"
+      },
+      {
+        "id": "fc_or_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -7052,6 +7552,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark05",
         "hardpoint": "HpWeapon06"
+      },
+      {
+        "id": "fc_or_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -7095,6 +7599,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark05",
         "hardpoint": "HpWeapon06"
+      },
+      {
+        "id": "fc_or_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -7138,6 +7646,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark05",
         "hardpoint": "HpWeapon06"
+      },
+      {
+        "id": "fc_or_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -7181,6 +7693,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark05",
         "hardpoint": "HpWeapon06"
+      },
+      {
+        "id": "fc_or_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -7208,6 +7724,26 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "co_gun01_mark03",
         "hardpoint": "HpWeapon02"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret04"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret05"
       }
     ],
     "shields": [
@@ -7235,6 +7771,26 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "co_gun01_mark03",
         "hardpoint": "HpWeapon02"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret04"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret05"
       }
     ],
     "shields": [
@@ -7262,6 +7818,26 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "co_gun01_mark03",
         "hardpoint": "HpWeapon02"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret04"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret05"
       }
     ],
     "shields": [],
@@ -7279,6 +7855,26 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "co_gun01_mark03",
         "hardpoint": "HpWeapon02"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret04"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret05"
       }
     ],
     "shields": [],
@@ -7300,6 +7896,22 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "co_gun01_mark02",
         "hardpoint": "HpWeapon03"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret04"
       }
     ],
     "shields": [
@@ -7327,6 +7939,18 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "gd_im_gun01_mark02",
         "hardpoint": "HpWeapon02"
+      },
+      {
+        "id": "gd_im_turret01_mark02",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "gd_im_turret01_mark02",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "gd_im_turret01_mark02",
+        "hardpoint": "HpTurret03"
       }
     ],
     "shields": [
@@ -7354,6 +7978,22 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "co_gun01_mark03",
         "hardpoint": "HpWeapon02"
+      },
+      {
+        "id": "co_turret01_mark03",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "co_turret01_mark03",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "co_turret01_mark03",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "co_turret01_mark03",
+        "hardpoint": "HpTurret04"
       }
     ],
     "shields": [],
@@ -7371,6 +8011,22 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "co_gun01_mark03",
         "hardpoint": "HpWeapon02"
+      },
+      {
+        "id": "co_turret01_mark03",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "co_turret01_mark03",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "co_turret01_mark03",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "co_turret01_mark03",
+        "hardpoint": "HpTurret04"
       }
     ],
     "shields": [],
@@ -7388,6 +8044,22 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "co_gun01_mark03",
         "hardpoint": "HpWeapon02"
+      },
+      {
+        "id": "co_turret01_mark03",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "co_turret01_mark03",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "co_turret01_mark03",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "co_turret01_mark03",
+        "hardpoint": "HpTurret04"
       }
     ],
     "shields": [],
@@ -7409,6 +8081,26 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "co_gun01_mark04",
         "hardpoint": "HpWeapon03"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret04"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret05"
       }
     ],
     "shields": [
@@ -7440,6 +8132,26 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "co_gun01_mark04",
         "hardpoint": "HpWeapon03"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret04"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret05"
       }
     ],
     "shields": [
@@ -7467,6 +8179,22 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "co_gun01_mark02",
         "hardpoint": "HpWeapon02"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret04"
       }
     ],
     "shields": [
@@ -7494,6 +8222,30 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "co_gun01_mark03",
         "hardpoint": "HpWeapon02"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret04"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret05"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret06"
       }
     ],
     "shields": [
@@ -7521,6 +8273,30 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "gd_gm_gun01_mark01",
         "hardpoint": "HpWeapon02"
+      },
+      {
+        "id": "gd_gm_turret01_mark01",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "gd_gm_turret01_mark01",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "gd_gm_turret01_mark01",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "gd_gm_turret01_mark01",
+        "hardpoint": "HpTurret04"
+      },
+      {
+        "id": "gd_gm_turret01_mark01",
+        "hardpoint": "HpTurret05"
+      },
+      {
+        "id": "gd_gm_turret01_mark01",
+        "hardpoint": "HpTurret06"
       }
     ],
     "shields": [
@@ -7548,6 +8324,30 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "gd_gm_gun01_mark01",
         "hardpoint": "HpWeapon02"
+      },
+      {
+        "id": "gd_gm_turret01_mark01",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "gd_gm_turret01_mark01",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "gd_gm_turret01_mark01",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "gd_gm_turret01_mark01",
+        "hardpoint": "HpTurret04"
+      },
+      {
+        "id": "gd_gm_turret01_mark01",
+        "hardpoint": "HpTurret05"
+      },
+      {
+        "id": "gd_gm_turret01_mark01",
+        "hardpoint": "HpTurret06"
       }
     ],
     "shields": [
@@ -7575,6 +8375,22 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "co_gun01_mark02",
         "hardpoint": "HpWeapon02"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret04"
       }
     ],
     "shields": [],
@@ -7592,6 +8408,22 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "co_gun01_mark02",
         "hardpoint": "HpWeapon02"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret04"
       }
     ],
     "shields": [
@@ -7619,6 +8451,22 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "co_gun01_mark02",
         "hardpoint": "HpWeapon02"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret04"
       }
     ],
     "shields": [],
@@ -7640,6 +8488,26 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark01",
         "hardpoint": "HpWeapon03"
+      },
+      {
+        "id": "gd_z_turret01_mark01",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "gd_z_turret01_mark01",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "gd_z_turret01_mark01",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "gd_z_turret01_mark01",
+        "hardpoint": "HpTurret04"
+      },
+      {
+        "id": "gd_z_turret01_mark01",
+        "hardpoint": "HpTurret05"
       }
     ],
     "shields": [
@@ -7671,6 +8539,26 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark01",
         "hardpoint": "HpWeapon03"
+      },
+      {
+        "id": "gd_z_turret01_mark01",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "gd_z_turret01_mark01",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "gd_z_turret01_mark01",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "gd_z_turret01_mark01",
+        "hardpoint": "HpTurret04"
+      },
+      {
+        "id": "gd_z_turret01_mark01",
+        "hardpoint": "HpTurret05"
       }
     ],
     "shields": [
@@ -7702,6 +8590,26 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark01",
         "hardpoint": "HpWeapon03"
+      },
+      {
+        "id": "gd_z_turret01_mark01",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "gd_z_turret01_mark01",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "gd_z_turret01_mark01",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "gd_z_turret01_mark01",
+        "hardpoint": "HpTurret04"
+      },
+      {
+        "id": "gd_z_turret01_mark01",
+        "hardpoint": "HpTurret05"
       }
     ],
     "shields": [
@@ -7733,6 +8641,22 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark01",
         "hardpoint": "HpWeapon03"
+      },
+      {
+        "id": "fc_lr_turret01_mark01",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "fc_lr_turret01_mark01",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "fc_lr_turret01_mark01",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "fc_lr_turret01_mark01",
+        "hardpoint": "HpTurret04"
       }
     ],
     "shields": [
@@ -7764,6 +8688,22 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark01",
         "hardpoint": "HpWeapon03"
+      },
+      {
+        "id": "fc_lr_turret01_mark02",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "fc_lr_turret01_mark02",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "fc_lr_turret01_mark02",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "fc_lr_turret01_mark02",
+        "hardpoint": "HpTurret04"
       }
     ],
     "shields": [
@@ -7795,6 +8735,22 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark01",
         "hardpoint": "HpWeapon03"
+      },
+      {
+        "id": "fc_lr_turret01_mark02",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "fc_lr_turret01_mark02",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "fc_lr_turret01_mark02",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "fc_lr_turret01_mark02",
+        "hardpoint": "HpTurret04"
       }
     ],
     "shields": [
@@ -7822,6 +8778,22 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "fc_lr_gun01_mark01",
         "hardpoint": "HpWeapon02"
+      },
+      {
+        "id": "fc_lr_turret01_mark02",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "fc_lr_turret01_mark02",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "fc_lr_turret01_mark02",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "fc_lr_turret01_mark02",
+        "hardpoint": "HpTurret04"
       }
     ],
     "shields": [],
@@ -7839,6 +8811,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "fc_lr_gun01_mark05",
         "hardpoint": "HpWeapon02"
+      },
+      {
+        "id": "fc_lr_turret01_mark02",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [],
@@ -7856,6 +8832,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "fc_h_gun01_mark02",
         "hardpoint": "HpWeapon02"
+      },
+      {
+        "id": "fc_h_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -7883,6 +8863,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "fc_h_gun01_mark03",
         "hardpoint": "HpWeapon02"
+      },
+      {
+        "id": "fc_h_turret01_mark02",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -7910,6 +8894,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "fc_j_gun01_mark01",
         "hardpoint": "HpWeapon02"
+      },
+      {
+        "id": "fc_j_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -7937,6 +8925,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark02",
         "hardpoint": "HpWeapon02"
+      },
+      {
+        "id": "fc_j_turret01_mark03",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -7964,6 +8956,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark04",
         "hardpoint": "HpWeapon02"
+      },
+      {
+        "id": "fc_j_turret01_mark03",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -7991,6 +8987,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "fc_j_gun01_mark01",
         "hardpoint": "HpWeapon02"
+      },
+      {
+        "id": "fc_j_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -8018,6 +9018,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark02",
         "hardpoint": "HpWeapon02"
+      },
+      {
+        "id": "fc_j_turret01_mark03",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -8045,6 +9049,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark04",
         "hardpoint": "HpWeapon02"
+      },
+      {
+        "id": "fc_j_turret01_mark03",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -8081,7 +9089,20 @@ const FL_NPC_LOADOUTS = {
   "co_ge_repair_loadout01": {
     "id": "co_ge_repair_loadout01",
     "archetype": "ge_repair",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret03"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_vanilla.ini"
@@ -8089,7 +9110,20 @@ const FL_NPC_LOADOUTS = {
   "co_ge_repair_loadout02": {
     "id": "co_ge_repair_loadout02",
     "archetype": "ge_repair",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret03"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_vanilla.ini"
@@ -8097,7 +9131,20 @@ const FL_NPC_LOADOUTS = {
   "co_ge_repair_loadout03": {
     "id": "co_ge_repair_loadout03",
     "archetype": "ge_repair",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret03"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_vanilla.ini"
@@ -8105,7 +9152,20 @@ const FL_NPC_LOADOUTS = {
   "co_ge_repair_loadout04": {
     "id": "co_ge_repair_loadout04",
     "archetype": "ge_repair",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret03"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_vanilla.ini"
@@ -8113,7 +9173,20 @@ const FL_NPC_LOADOUTS = {
   "co_ge_repair_loadout05": {
     "id": "co_ge_repair_loadout05",
     "archetype": "ge_repair",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret03"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_vanilla.ini"
@@ -8121,7 +9194,20 @@ const FL_NPC_LOADOUTS = {
   "msn01a_repair_ship": {
     "id": "msn01a_repair_ship",
     "archetype": "ge_repair",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret03"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_vanilla.ini"
@@ -8619,6 +9705,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "fc_c_gun01_mark02",
         "hardpoint": "HpWeapon06"
+      },
+      {
+        "id": "fc_c_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -8662,6 +9752,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "fc_c_gun01_mark03",
         "hardpoint": "HpWeapon06"
+      },
+      {
+        "id": "fc_c_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -8689,6 +9783,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "fc_c_gun01_mark01",
         "hardpoint": "HpWeapon02"
+      },
+      {
+        "id": "fc_c_turret01_mark02",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [],
@@ -8706,6 +9804,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "fc_c_gun01_mark04",
         "hardpoint": "HpWeapon02"
+      },
+      {
+        "id": "fc_c_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [],
@@ -8723,6 +9825,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "fc_c_gun01_mark01",
         "hardpoint": "HpWeapon02"
+      },
+      {
+        "id": "fc_c_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [],
@@ -8740,6 +9846,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "fc_c_gun01_mark04",
         "hardpoint": "HpWeapon02"
+      },
+      {
+        "id": "fc_c_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [],
@@ -8757,6 +9867,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "fc_c_gun01_mark02",
         "hardpoint": "HpWeapon02"
+      },
+      {
+        "id": "fc_c_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [],
@@ -8790,6 +9904,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "fc_c_gun01_mark04",
         "hardpoint": "HpWeapon06"
+      },
+      {
+        "id": "fc_c_turret01_mark02",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -8825,6 +9943,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark01",
         "hardpoint": "HpWeapon04"
+      },
+      {
+        "id": "fc_c_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -8894,6 +10016,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "gd_bh_gun01_mark02",
         "hardpoint": "HpWeapon04"
+      },
+      {
+        "id": "gd_bh_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -8929,6 +10055,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "gd_bh_gun01_mark02",
         "hardpoint": "HpWeapon04"
+      },
+      {
+        "id": "gd_bh_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -8964,6 +10094,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "gd_bh_gun01_mark01",
         "hardpoint": "HpWeapon04"
+      },
+      {
+        "id": "gd_bh_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [],
@@ -8989,6 +10123,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark03",
         "hardpoint": "HpWeapon04"
+      },
+      {
+        "id": "gd_bh_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [],
@@ -9100,6 +10238,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "gd_bh_gun01_mark02",
         "hardpoint": "HpWeapon06"
+      },
+      {
+        "id": "gd_bh_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -9143,6 +10285,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "gd_bh_gun01_mark03",
         "hardpoint": "HpWeapon06"
+      },
+      {
+        "id": "gd_bh_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -9170,6 +10316,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "gd_bh_gun01_mark04",
         "hardpoint": "HpWeapon02"
+      },
+      {
+        "id": "gd_bh_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [],
@@ -9203,6 +10353,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "gd_bh_gun01_mark05",
         "hardpoint": "HpWeapon06"
+      },
+      {
+        "id": "gd_bh_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -9246,6 +10400,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "gd_bh_gun01_mark06",
         "hardpoint": "HpWeapon06"
+      },
+      {
+        "id": "gd_bh_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -9289,6 +10447,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "gd_bh_gun01_mark01",
         "hardpoint": "HpWeapon06"
+      },
+      {
+        "id": "gd_bh_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -9320,6 +10482,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile03_mark04",
         "hardpoint": "HpWeapon03"
+      },
+      {
+        "id": "gd_bh_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [],
@@ -9341,6 +10507,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile03_mark04",
         "hardpoint": "HpWeapon03"
+      },
+      {
+        "id": "gd_bh_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [],
@@ -9362,6 +10532,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile03_mark04",
         "hardpoint": "HpWeapon03"
+      },
+      {
+        "id": "gd_bh_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [],
@@ -9383,6 +10557,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile03_mark04",
         "hardpoint": "HpWeapon03"
+      },
+      {
+        "id": "gd_bh_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [],
@@ -9404,6 +10582,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile03_mark04",
         "hardpoint": "HpWeapon03"
+      },
+      {
+        "id": "gd_bh_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [],
@@ -9425,6 +10607,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile03_mark04",
         "hardpoint": "HpWeapon03"
+      },
+      {
+        "id": "gd_bh_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [],
@@ -9446,6 +10632,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile03_mark04",
         "hardpoint": "HpWeapon03"
+      },
+      {
+        "id": "gd_bh_turret01_mark01",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [],
@@ -9479,6 +10669,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark03",
         "hardpoint": "HpWeapon06"
+      },
+      {
+        "id": "fc_ou_turret01_mark02",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -9522,6 +10716,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark03",
         "hardpoint": "HpWeapon06"
+      },
+      {
+        "id": "fc_ou_turret01_mark02",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -9565,6 +10763,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark04",
         "hardpoint": "HpWeapon06"
+      },
+      {
+        "id": "fc_rh_turret01_mark02",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -9694,6 +10896,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark04",
         "hardpoint": "HpWeapon06"
+      },
+      {
+        "id": "fc_ou_turret01_mark02",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -10431,6 +11637,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark03",
         "hardpoint": "HpWeapon05"
+      },
+      {
+        "id": "gd_gm_turret01_mark02",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -10470,6 +11680,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "gd_im_gun01_mark04",
         "hardpoint": "HpWeapon05"
+      },
+      {
+        "id": "gd_im_turret01_mark02",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -10509,6 +11723,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark02",
         "hardpoint": "HpWeapon05"
+      },
+      {
+        "id": "gd_z_turret01_mark02",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -10670,6 +11888,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "gd_gm_gun01_mark02",
         "hardpoint": "HpWeapon02"
+      },
+      {
+        "id": "gd_gm_turret01_mark02",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [],
@@ -10703,6 +11925,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark03",
         "hardpoint": "HpWeapon06"
+      },
+      {
+        "id": "gd_gm_turret01_mark03",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -10746,6 +11972,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "missile01_mark03",
         "hardpoint": "HpWeapon06"
+      },
+      {
+        "id": "gd_im_turret01_mark03",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -10789,6 +12019,10 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "gd_z_gun01_mark05",
         "hardpoint": "HpWeapon06"
+      },
+      {
+        "id": "gd_z_turret01_mark03",
+        "hardpoint": "HpTurret01"
       }
     ],
     "shields": [
@@ -11153,6 +12387,34 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "li_cruiser_forward_gun01",
         "hardpoint": "HpWeapon01"
+      },
+      {
+        "id": "li_cruiser_turret01",
+        "hardpoint": "HpTurret_L5_01"
+      },
+      {
+        "id": "li_cruiser_turret01",
+        "hardpoint": "HpTurret_L5_02"
+      },
+      {
+        "id": "li_cruiser_missile_turret01",
+        "hardpoint": "HpTurret_L5_03"
+      },
+      {
+        "id": "li_cruiser_missile_turret01",
+        "hardpoint": "HpTurret_L5_04"
+      },
+      {
+        "id": "li_cruiser_turret01",
+        "hardpoint": "HpTurret_L5_05"
+      },
+      {
+        "id": "li_cruiser_turret01",
+        "hardpoint": "HpTurret_L5_06"
+      },
+      {
+        "id": "li_cruiser_turret01",
+        "hardpoint": "HpTurret_L5_07"
       }
     ],
     "shields": [],
@@ -11162,7 +12424,48 @@ const FL_NPC_LOADOUTS = {
   "li_n_li_dreadnought": {
     "id": "li_n_li_dreadnought",
     "archetype": "li_dreadnought",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "li_battleship_turret01",
+        "hardpoint": "HpTurret_L1_01"
+      },
+      {
+        "id": "li_battleship_turret01",
+        "hardpoint": "HpTurret_L2_01"
+      },
+      {
+        "id": "li_battleship_turret03",
+        "hardpoint": "HpTurret_L3_01"
+      },
+      {
+        "id": "li_battleship_turret04",
+        "hardpoint": "HpTurret_L4_01"
+      },
+      {
+        "id": "li_battleship_turret04",
+        "hardpoint": "HpTurret_L4_02"
+      },
+      {
+        "id": "li_battleship_flak_turret01",
+        "hardpoint": "HpTurret_L4_03"
+      },
+      {
+        "id": "li_battleship_flak_turret01",
+        "hardpoint": "HpTurret_L4_04"
+      },
+      {
+        "id": "li_battleship_turret04",
+        "hardpoint": "HpTurret_L4_05"
+      },
+      {
+        "id": "li_battleship_turret04",
+        "hardpoint": "HpTurret_L4_06"
+      },
+      {
+        "id": "li_battleship_turret04",
+        "hardpoint": "HpTurret_L4_07"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_special.ini"
@@ -11170,7 +12473,36 @@ const FL_NPC_LOADOUTS = {
   "br_n_br_destroyer": {
     "id": "br_n_br_destroyer",
     "archetype": "br_destroyer",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "br_destroyer_turret01",
+        "hardpoint": "HpTurret_B1_01"
+      },
+      {
+        "id": "br_destroyer_turret02",
+        "hardpoint": "HpTurret_B2_01"
+      },
+      {
+        "id": "br_destroyer_turret02",
+        "hardpoint": "HpTurret_B2_02"
+      },
+      {
+        "id": "br_destroyer_turret03",
+        "hardpoint": "HpTurret_B3_01"
+      },
+      {
+        "id": "br_destroyer_turret03",
+        "hardpoint": "HpTurret_B3_02"
+      },
+      {
+        "id": "br_destroyer_turret04",
+        "hardpoint": "HpTurret_B4_01"
+      },
+      {
+        "id": "br_destroyer_turret04",
+        "hardpoint": "HpTurret_B4_02"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_special.ini"
@@ -11178,7 +12510,56 @@ const FL_NPC_LOADOUTS = {
   "br_n_br_battleship": {
     "id": "br_n_br_battleship",
     "archetype": "br_battleship",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "br_battleship_turret01",
+        "hardpoint": "HpTurret_B1_01"
+      },
+      {
+        "id": "br_battleship_turret01",
+        "hardpoint": "HpTurret_B1_02"
+      },
+      {
+        "id": "br_battleship_turret01",
+        "hardpoint": "HpTurret_B1_03"
+      },
+      {
+        "id": "br_battleship_turret02",
+        "hardpoint": "HpTurret_B2_01"
+      },
+      {
+        "id": "br_battleship_turret02",
+        "hardpoint": "HpTurret_B2_02"
+      },
+      {
+        "id": "br_battleship_turret02",
+        "hardpoint": "HpTurret_B2_03"
+      },
+      {
+        "id": "br_battleship_turret02",
+        "hardpoint": "HpTurret_B2_04"
+      },
+      {
+        "id": "br_battleship_flak_turret01",
+        "hardpoint": "HpTurret_B4_01"
+      },
+      {
+        "id": "br_battleship_flak_turret01",
+        "hardpoint": "HpTurret_B4_02"
+      },
+      {
+        "id": "br_battleship_turret04",
+        "hardpoint": "HpTurret_B4_03"
+      },
+      {
+        "id": "br_battleship_turret04",
+        "hardpoint": "HpTurret_B4_04"
+      },
+      {
+        "id": "br_battleship_turret04",
+        "hardpoint": "HpTurret_B4_05"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_special.ini"
@@ -11190,6 +12571,34 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "li_cruiser_forward_gun01",
         "hardpoint": "HpWeapon01"
+      },
+      {
+        "id": "li_cruiser_turret01",
+        "hardpoint": "HpTurret_L5_01"
+      },
+      {
+        "id": "li_cruiser_turret01",
+        "hardpoint": "HpTurret_L5_02"
+      },
+      {
+        "id": "li_cruiser_missile_turret01",
+        "hardpoint": "HpTurret_L5_03"
+      },
+      {
+        "id": "li_cruiser_missile_turret01",
+        "hardpoint": "HpTurret_L5_04"
+      },
+      {
+        "id": "li_cruiser_turret01",
+        "hardpoint": "HpTurret_L5_05"
+      },
+      {
+        "id": "li_cruiser_turret01",
+        "hardpoint": "HpTurret_L5_06"
+      },
+      {
+        "id": "li_cruiser_turret01",
+        "hardpoint": "HpTurret_L5_07"
       }
     ],
     "shields": [],
@@ -11199,7 +12608,48 @@ const FL_NPC_LOADOUTS = {
   "li_dreadnought": {
     "id": "li_dreadnought",
     "archetype": "li_dreadnought",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "li_battleship_turret01",
+        "hardpoint": "HpTurret_L1_01"
+      },
+      {
+        "id": "li_battleship_turret01",
+        "hardpoint": "HpTurret_L2_01"
+      },
+      {
+        "id": "li_battleship_turret03",
+        "hardpoint": "HpTurret_L3_01"
+      },
+      {
+        "id": "li_battleship_turret04",
+        "hardpoint": "HpTurret_L4_01"
+      },
+      {
+        "id": "li_battleship_turret04",
+        "hardpoint": "HpTurret_L4_02"
+      },
+      {
+        "id": "li_battleship_flak_turret01",
+        "hardpoint": "HpTurret_L4_03"
+      },
+      {
+        "id": "li_battleship_flak_turret01",
+        "hardpoint": "HpTurret_L4_04"
+      },
+      {
+        "id": "li_battleship_turret04",
+        "hardpoint": "HpTurret_L4_05"
+      },
+      {
+        "id": "li_battleship_turret04",
+        "hardpoint": "HpTurret_L4_06"
+      },
+      {
+        "id": "li_battleship_turret04",
+        "hardpoint": "HpTurret_L4_07"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_special.ini"
@@ -11207,7 +12657,32 @@ const FL_NPC_LOADOUTS = {
   "br_gunboat": {
     "id": "br_gunboat",
     "archetype": "br_gunboat",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "br_gunboat_turret01",
+        "hardpoint": "HpTurret_B3_01"
+      },
+      {
+        "id": "br_gunboat_forward_gun01",
+        "hardpoint": "HpTurret_B3_02"
+      },
+      {
+        "id": "br_gunboat_forward_gun01",
+        "hardpoint": "HpTurret_B3_03"
+      },
+      {
+        "id": "br_gunboat_turret02",
+        "hardpoint": "HpTurret_B4_01"
+      },
+      {
+        "id": "br_gunboat_turret02",
+        "hardpoint": "HpTurret_B4_02"
+      },
+      {
+        "id": "br_gunboat_turret02",
+        "hardpoint": "HpTurret_B4_03"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_special.ini"
@@ -11215,7 +12690,36 @@ const FL_NPC_LOADOUTS = {
   "br_destroyer": {
     "id": "br_destroyer",
     "archetype": "br_destroyer",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "br_destroyer_turret01",
+        "hardpoint": "HpTurret_B1_01"
+      },
+      {
+        "id": "br_destroyer_turret02",
+        "hardpoint": "HpTurret_B2_01"
+      },
+      {
+        "id": "br_destroyer_turret02",
+        "hardpoint": "HpTurret_B2_02"
+      },
+      {
+        "id": "br_destroyer_turret03",
+        "hardpoint": "HpTurret_B3_01"
+      },
+      {
+        "id": "br_destroyer_turret03",
+        "hardpoint": "HpTurret_B3_02"
+      },
+      {
+        "id": "br_destroyer_turret04",
+        "hardpoint": "HpTurret_B4_01"
+      },
+      {
+        "id": "br_destroyer_turret04",
+        "hardpoint": "HpTurret_B4_02"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_special.ini"
@@ -11223,7 +12727,56 @@ const FL_NPC_LOADOUTS = {
   "br_battleship": {
     "id": "br_battleship",
     "archetype": "br_battleship",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "br_battleship_turret01",
+        "hardpoint": "HpTurret_B1_01"
+      },
+      {
+        "id": "br_battleship_turret01",
+        "hardpoint": "HpTurret_B1_02"
+      },
+      {
+        "id": "br_battleship_turret01",
+        "hardpoint": "HpTurret_B1_03"
+      },
+      {
+        "id": "br_battleship_turret02",
+        "hardpoint": "HpTurret_B2_01"
+      },
+      {
+        "id": "br_battleship_turret02",
+        "hardpoint": "HpTurret_B2_02"
+      },
+      {
+        "id": "br_battleship_turret02",
+        "hardpoint": "HpTurret_B2_03"
+      },
+      {
+        "id": "br_battleship_turret02",
+        "hardpoint": "HpTurret_B2_04"
+      },
+      {
+        "id": "br_battleship_flak_turret01",
+        "hardpoint": "HpTurret_B4_01"
+      },
+      {
+        "id": "br_battleship_flak_turret01",
+        "hardpoint": "HpTurret_B4_02"
+      },
+      {
+        "id": "br_battleship_turret04",
+        "hardpoint": "HpTurret_B4_03"
+      },
+      {
+        "id": "br_battleship_turret04",
+        "hardpoint": "HpTurret_B4_04"
+      },
+      {
+        "id": "br_battleship_turret04",
+        "hardpoint": "HpTurret_B4_05"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_special.ini"
@@ -11231,7 +12784,24 @@ const FL_NPC_LOADOUTS = {
   "ku_gunboat": {
     "id": "ku_gunboat",
     "archetype": "ku_gunboat",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "ku_gunboat_turret01",
+        "hardpoint": "HpTurret_K4_01"
+      },
+      {
+        "id": "ku_gunboat_turret01",
+        "hardpoint": "HpTurret_K4_02"
+      },
+      {
+        "id": "ku_gunboat_turret01",
+        "hardpoint": "HpTurret_K4_03"
+      },
+      {
+        "id": "ku_gunboat_forward_gun01",
+        "hardpoint": "HpTurret_K5_01"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_special.ini"
@@ -11239,7 +12809,60 @@ const FL_NPC_LOADOUTS = {
   "ku_destroyer": {
     "id": "ku_destroyer",
     "archetype": "ku_destroyer",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "ku_destroyer_turret01",
+        "hardpoint": "HpTurret_K1_01"
+      },
+      {
+        "id": "ku_destroyer_turret01",
+        "hardpoint": "HpTurret_K1_02"
+      },
+      {
+        "id": "ku_destroyer_turret02",
+        "hardpoint": "HpTurret_K2_01"
+      },
+      {
+        "id": "ku_destroyer_turret02",
+        "hardpoint": "HpTurret_K2_02"
+      },
+      {
+        "id": "ku_destroyer_turret02",
+        "hardpoint": "HpTurret_K2_03"
+      },
+      {
+        "id": "ku_destroyer_turret02",
+        "hardpoint": "HpTurret_K2_04"
+      },
+      {
+        "id": "ku_destroyer_turret02",
+        "hardpoint": "HpTurret_K2_05"
+      },
+      {
+        "id": "ku_destroyer_turret03",
+        "hardpoint": "HpTurret_K4_01"
+      },
+      {
+        "id": "ku_destroyer_turret03",
+        "hardpoint": "HpTurret_K4_02"
+      },
+      {
+        "id": "ku_destroyer_turret03",
+        "hardpoint": "HpTurret_K4_03"
+      },
+      {
+        "id": "ku_destroyer_turret03",
+        "hardpoint": "HpTurret_K4_04"
+      },
+      {
+        "id": "ku_destroyer_turret03",
+        "hardpoint": "HpTurret_K4_05"
+      },
+      {
+        "id": "ku_destroyer_turret03",
+        "hardpoint": "HpTurret_K4_06"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_special.ini"
@@ -11247,7 +12870,80 @@ const FL_NPC_LOADOUTS = {
   "ku_battleship": {
     "id": "ku_battleship",
     "archetype": "ku_battleship",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "ku_battleship_turret01",
+        "hardpoint": "HpTurret_K1_01"
+      },
+      {
+        "id": "ku_battleship_turret01",
+        "hardpoint": "HpTurret_K1_02"
+      },
+      {
+        "id": "ku_battleship_turret01",
+        "hardpoint": "HpTurret_K1_03"
+      },
+      {
+        "id": "ku_battleship_turret01",
+        "hardpoint": "HpTurret_K1_04"
+      },
+      {
+        "id": "ku_battleship_turret01",
+        "hardpoint": "HpTurret_K1_05"
+      },
+      {
+        "id": "ku_battleship_turret01",
+        "hardpoint": "HpTurret_K1_06"
+      },
+      {
+        "id": "ku_battleship_turret01",
+        "hardpoint": "HpTurret_K1_07"
+      },
+      {
+        "id": "ku_battleship_turret01",
+        "hardpoint": "HpTurret_K1_08"
+      },
+      {
+        "id": "ku_battleship_turret03",
+        "hardpoint": "HpTurret_K3_01"
+      },
+      {
+        "id": "ku_battleship_turret03",
+        "hardpoint": "HpTurret_K3_02"
+      },
+      {
+        "id": "ku_battleship_turret03",
+        "hardpoint": "HpTurret_K3_03"
+      },
+      {
+        "id": "ku_battleship_turret03",
+        "hardpoint": "HpTurret_K3_04"
+      },
+      {
+        "id": "ku_battleship_flak_turret01",
+        "hardpoint": "HpTurret_K3_05"
+      },
+      {
+        "id": "ku_battleship_flak_turret01",
+        "hardpoint": "HpTurret_K3_06"
+      },
+      {
+        "id": "ku_battleship_turret03",
+        "hardpoint": "HpTurret_K3_07"
+      },
+      {
+        "id": "ku_battleship_turret03",
+        "hardpoint": "HpTurret_K3_08"
+      },
+      {
+        "id": "ku_battleship_turret03",
+        "hardpoint": "HpTurret_K3_09"
+      },
+      {
+        "id": "ku_battleship_turret03",
+        "hardpoint": "HpTurret_K3_10"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_special.ini"
@@ -11256,6 +12952,30 @@ const FL_NPC_LOADOUTS = {
     "id": "rh_gunboat",
     "archetype": "rh_gunboat",
     "weapons": [
+      {
+        "id": "rh_gunboat_turret01",
+        "hardpoint": "HpTurret_R3_01"
+      },
+      {
+        "id": "rh_gunboat_turret02",
+        "hardpoint": "HpTurret_R4_01"
+      },
+      {
+        "id": "rh_gunboat_turret02",
+        "hardpoint": "HpTurret_R4_02"
+      },
+      {
+        "id": "rh_gunboat_missile_turret01",
+        "hardpoint": "HpTurret_R4_03"
+      },
+      {
+        "id": "rh_gunboat_missile_turret01",
+        "hardpoint": "HpTurret_R4_04"
+      },
+      {
+        "id": "rh_gunboat_turret02",
+        "hardpoint": "HpTurret_R4_05"
+      },
       {
         "id": "rh_gunboat_forward_gun01",
         "hardpoint": "HpWeapon01"
@@ -11268,7 +12988,68 @@ const FL_NPC_LOADOUTS = {
   "rh_cruiser": {
     "id": "rh_cruiser",
     "archetype": "rh_cruiser",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "rh_cruiser_turret01",
+        "hardpoint": "HpTurret_R1_01"
+      },
+      {
+        "id": "rh_cruiser_turret02",
+        "hardpoint": "HpTurret_R2_01"
+      },
+      {
+        "id": "rh_cruiser_turret02",
+        "hardpoint": "HpTurret_R2_02"
+      },
+      {
+        "id": "rh_cruiser_turret02",
+        "hardpoint": "HpTurret_R2_03"
+      },
+      {
+        "id": "rh_cruiser_turret02",
+        "hardpoint": "HpTurret_R2_04"
+      },
+      {
+        "id": "rh_cruiser_turret02",
+        "hardpoint": "HpTurret_R2_05"
+      },
+      {
+        "id": "rh_cruiser_turret02",
+        "hardpoint": "HpTurret_R2_06"
+      },
+      {
+        "id": "rh_cruiser_turret03",
+        "hardpoint": "HpTurret_R3_01"
+      },
+      {
+        "id": "rh_cruiser_turret03",
+        "hardpoint": "HpTurret_R3_02"
+      },
+      {
+        "id": "rh_cruiser_turret04",
+        "hardpoint": "HpTurret_R4_01"
+      },
+      {
+        "id": "rh_cruiser_turret04",
+        "hardpoint": "HpTurret_R4_02"
+      },
+      {
+        "id": "rh_cruiser_turret04",
+        "hardpoint": "HpTurret_R4_03"
+      },
+      {
+        "id": "rh_cruiser_turret04",
+        "hardpoint": "HpTurret_R4_04"
+      },
+      {
+        "id": "rh_cruiser_turret04",
+        "hardpoint": "HpTurret_R4_05"
+      },
+      {
+        "id": "rh_cruiser_turret04",
+        "hardpoint": "HpTurret_R4_06"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_special.ini"
@@ -11276,7 +13057,92 @@ const FL_NPC_LOADOUTS = {
   "rh_battleship": {
     "id": "rh_battleship",
     "archetype": "rh_battleship",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "rh_battleship_turret01",
+        "hardpoint": "HpTurret_R1_01"
+      },
+      {
+        "id": "rh_battleship_turret01",
+        "hardpoint": "HpTurret_R1_02"
+      },
+      {
+        "id": "rh_battleship_turret01",
+        "hardpoint": "HpTurret_R1_03"
+      },
+      {
+        "id": "rh_battleship_turret01",
+        "hardpoint": "HpTurret_R1_04"
+      },
+      {
+        "id": "rh_battleship_turret02",
+        "hardpoint": "HpTurret_R2_01"
+      },
+      {
+        "id": "rh_battleship_turret02",
+        "hardpoint": "HpTurret_R2_02"
+      },
+      {
+        "id": "rh_battleship_turret02",
+        "hardpoint": "HpTurret_R2_03"
+      },
+      {
+        "id": "rh_battleship_turret02",
+        "hardpoint": "HpTurret_R2_04"
+      },
+      {
+        "id": "rh_battleship_turret03",
+        "hardpoint": "HpTurret_R3_01"
+      },
+      {
+        "id": "rh_battleship_turret03",
+        "hardpoint": "HpTurret_R3_02"
+      },
+      {
+        "id": "rh_battleship_turret03",
+        "hardpoint": "HpTurret_R3_03"
+      },
+      {
+        "id": "rh_battleship_turret03",
+        "hardpoint": "HpTurret_R3_04"
+      },
+      {
+        "id": "rh_battleship_turret03",
+        "hardpoint": "HpTurret_R3_05"
+      },
+      {
+        "id": "rh_battleship_turret03",
+        "hardpoint": "HpTurret_R3_06"
+      },
+      {
+        "id": "rh_battleship_turret04",
+        "hardpoint": "HpTurret_R4_01"
+      },
+      {
+        "id": "rh_battleship_flak_turret01",
+        "hardpoint": "HpTurret_R4_02"
+      },
+      {
+        "id": "rh_battleship_flak_turret01",
+        "hardpoint": "HpTurret_R4_03"
+      },
+      {
+        "id": "rh_battleship_turret04",
+        "hardpoint": "HpTurret_R4_04"
+      },
+      {
+        "id": "rh_battleship_turret04",
+        "hardpoint": "HpTurret_R4_05"
+      },
+      {
+        "id": "rh_battleship_turret04",
+        "hardpoint": "HpTurret_R4_06"
+      },
+      {
+        "id": "rh_battleship_turret04",
+        "hardpoint": "HpTurret_R4_07"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_special.ini"
@@ -11284,7 +13150,40 @@ const FL_NPC_LOADOUTS = {
   "or_osiris": {
     "id": "or_osiris",
     "archetype": "or_osiris",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "li_battleship_turret01",
+        "hardpoint": "HpTurret_O1_01"
+      },
+      {
+        "id": "li_battleship_turret02",
+        "hardpoint": "HpTurret_O2_01"
+      },
+      {
+        "id": "li_battleship_turret03",
+        "hardpoint": "HpTurret_O3_01"
+      },
+      {
+        "id": "li_battleship_turret03",
+        "hardpoint": "HpTurret_O3_02"
+      },
+      {
+        "id": "li_battleship_turret04",
+        "hardpoint": "HpTurret_O4_01"
+      },
+      {
+        "id": "li_battleship_turret04",
+        "hardpoint": "HpTurret_O4_02"
+      },
+      {
+        "id": "li_battleship_turret04",
+        "hardpoint": "HpTurret_O4_03"
+      },
+      {
+        "id": "li_battleship_turret04",
+        "hardpoint": "HpTurret_O4_04"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_special.ini"
@@ -11292,7 +13191,28 @@ const FL_NPC_LOADOUTS = {
   "large_transport": {
     "id": "large_transport",
     "archetype": "large_transport",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_01"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_02"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_03"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_04"
+      },
+      {
+        "id": "co_transport_turret02_mark01",
+        "hardpoint": "HpTurret_U3_01"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_special.ini"
@@ -11300,7 +13220,16 @@ const FL_NPC_LOADOUTS = {
   "msn02_burning_transport": {
     "id": "msn02_burning_transport",
     "archetype": "mission02_burning_transport",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_01"
+      },
+      {
+        "id": "co_transport_turret02_mark01",
+        "hardpoint": "HpTurret_U3_01"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_special.ini"
@@ -11342,7 +13271,60 @@ const FL_NPC_LOADOUTS = {
   "msn09_nomad_kusari_cruiser": {
     "id": "msn09_nomad_kusari_cruiser",
     "archetype": "ku_destroyer",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "ku_destroyer_turret01",
+        "hardpoint": "HpTurret_K1_01"
+      },
+      {
+        "id": "ku_destroyer_turret01",
+        "hardpoint": "HpTurret_K1_02"
+      },
+      {
+        "id": "ku_destroyer_turret02",
+        "hardpoint": "HpTurret_K2_01"
+      },
+      {
+        "id": "ku_destroyer_turret02",
+        "hardpoint": "HpTurret_K2_02"
+      },
+      {
+        "id": "ku_destroyer_turret02",
+        "hardpoint": "HpTurret_K2_03"
+      },
+      {
+        "id": "ku_destroyer_turret02",
+        "hardpoint": "HpTurret_K2_04"
+      },
+      {
+        "id": "ku_destroyer_turret02",
+        "hardpoint": "HpTurret_K2_05"
+      },
+      {
+        "id": "ku_destroyer_turret03",
+        "hardpoint": "HpTurret_K4_01"
+      },
+      {
+        "id": "ku_destroyer_turret03",
+        "hardpoint": "HpTurret_K4_02"
+      },
+      {
+        "id": "ku_destroyer_turret03",
+        "hardpoint": "HpTurret_K4_03"
+      },
+      {
+        "id": "ku_destroyer_turret03",
+        "hardpoint": "HpTurret_K4_04"
+      },
+      {
+        "id": "ku_destroyer_turret03",
+        "hardpoint": "HpTurret_K4_05"
+      },
+      {
+        "id": "ku_destroyer_turret03",
+        "hardpoint": "HpTurret_K4_06"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_special.ini"
@@ -11350,7 +13332,24 @@ const FL_NPC_LOADOUTS = {
   "msn09_nomad_kusari_gunboat": {
     "id": "msn09_nomad_kusari_gunboat",
     "archetype": "ku_gunboat",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "ku_gunboat_turret01",
+        "hardpoint": "HpTurret_K4_01"
+      },
+      {
+        "id": "ku_gunboat_turret01",
+        "hardpoint": "HpTurret_K4_02"
+      },
+      {
+        "id": "ku_gunboat_turret01",
+        "hardpoint": "HpTurret_K4_03"
+      },
+      {
+        "id": "ku_gunboat_forward_gun01",
+        "hardpoint": "HpTurret_K5_01"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_special.ini"
@@ -11358,7 +13357,88 @@ const FL_NPC_LOADOUTS = {
   "msn09_kusari_battleship": {
     "id": "msn09_kusari_battleship",
     "archetype": "ku_battleship",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "ku_battleship_turret01",
+        "hardpoint": "HpTurret_K1_01"
+      },
+      {
+        "id": "ku_battleship_turret01",
+        "hardpoint": "HpTurret_K1_02"
+      },
+      {
+        "id": "ku_battleship_turret01",
+        "hardpoint": "HpTurret_K1_03"
+      },
+      {
+        "id": "ku_battleship_turret01",
+        "hardpoint": "HpTurret_K1_04"
+      },
+      {
+        "id": "ku_battleship_turret01",
+        "hardpoint": "HpTurret_K1_05"
+      },
+      {
+        "id": "ku_battleship_turret01",
+        "hardpoint": "HpTurret_K1_06"
+      },
+      {
+        "id": "ku_battleship_turret01",
+        "hardpoint": "HpTurret_K1_07"
+      },
+      {
+        "id": "ku_battleship_turret01",
+        "hardpoint": "HpTurret_K1_08"
+      },
+      {
+        "id": "ku_battleship_turret03",
+        "hardpoint": "HpTurret_K3_01"
+      },
+      {
+        "id": "ku_battleship_turret03",
+        "hardpoint": "HpTurret_K3_02"
+      },
+      {
+        "id": "ku_battleship_turret03",
+        "hardpoint": "HpTurret_K3_03"
+      },
+      {
+        "id": "ku_battleship_turret03",
+        "hardpoint": "HpTurret_K3_04"
+      },
+      {
+        "id": "ku_battleship_flak_turret01",
+        "hardpoint": "HpTurret_K3_05"
+      },
+      {
+        "id": "ku_battleship_flak_turret01",
+        "hardpoint": "HpTurret_K3_06"
+      },
+      {
+        "id": "ku_battleship_turret03",
+        "hardpoint": "HpTurret_K3_07"
+      },
+      {
+        "id": "ku_battleship_turret03",
+        "hardpoint": "HpTurret_K3_08"
+      },
+      {
+        "id": "ku_battleship_turret03",
+        "hardpoint": "HpTurret_K3_09"
+      },
+      {
+        "id": "ku_battleship_turret03",
+        "hardpoint": "HpTurret_K3_10"
+      },
+      {
+        "id": "ku_battleship_missile_turret01",
+        "hardpoint": "HpTurret_KM_01"
+      },
+      {
+        "id": "ku_battleship_missile_turret01",
+        "hardpoint": "HpTurret_KM_02"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_special.ini"
@@ -11370,6 +13450,34 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "li_cruiser_forward_gun01",
         "hardpoint": "HpWeapon01"
+      },
+      {
+        "id": "li_cruiser_turret01",
+        "hardpoint": "HpTurret_L5_01"
+      },
+      {
+        "id": "li_cruiser_turret01",
+        "hardpoint": "HpTurret_L5_02"
+      },
+      {
+        "id": "li_cruiser_missile_turret01",
+        "hardpoint": "HpTurret_L5_03"
+      },
+      {
+        "id": "li_cruiser_missile_turret01",
+        "hardpoint": "HpTurret_L5_04"
+      },
+      {
+        "id": "li_cruiser_turret01",
+        "hardpoint": "HpTurret_L5_05"
+      },
+      {
+        "id": "li_cruiser_turret01",
+        "hardpoint": "HpTurret_L5_06"
+      },
+      {
+        "id": "li_cruiser_turret01",
+        "hardpoint": "HpTurret_L5_07"
       }
     ],
     "shields": [],
@@ -11383,6 +13491,34 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "li_cruiser_forward_gun01",
         "hardpoint": "HpWeapon01"
+      },
+      {
+        "id": "li_cruiser_turret01",
+        "hardpoint": "HpTurret_L5_01"
+      },
+      {
+        "id": "li_cruiser_turret01",
+        "hardpoint": "HpTurret_L5_02"
+      },
+      {
+        "id": "li_cruiser_missile_turret01",
+        "hardpoint": "HpTurret_L5_03"
+      },
+      {
+        "id": "li_cruiser_missile_turret01",
+        "hardpoint": "HpTurret_L5_04"
+      },
+      {
+        "id": "li_cruiser_turret01",
+        "hardpoint": "HpTurret_L5_05"
+      },
+      {
+        "id": "li_cruiser_turret01",
+        "hardpoint": "HpTurret_L5_06"
+      },
+      {
+        "id": "li_cruiser_turret01",
+        "hardpoint": "HpTurret_L5_07"
       }
     ],
     "shields": [],
@@ -11396,6 +13532,34 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "li_cruiser_forward_gun01",
         "hardpoint": "HpWeapon01"
+      },
+      {
+        "id": "li_cruiser_turret01",
+        "hardpoint": "HpTurret_L5_01"
+      },
+      {
+        "id": "li_cruiser_turret01",
+        "hardpoint": "HpTurret_L5_02"
+      },
+      {
+        "id": "li_cruiser_missile_turret01",
+        "hardpoint": "HpTurret_L5_03"
+      },
+      {
+        "id": "li_cruiser_missile_turret01",
+        "hardpoint": "HpTurret_L5_04"
+      },
+      {
+        "id": "li_cruiser_turret01",
+        "hardpoint": "HpTurret_L5_05"
+      },
+      {
+        "id": "li_cruiser_turret01",
+        "hardpoint": "HpTurret_L5_06"
+      },
+      {
+        "id": "li_cruiser_turret01",
+        "hardpoint": "HpTurret_L5_07"
       }
     ],
     "shields": [],
@@ -11409,6 +13573,34 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "li_cruiser_forward_gun01",
         "hardpoint": "HpWeapon01"
+      },
+      {
+        "id": "li_cruiser_turret01",
+        "hardpoint": "HpTurret_L5_01"
+      },
+      {
+        "id": "li_cruiser_turret01",
+        "hardpoint": "HpTurret_L5_02"
+      },
+      {
+        "id": "li_cruiser_missile_turret01",
+        "hardpoint": "HpTurret_L5_03"
+      },
+      {
+        "id": "li_cruiser_missile_turret01",
+        "hardpoint": "HpTurret_L5_04"
+      },
+      {
+        "id": "li_cruiser_turret01",
+        "hardpoint": "HpTurret_L5_05"
+      },
+      {
+        "id": "li_cruiser_turret01",
+        "hardpoint": "HpTurret_L5_06"
+      },
+      {
+        "id": "li_cruiser_turret01",
+        "hardpoint": "HpTurret_L5_07"
       }
     ],
     "shields": [],
@@ -11422,6 +13614,34 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "li_cruiser_forward_gun01",
         "hardpoint": "HpWeapon01"
+      },
+      {
+        "id": "li_cruiser_turret01",
+        "hardpoint": "HpTurret_L5_01"
+      },
+      {
+        "id": "li_cruiser_turret01",
+        "hardpoint": "HpTurret_L5_02"
+      },
+      {
+        "id": "li_cruiser_missile_turret01",
+        "hardpoint": "HpTurret_L5_03"
+      },
+      {
+        "id": "li_cruiser_missile_turret01",
+        "hardpoint": "HpTurret_L5_04"
+      },
+      {
+        "id": "li_cruiser_turret01",
+        "hardpoint": "HpTurret_L5_05"
+      },
+      {
+        "id": "li_cruiser_turret01",
+        "hardpoint": "HpTurret_L5_06"
+      },
+      {
+        "id": "li_cruiser_turret01",
+        "hardpoint": "HpTurret_L5_07"
       }
     ],
     "shields": [],
@@ -11435,6 +13655,34 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "li_cruiser_forward_gun01",
         "hardpoint": "HpWeapon01"
+      },
+      {
+        "id": "li_cruiser_turret01",
+        "hardpoint": "HpTurret_L5_01"
+      },
+      {
+        "id": "li_cruiser_turret01",
+        "hardpoint": "HpTurret_L5_02"
+      },
+      {
+        "id": "li_cruiser_missile_turret01",
+        "hardpoint": "HpTurret_L5_03"
+      },
+      {
+        "id": "li_cruiser_missile_turret01",
+        "hardpoint": "HpTurret_L5_04"
+      },
+      {
+        "id": "li_cruiser_turret01",
+        "hardpoint": "HpTurret_L5_05"
+      },
+      {
+        "id": "li_cruiser_turret01",
+        "hardpoint": "HpTurret_L5_06"
+      },
+      {
+        "id": "li_cruiser_turret01",
+        "hardpoint": "HpTurret_L5_07"
       }
     ],
     "shields": [],
@@ -11448,6 +13696,34 @@ const FL_NPC_LOADOUTS = {
       {
         "id": "li_cruiser_forward_gun01",
         "hardpoint": "HpWeapon01"
+      },
+      {
+        "id": "li_cruiser_turret01",
+        "hardpoint": "HpTurret_L5_01"
+      },
+      {
+        "id": "li_cruiser_turret01",
+        "hardpoint": "HpTurret_L5_02"
+      },
+      {
+        "id": "li_cruiser_missile_turret01",
+        "hardpoint": "HpTurret_L5_03"
+      },
+      {
+        "id": "li_cruiser_missile_turret01",
+        "hardpoint": "HpTurret_L5_04"
+      },
+      {
+        "id": "li_cruiser_turret01",
+        "hardpoint": "HpTurret_L5_05"
+      },
+      {
+        "id": "li_cruiser_turret01",
+        "hardpoint": "HpTurret_L5_06"
+      },
+      {
+        "id": "li_cruiser_turret01",
+        "hardpoint": "HpTurret_L5_07"
       }
     ],
     "shields": [],
@@ -11457,7 +13733,48 @@ const FL_NPC_LOADOUTS = {
   "msn03_liberty_dreadnought": {
     "id": "msn03_liberty_dreadnought",
     "archetype": "li_dreadnought",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "li_battleship_turret01",
+        "hardpoint": "HpTurret_L1_01"
+      },
+      {
+        "id": "li_battleship_turret02",
+        "hardpoint": "HpTurret_L2_01"
+      },
+      {
+        "id": "li_battleship_turret03",
+        "hardpoint": "HpTurret_L3_01"
+      },
+      {
+        "id": "li_battleship_turret04",
+        "hardpoint": "HpTurret_L4_01"
+      },
+      {
+        "id": "li_battleship_turret04",
+        "hardpoint": "HpTurret_L4_02"
+      },
+      {
+        "id": "li_battleship_flak_turret01",
+        "hardpoint": "HpTurret_L4_03"
+      },
+      {
+        "id": "li_battleship_flak_turret01",
+        "hardpoint": "HpTurret_L4_04"
+      },
+      {
+        "id": "li_battleship_turret04",
+        "hardpoint": "HpTurret_L4_05"
+      },
+      {
+        "id": "li_battleship_turret04",
+        "hardpoint": "HpTurret_L4_06"
+      },
+      {
+        "id": "li_battleship_turret04",
+        "hardpoint": "HpTurret_L4_07"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_special.ini"
@@ -11465,7 +13782,48 @@ const FL_NPC_LOADOUTS = {
   "msn04_battleship_unity": {
     "id": "msn04_battleship_unity",
     "archetype": "li_dreadnought",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "li_battleship_turret01",
+        "hardpoint": "HpTurret_L1_01"
+      },
+      {
+        "id": "li_battleship_turret02",
+        "hardpoint": "HpTurret_L2_01"
+      },
+      {
+        "id": "li_battleship_turret03",
+        "hardpoint": "HpTurret_L3_01"
+      },
+      {
+        "id": "li_battleship_turret04",
+        "hardpoint": "HpTurret_L4_01"
+      },
+      {
+        "id": "li_battleship_turret04",
+        "hardpoint": "HpTurret_L4_02"
+      },
+      {
+        "id": "li_battleship_flak_turret01",
+        "hardpoint": "HpTurret_L4_03"
+      },
+      {
+        "id": "li_battleship_flak_turret01",
+        "hardpoint": "HpTurret_L4_04"
+      },
+      {
+        "id": "li_battleship_turret04",
+        "hardpoint": "HpTurret_L4_05"
+      },
+      {
+        "id": "li_battleship_turret04",
+        "hardpoint": "HpTurret_L4_06"
+      },
+      {
+        "id": "li_battleship_turret04",
+        "hardpoint": "HpTurret_L4_07"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_special.ini"
@@ -11473,7 +13831,48 @@ const FL_NPC_LOADOUTS = {
   "msn11_nomad_liberty_dreadnought": {
     "id": "msn11_nomad_liberty_dreadnought",
     "archetype": "li_dreadnought",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "li_battleship_turret01",
+        "hardpoint": "HpTurret_L1_01"
+      },
+      {
+        "id": "li_battleship_turret02",
+        "hardpoint": "HpTurret_L2_01"
+      },
+      {
+        "id": "li_battleship_turret03",
+        "hardpoint": "HpTurret_L3_01"
+      },
+      {
+        "id": "li_battleship_turret04",
+        "hardpoint": "HpTurret_L4_01"
+      },
+      {
+        "id": "li_battleship_turret04",
+        "hardpoint": "HpTurret_L4_02"
+      },
+      {
+        "id": "li_battleship_flak_turret01",
+        "hardpoint": "HpTurret_L4_03"
+      },
+      {
+        "id": "li_battleship_flak_turret01",
+        "hardpoint": "HpTurret_L4_04"
+      },
+      {
+        "id": "li_battleship_turret04",
+        "hardpoint": "HpTurret_L4_05"
+      },
+      {
+        "id": "li_battleship_turret04",
+        "hardpoint": "HpTurret_L4_06"
+      },
+      {
+        "id": "li_battleship_turret04",
+        "hardpoint": "HpTurret_L4_07"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_special.ini"
@@ -11521,7 +13920,40 @@ const FL_NPC_LOADOUTS = {
   "msn10_battleship_osiris": {
     "id": "msn10_battleship_osiris",
     "archetype": "or_osiris",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "li_battleship_turret01",
+        "hardpoint": "HpTurret_O1_01"
+      },
+      {
+        "id": "li_battleship_turret02",
+        "hardpoint": "HpTurret_O2_01"
+      },
+      {
+        "id": "li_battleship_turret03",
+        "hardpoint": "HpTurret_O3_01"
+      },
+      {
+        "id": "li_battleship_turret03",
+        "hardpoint": "HpTurret_O3_02"
+      },
+      {
+        "id": "li_battleship_turret04",
+        "hardpoint": "HpTurret_O4_01"
+      },
+      {
+        "id": "li_battleship_turret04",
+        "hardpoint": "HpTurret_O4_02"
+      },
+      {
+        "id": "li_battleship_turret04",
+        "hardpoint": "HpTurret_O4_03"
+      },
+      {
+        "id": "li_battleship_turret04",
+        "hardpoint": "HpTurret_O4_04"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_special.ini"
@@ -11529,7 +13961,40 @@ const FL_NPC_LOADOUTS = {
   "msn11_osirus": {
     "id": "msn11_osirus",
     "archetype": "or_osiris",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "li_battleship_turret01",
+        "hardpoint": "HpTurret_O1_01"
+      },
+      {
+        "id": "li_battleship_turret02",
+        "hardpoint": "HpTurret_O2_01"
+      },
+      {
+        "id": "li_battleship_turret03",
+        "hardpoint": "HpTurret_O3_01"
+      },
+      {
+        "id": "li_battleship_turret03",
+        "hardpoint": "HpTurret_O3_02"
+      },
+      {
+        "id": "li_battleship_turret04",
+        "hardpoint": "HpTurret_O4_01"
+      },
+      {
+        "id": "li_battleship_turret04",
+        "hardpoint": "HpTurret_O4_02"
+      },
+      {
+        "id": "li_battleship_turret04",
+        "hardpoint": "HpTurret_O4_03"
+      },
+      {
+        "id": "li_battleship_turret04",
+        "hardpoint": "HpTurret_O4_04"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_special.ini"
@@ -11537,7 +14002,40 @@ const FL_NPC_LOADOUTS = {
   "msn13_osirus": {
     "id": "msn13_osirus",
     "archetype": "or_osiris",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "li_battleship_turret01",
+        "hardpoint": "HpTurret_O1_01"
+      },
+      {
+        "id": "li_battleship_turret02",
+        "hardpoint": "HpTurret_O2_01"
+      },
+      {
+        "id": "li_battleship_turret03",
+        "hardpoint": "HpTurret_O3_01"
+      },
+      {
+        "id": "li_battleship_turret03",
+        "hardpoint": "HpTurret_O3_02"
+      },
+      {
+        "id": "li_battleship_turret04",
+        "hardpoint": "HpTurret_O4_01"
+      },
+      {
+        "id": "li_battleship_turret04",
+        "hardpoint": "HpTurret_O4_02"
+      },
+      {
+        "id": "li_battleship_turret04",
+        "hardpoint": "HpTurret_O4_03"
+      },
+      {
+        "id": "li_battleship_turret04",
+        "hardpoint": "HpTurret_O4_04"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_special.ini"
@@ -11545,7 +14043,92 @@ const FL_NPC_LOADOUTS = {
   "msn05_nomad_rheinland_battleship": {
     "id": "msn05_nomad_rheinland_battleship",
     "archetype": "rh_battleship",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "rh_battleship_turret01",
+        "hardpoint": "HpTurret_R1_01"
+      },
+      {
+        "id": "rh_battleship_turret01",
+        "hardpoint": "HpTurret_R1_02"
+      },
+      {
+        "id": "rh_battleship_turret01",
+        "hardpoint": "HpTurret_R1_03"
+      },
+      {
+        "id": "rh_battleship_turret01",
+        "hardpoint": "HpTurret_R1_04"
+      },
+      {
+        "id": "rh_battleship_turret02",
+        "hardpoint": "HpTurret_R2_01"
+      },
+      {
+        "id": "rh_battleship_turret02",
+        "hardpoint": "HpTurret_R2_02"
+      },
+      {
+        "id": "rh_battleship_turret02",
+        "hardpoint": "HpTurret_R2_03"
+      },
+      {
+        "id": "rh_battleship_turret02",
+        "hardpoint": "HpTurret_R2_04"
+      },
+      {
+        "id": "rh_battleship_turret03",
+        "hardpoint": "HpTurret_R3_01"
+      },
+      {
+        "id": "rh_battleship_turret03",
+        "hardpoint": "HpTurret_R3_02"
+      },
+      {
+        "id": "rh_battleship_turret03",
+        "hardpoint": "HpTurret_R3_03"
+      },
+      {
+        "id": "rh_battleship_turret03",
+        "hardpoint": "HpTurret_R3_04"
+      },
+      {
+        "id": "rh_battleship_turret03",
+        "hardpoint": "HpTurret_R3_05"
+      },
+      {
+        "id": "rh_battleship_turret03",
+        "hardpoint": "HpTurret_R3_06"
+      },
+      {
+        "id": "rh_battleship_turret04",
+        "hardpoint": "HpTurret_R4_01"
+      },
+      {
+        "id": "rh_battleship_flak_turret01",
+        "hardpoint": "HpTurret_R4_02"
+      },
+      {
+        "id": "rh_battleship_flak_turret01",
+        "hardpoint": "HpTurret_R4_03"
+      },
+      {
+        "id": "rh_battleship_turret04",
+        "hardpoint": "HpTurret_R4_04"
+      },
+      {
+        "id": "rh_battleship_turret04",
+        "hardpoint": "HpTurret_R4_05"
+      },
+      {
+        "id": "rh_battleship_turret04",
+        "hardpoint": "HpTurret_R4_06"
+      },
+      {
+        "id": "rh_battleship_turret04",
+        "hardpoint": "HpTurret_R4_07"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_special.ini"
@@ -11553,7 +14136,92 @@ const FL_NPC_LOADOUTS = {
   "msn07_nomad_rheinland_battleship": {
     "id": "msn07_nomad_rheinland_battleship",
     "archetype": "rh_battleship",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "rh_battleship_turret01",
+        "hardpoint": "HpTurret_R1_01"
+      },
+      {
+        "id": "rh_battleship_turret01",
+        "hardpoint": "HpTurret_R1_02"
+      },
+      {
+        "id": "rh_battleship_turret01",
+        "hardpoint": "HpTurret_R1_03"
+      },
+      {
+        "id": "rh_battleship_turret01",
+        "hardpoint": "HpTurret_R1_04"
+      },
+      {
+        "id": "rh_battleship_turret02",
+        "hardpoint": "HpTurret_R2_01"
+      },
+      {
+        "id": "rh_battleship_turret02",
+        "hardpoint": "HpTurret_R2_02"
+      },
+      {
+        "id": "rh_battleship_turret02",
+        "hardpoint": "HpTurret_R2_03"
+      },
+      {
+        "id": "rh_battleship_turret02",
+        "hardpoint": "HpTurret_R2_04"
+      },
+      {
+        "id": "rh_battleship_turret03",
+        "hardpoint": "HpTurret_R3_01"
+      },
+      {
+        "id": "rh_battleship_turret03",
+        "hardpoint": "HpTurret_R3_02"
+      },
+      {
+        "id": "rh_battleship_turret03",
+        "hardpoint": "HpTurret_R3_03"
+      },
+      {
+        "id": "rh_battleship_turret03",
+        "hardpoint": "HpTurret_R3_04"
+      },
+      {
+        "id": "rh_battleship_turret03",
+        "hardpoint": "HpTurret_R3_05"
+      },
+      {
+        "id": "rh_battleship_turret03",
+        "hardpoint": "HpTurret_R3_06"
+      },
+      {
+        "id": "rh_battleship_turret04",
+        "hardpoint": "HpTurret_R4_01"
+      },
+      {
+        "id": "rh_battleship_flak_turret01",
+        "hardpoint": "HpTurret_R4_02"
+      },
+      {
+        "id": "rh_battleship_flak_turret01",
+        "hardpoint": "HpTurret_R4_03"
+      },
+      {
+        "id": "rh_battleship_turret04",
+        "hardpoint": "HpTurret_R4_04"
+      },
+      {
+        "id": "rh_battleship_turret04",
+        "hardpoint": "HpTurret_R4_05"
+      },
+      {
+        "id": "rh_battleship_turret04",
+        "hardpoint": "HpTurret_R4_06"
+      },
+      {
+        "id": "rh_battleship_turret04",
+        "hardpoint": "HpTurret_R4_07"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_special.ini"
@@ -11561,7 +14229,92 @@ const FL_NPC_LOADOUTS = {
   "msn10_rheinland_battleship": {
     "id": "msn10_rheinland_battleship",
     "archetype": "rh_battleship",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "rh_battleship_turret01",
+        "hardpoint": "HpTurret_R1_01"
+      },
+      {
+        "id": "rh_battleship_turret01",
+        "hardpoint": "HpTurret_R1_02"
+      },
+      {
+        "id": "rh_battleship_turret01",
+        "hardpoint": "HpTurret_R1_03"
+      },
+      {
+        "id": "rh_battleship_turret01",
+        "hardpoint": "HpTurret_R1_04"
+      },
+      {
+        "id": "rh_battleship_turret02",
+        "hardpoint": "HpTurret_R2_01"
+      },
+      {
+        "id": "rh_battleship_turret02",
+        "hardpoint": "HpTurret_R2_02"
+      },
+      {
+        "id": "rh_battleship_turret02",
+        "hardpoint": "HpTurret_R2_03"
+      },
+      {
+        "id": "rh_battleship_turret02",
+        "hardpoint": "HpTurret_R2_04"
+      },
+      {
+        "id": "rh_battleship_turret03",
+        "hardpoint": "HpTurret_R3_01"
+      },
+      {
+        "id": "rh_battleship_turret03",
+        "hardpoint": "HpTurret_R3_02"
+      },
+      {
+        "id": "rh_battleship_turret03",
+        "hardpoint": "HpTurret_R3_03"
+      },
+      {
+        "id": "rh_battleship_turret03",
+        "hardpoint": "HpTurret_R3_04"
+      },
+      {
+        "id": "rh_battleship_turret03",
+        "hardpoint": "HpTurret_R3_05"
+      },
+      {
+        "id": "rh_battleship_turret03",
+        "hardpoint": "HpTurret_R3_06"
+      },
+      {
+        "id": "rh_battleship_turret04",
+        "hardpoint": "HpTurret_R4_01"
+      },
+      {
+        "id": "rh_battleship_flak_turret01",
+        "hardpoint": "HpTurret_R4_02"
+      },
+      {
+        "id": "rh_battleship_flak_turret01",
+        "hardpoint": "HpTurret_R4_03"
+      },
+      {
+        "id": "rh_battleship_turret04",
+        "hardpoint": "HpTurret_R4_04"
+      },
+      {
+        "id": "rh_battleship_turret04",
+        "hardpoint": "HpTurret_R4_05"
+      },
+      {
+        "id": "rh_battleship_turret04",
+        "hardpoint": "HpTurret_R4_06"
+      },
+      {
+        "id": "rh_battleship_turret04",
+        "hardpoint": "HpTurret_R4_07"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_special.ini"
@@ -11569,7 +14322,68 @@ const FL_NPC_LOADOUTS = {
   "msn01a_donau": {
     "id": "msn01a_donau",
     "archetype": "rh_cruiser",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "rh_cruiser_turret01_rtc",
+        "hardpoint": "HpTurret_R1_01"
+      },
+      {
+        "id": "rh_cruiser_turret02_rtc",
+        "hardpoint": "HpTurret_R2_01"
+      },
+      {
+        "id": "rh_cruiser_turret02_rtc",
+        "hardpoint": "HpTurret_R2_02"
+      },
+      {
+        "id": "rh_cruiser_turret02_rtc",
+        "hardpoint": "HpTurret_R2_03"
+      },
+      {
+        "id": "rh_cruiser_turret02_rtc",
+        "hardpoint": "HpTurret_R2_04"
+      },
+      {
+        "id": "rh_cruiser_turret02_rtc",
+        "hardpoint": "HpTurret_R2_05"
+      },
+      {
+        "id": "rh_cruiser_turret02_rtc",
+        "hardpoint": "HpTurret_R2_06"
+      },
+      {
+        "id": "rh_cruiser_turret03_rtc",
+        "hardpoint": "HpTurret_R3_01"
+      },
+      {
+        "id": "rh_cruiser_turret03_rtc",
+        "hardpoint": "HpTurret_R3_02"
+      },
+      {
+        "id": "rh_cruiser_turret04_rtc",
+        "hardpoint": "HpTurret_R4_01"
+      },
+      {
+        "id": "rh_cruiser_turret04_rtc",
+        "hardpoint": "HpTurret_R4_02"
+      },
+      {
+        "id": "rh_cruiser_turret04_rtc",
+        "hardpoint": "HpTurret_R4_03"
+      },
+      {
+        "id": "rh_cruiser_turret04_rtc",
+        "hardpoint": "HpTurret_R4_04"
+      },
+      {
+        "id": "rh_cruiser_turret04_rtc",
+        "hardpoint": "HpTurret_R4_05"
+      },
+      {
+        "id": "rh_cruiser_turret04_rtc",
+        "hardpoint": "HpTurret_R4_06"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_special.ini"
@@ -11577,7 +14391,68 @@ const FL_NPC_LOADOUTS = {
   "msn07_nomad_rheinland_cruiser": {
     "id": "msn07_nomad_rheinland_cruiser",
     "archetype": "rh_cruiser",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "rh_cruiser_turret01",
+        "hardpoint": "HpTurret_R1_01"
+      },
+      {
+        "id": "rh_cruiser_turret02",
+        "hardpoint": "HpTurret_R2_01"
+      },
+      {
+        "id": "rh_cruiser_turret02",
+        "hardpoint": "HpTurret_R2_02"
+      },
+      {
+        "id": "rh_cruiser_turret02",
+        "hardpoint": "HpTurret_R2_03"
+      },
+      {
+        "id": "rh_cruiser_turret02",
+        "hardpoint": "HpTurret_R2_04"
+      },
+      {
+        "id": "rh_cruiser_turret02",
+        "hardpoint": "HpTurret_R2_05"
+      },
+      {
+        "id": "rh_cruiser_turret02",
+        "hardpoint": "HpTurret_R2_06"
+      },
+      {
+        "id": "rh_cruiser_turret03",
+        "hardpoint": "HpTurret_R3_01"
+      },
+      {
+        "id": "rh_cruiser_turret03",
+        "hardpoint": "HpTurret_R3_02"
+      },
+      {
+        "id": "rh_cruiser_turret04",
+        "hardpoint": "HpTurret_R4_01"
+      },
+      {
+        "id": "rh_cruiser_turret04",
+        "hardpoint": "HpTurret_R4_02"
+      },
+      {
+        "id": "rh_cruiser_turret04",
+        "hardpoint": "HpTurret_R4_03"
+      },
+      {
+        "id": "rh_cruiser_turret04",
+        "hardpoint": "HpTurret_R4_04"
+      },
+      {
+        "id": "rh_cruiser_turret04",
+        "hardpoint": "HpTurret_R4_05"
+      },
+      {
+        "id": "rh_cruiser_turret04",
+        "hardpoint": "HpTurret_R4_06"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_special.ini"
@@ -11585,7 +14460,68 @@ const FL_NPC_LOADOUTS = {
   "msn07_rheinland_cruiser": {
     "id": "msn07_rheinland_cruiser",
     "archetype": "rh_cruiser",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "rh_cruiser_turret01",
+        "hardpoint": "HpTurret_R1_01"
+      },
+      {
+        "id": "rh_cruiser_turret02",
+        "hardpoint": "HpTurret_R2_01"
+      },
+      {
+        "id": "rh_cruiser_turret02",
+        "hardpoint": "HpTurret_R2_02"
+      },
+      {
+        "id": "rh_cruiser_turret02",
+        "hardpoint": "HpTurret_R2_03"
+      },
+      {
+        "id": "rh_cruiser_turret02",
+        "hardpoint": "HpTurret_R2_04"
+      },
+      {
+        "id": "rh_cruiser_turret02",
+        "hardpoint": "HpTurret_R2_05"
+      },
+      {
+        "id": "rh_cruiser_turret02",
+        "hardpoint": "HpTurret_R2_06"
+      },
+      {
+        "id": "rh_cruiser_turret03",
+        "hardpoint": "HpTurret_R3_01"
+      },
+      {
+        "id": "rh_cruiser_turret03",
+        "hardpoint": "HpTurret_R3_02"
+      },
+      {
+        "id": "rh_cruiser_turret04",
+        "hardpoint": "HpTurret_R4_01"
+      },
+      {
+        "id": "rh_cruiser_turret04",
+        "hardpoint": "HpTurret_R4_02"
+      },
+      {
+        "id": "rh_cruiser_turret04",
+        "hardpoint": "HpTurret_R4_03"
+      },
+      {
+        "id": "rh_cruiser_turret04",
+        "hardpoint": "HpTurret_R4_04"
+      },
+      {
+        "id": "rh_cruiser_turret04",
+        "hardpoint": "HpTurret_R4_05"
+      },
+      {
+        "id": "rh_cruiser_turret04",
+        "hardpoint": "HpTurret_R4_06"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_special.ini"
@@ -11593,7 +14529,68 @@ const FL_NPC_LOADOUTS = {
   "msn09_rheinland_cruiser": {
     "id": "msn09_rheinland_cruiser",
     "archetype": "rh_cruiser",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "rh_cruiser_turret01",
+        "hardpoint": "HpTurret_R1_01"
+      },
+      {
+        "id": "rh_cruiser_turret02",
+        "hardpoint": "HpTurret_R2_01"
+      },
+      {
+        "id": "rh_cruiser_turret02",
+        "hardpoint": "HpTurret_R2_02"
+      },
+      {
+        "id": "rh_cruiser_turret02",
+        "hardpoint": "HpTurret_R2_03"
+      },
+      {
+        "id": "rh_cruiser_turret02",
+        "hardpoint": "HpTurret_R2_04"
+      },
+      {
+        "id": "rh_cruiser_turret02",
+        "hardpoint": "HpTurret_R2_05"
+      },
+      {
+        "id": "rh_cruiser_turret02",
+        "hardpoint": "HpTurret_R2_06"
+      },
+      {
+        "id": "rh_cruiser_turret03",
+        "hardpoint": "HpTurret_R3_01"
+      },
+      {
+        "id": "rh_cruiser_turret03",
+        "hardpoint": "HpTurret_R3_02"
+      },
+      {
+        "id": "rh_cruiser_turret04",
+        "hardpoint": "HpTurret_R4_01"
+      },
+      {
+        "id": "rh_cruiser_turret04",
+        "hardpoint": "HpTurret_R4_02"
+      },
+      {
+        "id": "rh_cruiser_turret04",
+        "hardpoint": "HpTurret_R4_03"
+      },
+      {
+        "id": "rh_cruiser_turret04",
+        "hardpoint": "HpTurret_R4_04"
+      },
+      {
+        "id": "rh_cruiser_turret04",
+        "hardpoint": "HpTurret_R4_05"
+      },
+      {
+        "id": "rh_cruiser_turret04",
+        "hardpoint": "HpTurret_R4_06"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_special.ini"
@@ -11601,7 +14598,68 @@ const FL_NPC_LOADOUTS = {
   "msn10_rheinland_cruiser": {
     "id": "msn10_rheinland_cruiser",
     "archetype": "rh_cruiser",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "rh_cruiser_turret01",
+        "hardpoint": "HpTurret_R1_01"
+      },
+      {
+        "id": "rh_cruiser_turret02",
+        "hardpoint": "HpTurret_R2_01"
+      },
+      {
+        "id": "rh_cruiser_turret02",
+        "hardpoint": "HpTurret_R2_02"
+      },
+      {
+        "id": "rh_cruiser_turret02",
+        "hardpoint": "HpTurret_R2_03"
+      },
+      {
+        "id": "rh_cruiser_turret02",
+        "hardpoint": "HpTurret_R2_04"
+      },
+      {
+        "id": "rh_cruiser_turret02",
+        "hardpoint": "HpTurret_R2_05"
+      },
+      {
+        "id": "rh_cruiser_turret02",
+        "hardpoint": "HpTurret_R2_06"
+      },
+      {
+        "id": "rh_cruiser_turret03",
+        "hardpoint": "HpTurret_R3_01"
+      },
+      {
+        "id": "rh_cruiser_turret03",
+        "hardpoint": "HpTurret_R3_02"
+      },
+      {
+        "id": "rh_cruiser_turret04",
+        "hardpoint": "HpTurret_R4_01"
+      },
+      {
+        "id": "rh_cruiser_turret04",
+        "hardpoint": "HpTurret_R4_02"
+      },
+      {
+        "id": "rh_cruiser_turret04",
+        "hardpoint": "HpTurret_R4_03"
+      },
+      {
+        "id": "rh_cruiser_turret04",
+        "hardpoint": "HpTurret_R4_04"
+      },
+      {
+        "id": "rh_cruiser_turret04",
+        "hardpoint": "HpTurret_R4_05"
+      },
+      {
+        "id": "rh_cruiser_turret04",
+        "hardpoint": "HpTurret_R4_06"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_special.ini"
@@ -11610,6 +14668,30 @@ const FL_NPC_LOADOUTS = {
     "id": "msn03_nomad_rheinland_gunboat",
     "archetype": "rh_gunboat",
     "weapons": [
+      {
+        "id": "rh_gunboat_turret01",
+        "hardpoint": "HpTurret_R3_01"
+      },
+      {
+        "id": "rh_gunboat_turret02",
+        "hardpoint": "HpTurret_R4_01"
+      },
+      {
+        "id": "rh_gunboat_turret02",
+        "hardpoint": "HpTurret_R4_02"
+      },
+      {
+        "id": "rh_gunboat_missile_turret01",
+        "hardpoint": "HpTurret_R4_03"
+      },
+      {
+        "id": "rh_gunboat_missile_turret01",
+        "hardpoint": "HpTurret_R4_04"
+      },
+      {
+        "id": "rh_gunboat_turret02",
+        "hardpoint": "HpTurret_R4_05"
+      },
       {
         "id": "rh_gunboat_forward_gun01",
         "hardpoint": "HpWeapon01"
@@ -11624,6 +14706,30 @@ const FL_NPC_LOADOUTS = {
     "archetype": "rh_gunboat",
     "weapons": [
       {
+        "id": "rh_gunboat_turret01",
+        "hardpoint": "HpTurret_R3_01"
+      },
+      {
+        "id": "rh_gunboat_turret02",
+        "hardpoint": "HpTurret_R4_01"
+      },
+      {
+        "id": "rh_gunboat_turret02",
+        "hardpoint": "HpTurret_R4_02"
+      },
+      {
+        "id": "rh_gunboat_missile_turret01",
+        "hardpoint": "HpTurret_R4_03"
+      },
+      {
+        "id": "rh_gunboat_missile_turret01",
+        "hardpoint": "HpTurret_R4_04"
+      },
+      {
+        "id": "rh_gunboat_turret02",
+        "hardpoint": "HpTurret_R4_05"
+      },
+      {
         "id": "rh_gunboat_forward_gun01",
         "hardpoint": "HpWeapon01"
       }
@@ -11636,6 +14742,30 @@ const FL_NPC_LOADOUTS = {
     "id": "msn05_nomad_rheinland_gunboat",
     "archetype": "rh_gunboat",
     "weapons": [
+      {
+        "id": "rh_gunboat_turret01",
+        "hardpoint": "HpTurret_R3_01"
+      },
+      {
+        "id": "rh_gunboat_turret02",
+        "hardpoint": "HpTurret_R4_01"
+      },
+      {
+        "id": "rh_gunboat_turret02",
+        "hardpoint": "HpTurret_R4_02"
+      },
+      {
+        "id": "rh_gunboat_missile_turret01",
+        "hardpoint": "HpTurret_R4_03"
+      },
+      {
+        "id": "rh_gunboat_missile_turret01",
+        "hardpoint": "HpTurret_R4_04"
+      },
+      {
+        "id": "rh_gunboat_turret02",
+        "hardpoint": "HpTurret_R4_05"
+      },
       {
         "id": "rh_gunboat_forward_gun01",
         "hardpoint": "HpWeapon01"
@@ -11650,6 +14780,30 @@ const FL_NPC_LOADOUTS = {
     "archetype": "rh_gunboat",
     "weapons": [
       {
+        "id": "rh_gunboat_turret01",
+        "hardpoint": "HpTurret_R3_01"
+      },
+      {
+        "id": "rh_gunboat_turret02",
+        "hardpoint": "HpTurret_R4_01"
+      },
+      {
+        "id": "rh_gunboat_turret02",
+        "hardpoint": "HpTurret_R4_02"
+      },
+      {
+        "id": "rh_gunboat_missile_turret01",
+        "hardpoint": "HpTurret_R4_03"
+      },
+      {
+        "id": "rh_gunboat_missile_turret01",
+        "hardpoint": "HpTurret_R4_04"
+      },
+      {
+        "id": "rh_gunboat_turret02",
+        "hardpoint": "HpTurret_R4_05"
+      },
+      {
         "id": "rh_gunboat_forward_gun01",
         "hardpoint": "HpWeapon01"
       }
@@ -11662,6 +14816,30 @@ const FL_NPC_LOADOUTS = {
     "id": "msn07_nomad_rheinland_gunboat",
     "archetype": "rh_gunboat",
     "weapons": [
+      {
+        "id": "rh_gunboat_turret01",
+        "hardpoint": "HpTurret_R3_01"
+      },
+      {
+        "id": "rh_gunboat_turret02",
+        "hardpoint": "HpTurret_R4_01"
+      },
+      {
+        "id": "rh_gunboat_turret02",
+        "hardpoint": "HpTurret_R4_02"
+      },
+      {
+        "id": "rh_gunboat_missile_turret01",
+        "hardpoint": "HpTurret_R4_03"
+      },
+      {
+        "id": "rh_gunboat_missile_turret01",
+        "hardpoint": "HpTurret_R4_04"
+      },
+      {
+        "id": "rh_gunboat_turret02",
+        "hardpoint": "HpTurret_R4_05"
+      },
       {
         "id": "rh_gunboat_forward_gun01",
         "hardpoint": "HpWeapon01"
@@ -11676,6 +14854,30 @@ const FL_NPC_LOADOUTS = {
     "archetype": "rh_gunboat",
     "weapons": [
       {
+        "id": "rh_gunboat_turret01",
+        "hardpoint": "HpTurret_R3_01"
+      },
+      {
+        "id": "rh_gunboat_turret02",
+        "hardpoint": "HpTurret_R4_01"
+      },
+      {
+        "id": "rh_gunboat_turret02",
+        "hardpoint": "HpTurret_R4_02"
+      },
+      {
+        "id": "rh_gunboat_missile_turret01",
+        "hardpoint": "HpTurret_R4_03"
+      },
+      {
+        "id": "rh_gunboat_missile_turret01",
+        "hardpoint": "HpTurret_R4_04"
+      },
+      {
+        "id": "rh_gunboat_turret02",
+        "hardpoint": "HpTurret_R4_05"
+      },
+      {
         "id": "rh_gunboat_forward_gun01",
         "hardpoint": "HpWeapon01"
       }
@@ -11688,6 +14890,30 @@ const FL_NPC_LOADOUTS = {
     "id": "msn09_nomad_rheinland_gunboat",
     "archetype": "rh_gunboat",
     "weapons": [
+      {
+        "id": "rh_gunboat_turret01",
+        "hardpoint": "HpTurret_R3_01"
+      },
+      {
+        "id": "rh_gunboat_turret02",
+        "hardpoint": "HpTurret_R4_01"
+      },
+      {
+        "id": "rh_gunboat_turret02",
+        "hardpoint": "HpTurret_R4_02"
+      },
+      {
+        "id": "rh_gunboat_missile_turret01",
+        "hardpoint": "HpTurret_R4_03"
+      },
+      {
+        "id": "rh_gunboat_missile_turret01",
+        "hardpoint": "HpTurret_R4_04"
+      },
+      {
+        "id": "rh_gunboat_turret02",
+        "hardpoint": "HpTurret_R4_05"
+      },
       {
         "id": "rh_gunboat_forward_gun01",
         "hardpoint": "HpWeapon01"
@@ -11702,6 +14928,30 @@ const FL_NPC_LOADOUTS = {
     "archetype": "rh_gunboat",
     "weapons": [
       {
+        "id": "rh_gunboat_turret01",
+        "hardpoint": "HpTurret_R3_01"
+      },
+      {
+        "id": "rh_gunboat_turret02",
+        "hardpoint": "HpTurret_R4_01"
+      },
+      {
+        "id": "rh_gunboat_turret02",
+        "hardpoint": "HpTurret_R4_02"
+      },
+      {
+        "id": "rh_gunboat_missile_turret01",
+        "hardpoint": "HpTurret_R4_03"
+      },
+      {
+        "id": "rh_gunboat_missile_turret01",
+        "hardpoint": "HpTurret_R4_04"
+      },
+      {
+        "id": "rh_gunboat_turret02",
+        "hardpoint": "HpTurret_R4_05"
+      },
+      {
         "id": "rh_gunboat_forward_gun01",
         "hardpoint": "HpWeapon01"
       }
@@ -11714,6 +14964,30 @@ const FL_NPC_LOADOUTS = {
     "id": "msn10_rheinland_gunboat",
     "archetype": "rh_gunboat",
     "weapons": [
+      {
+        "id": "rh_gunboat_turret01",
+        "hardpoint": "HpTurret_R3_01"
+      },
+      {
+        "id": "rh_gunboat_turret02",
+        "hardpoint": "HpTurret_R4_01"
+      },
+      {
+        "id": "rh_gunboat_turret02",
+        "hardpoint": "HpTurret_R4_02"
+      },
+      {
+        "id": "rh_gunboat_missile_turret01",
+        "hardpoint": "HpTurret_R4_03"
+      },
+      {
+        "id": "rh_gunboat_missile_turret01",
+        "hardpoint": "HpTurret_R4_04"
+      },
+      {
+        "id": "rh_gunboat_turret02",
+        "hardpoint": "HpTurret_R4_05"
+      },
       {
         "id": "rh_gunboat_forward_gun01",
         "hardpoint": "HpWeapon01"
@@ -11728,6 +15002,30 @@ const FL_NPC_LOADOUTS = {
     "archetype": "rh_gunboat",
     "weapons": [
       {
+        "id": "rh_gunboat_turret01",
+        "hardpoint": "HpTurret_R3_01"
+      },
+      {
+        "id": "rh_gunboat_turret02",
+        "hardpoint": "HpTurret_R4_01"
+      },
+      {
+        "id": "rh_gunboat_turret02",
+        "hardpoint": "HpTurret_R4_02"
+      },
+      {
+        "id": "rh_gunboat_missile_turret01",
+        "hardpoint": "HpTurret_R4_03"
+      },
+      {
+        "id": "rh_gunboat_missile_turret01",
+        "hardpoint": "HpTurret_R4_04"
+      },
+      {
+        "id": "rh_gunboat_turret02",
+        "hardpoint": "HpTurret_R4_05"
+      },
+      {
         "id": "rh_gunboat_forward_gun01",
         "hardpoint": "HpWeapon01"
       }
@@ -11739,7 +15037,32 @@ const FL_NPC_LOADOUTS = {
   "br_n_br_gunboat_loadout01": {
     "id": "br_n_br_gunboat_loadout01",
     "archetype": "br_gunboat",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "br_gunboat_turret01",
+        "hardpoint": "HpTurret_B3_01"
+      },
+      {
+        "id": "br_gunboat_forward_gun01",
+        "hardpoint": "HpTurret_B3_02"
+      },
+      {
+        "id": "br_gunboat_forward_gun01",
+        "hardpoint": "HpTurret_B3_03"
+      },
+      {
+        "id": "br_gunboat_turret02",
+        "hardpoint": "HpTurret_B4_01"
+      },
+      {
+        "id": "br_gunboat_turret02",
+        "hardpoint": "HpTurret_B4_02"
+      },
+      {
+        "id": "br_gunboat_turret02",
+        "hardpoint": "HpTurret_B4_03"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_special.ini"
@@ -11747,7 +15070,32 @@ const FL_NPC_LOADOUTS = {
   "br_n_br_gunboat_loadout02": {
     "id": "br_n_br_gunboat_loadout02",
     "archetype": "br_gunboat",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "br_gunboat_turret01",
+        "hardpoint": "HpTurret_B3_01"
+      },
+      {
+        "id": "br_gunboat_forward_gun01",
+        "hardpoint": "HpTurret_B3_02"
+      },
+      {
+        "id": "br_gunboat_forward_gun01",
+        "hardpoint": "HpTurret_B3_03"
+      },
+      {
+        "id": "br_gunboat_turret02",
+        "hardpoint": "HpTurret_B4_01"
+      },
+      {
+        "id": "br_gunboat_turret02",
+        "hardpoint": "HpTurret_B4_02"
+      },
+      {
+        "id": "br_gunboat_turret02",
+        "hardpoint": "HpTurret_B4_03"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_special.ini"
@@ -11755,7 +15103,24 @@ const FL_NPC_LOADOUTS = {
   "ku_n_ku_gunboat_loadout01": {
     "id": "ku_n_ku_gunboat_loadout01",
     "archetype": "ku_gunboat",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "ku_gunboat_turret01",
+        "hardpoint": "HpTurret_K4_01"
+      },
+      {
+        "id": "ku_gunboat_turret01",
+        "hardpoint": "HpTurret_K4_02"
+      },
+      {
+        "id": "ku_gunboat_turret01",
+        "hardpoint": "HpTurret_K4_03"
+      },
+      {
+        "id": "ku_gunboat_forward_gun01",
+        "hardpoint": "HpTurret_K5_01"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_special.ini"
@@ -11764,6 +15129,30 @@ const FL_NPC_LOADOUTS = {
     "id": "rh_n_rh_gunboat_loadout01",
     "archetype": "rh_gunboat",
     "weapons": [
+      {
+        "id": "rh_gunboat_turret01",
+        "hardpoint": "HpTurret_R3_01"
+      },
+      {
+        "id": "rh_gunboat_turret02",
+        "hardpoint": "HpTurret_R4_01"
+      },
+      {
+        "id": "rh_gunboat_turret02",
+        "hardpoint": "HpTurret_R4_02"
+      },
+      {
+        "id": "rh_gunboat_missile_turret01",
+        "hardpoint": "HpTurret_R4_03"
+      },
+      {
+        "id": "rh_gunboat_missile_turret01",
+        "hardpoint": "HpTurret_R4_04"
+      },
+      {
+        "id": "rh_gunboat_turret02",
+        "hardpoint": "HpTurret_R4_05"
+      },
       {
         "id": "rh_gunboat_forward_gun01",
         "hardpoint": "HpWeapon01"
@@ -11776,7 +15165,56 @@ const FL_NPC_LOADOUTS = {
   "br_battleship_br_01": {
     "id": "br_battleship_br_01",
     "archetype": "br_battleship",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "br_battleship_turret01",
+        "hardpoint": "HpTurret_B1_01"
+      },
+      {
+        "id": "br_battleship_turret01",
+        "hardpoint": "HpTurret_B1_02"
+      },
+      {
+        "id": "br_battleship_turret01",
+        "hardpoint": "HpTurret_B1_03"
+      },
+      {
+        "id": "br_battleship_turret02",
+        "hardpoint": "HpTurret_B2_01"
+      },
+      {
+        "id": "br_battleship_turret02",
+        "hardpoint": "HpTurret_B2_02"
+      },
+      {
+        "id": "br_battleship_turret02",
+        "hardpoint": "HpTurret_B2_03"
+      },
+      {
+        "id": "br_battleship_turret02",
+        "hardpoint": "HpTurret_B2_04"
+      },
+      {
+        "id": "br_battleship_flak_turret01",
+        "hardpoint": "HpTurret_B4_01"
+      },
+      {
+        "id": "br_battleship_flak_turret01",
+        "hardpoint": "HpTurret_B4_02"
+      },
+      {
+        "id": "br_battleship_turret04",
+        "hardpoint": "HpTurret_B4_03"
+      },
+      {
+        "id": "br_battleship_turret04",
+        "hardpoint": "HpTurret_B4_04"
+      },
+      {
+        "id": "br_battleship_turret04",
+        "hardpoint": "HpTurret_B4_05"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_special.ini"
@@ -11784,7 +15222,56 @@ const FL_NPC_LOADOUTS = {
   "br_battleship_co_01": {
     "id": "br_battleship_co_01",
     "archetype": "br_battleship",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "br_battleship_turret01",
+        "hardpoint": "HpTurret_B1_01"
+      },
+      {
+        "id": "br_battleship_turret01",
+        "hardpoint": "HpTurret_B1_02"
+      },
+      {
+        "id": "br_battleship_turret01",
+        "hardpoint": "HpTurret_B1_03"
+      },
+      {
+        "id": "br_battleship_turret02",
+        "hardpoint": "HpTurret_B2_01"
+      },
+      {
+        "id": "br_battleship_turret02",
+        "hardpoint": "HpTurret_B2_02"
+      },
+      {
+        "id": "br_battleship_turret02",
+        "hardpoint": "HpTurret_B2_03"
+      },
+      {
+        "id": "br_battleship_turret02",
+        "hardpoint": "HpTurret_B2_04"
+      },
+      {
+        "id": "br_battleship_flak_turret01",
+        "hardpoint": "HpTurret_B4_01"
+      },
+      {
+        "id": "br_battleship_flak_turret01",
+        "hardpoint": "HpTurret_B4_02"
+      },
+      {
+        "id": "br_battleship_turret04",
+        "hardpoint": "HpTurret_B4_03"
+      },
+      {
+        "id": "br_battleship_turret04",
+        "hardpoint": "HpTurret_B4_04"
+      },
+      {
+        "id": "br_battleship_turret04",
+        "hardpoint": "HpTurret_B4_05"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_special.ini"
@@ -11792,7 +15279,80 @@ const FL_NPC_LOADOUTS = {
   "ku_battleship_ku_01": {
     "id": "ku_battleship_ku_01",
     "archetype": "ku_battleship",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "ku_battleship_turret01",
+        "hardpoint": "HpTurret_K1_01"
+      },
+      {
+        "id": "ku_battleship_turret01",
+        "hardpoint": "HpTurret_K1_02"
+      },
+      {
+        "id": "ku_battleship_turret01",
+        "hardpoint": "HpTurret_K1_03"
+      },
+      {
+        "id": "ku_battleship_turret01",
+        "hardpoint": "HpTurret_K1_04"
+      },
+      {
+        "id": "ku_battleship_turret01",
+        "hardpoint": "HpTurret_K1_05"
+      },
+      {
+        "id": "ku_battleship_turret01",
+        "hardpoint": "HpTurret_K1_06"
+      },
+      {
+        "id": "ku_battleship_turret01",
+        "hardpoint": "HpTurret_K1_07"
+      },
+      {
+        "id": "ku_battleship_turret01",
+        "hardpoint": "HpTurret_K1_08"
+      },
+      {
+        "id": "ku_battleship_turret03",
+        "hardpoint": "HpTurret_K3_01"
+      },
+      {
+        "id": "ku_battleship_turret03",
+        "hardpoint": "HpTurret_K3_02"
+      },
+      {
+        "id": "ku_battleship_turret03",
+        "hardpoint": "HpTurret_K3_03"
+      },
+      {
+        "id": "ku_battleship_turret03",
+        "hardpoint": "HpTurret_K3_04"
+      },
+      {
+        "id": "ku_battleship_flak_turret01",
+        "hardpoint": "HpTurret_K3_05"
+      },
+      {
+        "id": "ku_battleship_flak_turret01",
+        "hardpoint": "HpTurret_K3_06"
+      },
+      {
+        "id": "ku_battleship_turret03",
+        "hardpoint": "HpTurret_K3_07"
+      },
+      {
+        "id": "ku_battleship_turret03",
+        "hardpoint": "HpTurret_K3_08"
+      },
+      {
+        "id": "ku_battleship_turret03",
+        "hardpoint": "HpTurret_K3_09"
+      },
+      {
+        "id": "ku_battleship_turret03",
+        "hardpoint": "HpTurret_K3_10"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_special.ini"
@@ -11800,7 +15360,48 @@ const FL_NPC_LOADOUTS = {
   "li_dreadnought_li_01": {
     "id": "li_dreadnought_li_01",
     "archetype": "li_dreadnought",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "li_battleship_turret01",
+        "hardpoint": "HpTurret_L1_01"
+      },
+      {
+        "id": "li_battleship_turret01",
+        "hardpoint": "HpTurret_L2_01"
+      },
+      {
+        "id": "li_battleship_turret03",
+        "hardpoint": "HpTurret_L3_01"
+      },
+      {
+        "id": "li_battleship_turret04",
+        "hardpoint": "HpTurret_L4_01"
+      },
+      {
+        "id": "li_battleship_turret04",
+        "hardpoint": "HpTurret_L4_02"
+      },
+      {
+        "id": "li_battleship_flak_turret01",
+        "hardpoint": "HpTurret_L4_03"
+      },
+      {
+        "id": "li_battleship_flak_turret01",
+        "hardpoint": "HpTurret_L4_04"
+      },
+      {
+        "id": "li_battleship_turret04",
+        "hardpoint": "HpTurret_L4_05"
+      },
+      {
+        "id": "li_battleship_turret04",
+        "hardpoint": "HpTurret_L4_06"
+      },
+      {
+        "id": "li_battleship_turret04",
+        "hardpoint": "HpTurret_L4_07"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_special.ini"
@@ -11808,7 +15409,48 @@ const FL_NPC_LOADOUTS = {
   "li_dreadnought_co_01": {
     "id": "li_dreadnought_co_01",
     "archetype": "li_dreadnought",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "li_battleship_turret01",
+        "hardpoint": "HpTurret_L1_01"
+      },
+      {
+        "id": "li_battleship_turret01",
+        "hardpoint": "HpTurret_L2_01"
+      },
+      {
+        "id": "li_battleship_turret03",
+        "hardpoint": "HpTurret_L3_01"
+      },
+      {
+        "id": "li_battleship_turret04",
+        "hardpoint": "HpTurret_L4_01"
+      },
+      {
+        "id": "li_battleship_turret04",
+        "hardpoint": "HpTurret_L4_02"
+      },
+      {
+        "id": "li_battleship_flak_turret01",
+        "hardpoint": "HpTurret_L4_03"
+      },
+      {
+        "id": "li_battleship_flak_turret01",
+        "hardpoint": "HpTurret_L4_04"
+      },
+      {
+        "id": "li_battleship_turret04",
+        "hardpoint": "HpTurret_L4_05"
+      },
+      {
+        "id": "li_battleship_turret04",
+        "hardpoint": "HpTurret_L4_06"
+      },
+      {
+        "id": "li_battleship_turret04",
+        "hardpoint": "HpTurret_L4_07"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_special.ini"
@@ -11816,7 +15458,92 @@ const FL_NPC_LOADOUTS = {
   "rh_battleship_rh_01": {
     "id": "rh_battleship_rh_01",
     "archetype": "rh_battleship",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "rh_battleship_turret01",
+        "hardpoint": "HpTurret_R1_01"
+      },
+      {
+        "id": "rh_battleship_turret01",
+        "hardpoint": "HpTurret_R1_02"
+      },
+      {
+        "id": "rh_battleship_turret01",
+        "hardpoint": "HpTurret_R1_03"
+      },
+      {
+        "id": "rh_battleship_turret01",
+        "hardpoint": "HpTurret_R1_04"
+      },
+      {
+        "id": "rh_battleship_turret02",
+        "hardpoint": "HpTurret_R2_01"
+      },
+      {
+        "id": "rh_battleship_turret02",
+        "hardpoint": "HpTurret_R2_02"
+      },
+      {
+        "id": "rh_battleship_turret02",
+        "hardpoint": "HpTurret_R2_03"
+      },
+      {
+        "id": "rh_battleship_turret02",
+        "hardpoint": "HpTurret_R2_04"
+      },
+      {
+        "id": "rh_battleship_turret03",
+        "hardpoint": "HpTurret_R3_01"
+      },
+      {
+        "id": "rh_battleship_turret03",
+        "hardpoint": "HpTurret_R3_02"
+      },
+      {
+        "id": "rh_battleship_turret03",
+        "hardpoint": "HpTurret_R3_03"
+      },
+      {
+        "id": "rh_battleship_turret03",
+        "hardpoint": "HpTurret_R3_04"
+      },
+      {
+        "id": "rh_battleship_turret03",
+        "hardpoint": "HpTurret_R3_05"
+      },
+      {
+        "id": "rh_battleship_turret03",
+        "hardpoint": "HpTurret_R3_06"
+      },
+      {
+        "id": "rh_battleship_turret04",
+        "hardpoint": "HpTurret_R4_01"
+      },
+      {
+        "id": "rh_battleship_flak_turret01",
+        "hardpoint": "HpTurret_R4_02"
+      },
+      {
+        "id": "rh_battleship_flak_turret01",
+        "hardpoint": "HpTurret_R4_03"
+      },
+      {
+        "id": "rh_battleship_turret04",
+        "hardpoint": "HpTurret_R4_04"
+      },
+      {
+        "id": "rh_battleship_turret04",
+        "hardpoint": "HpTurret_R4_05"
+      },
+      {
+        "id": "rh_battleship_turret04",
+        "hardpoint": "HpTurret_R4_06"
+      },
+      {
+        "id": "rh_battleship_turret04",
+        "hardpoint": "HpTurret_R4_07"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_special.ini"
@@ -11824,7 +15551,56 @@ const FL_NPC_LOADOUTS = {
   "rm_b_battleship_br_01": {
     "id": "rm_b_battleship_br_01",
     "archetype": "br_battleship",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "br_battleship_turret01",
+        "hardpoint": "HpTurret_B1_01"
+      },
+      {
+        "id": "br_battleship_turret01",
+        "hardpoint": "HpTurret_B1_02"
+      },
+      {
+        "id": "br_battleship_turret01",
+        "hardpoint": "HpTurret_B1_03"
+      },
+      {
+        "id": "br_battleship_turret02",
+        "hardpoint": "HpTurret_B2_01"
+      },
+      {
+        "id": "br_battleship_turret02",
+        "hardpoint": "HpTurret_B2_02"
+      },
+      {
+        "id": "br_battleship_turret02",
+        "hardpoint": "HpTurret_B2_03"
+      },
+      {
+        "id": "br_battleship_turret02",
+        "hardpoint": "HpTurret_B2_04"
+      },
+      {
+        "id": "br_battleship_flak_turret01",
+        "hardpoint": "HpTurret_B4_01"
+      },
+      {
+        "id": "br_battleship_flak_turret01",
+        "hardpoint": "HpTurret_B4_02"
+      },
+      {
+        "id": "br_battleship_turret04",
+        "hardpoint": "HpTurret_B4_03"
+      },
+      {
+        "id": "br_battleship_turret04",
+        "hardpoint": "HpTurret_B4_04"
+      },
+      {
+        "id": "br_battleship_turret04",
+        "hardpoint": "HpTurret_B4_05"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_special.ini"
@@ -11832,7 +15608,80 @@ const FL_NPC_LOADOUTS = {
   "rm_k_battleship_ku_01": {
     "id": "rm_k_battleship_ku_01",
     "archetype": "ku_battleship",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "ku_battleship_turret01",
+        "hardpoint": "HpTurret_K1_01"
+      },
+      {
+        "id": "ku_battleship_turret01",
+        "hardpoint": "HpTurret_K1_02"
+      },
+      {
+        "id": "ku_battleship_turret01",
+        "hardpoint": "HpTurret_K1_03"
+      },
+      {
+        "id": "ku_battleship_turret01",
+        "hardpoint": "HpTurret_K1_04"
+      },
+      {
+        "id": "ku_battleship_turret01",
+        "hardpoint": "HpTurret_K1_05"
+      },
+      {
+        "id": "ku_battleship_turret01",
+        "hardpoint": "HpTurret_K1_06"
+      },
+      {
+        "id": "ku_battleship_turret01",
+        "hardpoint": "HpTurret_K1_07"
+      },
+      {
+        "id": "ku_battleship_turret01",
+        "hardpoint": "HpTurret_K1_08"
+      },
+      {
+        "id": "ku_battleship_turret03",
+        "hardpoint": "HpTurret_K3_01"
+      },
+      {
+        "id": "ku_battleship_turret03",
+        "hardpoint": "HpTurret_K3_02"
+      },
+      {
+        "id": "ku_battleship_turret03",
+        "hardpoint": "HpTurret_K3_03"
+      },
+      {
+        "id": "ku_battleship_turret03",
+        "hardpoint": "HpTurret_K3_04"
+      },
+      {
+        "id": "ku_battleship_flak_turret01",
+        "hardpoint": "HpTurret_K3_05"
+      },
+      {
+        "id": "ku_battleship_flak_turret01",
+        "hardpoint": "HpTurret_K3_06"
+      },
+      {
+        "id": "ku_battleship_turret03",
+        "hardpoint": "HpTurret_K3_07"
+      },
+      {
+        "id": "ku_battleship_turret03",
+        "hardpoint": "HpTurret_K3_08"
+      },
+      {
+        "id": "ku_battleship_turret03",
+        "hardpoint": "HpTurret_K3_09"
+      },
+      {
+        "id": "ku_battleship_turret03",
+        "hardpoint": "HpTurret_K3_10"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_special.ini"
@@ -11840,7 +15689,48 @@ const FL_NPC_LOADOUTS = {
   "rm_l_dreadnought_li_01": {
     "id": "rm_l_dreadnought_li_01",
     "archetype": "li_dreadnought",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "li_battleship_turret01",
+        "hardpoint": "HpTurret_L1_01"
+      },
+      {
+        "id": "li_battleship_turret01",
+        "hardpoint": "HpTurret_L2_01"
+      },
+      {
+        "id": "li_battleship_turret03",
+        "hardpoint": "HpTurret_L3_01"
+      },
+      {
+        "id": "li_battleship_turret04",
+        "hardpoint": "HpTurret_L4_01"
+      },
+      {
+        "id": "li_battleship_turret04",
+        "hardpoint": "HpTurret_L4_02"
+      },
+      {
+        "id": "li_battleship_flak_turret01",
+        "hardpoint": "HpTurret_L4_03"
+      },
+      {
+        "id": "li_battleship_flak_turret01",
+        "hardpoint": "HpTurret_L4_04"
+      },
+      {
+        "id": "li_battleship_turret04",
+        "hardpoint": "HpTurret_L4_05"
+      },
+      {
+        "id": "li_battleship_turret04",
+        "hardpoint": "HpTurret_L4_06"
+      },
+      {
+        "id": "li_battleship_turret04",
+        "hardpoint": "HpTurret_L4_07"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_special.ini"
@@ -11848,7 +15738,92 @@ const FL_NPC_LOADOUTS = {
   "rm_r_battleship_rh_01": {
     "id": "rm_r_battleship_rh_01",
     "archetype": "rh_battleship",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "rh_battleship_turret01",
+        "hardpoint": "HpTurret_R1_01"
+      },
+      {
+        "id": "rh_battleship_turret01",
+        "hardpoint": "HpTurret_R1_02"
+      },
+      {
+        "id": "rh_battleship_turret01",
+        "hardpoint": "HpTurret_R1_03"
+      },
+      {
+        "id": "rh_battleship_turret01",
+        "hardpoint": "HpTurret_R1_04"
+      },
+      {
+        "id": "rh_battleship_turret02",
+        "hardpoint": "HpTurret_R2_01"
+      },
+      {
+        "id": "rh_battleship_turret02",
+        "hardpoint": "HpTurret_R2_02"
+      },
+      {
+        "id": "rh_battleship_turret02",
+        "hardpoint": "HpTurret_R2_03"
+      },
+      {
+        "id": "rh_battleship_turret02",
+        "hardpoint": "HpTurret_R2_04"
+      },
+      {
+        "id": "rh_battleship_turret03",
+        "hardpoint": "HpTurret_R3_01"
+      },
+      {
+        "id": "rh_battleship_turret03",
+        "hardpoint": "HpTurret_R3_02"
+      },
+      {
+        "id": "rh_battleship_turret03",
+        "hardpoint": "HpTurret_R3_03"
+      },
+      {
+        "id": "rh_battleship_turret03",
+        "hardpoint": "HpTurret_R3_04"
+      },
+      {
+        "id": "rh_battleship_turret03",
+        "hardpoint": "HpTurret_R3_05"
+      },
+      {
+        "id": "rh_battleship_turret03",
+        "hardpoint": "HpTurret_R3_06"
+      },
+      {
+        "id": "rh_battleship_turret04",
+        "hardpoint": "HpTurret_R4_01"
+      },
+      {
+        "id": "rh_battleship_flak_turret01",
+        "hardpoint": "HpTurret_R4_02"
+      },
+      {
+        "id": "rh_battleship_flak_turret01",
+        "hardpoint": "HpTurret_R4_03"
+      },
+      {
+        "id": "rh_battleship_turret04",
+        "hardpoint": "HpTurret_R4_04"
+      },
+      {
+        "id": "rh_battleship_turret04",
+        "hardpoint": "HpTurret_R4_05"
+      },
+      {
+        "id": "rh_battleship_turret04",
+        "hardpoint": "HpTurret_R4_06"
+      },
+      {
+        "id": "rh_battleship_turret04",
+        "hardpoint": "HpTurret_R4_07"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_special.ini"
@@ -11864,7 +15839,28 @@ const FL_NPC_LOADOUTS = {
   "ge_transport": {
     "id": "ge_transport",
     "archetype": "ge_transport",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_01"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_02"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_03"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_04"
+      },
+      {
+        "id": "co_transport_turret02_mark01",
+        "hardpoint": "HpTurret_U3_01"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -11872,7 +15868,44 @@ const FL_NPC_LOADOUTS = {
   "ge_armored": {
     "id": "ge_armored",
     "archetype": "ge_armored",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "li_turret01_mark01",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "li_turret01_mark01",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "li_turret01_mark01",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "li_turret01_mark01",
+        "hardpoint": "HpTurret04"
+      },
+      {
+        "id": "li_turret01_mark01",
+        "hardpoint": "HpTurret05"
+      },
+      {
+        "id": "li_turret01_mark01",
+        "hardpoint": "HpTurret06"
+      },
+      {
+        "id": "li_turret01_mark01",
+        "hardpoint": "HpTurret07"
+      },
+      {
+        "id": "li_turret01_mark01",
+        "hardpoint": "HpTurret08"
+      },
+      {
+        "id": "li_turret01_mark01",
+        "hardpoint": "HpTurret09"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -11880,7 +15913,32 @@ const FL_NPC_LOADOUTS = {
   "ge_large_train": {
     "id": "ge_large_train",
     "archetype": "ge_large_train",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "co_train_turret01_mark01",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "co_train_turret01_mark01",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "co_train_turret01_mark01",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "co_train_turret01_mark01",
+        "hardpoint": "HpTurret04"
+      },
+      {
+        "id": "co_train_turret01_mark01",
+        "hardpoint": "HpTurret05"
+      },
+      {
+        "id": "co_train_turret01_mark01",
+        "hardpoint": "HpTurret06"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -11888,7 +15946,28 @@ const FL_NPC_LOADOUTS = {
   "msn01a_lifter": {
     "id": "msn01a_lifter",
     "archetype": "ge_lifter",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "co_lifter_turret01",
+        "hardpoint": "HpTurret_U1_01"
+      },
+      {
+        "id": "co_lifter_turret01",
+        "hardpoint": "HpTurret_U1_02"
+      },
+      {
+        "id": "co_lifter_turret01",
+        "hardpoint": "HpTurret_U1_03"
+      },
+      {
+        "id": "co_lifter_turret01",
+        "hardpoint": "HpTurret_U1_04"
+      },
+      {
+        "id": "co_lifter_turret01",
+        "hardpoint": "HpTurret_U1_05"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -11896,7 +15975,44 @@ const FL_NPC_LOADOUTS = {
   "msn06_quintaine": {
     "id": "msn06_quintaine",
     "archetype": "ge_armored",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "li_turret01_mark03",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "li_turret01_mark03",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "li_turret01_mark03",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "li_turret01_mark03",
+        "hardpoint": "HpTurret04"
+      },
+      {
+        "id": "li_turret01_mark03",
+        "hardpoint": "HpTurret05"
+      },
+      {
+        "id": "li_turret01_mark03",
+        "hardpoint": "HpTurret06"
+      },
+      {
+        "id": "li_turret01_mark03",
+        "hardpoint": "HpTurret07"
+      },
+      {
+        "id": "li_turret01_mark03",
+        "hardpoint": "HpTurret08"
+      },
+      {
+        "id": "li_turret01_mark03",
+        "hardpoint": "HpTurret09"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -11904,7 +16020,44 @@ const FL_NPC_LOADOUTS = {
   "msn07_quintaine": {
     "id": "msn07_quintaine",
     "archetype": "ge_armored",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "li_turret01_mark03",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "li_turret01_mark03",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "li_turret01_mark03",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "li_turret01_mark03",
+        "hardpoint": "HpTurret04"
+      },
+      {
+        "id": "li_turret01_mark03",
+        "hardpoint": "HpTurret05"
+      },
+      {
+        "id": "li_turret01_mark03",
+        "hardpoint": "HpTurret06"
+      },
+      {
+        "id": "li_turret01_mark03",
+        "hardpoint": "HpTurret07"
+      },
+      {
+        "id": "li_turret01_mark03",
+        "hardpoint": "HpTurret08"
+      },
+      {
+        "id": "li_turret01_mark03",
+        "hardpoint": "HpTurret09"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -11912,7 +16065,44 @@ const FL_NPC_LOADOUTS = {
   "msn13_quintaine": {
     "id": "msn13_quintaine",
     "archetype": "ge_armored",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "li_turret01_mark03",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "li_turret01_mark03",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "li_turret01_mark03",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "li_turret01_mark03",
+        "hardpoint": "HpTurret04"
+      },
+      {
+        "id": "li_turret01_mark03",
+        "hardpoint": "HpTurret05"
+      },
+      {
+        "id": "li_turret01_mark03",
+        "hardpoint": "HpTurret06"
+      },
+      {
+        "id": "li_turret01_mark03",
+        "hardpoint": "HpTurret07"
+      },
+      {
+        "id": "li_turret01_mark03",
+        "hardpoint": "HpTurret08"
+      },
+      {
+        "id": "li_turret01_mark03",
+        "hardpoint": "HpTurret09"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -11920,7 +16110,28 @@ const FL_NPC_LOADOUTS = {
   "msn01a_large_transport": {
     "id": "msn01a_large_transport",
     "archetype": "ge_large_transport",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_01"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_02"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_03"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_04"
+      },
+      {
+        "id": "co_transport_turret02_mark01",
+        "hardpoint": "HpTurret_U3_01"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -11928,7 +16139,28 @@ const FL_NPC_LOADOUTS = {
   "msn01b_prison_ship": {
     "id": "msn01b_prison_ship",
     "archetype": "ge_prison",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "li_prison_turret01",
+        "hardpoint": "HpTurret_Prison_02"
+      },
+      {
+        "id": "li_prison_turret01",
+        "hardpoint": "HpTurret_Prison_03"
+      },
+      {
+        "id": "li_prison_turret01",
+        "hardpoint": "HpTurret_Prison_04"
+      },
+      {
+        "id": "li_prison_turret01",
+        "hardpoint": "HpTurret_Prison_07"
+      },
+      {
+        "id": "li_prison_turret01",
+        "hardpoint": "HpTurret_Prison_08"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -11936,7 +16168,28 @@ const FL_NPC_LOADOUTS = {
   "msn01a_small_transport": {
     "id": "msn01a_small_transport",
     "archetype": "ge_transport",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_01"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_02"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_03"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_04"
+      },
+      {
+        "id": "co_transport_turret02_mark01",
+        "hardpoint": "HpTurret_U3_01"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -11944,7 +16197,28 @@ const FL_NPC_LOADOUTS = {
   "msn02_ashcroft_transport": {
     "id": "msn02_ashcroft_transport",
     "archetype": "ge_transport",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_01"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_02"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_03"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_04"
+      },
+      {
+        "id": "co_transport_turret02_mark01",
+        "hardpoint": "HpTurret_U3_01"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -11952,7 +16226,28 @@ const FL_NPC_LOADOUTS = {
   "msn03_transport": {
     "id": "msn03_transport",
     "archetype": "ge_transport",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_01"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_02"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_03"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_04"
+      },
+      {
+        "id": "co_transport_turret02_mark01",
+        "hardpoint": "HpTurret_U3_01"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -11960,7 +16255,28 @@ const FL_NPC_LOADOUTS = {
   "msn08_transport": {
     "id": "msn08_transport",
     "archetype": "ge_transport",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_01"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_02"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_03"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_04"
+      },
+      {
+        "id": "co_transport_turret02_mark01",
+        "hardpoint": "HpTurret_U3_01"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -11968,7 +16284,28 @@ const FL_NPC_LOADOUTS = {
   "msn13_doomed_transport": {
     "id": "msn13_doomed_transport",
     "archetype": "ge_transport",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_01"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_02"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_03"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_04"
+      },
+      {
+        "id": "co_transport_turret02_mark01",
+        "hardpoint": "HpTurret_U3_01"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -11976,7 +16313,44 @@ const FL_NPC_LOADOUTS = {
   "li_p_ge_armored_loadout01": {
     "id": "li_p_ge_armored_loadout01",
     "archetype": "ge_armored",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "li_turret01_mark02",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "li_turret01_mark02",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "li_turret01_mark02",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "li_turret01_mark02",
+        "hardpoint": "HpTurret04"
+      },
+      {
+        "id": "li_turret01_mark02",
+        "hardpoint": "HpTurret05"
+      },
+      {
+        "id": "li_turret01_mark02",
+        "hardpoint": "HpTurret06"
+      },
+      {
+        "id": "li_turret01_mark02",
+        "hardpoint": "HpTurret07"
+      },
+      {
+        "id": "li_turret01_mark02",
+        "hardpoint": "HpTurret08"
+      },
+      {
+        "id": "li_turret01_mark02",
+        "hardpoint": "HpTurret09"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -11984,7 +16358,44 @@ const FL_NPC_LOADOUTS = {
   "br_p_ge_armored_loadout01": {
     "id": "br_p_ge_armored_loadout01",
     "archetype": "ge_armored",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "br_turret01_mark01",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "br_turret01_mark01",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "br_turret01_mark01",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "br_turret01_mark01",
+        "hardpoint": "HpTurret04"
+      },
+      {
+        "id": "br_turret01_mark01",
+        "hardpoint": "HpTurret05"
+      },
+      {
+        "id": "br_turret01_mark01",
+        "hardpoint": "HpTurret06"
+      },
+      {
+        "id": "br_turret01_mark01",
+        "hardpoint": "HpTurret07"
+      },
+      {
+        "id": "br_turret01_mark01",
+        "hardpoint": "HpTurret08"
+      },
+      {
+        "id": "br_turret01_mark01",
+        "hardpoint": "HpTurret09"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -11992,7 +16403,44 @@ const FL_NPC_LOADOUTS = {
   "ku_p_ge_armored_loadout01": {
     "id": "ku_p_ge_armored_loadout01",
     "archetype": "ge_armored",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "ku_turret01_mark01",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "ku_turret01_mark01",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "ku_turret01_mark01",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "ku_turret01_mark01",
+        "hardpoint": "HpTurret04"
+      },
+      {
+        "id": "ku_turret01_mark01",
+        "hardpoint": "HpTurret05"
+      },
+      {
+        "id": "ku_turret01_mark01",
+        "hardpoint": "HpTurret06"
+      },
+      {
+        "id": "ku_turret01_mark01",
+        "hardpoint": "HpTurret07"
+      },
+      {
+        "id": "ku_turret01_mark01",
+        "hardpoint": "HpTurret08"
+      },
+      {
+        "id": "ku_turret01_mark01",
+        "hardpoint": "HpTurret09"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -12000,7 +16448,44 @@ const FL_NPC_LOADOUTS = {
   "rh_p_ge_armored_loadout01": {
     "id": "rh_p_ge_armored_loadout01",
     "archetype": "ge_armored",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "rh_turret01_mark01",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "rh_turret01_mark01",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "rh_turret01_mark01",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "rh_turret01_mark01",
+        "hardpoint": "HpTurret04"
+      },
+      {
+        "id": "rh_turret01_mark01",
+        "hardpoint": "HpTurret05"
+      },
+      {
+        "id": "rh_turret01_mark01",
+        "hardpoint": "HpTurret06"
+      },
+      {
+        "id": "rh_turret01_mark01",
+        "hardpoint": "HpTurret07"
+      },
+      {
+        "id": "rh_turret01_mark01",
+        "hardpoint": "HpTurret08"
+      },
+      {
+        "id": "rh_turret01_mark01",
+        "hardpoint": "HpTurret09"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -12008,7 +16493,28 @@ const FL_NPC_LOADOUTS = {
   "co_ge_transport_loadout01": {
     "id": "co_ge_transport_loadout01",
     "archetype": "ge_transport",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_01"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_02"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_03"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_04"
+      },
+      {
+        "id": "co_transport_turret02_mark01",
+        "hardpoint": "HpTurret_U3_01"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -12016,7 +16522,28 @@ const FL_NPC_LOADOUTS = {
   "co_ge_transport_loadout02": {
     "id": "co_ge_transport_loadout02",
     "archetype": "ge_transport",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "co_transport_turret01_mark02",
+        "hardpoint": "HpTurret_U1_01"
+      },
+      {
+        "id": "co_transport_turret01_mark02",
+        "hardpoint": "HpTurret_U1_02"
+      },
+      {
+        "id": "co_transport_turret01_mark02",
+        "hardpoint": "HpTurret_U1_03"
+      },
+      {
+        "id": "co_transport_turret01_mark02",
+        "hardpoint": "HpTurret_U1_04"
+      },
+      {
+        "id": "co_transport_turret02_mark02",
+        "hardpoint": "HpTurret_U3_01"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -12024,7 +16551,28 @@ const FL_NPC_LOADOUTS = {
   "co_ge_large_transport_loadout01": {
     "id": "co_ge_large_transport_loadout01",
     "archetype": "ge_large_transport",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_01"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_02"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_03"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_04"
+      },
+      {
+        "id": "co_transport_turret02_mark01",
+        "hardpoint": "HpTurret_U3_01"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -12032,7 +16580,28 @@ const FL_NPC_LOADOUTS = {
   "co_ge_large_transport_loadout02": {
     "id": "co_ge_large_transport_loadout02",
     "archetype": "ge_large_transport",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_01"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_02"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_03"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_04"
+      },
+      {
+        "id": "co_transport_turret02_mark01",
+        "hardpoint": "HpTurret_U3_01"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -12040,7 +16609,32 @@ const FL_NPC_LOADOUTS = {
   "co_ge_train_loadout01": {
     "id": "co_ge_train_loadout01",
     "archetype": "ge_train",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "co_train_turret01_mark01",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "co_train_turret01_mark01",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "co_train_turret01_mark01",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "co_train_turret01_mark01",
+        "hardpoint": "HpTurret04"
+      },
+      {
+        "id": "co_train_turret01_mark01",
+        "hardpoint": "HpTurret05"
+      },
+      {
+        "id": "co_train_turret01_mark01",
+        "hardpoint": "HpTurret06"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -12048,7 +16642,32 @@ const FL_NPC_LOADOUTS = {
   "co_ge_train_loadout02": {
     "id": "co_ge_train_loadout02",
     "archetype": "ge_train",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "co_train_turret01_mark01",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "co_train_turret01_mark01",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "co_train_turret01_mark01",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "co_train_turret01_mark01",
+        "hardpoint": "HpTurret04"
+      },
+      {
+        "id": "co_train_turret01_mark01",
+        "hardpoint": "HpTurret05"
+      },
+      {
+        "id": "co_train_turret01_mark01",
+        "hardpoint": "HpTurret06"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -12056,7 +16675,32 @@ const FL_NPC_LOADOUTS = {
   "co_ge_large_train_loadout01": {
     "id": "co_ge_large_train_loadout01",
     "archetype": "ge_large_train",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "co_train_turret01_mark01",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "co_train_turret01_mark01",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "co_train_turret01_mark01",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "co_train_turret01_mark01",
+        "hardpoint": "HpTurret04"
+      },
+      {
+        "id": "co_train_turret01_mark01",
+        "hardpoint": "HpTurret05"
+      },
+      {
+        "id": "co_train_turret01_mark01",
+        "hardpoint": "HpTurret06"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -12064,7 +16708,44 @@ const FL_NPC_LOADOUTS = {
   "co_ge_armored_loadout01": {
     "id": "co_ge_armored_loadout01",
     "archetype": "ge_armored",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret04"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret05"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret06"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret07"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret08"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret09"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -12072,7 +16753,44 @@ const FL_NPC_LOADOUTS = {
   "co_ge_armored_loadout02": {
     "id": "co_ge_armored_loadout02",
     "archetype": "ge_armored",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret04"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret05"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret06"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret07"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret08"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret09"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -12080,7 +16798,44 @@ const FL_NPC_LOADOUTS = {
   "co_ge_armored_loadout03": {
     "id": "co_ge_armored_loadout03",
     "archetype": "ge_armored",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret04"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret05"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret06"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret07"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret08"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret09"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -12088,7 +16843,44 @@ const FL_NPC_LOADOUTS = {
   "co_ge_armored_loadout04": {
     "id": "co_ge_armored_loadout04",
     "archetype": "ge_armored",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret04"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret05"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret06"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret07"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret08"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret09"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -12096,7 +16888,44 @@ const FL_NPC_LOADOUTS = {
   "co_ge_armored_loadout05": {
     "id": "co_ge_armored_loadout05",
     "archetype": "ge_armored",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret04"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret05"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret06"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret07"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret08"
+      },
+      {
+        "id": "co_turret01_mark02",
+        "hardpoint": "HpTurret09"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -12104,7 +16933,28 @@ const FL_NPC_LOADOUTS = {
   "co_ge_lifter_loadout01": {
     "id": "co_ge_lifter_loadout01",
     "archetype": "ge_lifter",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_01"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_02"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_03"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_04"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_05"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -12112,7 +16962,28 @@ const FL_NPC_LOADOUTS = {
   "co_ge_lifter_loadout02": {
     "id": "co_ge_lifter_loadout02",
     "archetype": "ge_lifter",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_01"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_02"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_03"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_04"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_05"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -12120,7 +16991,28 @@ const FL_NPC_LOADOUTS = {
   "co_ge_lifter_loadout03": {
     "id": "co_ge_lifter_loadout03",
     "archetype": "ge_lifter",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_01"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_02"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_03"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_04"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_05"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -12128,7 +17020,28 @@ const FL_NPC_LOADOUTS = {
   "co_ge_lifter_loadout04": {
     "id": "co_ge_lifter_loadout04",
     "archetype": "ge_lifter",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_01"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_02"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_03"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_04"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_05"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -12136,7 +17049,28 @@ const FL_NPC_LOADOUTS = {
   "co_ge_lifter_loadout05": {
     "id": "co_ge_lifter_loadout05",
     "archetype": "ge_lifter",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_01"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_02"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_03"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_04"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_05"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -12144,7 +17078,28 @@ const FL_NPC_LOADOUTS = {
   "gd_gm_ge_large_transport_loadout01": {
     "id": "gd_gm_ge_large_transport_loadout01",
     "archetype": "ge_large_transport",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "gd_gm_train_turret01_mark01",
+        "hardpoint": "HpTurret_U1_01"
+      },
+      {
+        "id": "gd_gm_train_turret01_mark01",
+        "hardpoint": "HpTurret_U1_02"
+      },
+      {
+        "id": "gd_gm_train_turret01_mark01",
+        "hardpoint": "HpTurret_U1_03"
+      },
+      {
+        "id": "gd_gm_train_turret01_mark01",
+        "hardpoint": "HpTurret_U1_04"
+      },
+      {
+        "id": "gd_gm_train_turret03_mark01",
+        "hardpoint": "HpTurret_U3_01"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -12152,7 +17107,32 @@ const FL_NPC_LOADOUTS = {
   "gd_gm_ge_train_loadout01": {
     "id": "gd_gm_ge_train_loadout01",
     "archetype": "ge_train",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "gd_gm_train_turret01_mark01",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "gd_gm_train_turret01_mark01",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "gd_gm_train_turret01_mark01",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "gd_gm_train_turret01_mark01",
+        "hardpoint": "HpTurret04"
+      },
+      {
+        "id": "gd_gm_train_turret01_mark01",
+        "hardpoint": "HpTurret05"
+      },
+      {
+        "id": "gd_gm_train_turret01_mark01",
+        "hardpoint": "HpTurret06"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -12160,7 +17140,32 @@ const FL_NPC_LOADOUTS = {
   "gd_gm_ge_large_train_loadout01": {
     "id": "gd_gm_ge_large_train_loadout01",
     "archetype": "ge_large_train",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "gd_gm_train_turret01_mark01",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "gd_gm_train_turret01_mark01",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "gd_gm_train_turret01_mark01",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "gd_gm_train_turret01_mark01",
+        "hardpoint": "HpTurret04"
+      },
+      {
+        "id": "gd_gm_train_turret01_mark01",
+        "hardpoint": "HpTurret05"
+      },
+      {
+        "id": "gd_gm_train_turret01_mark01",
+        "hardpoint": "HpTurret06"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -12168,7 +17173,44 @@ const FL_NPC_LOADOUTS = {
   "gd_gm_ge_armored_loadout01": {
     "id": "gd_gm_ge_armored_loadout01",
     "archetype": "ge_armored",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "gd_gm_turret01_mark01",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "gd_gm_turret01_mark01",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "gd_gm_turret01_mark01",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "gd_gm_turret01_mark01",
+        "hardpoint": "HpTurret04"
+      },
+      {
+        "id": "gd_gm_turret01_mark01",
+        "hardpoint": "HpTurret05"
+      },
+      {
+        "id": "gd_gm_turret01_mark01",
+        "hardpoint": "HpTurret06"
+      },
+      {
+        "id": "gd_gm_turret01_mark01",
+        "hardpoint": "HpTurret07"
+      },
+      {
+        "id": "gd_gm_turret01_mark01",
+        "hardpoint": "HpTurret08"
+      },
+      {
+        "id": "gd_gm_turret01_mark01",
+        "hardpoint": "HpTurret09"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -12176,7 +17218,28 @@ const FL_NPC_LOADOUTS = {
   "gd_im_ge_transport_loadout01": {
     "id": "gd_im_ge_transport_loadout01",
     "archetype": "ge_transport",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "gd_im_train_turret01_mark01",
+        "hardpoint": "HpTurret_U1_01"
+      },
+      {
+        "id": "gd_im_train_turret01_mark01",
+        "hardpoint": "HpTurret_U1_02"
+      },
+      {
+        "id": "gd_im_train_turret01_mark01",
+        "hardpoint": "HpTurret_U1_03"
+      },
+      {
+        "id": "gd_im_train_turret01_mark01",
+        "hardpoint": "HpTurret_U1_04"
+      },
+      {
+        "id": "gd_im_train_turret03_mark01",
+        "hardpoint": "HpTurret_U3_01"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -12184,7 +17247,28 @@ const FL_NPC_LOADOUTS = {
   "gd_im_ge_large_transport_loadout01": {
     "id": "gd_im_ge_large_transport_loadout01",
     "archetype": "ge_large_transport",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "gd_im_train_turret01_mark01",
+        "hardpoint": "HpTurret_U1_01"
+      },
+      {
+        "id": "gd_im_train_turret01_mark01",
+        "hardpoint": "HpTurret_U1_02"
+      },
+      {
+        "id": "gd_im_train_turret01_mark01",
+        "hardpoint": "HpTurret_U1_03"
+      },
+      {
+        "id": "gd_im_train_turret01_mark01",
+        "hardpoint": "HpTurret_U1_04"
+      },
+      {
+        "id": "gd_im_train_turret03_mark01",
+        "hardpoint": "HpTurret_U3_01"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -12192,7 +17276,32 @@ const FL_NPC_LOADOUTS = {
   "gd_im_ge_train_loadout01": {
     "id": "gd_im_ge_train_loadout01",
     "archetype": "ge_train",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "gd_im_train_turret01_mark01",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "gd_im_train_turret01_mark01",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "gd_im_train_turret01_mark01",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "gd_im_train_turret01_mark01",
+        "hardpoint": "HpTurret04"
+      },
+      {
+        "id": "gd_im_train_turret01_mark01",
+        "hardpoint": "HpTurret05"
+      },
+      {
+        "id": "gd_im_train_turret01_mark01",
+        "hardpoint": "HpTurret06"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -12200,7 +17309,32 @@ const FL_NPC_LOADOUTS = {
   "gd_im_ge_large_train_loadout01": {
     "id": "gd_im_ge_large_train_loadout01",
     "archetype": "ge_large_train",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "gd_im_train_turret01_mark01",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "gd_im_train_turret01_mark01",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "gd_im_train_turret01_mark01",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "gd_im_train_turret01_mark01",
+        "hardpoint": "HpTurret04"
+      },
+      {
+        "id": "gd_im_train_turret01_mark01",
+        "hardpoint": "HpTurret05"
+      },
+      {
+        "id": "gd_im_train_turret01_mark01",
+        "hardpoint": "HpTurret06"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -12208,7 +17342,44 @@ const FL_NPC_LOADOUTS = {
   "gd_im_ge_armored_loadout01": {
     "id": "gd_im_ge_armored_loadout01",
     "archetype": "ge_armored",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "gd_im_turret01_mark01",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "gd_im_turret01_mark01",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "gd_im_turret01_mark01",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "gd_im_turret01_mark01",
+        "hardpoint": "HpTurret04"
+      },
+      {
+        "id": "gd_im_turret01_mark01",
+        "hardpoint": "HpTurret05"
+      },
+      {
+        "id": "gd_im_turret01_mark01",
+        "hardpoint": "HpTurret06"
+      },
+      {
+        "id": "gd_im_turret01_mark01",
+        "hardpoint": "HpTurret07"
+      },
+      {
+        "id": "gd_im_turret01_mark01",
+        "hardpoint": "HpTurret08"
+      },
+      {
+        "id": "gd_im_turret01_mark01",
+        "hardpoint": "HpTurret09"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -12216,7 +17387,28 @@ const FL_NPC_LOADOUTS = {
   "secret_transport_li04": {
     "id": "secret_transport_li04",
     "archetype": "ge_transport",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_01"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_02"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_03"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_04"
+      },
+      {
+        "id": "co_transport_turret02_mark01",
+        "hardpoint": "HpTurret_U3_01"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -12224,7 +17416,28 @@ const FL_NPC_LOADOUTS = {
   "secret_transport_rh03": {
     "id": "secret_transport_rh03",
     "archetype": "ge_transport",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_01"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_02"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_03"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_04"
+      },
+      {
+        "id": "co_transport_turret02_mark01",
+        "hardpoint": "HpTurret_U3_01"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -12232,7 +17445,28 @@ const FL_NPC_LOADOUTS = {
   "secret_transport_iw05": {
     "id": "secret_transport_iw05",
     "archetype": "ge_transport",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_01"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_02"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_03"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_04"
+      },
+      {
+        "id": "co_transport_turret02_mark01",
+        "hardpoint": "HpTurret_U3_01"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -12240,7 +17474,28 @@ const FL_NPC_LOADOUTS = {
   "secret_transport_iw06": {
     "id": "secret_transport_iw06",
     "archetype": "ge_transport",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_01"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_02"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_03"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_04"
+      },
+      {
+        "id": "co_transport_turret02_mark01",
+        "hardpoint": "HpTurret_U3_01"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -12248,7 +17503,44 @@ const FL_NPC_LOADOUTS = {
   "secret_armored_br03": {
     "id": "secret_armored_br03",
     "archetype": "ge_armored",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret04"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret05"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret06"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret07"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret08"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret09"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -12256,7 +17548,44 @@ const FL_NPC_LOADOUTS = {
   "secret_armored_rh03": {
     "id": "secret_armored_rh03",
     "archetype": "ge_armored",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret04"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret05"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret06"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret07"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret08"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret09"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -12264,7 +17593,44 @@ const FL_NPC_LOADOUTS = {
   "secret_armored_iw04": {
     "id": "secret_armored_iw04",
     "archetype": "ge_armored",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret04"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret05"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret06"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret07"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret08"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret09"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -12272,7 +17638,44 @@ const FL_NPC_LOADOUTS = {
   "secret_armored_iw05": {
     "id": "secret_armored_iw05",
     "archetype": "ge_armored",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret04"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret05"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret06"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret07"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret08"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret09"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -12280,7 +17683,44 @@ const FL_NPC_LOADOUTS = {
   "secret_armored_bw03": {
     "id": "secret_armored_bw03",
     "archetype": "ge_armored",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret04"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret05"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret06"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret07"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret08"
+      },
+      {
+        "id": "co_turret01_mark01",
+        "hardpoint": "HpTurret09"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -12288,7 +17728,28 @@ const FL_NPC_LOADOUTS = {
   "secret_large_transport_ku05": {
     "id": "secret_large_transport_ku05",
     "archetype": "ge_large_transport",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_01"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_02"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_03"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_04"
+      },
+      {
+        "id": "co_transport_turret02_mark01",
+        "hardpoint": "HpTurret_U3_01"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -12296,7 +17757,28 @@ const FL_NPC_LOADOUTS = {
   "secret_large_transport_iw03": {
     "id": "secret_large_transport_iw03",
     "archetype": "ge_large_transport",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_01"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_02"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_03"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_04"
+      },
+      {
+        "id": "co_transport_turret02_mark01",
+        "hardpoint": "HpTurret_U3_01"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -12304,7 +17786,28 @@ const FL_NPC_LOADOUTS = {
   "secret_large_transport_iw05": {
     "id": "secret_large_transport_iw05",
     "archetype": "ge_large_transport",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_01"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_02"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_03"
+      },
+      {
+        "id": "co_transport_turret01_mark01",
+        "hardpoint": "HpTurret_U1_04"
+      },
+      {
+        "id": "co_transport_turret02_mark01",
+        "hardpoint": "HpTurret_U3_01"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -12312,7 +17815,32 @@ const FL_NPC_LOADOUTS = {
   "secret_train_bw03": {
     "id": "secret_train_bw03",
     "archetype": "ge_train",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "co_train_turret01_mark01",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "co_train_turret01_mark01",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "co_train_turret01_mark01",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "co_train_turret01_mark01",
+        "hardpoint": "HpTurret04"
+      },
+      {
+        "id": "co_train_turret01_mark01",
+        "hardpoint": "HpTurret05"
+      },
+      {
+        "id": "co_train_turret01_mark01",
+        "hardpoint": "HpTurret06"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -12320,7 +17848,32 @@ const FL_NPC_LOADOUTS = {
   "secret_train_bw08": {
     "id": "secret_train_bw08",
     "archetype": "ge_train",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "co_train_turret01_mark01",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "co_train_turret01_mark01",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "co_train_turret01_mark01",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "co_train_turret01_mark01",
+        "hardpoint": "HpTurret04"
+      },
+      {
+        "id": "co_train_turret01_mark01",
+        "hardpoint": "HpTurret05"
+      },
+      {
+        "id": "co_train_turret01_mark01",
+        "hardpoint": "HpTurret06"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -12328,7 +17881,52 @@ const FL_NPC_LOADOUTS = {
   "ge_liner_co_01": {
     "id": "ge_liner_co_01",
     "archetype": "ge_liner",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "co_liner_turret01",
+        "hardpoint": "HpTurret_Liner_01"
+      },
+      {
+        "id": "co_liner_turret01",
+        "hardpoint": "HpTurret_Liner_02"
+      },
+      {
+        "id": "co_liner_turret01",
+        "hardpoint": "HpTurret_Liner_03"
+      },
+      {
+        "id": "co_liner_turret01",
+        "hardpoint": "HpTurret_Liner_04"
+      },
+      {
+        "id": "co_liner_turret01",
+        "hardpoint": "HpTurret_Liner_05"
+      },
+      {
+        "id": "co_liner_turret01",
+        "hardpoint": "HpTurret_Liner_06"
+      },
+      {
+        "id": "co_liner_turret01",
+        "hardpoint": "HpTurret_Liner_07"
+      },
+      {
+        "id": "co_liner_turret01",
+        "hardpoint": "HpTurret_Liner_08"
+      },
+      {
+        "id": "co_liner_turret01",
+        "hardpoint": "HpTurret_Liner_09"
+      },
+      {
+        "id": "co_liner_turret01",
+        "hardpoint": "HpTurret_Liner_10"
+      },
+      {
+        "id": "co_liner_turret01",
+        "hardpoint": "HpTurret_Liner_11"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -12336,7 +17934,48 @@ const FL_NPC_LOADOUTS = {
   "ge_miner_co_01": {
     "id": "ge_miner_co_01",
     "archetype": "ge_miner",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "co_miner_turret01",
+        "hardpoint": "HpTurret_U1_01"
+      },
+      {
+        "id": "co_miner_turret01",
+        "hardpoint": "HpTurret_U1_02"
+      },
+      {
+        "id": "co_miner_turret01",
+        "hardpoint": "HpTurret_U1_03"
+      },
+      {
+        "id": "co_miner_turret01",
+        "hardpoint": "HpTurret_U1_04"
+      },
+      {
+        "id": "co_miner_turret02",
+        "hardpoint": "HpTurret_U2_01"
+      },
+      {
+        "id": "co_miner_turret02",
+        "hardpoint": "HpTurret_U2_02"
+      },
+      {
+        "id": "co_miner_turret02",
+        "hardpoint": "HpTurret_U2_03"
+      },
+      {
+        "id": "co_miner_turret02",
+        "hardpoint": "HpTurret_U2_04"
+      },
+      {
+        "id": "co_miner_turret03",
+        "hardpoint": "HpTurret_U3_01"
+      },
+      {
+        "id": "co_miner_turret03",
+        "hardpoint": "HpTurret_U3_02"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
@@ -12344,10 +17983,8766 @@ const FL_NPC_LOADOUTS = {
   "ge_miner_co_02": {
     "id": "ge_miner_co_02",
     "archetype": "ge_miner",
-    "weapons": [],
+    "weapons": [
+      {
+        "id": "co_miner_turret01",
+        "hardpoint": "HpTurret_U1_01"
+      },
+      {
+        "id": "co_miner_turret01",
+        "hardpoint": "HpTurret_U1_02"
+      },
+      {
+        "id": "co_miner_turret01",
+        "hardpoint": "HpTurret_U1_03"
+      },
+      {
+        "id": "co_miner_turret01",
+        "hardpoint": "HpTurret_U1_04"
+      },
+      {
+        "id": "co_miner_turret02",
+        "hardpoint": "HpTurret_U2_01"
+      },
+      {
+        "id": "co_miner_turret02",
+        "hardpoint": "HpTurret_U2_02"
+      },
+      {
+        "id": "co_miner_turret02",
+        "hardpoint": "HpTurret_U2_03"
+      },
+      {
+        "id": "co_miner_turret02",
+        "hardpoint": "HpTurret_U2_04"
+      },
+      {
+        "id": "co_miner_turret03",
+        "hardpoint": "HpTurret_U3_01"
+      },
+      {
+        "id": "co_miner_turret03",
+        "hardpoint": "HpTurret_U3_02"
+      }
+    ],
     "shields": [],
     "thrusters": [],
     "sourceFile": "SHIPS/loadouts_utility.ini"
+  },
+  "docking_ring": {
+    "id": "docking_ring",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "docking_fixture": {
+    "id": "docking_fixture",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "jumpgate": {
+    "id": "jumpgate",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_08"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_09"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_10"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "jumphole": {
+    "id": "jumphole",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "jumphole_green": {
+    "id": "jumphole_green",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "jumphole_orange": {
+    "id": "jumphole_orange",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "jumphole_red": {
+    "id": "jumphole_red",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "jumphole_light": {
+    "id": "jumphole_light",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "nomad_gate": {
+    "id": "nomad_gate",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "blhazard": {
+    "id": "blhazard",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "baxter_mission5": {
+    "id": "baxter_mission5",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "track_ring": {
+    "id": "track_ring",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "gasminer": {
+    "id": "gasminer",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_08"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "smallstation": {
+    "id": "smallstation",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "large_station_turret",
+        "hardpoint": "HpTurret_S2_02"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "large_station_turret",
+        "hardpoint": "HpTurret_S2_08"
+      },
+      {
+        "id": "large_station_turret",
+        "hardpoint": "HpTurret_S2_01"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "space_station": {
+    "id": "space_station",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "large_station_turret",
+        "hardpoint": "HpTurret_S2_01"
+      },
+      {
+        "id": "large_station_turret",
+        "hardpoint": "HpTurret_S2_02"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_08"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_09"
+      },
+      {
+        "id": "large_station_turret",
+        "hardpoint": "HpTurret_S2_10"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_11"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_12"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_13"
+      },
+      {
+        "id": "large_station_turret",
+        "hardpoint": "HpTurret_S2_14"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_15"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_16"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_17"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_18"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "prison": {
+    "id": "prison",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "large_station_turret",
+        "hardpoint": "HpTurret_S2_01"
+      },
+      {
+        "id": "large_station_turret",
+        "hardpoint": "HpTurret_S2_02"
+      },
+      {
+        "id": "large_station_turret",
+        "hardpoint": "HpTurret_S2_03"
+      },
+      {
+        "id": "large_station_turret",
+        "hardpoint": "HpTurret_S2_04"
+      },
+      {
+        "id": "large_station_turret",
+        "hardpoint": "HpTurret_S2_05"
+      },
+      {
+        "id": "large_station_turret",
+        "hardpoint": "HpTurret_S2_06"
+      },
+      {
+        "id": "large_station_turret",
+        "hardpoint": "HpTurret_S2_07"
+      },
+      {
+        "id": "large_station_turret",
+        "hardpoint": "HpTurret_S2_08"
+      },
+      {
+        "id": "large_station_turret",
+        "hardpoint": "HpTurret_S2_09"
+      },
+      {
+        "id": "large_station_turret",
+        "hardpoint": "HpTurret_S2_10"
+      },
+      {
+        "id": "large_station_turret",
+        "hardpoint": "HpTurret_S2_11"
+      },
+      {
+        "id": "large_station_turret",
+        "hardpoint": "HpTurret_S2_12"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "miningbase_badlands": {
+    "id": "miningbase_badlands",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "large_station_turret",
+        "hardpoint": "HpTurret_S2_01"
+      },
+      {
+        "id": "large_station_turret",
+        "hardpoint": "HpTurret_S2_02"
+      },
+      {
+        "id": "large_station_turret",
+        "hardpoint": "HpTurret_S2_03"
+      },
+      {
+        "id": "large_station_turret",
+        "hardpoint": "HpTurret_S2_04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "miningbase_fragb": {
+    "id": "miningbase_fragb",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "large_station_turret",
+        "hardpoint": "HpTurret_S2_01"
+      },
+      {
+        "id": "large_station_turret",
+        "hardpoint": "HpTurret_S2_02"
+      },
+      {
+        "id": "large_station_turret",
+        "hardpoint": "HpTurret_S2_03"
+      },
+      {
+        "id": "large_station_turret",
+        "hardpoint": "HpTurret_S2_04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "trading_outpost": {
+    "id": "trading_outpost",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_08"
+      },
+      {
+        "id": "large_station_turret",
+        "hardpoint": "HpTurret_S2_01"
+      },
+      {
+        "id": "large_station_turret",
+        "hardpoint": "HpTurret_S2_02"
+      },
+      {
+        "id": "large_station_turret",
+        "hardpoint": "HpTurret_S2_03"
+      },
+      {
+        "id": "large_station_turret",
+        "hardpoint": "HpTurret_S2_04"
+      },
+      {
+        "id": "large_station_turret",
+        "hardpoint": "HpTurret_S2_05"
+      },
+      {
+        "id": "large_station_turret",
+        "hardpoint": "HpTurret_S2_06"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "depot": {
+    "id": "depot",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_07"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "mplatform_red": {
+    "id": "mplatform_red",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_07"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "weapon_platform_1": {
+    "id": "weapon_platform_1",
+    "archetype": "wplatform",
+    "weapons": [
+      {
+        "id": "li_wp_turret01",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "li_wp_turret01",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "li_wp_turret01",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "li_wp_turret01",
+        "hardpoint": "HpTurret04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "weapon_platform": {
+    "id": "weapon_platform",
+    "archetype": "wplatform",
+    "weapons": [
+      {
+        "id": "li_wp_turret01",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "li_wp_turret02",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "li_wp_turret01",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "li_wp_turret02",
+        "hardpoint": "HpTurret04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "weapon_platform_m08": {
+    "id": "weapon_platform_m08",
+    "archetype": "wplatform",
+    "weapons": [
+      {
+        "id": "ku_wp_turret01_mark03",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "ku_wp_turret02_mark03",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "ku_wp_turret01_mark03",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "ku_wp_turret02_mark03",
+        "hardpoint": "HpTurret04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "weapon_platform_m11": {
+    "id": "weapon_platform_m11",
+    "archetype": "wplatform",
+    "weapons": [
+      {
+        "id": "li_wp_turret01_mark04",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "li_wp_turret02_mark04",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "li_wp_turret01_mark04",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "li_wp_turret02_mark04",
+        "hardpoint": "HpTurret04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "pirate_weapon_platform": {
+    "id": "pirate_weapon_platform",
+    "archetype": "wplatform",
+    "weapons": [
+      {
+        "id": "pi_wp_turret01_mark01",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "pi_wp_turret01_mark01",
+        "hardpoint": "HpTurret02"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "pirate_weapon_platform2": {
+    "id": "pirate_weapon_platform2",
+    "archetype": "wplatform",
+    "weapons": [
+      {
+        "id": "pi_wp_turret01_mark01",
+        "hardpoint": "HpTurret01"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "small_weapon_platform": {
+    "id": "small_weapon_platform",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "trade_lane_ring": {
+    "id": "trade_lane_ring",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_02"
+      }
+    ],
+    "shields": [
+      {
+        "id": "tlr_shield_gen01",
+        "hardpoint": "HpShield01"
+      }
+    ],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "telescope": {
+    "id": "telescope",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "com_sat": {
+    "id": "com_sat",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "gas_collector": {
+    "id": "gas_collector",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "gravity_buoy": {
+    "id": "gravity_buoy",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "trade_lane_buoy_light": {
+    "id": "trade_lane_buoy_light",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "hazard_buoy_light": {
+    "id": "hazard_buoy_light",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "nomad_buoy_light": {
+    "id": "nomad_buoy_light",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "shipyard": {
+    "id": "shipyard",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "lair_platform01": {
+    "id": "lair_platform01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "lair_turret01",
+        "hardpoint": "HpTurret"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "lair_platform02": {
+    "id": "lair_platform02",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "lair_turret02",
+        "hardpoint": "HpTurret"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "lair_core": {
+    "id": "lair_core",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "lair_shield_gen": {
+    "id": "lair_shield_gen",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "nomad_dome_shield": {
+    "id": "nomad_dome_shield",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "dyson_city": {
+    "id": "dyson_city",
+    "archetype": "",
+    "weapons": [],
+    "shields": [
+      {
+        "id": "fx_dyson_city_shield",
+        "hardpoint": "HpShield01"
+      },
+      {
+        "id": "dyson_city_shield_gen01",
+        "hardpoint": "HpShield01"
+      }
+    ],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "dyson_city_generator": {
+    "id": "dyson_city_generator",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "dyson_city_platform": {
+    "id": "dyson_city_platform",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "nomad_dyson_turret01",
+        "hardpoint": "hpturret_d1_01"
+      },
+      {
+        "id": "nomad_dyson_turret01",
+        "hardpoint": "hpturret_d1_02"
+      },
+      {
+        "id": "nomad_dyson_turret01",
+        "hardpoint": "hpturret_d1_03"
+      },
+      {
+        "id": "nomad_dyson_turret01",
+        "hardpoint": "hpturret_d1_04"
+      },
+      {
+        "id": "nomad_dyson_turret01",
+        "hardpoint": "hpturret_d1_05"
+      },
+      {
+        "id": "nomad_dyson_turret01",
+        "hardpoint": "hpturret_d1_06"
+      },
+      {
+        "id": "nomad_dyson_turret01",
+        "hardpoint": "hpturret_d1_07"
+      },
+      {
+        "id": "nomad_dyson_turret01",
+        "hardpoint": "hpturret_d1_08"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "space_port_dmg": {
+    "id": "space_port_dmg",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_08"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "space_factory01": {
+    "id": "space_factory01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "depot_water": {
+    "id": "depot_water",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "depot_oxygen": {
+    "id": "depot_oxygen",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "depot_beryllium": {
+    "id": "depot_beryllium",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "depot_copper": {
+    "id": "depot_copper",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "depot_food": {
+    "id": "depot_food",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "depot_boron": {
+    "id": "depot_boron",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "depot_cobalt": {
+    "id": "depot_cobalt",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "depot_toxic_waste": {
+    "id": "depot_toxic_waste",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "depot_scrap_metal": {
+    "id": "depot_scrap_metal",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "depot_polymers": {
+    "id": "depot_polymers",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "depot_hydrocarbons": {
+    "id": "depot_hydrocarbons",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "depot_fertilizers": {
+    "id": "depot_fertilizers",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "depot_hfuel": {
+    "id": "depot_hfuel",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "depot_basic_alloys": {
+    "id": "depot_basic_alloys",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "depot_super_alloys": {
+    "id": "depot_super_alloys",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "depot_high_temp_alloys": {
+    "id": "depot_high_temp_alloys",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "depot_superconductors": {
+    "id": "depot_superconductors",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "surprise_superconductors": {
+    "id": "surprise_superconductors",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "depot_optical_chips": {
+    "id": "depot_optical_chips",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "depot_optronics": {
+    "id": "depot_optronics",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "depot_construction_machinery": {
+    "id": "depot_construction_machinery",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "surprise_machinery": {
+    "id": "surprise_machinery",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "depot_mining_machinery": {
+    "id": "depot_mining_machinery",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "depot_consumer_goods": {
+    "id": "depot_consumer_goods",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "depot_pharmaceuticals": {
+    "id": "depot_pharmaceuticals",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "depot_ship_hull_panels": {
+    "id": "depot_ship_hull_panels",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "space_shipping01": {
+    "id": "space_shipping01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_08"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_09"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_10"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_11"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_12"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "space_arch": {
+    "id": "space_arch",
+    "archetype": "",
+    "weapons": [],
+    "shields": [
+      {
+        "id": "space_arch_shield_gen01",
+        "hardpoint": "HpShieldGen01"
+      },
+      {
+        "id": "outer_sanctum_shield",
+        "hardpoint": "HpShieldFx"
+      }
+    ],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "space_arch_asteroid": {
+    "id": "space_arch_asteroid",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "ku_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_01"
+      },
+      {
+        "id": "ku_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_02"
+      },
+      {
+        "id": "ku_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_03"
+      },
+      {
+        "id": "ku_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_04"
+      },
+      {
+        "id": "ku_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_05"
+      },
+      {
+        "id": "ku_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_06"
+      },
+      {
+        "id": "ku_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_07"
+      },
+      {
+        "id": "ku_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_08"
+      },
+      {
+        "id": "ku_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_09"
+      },
+      {
+        "id": "ku_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_10"
+      },
+      {
+        "id": "ku_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_11"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "space_arch_generator": {
+    "id": "space_arch_generator",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "null_loadout": {
+    "id": "null_loadout",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "dyson_generator": {
+    "id": "dyson_generator",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "planet_storm_5000": {
+    "id": "planet_storm_5000",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "neutron_star": {
+    "id": "neutron_star",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "freeport7": {
+    "id": "freeport7",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "d_space_police01": {
+    "id": "d_space_police01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "small_station_turret",
+        "hardpoint": "HpTurret_S1_08"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "docking_ring_br_01": {
+    "id": "docking_ring_br_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "br_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "br_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "br_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "br_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "docking_ring_li_01": {
+    "id": "docking_ring_li_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "docking_ring_ku_01": {
+    "id": "docking_ring_ku_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "ku_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "ku_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "ku_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "ku_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "docking_ring_rh_01": {
+    "id": "docking_ring_rh_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "rh_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "rh_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "rh_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "rh_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "docking_ring_co_01": {
+    "id": "docking_ring_co_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "docking_ring_co_02": {
+    "id": "docking_ring_co_02",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "docking_ring_co_03": {
+    "id": "docking_ring_co_03",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "docking_ring_pi_01": {
+    "id": "docking_ring_pi_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "jumpgate_br_01": {
+    "id": "jumpgate_br_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "br_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "br_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "br_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "br_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "br_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "br_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "br_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "br_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_08"
+      },
+      {
+        "id": "br_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_09"
+      },
+      {
+        "id": "br_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_10"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "jumpgate_br_02": {
+    "id": "jumpgate_br_02",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "br_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "br_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "br_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "br_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "br_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "br_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "br_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "br_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_08"
+      },
+      {
+        "id": "br_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_09"
+      },
+      {
+        "id": "br_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_10"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "jumpgate_li_01": {
+    "id": "jumpgate_li_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_08"
+      },
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_09"
+      },
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_10"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "jumpgate_li_02": {
+    "id": "jumpgate_li_02",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "li_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "li_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "li_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "li_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "li_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "li_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "li_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "li_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_08"
+      },
+      {
+        "id": "li_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_09"
+      },
+      {
+        "id": "li_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_10"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "jumpgate_li_03": {
+    "id": "jumpgate_li_03",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "li_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "li_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "li_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "li_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "li_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "li_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "li_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "li_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_08"
+      },
+      {
+        "id": "li_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_09"
+      },
+      {
+        "id": "li_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_10"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "jumpgate_ku_01": {
+    "id": "jumpgate_ku_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "ku_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "ku_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "ku_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "ku_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "ku_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "ku_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "ku_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "ku_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_08"
+      },
+      {
+        "id": "ku_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_09"
+      },
+      {
+        "id": "ku_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_10"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "jumpgate_ku_02": {
+    "id": "jumpgate_ku_02",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "ku_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "ku_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "ku_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "ku_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "ku_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "ku_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "ku_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "ku_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_08"
+      },
+      {
+        "id": "ku_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_09"
+      },
+      {
+        "id": "ku_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_10"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "jumpgate_rh_01": {
+    "id": "jumpgate_rh_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "rh_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "rh_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "rh_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "rh_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "rh_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "rh_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "rh_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "rh_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_08"
+      },
+      {
+        "id": "rh_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_09"
+      },
+      {
+        "id": "rh_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_10"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "jumpgate_co_01": {
+    "id": "jumpgate_co_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "co_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "co_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "co_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "co_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_08"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_09"
+      },
+      {
+        "id": "co_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_10"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "jumpgate_co_02": {
+    "id": "jumpgate_co_02",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_08"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_09"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_10"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "jumpgate_co_03": {
+    "id": "jumpgate_co_03",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_08"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_09"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_10"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "gasminer_co_01": {
+    "id": "gasminer_co_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_08"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "gas_miner_old_co_01": {
+    "id": "gas_miner_old_co_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_08"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_09"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "smallstation_li_01": {
+    "id": "smallstation_li_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "li_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_02"
+      },
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "li_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_08"
+      },
+      {
+        "id": "li_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_01"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "smallstation_co_01": {
+    "id": "smallstation_co_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "co_large_station_turret01_mark02",
+        "hardpoint": "HpTurret_S2_02"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "co_large_station_turret01_mark02",
+        "hardpoint": "HpTurret_S2_08"
+      },
+      {
+        "id": "co_large_station_turret01_mark02",
+        "hardpoint": "HpTurret_S2_01"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "smallstation_co_02": {
+    "id": "smallstation_co_02",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "co_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_02"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "co_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_08"
+      },
+      {
+        "id": "co_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_01"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "smallstation_old_li_01": {
+    "id": "smallstation_old_li_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "li_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_01"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "smallstation_old_co_01": {
+    "id": "smallstation_old_co_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "co_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_01"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "space_station_co_01": {
+    "id": "space_station_co_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "co_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_01"
+      },
+      {
+        "id": "co_large_station_turret01_mark02",
+        "hardpoint": "HpTurret_S2_02"
+      },
+      {
+        "id": "co_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "co_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "co_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_08"
+      },
+      {
+        "id": "co_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_09"
+      },
+      {
+        "id": "co_large_station_turret01_mark02",
+        "hardpoint": "HpTurret_S2_10"
+      },
+      {
+        "id": "co_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_11"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_12"
+      },
+      {
+        "id": "co_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_13"
+      },
+      {
+        "id": "co_large_station_turret01_mark02",
+        "hardpoint": "HpTurret_S2_14"
+      },
+      {
+        "id": "co_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_15"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_16"
+      },
+      {
+        "id": "co_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_17"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_18"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "space_station_co_02": {
+    "id": "space_station_co_02",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "co_large_station_turret01_mark02",
+        "hardpoint": "HpTurret_S2_01"
+      },
+      {
+        "id": "co_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_02"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_08"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_09"
+      },
+      {
+        "id": "co_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_10"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_11"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_12"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_13"
+      },
+      {
+        "id": "co_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_14"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_15"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_16"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_17"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_18"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "space_station_old_co_01": {
+    "id": "space_station_old_co_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_08"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_09"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_11"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_12"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_13"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_15"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_16"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_17"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_18"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "prison_br_01": {
+    "id": "prison_br_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "br_large_station_turret01_mark02",
+        "hardpoint": "HpTurret_S2_01"
+      },
+      {
+        "id": "br_large_station_turret01_mark02",
+        "hardpoint": "HpTurret_S2_02"
+      },
+      {
+        "id": "br_large_station_turret01_mark02",
+        "hardpoint": "HpTurret_S2_03"
+      },
+      {
+        "id": "br_large_station_turret01_mark02",
+        "hardpoint": "HpTurret_S2_04"
+      },
+      {
+        "id": "br_large_station_turret01_mark02",
+        "hardpoint": "HpTurret_S2_05"
+      },
+      {
+        "id": "br_large_station_turret01_mark02",
+        "hardpoint": "HpTurret_S2_06"
+      },
+      {
+        "id": "br_large_station_turret01_mark02",
+        "hardpoint": "HpTurret_S2_07"
+      },
+      {
+        "id": "br_large_station_turret01_mark02",
+        "hardpoint": "HpTurret_S2_08"
+      },
+      {
+        "id": "br_large_station_turret01_mark02",
+        "hardpoint": "HpTurret_S2_09"
+      },
+      {
+        "id": "br_large_station_turret01_mark02",
+        "hardpoint": "HpTurret_S2_10"
+      },
+      {
+        "id": "br_large_station_turret01_mark02",
+        "hardpoint": "HpTurret_S2_11"
+      },
+      {
+        "id": "br_large_station_turret01_mark02",
+        "hardpoint": "HpTurret_S2_12"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "prison_li_01": {
+    "id": "prison_li_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "li_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_01"
+      },
+      {
+        "id": "li_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_02"
+      },
+      {
+        "id": "li_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_03"
+      },
+      {
+        "id": "li_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_04"
+      },
+      {
+        "id": "li_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_05"
+      },
+      {
+        "id": "li_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_06"
+      },
+      {
+        "id": "li_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_07"
+      },
+      {
+        "id": "li_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_08"
+      },
+      {
+        "id": "li_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_09"
+      },
+      {
+        "id": "li_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_10"
+      },
+      {
+        "id": "li_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_11"
+      },
+      {
+        "id": "li_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_12"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "prison_ku_01": {
+    "id": "prison_ku_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "ku_large_station_turret01_mark02",
+        "hardpoint": "HpTurret_S2_01"
+      },
+      {
+        "id": "ku_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_02"
+      },
+      {
+        "id": "ku_large_station_turret01_mark02",
+        "hardpoint": "HpTurret_S2_03"
+      },
+      {
+        "id": "ku_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_04"
+      },
+      {
+        "id": "ku_large_station_turret01_mark02",
+        "hardpoint": "HpTurret_S2_05"
+      },
+      {
+        "id": "ku_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_06"
+      },
+      {
+        "id": "ku_large_station_turret01_mark02",
+        "hardpoint": "HpTurret_S2_07"
+      },
+      {
+        "id": "ku_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_08"
+      },
+      {
+        "id": "ku_large_station_turret01_mark02",
+        "hardpoint": "HpTurret_S2_09"
+      },
+      {
+        "id": "ku_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_10"
+      },
+      {
+        "id": "ku_large_station_turret01_mark02",
+        "hardpoint": "HpTurret_S2_11"
+      },
+      {
+        "id": "ku_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_12"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "prison_rh_01": {
+    "id": "prison_rh_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "rh_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_01"
+      },
+      {
+        "id": "rh_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_02"
+      },
+      {
+        "id": "rh_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_03"
+      },
+      {
+        "id": "rh_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_04"
+      },
+      {
+        "id": "rh_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_05"
+      },
+      {
+        "id": "rh_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_06"
+      },
+      {
+        "id": "rh_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_07"
+      },
+      {
+        "id": "rh_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_08"
+      },
+      {
+        "id": "rh_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_09"
+      },
+      {
+        "id": "rh_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_10"
+      },
+      {
+        "id": "rh_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_11"
+      },
+      {
+        "id": "rh_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_12"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "military_icebase1_li_01": {
+    "id": "military_icebase1_li_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "li_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_01"
+      },
+      {
+        "id": "li_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_02"
+      },
+      {
+        "id": "li_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_03"
+      },
+      {
+        "id": "li_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_04"
+      },
+      {
+        "id": "li_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_05"
+      },
+      {
+        "id": "li_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_07"
+      },
+      {
+        "id": "li_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_08"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "miningbase_small_ice_pi_01": {
+    "id": "miningbase_small_ice_pi_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "pi_large_station_turret01_mark02",
+        "hardpoint": "HpTurret_S2_01"
+      },
+      {
+        "id": "pi_large_station_turret01_mark02",
+        "hardpoint": "HpTurret_S2_02"
+      },
+      {
+        "id": "pi_large_station_turret01_mark02",
+        "hardpoint": "HpTurret_S2_03"
+      },
+      {
+        "id": "pi_large_station_turret01_mark02",
+        "hardpoint": "HpTurret_S2_04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "miningbase_small_ice_pi_02": {
+    "id": "miningbase_small_ice_pi_02",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_01"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_02"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_03"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "miningbase_small_ice_pi_03": {
+    "id": "miningbase_small_ice_pi_03",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_01"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_02"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_03"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "miningbase_ice_block_pi_01": {
+    "id": "miningbase_ice_block_pi_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "pi_large_station_turret01_mark02",
+        "hardpoint": "HpTurret_S2_01"
+      },
+      {
+        "id": "pi_large_station_turret01_mark02",
+        "hardpoint": "HpTurret_S2_02"
+      },
+      {
+        "id": "pi_large_station_turret01_mark02",
+        "hardpoint": "HpTurret_S2_03"
+      },
+      {
+        "id": "pi_large_station_turret01_mark02",
+        "hardpoint": "HpTurret_S2_04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "miningbase_small_rock_pi_01": {
+    "id": "miningbase_small_rock_pi_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_01"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_02"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_03"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "miningbase_small_rock_pi_02": {
+    "id": "miningbase_small_rock_pi_02",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_01"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_02"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_03"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "miningbase_small_rock_pi_03": {
+    "id": "miningbase_small_rock_pi_03",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_01"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_02"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_03"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "miningbase_badlands_pi_01": {
+    "id": "miningbase_badlands_pi_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "pi_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_01"
+      },
+      {
+        "id": "pi_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_02"
+      },
+      {
+        "id": "pi_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_03"
+      },
+      {
+        "id": "pi_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "miningbase_fraga_pi_01": {
+    "id": "miningbase_fraga_pi_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_01"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_02"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_03"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "miningbase_fraga_pi_02": {
+    "id": "miningbase_fraga_pi_02",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_01"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_02"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_03"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "miningbase_fragb_co_01": {
+    "id": "miningbase_fragb_co_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "co_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_01"
+      },
+      {
+        "id": "co_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_02"
+      },
+      {
+        "id": "co_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_03"
+      },
+      {
+        "id": "co_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "miningbase_fragb_pi_01": {
+    "id": "miningbase_fragb_pi_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "pi_large_station_turret01_mark02",
+        "hardpoint": "HpTurret_S2_01"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_02"
+      },
+      {
+        "id": "pi_large_station_turret01_mark02",
+        "hardpoint": "HpTurret_S2_03"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "miningbase_fragc_pi_01": {
+    "id": "miningbase_fragc_pi_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "pi_large_station_turret01_mark02",
+        "hardpoint": "HpTurret_S2_01"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_02"
+      },
+      {
+        "id": "pi_large_station_turret01_mark02",
+        "hardpoint": "HpTurret_S2_03"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "miningbase_fragc_pi_03": {
+    "id": "miningbase_fragc_pi_03",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_01"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_02"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_03"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "miningbase_mineablea_co_01": {
+    "id": "miningbase_mineablea_co_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "co_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_01"
+      },
+      {
+        "id": "co_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_02"
+      },
+      {
+        "id": "co_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_03"
+      },
+      {
+        "id": "co_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "miningbase_mineablea_pi_01": {
+    "id": "miningbase_mineablea_pi_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "pi_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_01"
+      },
+      {
+        "id": "pi_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_02"
+      },
+      {
+        "id": "pi_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_03"
+      },
+      {
+        "id": "pi_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "miningbase_mineableb_pi_01": {
+    "id": "miningbase_mineableb_pi_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "pi_large_station_turret01_mark02",
+        "hardpoint": "HpTurret_S2_01"
+      },
+      {
+        "id": "pi_large_station_turret01_mark02",
+        "hardpoint": "HpTurret_S2_02"
+      },
+      {
+        "id": "pi_large_station_turret01_mark02",
+        "hardpoint": "HpTurret_S2_03"
+      },
+      {
+        "id": "pi_large_station_turret01_mark02",
+        "hardpoint": "HpTurret_S2_04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "miningbase_mineableb_pi_02": {
+    "id": "miningbase_mineableb_pi_02",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_01"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_02"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_03"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "miningbase_nomad_pi_01": {
+    "id": "miningbase_nomad_pi_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_01"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_02"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_03"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "co_base_rock_large01_pi_01": {
+    "id": "co_base_rock_large01_pi_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_01"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_02"
+      },
+      {
+        "id": "pi_large_station_turret01_mark02",
+        "hardpoint": "HpTurret_S2_03"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_04"
+      },
+      {
+        "id": "pi_large_station_turret01_mark02",
+        "hardpoint": "HpTurret_S2_05"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_06"
+      },
+      {
+        "id": "pi_large_station_turret01_mark02",
+        "hardpoint": "HpTurret_S2_07"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_08"
+      },
+      {
+        "id": "pi_large_station_turret01_mark02",
+        "hardpoint": "HpTurret_S2_09"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "co_base_rock_large02_pi_01": {
+    "id": "co_base_rock_large02_pi_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_01"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_02"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_03"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_04"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_05"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_06"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_07"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_08"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_09"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "co_base_ice_large02_pi_01": {
+    "id": "co_base_ice_large02_pi_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_01"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_02"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_03"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_04"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_05"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_06"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_07"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_08"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_09"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "trading_outpost_li_01": {
+    "id": "trading_outpost_li_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_08"
+      },
+      {
+        "id": "li_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_01"
+      },
+      {
+        "id": "li_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_02"
+      },
+      {
+        "id": "li_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_03"
+      },
+      {
+        "id": "li_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_04"
+      },
+      {
+        "id": "li_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_05"
+      },
+      {
+        "id": "li_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_06"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "trading_outpost_co_01": {
+    "id": "trading_outpost_co_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "co_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "co_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "co_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "co_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "co_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "co_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "co_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "co_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_08"
+      },
+      {
+        "id": "co_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_01"
+      },
+      {
+        "id": "co_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_02"
+      },
+      {
+        "id": "co_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_03"
+      },
+      {
+        "id": "co_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_04"
+      },
+      {
+        "id": "co_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_05"
+      },
+      {
+        "id": "co_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_06"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "trading_outpost_co_02": {
+    "id": "trading_outpost_co_02",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_08"
+      },
+      {
+        "id": "co_large_station_turret01_mark02",
+        "hardpoint": "HpTurret_S2_01"
+      },
+      {
+        "id": "co_large_station_turret01_mark02",
+        "hardpoint": "HpTurret_S2_02"
+      },
+      {
+        "id": "co_large_station_turret01_mark02",
+        "hardpoint": "HpTurret_S2_03"
+      },
+      {
+        "id": "co_large_station_turret01_mark02",
+        "hardpoint": "HpTurret_S2_04"
+      },
+      {
+        "id": "co_large_station_turret01_mark02",
+        "hardpoint": "HpTurret_S2_05"
+      },
+      {
+        "id": "co_large_station_turret01_mark02",
+        "hardpoint": "HpTurret_S2_06"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "trading_outpost_co_03": {
+    "id": "trading_outpost_co_03",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_08"
+      },
+      {
+        "id": "co_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_01"
+      },
+      {
+        "id": "co_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_02"
+      },
+      {
+        "id": "co_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_03"
+      },
+      {
+        "id": "co_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_04"
+      },
+      {
+        "id": "co_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_05"
+      },
+      {
+        "id": "co_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_06"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "depot_br_01": {
+    "id": "depot_br_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "br_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "br_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "br_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "br_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "br_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "br_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "br_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_07"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "depot_co_01": {
+    "id": "depot_co_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_07"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "depot_co_03": {
+    "id": "depot_co_03",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_07"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "depot_pi_01": {
+    "id": "depot_pi_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "pi_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "pi_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "pi_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "pi_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "pi_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "pi_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "pi_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_07"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "depot_pi_02": {
+    "id": "depot_pi_02",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_07"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "mplatform_red_co_01": {
+    "id": "mplatform_red_co_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "co_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "co_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "co_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_07"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "mplatform_red_co_02": {
+    "id": "mplatform_red_co_02",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_07"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "mplatform_stokes_co_02": {
+    "id": "mplatform_stokes_co_02",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_07"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "mplatform_red_co_03": {
+    "id": "mplatform_red_co_03",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_07"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "mplatform_white_co_03": {
+    "id": "mplatform_white_co_03",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_07"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "mplatform_red_li_01": {
+    "id": "mplatform_red_li_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_07"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "mplatform_red_ku_01": {
+    "id": "mplatform_red_ku_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "ku_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "ku_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "ku_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "ku_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "ku_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "ku_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "ku_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_07"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "weapon_platform_li_01": {
+    "id": "weapon_platform_li_01",
+    "archetype": "wplatform",
+    "weapons": [
+      {
+        "id": "li_wp_turret01_mark02",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "li_wp_turret02_mark02",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "li_wp_turret01_mark02",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "li_wp_turret02_mark02",
+        "hardpoint": "HpTurret04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "weapon_platform_li_02": {
+    "id": "weapon_platform_li_02",
+    "archetype": "wplatform",
+    "weapons": [
+      {
+        "id": "li_wp_turret01_mark03",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "li_wp_turret02_mark03",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "li_wp_turret01_mark03",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "li_wp_turret02_mark03",
+        "hardpoint": "HpTurret04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "weapon_platform_li_03": {
+    "id": "weapon_platform_li_03",
+    "archetype": "wplatform",
+    "weapons": [
+      {
+        "id": "li_wp_turret01_mark03",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "li_wp_turret02_mark03",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "li_wp_turret01_mark03",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "li_wp_turret02_mark03",
+        "hardpoint": "HpTurret04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "weapon_platform_li_04": {
+    "id": "weapon_platform_li_04",
+    "archetype": "wplatform",
+    "weapons": [
+      {
+        "id": "li_wp_turret01_mark03",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "li_wp_turret02_mark03",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "li_wp_turret01_mark03",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "li_wp_turret02_mark03",
+        "hardpoint": "HpTurret04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "weapon_platform_br_01": {
+    "id": "weapon_platform_br_01",
+    "archetype": "wplatform",
+    "weapons": [
+      {
+        "id": "br_wp_turret01_mark02",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "br_wp_turret02_mark02",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "br_wp_turret01_mark02",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "br_wp_turret02_mark02",
+        "hardpoint": "HpTurret04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "weapon_platform_br_02": {
+    "id": "weapon_platform_br_02",
+    "archetype": "wplatform",
+    "weapons": [
+      {
+        "id": "br_wp_turret01_mark03",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "br_wp_turret02_mark03",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "br_wp_turret01_mark03",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "br_wp_turret02_mark03",
+        "hardpoint": "HpTurret04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "weapon_platform_br_03": {
+    "id": "weapon_platform_br_03",
+    "archetype": "wplatform",
+    "weapons": [
+      {
+        "id": "br_wp_turret01_mark03",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "br_wp_turret02_mark03",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "br_wp_turret01_mark03",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "br_wp_turret02_mark03",
+        "hardpoint": "HpTurret04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "weapon_platform_br_04": {
+    "id": "weapon_platform_br_04",
+    "archetype": "wplatform",
+    "weapons": [
+      {
+        "id": "br_wp_turret01_mark03",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "br_wp_turret02_mark03",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "br_wp_turret01_mark03",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "br_wp_turret02_mark03",
+        "hardpoint": "HpTurret04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "weapon_platform_ku_01": {
+    "id": "weapon_platform_ku_01",
+    "archetype": "wplatform",
+    "weapons": [
+      {
+        "id": "ku_wp_turret01_mark02",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "ku_wp_turret02_mark02",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "ku_wp_turret01_mark02",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "ku_wp_turret02_mark02",
+        "hardpoint": "HpTurret04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "weapon_platform_ku_02": {
+    "id": "weapon_platform_ku_02",
+    "archetype": "wplatform",
+    "weapons": [
+      {
+        "id": "ku_wp_turret01_mark03",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "ku_wp_turret02_mark03",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "ku_wp_turret01_mark03",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "ku_wp_turret02_mark03",
+        "hardpoint": "HpTurret04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "weapon_platform_ku_03": {
+    "id": "weapon_platform_ku_03",
+    "archetype": "wplatform",
+    "weapons": [
+      {
+        "id": "ku_wp_turret01_mark03",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "ku_wp_turret02_mark03",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "ku_wp_turret01_mark03",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "ku_wp_turret02_mark03",
+        "hardpoint": "HpTurret04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "weapon_platform_ku_04": {
+    "id": "weapon_platform_ku_04",
+    "archetype": "wplatform",
+    "weapons": [
+      {
+        "id": "ku_wp_turret01_mark03",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "ku_wp_turret02_mark03",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "ku_wp_turret01_mark03",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "ku_wp_turret02_mark03",
+        "hardpoint": "HpTurret04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "weapon_platform_co_01": {
+    "id": "weapon_platform_co_01",
+    "archetype": "wplatform",
+    "weapons": [
+      {
+        "id": "co_wp_turret01_mark02",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "co_wp_turret02_mark02",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "co_wp_turret01_mark02",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "co_wp_turret02_mark02",
+        "hardpoint": "HpTurret04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "weapon_platform_co_02": {
+    "id": "weapon_platform_co_02",
+    "archetype": "wplatform",
+    "weapons": [
+      {
+        "id": "co_wp_turret01_mark03",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "co_wp_turret02_mark03",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "co_wp_turret01_mark03",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "co_wp_turret02_mark03",
+        "hardpoint": "HpTurret04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "weapon_platform_co_03": {
+    "id": "weapon_platform_co_03",
+    "archetype": "wplatform",
+    "weapons": [
+      {
+        "id": "co_wp_turret01_mark03",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "co_wp_turret02_mark03",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "co_wp_turret01_mark03",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "co_wp_turret02_mark03",
+        "hardpoint": "HpTurret04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "weapon_platform_co_04": {
+    "id": "weapon_platform_co_04",
+    "archetype": "wplatform",
+    "weapons": [
+      {
+        "id": "co_wp_turret01_mark03",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "co_wp_turret02_mark03",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "co_wp_turret01_mark03",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "co_wp_turret02_mark03",
+        "hardpoint": "HpTurret04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "weapon_platform_rh_01": {
+    "id": "weapon_platform_rh_01",
+    "archetype": "wplatform",
+    "weapons": [
+      {
+        "id": "rh_wp_turret01_mark02",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "rh_wp_turret02_mark02",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "rh_wp_turret01_mark02",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "rh_wp_turret02_mark02",
+        "hardpoint": "HpTurret04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "weapon_platform_rh_02": {
+    "id": "weapon_platform_rh_02",
+    "archetype": "wplatform",
+    "weapons": [
+      {
+        "id": "rh_wp_turret01_mark03",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "rh_wp_turret02_mark03",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "rh_wp_turret01_mark03",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "rh_wp_turret02_mark03",
+        "hardpoint": "HpTurret04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "weapon_platform_rh_03": {
+    "id": "weapon_platform_rh_03",
+    "archetype": "wplatform",
+    "weapons": [
+      {
+        "id": "rh_wp_turret01_mark03",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "rh_wp_turret02_mark03",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "rh_wp_turret01_mark03",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "rh_wp_turret02_mark03",
+        "hardpoint": "HpTurret04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "weapon_platform_rh_04": {
+    "id": "weapon_platform_rh_04",
+    "archetype": "wplatform",
+    "weapons": [
+      {
+        "id": "rh_wp_turret01_mark03",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "rh_wp_turret02_mark03",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "rh_wp_turret01_mark03",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "rh_wp_turret02_mark03",
+        "hardpoint": "HpTurret04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "weapon_platform_pi_01": {
+    "id": "weapon_platform_pi_01",
+    "archetype": "wplatform",
+    "weapons": [
+      {
+        "id": "pi_wp_turret01_mark02",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "pi_wp_turret02_mark02",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "pi_wp_turret01_mark02",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "pi_wp_turret02_mark02",
+        "hardpoint": "HpTurret04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "weapon_platform_pi_02": {
+    "id": "weapon_platform_pi_02",
+    "archetype": "wplatform",
+    "weapons": [
+      {
+        "id": "pi_wp_turret01_mark03",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "pi_wp_turret02_mark03",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "pi_wp_turret01_mark03",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "pi_wp_turret02_mark03",
+        "hardpoint": "HpTurret04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "weapon_platform_pi_03": {
+    "id": "weapon_platform_pi_03",
+    "archetype": "wplatform",
+    "weapons": [
+      {
+        "id": "pi_wp_turret01_mark03",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "pi_wp_turret02_mark03",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "pi_wp_turret01_mark03",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "pi_wp_turret02_mark03",
+        "hardpoint": "HpTurret04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "weapon_platform_pi_04": {
+    "id": "weapon_platform_pi_04",
+    "archetype": "wplatform",
+    "weapons": [
+      {
+        "id": "pi_wp_turret01_mark03",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "pi_wp_turret02_mark03",
+        "hardpoint": "HpTurret02"
+      },
+      {
+        "id": "pi_wp_turret01_mark03",
+        "hardpoint": "HpTurret03"
+      },
+      {
+        "id": "pi_wp_turret02_mark03",
+        "hardpoint": "HpTurret04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "trade_lane_ring_br_01": {
+    "id": "trade_lane_ring_br_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "br_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "br_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_02"
+      }
+    ],
+    "shields": [
+      {
+        "id": "tlr_shield_gen01",
+        "hardpoint": "HpShield01"
+      }
+    ],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "trade_lane_ring_br_02": {
+    "id": "trade_lane_ring_br_02",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "br_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "br_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      }
+    ],
+    "shields": [
+      {
+        "id": "tlr_shield_gen01",
+        "hardpoint": "HpShield01"
+      }
+    ],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "trade_lane_ring_li_01": {
+    "id": "trade_lane_ring_li_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_02"
+      }
+    ],
+    "shields": [
+      {
+        "id": "tlr_shield_gen01",
+        "hardpoint": "HpShield01"
+      }
+    ],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "trade_lane_ring_li_02": {
+    "id": "trade_lane_ring_li_02",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "li_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "li_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_02"
+      }
+    ],
+    "shields": [
+      {
+        "id": "tlr_shield_gen01",
+        "hardpoint": "HpShield01"
+      }
+    ],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "trade_lane_ring_li_03": {
+    "id": "trade_lane_ring_li_03",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "li_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "li_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      }
+    ],
+    "shields": [
+      {
+        "id": "tlr_shield_gen01",
+        "hardpoint": "HpShield01"
+      }
+    ],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "trade_lane_ring_ku_01": {
+    "id": "trade_lane_ring_ku_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "ku_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "ku_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      }
+    ],
+    "shields": [
+      {
+        "id": "tlr_shield_gen01",
+        "hardpoint": "HpShield01"
+      }
+    ],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "trade_lane_ring_rh_01": {
+    "id": "trade_lane_ring_rh_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "rh_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "rh_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      }
+    ],
+    "shields": [
+      {
+        "id": "tlr_shield_gen01",
+        "hardpoint": "HpShield01"
+      }
+    ],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "trade_lane_ring_co_01": {
+    "id": "trade_lane_ring_co_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      }
+    ],
+    "shields": [
+      {
+        "id": "tlr_shield_gen01",
+        "hardpoint": "HpShield01"
+      }
+    ],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "space_police01_br_01": {
+    "id": "space_police01_br_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "br_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "br_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "br_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "br_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "br_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "br_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "br_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "br_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_08"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "space_police01_li_01": {
+    "id": "space_police01_li_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_08"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "space_police01_ku_01": {
+    "id": "space_police01_ku_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "ku_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "ku_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "ku_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "ku_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "ku_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "ku_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "ku_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "ku_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_08"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "space_police01_rh_01": {
+    "id": "space_police01_rh_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "rh_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "rh_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "rh_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "rh_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "rh_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "rh_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "rh_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "rh_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_08"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "space_police01_co_01": {
+    "id": "space_police01_co_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_08"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "space_factory01_li_01": {
+    "id": "space_factory01_li_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "space_factory01_rh_01": {
+    "id": "space_factory01_rh_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "rh_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "rh_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "rh_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "rh_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "space_factory01_co_01": {
+    "id": "space_factory01_co_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "co_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "co_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "co_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "co_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "space_factory01_co_02": {
+    "id": "space_factory01_co_02",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "space_factory01_co_03": {
+    "id": "space_factory01_co_03",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "space_factory02_co_01": {
+    "id": "space_factory02_co_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "space_mining01_co_01": {
+    "id": "space_mining01_co_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "space_mining01_co_02": {
+    "id": "space_mining01_co_02",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "space_freeport01_co_01": {
+    "id": "space_freeport01_co_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_06"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "space_freeport01_co_02": {
+    "id": "space_freeport01_co_02",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "space_freeport01_co_03": {
+    "id": "space_freeport01_co_03",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "space_shipping01_co_01": {
+    "id": "space_shipping01_co_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "co_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "co_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "co_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "co_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_08"
+      },
+      {
+        "id": "co_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_09"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_10"
+      },
+      {
+        "id": "co_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_11"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_12"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "space_shipping01_co_02": {
+    "id": "space_shipping01_co_02",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_08"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_09"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_10"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_11"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_12"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "space_shipping01_co_03": {
+    "id": "space_shipping01_co_03",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_08"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_09"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_10"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_11"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_12"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "space_shipping01_ku_01": {
+    "id": "space_shipping01_ku_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "ku_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "ku_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "ku_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "ku_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "ku_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "ku_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "ku_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "ku_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_08"
+      },
+      {
+        "id": "ku_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_09"
+      },
+      {
+        "id": "ku_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_10"
+      },
+      {
+        "id": "ku_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_11"
+      },
+      {
+        "id": "ku_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_12"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "space_dome_co_01": {
+    "id": "space_dome_co_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "space_dome_co_02": {
+    "id": "space_dome_co_02",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "space_dome_co_03": {
+    "id": "space_dome_co_03",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "space_port_dmg_pi_01": {
+    "id": "space_port_dmg_pi_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "pi_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "pi_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "pi_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "pi_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "pi_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "pi_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "pi_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "pi_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_08"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "space_port_dmg_pi_02": {
+    "id": "space_port_dmg_pi_02",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "pi_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "pi_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "pi_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "pi_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "pi_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "pi_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "pi_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "pi_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_08"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "space_port_dmg_pi_03": {
+    "id": "space_port_dmg_pi_03",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_08"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "space_port_dmg_pi_04": {
+    "id": "space_port_dmg_pi_04",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_08"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "space_port_dmg_pi_05": {
+    "id": "space_port_dmg_pi_05",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_08"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "pirate_weapon_platform_pi_01": {
+    "id": "pirate_weapon_platform_pi_01",
+    "archetype": "wplatform",
+    "weapons": [
+      {
+        "id": "pi_wp_turret01_mark01",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "pi_wp_turret01_mark01",
+        "hardpoint": "HpTurret02"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "pirate_weapon_platform_pi_02": {
+    "id": "pirate_weapon_platform_pi_02",
+    "archetype": "wplatform",
+    "weapons": [
+      {
+        "id": "pi_wp_turret01_mark02",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "pi_wp_turret01_mark02",
+        "hardpoint": "HpTurret02"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "pirate_weapon_platform_pi_03": {
+    "id": "pirate_weapon_platform_pi_03",
+    "archetype": "wplatform",
+    "weapons": [
+      {
+        "id": "pi_wp_turret01_mark03",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "pi_wp_turret01_mark03",
+        "hardpoint": "HpTurret02"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "pirate_weapon_platform_pi_04": {
+    "id": "pirate_weapon_platform_pi_04",
+    "archetype": "wplatform",
+    "weapons": [
+      {
+        "id": "pi_wp_turret01_mark03",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "pi_wp_turret01_mark03",
+        "hardpoint": "HpTurret02"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "pirate_weapon_platform_pi_05": {
+    "id": "pirate_weapon_platform_pi_05",
+    "archetype": "wplatform",
+    "weapons": [
+      {
+        "id": "pi_wp_turret01_mark03",
+        "hardpoint": "HpTurret01"
+      },
+      {
+        "id": "pi_wp_turret01_mark03",
+        "hardpoint": "HpTurret02"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "pirate_weapon_platform2_pi_01": {
+    "id": "pirate_weapon_platform2_pi_01",
+    "archetype": "wplatform",
+    "weapons": [
+      {
+        "id": "pi_wp_turret01_mark01",
+        "hardpoint": "HpTurret01"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "pirate_weapon_platform2_pi_02": {
+    "id": "pirate_weapon_platform2_pi_02",
+    "archetype": "wplatform",
+    "weapons": [
+      {
+        "id": "pi_wp_turret01_mark02",
+        "hardpoint": "HpTurret01"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "pirate_weapon_platform2_pi_03": {
+    "id": "pirate_weapon_platform2_pi_03",
+    "archetype": "wplatform",
+    "weapons": [
+      {
+        "id": "pi_wp_turret01_mark03",
+        "hardpoint": "HpTurret01"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "pirate_weapon_platform2_pi_04": {
+    "id": "pirate_weapon_platform2_pi_04",
+    "archetype": "wplatform",
+    "weapons": [
+      {
+        "id": "pi_wp_turret01_mark03",
+        "hardpoint": "HpTurret01"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "pirate_weapon_platform2_pi_05": {
+    "id": "pirate_weapon_platform2_pi_05",
+    "archetype": "wplatform",
+    "weapons": [
+      {
+        "id": "pi_wp_turret01_mark03",
+        "hardpoint": "HpTurret01"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "small_weapon_platform_br_01": {
+    "id": "small_weapon_platform_br_01",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "small_weapon_platform_br_02": {
+    "id": "small_weapon_platform_br_02",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "small_weapon_platform_co_01": {
+    "id": "small_weapon_platform_co_01",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "small_weapon_platform_co_02": {
+    "id": "small_weapon_platform_co_02",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "small_weapon_platform_co_03": {
+    "id": "small_weapon_platform_co_03",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "small_weapon_platform_co_04": {
+    "id": "small_weapon_platform_co_04",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "small_weapon_platform_ku_01": {
+    "id": "small_weapon_platform_ku_01",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "small_weapon_platform_ku_02": {
+    "id": "small_weapon_platform_ku_02",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "small_weapon_platform_ku_03": {
+    "id": "small_weapon_platform_ku_03",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "small_weapon_platform_li_01": {
+    "id": "small_weapon_platform_li_01",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "small_weapon_platform_li_02": {
+    "id": "small_weapon_platform_li_02",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "small_weapon_platform_pi_01": {
+    "id": "small_weapon_platform_pi_01",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "small_weapon_platform_pi_02": {
+    "id": "small_weapon_platform_pi_02",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "small_weapon_platform_rh_01": {
+    "id": "small_weapon_platform_rh_01",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "small_weapon_platform_rh_02": {
+    "id": "small_weapon_platform_rh_02",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "small_weapon_platform_rh_03": {
+    "id": "small_weapon_platform_rh_03",
+    "archetype": "",
+    "weapons": [],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "mining_co_01": {
+    "id": "mining_co_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "co_miner_turret01",
+        "hardpoint": "HpTurret_U1_01"
+      },
+      {
+        "id": "co_miner_turret01",
+        "hardpoint": "HpTurret_U1_02"
+      },
+      {
+        "id": "co_miner_turret01",
+        "hardpoint": "HpTurret_U1_03"
+      },
+      {
+        "id": "co_miner_turret01",
+        "hardpoint": "HpTurret_U1_04"
+      },
+      {
+        "id": "co_miner_turret02",
+        "hardpoint": "HpTurret_U2_01"
+      },
+      {
+        "id": "co_miner_turret02",
+        "hardpoint": "HpTurret_U2_02"
+      },
+      {
+        "id": "co_miner_turret02",
+        "hardpoint": "HpTurret_U2_03"
+      },
+      {
+        "id": "co_miner_turret02",
+        "hardpoint": "HpTurret_U2_04"
+      },
+      {
+        "id": "co_miner_turret03",
+        "hardpoint": "HpTurret_U3_01"
+      },
+      {
+        "id": "co_miner_turret03",
+        "hardpoint": "HpTurret_U3_02"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "mining_co_02": {
+    "id": "mining_co_02",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "co_miner_turret01",
+        "hardpoint": "HpTurret_U1_01"
+      },
+      {
+        "id": "co_miner_turret01",
+        "hardpoint": "HpTurret_U1_02"
+      },
+      {
+        "id": "co_miner_turret01",
+        "hardpoint": "HpTurret_U1_03"
+      },
+      {
+        "id": "co_miner_turret01",
+        "hardpoint": "HpTurret_U1_04"
+      },
+      {
+        "id": "co_miner_turret02",
+        "hardpoint": "HpTurret_U2_01"
+      },
+      {
+        "id": "co_miner_turret02",
+        "hardpoint": "HpTurret_U2_02"
+      },
+      {
+        "id": "co_miner_turret02",
+        "hardpoint": "HpTurret_U2_03"
+      },
+      {
+        "id": "co_miner_turret02",
+        "hardpoint": "HpTurret_U2_04"
+      },
+      {
+        "id": "co_miner_turret03",
+        "hardpoint": "HpTurret_U3_01"
+      },
+      {
+        "id": "co_miner_turret03",
+        "hardpoint": "HpTurret_U3_02"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_miningbase_small_ice_pi_01": {
+    "id": "rm_miningbase_small_ice_pi_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_01"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_02"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_03"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_miningbase_small_ice_pi_02": {
+    "id": "rm_miningbase_small_ice_pi_02",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_01"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_02"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_03"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_miningbase_small_ice_pi_03": {
+    "id": "rm_miningbase_small_ice_pi_03",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_01"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_02"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_03"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_miningbase_small_ice_pi_04": {
+    "id": "rm_miningbase_small_ice_pi_04",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_01"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_02"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_03"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_miningbase_small_rock_pi_01": {
+    "id": "rm_miningbase_small_rock_pi_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "pi_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_01"
+      },
+      {
+        "id": "pi_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_02"
+      },
+      {
+        "id": "pi_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_03"
+      },
+      {
+        "id": "pi_large_station_turret01_mark01",
+        "hardpoint": "HpTurret_S2_04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_miningbase_small_rock_pi_02": {
+    "id": "rm_miningbase_small_rock_pi_02",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "pi_large_station_turret01_mark02",
+        "hardpoint": "HpTurret_S2_01"
+      },
+      {
+        "id": "pi_large_station_turret01_mark02",
+        "hardpoint": "HpTurret_S2_02"
+      },
+      {
+        "id": "pi_large_station_turret01_mark02",
+        "hardpoint": "HpTurret_S2_03"
+      },
+      {
+        "id": "pi_large_station_turret01_mark02",
+        "hardpoint": "HpTurret_S2_04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_miningbase_small_rock_pi_03": {
+    "id": "rm_miningbase_small_rock_pi_03",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_01"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_02"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_03"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_miningbase_small_rock_pi_04": {
+    "id": "rm_miningbase_small_rock_pi_04",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_01"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_02"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_03"
+      },
+      {
+        "id": "pi_large_station_turret01_mark03",
+        "hardpoint": "HpTurret_S2_04"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_depot_br_01": {
+    "id": "rm_depot_br_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "br_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "br_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "br_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "br_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "br_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "br_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "br_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_07"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_depot_li_01": {
+    "id": "rm_depot_li_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "li_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "li_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "li_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "li_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "li_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "li_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "li_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_07"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_depot_ku_01": {
+    "id": "rm_depot_ku_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "ku_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "ku_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "ku_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "ku_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "ku_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "ku_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "ku_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_07"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_depot_rh_01": {
+    "id": "rm_depot_rh_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "rh_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "rh_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "rh_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "rh_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "rh_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "rh_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "rh_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_07"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_depot_co_01": {
+    "id": "rm_depot_co_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_07"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_depot_pi_01": {
+    "id": "rm_depot_pi_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "pi_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "pi_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "pi_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "pi_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "pi_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "pi_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "pi_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_07"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_space_police01_br_01": {
+    "id": "rm_space_police01_br_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "br_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "br_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "br_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "br_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "br_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "br_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "br_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "br_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_08"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_space_police01_br_02": {
+    "id": "rm_space_police01_br_02",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "br_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "br_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "br_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "br_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "br_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "br_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "br_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "br_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_08"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_space_police01_li_01": {
+    "id": "rm_space_police01_li_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "li_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_08"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_space_police01_li_02": {
+    "id": "rm_space_police01_li_02",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "li_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "li_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "li_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "li_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "li_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "li_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "li_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "li_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_08"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_space_police01_ku_01": {
+    "id": "rm_space_police01_ku_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "ku_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "ku_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "ku_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "ku_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "ku_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "ku_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "ku_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "ku_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_08"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_space_police01_ku_02": {
+    "id": "rm_space_police01_ku_02",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "ku_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "ku_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "ku_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "ku_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "ku_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "ku_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "ku_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "ku_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_08"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_space_police01_rh_01": {
+    "id": "rm_space_police01_rh_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "rh_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "rh_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "rh_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "rh_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "rh_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "rh_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "rh_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "rh_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_08"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_space_police01_rh_02": {
+    "id": "rm_space_police01_rh_02",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "rh_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "rh_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "rh_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "rh_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "rh_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "rh_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "rh_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "rh_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_08"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_space_police01_co_01": {
+    "id": "rm_space_police01_co_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "co_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "co_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "co_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "co_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "co_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "co_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "co_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "co_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_08"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_space_police01_co_02": {
+    "id": "rm_space_police01_co_02",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_08"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_space_police01_pi_01": {
+    "id": "rm_space_police01_pi_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "pi_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "pi_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "pi_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "pi_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "pi_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "pi_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "pi_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "pi_small_station_turret01_mark01",
+        "hardpoint": "HpTurret_S1_08"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_space_police01_pi_02": {
+    "id": "rm_space_police01_pi_02",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "pi_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "pi_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "pi_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "pi_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "pi_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "pi_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_06"
+      },
+      {
+        "id": "pi_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_07"
+      },
+      {
+        "id": "pi_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_08"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_space_mining01_br_01": {
+    "id": "rm_space_mining01_br_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "br_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "br_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "br_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "br_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "br_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "br_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_06"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_space_mining01_br_02": {
+    "id": "rm_space_mining01_br_02",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "br_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "br_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "br_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "br_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "br_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "br_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_space_mining01_li_01": {
+    "id": "rm_space_mining01_li_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "li_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "li_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "li_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "li_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "li_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "li_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_06"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_space_mining01_li_02": {
+    "id": "rm_space_mining01_li_02",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "li_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "li_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "li_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "li_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "li_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "li_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_space_mining01_ku_01": {
+    "id": "rm_space_mining01_ku_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "ku_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "ku_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "ku_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "ku_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "ku_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "ku_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_06"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_space_mining01_ku_02": {
+    "id": "rm_space_mining01_ku_02",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "ku_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "ku_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "ku_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "ku_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "ku_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "ku_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_space_mining01_rh_01": {
+    "id": "rm_space_mining01_rh_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "rh_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "rh_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "rh_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "rh_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "rh_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "rh_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_06"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_space_mining01_rh_02": {
+    "id": "rm_space_mining01_rh_02",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "rh_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "rh_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "rh_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "rh_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "rh_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "rh_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_space_mining01_co_01": {
+    "id": "rm_space_mining01_co_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_06"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_space_mining01_co_02": {
+    "id": "rm_space_mining01_co_02",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_space_mining01_pi_01": {
+    "id": "rm_space_mining01_pi_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "pi_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "pi_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "pi_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "pi_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "pi_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "pi_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_06"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_space_mining01_pi_02": {
+    "id": "rm_space_mining01_pi_02",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_space_freeport01_br_01": {
+    "id": "rm_space_freeport01_br_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "br_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "br_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "br_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "br_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "br_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "br_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_space_freeport01_br_02": {
+    "id": "rm_space_freeport01_br_02",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "br_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "br_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "br_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "br_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "br_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "br_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_space_freeport01_br_03": {
+    "id": "rm_space_freeport01_br_03",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "br_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "br_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "br_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "br_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "br_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "br_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_space_freeport01_br_04": {
+    "id": "rm_space_freeport01_br_04",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "br_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "br_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "br_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "br_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "br_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "br_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_space_freeport01_li_01": {
+    "id": "rm_space_freeport01_li_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "li_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "li_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "li_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "li_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "li_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "li_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_space_freeport01_li_02": {
+    "id": "rm_space_freeport01_li_02",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "li_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "li_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "li_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "li_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "li_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "li_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_space_freeport01_li_03": {
+    "id": "rm_space_freeport01_li_03",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "li_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "li_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "li_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "li_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "li_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "li_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_space_freeport01_li_04": {
+    "id": "rm_space_freeport01_li_04",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "li_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "li_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "li_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "li_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "li_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "li_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_space_freeport01_ku_01": {
+    "id": "rm_space_freeport01_ku_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "ku_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "ku_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "ku_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "ku_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "ku_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "ku_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_space_freeport01_ku_02": {
+    "id": "rm_space_freeport01_ku_02",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "ku_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "ku_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "ku_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "ku_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "ku_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "ku_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_space_freeport01_ku_03": {
+    "id": "rm_space_freeport01_ku_03",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "ku_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "ku_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "ku_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "ku_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "ku_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "ku_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_space_freeport01_ku_04": {
+    "id": "rm_space_freeport01_ku_04",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "ku_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "ku_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "ku_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "ku_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "ku_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "ku_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_space_freeport01_rh_01": {
+    "id": "rm_space_freeport01_rh_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "rh_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "rh_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "rh_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "rh_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "rh_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "rh_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_space_freeport01_rh_02": {
+    "id": "rm_space_freeport01_rh_02",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "rh_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "rh_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "rh_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "rh_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "rh_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "rh_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_space_freeport01_rh_03": {
+    "id": "rm_space_freeport01_rh_03",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "rh_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "rh_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "rh_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "rh_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "rh_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "rh_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_space_freeport01_rh_04": {
+    "id": "rm_space_freeport01_rh_04",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "rh_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "rh_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "rh_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "rh_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "rh_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "rh_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_space_freeport01_co_01": {
+    "id": "rm_space_freeport01_co_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "co_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_space_freeport01_co_02": {
+    "id": "rm_space_freeport01_co_02",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_space_freeport01_co_03": {
+    "id": "rm_space_freeport01_co_03",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_space_freeport01_co_04": {
+    "id": "rm_space_freeport01_co_04",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "co_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_space_freeport01_pi_01": {
+    "id": "rm_space_freeport01_pi_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "pi_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "pi_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "pi_small_station_turret01_mark02",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_space_freeport01_pi_02": {
+    "id": "rm_space_freeport01_pi_02",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_space_freeport01_pi_03": {
+    "id": "rm_space_freeport01_pi_03",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_space_freeport01_pi_04": {
+    "id": "rm_space_freeport01_pi_04",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_01"
+      },
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_02"
+      },
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_03"
+      },
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_04"
+      },
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_05"
+      },
+      {
+        "id": "pi_small_station_turret01_mark03",
+        "hardpoint": "HpTurret_S1_06"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_roid_miner_co_01": {
+    "id": "rm_roid_miner_co_01",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "co_miner_turret01",
+        "hardpoint": "HpTurret_U1_01"
+      },
+      {
+        "id": "co_miner_turret01",
+        "hardpoint": "HpTurret_U1_02"
+      },
+      {
+        "id": "co_miner_turret01",
+        "hardpoint": "HpTurret_U1_03"
+      },
+      {
+        "id": "co_miner_turret01",
+        "hardpoint": "HpTurret_U1_04"
+      },
+      {
+        "id": "co_miner_turret02",
+        "hardpoint": "HpTurret_U2_01"
+      },
+      {
+        "id": "co_miner_turret02",
+        "hardpoint": "HpTurret_U2_02"
+      },
+      {
+        "id": "co_miner_turret02",
+        "hardpoint": "HpTurret_U2_03"
+      },
+      {
+        "id": "co_miner_turret02",
+        "hardpoint": "HpTurret_U2_04"
+      },
+      {
+        "id": "co_miner_turret03",
+        "hardpoint": "HpTurret_U3_01"
+      },
+      {
+        "id": "co_miner_turret03",
+        "hardpoint": "HpTurret_U3_02"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_roid_miner_co_02": {
+    "id": "rm_roid_miner_co_02",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "co_miner_turret01",
+        "hardpoint": "HpTurret_U1_01"
+      },
+      {
+        "id": "co_miner_turret01",
+        "hardpoint": "HpTurret_U1_02"
+      },
+      {
+        "id": "co_miner_turret01",
+        "hardpoint": "HpTurret_U1_03"
+      },
+      {
+        "id": "co_miner_turret01",
+        "hardpoint": "HpTurret_U1_04"
+      },
+      {
+        "id": "co_miner_turret02",
+        "hardpoint": "HpTurret_U2_01"
+      },
+      {
+        "id": "co_miner_turret02",
+        "hardpoint": "HpTurret_U2_02"
+      },
+      {
+        "id": "co_miner_turret02",
+        "hardpoint": "HpTurret_U2_03"
+      },
+      {
+        "id": "co_miner_turret02",
+        "hardpoint": "HpTurret_U2_04"
+      },
+      {
+        "id": "co_miner_turret03",
+        "hardpoint": "HpTurret_U3_01"
+      },
+      {
+        "id": "co_miner_turret03",
+        "hardpoint": "HpTurret_U3_02"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_roid_miner_co_03": {
+    "id": "rm_roid_miner_co_03",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "co_miner_turret01",
+        "hardpoint": "HpTurret_U1_01"
+      },
+      {
+        "id": "co_miner_turret01",
+        "hardpoint": "HpTurret_U1_02"
+      },
+      {
+        "id": "co_miner_turret01",
+        "hardpoint": "HpTurret_U1_03"
+      },
+      {
+        "id": "co_miner_turret01",
+        "hardpoint": "HpTurret_U1_04"
+      },
+      {
+        "id": "co_miner_turret02",
+        "hardpoint": "HpTurret_U2_01"
+      },
+      {
+        "id": "co_miner_turret02",
+        "hardpoint": "HpTurret_U2_02"
+      },
+      {
+        "id": "co_miner_turret02",
+        "hardpoint": "HpTurret_U2_03"
+      },
+      {
+        "id": "co_miner_turret02",
+        "hardpoint": "HpTurret_U2_04"
+      },
+      {
+        "id": "co_miner_turret03",
+        "hardpoint": "HpTurret_U3_01"
+      },
+      {
+        "id": "co_miner_turret03",
+        "hardpoint": "HpTurret_U3_02"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
+  },
+  "rm_roid_miner_co_04": {
+    "id": "rm_roid_miner_co_04",
+    "archetype": "",
+    "weapons": [
+      {
+        "id": "co_miner_turret01",
+        "hardpoint": "HpTurret_U1_01"
+      },
+      {
+        "id": "co_miner_turret01",
+        "hardpoint": "HpTurret_U1_02"
+      },
+      {
+        "id": "co_miner_turret01",
+        "hardpoint": "HpTurret_U1_03"
+      },
+      {
+        "id": "co_miner_turret01",
+        "hardpoint": "HpTurret_U1_04"
+      },
+      {
+        "id": "co_miner_turret02",
+        "hardpoint": "HpTurret_U2_01"
+      },
+      {
+        "id": "co_miner_turret02",
+        "hardpoint": "HpTurret_U2_02"
+      },
+      {
+        "id": "co_miner_turret02",
+        "hardpoint": "HpTurret_U2_03"
+      },
+      {
+        "id": "co_miner_turret02",
+        "hardpoint": "HpTurret_U2_04"
+      },
+      {
+        "id": "co_miner_turret03",
+        "hardpoint": "HpTurret_U3_01"
+      },
+      {
+        "id": "co_miner_turret03",
+        "hardpoint": "HpTurret_U3_02"
+      }
+    ],
+    "shields": [],
+    "thrusters": [],
+    "sourceFile": "SOLAR/loadouts.ini"
   }
 };
 

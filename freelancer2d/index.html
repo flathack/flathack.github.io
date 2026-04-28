@@ -59,6 +59,9 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
 .save-slot.empty { color: #667f8f; cursor: default; }
 .save-name-row { display: flex; gap: 8px; flex-wrap: wrap; }
 .save-name-row input { flex: 1 1 220px; min-width: 0; padding: 10px 12px; background: rgba(0,0,0,0.55); border: 1px solid #33566d; color: #dff7ff; font-family: 'Courier New', monospace; }
+.mod-select { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-bottom: 10px; }
+.mod-btn { padding: 9px 12px !important; font-size: 13px !important; }
+.mod-btn.active { border-color: #ffaa00 !important; color: #fff1c7 !important; background: rgba(65,45,0,0.62) !important; }
 .controls { margin-top: 30px; padding: 15px; background: rgba(0,0,0,0.5); border: 1px solid #333; text-align: left; display: inline-block; }
 .controls h3 { color: #00aaff; margin-bottom: 10px; }
 .controls p { margin: 4px 0; font-size: 12px; color: #888; }
@@ -79,6 +82,15 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
 .landing-tab { padding: 8px 12px; background: rgba(0,50,80,0.75); border: 1px solid #0088ff; color: #9edfff; cursor: pointer; font-family: 'Courier New', monospace; font-size: 12px; }
 .landing-tab:hover, .landing-tab.active { background: rgba(0,115,145,0.86); color: #ffffff; }
 #landing-content { padding: 12px; overflow-y: auto; min-height: 260px; }
+#reputation-overlay { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: min(760px, calc(100vw - 28px)); max-height: min(720px, calc(100vh - 28px)); background: rgba(3,12,24,0.98); border: 2px solid #00aaff; z-index: 2050; display: flex; flex-direction: column; box-shadow: 0 0 28px rgba(0,136,255,0.28); }
+#reputation-header { padding: 12px 14px; border-bottom: 1px solid #164466; display: flex; align-items: center; justify-content: space-between; }
+#reputation-title { color: #b9efff; margin: 0; font-size: 18px; }
+#reputation-content { padding: 10px 12px; overflow-y: auto; display: grid; gap: 6px; }
+.reputation-row { display: grid; grid-template-columns: minmax(170px, 1.1fr) 72px minmax(160px, 1fr); gap: 10px; align-items: center; padding: 7px 8px; border: 1px solid #18384a; background: rgba(0,20,32,0.72); color: #cdefff; font-size: 12px; }
+.reputation-row input[type="range"] { width: 100%; accent-color: #00aaff; }
+.reputation-hostile { border-color: #743333; }
+.reputation-friendly { border-color: #24613b; }
+.reputation-value { text-align: right; font-variant-numeric: tabular-nums; }
 .trade-table { width: 100%; border-collapse: collapse; font-size: 12px; }
 .trade-table th { text-align: left; padding: 7px; background: #002244; color: #8ee8ff; }
 .trade-table td { padding: 6px; border-bottom: 1px solid #1b2c38; }
@@ -115,6 +127,7 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
                     <button class="cmd-btn" id="btn-cruise" onclick="toggleCruiseFlight()">REISEFLUG</button>
                     <button class="cmd-btn" id="btn-map" onclick="toggleMap()">MAP</button>
     <button class="cmd-btn" id="btn-inventory" onclick="showInventory()">INVENTAR</button>
+                    <button class="cmd-btn" id="btn-reputation" onclick="toggleReputationPanel()">RUF</button>
                     <button class="cmd-btn" id="btn-info" onclick="toggleInfoPanel()">INFO</button>
                     <button class="cmd-btn" id="btn-universe" onclick="toggleUniverseView()">UNIVERSE</button>
                     <button class="cmd-btn" id="btn-menu" onclick="returnToMainMenu()">MENÜ</button>
@@ -186,6 +199,7 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
             </div>
             <div id="save-hint" class="save-hint"></div>
             <div class="save-panel">
+                <div id="mod-select" class="mod-select"></div>
                 <div id="save-slot-list" class="save-slot-list"></div>
                 <div class="save-name-row">
                     <input id="save-name-input" maxlength="32" placeholder="Name fuer neues Savegame" value="Pilot">
@@ -254,12 +268,21 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
         <div id="landing-content"></div>
     </div>
 
+    <div id="reputation-overlay" class="hidden">
+        <div id="reputation-header">
+            <h2 id="reputation-title">RUF</h2>
+            <button class="cmd-btn" onclick="toggleReputationPanel(false)">CLOSE</button>
+        </div>
+        <div id="reputation-content"></div>
+    </div>
+
 <script src="data/game_systems.js"></script>
 <script src="data/ships.js"></script>
 <script src="data/commodities.js"></script>
 <script src="data/equipment.js"></script>
 <script src="data/npc_loadouts.js"></script>
 <script src="data/bar_data.js"></script>
+<script src="data/reputation.js"></script>
 <script src="data/object_icons.js"></script>
 <script>
 // Freelancer ID Lookup Table (extracted from INI files)
@@ -491,6 +514,7 @@ const game = {
     running: false, lastTime: 0, gameTime: 0,
     player: null, entities: [], npcs: [], projectiles: [], loot: [],
     isDocked: false, showMap: false, showCursor: false,
+    hasStarted: false,
     mouseX: 0, mouseY: 0, mouseDown: false, rightMouseDown: false,
     zoom: 1.0, minZoom: 0.15, maxZoom: 3.0,
     stars: [], starLayers: 3,
@@ -506,6 +530,8 @@ const game = {
     planetTextures: {},
     sunTextures: {},
     saveLoaded: false,
+    activeModId: 'vanilla',
+    modData: null,
     activeSaveSlotId: '',
     saveSlotName: 'Pilot',
     lastSavedAt: 0,
@@ -542,6 +568,7 @@ const game = {
     waypoint: null,
     activeMission: null,
     missionOffers: {},
+    populationSpawnTimer: 0,
     audioContext: null,
     audioEnabled: false,
     lastEngineSoundAt: 0
@@ -550,19 +577,25 @@ const game = {
 const SAVE_KEY = 'freelancer2d.save.v1';
 const SAVE_INDEX_KEY = 'freelancer2d.saveSlots.v1';
 const ACTIVE_SAVE_SLOT_KEY = 'freelancer2d.activeSaveSlot.v1';
+const ACTIVE_MOD_KEY = 'freelancer2d.activeMod.v1';
 const SAVE_VERSION = 1;
 const MAX_SAVE_SLOTS = 5;
 const GAME_TITLE = 'Freelancer 2D - a 2d adventure';
+const ENABLE_CROSSFIRE_MOD = false;
+const MODS = [
+    { id: 'vanilla', name: 'Vanilla', dataPath: '' },
+    ...(ENABLE_CROSSFIRE_MOD ? [{ id: 'crossfire', name: 'Crossfire', dataPath: 'data/crossfire/mod_data.js' }] : [])
+];
 const I18N = {
     de: {
-        freeflight: 'FREIFLUG', approach: 'ANFLIEGEN', dock: 'ANDOCKEN', cruise: 'REISEFLUG', menu: 'MENÜ', map: 'KARTE', inventory: 'INVENTAR', info: 'INFO', shipShop: 'SCHIFFHÄNDLER', universe: 'UNIVERSUM',
+        freeflight: 'FREIFLUG', approach: 'ANFLIEGEN', dock: 'ANDOCKEN', cruise: 'REISEFLUG', menu: 'MENÜ', map: 'KARTE', inventory: 'INVENTAR', reputation: 'RUF', info: 'INFO', shipShop: 'SCHIFFHÄNDLER', universe: 'UNIVERSUM',
         launch: 'Starten', launchDeck: 'Launch Deck', bar: 'Bar', equipmentDealer: 'Equipment Dealer', tradeDealer: 'Trade Dealer', shipDealer: 'Ship Dealer', missions: 'Missionen',
         landedAt: 'Gelandet auf', noCommodityMarket: 'Dieser Ort hat keinen Commodity-Markt.', noEquipment: 'Equipment-Handel ist noch nicht implementiert.', barText: 'Piloten, Gerüchte und Jobangebote folgen später.',
         buy: 'KAUFEN', sell: 'VERKAUFEN', owned: 'BESITZ', credits: 'Credits', cargo: 'Laderaum', price: 'Preis', stock: 'Bestand', commodity: 'Ware', quantity: 'Menge',
         shipDealerDockOnly: 'Schiffe koennen nur nach dem Andocken gekauft werden.', noShipsSold: 'Hier werden keine Schiffe verkauft.', atmosphereWarning: 'Atmosphaereneintritt', planetImpact: 'Planetare Kollision'
     },
     en: {
-        freeflight: 'FREEFLIGHT', approach: 'APPROACH', dock: 'DOCK', cruise: 'CRUISE', menu: 'MENU', map: 'MAP', inventory: 'INVENTORY', info: 'INFO', shipShop: 'SHIP DEALER', universe: 'UNIVERSE',
+        freeflight: 'FREEFLIGHT', approach: 'APPROACH', dock: 'DOCK', cruise: 'CRUISE', menu: 'MENU', map: 'MAP', inventory: 'INVENTORY', reputation: 'REP', info: 'INFO', shipShop: 'SHIP DEALER', universe: 'UNIVERSE',
         launch: 'Launch', launchDeck: 'Launch Deck', bar: 'Bar', equipmentDealer: 'Equipment Dealer', tradeDealer: 'Trade Dealer', shipDealer: 'Ship Dealer', missions: 'Missions',
         landedAt: 'Landed at', noCommodityMarket: 'This location has no commodity market.', noEquipment: 'Equipment trading is not implemented yet.', barText: 'Pilots, rumors, and job offers will arrive later.',
         buy: 'BUY', sell: 'SELL', owned: 'OWNED', credits: 'Credits', cargo: 'Cargo', price: 'Price', stock: 'Stock', commodity: 'Commodity', quantity: 'Qty',
@@ -575,7 +608,7 @@ function t(key) {
 }
 
 function updateDocumentTitle() {
-    document.title = GAME_TITLE + ' - ' + (systemData?.name || currentSystemId);
+    document.title = GAME_TITLE + ' - ' + activeModConfig().name + ' - ' + (systemData?.name || currentSystemId);
 }
 
 function cargoUnits() {
@@ -586,14 +619,33 @@ function findCargoItem(id) {
     return (game.player?.cargo || []).find(item => item.id === id) || null;
 }
 
+function dataSet(name, fallback) {
+    return game.modData?.[name] || fallback;
+}
+
+function gameSystemsData() {
+    return dataSet('GAME_SYSTEMS', typeof GAME_SYSTEMS !== 'undefined' ? GAME_SYSTEMS : FALLBACK_GAME_SYSTEMS) || FALLBACK_GAME_SYSTEMS;
+}
+
+function shipsData() { return dataSet('FL_SHIPS', typeof FL_SHIPS !== 'undefined' ? FL_SHIPS : {}); }
+function shipPackagesData() { return dataSet('FL_SHIP_PACKAGES', typeof FL_SHIP_PACKAGES !== 'undefined' ? FL_SHIP_PACKAGES : {}); }
+function shipMarketsData() { return dataSet('FL_BASE_SHIP_MARKETS', typeof FL_BASE_SHIP_MARKETS !== 'undefined' ? FL_BASE_SHIP_MARKETS : {}); }
+function commoditiesData() { return dataSet('FL_COMMODITIES', typeof FL_COMMODITIES !== 'undefined' ? FL_COMMODITIES : {}); }
+function commodityMarketsData() { return dataSet('FL_BASE_COMMODITY_MARKETS', typeof FL_BASE_COMMODITY_MARKETS !== 'undefined' ? FL_BASE_COMMODITY_MARKETS : {}); }
+function equipmentData() { return dataSet('FL_EQUIPMENT', typeof FL_EQUIPMENT !== 'undefined' ? FL_EQUIPMENT : {}); }
+function equipmentMarketsData() { return dataSet('FL_BASE_EQUIPMENT_MARKETS', typeof FL_BASE_EQUIPMENT_MARKETS !== 'undefined' ? FL_BASE_EQUIPMENT_MARKETS : {}); }
+function npcShipsData() { return dataSet('FL_NPC_SHIPS', typeof FL_NPC_SHIPS !== 'undefined' ? FL_NPC_SHIPS : []); }
+function npcLoadoutsData() { return dataSet('FL_NPC_LOADOUTS', typeof FL_NPC_LOADOUTS !== 'undefined' ? FL_NPC_LOADOUTS : {}); }
+function barData() { return dataSet('FL_BASE_BAR_DATA', typeof FL_BASE_BAR_DATA !== 'undefined' ? FL_BASE_BAR_DATA : {}); }
+function reputationData() { return dataSet('FL_REPUTATION', typeof FL_REPUTATION !== 'undefined' ? FL_REPUTATION : {}); }
+function objectIconsData() { return dataSet('FL_OBJECT_ICONS', typeof FL_OBJECT_ICONS !== 'undefined' ? FL_OBJECT_ICONS : {}); }
+
 function getCommodity(id) {
-    if (typeof FL_COMMODITIES === 'undefined') return null;
-    return FL_COMMODITIES[String(id || '').toLowerCase()] || null;
+    return commoditiesData()[String(id || '').toLowerCase()] || null;
 }
 
 function getEquipment(id) {
-    if (typeof FL_EQUIPMENT === 'undefined') return null;
-    return FL_EQUIPMENT[String(id || '').toLowerCase()] || null;
+    return equipmentData()[String(id || '').toLowerCase()] || null;
 }
 
 function findEquipmentItem(id) {
@@ -601,8 +653,8 @@ function findEquipmentItem(id) {
 }
 
 function currentShipRecord() {
-    if (typeof FL_SHIPS === 'undefined' || !game.player?.shipId) return null;
-    return FL_SHIPS[String(game.player.shipId).toLowerCase()] || null;
+    if (!game.player?.shipId) return null;
+    return shipsData()[String(game.player.shipId).toLowerCase()] || null;
 }
 
 function parseShipWeaponSlots(ship) {
@@ -618,6 +670,134 @@ function getWeaponSlotCount() {
 
 function getWeaponSlotKeys() {
     return Array.from({ length: getWeaponSlotCount() }, (_, index) => 'weapon' + (index + 1));
+}
+
+function normalizeFactionId(faction) {
+    return String(faction || '').trim().toLowerCase();
+}
+
+function getFactionReputation(sourceFaction, targetFaction) {
+    const source = normalizeFactionId(sourceFaction);
+    const target = normalizeFactionId(targetFaction);
+    if (!source || !target) return 0;
+    if (source === target) return 1;
+    const relationships = reputationData().relationships || {};
+    const sourceReps = relationships[source] || relationships[sourceFaction] || {};
+    const value = sourceReps[target] ?? sourceReps[targetFaction];
+    return Number.isFinite(Number(value)) ? Number(value) : 0;
+}
+
+function getPlayerReputation(faction) {
+    const id = normalizeFactionId(faction);
+    if (!id || !game.player) return 0;
+    if (!game.player.reputations) initializePlayerReputations();
+    return Number(game.player.reputations?.[id] ?? 0);
+}
+
+function setPlayerReputation(faction, value) {
+    const id = normalizeFactionId(faction);
+    if (!id || !game.player) return;
+    if (!game.player.reputations) game.player.reputations = {};
+    game.player.reputations[id] = clamp(Number(value) || 0, -1, 1);
+}
+
+function reputationStatus(value) {
+    const rep = Number(value) || 0;
+    if (rep <= -0.6) return 'hostile';
+    if (rep >= 0.6) return 'friendly';
+    return 'neutral';
+}
+
+function factionDisplayName(faction) {
+    const id = normalizeFactionId(faction);
+    const factionData = reputationData().factions?.[id];
+    return factionData?.name || factionData?.shortName || getNameFromID(factionData?.idsName || factionData?.idsShortName) || id || 'Unknown';
+}
+
+function reputationColor(value) {
+    const status = reputationStatus(value);
+    if (status === 'hostile') return '#ff6666';
+    if (status === 'friendly') return '#66ff99';
+    return '#d8e8ef';
+}
+
+function factionsAreHostile(sourceFaction, targetFaction) {
+    return reputationStatus(getFactionReputation(sourceFaction, targetFaction)) === 'hostile';
+}
+
+function playerIsHostileToFaction(faction) {
+    return reputationStatus(getPlayerReputation(faction)) === 'hostile';
+}
+
+function initializePlayerReputations(sourceFaction = null) {
+    if (!game.player) return;
+    const data = reputationData();
+    const factionId = normalizeFactionId(sourceFaction || game.player.faction || data.initialPlayerFaction || 'li_n_grp');
+    game.player.faction = factionId;
+    game.player.reputations = { ...(data.relationships?.[factionId] || {}) };
+    game.player.reputations[factionId] = 1;
+}
+
+function applyReputationForKill(victimFaction) {
+    const factionId = normalizeFactionId(victimFaction);
+    if (!factionId || !game.player) return;
+    if (!game.player.reputations) initializePlayerReputations();
+    const empathy = reputationData().empathy?.[factionId];
+    const baseDelta = Number(empathy?.events?.object_destruction ?? -0.03);
+    setPlayerReputation(factionId, getPlayerReputation(factionId) + baseDelta);
+    for (const [targetFaction, rate] of Object.entries(empathy?.empathyRates || {})) {
+        const targetId = normalizeFactionId(targetFaction);
+        if (!targetId || targetId === factionId) continue;
+        setPlayerReputation(targetId, getPlayerReputation(targetId) + baseDelta * (Number(rate) || 0));
+    }
+    addLog('Ruf geaendert: ' + factionId + ' ' + getPlayerReputation(factionId).toFixed(2));
+    const reputationOverlay = document.getElementById('reputation-overlay');
+    if (reputationOverlay && !reputationOverlay.classList.contains('hidden')) renderReputationPanel();
+}
+
+function renderReputationPanel() {
+    const content = document.getElementById('reputation-content');
+    if (!content || !game.player) return;
+    if (!game.player.reputations) initializePlayerReputations();
+    const factions = Object.values(reputationData().factions || {});
+    const rows = factions.map(faction => {
+        const id = normalizeFactionId(faction.id);
+        return { id, name: factionDisplayName(id), value: getPlayerReputation(id) };
+    }).sort((a, b) => a.value - b.value || a.name.localeCompare(b.name));
+    content.innerHTML = rows.map(row => {
+        const status = reputationStatus(row.value);
+        const statusText = status === 'hostile' ? 'FEINDLICH' : status === 'friendly' ? 'FREUNDLICH' : 'NEUTRAL';
+        return `<div class="reputation-row reputation-${status}"><div><strong style="color:${reputationColor(row.value)};">${escapeHtml(row.name)}</strong><br><span style="color:#7f9bad;">${escapeHtml(row.id)}</span></div><div class="reputation-value" style="color:${reputationColor(row.value)};">${row.value.toFixed(2)}</div><input type="range" min="-1" max="1" step="0.01" value="${row.value.toFixed(2)}" disabled title="${statusText}"></div>`;
+    }).join('') || '<div style="color:#ffaa00;">Keine Rufdaten geladen.</div>';
+}
+
+function toggleReputationPanel(force = null) {
+    const overlay = document.getElementById('reputation-overlay');
+    if (!overlay) return;
+    const show = force === null ? overlay.classList.contains('hidden') : !!force;
+    overlay.classList.toggle('hidden', !show);
+    if (show) renderReputationPanel();
+    playSound('ui', 0.35);
+}
+
+function loadoutWeaponStats(loadoutId, fallbackDifficulty = 3) {
+    const loadout = npcLoadoutsData()[String(loadoutId || '').toLowerCase()] || null;
+    return (loadout?.weapons || [])
+        .map(entry => getEquipment(entry.id))
+        .filter(item => item && (item.category === 'weapon' || item.category === 'turret'))
+        .map(item => weaponStatsFromEquipment(item, fallbackDifficulty));
+}
+
+function targetFaction(target) {
+    return normalizeFactionId(target?.faction || target?.reputation || '');
+}
+
+function canPlayerDockWithTarget(target) {
+    if (!target) return false;
+    const faction = targetFaction(target);
+    const isBaseLike = target instanceof Station || target instanceof PlanetLocation || isDockingRingTarget(target);
+    if (isBaseLike && faction && playerIsHostileToFaction(faction)) return false;
+    return true;
 }
 
 function categorySlotKeys(category) {
@@ -642,6 +822,19 @@ function equipmentSlotLabel(slot) {
 
 function mountedEquipmentItem(slot) {
     return getEquipment(game.player?.mountedEquipment?.[slot]);
+}
+
+function equippedShieldItem() {
+    const item = mountedEquipmentItem('shield');
+    return item?.category === 'shield' ? item : null;
+}
+
+function shieldCapacityFromEquipment(item) {
+    return Math.max(0, Number(item?.shieldCapacity || item?.maxCapacity || item?.capacity || 0));
+}
+
+function shieldRegenFromEquipment(item) {
+    return Math.max(0, Number(item?.shieldRegenRate || item?.chargeRate || 0));
 }
 
 function mountedEquipmentCopies(itemId) {
@@ -745,14 +938,16 @@ function acceptMission(missionId) {
 }
 
 function missionLootWeaponIds() {
-    if (typeof FL_EQUIPMENT === 'undefined' || typeof FL_BASE_EQUIPMENT_MARKETS === 'undefined') return [];
+    const equipment = equipmentData();
+    const markets = equipmentMarketsData();
+    if (!Object.keys(equipment).length || !Object.keys(markets).length) return [];
     const soldIds = new Set();
-    Object.values(FL_BASE_EQUIPMENT_MARKETS).forEach(market => {
+    Object.values(markets).forEach(market => {
         (market || []).forEach(entry => {
             if (entry?.forSale) soldIds.add(String(entry.id || '').toLowerCase());
         });
     });
-    return Object.values(FL_EQUIPMENT)
+    return Object.values(equipment)
         .filter(item => item && soldIds.has(String(item.id || '').toLowerCase()) && (item.category === 'weapon' || item.category === 'turret') && Number(item.price || 0) > 0)
         .sort((a, b) => Number(a.price || 0) - Number(b.price || 0))
         .slice(0, 80)
@@ -851,12 +1046,15 @@ function enemyShipPrefixesForSystem(systemId = currentSystemId) {
 }
 
 function chooseNpcShipForMission(difficulty = 1) {
-    if (typeof FL_NPC_SHIPS === 'undefined' || typeof FL_NPC_LOADOUTS === 'undefined' || typeof FL_SHIPS === 'undefined') return null;
+    const npcShips = npcShipsData();
+    const loadouts = npcLoadoutsData();
+    const ships = shipsData();
+    if (!npcShips.length || !Object.keys(loadouts).length || !Object.keys(ships).length) return null;
     const prefixes = enemyShipPrefixesForSystem();
     const targetLevel = 1 + difficulty * 3;
-    const usable = FL_NPC_SHIPS.filter(entry => {
-        const ship = FL_SHIPS[String(entry.ship || '').toLowerCase()];
-        const loadout = FL_NPC_LOADOUTS[String(entry.loadout || '').toLowerCase()];
+    const usable = npcShips.filter(entry => {
+        const ship = ships[String(entry.ship || '').toLowerCase()];
+        const loadout = loadouts[String(entry.loadout || '').toLowerCase()];
         const classText = String(entry.classes || '').toLowerCase();
         return ship && loadout && loadout.weapons?.length && (classText.includes('fighter') || ship.type === 'FIGHTER');
     });
@@ -869,8 +1067,8 @@ function chooseNpcShipForMission(difficulty = 1) {
 }
 
 function npcLoadoutDetails(npcShip, difficulty = 1) {
-    const loadout = typeof FL_NPC_LOADOUTS !== 'undefined' ? FL_NPC_LOADOUTS[String(npcShip?.loadout || '').toLowerCase()] : null;
-    const ship = typeof FL_SHIPS !== 'undefined' ? FL_SHIPS[String(npcShip?.ship || loadout?.archetype || '').toLowerCase()] : null;
+    const loadout = npcLoadoutsData()[String(npcShip?.loadout || '').toLowerCase()] || null;
+    const ship = shipsData()[String(npcShip?.ship || loadout?.archetype || '').toLowerCase()] || null;
     const weaponStats = (loadout?.weapons || [])
         .map(entry => getEquipment(entry.id))
         .filter(item => item && (item.category === 'weapon' || item.category === 'turret'))
@@ -879,10 +1077,105 @@ function npcLoadoutDetails(npcShip, difficulty = 1) {
     return { loadout, ship, weaponStats, shieldItem };
 }
 
+function weightedPick(entries, weightKey = 'weight') {
+    const valid = (entries || []).filter(entry => entry && Number(entry[weightKey] ?? 1) > 0);
+    if (!valid.length) return null;
+    const total = valid.reduce((sum, entry) => sum + Number(entry[weightKey] ?? 1), 0);
+    let roll = Math.random() * total;
+    for (const entry of valid) {
+        roll -= Number(entry[weightKey] ?? 1);
+        if (roll <= 0) return entry;
+    }
+    return valid[valid.length - 1];
+}
+
+function npcRoleFromPopulation(zone, encounter = null, faction = null) {
+    const text = `${zone?.id || ''} ${zone?.name || ''} ${encounter?.id || ''} ${faction?.id || ''}`.toLowerCase();
+    if (text.includes('pirate') || text.includes('criminal') || text.includes('fc_') || text.includes('nomad')) return 'pirate';
+    if (text.includes('police') || text.includes('patrol') || text.includes('_p_grp') || text.includes('navy') || text.includes('military')) return 'police';
+    if (text.includes('trade') || text.includes('transport') || text.includes('freighter') || text.includes('liner') || text.includes('co_')) return 'trader';
+    return 'civilian';
+}
+
+function populationDifficulty(encounter = null) {
+    return clamp(Math.round(Number(encounter?.difficulty || 1)), 1, 8);
+}
+
+function getPopulationZonesForSystem(system = systemData) {
+    return (system?.populationZones || []).filter(zone => Number.isFinite(zone.x) && Number.isFinite(zone.z) && Number(zone.density || 0) > 0);
+}
+
+function desiredNpcCountForZone(zone) {
+    const density = Number(zone.density || 0) + Number(zone.populationAdditive || 0);
+    return clamp(Math.round(density * 5), 1, 8);
+}
+
+function randomPointNearPlayerInZone(zone) {
+    if (!game.player) return { x: zone.x, z: zone.z };
+    for (let attempt = 0; attempt < 18; attempt++) {
+        const angle = Math.random() * Math.PI * 2;
+        const distance = 4200 + Math.random() * 6200;
+        const point = {
+            x: game.player.x + Math.cos(angle) * distance,
+            z: game.player.z + Math.sin(angle) * distance
+        };
+        if (isPointInsideZone(zone, point.x, point.z)) return point;
+    }
+    const angle = Math.random() * Math.PI * 2;
+    const radius = Math.min(zone.sizeX || zone.size || 3000, zone.sizeZ || zone.size || 3000) * (0.25 + Math.random() * 0.5);
+    const local = rotatePoint(Math.cos(angle) * radius, Math.sin(angle) * radius, flYawToCanvasRotation(zone.rotateY || 0));
+    return { x: zone.x + local.x, z: zone.z + local.z };
+}
+
+function spawnPopulationNpc(zone) {
+    const encounter = weightedPick(zone.encounters) || { id: 'area_scout', difficulty: 1, weight: 1 };
+    const faction = weightedPick(zone.factions) || null;
+    const role = npcRoleFromPopulation(zone, encounter, faction);
+    const difficulty = populationDifficulty(encounter);
+    const point = randomPointNearPlayerInZone(zone);
+    const npc = createNPC(role, {
+        x: point.x,
+        z: point.z,
+        difficulty,
+        faction: faction?.id || '',
+        populationZoneId: zone.id,
+        name: (faction?.id || encounter.id || role).slice(0, 12).toUpperCase() + '-' + (Math.floor(Math.random() * 9000) + 1000)
+    });
+    npc.populationZoneId = zone.id;
+    npc.faction = normalizeFactionId(faction?.id || npc.faction || '');
+    npc.encounter = encounter.id || '';
+    npc.targetAngle = Math.random() * Math.PI * 2;
+    game.npcs.push(npc);
+    return npc;
+}
+
+function updatePopulationNpcs(dt) {
+    if (!game.player || game.activeMission?.spawned) return;
+    game.populationSpawnTimer = Math.max(0, (game.populationSpawnTimer || 0) - dt);
+    for (let i = game.npcs.length - 1; i >= 0; i--) {
+        const npc = game.npcs[i];
+        if (!npc.populationZoneId || npc.missionId) continue;
+        const distance = Math.hypot(npc.x - game.player.x, npc.z - game.player.z);
+        if (distance > 24000 || npc.hull <= 0) game.npcs.splice(i, 1);
+    }
+    if (game.populationSpawnTimer > 0) return;
+    game.populationSpawnTimer = 4;
+    const zones = getPopulationZonesForSystem().filter(zone => isPointInsideZone(zone, game.player.x, game.player.z));
+    if (!zones.length) return;
+    for (const zone of zones.slice(0, 3)) {
+        const existing = game.npcs.filter(npc => npc.populationZoneId === zone.id && !npc.missionId).length;
+        const desired = desiredNpcCountForZone(zone);
+        if (existing < desired && game.npcs.length < 42) {
+            const count = Math.min(2, desired - existing);
+            for (let i = 0; i < count; i++) spawnPopulationNpc(zone);
+        }
+    }
+}
+
 function applyLanguage() {
     const labels = [
         ['btn-freeflight', 'freeflight'], ['btn-approach', 'approach'], ['btn-dock', 'dock'], ['btn-cruise', 'cruise'], ['btn-map', 'map'],
-        ['btn-inventory', 'inventory'], ['btn-info', 'info'], ['btn-universe', 'universe'], ['btn-menu', 'menu'], ['btn-launch', 'launch']
+        ['btn-inventory', 'inventory'], ['btn-reputation', 'reputation'], ['btn-info', 'info'], ['btn-universe', 'universe'], ['btn-menu', 'menu'], ['btn-launch', 'launch']
     ];
     for (const [id, key] of labels) {
         const el = document.getElementById(id);
@@ -904,7 +1197,7 @@ function toggleLanguage() {
 
 // Load real LI01 data from Freelancer INI files
 function getSystemRecord(systemId) {
-    const source = typeof GAME_SYSTEMS !== 'undefined' ? GAME_SYSTEMS : FALLBACK_GAME_SYSTEMS;
+    const source = gameSystemsData();
     if (!source) return {};
     const key = Object.keys(source).find(k => k.toLowerCase() === systemId.toLowerCase());
     return key ? source[key] : {};
@@ -1088,6 +1381,10 @@ function findTradeLaneRingEntity(ring, index = null) {
 
 function setWaypointTarget(target, name = '') {
     if (!target || !Number.isFinite(target.x) || !Number.isFinite(target.z)) return null;
+    if (game.activeMission && target.type !== 'Mission' && !target.isWaypoint) {
+        addLog('Mission aktiv: Wegpunkt bleibt auf dem Missionsziel.', 'alert');
+        return game.waypoint;
+    }
     const waypoint = target.isWaypoint ? target : {
         id: 'waypoint_' + Math.round(target.x) + '_' + Math.round(target.z),
         name: name || target.name || 'Waypoint',
@@ -1112,12 +1409,16 @@ function setWaypointTarget(target, name = '') {
 }
 
 function setFreeSpaceWaypoint(x, z) {
+    if (game.activeMission) {
+        addLog('Mission aktiv: Freie Wegpunkte sind gesperrt.', 'alert');
+        return game.waypoint;
+    }
     return setWaypointTarget({ x, z, name: 'Waypoint', type: 'Waypoint' }, 'Waypoint');
 }
 
 function getShipPackage(packageId) {
-    if (typeof FL_SHIP_PACKAGES === 'undefined' || !packageId) return null;
-    return FL_SHIP_PACKAGES[String(packageId).toLowerCase()] || null;
+    if (!packageId) return null;
+    return shipPackagesData()[String(packageId).toLowerCase()] || null;
 }
 
 function getShipImage(iconPath) {
@@ -1132,8 +1433,8 @@ function getShipImage(iconPath) {
 }
 
 function getObjectIcon(archetype) {
-    if (typeof FL_OBJECT_ICONS === 'undefined' || !archetype) return '';
-    return FL_OBJECT_ICONS[String(archetype).toLowerCase()] || '';
+    if (!archetype) return '';
+    return objectIconsData()[String(archetype).toLowerCase()] || '';
 }
 
 function getObjectImage(archetype) {
@@ -1146,6 +1447,69 @@ function getObjectImage(archetype) {
     }
     const image = game.objectImages[iconPath];
     return image.complete && image.naturalWidth > 0 ? image : null;
+}
+
+function normalizeModId(modId) {
+    const id = String(modId || '').toLowerCase();
+    return MODS.some(mod => mod.id === id) ? id : 'vanilla';
+}
+
+function activeModConfig() {
+    const id = normalizeModId(game.activeModId || localStorage.getItem(ACTIVE_MOD_KEY));
+    return MODS.find(mod => mod.id === id) || MODS[0];
+}
+
+function saveIndexStorageKey(modId = game.activeModId) {
+    return `freelancer2d.${normalizeModId(modId)}.saveSlots.v1`;
+}
+
+function activeSaveStorageKey(modId = game.activeModId) {
+    return `freelancer2d.${normalizeModId(modId)}.activeSaveSlot.v1`;
+}
+
+function loadScriptOnce(src) {
+    return new Promise((resolve, reject) => {
+        if (document.querySelector(`script[data-mod-src="${src}"]`)) {
+            resolve();
+            return;
+        }
+        const script = document.createElement('script');
+        script.src = src;
+        script.dataset.modSrc = src;
+        script.onload = () => resolve();
+        script.onerror = () => reject(new Error('Could not load ' + src));
+        document.head.appendChild(script);
+    });
+}
+
+async function loadActiveModData() {
+    game.activeModId = normalizeModId(localStorage.getItem(ACTIVE_MOD_KEY) || game.activeModId);
+    const mod = activeModConfig();
+    game.modData = null;
+    if (!mod.dataPath) return;
+    try {
+        await loadScriptOnce(mod.dataPath);
+        game.modData = window.FREELANCER2D_MOD_DATA?.[mod.id] || null;
+    } catch (error) {
+        console.warn(error);
+        addLog('Crossfire-Daten nicht gefunden. Starte mit Vanilla-Daten.', 'alert');
+        game.activeModId = 'vanilla';
+        localStorage.setItem(ACTIVE_MOD_KEY, 'vanilla');
+        game.modData = null;
+    }
+}
+
+function renderModSelect() {
+    const container = document.getElementById('mod-select');
+    if (!container) return;
+    container.innerHTML = MODS.map(mod => `<button class="mod-btn${mod.id === game.activeModId ? ' active' : ''}" onclick="setActiveMod('${mod.id}')">${escapeHtml(mod.name)}</button>`).join('');
+}
+
+function setActiveMod(modId) {
+    const next = normalizeModId(modId);
+    if (next === game.activeModId) return;
+    localStorage.setItem(ACTIVE_MOD_KEY, next);
+    window.location.reload();
 }
 
 function readLegacySavedGame() {
@@ -1162,11 +1526,19 @@ function readLegacySavedGame() {
 
 function readSaveSlots() {
     try {
-        const raw = localStorage.getItem(SAVE_INDEX_KEY);
+        const raw = localStorage.getItem(saveIndexStorageKey());
         const slots = raw ? JSON.parse(raw) : [];
-        if (Array.isArray(slots)) return slots.filter(slot => slot && slot.id && slot.save?.version === SAVE_VERSION).slice(0, MAX_SAVE_SLOTS);
+        if (Array.isArray(slots) && (raw || game.activeModId !== 'vanilla')) return slots.filter(slot => slot && slot.id && slot.save?.version === SAVE_VERSION).slice(0, MAX_SAVE_SLOTS);
     } catch (error) {
         console.warn('Could not read save slots:', error);
+    }
+    if (game.activeModId !== 'vanilla') return [];
+    try {
+        const raw = localStorage.getItem(SAVE_INDEX_KEY);
+        const slots = raw ? JSON.parse(raw) : [];
+        if (Array.isArray(slots) && slots.length) return slots.filter(slot => slot && slot.id && slot.save?.version === SAVE_VERSION).slice(0, MAX_SAVE_SLOTS);
+    } catch (error) {
+        console.warn('Could not read legacy save slots:', error);
     }
     const legacySave = readLegacySavedGame();
     if (!legacySave) return [];
@@ -1180,11 +1552,11 @@ function readSaveSlots() {
 }
 
 function writeSaveSlots(slots) {
-    localStorage.setItem(SAVE_INDEX_KEY, JSON.stringify(slots.slice(0, MAX_SAVE_SLOTS)));
+    localStorage.setItem(saveIndexStorageKey(), JSON.stringify(slots.slice(0, MAX_SAVE_SLOTS)));
 }
 
 function getActiveSaveSlotId(slots = readSaveSlots()) {
-    const stored = localStorage.getItem(ACTIVE_SAVE_SLOT_KEY) || '';
+    const stored = localStorage.getItem(activeSaveStorageKey()) || (game.activeModId === 'vanilla' ? localStorage.getItem(ACTIVE_SAVE_SLOT_KEY) : '') || '';
     if (stored && slots.some(slot => slot.id === stored)) return stored;
     return slots[0]?.id || '';
 }
@@ -1195,7 +1567,7 @@ function setActiveSaveSlot(slotId) {
     if (!slot) return;
     game.activeSaveSlotId = slot.id;
     game.saveSlotName = slot.name || 'Pilot';
-    localStorage.setItem(ACTIVE_SAVE_SLOT_KEY, slot.id);
+    localStorage.setItem(activeSaveStorageKey(), slot.id);
     updateSaveHint(slot.save);
 }
 
@@ -1214,7 +1586,7 @@ function createNewSaveSlot() {
     const slotId = 'slot_' + Date.now().toString(36);
     game.activeSaveSlotId = slotId;
     game.saveSlotName = selectedSaveName();
-    localStorage.setItem(ACTIVE_SAVE_SLOT_KEY, slotId);
+    localStorage.setItem(activeSaveStorageKey(), slotId);
     sessionStorage.setItem('freelancer2d.forceNewGame', '1');
     return true;
 }
@@ -1230,6 +1602,7 @@ function createSaveGameState() {
     if (!game.player) return null;
     return {
         version: SAVE_VERSION,
+        modId: game.activeModId,
         name: game.saveSlotName || 'Pilot',
         savedAt: new Date().toISOString(),
         currentSystemId,
@@ -1266,12 +1639,15 @@ function createSaveGameState() {
             mountedEquipment: game.player.mountedEquipment,
             nanobots: game.player.nanobots,
             shieldBatteries: game.player.shieldBatteries,
-            shipPackageId: game.player.shipPackageId
+            shipPackageId: game.player.shipPackageId,
+            faction: game.player.faction,
+            reputations: game.player.reputations
         }
     };
 }
 
 function saveGame(showMessage = false) {
+    if (!game.hasStarted && !game.saveLoaded) return;
     const state = createSaveGameState();
     if (!state) return;
     try {
@@ -1286,7 +1662,7 @@ function saveGame(showMessage = false) {
         writeSaveSlots(slots);
         game.activeSaveSlotId = slotId;
         game.saveSlotName = slotName;
-        localStorage.setItem(ACTIVE_SAVE_SLOT_KEY, slotId);
+        localStorage.setItem(activeSaveStorageKey(), slotId);
         game.lastSavedAt = Date.now();
         updateSaveHint(state);
         if (showMessage) addLog('Spielstand gespeichert');
@@ -1300,10 +1676,9 @@ function clearSavedGame(slotId = game.activeSaveSlotId) {
     const slots = readSaveSlots().filter(slot => slot.id !== slotId);
     writeSaveSlots(slots);
     if (!slots.length) {
-        localStorage.removeItem(ACTIVE_SAVE_SLOT_KEY);
-        localStorage.removeItem(SAVE_KEY);
+        localStorage.removeItem(activeSaveStorageKey());
     } else if (game.activeSaveSlotId === slotId) {
-        localStorage.setItem(ACTIVE_SAVE_SLOT_KEY, slots[0].id);
+        localStorage.setItem(activeSaveStorageKey(), slots[0].id);
         game.activeSaveSlotId = slots[0].id;
         game.saveSlotName = slots[0].name || 'Pilot';
     }
@@ -1327,7 +1702,6 @@ function restorePlayerFromSave(save) {
     game.player.reverseActive = false;
     game.player.speed = Number.isFinite(savedPlayer.speed) ? Math.min(savedPlayer.speed, CRUISE_SPEED) : 0;
     game.player.hull = Math.max(1, Math.min(game.player.maxHull, Number(savedPlayer.hull) || game.player.maxHull));
-    game.player.shield = Math.max(0, Math.min(game.player.maxShield, Number(savedPlayer.shield) || game.player.maxShield));
     game.player.energy = Math.max(0, Math.min(game.player.maxEnergy, Number(savedPlayer.energy) || game.player.maxEnergy));
     game.player.credits = Number.isFinite(savedPlayer.credits) ? savedPlayer.credits : game.player.credits;
     game.player.cargo = Array.isArray(savedPlayer.cargo) ? savedPlayer.cargo : [];
@@ -1336,6 +1710,9 @@ function restorePlayerFromSave(save) {
     ensureStarterEquipmentForEmptyLoadout();
     game.player.nanobots = Number.isFinite(savedPlayer.nanobots) ? savedPlayer.nanobots : game.player.nanobots;
     game.player.shieldBatteries = Number.isFinite(savedPlayer.shieldBatteries) ? savedPlayer.shieldBatteries : game.player.shieldBatteries;
+    game.player.faction = normalizeFactionId(savedPlayer.faction || game.player.faction || 'li_n_grp');
+    game.player.reputations = savedPlayer.reputations && typeof savedPlayer.reputations === 'object' ? { ...savedPlayer.reputations } : null;
+    if (!game.player.reputations) initializePlayerReputations(game.player.faction);
     game.player.destroyed = false;
     game.player.inTradeLane = false;
     game.player.laneRoute = null;
@@ -1366,6 +1743,7 @@ function restorePlayerFromSave(save) {
         game.waypoint = null;
     }
     applyMountedEquipmentEffects();
+    game.player.shield = Math.max(0, Math.min(game.player.maxShield, Number.isFinite(savedPlayer.shield) ? savedPlayer.shield : game.player.maxShield));
     updateCruiseButton();
 }
 
@@ -1379,18 +1757,19 @@ function updateSaveHint(save = readSavedGame()) {
     const slots = readSaveSlots();
     if (!game.activeSaveSlotId) game.activeSaveSlotId = getActiveSaveSlotId(slots);
     const activeSlot = slots.find(slot => slot.id === game.activeSaveSlotId);
+    renderModSelect();
     if (slotList) {
         slotList.innerHTML = slots.length ? slots.map(slot => {
             const savedAt = slot.savedAt ? new Date(slot.savedAt) : null;
             const savedLabel = savedAt && !Number.isNaN(savedAt.getTime()) ? savedAt.toLocaleString() : 'unbekannt';
             const activeClass = slot.id === game.activeSaveSlotId ? ' active' : '';
             return `<div class="save-slot${activeClass}" onclick="setActiveSaveSlot('${slot.id}')"><div><div class="save-slot-title">${escapeHtml(slot.name || 'Pilot')}</div><div class="save-slot-meta">${escapeHtml(slot.currentSystemId || slot.save?.currentSystemId || 'Li01')} - ${escapeHtml(savedLabel)}</div></div><span>${slot.id === game.activeSaveSlotId ? 'AKTIV' : 'LADEN'}</span></div>`;
-        }).join('') : '<div class="save-slot empty"><div><div class="save-slot-title">Kein Savegame vorhanden</div><div class="save-slot-meta">Bis zu 5 Spielstaende moeglich</div></div></div>';
+        }).join('') : '<div class="save-slot empty"><div><div class="save-slot-title">Kein Savegame fuer diesen Mod vorhanden</div><div class="save-slot-meta">Vanilla und Crossfire haben getrennte Spielstaende</div></div></div>';
     }
     if (nameInput && activeSlot && document.activeElement !== nameInput) nameInput.value = activeSlot.name || 'Pilot';
     if (!hint || !startButton || !newButton || !deleteButton) return;
     if (!save) {
-        hint.textContent = 'Kein gespeicherter Spielstand gefunden.';
+        hint.textContent = activeModConfig().name + ': Kein gespeicherter Spielstand gefunden.';
         startButton.textContent = 'START GAME';
         newButton.classList.toggle('hidden', slots.length >= MAX_SAVE_SLOTS);
         deleteButton.classList.add('hidden');
@@ -1398,7 +1777,7 @@ function updateSaveHint(save = readSavedGame()) {
     }
     const savedAt = save.savedAt ? new Date(save.savedAt) : null;
     const savedLabel = savedAt && !Number.isNaN(savedAt.getTime()) ? savedAt.toLocaleString() : 'unbekannt';
-    hint.textContent = 'Aktiver Spielstand: ' + (activeSlot?.name || save.name || 'Pilot') + ' - ' + (save.currentSystemId || 'Li01') + ' - ' + savedLabel;
+    hint.textContent = activeModConfig().name + ' Spielstand: ' + (activeSlot?.name || save.name || 'Pilot') + ' - ' + (save.currentSystemId || 'Li01') + ' - ' + savedLabel;
     startButton.textContent = 'WEITER';
     newButton.classList.toggle('hidden', slots.length >= MAX_SAVE_SLOTS);
     deleteButton.classList.remove('hidden');
@@ -1474,8 +1853,9 @@ function applyShipPackage(packageId, logPurchase = false) {
     game.player.shipIcon = shipPackage.icon;
     game.player.maxHull = stats.hull || game.player.maxHull;
     game.player.hull = game.player.maxHull;
-    game.player.maxShield = stats.shield || game.player.maxShield;
-    game.player.shield = game.player.maxShield;
+    game.player.maxShield = 0;
+    game.player.shield = 0;
+    game.player.shieldRegen = 0;
     game.player.maxSpeed = COMBAT_MAX_SPEED;
     game.player.baseMaxSpeed = COMBAT_MAX_SPEED;
     game.player.turnRate = stats.turnRate || game.player.turnRate;
@@ -1496,7 +1876,7 @@ function applyShipPackage(packageId, logPurchase = false) {
     game.player.thrustChargeRate = Number.isFinite(stats.thrustChargeRate) ? stats.thrustChargeRate : game.player.thrustChargeRate;
     game.player.energy = Math.min(game.player.maxEnergy, Math.max(game.player.energy || game.player.maxEnergy, game.player.maxEnergy));
     game.player.firePower = stats.firePower || game.player.firePower || 1;
-    const shipRecord = typeof FL_SHIPS !== 'undefined' ? FL_SHIPS[String(shipPackage.ship || '').toLowerCase()] : null;
+    const shipRecord = shipsData()[String(shipPackage.ship || '').toLowerCase()] || null;
     game.player.weaponSlots = parseShipWeaponSlots(shipRecord) || clamp(game.player.firePower, 0, 8);
     game.player.radius = Math.max(18, Math.min(34, Math.sqrt(game.player.maxHull) * 0.28));
     ensureStarterEquipmentForEmptyLoadout();
@@ -1517,6 +1897,10 @@ function isDockableTarget(target) {
 function startDocking(target) {
     if (!isDockableTarget(target)) {
         addLog('Can only dock at stations, planets, jump gates, jump holes, and trade lane rings!', 'alert');
+        return;
+    }
+    if (!canPlayerDockWithTarget(target)) {
+        addLog('Andocken verweigert: ' + factionDisplayName(targetFaction(target)) + ' ist feindlich.', 'alert');
         return;
     }
     game.approachTarget = target;
@@ -1621,6 +2005,8 @@ function buildSystemData(systemId) {
         hasRing: !!(p.has_ring || p.hasRing),
         info: p.info || '',
         color: getPlanetColor(p.archetype),
+        faction: normalizeFactionId(p.faction || p.reputation || ''),
+        loadout: p.loadout || '',
         base: p.base || inferPlanetBaseId(p),
         dockWith: p.dock_with || p.dockWith || inferPlanetBaseId(p),
         type: p.archetype || 'Planet'
@@ -1630,7 +2016,8 @@ function buildSystemData(systemId) {
         name: displayName(s.name, s.nickname),
         x: s.x,
         z: s.z,
-        faction: s.faction,
+        faction: normalizeFactionId(s.faction || s.reputation || ''),
+        loadout: s.loadout || '',
         type: s.archetype,
         solarType: s.solar_type || s.solarType || '',
         radius: s.solar_radius || s.solarRadius || 600,
@@ -1650,6 +2037,8 @@ function buildSystemData(systemId) {
         type: 'Jump Gate',
         kind: 'gate',
         archetype: g.archetype || 'jumpgate',
+        faction: normalizeFactionId(g.faction || g.reputation || ''),
+        loadout: g.loadout || '',
         radius: g.solar_radius || g.solarRadius || 600,
         rotateY: g.rotate_y || g.rotateY || 0,
         info: g.info || ''
@@ -1664,6 +2053,8 @@ function buildSystemData(systemId) {
         type: 'Jump Hole',
         kind: 'hole',
         archetype: h.archetype || 'jumphole',
+        faction: normalizeFactionId(h.faction || h.reputation || ''),
+        loadout: h.loadout || '',
         radius: h.solar_radius || h.solarRadius || 600,
         rotateY: h.rotate_y || h.rotateY || 0,
         info: h.info || ''
@@ -1683,6 +2074,22 @@ function buildSystemData(systemId) {
         shape: z.shape || 'ELLIPSOID',
         rotateY: z.rotate_y || z.rotateY || 0,
         vignetteType: z.vignette_type || z.vignetteType || ''
+    })),
+    populationZones: (raw.populationZones || []).map(z => ({
+        id: z.nickname || z.zone,
+        name: z.name || z.nickname || z.zone,
+        x: z.x || 0,
+        z: z.z || 0,
+        size: z.size || 1000,
+        sizeX: z.size_x || z.sizeX || z.size || 1000,
+        sizeZ: z.size_z || z.sizeZ || z.size || 1000,
+        shape: z.shape || 'ELLIPSOID',
+        rotateY: z.rotate_y || z.rotateY || 0,
+        density: Number(z.density || 0),
+        populationAdditive: Number(z.population_additive || z.populationAdditive || 0),
+        reliefTime: Number(z.relief_time || z.reliefTime || 30),
+        encounters: Array.isArray(z.encounters) ? z.encounters : [],
+        factions: Array.isArray(z.factions) ? z.factions : []
     })),
     zones: (raw.zones || []).map(z => ({
         id: z.nickname || z.zone,
@@ -2118,7 +2525,7 @@ function respawnAtLastLanding() {
 }
 
 function getCurrentSystemKey() {
-    const source = typeof GAME_SYSTEMS !== 'undefined' ? GAME_SYSTEMS : FALLBACK_GAME_SYSTEMS;
+    const source = gameSystemsData();
     return Object.keys(source || {}).find(k => k.toLowerCase() === currentSystemId.toLowerCase()) || currentSystemId;
 }
 
@@ -2184,7 +2591,7 @@ function rebuildEntities() {
 }
 
 function updateSystemHud() {
-    document.getElementById('system-name').textContent = 'SYSTEM: ' + systemData.name;
+    document.getElementById('system-name').textContent = activeModConfig().name.toUpperCase() + ' | SYSTEM: ' + systemData.name;
     const mapTitle = document.querySelector('#map-header h3');
     if (mapTitle) mapTitle.textContent = 'SYSTEM MAP - ' + systemData.name.toUpperCase();
     updateDocumentTitle();
@@ -2268,7 +2675,11 @@ class PlayerShip {
         this.shipMass = 100;
         this.shipClass = 0;
         this.hull = 100; this.maxHull = 100;
-        this.shield = 80; this.maxShield = 80; this.shieldRegen = 8;
+        this.shield = 0; this.maxShield = 0; this.shieldRegen = 0;
+        this.shieldOfflineRebuildTime = 0;
+        this.shieldOfflineThreshold = 0;
+        this.shieldRebuildPowerDraw = 0;
+        this.shieldType = '';
         this.energy = 100; this.maxEnergy = 100; this.powerGen = 15;
         this.powerPlantId = '';
         this.powerPlantName = 'Powerplant';
@@ -2290,6 +2701,8 @@ class PlayerShip {
         this.shipId = null;
         this.shipName = 'Starflier';
         this.shipIcon = '';
+        this.faction = 'li_n_grp';
+        this.reputations = null;
         this.firePower = 4;
         this.weaponSlots = 1;
         
@@ -2312,8 +2725,10 @@ class PlayerShip {
         this.energy = Math.min(this.maxEnergy, this.energy + this.powerGen * dt);
         
         // Shield regen (only when not taking damage)
-        if (this.shield < this.maxShield) {
+        if (this.maxShield > 0 && this.shield < this.maxShield) {
             this.shield = Math.min(this.maxShield, this.shield + this.shieldRegen * dt);
+        } else if (this.maxShield <= 0) {
+            this.shield = 0;
         }
 
         this.maxSpeed = this.baseMaxSpeed || COMBAT_MAX_SPEED;
@@ -2557,10 +2972,10 @@ class PlayerShip {
     }
     
     takeDamage(amount) {
-        if (this.shield > 0) {
-            const sDamage = Math.min(this.shield, amount * 0.6);
+        if (this.maxShield > 0 && this.shield > 0) {
+            const sDamage = Math.min(this.shield, amount);
             this.shield -= sDamage;
-            amount -= sDamage / 0.6;
+            amount -= sDamage;
         }
         this.hull -= amount;
         if (amount > 4) playSound('hit', Math.min(1.4, amount / 16));
@@ -2583,6 +2998,10 @@ class PlayerShip {
     }
 
     useShieldBattery() {
+        if (this.maxShield <= 0) {
+            addLog('Kein Schild installiert.', 'alert');
+            return false;
+        }
         if (this.shieldBatteries <= 0 || this.shield >= this.maxShield) return false;
         this.shieldBatteries -= 1;
         this.shield = Math.min(this.maxShield, this.shield + Math.max(100, this.maxShield * 0.55));
@@ -2607,7 +3026,7 @@ class PlayerShip {
         const visualScale = Math.max(0.2, Math.min(3.2, game.zoom));
         
         // Shield (blue glow) - always visible
-        if (this.shield > 0) {
+        if (this.maxShield > 0 && this.shield > 0) {
             const shieldAlpha = (this.shield / this.maxShield) * 0.5;
             ctx.fillStyle = `rgba(100, 180, 255, ${shieldAlpha * 0.5})`;
             ctx.beginPath();
@@ -2704,10 +3123,16 @@ class PlayerShip {
 class PlanetLocation {
     constructor(data) {
         Object.assign(this, data);
+        this.faction = normalizeFactionId(data.faction || data.reputation || '');
+        this.loadout = data.loadout || '';
+        this.weapons = loadoutWeaponStats(this.loadout, 4);
+        this.weaponCooldown = 0;
+        this.nextWeaponIndex = 0;
+        this.weaponRange = 3000;
         this.radius = Math.max(180, Math.min(1200, (data.radius || 500) * 0.45));
         this.type = 'Planet';
     }
-    update(dt) {}
+    update(dt) { updateStaticWeapons(this, dt); }
     render(ctx) {}
     containsPoint(x, z) {
         const dx = x - this.x;
@@ -2720,11 +3145,17 @@ class PlanetLocation {
 class Station {
     constructor(data) {
         Object.assign(this, data);
+        this.faction = normalizeFactionId(data.faction || data.reputation || '');
+        this.loadout = data.loadout || '';
+        this.weapons = loadoutWeaponStats(this.loadout, 4);
+        this.weaponCooldown = 0;
+        this.nextWeaponIndex = 0;
+        this.weaponRange = 2800;
         this.sourceRadius = solarObjectSourceRadius(data.radius, this.type, 600);
         this.radius = solarObjectWorldRadius(this.sourceRadius, this.type, 600);
         this.rotation = flYawToCanvasRotation(this.rotateY || 0);
     }
-    update(dt) {}
+    update(dt) { updateStaticWeapons(this, dt); }
     render(ctx) {
         const pos = worldToScreen(this.x, this.z);
         const objectImage = getObjectImage(this.type);
@@ -2784,6 +3215,12 @@ class Station {
 class JumpGate {
     constructor(data) {
         Object.assign(this, data);
+        this.faction = normalizeFactionId(data.faction || data.reputation || '');
+        this.loadout = data.loadout || '';
+        this.weapons = loadoutWeaponStats(this.loadout, 4);
+        this.weaponCooldown = 0;
+        this.nextWeaponIndex = 0;
+        this.weaponRange = 3000;
         const archetype = data.archetype || (data.kind === 'hole' ? 'jumphole' : 'jumpgate');
         this.sourceRadius = solarObjectSourceRadius(data.radius, archetype, 600);
         this.radius = solarObjectWorldRadius(this.sourceRadius, archetype, 600);
@@ -2794,6 +3231,7 @@ class JumpGate {
     }
     update(dt) {
         if (this.kind === 'hole') this.rotation += 0.02 * dt;
+        updateStaticWeapons(this, dt);
     }
     render(ctx) {
         const pos = worldToScreen(this.x, this.z);
@@ -2857,6 +3295,8 @@ class TradeLaneRing {
             this.laneRings = data.laneRings || [];
             this.rotateY = data.rotate_y || data.rotateY || 0;
             this.visualRotation = data.visualRotation;
+            this.faction = normalizeFactionId(data.faction || data.reputation || '');
+            this.loadout = data.loadout || '';
         } else {
             this.x = x;
             this.z = z;
@@ -2867,13 +3307,19 @@ class TradeLaneRing {
             this.laneRings = [];
             this.rotateY = 0;
             this.visualRotation = null;
+            this.faction = '';
+            this.loadout = '';
         }
+        this.weapons = loadoutWeaponStats(this.loadout, 3);
+        this.weaponCooldown = 0;
+        this.nextWeaponIndex = 0;
+        this.weaponRange = 2400;
         this.sourceRadius = solarObjectSourceRadius(null, 'trade_lane_ring', 300);
         this.radius = solarObjectWorldRadius(this.sourceRadius, 'trade_lane_ring', 300);
         this.rotation = Number.isFinite(this.visualRotation) ? this.visualRotation : flYawToCanvasRotation(this.rotateY || 0);
         this.type = 'trade_lane_ring';
     }
-    update(dt) {}
+    update(dt) { updateStaticWeapons(this, dt); }
     render(ctx) {
         const pos = worldToScreen(this.x, this.z);
         const objectImage = getObjectImage(this.type);
@@ -3084,7 +3530,7 @@ class Nebula {
 function createNPC(type, options = {}) {
     const colors = { trader: '#44aa44', pirate: '#aa4444', police: '#4444aa', civilian: '#888888' };
     const difficulty = Number(options.difficulty || 1);
-    const npcShip = options.npcShip || (type === 'pirate' ? chooseNpcShipForMission(difficulty) : null);
+    const npcShip = options.npcShip || (type !== 'civilian' ? chooseNpcShipForMission(difficulty) : null);
     const details = npcLoadoutDetails(npcShip, difficulty);
     const ship = details.ship;
     const shieldItem = details.shieldItem;
@@ -3099,6 +3545,9 @@ function createNPC(type, options = {}) {
         rotation: Math.random() * Math.PI * 2,
         speed: 0, throttle: 0.3,
         role: type, hull: hullValue, maxHull: hullValue,
+        faction: normalizeFactionId(options.faction || (type === 'pirate' ? 'fc_lr_grp' : type === 'police' ? 'li_p_grp' : type === 'trader' ? 'co_ss_grp' : '')),
+        populationZoneId: options.populationZoneId || '',
+        encounter: options.encounter || '',
         shield: shieldValue, maxShield: shieldValue,
         maxSpeed: options.maxSpeed || (110 + difficulty * 18 + Math.random() * 35),
         turnRate: Math.max(1.25, Math.min(2.9, Number(handling.turnRate) || 2.0)), radius: Math.max(16, Math.min(28, Math.sqrt(Number(ship?.hitPts || 900)) * 0.34)),
@@ -3164,10 +3613,10 @@ function updateMissionState() {
     }
 }
 
-function fireNPCWeapon(npc) {
-    if (!game.player || npc.fireCooldown > 0) return;
-    const dx = game.player.x - npc.x;
-    const dz = game.player.z - npc.z;
+function fireNPCWeapon(npc, target = game.player) {
+    if (!target || npc.fireCooldown > 0) return;
+    const dx = target.x - npc.x;
+    const dz = target.z - npc.z;
     const distance = Math.hypot(dx, dz);
     if (distance > 980 || distance < 1) return;
     const angle = Math.atan2(dz, dx);
@@ -3184,25 +3633,128 @@ function fireNPCWeapon(npc) {
         radius: weapon.radius,
         lifetime: weapon.lifetime,
         owner: 'npc',
+        ownerId: npc.id,
+        targetId: target === game.player ? 'player' : target.id,
+        faction: npc.faction || '',
         color: weapon.color,
         trailColor: weapon.trailColor
     });
+}
+
+function findStaticCombatTarget(source) {
+    const sourceFaction = targetFaction(source);
+    if (!sourceFaction) return null;
+    let bestTarget = null;
+    let bestDistance = Infinity;
+    const range = Number(source.weaponRange || 2600);
+    if (game.player && playerIsHostileToFaction(sourceFaction)) {
+        const distance = Math.hypot(game.player.x - source.x, game.player.z - source.z);
+        if (distance < range) {
+            bestTarget = game.player;
+            bestDistance = distance;
+        }
+    }
+    for (const npc of game.npcs) {
+        if (!npc.faction || npc.hull <= 0 || !factionsAreHostile(sourceFaction, npc.faction)) continue;
+        const distance = Math.hypot(npc.x - source.x, npc.z - source.z);
+        if (distance < range && distance < bestDistance) {
+            bestTarget = npc;
+            bestDistance = distance;
+        }
+    }
+    return bestTarget;
+}
+
+function fireStaticWeapon(source, target) {
+    if (!source || !target || source.weaponCooldown > 0) return;
+    const weapons = (source.weapons || []).filter(Boolean);
+    if (!weapons.length) return;
+    const dx = target.x - source.x;
+    const dz = target.z - source.z;
+    const distance = Math.hypot(dx, dz);
+    if (distance > (source.weaponRange || 2600) || distance < 1) return;
+    const weapon = weapons[source.nextWeaponIndex % weapons.length] || weapons[0];
+    source.nextWeaponIndex = (source.nextWeaponIndex || 0) + 1;
+    source.weaponCooldown = weapon.cooldown + 0.12 + Math.random() * 0.16;
+    const angle = Math.atan2(dz, dx);
+    const muzzleDistance = Math.max(34, Math.min(160, Number(source.radius || 80) * 0.45));
+    game.projectiles.push({
+        x: source.x + Math.cos(angle) * muzzleDistance,
+        z: source.z + Math.sin(angle) * muzzleDistance,
+        vx: Math.cos(angle) * weapon.speed,
+        vz: Math.sin(angle) * weapon.speed,
+        damage: weapon.damage,
+        radius: weapon.radius,
+        lifetime: weapon.lifetime,
+        owner: 'npc',
+        ownerId: source.id,
+        targetId: target === game.player ? 'player' : target.id,
+        faction: targetFaction(source),
+        color: weapon.color,
+        trailColor: weapon.trailColor
+    });
+}
+
+function updateStaticWeapons(source, dt) {
+    if (!source?.weapons?.length || game.isDocked) return;
+    source.weaponCooldown = Math.max(0, (source.weaponCooldown || 0) - dt);
+    const target = findStaticCombatTarget(source);
+    if (target) fireStaticWeapon(source, target);
+}
+
+function findNpcCombatTarget(npc) {
+    let bestTarget = null;
+    let bestDistance = Infinity;
+    if (game.player && (npc.missionId || playerIsHostileToFaction(npc.faction) || (npc.role === 'pirate' && !npc.faction))) {
+        const distance = Math.hypot(game.player.x - npc.x, game.player.z - npc.z);
+        if (distance < (npc.missionId ? 2400 : 1800)) {
+            bestTarget = game.player;
+            bestDistance = distance;
+        }
+    }
+    if (npc.faction) {
+        for (const other of game.npcs) {
+            if (other === npc || other.hull <= 0 || !other.faction) continue;
+            if (!factionsAreHostile(npc.faction, other.faction)) continue;
+            const distance = Math.hypot(other.x - npc.x, other.z - npc.z);
+            if (distance < 2200 && distance < bestDistance) {
+                bestTarget = other;
+                bestDistance = distance;
+            }
+        }
+    }
+    return bestTarget;
+}
+
+function damageNpc(npc, amount, attacker = null) {
+    if (!npc || npc.hull <= 0) return false;
+    let damage = Number(amount) || 0;
+    if (npc.shield > 0) {
+        const shieldDamage = Math.min(npc.shield, damage * 0.6);
+        npc.shield -= shieldDamage;
+        damage -= shieldDamage;
+    }
+    npc.hull -= damage;
+    if (npc.hull > 0) return false;
+    addLog(npc.name + ' destroyed!');
+    if (npc.missionId) addLootDrop(npc.x, npc.z);
+    if (attacker === game.player) applyReputationForKill(npc.faction);
+    game.npcs = game.npcs.filter(item => item !== npc);
+    return true;
 }
 
 function updateNPC(npc, dt) {
     npc.stateTimer += dt;
     npc.shieldRotation += dt * 0.5;
     npc.fireCooldown = Math.max(0, (npc.fireCooldown || 0) - dt);
-    
-    if (npc.role === 'pirate' && game.player) {
-        const dx = game.player.x - npc.x;
-        const dz = game.player.z - npc.z;
-        const dist = Math.sqrt(dx * dx + dz * dz);
-        if (dist < (npc.missionId ? 2200 : 800)) {
-            npc.targetAngle = Math.atan2(dz, dx);
-            npc.throttle = 0.8;
-            fireNPCWeapon(npc);
-        }
+
+    const combatTarget = findNpcCombatTarget(npc);
+    if (combatTarget) {
+        const dx = combatTarget.x - npc.x;
+        const dz = combatTarget.z - npc.z;
+        npc.targetAngle = Math.atan2(dz, dx);
+        npc.throttle = 0.8;
+        fireNPCWeapon(npc, combatTarget);
     } else {
         if (npc.stateTimer > 4) {
             npc.targetAngle = Math.random() * Math.PI * 2;
@@ -3219,6 +3771,55 @@ function updateNPC(npc, dt) {
     npc.speed += (npc.throttle * npc.maxSpeed - npc.speed) * 0.02;
     npc.x += Math.cos(npc.rotation) * npc.speed * dt;
     npc.z += Math.sin(npc.rotation) * npc.speed * dt;
+}
+
+function renderNpcStatusBars(ctx, npc, screenPos, visualScale) {
+    const hullRatio = clamp((Number(npc.hull) || 0) / Math.max(1, Number(npc.maxHull) || 1), 0, 1);
+    const shieldRatio = clamp((Number(npc.shield) || 0) / Math.max(1, Number(npc.maxShield) || 1), 0, 1);
+    const barWidth = Math.max(34, Math.min(58, (npc.radius || 18) * 2.2 * visualScale));
+    const barHeight = 4;
+    const gap = 2;
+    const y = screenPos.y + Math.max(20, (npc.radius || 18) * 1.65 * visualScale);
+    const x = screenPos.x - barWidth / 2;
+
+    ctx.save();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = 'rgba(0,0,0,0.8)';
+    ctx.fillStyle = 'rgba(0,0,0,0.62)';
+    ctx.fillRect(x - 1, y - 1, barWidth + 2, barHeight * 2 + gap + 2);
+
+    ctx.fillStyle = '#06314f';
+    ctx.fillRect(x, y, barWidth, barHeight);
+    ctx.fillStyle = '#44aaff';
+    ctx.fillRect(x, y, barWidth * shieldRatio, barHeight);
+    ctx.strokeRect(x - 0.5, y - 0.5, barWidth + 1, barHeight + 1);
+
+    const hullY = y + barHeight + gap;
+    ctx.fillStyle = '#4a0505';
+    ctx.fillRect(x, hullY, barWidth, barHeight);
+    ctx.fillStyle = hullRatio > 0.35 ? '#ff4444' : '#ff9b35';
+    ctx.fillRect(x, hullY, barWidth * hullRatio, barHeight);
+    ctx.strokeRect(x - 0.5, hullY - 0.5, barWidth + 1, barHeight + 1);
+    ctx.restore();
+}
+
+function renderNpcFactionLabel(ctx, npc, screenPos, visualScale) {
+    const factionName = factionDisplayName(npc.faction);
+    const name = npc.name || npc.ship || 'NPC';
+    const text = `${name} - ${factionName}`;
+    const y = screenPos.y - Math.max(28, (npc.radius || 18) * 1.85 * visualScale);
+    ctx.save();
+    ctx.font = '11px Arial';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    const width = Math.min(260, ctx.measureText(text).width + 12);
+    ctx.fillStyle = 'rgba(0,10,18,0.72)';
+    ctx.fillRect(screenPos.x - width / 2, y - 8, width, 16);
+    ctx.strokeStyle = 'rgba(0,170,255,0.38)';
+    ctx.strokeRect(screenPos.x - width / 2, y - 8, width, 16);
+    ctx.fillStyle = reputationColor(getPlayerReputation(npc.faction));
+    ctx.fillText(text, screenPos.x, y);
+    ctx.restore();
 }
 
 function renderNPC(ctx, npc) {
@@ -3261,6 +3862,8 @@ function renderNPC(ctx, npc) {
         ctx.stroke();
     }
     ctx.restore();
+    renderNpcFactionLabel(ctx, npc, pos, visualScale);
+    renderNpcStatusBars(ctx, npc, pos, visualScale);
 }
 
 // Utility Functions
@@ -3646,6 +4249,12 @@ function update(dt) {
             game.player.reverseActive = false;
             game.player.throttle = 0;
             updateCruiseButton();
+            if (!canPlayerDockWithTarget(target)) {
+                addLog('Andocken verweigert: ' + factionDisplayName(targetFaction(target)) + ' ist feindlich.', 'alert');
+                game.dockTarget = null;
+                game.approachTarget = null;
+                return;
+            }
             if (target instanceof TradeLaneRing) {
                 startTradeLaneFromRing(target);
             } else if (target instanceof JumpGate) {
@@ -3659,6 +4268,7 @@ function update(dt) {
     for (const entity of game.entities) entity.update(dt);
     for (const npc of game.npcs) updateNPC(npc, dt);
     updateMissionState();
+    updatePopulationNpcs(dt);
 
     for (let i = game.loot.length - 1; i >= 0; i--) {
         const loot = game.loot[i];
@@ -3678,25 +4288,23 @@ function update(dt) {
         p.lifetime -= dt;
 
         if ((p.owner || 'player') === 'npc') {
-            if (Math.hypot(game.player.x - p.x, game.player.z - p.z) < game.player.radius + p.radius) {
+            if (p.targetId === 'player' && Math.hypot(game.player.x - p.x, game.player.z - p.z) < game.player.radius + p.radius) {
                 game.player.takeDamage(p.damage);
                 p.lifetime = 0;
+            } else if (p.targetId && p.targetId !== 'player') {
+                const targetNpc = game.npcs.find(npc => npc.id === p.targetId);
+                if (targetNpc && Math.hypot(targetNpc.x - p.x, targetNpc.z - p.z) < targetNpc.radius + p.radius) {
+                    damageNpc(targetNpc, p.damage, game.npcs.find(npc => npc.id === p.ownerId) || null);
+                    p.lifetime = 0;
+                }
             }
         } else {
             for (const npc of game.npcs) {
                 const dx = npc.x - p.x, dz = npc.z - p.z;
                 if (Math.sqrt(dx * dx + dz * dz) < npc.radius + p.radius) {
-                    if (npc.shield > 0) {
-                        npc.shield -= p.damage * 0.5;
-                        if (npc.shield < 0) { npc.hull += npc.shield; npc.shield = 0; }
-                    }
-                    npc.hull -= p.damage;
+                    damageNpc(npc, p.damage, game.player);
                     p.lifetime = 0;
-                    if (npc.hull <= 0) {
-                        addLog(npc.name + ' destroyed!');
-                        if (npc.missionId) addLootDrop(npc.x, npc.z);
-                        game.npcs = game.npcs.filter(n => n !== npc);
-                    }
+                    break;
                 }
             }
         }
@@ -3715,9 +4323,9 @@ function update(dt) {
 
 function updateHUD() {
     const p = game.player;
-    document.getElementById('hull-bar').style.width = (p.hull / p.maxHull * 100) + '%';
-    document.getElementById('shield-bar').style.width = (p.shield / p.maxShield * 100) + '%';
-    document.getElementById('energy-bar').style.width = (p.energy / p.maxEnergy * 100) + '%';
+    document.getElementById('hull-bar').style.width = (p.hull / Math.max(1, p.maxHull) * 100) + '%';
+    document.getElementById('shield-bar').style.width = (p.maxShield > 0 ? p.shield / p.maxShield * 100 : 0) + '%';
+    document.getElementById('energy-bar').style.width = (p.energy / Math.max(1, p.maxEnergy) * 100) + '%';
     document.getElementById('credits').textContent = `CREDITS: ${p.credits}`;
     document.getElementById('cargo').textContent = `CARGO: ${cargoUnits()}/${p.maxCargo} | N:${p.nanobots} B:${p.shieldBatteries}`;
     const h = Math.floor(game.gameTime / 75);
@@ -4027,6 +4635,8 @@ function setupInput() {
     });
     
     window.addEventListener('keydown', (e) => {
+        const tagName = e.target?.tagName?.toLowerCase();
+        if (tagName === 'input' || tagName === 'textarea' || e.target?.isContentEditable) return;
         if (!game.player || game.isDocked || !game.running) return;
         
         switch (e.code) {
@@ -4070,9 +4680,11 @@ function setupInput() {
             case 'KeyM':
                 toggleMap();
                 break;
+            case 'KeyG':
             case 'KeyN':
                 game.player.useNanobot();
                 break;
+            case 'KeyF':
             case 'KeyB':
                 game.player.useShieldBattery();
                 break;
@@ -4725,7 +5337,7 @@ function showInventory() {
         }
     }
     addLog('Hull: ' + game.player.hull + '/' + game.player.maxHull);
-    addLog('Shield: ' + game.player.shield + '/' + game.player.maxShield);
+    addLog('Shield: ' + (game.player.maxShield > 0 ? Math.round(game.player.shield) + '/' + Math.round(game.player.maxShield) : 'none'));
     addLog('Energy: ' + Math.round(game.player.energy) + '/' + game.player.maxEnergy);
 }
 
@@ -4777,20 +5389,20 @@ function getBaseId(location = game.landedBase) {
 
 function getCommodityMarket(location = game.landedBase) {
     const baseId = getBaseId(location);
-    if (!baseId || typeof FL_BASE_COMMODITY_MARKETS === 'undefined') return [];
-    return FL_BASE_COMMODITY_MARKETS[baseId] || [];
+    if (!baseId) return [];
+    return commodityMarketsData()[baseId] || [];
 }
 
 function getEquipmentMarket(location = game.landedBase) {
     const baseId = getBaseId(location);
-    if (!baseId || typeof FL_BASE_EQUIPMENT_MARKETS === 'undefined') return [];
-    return FL_BASE_EQUIPMENT_MARKETS[baseId] || [];
+    if (!baseId) return [];
+    return equipmentMarketsData()[baseId] || [];
 }
 
 function getBarData(location = game.landedBase) {
     const baseId = getBaseId(location);
-    if (!baseId || typeof FL_BASE_BAR_DATA === 'undefined') return { npcs: [], news: [], factions: [] };
-    return FL_BASE_BAR_DATA[baseId] || { npcs: [], news: [], factions: [] };
+    if (!baseId) return { npcs: [], news: [], factions: [] };
+    return barData()[baseId] || { npcs: [], news: [], factions: [] };
 }
 
 function equipmentSlot(category) {
@@ -4800,6 +5412,8 @@ function equipmentSlot(category) {
 function applyMountedEquipmentEffects() {
     if (!game.player) return;
     game.player.firePower = Math.max(3, game.player.firePower || 4);
+    const previousMaxShield = Math.max(0, Number(game.player.maxShield) || 0);
+    const previousShieldRatio = previousMaxShield > 0 ? clamp((Number(game.player.shield) || 0) / previousMaxShield, 0, 1) : 1;
     const mounted = game.player.mountedEquipment || {};
     if (mounted.weapon && !mounted.weapon1) {
         mounted.weapon1 = mounted.weapon;
@@ -4808,15 +5422,28 @@ function applyMountedEquipmentEffects() {
     for (const slot of Object.keys(mounted)) {
         if (slot.startsWith('weapon') && !getWeaponSlotKeys().includes(slot)) delete mounted[slot];
     }
+    game.player.maxShield = 0;
+    game.player.shieldRegen = 0;
+    game.player.shieldOfflineRebuildTime = 0;
+    game.player.shieldOfflineThreshold = 0;
+    game.player.shieldRebuildPowerDraw = 0;
+    game.player.shieldType = '';
     for (const itemId of Object.values(mounted)) {
         const item = getEquipment(itemId);
         if (!item) continue;
         const name = item.id.toLowerCase();
         if (item.category === 'weapon' || item.category === 'turret') game.player.firePower = Math.max(game.player.firePower, 4 + (Number((name.match(/mark(\d+)/) || [])[1]) || 1));
-        if (item.category === 'shield') game.player.maxShield = Math.max(game.player.maxShield, 180 + (Number((name.match(/mark(\d+)/) || [])[1]) || 1) * 90);
+        if (item.category === 'shield') {
+            game.player.maxShield = shieldCapacityFromEquipment(item);
+            game.player.shieldRegen = shieldRegenFromEquipment(item);
+            game.player.shieldOfflineRebuildTime = Math.max(0, Number(item.shieldOfflineRebuildTime) || 0);
+            game.player.shieldOfflineThreshold = Math.max(0, Number(item.shieldOfflineThreshold) || 0);
+            game.player.shieldRebuildPowerDraw = Math.max(0, Number(item.shieldRebuildPowerDraw) || 0);
+            game.player.shieldType = item.shieldType || '';
+        }
         if (item.category === 'thruster') game.player.acceleration = Math.max(game.player.acceleration, 1.8 + (Number((name.match(/_(\d+)$/) || [])[1]) || 1) * 0.2);
     }
-    game.player.shield = Math.min(game.player.shield, game.player.maxShield);
+    game.player.shield = game.player.maxShield > 0 ? Math.min(game.player.maxShield, game.player.maxShield * previousShieldRatio) : 0;
 }
 
 function openLandingWindow(target) {
@@ -4952,11 +5579,14 @@ function renderEquipmentDealer() {
     if (!content) return;
     const market = getEquipmentMarket();
     const inventory = game.player.equipmentInventory || [];
+    const repairCost = shipRepairCost();
+    let html = `<div style="display:flex;justify-content:space-between;margin-bottom:10px;color:#b9efff;gap:12px;flex-wrap:wrap;"><span>${t('credits')}: ${game.player.credits.toLocaleString()} CR</span><span>Ship: ${escapeHtml(game.player.shipName || 'Unknown')}</span><span>Hull: ${Math.round(game.player.hull).toLocaleString()}/${Math.round(game.player.maxHull).toLocaleString()}</span><span>Shield: ${game.player.maxShield > 0 ? `${Math.round(game.player.shield).toLocaleString()}/${Math.round(game.player.maxShield).toLocaleString()}` : 'none'}</span><span>Power: ${Math.round(game.player.maxEnergy).toLocaleString()} / +${Math.round(game.player.powerGen).toLocaleString()}/s</span><span>Nanobots: ${game.player.nanobots}/${game.player.maxNanobots}</span><span>Shield Batteries: ${game.player.shieldBatteries}/${game.player.maxShieldBatteries}</span></div>`;
+    html += `<div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px;padding:8px;border:1px solid #24445c;background:#07141f;"><span style="color:#b9efff;">Ship repair: ${repairCost > 0 ? repairCost.toLocaleString() + ' CR' : 'no damage'}</span><button class="trade-button" onclick="repairPlayerShip()" ${repairCost > 0 && game.player.credits >= repairCost ? '' : 'disabled'}>REPAIR</button></div>`;
     if (!market.length) {
-        content.innerHTML = `<div style="color:#ffaa00;">${t('noEquipment')}</div>`;
+        html += `<div style="color:#ffaa00;">${t('noEquipment')}</div>`;
+        content.innerHTML = html;
         return;
     }
-    let html = `<div style="display:flex;justify-content:space-between;margin-bottom:10px;color:#b9efff;gap:12px;flex-wrap:wrap;"><span>${t('credits')}: ${game.player.credits.toLocaleString()} CR</span><span>Ship: ${escapeHtml(game.player.shipName || 'Unknown')}</span><span>Power: ${Math.round(game.player.maxEnergy).toLocaleString()} / +${Math.round(game.player.powerGen).toLocaleString()}/s</span><span>Nanobots: ${game.player.nanobots}/${game.player.maxNanobots}</span><span>Shield Batteries: ${game.player.shieldBatteries}/${game.player.maxShieldBatteries}</span></div>`;
     const slots = [...getWeaponSlotKeys(), 'shield', 'thruster', 'mine', 'countermeasure', 'missile'];
     html += '<div class="equipment-layout"><div class="equipment-panel"><h4>Mounted Slots</h4>';
     for (const slot of slots) {
@@ -4994,6 +5624,24 @@ function equipmentSellPrice(itemId) {
     const marketEntry = getEquipmentMarket().find(entry => String(entry.id || '').toLowerCase() === String(itemId || '').toLowerCase());
     const buyPrice = Number(marketEntry?.price || item?.price || 0);
     return Math.max(0, Math.floor(buyPrice / 3));
+}
+
+function shipRepairCost() {
+    if (!game.player) return 0;
+    const missingHull = Math.max(0, Math.ceil((Number(game.player.maxHull) || 0) - (Number(game.player.hull) || 0)));
+    return missingHull > 0 ? Math.max(25, missingHull * 4) : 0;
+}
+
+function repairPlayerShip() {
+    const cost = shipRepairCost();
+    if (!game.player || cost <= 0 || game.player.credits < cost) return;
+    game.player.credits -= cost;
+    game.player.hull = game.player.maxHull;
+    addLog('Ship repaired at equipment dealer.');
+    playSound('buy', 0.6);
+    saveGame();
+    renderEquipmentDealer();
+    updateHUD();
 }
 
 function buyEquipment(itemId) {
@@ -5136,7 +5784,7 @@ function openShipShop() {
     
     const dealer = findCurrentShipDealer();
     const baseId = dealer ? String(dealer.base || dealer.dockWith || '').toLowerCase() : '';
-    const market = (typeof FL_BASE_SHIP_MARKETS !== 'undefined' && baseId) ? (FL_BASE_SHIP_MARKETS[baseId] || []) : [];
+    const market = baseId ? (shipMarketsData()[baseId] || []) : [];
     const ships = market.map(packageId => getShipPackage(packageId)).filter(Boolean);
     let html = `<div style="display:flex;justify-content:space-between;gap:12px;margin-bottom:10px;color:#b9efff;flex-wrap:wrap;"><span>${t('shipDealer')}: ${escapeHtml(dealer ? dealer.name : systemData.name)}</span><span>${t('credits')}: ${game.player.credits.toLocaleString()} CR</span><span>Current Ship: ${escapeHtml(game.player.shipName || 'Unknown')}</span></div>`;
 
@@ -5219,7 +5867,7 @@ window.buyShip = function(packageId) {
     }
 };
 
-function init() {
+async function init() {
     game.canvas = document.getElementById('game-canvas');
     game.ctx = game.canvas.getContext('2d');
     game.width = window.innerWidth;
@@ -5227,10 +5875,15 @@ function init() {
     game.canvas.width = game.width;
     game.canvas.height = game.height;
 
+    game.activeModId = normalizeModId(localStorage.getItem(ACTIVE_MOD_KEY) || 'vanilla');
+    await loadActiveModData();
+    currentSystemId = 'Li01';
+    systemData = buildSystemData(currentSystemId);
+
     const forceNewGame = sessionStorage.getItem('freelancer2d.forceNewGame') === '1';
     if (forceNewGame) sessionStorage.removeItem('freelancer2d.forceNewGame');
     const slots = readSaveSlots();
-    game.activeSaveSlotId = forceNewGame ? (localStorage.getItem(ACTIVE_SAVE_SLOT_KEY) || game.activeSaveSlotId) : getActiveSaveSlotId(slots);
+    game.activeSaveSlotId = forceNewGame ? (localStorage.getItem(activeSaveStorageKey()) || game.activeSaveSlotId) : getActiveSaveSlotId(slots);
     const savedGame = forceNewGame ? null : readSavedGame(game.activeSaveSlotId);
     game.saveLoaded = !!savedGame;
     const activeSlot = slots.find(slot => slot.id === game.activeSaveSlotId);
@@ -5258,13 +5911,11 @@ function init() {
     
     game.player = new PlayerShip(6173, -50515);
     applyShipPackage('gf1_package');
+    initializePlayerReputations('li_n_grp');
     if (savedGame) restorePlayerFromSave(savedGame);
     rebuildEntities();
     
-    const npcTypes = ['trader', 'trader', 'civilian', 'pirate', 'police'];
-    for (let i = 0; i < 12; i++) {
-        game.npcs.push(createNPC(npcTypes[i % npcTypes.length]));
-    }
+    game.npcs = [];
     
     document.getElementById('btn-start').addEventListener('click', startGame);
     document.getElementById('btn-new-game')?.addEventListener('click', () => {
@@ -5285,6 +5936,7 @@ function startGame() {
     ensureAudio();
     document.getElementById('start-screen').classList.add('hidden');
     game.running = true;
+    game.hasStarted = true;
     game.lastTime = performance.now();
     
     if (!game.saveLoaded) {

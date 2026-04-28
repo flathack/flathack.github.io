@@ -2,8 +2,10 @@
 import json
 from pathlib import Path
 
-FL_DATA = Path('C:/Users/steve/Github/FL-Installationen/Freelancer-HD/DATA')
-OUTPUT = Path('C:/Users/steve/Github/AmazonChecker/Freelancer2D/data/npc_loadouts.js')
+from fl_config import freelancer_data, output_data_dir
+
+FL_DATA = freelancer_data()
+OUTPUT = output_data_dir(Path(__file__).resolve().parents[1] / 'data') / 'npc_loadouts.js'
 
 
 def parse_ini_sections(path: Path) -> list[tuple[str, dict[str, list[str]]]]:
@@ -68,7 +70,8 @@ def load_ship_archetypes() -> set[str]:
 
 def load_loadouts() -> dict[str, dict]:
     loadouts: dict[str, dict] = {}
-    for path in sorted((FL_DATA / 'SHIPS').glob('loadouts*.ini')):
+    loadout_files = list((FL_DATA / 'SHIPS').glob('loadouts*.ini')) + list((FL_DATA / 'SOLAR').glob('loadouts*.ini'))
+    for path in sorted(loadout_files):
         for section, props in parse_ini_sections(path):
             if section.lower() != 'loadout':
                 continue
@@ -79,7 +82,7 @@ def load_loadouts() -> dict[str, dict]:
             loadouts[nickname] = {
                 'id': nickname,
                 'archetype': first(props, 'archetype').lower(),
-                'weapons': [item for item in equips if item['hardpoint'].lower().startswith('hpweapon')],
+                'weapons': [item for item in equips if item['hardpoint'].lower().startswith(('hpweapon', 'hpturret'))],
                 'shields': [item for item in equips if item['hardpoint'].lower().startswith('hpshield')],
                 'thrusters': [item for item in equips if item['hardpoint'].lower().startswith('hpthruster')],
                 'sourceFile': str(path.relative_to(FL_DATA)).replace('\\', '/')

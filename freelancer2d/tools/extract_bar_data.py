@@ -8,12 +8,14 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-FL_ROOT = Path("C:/Users/steve/Github/FL-Installationen/Freelancer-HD")
-FL_DATA = FL_ROOT / "DATA"
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from fl_config import freelancer_data, freelancer_root, output_data_dir  # noqa: E402
 from extract_ship_market_data import all_values, first, fl_text, parse_ini_sections  # noqa: E402
 import extract_universe_data as universe  # noqa: E402
+
+FL_ROOT = freelancer_root()
+FL_DATA = freelancer_data()
 
 RAW_RESOURCE_STRINGS: dict[int, str] = {}
 
@@ -100,7 +102,7 @@ def extract_news(bars: dict[str, dict]) -> dict[str, dict]:
 
 
 def write_js(bars: dict[str, dict]) -> Path:
-    output = ROOT / "data" / "bar_data.js"
+    output = output_data_dir(ROOT / "data") / "bar_data.js"
     output.parent.mkdir(parents=True, exist_ok=True)
     with output.open("w", encoding="utf-8") as handle:
         handle.write("// Auto-generated bar NPC, rumor, and news data\n")

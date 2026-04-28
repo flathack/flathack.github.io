@@ -10,12 +10,14 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-FL_ROOT = Path("C:/Users/steve/Github/FL-Installationen/Freelancer-HD")
-FL_DATA = FL_ROOT / "DATA"
 FLATLAS_ROOT = Path("C:/Users/steve/Github/FLAtlas")
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from fl_config import freelancer_data, freelancer_root, output_data_dir  # noqa: E402
 import extract_universe_data as universe  # noqa: E402
+
+FL_ROOT = freelancer_root()
+FL_DATA = freelancer_data()
 
 
 def parse_ini_sections(path: Path) -> list[tuple[str, list[tuple[str, str]]]]:
@@ -278,7 +280,10 @@ def extract_markets() -> dict[str, list[str]]:
             continue
         goods = []
         for value in all_values(props, "marketgood"):
-            good = value.split(",", 1)[0].strip().lower()
+            parts = [part.strip() for part in value.split(",")]
+            if len(parts) < 8 or parts[3:8] != ["1", "1", "0", "1", "1"]:
+                continue
+            good = parts[0].lower()
             if good:
                 goods.append(good)
         if goods:
@@ -287,6 +292,8 @@ def extract_markets() -> dict[str, list[str]]:
 
 
 def render_icons(ships: dict[str, dict], package_ids: set[str], packages: dict[str, dict], hulls: dict[str, dict]) -> None:
+    if "--skip-icons" in sys.argv or os.environ.get("FREELANCER2D_SKIP_ICONS") == "1":
+        return
     icon_dir = ROOT / "data" / "ship_icons"
     icon_dir.mkdir(parents=True, exist_ok=True)
     sys.path.insert(0, str(FLATLAS_ROOT))
@@ -398,7 +405,7 @@ def build_payload() -> dict:
 
 
 def write_js(payload: dict) -> Path:
-    output = ROOT / "data" / "ships.js"
+    output = output_data_dir(ROOT / "data") / "ships.js"
     output.parent.mkdir(parents=True, exist_ok=True)
     with output.open("w", encoding="utf-8") as handle:
         handle.write("// Auto-generated ship market data\n")
