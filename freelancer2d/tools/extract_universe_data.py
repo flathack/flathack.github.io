@@ -422,7 +422,8 @@ def extract_system_data(system_name: str) -> dict:
         'tradelanes': [],
         'asteroidfields': [],
         'nebulae': [],
-        'zones': []
+        'zones': [],
+        'missionZones': []
     }
     
     if not system_ini.exists():
@@ -482,6 +483,10 @@ def extract_system_data(system_name: str) -> dict:
                         pass
                 if zone_map[zone_nickname]['damage'] > 0:
                     result['zones'].append(zone_map[zone_nickname])
+                if 'destroy_vignette' in zone_nickname.lower():
+                    mission_zone = dict(zone_map[zone_nickname])
+                    mission_zone['vignette_type'] = get_prop(props, 'vignette_type', '')
+                    result['missionZones'].append(mission_zone)
     
     # Second pass: process all sections
     for section_name, props in sections:
@@ -578,6 +583,7 @@ def extract_system_data(system_name: str) -> dict:
         
         # Jump Gates
         if archetype == 'jumpgate':
+            arch = solar_info(archetype)
             goto = get_prop(props, 'goto', '')
             goto_parts = goto.split(',')
             dest_system = goto_parts[0].strip() if len(goto_parts) > 0 else ''
@@ -593,6 +599,8 @@ def extract_system_data(system_name: str) -> dict:
                 'ids_info': get_prop(props, 'ids_info', ''),
                 'info': resolve_info(get_prop(props, 'ids_info', '')),
                 'x': pos[0], 'y': pos[1], 'z': pos[2],
+                'archetype': archetype,
+                'solar_radius': arch.get('solar_radius', 600),
                 'dest_system': dest_system,
                 'dest_gate': dest_gate,
                 'rotate_y': rotate_y
@@ -602,6 +610,7 @@ def extract_system_data(system_name: str) -> dict:
         
         # Jump Holes
         if archetype.startswith('jumphole'):
+            arch = solar_info(archetype) or solar_info('jumphole')
             goto = get_prop(props, 'goto', '')
             goto_parts = goto.split(',')
             dest_system = goto_parts[0].strip() if len(goto_parts) > 0 else ''
@@ -617,6 +626,7 @@ def extract_system_data(system_name: str) -> dict:
                 'info': resolve_info(get_prop(props, 'ids_info', '')),
                 'x': pos[0], 'y': pos[1], 'z': pos[2],
                 'archetype': archetype,
+                'solar_radius': arch.get('solar_radius', 600),
                 'dest_system': dest_system,
                 'dest_hole': dest_hole,
                 'rotate_y': parse_rotation_y(get_prop(props, 'rotate', '0,0,0'))
@@ -875,6 +885,7 @@ def main():
             'planets': sys_data.get('planets', []),
             'suns': sys_data.get('suns', []),
             'zones': sys_data.get('zones', []),
+            'missionZones': sys_data.get('missionZones', []),
             'asteroidfields': sys_data.get('asteroidfields', []),
             'tradelanes': tradelanes,  # Note: spelled tradelanes in output
             'nebulae': sys_data.get('nebulae', [])
