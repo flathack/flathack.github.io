@@ -23,19 +23,63 @@ FL_ROOT = freelancer_root()
 FL_DATA = freelancer_data()
 FL_EXE = freelancer_exe()
 UNIVERSE_DIR = FL_DATA / 'UNIVERSE'
-RESOURCE_DLLS = [
-    'infocards.dll',
-    'misctext.dll',
-    'nameresources.dll',
-    'equipresources.dll',
-    'offerbriberesources.dll',
-    'misctextinfo2.dll',
-    'controls.dll',
-    'FLAtlas_FLMM_b351117f8299be5f.dll',
-]
 RESOURCE_STRINGS = {}
 RESOURCE_INFOCARDS = {}
 SOLAR_ARCH = {}
+
+JUMP_GATE_ARCHETYPES = {
+    'jumpgate',
+    'nomad_gate',
+    'nomad_gate2',
+    'dkjumpgate',
+    'vortex',
+    'track_ring2coal',
+}
+
+def resource_dll_paths() -> list[Path]:
+    """Load resource DLLs in freelancer.ini order so mod-specific text DLLs resolve correctly."""
+    freelancer_ini = FL_EXE / 'freelancer.ini'
+    dll_paths: list[Path] = []
+    seen: set[Path] = set()
+
+    if freelancer_ini.exists():
+        in_resources = False
+        for raw_line in freelancer_ini.read_text(encoding='utf-8', errors='ignore').splitlines():
+            line = raw_line.split(';', 1)[0].strip()
+            if not line:
+                continue
+            if line.startswith('[') and line.endswith(']'):
+                in_resources = line[1:-1].strip().lower() == 'resources'
+                continue
+            if not in_resources or '=' not in line:
+                continue
+            key, value = line.split('=', 1)
+            if key.strip().lower() != 'dll':
+                continue
+            dll_name = value.split(',', 1)[0].strip()
+            if not dll_name:
+                continue
+            candidate = (FL_EXE / dll_name).resolve() if not Path(dll_name).is_absolute() else Path(dll_name).resolve()
+            if candidate.exists() and candidate not in seen:
+                seen.add(candidate)
+                dll_paths.append(candidate)
+
+    fallback_names = [
+        'infocards.dll',
+        'misctext.dll',
+        'nameresources.dll',
+        'equipresources.dll',
+        'offerbriberesources.dll',
+        'misctextinfo2.dll',
+        'controls.dll',
+    ]
+    for name in fallback_names:
+        candidate = (FL_EXE / name).resolve()
+        if candidate.exists() and candidate not in seen:
+            seen.add(candidate)
+            dll_paths.append(candidate)
+
+    return dll_paths
 
 def parse_ini_file_with_duplicates(filepath: Path) -> list:
     """Parse a Freelancer INI file, handling duplicate section names like [Object]."""
@@ -228,8 +272,8 @@ def extract_html_resources(dll_path: Path) -> dict:
 def load_resource_strings() -> dict:
     """Load Freelancer ids_name/strid_name resources according to freelancer.ini order."""
     resources = {}
-    for dll_index, dll_name in enumerate(RESOURCE_DLLS, start=1):
-        dll_strings = extract_string_table(FL_EXE / dll_name)
+    for dll_index, dll_path in enumerate(resource_dll_paths(), start=1):
+        dll_strings = extract_string_table(dll_path)
         for string_id, text in dll_strings.items():
             if text:
                 resources[dll_index * 65536 + string_id] = text
@@ -238,8 +282,8 @@ def load_resource_strings() -> dict:
 def load_resource_infocards() -> dict:
     """Load Freelancer ids_info HTML resources according to freelancer.ini order."""
     resources = {}
-    for dll_index, dll_name in enumerate(RESOURCE_DLLS, start=1):
-        dll_cards = extract_html_resources(FL_EXE / dll_name)
+    for dll_index, dll_path in enumerate(resource_dll_paths(), start=1):
+        dll_cards = extract_html_resources(dll_path)
         for card_id, text in dll_cards.items():
             if text:
                 resources[dll_index * 65536 + card_id] = text
@@ -307,6 +351,109 @@ def parse_position_2d(pos_str: str) -> tuple:
     except:
         pass
     return (0, 0)
+
+def is_jump_gate_archetype(archetype: str) -> bool:
+    return str(archetype or '').strip().lower() in JUMP_GATE_ARCHETYPES
+
+def is_jump_hole_archetype(archetype: str) -> bool:
+    return str(archetype or '').strip().lower().startswith('jumphole')
+
+def is_jump_connection_archetype(archetype: str) -> bool:
+    return is_jump_gate_archetype(archetype) or is_jump_hole_archetype(archetype)
+
+def sector_display_name(sector_key: str) -> str:
+    text = str(sector_key or '').strip()
+    if not text:
+        return 'Sirius'
+    if text.lower() == 'universe':
+        return 'Sirius'
+    match = re.match(r'^sector(\d+)$', text, re.IGNORECASE)
+    if match:
+        return f"Sector {int(match.group(1))}"
+    return text
+
+def extract_multiuniverse_map(system_lookup: dict[str, dict]) -> list[dict]:
+    """Extract Crossfire multiverse sector layout and per-sector system coordinates."""
+    multiuniverse_ini = UNIVERSE_DIR / 'multiuniverse.ini'
+    if not multiuniverse_ini.exists():
+        return []
+
+    sections = parse_ini_file_with_duplicates(multiuniverse_ini)
+    layout_name = ''
+    sector_layouts: dict[str, dict] = {}
+    sector_entries: list[dict] = []
+
+    for section_name, props in sections:
+        section_lower = section_name.lower()
+        if section_lower == 'const':
+            prettymap = get_prop(props, 'prettymap', '')
+            layout_name = prettymap.split(',', 1)[-1].strip().lower() if prettymap else ''
+            continue
+
+        if layout_name and section_lower == layout_name:
+            for mapping in get_all_props(props, 'mapping'):
+                parts = [part.strip() for part in str(mapping).split(',')]
+                if len(parts) < 3:
+                    continue
+                key = parts[0].lower()
+                sector_layouts[key] = {
+                    'x': parse_float(parts[1]),
+                    'y': parse_float(parts[2]),
+                }
+            continue
+
+        if section_lower != 'sector':
+            continue
+
+        sector_key = get_prop(props, 'mapping', '').split(',', 1)[0].strip().lower()
+        if not sector_key:
+            continue
+
+        labels = []
+        label_texts = []
+        for label in get_all_props(props, 'label'):
+            parts = [part.strip() for part in str(label).split(',')]
+            if not parts:
+                continue
+            label_id = parts[0]
+            text = resolve_id(label_id, label_id)
+            if text:
+                label_texts.append(text)
+            labels.append({
+                'id': label_id,
+                'text': text,
+                'x': parse_float(parts[1]) if len(parts) > 1 else 0.0,
+                'y': parse_float(parts[2]) if len(parts) > 2 else 0.0,
+            })
+
+        sector_systems = []
+        for system in get_all_props(props, 'system'):
+            parts = [part.strip() for part in str(system).split(',')]
+            if len(parts) < 3:
+                continue
+            nickname = parts[0]
+            if not nickname:
+                continue
+            base = system_lookup.get(nickname.lower(), {})
+            sector_systems.append({
+                'nickname': nickname,
+                'name': base.get('name', nickname),
+                'strid_name': base.get('strid_name', ''),
+                'ids_info': base.get('ids_info', ''),
+                'info': base.get('info', ''),
+                'x': parse_float(parts[1]),
+                'z': parse_float(parts[2]),
+            })
+
+        sector_entries.append({
+            'key': sector_key,
+            'name': sector_display_name(sector_key),
+            'layout': sector_layouts.get(sector_key, {'x': 0.0, 'y': 0.0}),
+            'labels': labels,
+            'systems': sector_systems,
+        })
+
+    return sector_entries
 
 def build_trade_lanes_from_rings(all_rings: list, all_ring_data: dict) -> list:
     """Build trade lane routes from connected rings.
@@ -636,7 +783,7 @@ def extract_system_data(system_name: str) -> dict:
             continue
         
         # Jump Gates
-        if archetype == 'jumpgate':
+        if is_jump_gate_archetype(archetype):
             arch = solar_info(archetype)
             goto = get_prop(props, 'goto', '')
             goto_parts = goto.split(',')
@@ -665,7 +812,7 @@ def extract_system_data(system_name: str) -> dict:
             continue
         
         # Jump Holes
-        if archetype.startswith('jumphole'):
+        if is_jump_hole_archetype(archetype):
             arch = solar_info(archetype) or solar_info('jumphole')
             goto = get_prop(props, 'goto', '')
             goto_parts = goto.split(',')
@@ -761,6 +908,7 @@ def extract_universe_map() -> dict:
     
     systems = []
     connections = {}
+    sectors = []
     
     if not universe_ini.exists():
         print("universe.ini not found!")
@@ -803,7 +951,7 @@ def extract_universe_map() -> dict:
                             continue
                         
                         archetype = get_prop(props, 'Archetype', get_prop(props, 'archetype', '')).lower()
-                        if archetype in ['jumpgate', 'jumphole', 'jumphole_red', 'jumphole_orange', 'jumphole_gamma', 'jumphole_blue']:
+                        if is_jump_connection_archetype(archetype):
                             goto = get_prop(props, 'goto', '')
                             if goto:
                                 goto_parts = goto.split(',')
@@ -813,8 +961,24 @@ def extract_universe_map() -> dict:
                                         connections[system_name] = []
                                     if dest_system not in connections[system_name]:
                                         connections[system_name].append(dest_system)
+
+    for system in systems:
+        nickname = str(system.get('nickname', '')).strip()
+        file_val = str(system.get('file', '')).replace('/', '\\')
+        file_parts = [part for part in file_val.split('\\') if part]
+        canonical_system = file_parts[-2] if len(file_parts) >= 2 else ''
+        if not nickname or not canonical_system or nickname.lower() == canonical_system.lower():
+            continue
+        canonical_connections = connections.get(canonical_system) or connections.get(canonical_system.lower()) or connections.get(canonical_system.upper())
+        if not canonical_connections:
+            continue
+        alias_connections = connections.setdefault(nickname, [])
+        for dest_system in canonical_connections:
+            if dest_system not in alias_connections:
+                alias_connections.append(dest_system)
     
-    return {'systems': systems, 'connections': connections}
+    sectors = extract_multiuniverse_map({str(system.get('nickname', '')).lower(): system for system in systems})
+    return {'systems': systems, 'connections': connections, 'sectors': sectors}
 
 def extract_all_systems() -> dict:
     """Extract data for all systems in the universe."""
@@ -967,6 +1131,9 @@ def main():
         f.write(";\n\n")
         f.write("const UNIVERSE_SYSTEMS = ")
         json.dump(universe_map['systems'], f, indent=2, ensure_ascii=False)
+        f.write(";\n\n")
+        f.write("const UNIVERSE_SECTORS = ")
+        json.dump(universe_map.get('sectors', []), f, indent=2, ensure_ascii=False)
         f.write(";\n")
     
     print(f"   Saved to {game_data_file}")

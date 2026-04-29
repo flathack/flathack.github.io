@@ -3,7 +3,7 @@
 
 const GAME_SYSTEMS = {
   "BR01": {
-    "name": "Br01",
+    "name": "New London",
     "strid_name": "459100",
     "ids_info": "66104",
     "info": "BRETONIA\nBesiedelte Planeten\nNew London\nStützpunkte\nStation Canterbury\nStation Waterloo\nStation Kensington\nSouthampton-Werft\nSchlachtschiff\nSuffolk\nAußenposten Thames\nUnternehmen\nBretonia Mining and Metals\nPlanetform, Inc.\nGateway Shipping\nInterspace Commerce\nKriminelle\nKorsaren\nMollys\nAusgestoßene\nGaianer\nSchrotties\nErzeugnisse\nSauerstoff\nWasser",
@@ -78,7 +78,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "BR01_to_CF22",
-        "name": "BR01_to_CF22",
+        "name": "The Corridor Jump Gate",
         "ids_name": "480936",
         "ids_info": "66145",
         "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
@@ -14848,7 +14848,7 @@ const GAME_SYSTEMS = {
     "nebulae": []
   },
   "BR02": {
-    "name": "Br02",
+    "name": "Manchester",
     "strid_name": "459102",
     "ids_info": "66102",
     "info": "BRETONIA\nBesiedelte Planeten\nKeine\nStützpunkte\nStation Birmingham\nStation Sheffield\nBPA\nNewgate\nGrenzstation Liverpool\nGrenzstation Kingston\nUnternehmen\nBretonia Mining and Metals\nGilde der Kopfgeldjäger\nKriminelle\nMollys\nGaianer\nWegelagerer\nAusgestoßene\nErzeugnisse\nPolymere\nKohlenwasserstoffe\nTerraforming-Gase\nSauerstoff\nWasser",
@@ -22573,7 +22573,7 @@ const GAME_SYSTEMS = {
     "nebulae": []
   },
   "BR03": {
-    "name": "Br03",
+    "name": "Cambridge",
     "strid_name": "459104",
     "ids_info": "66085",
     "info": "BRETONIA\nBesiedelte Planeten\nCambridge\nStützpunkte\nForschungsstation Cambridge\nBergbaustation Cardiff\nSchlachtschiff\nNorfolk\nUnternehmen\nCryer Pharmaceuticals\nKnappschaft der unabhängigen Bergleute\nKriminelle\nKorsaren\nErzeugnisse\nLebensmittel\nLuxuslebensmittel\nPharmazeutika\nBeryllium",
@@ -28011,7 +28011,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "BR04": {
-    "name": "Br04",
+    "name": "Leeds",
     "strid_name": "459106",
     "ids_info": "66100",
     "info": "BRETONIA\nBesiedelte Planeten\nLeeds\nStützpunkte\nLD-14\nBergbaustation Stokes\nAußenposten Glasgow\nSchlachtschiff\nYork\nGrenzstation Durham\nUnternehmen\nBowex\nBretonia Mining and Metals\nKriminelle\nMollys\nGaianer\nAusgestoßene\nErzeugnisse\nMOX\nBergbaumaschinen\nBaumaschinen\nSeitenwaffen\nRumpfplatten\nGrundlegierungen\nSuperlegierungen\nTerraforming-Gase\nGiftmüll\nNiob",
@@ -34987,7 +34987,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "BR05": {
-    "name": "Br05",
+    "name": "Dublin",
     "strid_name": "459108",
     "ids_info": "66090",
     "info": "BRETONIA\nBesiedelte Planeten\nKeine\nStützpunkte\nStation Graves\nSchlachtschiff\nHood\nSchlachtschiff\nEssex\nUnternehmen\nBretonia Mining and Metals\nKnappschaft der unabhängigen Bergleute\nKriminelle\nMollys\nErzeugnisse\nGold",
@@ -35011,7 +35011,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "BR05_to_CF23",
-        "name": "BR05_to_CF23",
+        "name": "Hyperion Jump Gate",
         "ids_name": "480938",
         "ids_info": "66145",
         "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
@@ -39784,7 +39784,7 @@ const GAME_SYSTEMS = {
     "nebulae": []
   },
   "BR06": {
-    "name": "Br06",
+    "name": "Edinburgh",
     "strid_name": "459110",
     "ids_info": "66091",
     "info": "BRETONIA\nBesiedelte Planeten\nGaia (begrenzter Zutritt)\nStützpunkte\nStation Perth\nLuxusliner\nShetland\nUnternehmen\nOrbital Kuren und Kreuzfahrten\nPlanetform, Inc.\nKriminelle\nGaianer\nAusgestoßene\nErzeugnisse\nWasser\nSauerstoff",
@@ -43165,7 +43165,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "BW01": {
-    "name": "Bw01",
+    "name": "Omega-3",
     "strid_name": "459136",
     "ids_info": "66108",
     "info": "GRENZWELTEN\nBesiedelte Planeten\nSprague (begrenzter Zutritt)\nStützpunkte\nFreihafen 1\nStation Rügen\nStation Douglas\nUnternehmen\nDaumann Hoch- und Tiefbau\nBretonia Mining and Metals\nPlanetform, Inc.\nKriminelle\nRote Hessen\nKorsaren\nErzeugnisse\nLebensmittel\nPolymere\nKohlenwasserstoffe\nSauerstoff\nWasser",
@@ -43568,7 +43568,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "Bw01_06",
-        "name": "Bw01_06",
+        "name": "Secret GMG Research Facility",
         "ids_name": "470142",
         "ids_info": "470144",
         "info": "",
@@ -47663,7 +47663,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "BW02": {
-    "name": "Bw02",
+    "name": "Omega-5",
     "strid_name": "459138",
     "ids_info": "66110",
     "info": "GRENZWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nKorsaren\nRote Hessen\nErzeugnisse\nNichts",
@@ -50533,7 +50533,7 @@ const GAME_SYSTEMS = {
     "nebulae": []
   },
   "BW03": {
-    "name": "Bw03",
+    "name": "Omega-7",
     "strid_name": "459140",
     "ids_info": "66111",
     "info": "GRENZWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nAußenposten Friestadt\nBergbaustation Wismar\nBergbaustation Erlangen\nUnternehmen\nDaumann Hoch- und Tiefbau\nKrüger Mineralien\nKnappschaft der unabhängigen Bergleute\nKriminelle\nRote Hessen\nKorsaren\nErzeugnisse\nKupfer\nKobalt\nSilber",
@@ -54515,7 +54515,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "BW04": {
-    "name": "Bw04",
+    "name": "Omega-11",
     "strid_name": "459142",
     "ids_info": "66107",
     "info": "GRENZWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nStation Solarius\nUnternehmen\nDaumann Hoch- und Tiefbau\nKriminelle\nRote Hessen\nKorsaren\nErzeugnisse\nDiamanten",
@@ -58536,7 +58536,7 @@ const GAME_SYSTEMS = {
     "nebulae": []
   },
   "BW05": {
-    "name": "Bw05",
+    "name": "Sigma-13",
     "strid_name": "459144",
     "ids_info": "66118",
     "info": "GRENZWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nGasabbaustation\nNaha\nStation Helgoland\nUnternehmen\nKnappschaft der Gasschürfer\nALG Abfallentsorgung\nKriminelle\nKorsaren\nAusgestoßene\nSchrotties\nErzeugnisse\nH-Treibstoff\nSchrott",
@@ -62918,7 +62918,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "BW06": {
-    "name": "Bw06",
+    "name": "Sigma-17",
     "strid_name": "459146",
     "ids_info": "66119",
     "info": "GRENZWELTEN\nBesiedelte Planeten\nKurilen\nStützpunkte\nForschungsstation Atka\nUnternehmen\nSamura Industries\nCryer Pharmaceuticals\nKriminelle\nKorsaren\nAusgestoßene\nErzeugnisse\nXeno-Organismen",
@@ -63393,7 +63393,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "BW06_proxy_base",
-        "name": "BW06_proxy_base",
+        "name": "The_Mercy_Dark",
         "ids_name": "459314",
         "ids_info": "481812",
         "info": "",
@@ -63411,7 +63411,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "BW06_proxy_base_01",
-        "name": "BW06_proxy_base_01",
+        "name": "The_Mercy_Dark",
         "ids_name": "459314",
         "ids_info": "481812",
         "info": "",
@@ -63429,7 +63429,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "BW06_proxy_base_02",
-        "name": "BW06_proxy_base_02",
+        "name": "The_Mercy_Dark",
         "ids_name": "459314",
         "ids_info": "481812",
         "info": "",
@@ -63447,7 +63447,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "BW06_proxy_base_03",
-        "name": "BW06_proxy_base_03",
+        "name": "The_Mercy_Dark",
         "ids_name": "459314",
         "ids_info": "481812",
         "info": "",
@@ -63465,7 +63465,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "BW06_proxy_base_04",
-        "name": "BW06_proxy_base_04",
+        "name": "The_Mercy_Dark",
         "ids_name": "459314",
         "ids_info": "481812",
         "info": "",
@@ -65726,7 +65726,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "BW07": {
-    "name": "Bw07",
+    "name": "Sigma-19",
     "strid_name": "459148",
     "ids_info": "66120",
     "info": "GRENZWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nLuxusliner\nHawaii\nGasabbaustation\nOgashawa\nUnternehmen\nOrbital Kuren und Kreuzfahrten\nKnappschaft der Gasschürfer\nKishiro Technologies\nKriminelle\nAusgestoßene\nKorsaren\nErzeugnisse\nH-Treibstoff",
@@ -69920,7 +69920,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "BW08": {
-    "name": "Bw08",
+    "name": "Tau-23",
     "strid_name": "459150",
     "ids_info": "66122",
     "info": "GRENZWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nStation Java\nTau 31-Sprungtor\nUnternehmen\nBretonia Mining and Metals\nKnappschaft der unabhängigen Bergleute\nDeep Space Engineering\nKriminelle\nAusgestoßene\nErzeugnisse\nBeryllium\nNiob",
@@ -73142,7 +73142,7 @@ const GAME_SYSTEMS = {
     "nebulae": []
   },
   "BW09": {
-    "name": "Bw09",
+    "name": "Tau-29",
     "strid_name": "459152",
     "ids_info": "66123",
     "info": "GRENZWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nStation Nago\nStation Shinkaku\nFreihafen 6\nUnternehmen\nKishiro Technologies\nSamura Industries\nKriminelle\nAusgestoßene\nErzeugnisse\nPolymere\nKohlenwasserstoffe\nDünger\nLebensmittel\nTerraforming-Gase\nSauerstoff\nWasser",
@@ -77508,7 +77508,7 @@ const GAME_SYSTEMS = {
     "nebulae": []
   },
   "BW10": {
-    "name": "Bw10",
+    "name": "Tau-31",
     "strid_name": "459154",
     "ids_info": "66124",
     "info": "GRENZWELTEN\nBesiedelte Planeten\nHarris\nStützpunkte\nAußenposten Holman\nUnternehmen\nPlanetform, Inc.\nKnappschaft der unabhängigen Bergleute\nKriminelle\nAusgestoßene\nGaianer\nErzeugnisse\nSauerstoff\nWasser",
@@ -81297,11 +81297,862 @@ const GAME_SYSTEMS = {
     "nebulae": []
   },
   "CF01": {
-    "name": "CF01",
+    "name": "X-3043",
     "strid_name": "459238",
     "ids_info": "458912",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "CF01_to_Hi01",
+        "name": "Omicron Alpha Gate",
+        "ids_name": "481437",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 30000.0,
+        "y": 0.0,
+        "z": 2000.0,
+        "archetype": "nomad_gate",
+        "solar_radius": 600.0,
+        "dest_system": "Hi01",
+        "dest_gate": "Hi01_to_CF01",
+        "faction": "gd_z_grp",
+        "loadout": "",
+        "rotate_y": 0.0
+      },
+      {
+        "nickname": "CF01_to_Hi01overlay",
+        "name": "Omicron Alpha Gate",
+        "ids_name": "481437",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 30000.0,
+        "y": 0.0,
+        "z": 2000.0,
+        "archetype": "nomad_gate2",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "",
+        "loadout": "",
+        "rotate_y": 0.0
+      },
+      {
+        "nickname": "CF01_to_FP7",
+        "name": "Freeport 7 Gate",
+        "ids_name": "481435",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 10000.0,
+        "y": 5000.0,
+        "z": 20000.0,
+        "archetype": "nomad_gate",
+        "solar_radius": 600.0,
+        "dest_system": "FP7_systemmp",
+        "dest_gate": "FP7_to_CF01",
+        "faction": "gd_z_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF01_to_FP7overlay",
+        "name": "Freeport 7 Gate",
+        "ids_name": "481435",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 10000.0,
+        "y": 5000.0,
+        "z": 20000.0,
+        "archetype": "nomad_gate2",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF01_to_CF02",
+        "name": "Custodian Gate",
+        "ids_name": "481346",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 10000.0,
+        "y": 7500.0,
+        "z": 20000.0,
+        "archetype": "nomad_gate",
+        "solar_radius": 600.0,
+        "dest_system": "CF02",
+        "dest_gate": "CF02_to_CF01",
+        "faction": "gd_z_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF01_to_CF02overlay",
+        "name": "Custodian Gate",
+        "ids_name": "481346",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 10000.0,
+        "y": 7500.0,
+        "z": 20000.0,
+        "archetype": "nomad_gate2",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "cf01_to_Li05",
+        "name": "Alaska Gate",
+        "ids_name": "481439",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 10000.0,
+        "y": 10000.0,
+        "z": 20000.0,
+        "archetype": "nomad_gate",
+        "solar_radius": 600.0,
+        "dest_system": "Li05",
+        "dest_gate": "Li05_to_cf01",
+        "faction": "gd_z_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "cf01_to_Li05overlay",
+        "name": "Alaska Gate",
+        "ids_name": "481439",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 10000.0,
+        "y": 10000.0,
+        "z": 20000.0,
+        "archetype": "nomad_gate2",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "cf01_to_Ku07",
+        "name": "Tohoku Gate",
+        "ids_name": "481438",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 10000.0,
+        "y": 12500.0,
+        "z": 20000.0,
+        "archetype": "nomad_gate",
+        "solar_radius": 600.0,
+        "dest_system": "Ku07",
+        "dest_gate": "Ku07_to_cf01",
+        "faction": "gd_z_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "cf01_to_Ku07overlay",
+        "name": "Tohoku Gate",
+        "ids_name": "481438",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 10000.0,
+        "y": 12500.0,
+        "z": 20000.0,
+        "archetype": "nomad_gate2",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "cf01g_to_St01",
+        "name": "Omicron Minor Gate",
+        "ids_name": "481429",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 10000.0,
+        "y": 15000.0,
+        "z": 20000.0,
+        "archetype": "nomad_gate",
+        "solar_radius": 600.0,
+        "dest_system": "St01",
+        "dest_gate": "St01_to_cf01g",
+        "faction": "gd_z_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "cf01g_to_St01overlay",
+        "name": "Omicron Minor Gate",
+        "ids_name": "481429",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 10000.0,
+        "y": 15000.0,
+        "z": 20000.0,
+        "archetype": "nomad_gate2",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF01_to_St02",
+        "name": "Nomads Lair Gate",
+        "ids_name": "481428",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 10000.0,
+        "y": 17500.0,
+        "z": 20000.0,
+        "archetype": "nomad_gate",
+        "solar_radius": 600.0,
+        "dest_system": "St02",
+        "dest_gate": "St02_to_CF01",
+        "faction": "gd_z_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF01_to_St02overlay",
+        "name": "Nomads Lair Gate",
+        "ids_name": "481428",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 10000.0,
+        "y": 17500.0,
+        "z": 20000.0,
+        "archetype": "nomad_gate2",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "cf01_to_St03",
+        "name": "Outer Dyson Sphere Gate",
+        "ids_name": "481427",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 10000.0,
+        "y": 20000.0,
+        "z": 20000.0,
+        "archetype": "nomad_gate",
+        "solar_radius": 600.0,
+        "dest_system": "St03",
+        "dest_gate": "St03_to_cf01",
+        "faction": "gd_z_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "cf01_to_St03overlay",
+        "name": "Outer Dyson Sphere Gate",
+        "ids_name": "481427",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 10000.0,
+        "y": 20000.0,
+        "z": 20000.0,
+        "archetype": "nomad_gate2",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "cf01j_to_St03b",
+        "name": "Dyson Sphere Gate",
+        "ids_name": "481426",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 10000.0,
+        "y": 22500.0,
+        "z": 20000.0,
+        "archetype": "nomad_gate",
+        "solar_radius": 600.0,
+        "dest_system": "St03b",
+        "dest_gate": "St03b_to_cf01j",
+        "faction": "gd_z_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "cf01j_to_St03boverlay",
+        "name": "Dyson Sphere Gate",
+        "ids_name": "481426",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 10000.0,
+        "y": 22500.0,
+        "z": 20000.0,
+        "archetype": "nomad_gate2",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF01_to_CF03",
+        "name": "Tarsus Gate",
+        "ids_name": "481348",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 12500.0,
+        "y": 7500.0,
+        "z": 20000.0,
+        "archetype": "nomad_gate",
+        "solar_radius": 600.0,
+        "dest_system": "CF03",
+        "dest_gate": "CF03_to_CF01",
+        "faction": "gd_z_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF01_to_CF03overlay",
+        "name": "Tarsus Gate",
+        "ids_name": "481348",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 12500.0,
+        "y": 7500.0,
+        "z": 20000.0,
+        "archetype": "nomad_gate2",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF01_to_CF04",
+        "name": "Vega Gate",
+        "ids_name": "481349",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 15000.0,
+        "y": 7500.0,
+        "z": 20000.0,
+        "archetype": "nomad_gate",
+        "solar_radius": 600.0,
+        "dest_system": "CF04",
+        "dest_gate": "CF04_to_CF01",
+        "faction": "gd_z_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF01_to_CF04overlay",
+        "name": "Vega Gate",
+        "ids_name": "481349",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 15000.0,
+        "y": 7500.0,
+        "z": 20000.0,
+        "archetype": "nomad_gate2",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF01_to_CF05",
+        "name": "Telosis Gate",
+        "ids_name": "481350",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 17500.0,
+        "y": 7500.0,
+        "z": 20000.0,
+        "archetype": "nomad_gate",
+        "solar_radius": 600.0,
+        "dest_system": "CF05",
+        "dest_gate": "CF05_to_CF01",
+        "faction": "gd_z_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF01_to_CF05overlay",
+        "name": "Telosis Gate",
+        "ids_name": "481350",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 17500.0,
+        "y": 7500.0,
+        "z": 20000.0,
+        "archetype": "nomad_gate2",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF01_to_CF06",
+        "name": "Daedalus Gate",
+        "ids_name": "481351",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 20000.0,
+        "y": 7500.0,
+        "z": 20000.0,
+        "archetype": "nomad_gate",
+        "solar_radius": 600.0,
+        "dest_system": "CF06",
+        "dest_gate": "CF06_to_CF01",
+        "faction": "gd_z_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF01_to_CF06overlay",
+        "name": "Daedalus Gate",
+        "ids_name": "481351",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 20000.0,
+        "y": 7500.0,
+        "z": 20000.0,
+        "archetype": "nomad_gate2",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF01_to_CF07",
+        "name": "Helios Gate",
+        "ids_name": "481352",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 22500.0,
+        "y": 7500.0,
+        "z": 20000.0,
+        "archetype": "nomad_gate",
+        "solar_radius": 600.0,
+        "dest_system": "CF07",
+        "dest_gate": "CF07_to_CF01",
+        "faction": "gd_z_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF01_to_CF07overlay",
+        "name": "Helios Gate",
+        "ids_name": "481352",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 22500.0,
+        "y": 7500.0,
+        "z": 20000.0,
+        "archetype": "nomad_gate2",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF01_to_CF08",
+        "name": "Seltos Gate",
+        "ids_name": "481353",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 7500.0,
+        "y": 7500.0,
+        "z": 20000.0,
+        "archetype": "nomad_gate",
+        "solar_radius": 600.0,
+        "dest_system": "CF08",
+        "dest_gate": "CF08_to_CF01",
+        "faction": "gd_z_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF01_to_CF08overlay",
+        "name": "Seltos Gate",
+        "ids_name": "481353",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 7500.0,
+        "y": 7500.0,
+        "z": 20000.0,
+        "archetype": "nomad_gate2",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF01_to_CF09",
+        "name": "Neophobos Gate",
+        "ids_name": "481354",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 5000.0,
+        "y": 7500.0,
+        "z": 20000.0,
+        "archetype": "nomad_gate",
+        "solar_radius": 600.0,
+        "dest_system": "CF09",
+        "dest_gate": "CF09_to_CF01",
+        "faction": "gd_z_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF01_to_CF09overlay",
+        "name": "Neophobos Gate",
+        "ids_name": "481354",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 5000.0,
+        "y": 7500.0,
+        "z": 20000.0,
+        "archetype": "nomad_gate2",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF01_to_CF10",
+        "name": "Vespus Gate",
+        "ids_name": "481355",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 2500.0,
+        "y": 7500.0,
+        "z": 20000.0,
+        "archetype": "nomad_gate",
+        "solar_radius": 600.0,
+        "dest_system": "CF10",
+        "dest_gate": "CF10_to_CF01",
+        "faction": "gd_z_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF01_to_CF10overlay",
+        "name": "Vespus Gate",
+        "ids_name": "481355",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 2500.0,
+        "y": 7500.0,
+        "z": 20000.0,
+        "archetype": "nomad_gate2",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF01_to_CF11",
+        "name": "Regalis Gate",
+        "ids_name": "481356",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 0.0,
+        "y": 7500.0,
+        "z": 20000.0,
+        "archetype": "nomad_gate",
+        "solar_radius": 600.0,
+        "dest_system": "CF11",
+        "dest_gate": "CF11_to_CF01",
+        "faction": "gd_z_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF01_to_CF11overlay",
+        "name": "Regalis Gate",
+        "ids_name": "481356",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 0.0,
+        "y": 7500.0,
+        "z": 20000.0,
+        "archetype": "nomad_gate2",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF01_to_CF12",
+        "name": "Casius Gate",
+        "ids_name": "481357",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": -2500.0,
+        "y": 7500.0,
+        "z": 20000.0,
+        "archetype": "nomad_gate",
+        "solar_radius": 600.0,
+        "dest_system": "CF12",
+        "dest_gate": "CF12_to_CF01",
+        "faction": "gd_z_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF01_to_CF12overlay",
+        "name": "Casius Gate",
+        "ids_name": "481357",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": -2500.0,
+        "y": 7500.0,
+        "z": 20000.0,
+        "archetype": "nomad_gate2",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF01_to_CF13",
+        "name": "Arena Gate",
+        "ids_name": "481358",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 10000.0,
+        "y": 2500.0,
+        "z": 20000.0,
+        "archetype": "nomad_gate",
+        "solar_radius": 600.0,
+        "dest_system": "CF13",
+        "dest_gate": "CF13_to_CF01",
+        "faction": "gd_z_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF01_to_CF13overlay",
+        "name": "Arena Gate",
+        "ids_name": "481358",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 10000.0,
+        "y": 2500.0,
+        "z": 20000.0,
+        "archetype": "nomad_gate2",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF01_to_CF14",
+        "name": "Nephele Gate",
+        "ids_name": "481340",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 10000.0,
+        "y": 0.0,
+        "z": 20000.0,
+        "archetype": "nomad_gate",
+        "solar_radius": 600.0,
+        "dest_system": "CF14",
+        "dest_gate": "CF14_to_CF01",
+        "faction": "gd_z_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF01_to_CF14overlay",
+        "name": "Nephele Gate",
+        "ids_name": "481340",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 10000.0,
+        "y": 0.0,
+        "z": 20000.0,
+        "archetype": "nomad_gate2",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF01_to_CF15",
+        "name": "Enyo Gate",
+        "ids_name": "481341",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 10000.0,
+        "y": -2500.0,
+        "z": 20000.0,
+        "archetype": "nomad_gate",
+        "solar_radius": 600.0,
+        "dest_system": "CF15",
+        "dest_gate": "CF15_to_CF01",
+        "faction": "gd_z_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF01_to_CF15overlay",
+        "name": "Enyo Gate",
+        "ids_name": "481341",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 10000.0,
+        "y": -2500.0,
+        "z": 20000.0,
+        "archetype": "nomad_gate2",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF01_to_CF16",
+        "name": "Enigma Gate",
+        "ids_name": "481342",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 10000.0,
+        "y": -5000.0,
+        "z": 20000.0,
+        "archetype": "nomad_gate",
+        "solar_radius": 600.0,
+        "dest_system": "CF16",
+        "dest_gate": "CF16_to_CF01",
+        "faction": "gd_z_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF01_to_CF16overlay",
+        "name": "Enigma Gate",
+        "ids_name": "481342",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 10000.0,
+        "y": -5000.0,
+        "z": 20000.0,
+        "archetype": "nomad_gate2",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF01_to_CF17",
+        "name": "Sekar Gate",
+        "ids_name": "481343",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 10000.0,
+        "y": -7500.0,
+        "z": 20000.0,
+        "archetype": "nomad_gate",
+        "solar_radius": 600.0,
+        "dest_system": "CF17",
+        "dest_gate": "CF17_to_CF01",
+        "faction": "gd_z_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF01_to_CF17overlay",
+        "name": "Sekar Gate",
+        "ids_name": "481343",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 10000.0,
+        "y": -7500.0,
+        "z": 20000.0,
+        "archetype": "nomad_gate2",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF01_to_RW01",
+        "name": "Wheel of Sirius Gate",
+        "ids_name": "481344",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 10000.0,
+        "y": 25000.0,
+        "z": 20000.0,
+        "archetype": "nomad_gate",
+        "solar_radius": 600.0,
+        "dest_system": "RW01",
+        "dest_gate": "RW01_to_CF01",
+        "faction": "gd_z_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF01_to_RW01overlay",
+        "name": "Wheel of Sirius Gate",
+        "ids_name": "481344",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 10000.0,
+        "y": 25000.0,
+        "z": 20000.0,
+        "archetype": "nomad_gate2",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "",
+        "loadout": "",
+        "rotate_y": 180.0
+      }
+    ],
     "jumpholes": [],
     "stations": [
       {
@@ -81720,10 +82571,10 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF01_04",
-        "name": "CF01_04",
+        "name": "Aeston Shipyard",
         "ids_name": "480451",
         "ids_info": "480452",
-        "info": "",
+        "info": "CLASS: Cathedral\nGRAVITY: Complete\nDOCKING: Yes\nAMENITIES: Yes\nPOPULATION: 3K",
         "x": -34794.0,
         "y": 127.0,
         "z": -49950.0,
@@ -81738,10 +82589,10 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF01_04_docking_fixture",
-        "name": "CF01_04_docking_fixture",
+        "name": "Aeston Docking Fixture",
         "ids_name": "480453",
         "ids_info": "480452",
-        "info": "",
+        "info": "CLASS: Cathedral\nGRAVITY: Complete\nDOCKING: Yes\nAMENITIES: Yes\nPOPULATION: 3K",
         "x": -33820.0,
         "y": 440.0,
         "z": -49098.0,
@@ -81954,10 +82805,10 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF01_05",
-        "name": "CF01_05",
+        "name": "Far Water Shipyard",
         "ids_name": "480454",
         "ids_info": "480455",
-        "info": "",
+        "info": "CLASS: Akebono\nGRAVITY: Complete\nDOCKING: Yes\nAMENITIES: Yes\nPOPULATION: 550",
         "x": 45600.0,
         "y": 0.0,
         "z": 51770.0,
@@ -81972,10 +82823,10 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF01_05_docking_fixture",
-        "name": "CF01_05_docking_fixture",
+        "name": "Far Water Docking Fixture",
         "ids_name": "480456",
         "ids_info": "480455",
-        "info": "",
+        "info": "CLASS: Akebono\nGRAVITY: Complete\nDOCKING: Yes\nAMENITIES: Yes\nPOPULATION: 550",
         "x": 45600.0,
         "y": -500.0,
         "z": 51770.0,
@@ -85162,14 +86013,48 @@ const GAME_SYSTEMS = {
     "nebulae": []
   },
   "CF02": {
-    "name": "CF02",
+    "name": "Custodian",
     "strid_name": "459236",
     "ids_info": "458913",
     "info": "",
     "jumpgates": [
       {
+        "nickname": "CF02_to_CF01",
+        "name": "X-3043 Gate",
+        "ids_name": "481347",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": -40000.0,
+        "y": 0.0,
+        "z": -22000.0,
+        "archetype": "nomad_gate",
+        "solar_radius": 600.0,
+        "dest_system": "CF01",
+        "dest_gate": "CF01_to_CF02",
+        "faction": "li_p_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF02_to_CF01overlay",
+        "name": "X-3043 Gate",
+        "ids_name": "481347",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": -40000.0,
+        "y": 0.0,
+        "z": -22000.0,
+        "archetype": "nomad_gate2",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
         "nickname": "CF02_to_Li01",
-        "name": "CF02_to_Li01",
+        "name": "New York Jump Gate",
         "ids_name": "481440",
         "ids_info": "66145",
         "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
@@ -86341,10 +87226,10 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF02_03",
-        "name": "CF02_03",
+        "name": "Odari construction site",
         "ids_name": "472301",
         "ids_info": "472302",
-        "info": "",
+        "info": "This station is the first Orbital Spa and Cruise hotel built in this system. While still under construction, the public interest in this luxury project rose to a very high level when it was announced that Planet Monoc was a pleasure planet where every whim and decadent urge could be fulfilled.",
         "x": -6380.0,
         "y": 0.0,
         "z": 56377.0,
@@ -86359,7 +87244,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF02_Repair_01",
-        "name": "CF02_Repair_01",
+        "name": "Repair Ship",
         "ids_name": "500064",
         "ids_info": "500066",
         "info": "",
@@ -86503,10 +87388,10 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF02_Ithaca_station_01",
-        "name": "CF02_Ithaca_station_01",
+        "name": "Itania Station wreck",
         "ids_name": "472317",
         "ids_info": "472318",
-        "info": "",
+        "info": "Itania was the first station to be constructed in the new territories after the great battle of X-3043. Five weeks prior its completion the station got destroyed by a Nomad ambush in this area. 573 workers died in minutes.\nAfter this incident Liberty authorities pushed the construction of Neutro Station as defence outpost in this area and a large mine field, protecting the access to New York.",
         "x": -38823.0,
         "y": 0.0,
         "z": 92128.0,
@@ -87269,7 +88154,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF02_planet_1",
-        "name": "CF02_planet_1",
+        "name": "Ranolt",
         "ids_name": "472307",
         "ids_info": "472308",
         "info": "",
@@ -87289,10 +88174,10 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF02_planet_2",
-        "name": "CF02_planet_2",
+        "name": "Ascust",
         "ids_name": "472305",
         "ids_info": "472306",
-        "info": "",
+        "info": "DIAMETER: 4,821 km\nMASS: 3.17 x 10e24 kg\nTERRAIN: Desert\nTEMPERATURE: -46°C to 34°C\nESCAPE VELOCITY: 5.56 km/sec\nAscust is the biggest of Monoc's moons. It is a desert world scoured clean by ceaseless sandstorms that wash across its surface.\nA mining operation was established on the moon by Deep Space Engineering to exploit its deposits, and it is now the only raw material extraction facility within the Custodian System.",
         "x": 3526.0,
         "y": -500.0,
         "z": 61210.0,
@@ -87309,7 +88194,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF02_planet_3",
-        "name": "CF02_planet_3",
+        "name": "Atany",
         "ids_name": "472303",
         "ids_info": "472304",
         "info": "",
@@ -87329,10 +88214,10 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF02_planet_4",
-        "name": "CF02_planet_4",
+        "name": "Tanyer",
         "ids_name": "472309",
         "ids_info": "472310",
-        "info": "",
+        "info": "DIAMETER: 10,698 km\nMASS: 6.23 x 10e24 kg\nTERRAIN: Desert\nTEMPERATURE: -23°C to 56°C\nESCAPE VELOCITY: 11.27 km/sec\nTanyer is a hot, dry world warmed by internal volcanic processes, but with no atmosphere capable of supporting life.",
         "x": -41610.0,
         "y": 1000.0,
         "z": 98231.0,
@@ -87349,10 +88234,10 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF02_planet_5",
-        "name": "CF02_planet_5",
+        "name": "Rilan",
         "ids_name": "472311",
         "ids_info": "472312",
-        "info": "",
+        "info": "DIAMETER: 9,291 km\nMASS: 3.81 x 10e24 kg\nTERRAIN: Barren\nTEMPERATURE: -46°C to 43°C\nESCAPE VELOCITY: 8.03 km/sec\nRilan is a bleak moon with no atmosphere to protect it from the meteor strikes that have gouged ragged holes in its crust.",
         "x": -47555.0,
         "y": 1500.0,
         "z": 100623.0,
@@ -87369,10 +88254,10 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF02_planet_6",
-        "name": "CF02_planet_6",
+        "name": "Delorm",
         "ids_name": "472313",
         "ids_info": "472314",
-        "info": "",
+        "info": "DIAMETER: 6,472 km\nMASS: 3.19 x 10e24 kg\nTERRAIN: Barren\nTEMPERATURE: -51°C to -38°C\nESCAPE VELOCITY: 4.11 km/sec\nDelorm is a harsh, rocky moon once formed in volcanic upheavals that have long since stilled and grown cold. Whatever atmosphere may have once been present has evaporated into space over the millennia.",
         "x": -45235.0,
         "y": -1000.0,
         "z": 95331.0,
@@ -87389,10 +88274,10 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF02_planet_7",
-        "name": "CF02_planet_7",
+        "name": "Tiadar",
         "ids_name": "472315",
         "ids_info": "472316",
-        "info": "",
+        "info": "DIAMETER: 8,500 km\nMASS: 4.74 x 10e24 kg\nTERRAIN: Barren\nTEMPERATURE: -75°C to -34°C\nESCAPE VELOCITY: 9.72 km/sec\nA rocky, airless moon, pockmarked by asteroid impact craters.Tiadar is the fourth moon orbiting Planet Granu.",
         "x": -23414.0,
         "y": 500.0,
         "z": 95694.0,
@@ -94067,15 +94952,50 @@ const GAME_SYSTEMS = {
     ]
   },
   "Cf03": {
-    "name": "CF03",
+    "name": "Tarsus",
     "strid_name": "459248",
     "ids_info": "458914",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "CF03_to_CF01",
+        "name": "X-3043 Gate",
+        "ids_name": "481347",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 52502.0,
+        "y": 0.0,
+        "z": 28433.0,
+        "archetype": "nomad_gate",
+        "solar_radius": 600.0,
+        "dest_system": "CF01",
+        "dest_gate": "CF01_to_CF03",
+        "faction": "li_p_grp",
+        "loadout": "",
+        "rotate_y": 0.0
+      },
+      {
+        "nickname": "CF03_to_CF01overlay",
+        "name": "X-3043 Gate",
+        "ids_name": "481347",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 52502.0,
+        "y": 0.0,
+        "z": 28433.0,
+        "archetype": "nomad_gate2",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "",
+        "loadout": "",
+        "rotate_y": 0.0
+      }
+    ],
     "jumpholes": [
       {
         "nickname": "CF03_to_CF24_hole",
-        "name": "CF03_to_CF24_hole",
+        "name": "Far Point Jump Hole",
         "ids_name": "480941",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -94202,7 +95122,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF03_03_base",
-        "name": "CF03_03_base",
+        "name": "Campos Station",
         "ids_name": "470015",
         "ids_info": "470016",
         "info": "",
@@ -95138,7 +96058,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF03_Repairship_01",
-        "name": "CF03_Repairship_01",
+        "name": "Repair Ship",
         "ids_name": "500064",
         "ids_info": "500066",
         "info": "",
@@ -95380,10 +96300,10 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF03_planet_1",
-        "name": "CF03_planet_1",
+        "name": "Perucia",
         "ids_name": "472319",
         "ids_info": "472320",
-        "info": "",
+        "info": "DIAMETER: 7,053 km.\nMASS: 10.98 x 10e23 kg.\nTERRAIN: Desert.\nTEMPERATURE: -71°C to 70°C\nESCAPE VELOCITY: 13.57 km/sec\nPerucia is covered by a single vast desert, broken only by large rocky outcroppings. A mining operation was established on the planet by BMM to exploit large copper deposits.",
         "x": 14570.0,
         "y": -1500.0,
         "z": -43124.0,
@@ -95400,7 +96320,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF03_planet_2",
-        "name": "CF03_planet_2",
+        "name": "Suleos",
         "ids_name": "472321",
         "ids_info": "472322",
         "info": "",
@@ -95420,7 +96340,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF03_planet_3",
-        "name": "CF03_planet_3",
+        "name": "Ingetia",
         "ids_name": "472323",
         "ids_info": "472324",
         "info": "",
@@ -95440,7 +96360,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF03_planet_4",
-        "name": "CF03_planet_4",
+        "name": "Sekeos",
         "ids_name": "472325",
         "ids_info": "472326",
         "info": "",
@@ -101119,15 +102039,50 @@ const GAME_SYSTEMS = {
     ]
   },
   "Cf04": {
-    "name": "CF04",
+    "name": "Vega",
     "strid_name": "459250",
     "ids_info": "458915",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "CF04_to_CF01",
+        "name": "X-3043 Gate",
+        "ids_name": "481347",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 83155.0,
+        "y": 0.0,
+        "z": -9558.0,
+        "archetype": "nomad_gate",
+        "solar_radius": 600.0,
+        "dest_system": "CF01",
+        "dest_gate": "CF01_to_CF04",
+        "faction": "li_p_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF04_to_CF01overlay",
+        "name": "X-3043 Gate",
+        "ids_name": "481347",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 83155.0,
+        "y": 0.0,
+        "z": -9558.0,
+        "archetype": "nomad_gate2",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "",
+        "loadout": "",
+        "rotate_y": 180.0
+      }
+    ],
     "jumpholes": [
       {
         "nickname": "CF04_to_CF08_hole",
-        "name": "CF04_to_CF08_hole",
+        "name": "Seltos Jump Hole",
         "ids_name": "480369",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -101144,7 +102099,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF04_to_CF24_hole",
-        "name": "CF04_to_CF24_hole",
+        "name": "Far Point Jump Hole",
         "ids_name": "480370",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -101343,7 +102298,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF04_03_base",
-        "name": "CF04_03_base",
+        "name": "Karnak Prison",
         "ids_name": "470017",
         "ids_info": "470018",
         "info": "",
@@ -102027,7 +102982,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF04_rh_battleshipnodock_01",
-        "name": "CF04_rh_battleshipnodock_01",
+        "name": "Albatros",
         "ids_name": "480022",
         "ids_info": "066596",
         "info": "Rheinwehr-Schlachtschiff\nDiese Schiffsklasse ist der Stolz der Flotte des Kanzlers. Sie wird für taktische \"Schachmatt-Züge\" der Rheinwehr eingesetzt.",
@@ -102199,7 +103154,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF04_planet_1",
-        "name": "CF04_planet_1",
+        "name": "Enos",
         "ids_name": "480010",
         "ids_info": "480011",
         "info": "",
@@ -102219,7 +103174,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF04_planet_2",
-        "name": "CF04_planet_2",
+        "name": "Oldskel",
         "ids_name": "480012",
         "ids_info": "480013",
         "info": "",
@@ -102239,7 +103194,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF04_planet_3",
-        "name": "CF04_planet_3",
+        "name": "Karan",
         "ids_name": "480014",
         "ids_info": "480015",
         "info": "",
@@ -102259,7 +103214,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF04_planet_4",
-        "name": "CF04_planet_4",
+        "name": "Ackorr",
         "ids_name": "480016",
         "ids_info": "480017",
         "info": "",
@@ -102279,7 +103234,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF04_planet_5",
-        "name": "CF04_planet_5",
+        "name": "Naim",
         "ids_name": "480018",
         "ids_info": "480019",
         "info": "",
@@ -108999,15 +109954,50 @@ const GAME_SYSTEMS = {
     ]
   },
   "Cf05": {
-    "name": "CF05",
+    "name": "Telosis",
     "strid_name": "459252",
     "ids_info": "458916",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "CF05_to_CF01",
+        "name": "X-3043 Gate",
+        "ids_name": "481347",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": -3218.0,
+        "y": 0.0,
+        "z": -4291.0,
+        "archetype": "nomad_gate",
+        "solar_radius": 600.0,
+        "dest_system": "CF01",
+        "dest_gate": "CF01_to_CF05",
+        "faction": "li_p_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF05_to_CF01overlay",
+        "name": "X-3043 Gate",
+        "ids_name": "481347",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": -3218.0,
+        "y": 0.0,
+        "z": -4291.0,
+        "archetype": "nomad_gate2",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "",
+        "loadout": "",
+        "rotate_y": 180.0
+      }
+    ],
     "jumpholes": [
       {
         "nickname": "CF05_to_CF15_hole",
-        "name": "CF05_to_CF15_hole",
+        "name": "Enyo Jump Hole",
         "ids_name": "480371",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -109116,7 +110106,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF05_03_Base",
-        "name": "CF05_03_Base",
+        "name": "Perg Shipyard",
         "ids_name": "470019",
         "ids_info": "470020",
         "info": "",
@@ -109698,7 +110688,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF05_planet_1",
-        "name": "CF05_planet_1",
+        "name": "Warhale",
         "ids_name": "480023",
         "ids_info": "480024",
         "info": "",
@@ -109718,7 +110708,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF05_planet_2",
-        "name": "CF05_planet_2",
+        "name": "Jeard",
         "ids_name": "480025",
         "ids_info": "480026",
         "info": "",
@@ -109738,7 +110728,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF05_planet_3",
-        "name": "CF05_planet_3",
+        "name": "Nalip",
         "ids_name": "480027",
         "ids_info": "480028",
         "info": "",
@@ -109758,7 +110748,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF05_planet_4",
-        "name": "CF05_planet_4",
+        "name": "Kysam",
         "ids_name": "480029",
         "ids_info": "480030",
         "info": "",
@@ -113801,15 +114791,50 @@ const GAME_SYSTEMS = {
     ]
   },
   "Cf06": {
-    "name": "CF06",
+    "name": "Daedalus",
     "strid_name": "459254",
     "ids_info": "458917",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "CF06_to_CF01",
+        "name": "X-3043 Gate",
+        "ids_name": "481347",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 63000.0,
+        "y": 0.0,
+        "z": 15000.0,
+        "archetype": "nomad_gate",
+        "solar_radius": 600.0,
+        "dest_system": "CF01",
+        "dest_gate": "CF01_to_CF06",
+        "faction": "li_p_grp",
+        "loadout": "",
+        "rotate_y": 0.0
+      },
+      {
+        "nickname": "CF06_to_CF01overlay",
+        "name": "X-3043 Gate",
+        "ids_name": "481347",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 63000.0,
+        "y": 0.0,
+        "z": 15000.0,
+        "archetype": "nomad_gate2",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "",
+        "loadout": "",
+        "rotate_y": 180.0
+      }
+    ],
     "jumpholes": [
       {
         "nickname": "CF06_to_CF25_hole",
-        "name": "CF06_to_CF25_hole",
+        "name": "Sea of Shadows Jump Hole",
         "ids_name": "480372",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -113826,7 +114851,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF06_to_CF08_hole",
-        "name": "CF06_to_CF08_hole",
+        "name": "Seltos Jump Hole",
         "ids_name": "480373",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -113953,7 +114978,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF06_03_Base",
-        "name": "CF06_03_Base",
+        "name": "Carmona Shipyard",
         "ids_name": "470021",
         "ids_info": "470022",
         "info": "",
@@ -114497,7 +115522,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF06_planet_1",
-        "name": "CF06_planet_1",
+        "name": "Asurn",
         "ids_name": "480031",
         "ids_info": "480032",
         "info": "",
@@ -114517,7 +115542,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF06_planet_2",
-        "name": "CF06_planet_2",
+        "name": "Enis",
         "ids_name": "480033",
         "ids_info": "480034",
         "info": "",
@@ -114537,7 +115562,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF06_planet_3",
-        "name": "CF06_planet_3",
+        "name": "Weril",
         "ids_name": "480035",
         "ids_info": "480036",
         "info": "",
@@ -114557,7 +115582,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF06_planet_4",
-        "name": "CF06_planet_4",
+        "name": "Verud",
         "ids_name": "480037",
         "ids_info": "480038",
         "info": "",
@@ -114577,7 +115602,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF06_planet_5",
-        "name": "CF06_planet_5",
+        "name": "Enkim",
         "ids_name": "480039",
         "ids_info": "480040",
         "info": "",
@@ -118066,15 +119091,50 @@ const GAME_SYSTEMS = {
     ]
   },
   "Cf07": {
-    "name": "CF07",
+    "name": "Helios",
     "strid_name": "459256",
     "ids_info": "458918",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "cf07_to_CF01",
+        "name": "X-3043 Gate",
+        "ids_name": "481347",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 82502.0,
+        "y": 0.0,
+        "z": 8433.0,
+        "archetype": "nomad_gate",
+        "solar_radius": 600.0,
+        "dest_system": "CF01",
+        "dest_gate": "CF01_to_cf07",
+        "faction": "li_p_grp",
+        "loadout": "",
+        "rotate_y": 0.0
+      },
+      {
+        "nickname": "cf07_to_CF01overlay",
+        "name": "X-3043 Gate",
+        "ids_name": "481347",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 82502.0,
+        "y": 0.0,
+        "z": 8433.0,
+        "archetype": "nomad_gate2",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "",
+        "loadout": "",
+        "rotate_y": 0.0
+      }
+    ],
     "jumpholes": [
       {
         "nickname": "CF07_to_rw01_hole",
-        "name": "CF07_to_rw01_hole",
+        "name": "Wheel of Sirius Jump Hole",
         "ids_name": "480374",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -118183,7 +119243,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF07_03_Base",
-        "name": "CF07_03_Base",
+        "name": "Capua Station",
         "ids_name": "470023",
         "ids_info": "470024",
         "info": "",
@@ -118795,7 +119855,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF07_mod_loopdock_01",
-        "name": "CF07_mod_loopdock_01",
+        "name": "Wisemark Ore Refinery",
         "ids_name": "480430",
         "ids_info": "480431",
         "info": "",
@@ -119121,7 +120181,7 @@ const GAME_SYSTEMS = {
     "planets": [
       {
         "nickname": "cf07_planet_Ayr",
-        "name": "cf07_planet_Ayr",
+        "name": "Planet Shadun",
         "ids_name": "500965",
         "ids_info": "459012",
         "info": "",
@@ -119181,7 +120241,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF07_planet_1",
-        "name": "CF07_planet_1",
+        "name": "Girod",
         "ids_name": "480041",
         "ids_info": "480042",
         "info": "",
@@ -119201,7 +120261,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF07_planet_2",
-        "name": "CF07_planet_2",
+        "name": "Asek",
         "ids_name": "480043",
         "ids_info": "480044",
         "info": "",
@@ -119221,7 +120281,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF07_planet_3",
-        "name": "CF07_planet_3",
+        "name": "Rildim",
         "ids_name": "480045",
         "ids_info": "480046",
         "info": "",
@@ -119241,7 +120301,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF07_planet_4",
-        "name": "CF07_planet_4",
+        "name": "Hinar",
         "ids_name": "480047",
         "ids_info": "480048",
         "info": "",
@@ -122788,15 +123848,50 @@ const GAME_SYSTEMS = {
     ]
   },
   "Cf08": {
-    "name": "CF08",
+    "name": "Seltos",
     "strid_name": "459258",
     "ids_info": "458919",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "cf08_to_CF01",
+        "name": "X-3043 Gate",
+        "ids_name": "481347",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 83155.0,
+        "y": 0.0,
+        "z": -9558.0,
+        "archetype": "nomad_gate",
+        "solar_radius": 600.0,
+        "dest_system": "CF01",
+        "dest_gate": "CF01_to_cf08",
+        "faction": "li_p_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "cf08_to_CF01overlay",
+        "name": "X-3043 Gate",
+        "ids_name": "481347",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 83155.0,
+        "y": 0.0,
+        "z": -9558.0,
+        "archetype": "nomad_gate2",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "",
+        "loadout": "",
+        "rotate_y": 180.0
+      }
+    ],
     "jumpholes": [
       {
         "nickname": "CF08_to_CF06_hole",
-        "name": "CF08_to_CF06_hole",
+        "name": "Daedalus Jump Hole",
         "ids_name": "480375",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -122813,7 +123908,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF08_to_CF04_hole",
-        "name": "CF08_to_CF04_hole",
+        "name": "Vega Jump Hole",
         "ids_name": "480376",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -122976,7 +124071,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF08_03_Base",
-        "name": "CF08_03_Base",
+        "name": "Enugu Station",
         "ids_name": "470025",
         "ids_info": "470026",
         "info": "",
@@ -123984,7 +125079,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF08_mod_no_platform_spikeless_01",
-        "name": "CF08_mod_no_platform_spikeless_01",
+        "name": "Nomad Structure",
         "ids_name": "480432",
         "ids_info": "480433",
         "info": "",
@@ -124452,7 +125547,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF08_mod_radar_win_01",
-        "name": "CF08_mod_radar_win_01",
+        "name": "Fighter Production Facility Alpha",
         "ids_name": "480434",
         "ids_info": "480435",
         "info": "",
@@ -124572,7 +125667,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF08_planet_1",
-        "name": "CF08_planet_1",
+        "name": "Neves",
         "ids_name": "480361",
         "ids_info": "480362",
         "info": "",
@@ -124592,7 +125687,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF08_planet_2",
-        "name": "CF08_planet_2",
+        "name": "Emper",
         "ids_name": "480363",
         "ids_info": "480364",
         "info": "",
@@ -124612,7 +125707,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF08_planet_3",
-        "name": "CF08_planet_3",
+        "name": "Voruske",
         "ids_name": "480365",
         "ids_info": "480366",
         "info": "",
@@ -128614,15 +129709,50 @@ const GAME_SYSTEMS = {
     ]
   },
   "Cf09": {
-    "name": "CF09",
+    "name": "Neophobos",
     "strid_name": "459260",
     "ids_info": "458920",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "CF09_to_CF01",
+        "name": "X-3043 Gate",
+        "ids_name": "481347",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 43155.0,
+        "y": 0.0,
+        "z": -49558.0,
+        "archetype": "nomad_gate",
+        "solar_radius": 600.0,
+        "dest_system": "CF01",
+        "dest_gate": "CF01_to_CF09",
+        "faction": "li_p_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF09_to_CF01overlay",
+        "name": "X-3043 Gate",
+        "ids_name": "481347",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 43155.0,
+        "y": 0.0,
+        "z": -49558.0,
+        "archetype": "nomad_gate2",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "",
+        "loadout": "",
+        "rotate_y": 180.0
+      }
+    ],
     "jumpholes": [
       {
         "nickname": "CF09_to_CF11_hole",
-        "name": "CF09_to_CF11_hole",
+        "name": "Regalis Jump Hole",
         "ids_name": "480377",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -128639,7 +129769,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF09_to_CF10_hole",
-        "name": "CF09_to_CF10_hole",
+        "name": "Vespus Jump Hole",
         "ids_name": "480378",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -128784,7 +129914,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF09_03_Base",
-        "name": "CF09_03_Base",
+        "name": "Ghats Prison",
         "ids_name": "470027",
         "ids_info": "470028",
         "info": "",
@@ -129234,7 +130364,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF09_space_industrial02_01",
-        "name": "CF09_space_industrial02_01",
+        "name": "Shipyard construction site",
         "ids_name": "480436",
         "ids_info": "480437",
         "info": "",
@@ -129252,7 +130382,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF09_Repairship_01",
-        "name": "CF09_Repairship_01",
+        "name": "Repair Ship",
         "ids_name": "500064",
         "ids_info": "500066",
         "info": "",
@@ -129388,7 +130518,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF09_planet_1",
-        "name": "CF09_planet_1",
+        "name": "Tongha",
         "ids_name": "480049",
         "ids_info": "480050",
         "info": "",
@@ -129408,7 +130538,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF09_planet_2",
-        "name": "CF09_planet_2",
+        "name": "Inair",
         "ids_name": "480051",
         "ids_info": "480052",
         "info": "",
@@ -129428,7 +130558,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF09_planet_3",
-        "name": "CF09_planet_3",
+        "name": "Stotur",
         "ids_name": "480053",
         "ids_info": "480054",
         "info": "",
@@ -129448,7 +130578,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF09_planet_4",
-        "name": "CF09_planet_4",
+        "name": "Cerer",
         "ids_name": "480055",
         "ids_info": "480056",
         "info": "",
@@ -133557,15 +134687,50 @@ const GAME_SYSTEMS = {
     ]
   },
   "Cf10": {
-    "name": "CF10",
+    "name": "Vespus",
     "strid_name": "459262",
     "ids_info": "458921",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "CF10_to_CF01",
+        "name": "X-3043 Gate",
+        "ids_name": "481347",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": -63000.0,
+        "y": 0.0,
+        "z": 55000.0,
+        "archetype": "nomad_gate",
+        "solar_radius": 600.0,
+        "dest_system": "CF01",
+        "dest_gate": "CF01_to_CF10",
+        "faction": "li_p_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF10_to_CF01overlay",
+        "name": "X-3043 Gate",
+        "ids_name": "481347",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": -63000.0,
+        "y": 0.0,
+        "z": 55000.0,
+        "archetype": "nomad_gate2",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "",
+        "loadout": "",
+        "rotate_y": 180.0
+      }
+    ],
     "jumpholes": [
       {
         "nickname": "CF10_to_CF09_hole",
-        "name": "CF10_to_CF09_hole",
+        "name": "Neophobos Jump Hole",
         "ids_name": "480379",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -133582,7 +134747,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF10_to_CF12_hole",
-        "name": "CF10_to_CF12_hole",
+        "name": "Casius Jump Hole",
         "ids_name": "480380",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -133709,7 +134874,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF10_03_dock_ring",
-        "name": "CF10_03_dock_ring",
+        "name": "Vernon Docking Ring",
         "ids_name": "470029",
         "ids_info": "66141",
         "info": ">>>ACHTUNG: Ohne Andockring keine Landung versuchen.<<<\nEin Andockring ist Teil eines 'Orbitalaufzug'-Systems, erfunden von Ageira Technologies. Durch superstarke kristalline Polymere und reibungslose Säulenlager ermöglichen Andockringe den problemlosen Ein- und Austritt landefähiger interstellarer Fahrzeuge.",
@@ -133925,7 +135090,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF10_space_research_01",
-        "name": "CF10_space_research_01",
+        "name": "Storage Depot",
         "ids_name": "480438",
         "ids_info": "480439",
         "info": "",
@@ -134021,7 +135186,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF10_planet_1",
-        "name": "CF10_planet_1",
+        "name": "Endvori",
         "ids_name": "480057",
         "ids_info": "480058",
         "info": "",
@@ -134041,7 +135206,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF10_planet_2",
-        "name": "CF10_planet_2",
+        "name": "Raktano",
         "ids_name": "480059",
         "ids_info": "480060",
         "info": "",
@@ -134061,7 +135226,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF10_planet_3",
-        "name": "CF10_planet_3",
+        "name": "Achurne",
         "ids_name": "480061",
         "ids_info": "480062",
         "info": "",
@@ -138596,7 +139761,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF100": {
-    "name": "CF100",
+    "name": "Epsilon Eridani",
     "strid_name": "480779",
     "ids_info": "480781",
     "info": "",
@@ -138604,7 +139769,7 @@ const GAME_SYSTEMS = {
     "jumpholes": [
       {
         "nickname": "CF100_to_CF20_hole",
-        "name": "CF100_to_CF20_hole",
+        "name": "Sol Jump Hole",
         "ids_name": "480999",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -138621,7 +139786,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF100_to_CF101_hole",
-        "name": "CF100_to_CF101_hole",
+        "name": "Tau Ceti Jump Hole",
         "ids_name": "481101",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -138660,7 +139825,7 @@ const GAME_SYSTEMS = {
     "planets": [
       {
         "nickname": "CF100_planet_1",
-        "name": "CF100_planet_1",
+        "name": "Rayshye",
         "ids_name": "480783",
         "ids_info": "480784",
         "info": "",
@@ -138680,7 +139845,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF100_planet_2",
-        "name": "CF100_planet_2",
+        "name": "Rakald",
         "ids_name": "480785",
         "ids_info": "480786",
         "info": "",
@@ -138700,7 +139865,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF100_planet_3",
-        "name": "CF100_planet_3",
+        "name": "Cersia",
         "ids_name": "480787",
         "ids_info": "480788",
         "info": "",
@@ -139148,7 +140313,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF101": {
-    "name": "CF101",
+    "name": "Tau Ceti",
     "strid_name": "480780",
     "ids_info": "480782",
     "info": "",
@@ -139156,7 +140321,7 @@ const GAME_SYSTEMS = {
     "jumpholes": [
       {
         "nickname": "CF101_to_CF100_hole",
-        "name": "CF101_to_CF100_hole",
+        "name": "Epsilon Eridani Jump Hole",
         "ids_name": "481099",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -139173,7 +140338,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF101_to_CF104_hole",
-        "name": "CF101_to_CF104_hole",
+        "name": "Epsilon Indi Jump Hole",
         "ids_name": "501875",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -139367,7 +140532,7 @@ const GAME_SYSTEMS = {
     "nebulae": []
   },
   "CF103": {
-    "name": "CF103",
+    "name": "Hive",
     "strid_name": "459270",
     "ids_info": "458951",
     "info": "",
@@ -139376,7 +140541,7 @@ const GAME_SYSTEMS = {
     "stations": [
       {
         "nickname": "nopowercore1",
-        "name": "nopowercore1",
+        "name": "Nomad Reactor Shell",
         "ids_name": "481617",
         "ids_info": "481618",
         "info": "",
@@ -139394,7 +140559,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "nopowercore2",
-        "name": "nopowercore2",
+        "name": "Nomad Reactor Shell",
         "ids_name": "481617",
         "ids_info": "481618",
         "info": "",
@@ -139412,7 +140577,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "nopowercore3",
-        "name": "nopowercore3",
+        "name": "Nomad Reactor Shell",
         "ids_name": "481617",
         "ids_info": "481618",
         "info": "",
@@ -139430,7 +140595,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "nopowercore4",
-        "name": "nopowercore4",
+        "name": "Nomad Reactor Shell",
         "ids_name": "481617",
         "ids_info": "481618",
         "info": "",
@@ -139473,7 +140638,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF104": {
-    "name": "CF104",
+    "name": "Epsilon Indi",
     "strid_name": "501851",
     "ids_info": "501852",
     "info": "",
@@ -139481,7 +140646,7 @@ const GAME_SYSTEMS = {
     "jumpholes": [
       {
         "nickname": "CF104_to_CF101_hole",
-        "name": "CF104_to_CF101_hole",
+        "name": "Tau Ceti Jump Hole",
         "ids_name": "501876",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -139498,7 +140663,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF104_to_CF105_hole",
-        "name": "CF104_to_CF105_hole",
+        "name": "Luyten Jump Hole",
         "ids_name": "501877",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -139518,7 +140683,7 @@ const GAME_SYSTEMS = {
     "planets": [
       {
         "nickname": "CF104_planet_1",
-        "name": "CF104_planet_1",
+        "name": "Planet Novis",
         "ids_name": "501950",
         "ids_info": "501951",
         "info": "",
@@ -139538,7 +140703,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF104_planet_2",
-        "name": "CF104_planet_2",
+        "name": "Planet Shangris",
         "ids_name": "501952",
         "ids_info": "501953",
         "info": "",
@@ -139558,7 +140723,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF104_planet_3",
-        "name": "CF104_planet_3",
+        "name": "Planet Canaan",
         "ids_name": "501954",
         "ids_info": "501955",
         "info": "",
@@ -139578,7 +140743,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF104_planet_4",
-        "name": "CF104_planet_4",
+        "name": "Planet Epitome",
         "ids_name": "501956",
         "ids_info": "501957",
         "info": "",
@@ -139598,7 +140763,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF104_planet_5",
-        "name": "CF104_planet_5",
+        "name": "Magni",
         "ids_name": "501958",
         "ids_info": "501959",
         "info": "",
@@ -140632,7 +141797,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF105": {
-    "name": "CF105",
+    "name": "Luyten",
     "strid_name": "501849",
     "ids_info": "501850",
     "info": "",
@@ -140640,7 +141805,7 @@ const GAME_SYSTEMS = {
     "jumpholes": [
       {
         "nickname": "CF105_to_CF104_hole",
-        "name": "CF105_to_CF104_hole",
+        "name": "Epsilon Indi Jump Hole",
         "ids_name": "501875",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -140657,7 +141822,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF105_to_CF106_hole",
-        "name": "CF105_to_CF106_hole",
+        "name": "Alsace Jump Hole",
         "ids_name": "501878",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -141120,7 +142285,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF106": {
-    "name": "CF106",
+    "name": "Alsace",
     "strid_name": "501855",
     "ids_info": "501856",
     "info": "",
@@ -141128,7 +142293,7 @@ const GAME_SYSTEMS = {
     "jumpholes": [
       {
         "nickname": "CF106_to_CF105_hole",
-        "name": "CF106_to_CF105_hole",
+        "name": "Luyten Jump Hole",
         "ids_name": "501877",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -141147,10 +142312,10 @@ const GAME_SYSTEMS = {
     "stations": [
       {
         "nickname": "CF106_01",
-        "name": "CF106_01",
+        "name": "Arles Station",
         "ids_name": "501869",
         "ids_info": "501870",
-        "info": "",
+        "info": "CLASS: Notre Dame\nGRAVITY: Complete\nDOCKING: Yes\nAMENITIES: Yes\nPOPULATION: 40K",
         "x": -19210.0,
         "y": 0.0,
         "z": 57271.0,
@@ -141671,7 +142836,7 @@ const GAME_SYSTEMS = {
     "planets": [
       {
         "nickname": "CF106_Planet_01",
-        "name": "CF106_Planet_01",
+        "name": "Planet Amiens",
         "ids_name": "501988",
         "ids_info": "501989",
         "info": "",
@@ -141691,10 +142856,10 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF106_Planet_02",
-        "name": "CF106_Planet_02",
+        "name": "Planet Carcassone",
         "ids_name": "501990",
         "ids_info": "501991",
-        "info": "",
+        "info": "DIAMETER: 18,207 km.\nMASS: 7.11 x 10e24 kg.\nTERRAIN: Ice\nTEMPERATURE: -173°C to 1°C\nESCAPE VELOCITY: 14.22 km/sec\nCarcassone is an iceworld drifting around a blue and a white star. First scans show that deep under the ice energy signatures exist. It is unknown if there is still a population hiding there or if there are just automatic systems following commands.",
         "x": 28838.0,
         "y": 10000.0,
         "z": 12860.0,
@@ -145006,7 +146171,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF107": {
-    "name": "CF107",
+    "name": "New Caledonia",
     "strid_name": "501859",
     "ids_info": "501860",
     "info": "",
@@ -145015,10 +146180,10 @@ const GAME_SYSTEMS = {
     "stations": [
       {
         "nickname": "CF107_01",
-        "name": "CF107_01",
+        "name": "Orléans Station",
         "ids_name": "501861",
         "ids_info": "501862",
-        "info": "",
+        "info": "CLASS: Notre Dame\nGRAVITY: Complete\nDOCKING: Yes\nAMENITIES: Yes\nPOPULATION: 40K",
         "x": -51936.0,
         "y": 0.0,
         "z": -35108.0,
@@ -145033,10 +146198,10 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF107_02",
-        "name": "CF107_02",
+        "name": "Bordeaux Station",
         "ids_name": "501863",
         "ids_info": "501864",
-        "info": "",
+        "info": "CLASS: Versailles\nGRAVITY: Complete\nDOCKING: Yes\nAMENITIES: Yes\nPOPULATION: 50K",
         "x": 51302.0,
         "y": 0.0,
         "z": -57072.0,
@@ -145051,10 +146216,10 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF107_02a",
-        "name": "CF107_02a",
+        "name": "Bordeaux Station",
         "ids_name": "501863",
         "ids_info": "501864",
-        "info": "",
+        "info": "CLASS: Versailles\nGRAVITY: Complete\nDOCKING: Yes\nAMENITIES: Yes\nPOPULATION: 50K",
         "x": 51302.0,
         "y": -181.0,
         "z": -57072.0,
@@ -145069,10 +146234,10 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF107_02b",
-        "name": "CF107_02b",
+        "name": "Bordeaux Station",
         "ids_name": "501863",
         "ids_info": "501864",
-        "info": "",
+        "info": "CLASS: Versailles\nGRAVITY: Complete\nDOCKING: Yes\nAMENITIES: Yes\nPOPULATION: 50K",
         "x": 52439.0,
         "y": -165.0,
         "z": -57081.0,
@@ -145087,10 +146252,10 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF107_02c",
-        "name": "CF107_02c",
+        "name": "Bordeaux Station",
         "ids_name": "501863",
         "ids_info": "501864",
-        "info": "",
+        "info": "CLASS: Versailles\nGRAVITY: Complete\nDOCKING: Yes\nAMENITIES: Yes\nPOPULATION: 50K",
         "x": 53202.0,
         "y": -179.0,
         "z": -57072.0,
@@ -145105,10 +146270,10 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF107_02d",
-        "name": "CF107_02d",
+        "name": "Bordeaux Station",
         "ids_name": "501863",
         "ids_info": "501864",
-        "info": "",
+        "info": "CLASS: Versailles\nGRAVITY: Complete\nDOCKING: Yes\nAMENITIES: Yes\nPOPULATION: 50K",
         "x": 53572.0,
         "y": -168.0,
         "z": -56438.0,
@@ -145123,10 +146288,10 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF107_02e",
-        "name": "CF107_02e",
+        "name": "Bordeaux Station",
         "ids_name": "501863",
         "ids_info": "501864",
-        "info": "",
+        "info": "CLASS: Versailles\nGRAVITY: Complete\nDOCKING: Yes\nAMENITIES: Yes\nPOPULATION: 50K",
         "x": 53956.0,
         "y": -180.0,
         "z": -55754.0,
@@ -145141,10 +146306,10 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF107_02f",
-        "name": "CF107_02f",
+        "name": "Bordeaux Station",
         "ids_name": "501863",
         "ids_info": "501864",
-        "info": "",
+        "info": "CLASS: Versailles\nGRAVITY: Complete\nDOCKING: Yes\nAMENITIES: Yes\nPOPULATION: 50K",
         "x": 53863.0,
         "y": -206.0,
         "z": -58184.0,
@@ -145159,10 +146324,10 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF107_02g",
-        "name": "CF107_02g",
+        "name": "Bordeaux Station",
         "ids_name": "501863",
         "ids_info": "501864",
-        "info": "",
+        "info": "CLASS: Versailles\nGRAVITY: Complete\nDOCKING: Yes\nAMENITIES: Yes\nPOPULATION: 50K",
         "x": 54387.0,
         "y": -187.0,
         "z": -59134.0,
@@ -145177,10 +146342,10 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF107_02h",
-        "name": "CF107_02h",
+        "name": "Bordeaux Station",
         "ids_name": "501863",
         "ids_info": "501864",
-        "info": "",
+        "info": "CLASS: Versailles\nGRAVITY: Complete\nDOCKING: Yes\nAMENITIES: Yes\nPOPULATION: 50K",
         "x": 54335.0,
         "y": -185.0,
         "z": -60088.0,
@@ -145195,10 +146360,10 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF107_02i",
-        "name": "CF107_02i",
+        "name": "Bordeaux Station",
         "ids_name": "501863",
         "ids_info": "501864",
-        "info": "",
+        "info": "CLASS: Versailles\nGRAVITY: Complete\nDOCKING: Yes\nAMENITIES: Yes\nPOPULATION: 50K",
         "x": 55186.0,
         "y": -185.0,
         "z": -59590.0,
@@ -145213,10 +146378,10 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF107_02j",
-        "name": "CF107_02j",
+        "name": "Bordeaux Station",
         "ids_name": "501863",
         "ids_info": "501864",
-        "info": "",
+        "info": "CLASS: Versailles\nGRAVITY: Complete\nDOCKING: Yes\nAMENITIES: Yes\nPOPULATION: 50K",
         "x": 53971.0,
         "y": -208.0,
         "z": -57072.0,
@@ -145231,10 +146396,10 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF107_03",
-        "name": "CF107_03",
+        "name": "Martinique Station",
         "ids_name": "501871",
         "ids_info": "501872",
-        "info": "",
+        "info": "CLASS: Versailles\nGRAVITY: Complete\nDOCKING: Yes\nAMENITIES: Yes\nPOPULATION: 50K",
         "x": -23311.0,
         "y": 0.0,
         "z": 51392.0,
@@ -145249,10 +146414,10 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF107_03a",
-        "name": "CF107_03a",
+        "name": "Martinique Station",
         "ids_name": "501871",
         "ids_info": "501872",
-        "info": "",
+        "info": "CLASS: Versailles\nGRAVITY: Complete\nDOCKING: Yes\nAMENITIES: Yes\nPOPULATION: 50K",
         "x": -23311.0,
         "y": -176.0,
         "z": 51392.0,
@@ -145267,10 +146432,10 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF107_03b",
-        "name": "CF107_03b",
+        "name": "Martinique Station",
         "ids_name": "501871",
         "ids_info": "501872",
-        "info": "",
+        "info": "CLASS: Versailles\nGRAVITY: Complete\nDOCKING: Yes\nAMENITIES: Yes\nPOPULATION: 50K",
         "x": -20644.0,
         "y": -151.0,
         "z": 51392.0,
@@ -145285,10 +146450,10 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF107_03c",
-        "name": "CF107_03c",
+        "name": "Martinique Station",
         "ids_name": "501871",
         "ids_info": "501872",
-        "info": "",
+        "info": "CLASS: Versailles\nGRAVITY: Complete\nDOCKING: Yes\nAMENITIES: Yes\nPOPULATION: 50K",
         "x": -21353.0,
         "y": -171.0,
         "z": 51403.0,
@@ -145303,10 +146468,10 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF107_03d",
-        "name": "CF107_03d",
+        "name": "Martinique Station",
         "ids_name": "501871",
         "ids_info": "501872",
-        "info": "",
+        "info": "CLASS: Versailles\nGRAVITY: Complete\nDOCKING: Yes\nAMENITIES: Yes\nPOPULATION: 50K",
         "x": -20623.0,
         "y": -171.0,
         "z": 52664.0,
@@ -145321,10 +146486,10 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF107_03e",
-        "name": "CF107_03e",
+        "name": "Martinique Station",
         "ids_name": "501871",
         "ids_info": "501872",
-        "info": "",
+        "info": "CLASS: Versailles\nGRAVITY: Complete\nDOCKING: Yes\nAMENITIES: Yes\nPOPULATION: 50K",
         "x": -22944.0,
         "y": -171.0,
         "z": 56669.0,
@@ -145339,10 +146504,10 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF107_03f",
-        "name": "CF107_03f",
+        "name": "Martinique Station",
         "ids_name": "501871",
         "ids_info": "501872",
-        "info": "",
+        "info": "CLASS: Versailles\nGRAVITY: Complete\nDOCKING: Yes\nAMENITIES: Yes\nPOPULATION: 50K",
         "x": -20988.0,
         "y": -156.0,
         "z": 52032.0,
@@ -145357,10 +146522,10 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF107_03g",
-        "name": "CF107_03g",
+        "name": "Martinique Station",
         "ids_name": "501871",
         "ids_info": "501872",
-        "info": "",
+        "info": "CLASS: Versailles\nGRAVITY: Complete\nDOCKING: Yes\nAMENITIES: Yes\nPOPULATION: 50K",
         "x": -21725.0,
         "y": -156.0,
         "z": 50780.0,
@@ -145375,10 +146540,10 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF107_03h",
-        "name": "CF107_03h",
+        "name": "Martinique Station",
         "ids_name": "501871",
         "ids_info": "501872",
-        "info": "",
+        "info": "CLASS: Versailles\nGRAVITY: Complete\nDOCKING: Yes\nAMENITIES: Yes\nPOPULATION: 50K",
         "x": -22109.0,
         "y": -168.0,
         "z": 50100.0,
@@ -145393,10 +146558,10 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF107_03i",
-        "name": "CF107_03i",
+        "name": "Martinique Station",
         "ids_name": "501871",
         "ids_info": "501872",
-        "info": "",
+        "info": "CLASS: Versailles\nGRAVITY: Complete\nDOCKING: Yes\nAMENITIES: Yes\nPOPULATION: 50K",
         "x": -21208.0,
         "y": -202.0,
         "z": 53716.0,
@@ -145411,10 +146576,10 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF107_03j",
-        "name": "CF107_03j",
+        "name": "Martinique Station",
         "ids_name": "501871",
         "ids_info": "501872",
-        "info": "",
+        "info": "CLASS: Versailles\nGRAVITY: Complete\nDOCKING: Yes\nAMENITIES: Yes\nPOPULATION: 50K",
         "x": -22275.0,
         "y": -202.0,
         "z": 55563.0,
@@ -145429,10 +146594,10 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF107_03k",
-        "name": "CF107_03k",
+        "name": "Martinique Station",
         "ids_name": "501871",
         "ids_info": "501872",
-        "info": "",
+        "info": "CLASS: Versailles\nGRAVITY: Complete\nDOCKING: Yes\nAMENITIES: Yes\nPOPULATION: 50K",
         "x": -19516.0,
         "y": -175.0,
         "z": 51404.0,
@@ -145447,10 +146612,10 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF107_03l",
-        "name": "CF107_03l",
+        "name": "Martinique Station",
         "ids_name": "501871",
         "ids_info": "501872",
-        "info": "",
+        "info": "CLASS: Versailles\nGRAVITY: Complete\nDOCKING: Yes\nAMENITIES: Yes\nPOPULATION: 50K",
         "x": -22116.0,
         "y": -178.0,
         "z": 51400.0,
@@ -145465,10 +146630,10 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF107_04",
-        "name": "CF107_04",
+        "name": "Marseille Shipyard",
         "ids_name": "501873",
         "ids_info": "501874",
-        "info": "",
+        "info": "CLASS: Avignon\nGRAVITY: Complete\nDOCKING: Yes\nAMENITIES: Yes\nPOPULATION: 25K",
         "x": 60639.0,
         "y": 0.0,
         "z": 24717.0,
@@ -146979,10 +148144,10 @@ const GAME_SYSTEMS = {
     "planets": [
       {
         "nickname": "CF107_planet_1",
-        "name": "CF107_planet_1",
+        "name": "Planet Reims",
         "ids_name": "502002",
         "ids_info": "502003",
-        "info": "",
+        "info": "DIAMETER: 7,053 km.\nMASS: 10.98 x 10e23 kg.\nTERRAIN: Desert.\nTEMPERATURE: -71°C to 70°C\nESCAPE VELOCITY: 13.57 km/sec\nReims is covered by a single vast desert, broken only by large rocky outcroppings. A mining operation was established on the planet but the surface would not allow permament settlement.",
         "x": 14570.0,
         "y": -1500.0,
         "z": -43124.0,
@@ -146999,7 +148164,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF107_planet_2",
-        "name": "CF107_planet_2",
+        "name": "Nantes",
         "ids_name": "502004",
         "ids_info": "502005",
         "info": "",
@@ -147019,7 +148184,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF107_planet_3",
-        "name": "CF107_planet_3",
+        "name": "Grenoble",
         "ids_name": "502006",
         "ids_info": "502007",
         "info": "",
@@ -147039,7 +148204,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF107_planet_4",
-        "name": "CF107_planet_4",
+        "name": "Planet Tours",
         "ids_name": "502008",
         "ids_info": "502009",
         "info": "",
@@ -152075,7 +153240,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF108": {
-    "name": "CF108",
+    "name": "Burgundy",
     "strid_name": "501857",
     "ids_info": "501858",
     "info": "",
@@ -152084,10 +153249,10 @@ const GAME_SYSTEMS = {
     "stations": [
       {
         "nickname": "CF108_01",
-        "name": "CF108_01",
+        "name": "Strasbourg Station",
         "ids_name": "501865",
         "ids_info": "501866",
-        "info": "",
+        "info": "CLASS: Versailles\nGRAVITY: Complete\nDOCKING: Yes\nAMENITIES: Yes\nPOPULATION: 50K",
         "x": -41919.0,
         "y": 0.0,
         "z": -17401.0,
@@ -152102,10 +153267,10 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF108_02",
-        "name": "CF108_02",
+        "name": "Lyon Station",
         "ids_name": "501867",
         "ids_info": "501868",
-        "info": "",
+        "info": "CLASS: Versailles\nGRAVITY: Complete\nDOCKING: Yes\nAMENITIES: Yes\nPOPULATION: 50K",
         "x": 14509.0,
         "y": 0.0,
         "z": -53900.0,
@@ -152120,10 +153285,10 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF108_02a",
-        "name": "CF108_02a",
+        "name": "Lyon Station",
         "ids_name": "501867",
         "ids_info": "501868",
-        "info": "",
+        "info": "CLASS: Versailles\nGRAVITY: Complete\nDOCKING: Yes\nAMENITIES: Yes\nPOPULATION: 50K",
         "x": 14509.0,
         "y": -180.0,
         "z": -53900.0,
@@ -152138,10 +153303,10 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF108_02b",
-        "name": "CF108_02b",
+        "name": "Lyon Station",
         "ids_name": "501867",
         "ids_info": "501868",
-        "info": "",
+        "info": "CLASS: Versailles\nGRAVITY: Complete\nDOCKING: Yes\nAMENITIES: Yes\nPOPULATION: 50K",
         "x": 15645.0,
         "y": -165.0,
         "z": -53908.0,
@@ -152156,10 +153321,10 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF108_02c",
-        "name": "CF108_02c",
+        "name": "Lyon Station",
         "ids_name": "501867",
         "ids_info": "501868",
-        "info": "",
+        "info": "CLASS: Versailles\nGRAVITY: Complete\nDOCKING: Yes\nAMENITIES: Yes\nPOPULATION: 50K",
         "x": 16403.0,
         "y": -175.0,
         "z": -53900.0,
@@ -152174,10 +153339,10 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF108_02d",
-        "name": "CF108_02d",
+        "name": "Lyon Station",
         "ids_name": "501867",
         "ids_info": "501868",
-        "info": "",
+        "info": "CLASS: Versailles\nGRAVITY: Complete\nDOCKING: Yes\nAMENITIES: Yes\nPOPULATION: 50K",
         "x": 17077.0,
         "y": -164.0,
         "z": -55971.0,
@@ -152192,10 +153357,10 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF108_02e",
-        "name": "CF108_02e",
+        "name": "Lyon Station",
         "ids_name": "501867",
         "ids_info": "501868",
-        "info": "",
+        "info": "CLASS: Versailles\nGRAVITY: Complete\nDOCKING: Yes\nAMENITIES: Yes\nPOPULATION: 50K",
         "x": 17477.0,
         "y": -175.0,
         "z": -56644.0,
@@ -152210,10 +153375,10 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF108_02f",
-        "name": "CF108_02f",
+        "name": "Lyon Station",
         "ids_name": "501867",
         "ids_info": "501868",
-        "info": "",
+        "info": "CLASS: Versailles\nGRAVITY: Complete\nDOCKING: Yes\nAMENITIES: Yes\nPOPULATION: 50K",
         "x": 18872.0,
         "y": -173.0,
         "z": -57080.0,
@@ -152228,10 +153393,10 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF108_02g",
-        "name": "CF108_02g",
+        "name": "Lyon Station",
         "ids_name": "501867",
         "ids_info": "501868",
-        "info": "",
+        "info": "CLASS: Versailles\nGRAVITY: Complete\nDOCKING: Yes\nAMENITIES: Yes\nPOPULATION: 50K",
         "x": 18240.0,
         "y": -199.0,
         "z": -55955.0,
@@ -152246,10 +153411,10 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF108_02h",
-        "name": "CF108_02h",
+        "name": "Lyon Station",
         "ids_name": "501867",
         "ids_info": "501868",
-        "info": "",
+        "info": "CLASS: Versailles\nGRAVITY: Complete\nDOCKING: Yes\nAMENITIES: Yes\nPOPULATION: 50K",
         "x": 17163.0,
         "y": -179.0,
         "z": -55054.0,
@@ -152264,10 +153429,10 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF108_02i",
-        "name": "CF108_02i",
+        "name": "Lyon Station",
         "ids_name": "501867",
         "ids_info": "501868",
-        "info": "",
+        "info": "CLASS: Versailles\nGRAVITY: Complete\nDOCKING: Yes\nAMENITIES: Yes\nPOPULATION: 50K",
         "x": 16781.0,
         "y": -180.0,
         "z": -54567.0,
@@ -153256,7 +154421,7 @@ const GAME_SYSTEMS = {
     "planets": [
       {
         "nickname": "CF108_planet_1",
-        "name": "CF108_planet_1",
+        "name": "Luberon",
         "ids_name": "502070",
         "ids_info": "502071",
         "info": "",
@@ -153276,7 +154441,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF108_planet_2",
-        "name": "CF108_planet_2",
+        "name": "Morvan",
         "ids_name": "502072",
         "ids_info": "502073",
         "info": "",
@@ -153296,7 +154461,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF108_planet_3",
-        "name": "CF108_planet_3",
+        "name": "Planet Bourges",
         "ids_name": "502074",
         "ids_info": "502075",
         "info": "",
@@ -153316,7 +154481,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF108_planet_4",
-        "name": "CF108_planet_4",
+        "name": "Royan",
         "ids_name": "502076",
         "ids_info": "502077",
         "info": "",
@@ -153336,7 +154501,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF108_planet_5",
-        "name": "CF108_planet_5",
+        "name": "Montauban",
         "ids_name": "502078",
         "ids_info": "502079",
         "info": "",
@@ -157624,7 +158789,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF109": {
-    "name": "CF109",
+    "name": "Procyon",
     "strid_name": "501853",
     "ids_info": "501854",
     "info": "",
@@ -157632,7 +158797,7 @@ const GAME_SYSTEMS = {
     "jumpholes": [
       {
         "nickname": "CF109_to_CF108_hole",
-        "name": "CF109_to_CF108_hole",
+        "name": "Burgundy Jump Hole",
         "ids_name": "501884",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -157759,7 +158924,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF109_NomadGate",
-        "name": "CF109_NomadGate",
+        "name": "Unknown Nomad Gate",
         "ids_name": "501968",
         "ids_info": "66145",
         "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
@@ -157966,15 +159131,50 @@ const GAME_SYSTEMS = {
     ]
   },
   "Cf11": {
-    "name": "CF11",
+    "name": "Regalis",
     "strid_name": "459264",
     "ids_info": "458922",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "cf11_to_CF01",
+        "name": "X-3043 Gate",
+        "ids_name": "481347",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": -60000.0,
+        "y": 3000.0,
+        "z": 54000.0,
+        "archetype": "nomad_gate",
+        "solar_radius": 600.0,
+        "dest_system": "CF01",
+        "dest_gate": "CF01_to_cf11",
+        "faction": "li_p_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "cf11_to_CF01overlay",
+        "name": "X-3043 Gate",
+        "ids_name": "481347",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": -60000.0,
+        "y": 3000.0,
+        "z": 54000.0,
+        "archetype": "nomad_gate2",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "",
+        "loadout": "",
+        "rotate_y": 180.0
+      }
+    ],
     "jumpholes": [
       {
         "nickname": "CF11_to_CF09_hole",
-        "name": "CF11_to_CF09_hole",
+        "name": "Neophobos Jump Hole",
         "ids_name": "480381",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -158065,7 +159265,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF11_03_Base",
-        "name": "CF11_03_Base",
+        "name": "Karun Shipyard",
         "ids_name": "470031",
         "ids_info": "470032",
         "info": "",
@@ -158677,7 +159877,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF11_mod_radar_win_01",
-        "name": "CF11_mod_radar_win_01",
+        "name": "Fighter Production Facility Beta",
         "ids_name": "480440",
         "ids_info": "480435",
         "info": "",
@@ -158883,7 +160083,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF11_planet_1",
-        "name": "CF11_planet_1",
+        "name": "Oldop",
         "ids_name": "480063",
         "ids_info": "480064",
         "info": "",
@@ -158903,7 +160103,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF11_planet_2",
-        "name": "CF11_planet_2",
+        "name": "Rayrgha",
         "ids_name": "480065",
         "ids_info": "480066",
         "info": "",
@@ -158923,7 +160123,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF11_planet_3",
-        "name": "CF11_planet_3",
+        "name": "Irnina",
         "ids_name": "480067",
         "ids_info": "480068",
         "info": "",
@@ -163252,15 +164452,50 @@ const GAME_SYSTEMS = {
     "nebulae": []
   },
   "Cf12": {
-    "name": "CF12",
+    "name": "Casius",
     "strid_name": "459266",
     "ids_info": "458923",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "cf12_to_CF01",
+        "name": "X-3043 Gate",
+        "ids_name": "481347",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": -33076.0,
+        "y": -4000.0,
+        "z": -68196.0,
+        "archetype": "nomad_gate",
+        "solar_radius": 600.0,
+        "dest_system": "CF01",
+        "dest_gate": "CF01_to_cf12",
+        "faction": "li_p_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "cf12_to_CF01overlay",
+        "name": "X-3043 Gate",
+        "ids_name": "481347",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": -33076.0,
+        "y": -4000.0,
+        "z": -68196.0,
+        "archetype": "nomad_gate2",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "",
+        "loadout": "",
+        "rotate_y": 180.0
+      }
+    ],
     "jumpholes": [
       {
         "nickname": "CF12_to_CF10_hole",
-        "name": "CF12_to_CF10_hole",
+        "name": "Vespus Jump Hole",
         "ids_name": "480382",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -163277,7 +164512,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF12_to_CF17_hole",
-        "name": "CF12_to_CF17_hole",
+        "name": "Sekar Jump Hole",
         "ids_name": "480383",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -163404,7 +164639,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF12_03_Base",
-        "name": "CF12_03_Base",
+        "name": "Lhasa Station",
         "ids_name": "470033",
         "ids_info": "470034",
         "info": "",
@@ -164484,7 +165719,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF12_proxy_base",
-        "name": "CF12_proxy_base",
+        "name": "Local Clan Base",
         "ids_name": "481811",
         "ids_info": "481812",
         "info": "",
@@ -164502,7 +165737,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF12_proxy_base_01",
-        "name": "CF12_proxy_base_01",
+        "name": "Local Clan Base",
         "ids_name": "481811",
         "ids_info": "481812",
         "info": "",
@@ -164520,7 +165755,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF12_proxy_base_02",
-        "name": "CF12_proxy_base_02",
+        "name": "Local Clan Base",
         "ids_name": "481811",
         "ids_info": "481812",
         "info": "",
@@ -164538,7 +165773,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF12_proxy_base_03",
-        "name": "CF12_proxy_base_03",
+        "name": "Local Clan Base",
         "ids_name": "481811",
         "ids_info": "481812",
         "info": "",
@@ -164556,7 +165791,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF12_proxy_base_04",
-        "name": "CF12_proxy_base_04",
+        "name": "Local Clan Base",
         "ids_name": "481811",
         "ids_info": "481812",
         "info": "",
@@ -164596,7 +165831,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF12_planet_1",
-        "name": "CF12_planet_1",
+        "name": "Yerih",
         "ids_name": "480069",
         "ids_info": "480070",
         "info": "",
@@ -169058,15 +170293,118 @@ const GAME_SYSTEMS = {
     ]
   },
   "Cf13": {
-    "name": "CF13",
+    "name": "Arena",
     "strid_name": "459268",
     "ids_info": "458886",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "cf13_to_CF01",
+        "name": "X-3043 Gate",
+        "ids_name": "481347",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": -6000.0,
+        "y": 6180.0,
+        "z": 6000.0,
+        "archetype": "nomad_gate",
+        "solar_radius": 600.0,
+        "dest_system": "CF01",
+        "dest_gate": "CF01_to_cf13",
+        "faction": "li_p_grp",
+        "loadout": "",
+        "rotate_y": 320.0
+      },
+      {
+        "nickname": "cf13_to_CF01overlay",
+        "name": "X-3043 Gate",
+        "ids_name": "481347",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": -6000.0,
+        "y": 6180.0,
+        "z": 6000.0,
+        "archetype": "nomad_gate2",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "",
+        "loadout": "",
+        "rotate_y": 320.0
+      },
+      {
+        "nickname": "cf13_to_CF32",
+        "name": "Coloseum Gate",
+        "ids_name": "481321",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": -7000.0,
+        "y": 9180.0,
+        "z": 7000.0,
+        "archetype": "nomad_gate",
+        "solar_radius": 600.0,
+        "dest_system": "CF32",
+        "dest_gate": "CF32_to_cf13",
+        "faction": "li_p_grp",
+        "loadout": "",
+        "rotate_y": 320.0
+      },
+      {
+        "nickname": "cf13_to_CF32overlay",
+        "name": "Coloseum Gate",
+        "ids_name": "481321",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": -7000.0,
+        "y": 9180.0,
+        "z": 7000.0,
+        "archetype": "nomad_gate2",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "",
+        "loadout": "",
+        "rotate_y": 320.0
+      },
+      {
+        "nickname": "cf13_to_CF41",
+        "name": "Hive Gate",
+        "ids_name": "481359",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": -10000.0,
+        "y": 3180.0,
+        "z": 13000.0,
+        "archetype": "nomad_gate",
+        "solar_radius": 600.0,
+        "dest_system": "CF41",
+        "dest_gate": "CF41_to_cf13",
+        "faction": "li_p_grp",
+        "loadout": "",
+        "rotate_y": 300.0
+      },
+      {
+        "nickname": "cf13_to_CF41overlay",
+        "name": "Hive Gate",
+        "ids_name": "481359",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": -10000.0,
+        "y": 3180.0,
+        "z": 13000.0,
+        "archetype": "nomad_gate2",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "",
+        "loadout": "",
+        "rotate_y": 300.0
+      }
+    ],
     "jumpholes": [
       {
         "nickname": "CF13_to_rw01_hole",
-        "name": "CF13_to_rw01_hole",
+        "name": "Wheel of Sirius Jump Hole",
         "ids_name": "480374",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -169083,7 +170421,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF13_to_CF16_hole",
-        "name": "CF13_to_CF16_hole",
+        "name": "Enigma Jump Hole",
         "ids_name": "480384",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -169160,7 +170498,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF13_planet_1",
-        "name": "CF13_planet_1",
+        "name": "Iaentha",
         "ids_name": "480071",
         "ids_info": "480072",
         "info": "",
@@ -169180,7 +170518,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF13_planet_2",
-        "name": "CF13_planet_2",
+        "name": "Enhwar",
         "ids_name": "480073",
         "ids_info": "480074",
         "info": "",
@@ -169322,14 +170660,14 @@ const GAME_SYSTEMS = {
     ]
   },
   "cf14": {
-    "name": "CF14",
+    "name": "Nephele",
     "strid_name": "459224",
     "ids_info": "458924",
     "info": "",
     "jumpgates": [
       {
         "nickname": "cf14_to_CF01",
-        "name": "cf14_to_CF01",
+        "name": "X-3043 Jump Gate",
         "ids_name": "480968",
         "ids_info": "66145",
         "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
@@ -169343,6 +170681,40 @@ const GAME_SYSTEMS = {
         "faction": "li_p_grp",
         "loadout": "jumpgatecfsys",
         "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF14_to_CF21",
+        "name": "Inner Cloud Gate",
+        "ids_name": "481330",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 31560.0,
+        "y": 0.0,
+        "z": -4979.0,
+        "archetype": "nomad_gate",
+        "solar_radius": 600.0,
+        "dest_system": "CF21",
+        "dest_gate": "CF21_to_CF14",
+        "faction": "br_p_grp",
+        "loadout": "",
+        "rotate_y": 80.0
+      },
+      {
+        "nickname": "CF14_to_CF21overlay",
+        "name": "Inner Cloud Gate",
+        "ids_name": "481330",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 31560.0,
+        "y": 0.0,
+        "z": -4979.0,
+        "archetype": "nomad_gate2",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "",
+        "loadout": "",
+        "rotate_y": 80.0
       }
     ],
     "jumpholes": [],
@@ -170663,7 +172035,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF14_02_Base",
-        "name": "CF14_02_Base",
+        "name": "Severn Station",
         "ids_name": "470035",
         "ids_info": "470036",
         "info": "",
@@ -170717,7 +172089,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF14_03_Base",
-        "name": "CF14_03_Base",
+        "name": "Lith Station",
         "ids_name": "470037",
         "ids_info": "470038",
         "info": "",
@@ -171447,7 +172819,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF14_planet_5",
-        "name": "CF14_planet_5",
+        "name": "Ghamwor",
         "ids_name": "480075",
         "ids_info": "480076",
         "info": "",
@@ -171467,7 +172839,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF14_planet_6",
-        "name": "CF14_planet_6",
+        "name": "Whosam",
         "ids_name": "480077",
         "ids_info": "480078",
         "info": "",
@@ -171487,7 +172859,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF14_planet_7",
-        "name": "CF14_planet_7",
+        "name": "Emoth",
         "ids_name": "480079",
         "ids_info": "480080",
         "info": "",
@@ -175626,14 +176998,14 @@ const GAME_SYSTEMS = {
     ]
   },
   "cf15": {
-    "name": "CF15",
+    "name": "Enyo",
     "strid_name": "459226",
     "ids_info": "458925",
     "info": "",
     "jumpgates": [
       {
         "nickname": "cf15_to_CF01",
-        "name": "cf15_to_CF01",
+        "name": "X-3043 Jump Gate",
         "ids_name": "480968",
         "ids_info": "66145",
         "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
@@ -175652,7 +177024,7 @@ const GAME_SYSTEMS = {
     "jumpholes": [
       {
         "nickname": "CF15_to_CF05_hole",
-        "name": "CF15_to_CF05_hole",
+        "name": "Telosis Jump Hole",
         "ids_name": "480385",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -175669,7 +177041,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF15_to_CF24_hole",
-        "name": "CF15_to_CF24_hole",
+        "name": "Far Point Jump Hole",
         "ids_name": "480386",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -176966,7 +178338,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF15_02_Base",
-        "name": "CF15_02_Base",
+        "name": "Saba Station",
         "ids_name": "470039",
         "ids_info": "470040",
         "info": "",
@@ -177146,7 +178518,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF15_03_Base",
-        "name": "CF15_03_Base",
+        "name": "Quetzal Station",
         "ids_name": "470041",
         "ids_info": "470042",
         "info": "",
@@ -181468,14 +182840,14 @@ const GAME_SYSTEMS = {
     ]
   },
   "cf16": {
-    "name": "CF16",
+    "name": "Enigma",
     "strid_name": "459228",
     "ids_info": "458926",
     "info": "",
     "jumpgates": [
       {
         "nickname": "cf16_to_CF01",
-        "name": "cf16_to_CF01",
+        "name": "X-3043 Jump Gate",
         "ids_name": "480968",
         "ids_info": "66145",
         "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
@@ -181494,7 +182866,7 @@ const GAME_SYSTEMS = {
     "jumpholes": [
       {
         "nickname": "CF16_to_CF13_hole",
-        "name": "CF16_to_CF13_hole",
+        "name": "Arena Jump Hole",
         "ids_name": "480387",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -182809,7 +184181,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF16_02_Base",
-        "name": "CF16_02_Base",
+        "name": "Pescara Station",
         "ids_name": "470043",
         "ids_info": "470044",
         "info": "",
@@ -182899,7 +184271,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF16_03_Base",
-        "name": "CF16_03_Base",
+        "name": "Novara Station",
         "ids_name": "470045",
         "ids_info": "470046",
         "info": "",
@@ -182917,7 +184289,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF16_04_Base",
-        "name": "CF16_04_Base",
+        "name": "Murcia Station",
         "ids_name": "470047",
         "ids_info": "470048",
         "info": "",
@@ -187343,14 +188715,14 @@ const GAME_SYSTEMS = {
     ]
   },
   "cf17": {
-    "name": "CF17",
+    "name": "Sekar",
     "strid_name": "459230",
     "ids_info": "458927",
     "info": "",
     "jumpgates": [
       {
         "nickname": "cf17_to_CF01",
-        "name": "cf17_to_CF01",
+        "name": "X-3043 Jump Gate",
         "ids_name": "480968",
         "ids_info": "66145",
         "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
@@ -187369,7 +188741,7 @@ const GAME_SYSTEMS = {
     "jumpholes": [
       {
         "nickname": "CF17_to_CF12_hole",
-        "name": "CF17_to_CF12_hole",
+        "name": "Casius Jump Hole",
         "ids_name": "481434",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -187386,7 +188758,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF17_to_FP7_systemmp_hole",
-        "name": "CF17_to_FP7_systemmp_hole",
+        "name": "Freeport 7 Jump Hole",
         "ids_name": "481431",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -188701,7 +190073,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF17_02_Base",
-        "name": "CF17_02_Base",
+        "name": "Lynen Station",
         "ids_name": "470049",
         "ids_info": "470050",
         "info": "",
@@ -188809,7 +190181,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF17_03_Base",
-        "name": "CF17_03_Base",
+        "name": "Shiras Station",
         "ids_name": "470051",
         "ids_info": "470052",
         "info": "",
@@ -193405,11 +194777,46 @@ const GAME_SYSTEMS = {
     "nebulae": []
   },
   "Cf18": {
-    "name": "CF18",
+    "name": "Death Valley",
     "strid_name": "459234",
     "ids_info": "458928",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "cf18_to_ST02",
+        "name": "Nomads Lair Gate",
+        "ids_name": "481428",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 10000.0,
+        "y": 6180.0,
+        "z": 10000.0,
+        "archetype": "nomad_gate",
+        "solar_radius": 600.0,
+        "dest_system": "ST02",
+        "dest_gate": "ST02_to_cf18",
+        "faction": "fc_n_grp",
+        "loadout": "",
+        "rotate_y": 210.0
+      },
+      {
+        "nickname": "cf18_to_ST02overlay",
+        "name": "Nomads Lair",
+        "ids_name": "254204",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 10000.0,
+        "y": 6180.0,
+        "z": 10000.0,
+        "archetype": "nomad_gate2",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "",
+        "loadout": "",
+        "rotate_y": 210.0
+      }
+    ],
     "jumpholes": [],
     "stations": [
       {
@@ -193613,7 +195020,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF19": {
-    "name": "CF19",
+    "name": "Hiruga",
     "strid_name": "459184",
     "ids_info": "458929",
     "info": "",
@@ -194384,7 +195791,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF19_proxy_base",
-        "name": "CF19_proxy_base",
+        "name": "Local Clan Base",
         "ids_name": "481811",
         "ids_info": "481812",
         "info": "",
@@ -194402,7 +195809,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF19_proxy_base_01",
-        "name": "CF19_proxy_base_01",
+        "name": "Local Clan Base",
         "ids_name": "481811",
         "ids_info": "481812",
         "info": "",
@@ -194420,7 +195827,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF19_proxy_base_02",
-        "name": "CF19_proxy_base_02",
+        "name": "Local Clan Base",
         "ids_name": "481811",
         "ids_info": "481812",
         "info": "",
@@ -194438,7 +195845,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF19_proxy_base_03",
-        "name": "CF19_proxy_base_03",
+        "name": "Local Clan Base",
         "ids_name": "481811",
         "ids_info": "481812",
         "info": "",
@@ -194456,7 +195863,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF19_proxy_base_04",
-        "name": "CF19_proxy_base_04",
+        "name": "Local Clan Base",
         "ids_name": "481811",
         "ids_info": "481812",
         "info": "",
@@ -195141,7 +196548,7 @@ const GAME_SYSTEMS = {
     "nebulae": []
   },
   "CF20": {
-    "name": "CF20",
+    "name": "Sol",
     "strid_name": "459276",
     "ids_info": "458930",
     "info": "",
@@ -195166,7 +196573,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF20_to_CF100_hole",
-        "name": "CF20_to_CF100_hole",
+        "name": "Epsilon Eridani Jump Hole",
         "ids_name": "481099",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -195185,7 +196592,7 @@ const GAME_SYSTEMS = {
     "stations": [
       {
         "nickname": "Dock_Ring_CF20_01",
-        "name": "Dock_Ring_CF20_01",
+        "name": "Earth",
         "ids_name": "458755",
         "ids_info": "66141",
         "info": ">>>ACHTUNG: Ohne Andockring keine Landung versuchen.<<<\nEin Andockring ist Teil eines 'Orbitalaufzug'-Systems, erfunden von Ageira Technologies. Durch superstarke kristalline Polymere und reibungslose Säulenlager ermöglichen Andockringe den problemlosen Ein- und Austritt landefähiger interstellarer Fahrzeuge.",
@@ -195257,7 +196664,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF20_251",
-        "name": "CF20_251",
+        "name": "Order Military HQ",
         "ids_name": "499992",
         "ids_info": "655372",
         "info": "",
@@ -195275,7 +196682,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF20_252",
-        "name": "CF20_252",
+        "name": "Order Military HQ",
         "ids_name": "499992",
         "ids_info": "655372",
         "info": "",
@@ -195293,7 +196700,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF20_253",
-        "name": "CF20_253",
+        "name": "Order Military HQ",
         "ids_name": "499992",
         "ids_info": "655372",
         "info": "",
@@ -195311,7 +196718,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF20_254",
-        "name": "CF20_254",
+        "name": "Order Military HQ",
         "ids_name": "499992",
         "ids_info": "655372",
         "info": "",
@@ -195329,7 +196736,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF20_255",
-        "name": "CF20_255",
+        "name": "Order Military HQ",
         "ids_name": "499992",
         "ids_info": "655372",
         "info": "",
@@ -195455,7 +196862,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF20_25",
-        "name": "CF20_25",
+        "name": "Order Military HQ",
         "ids_name": "499992",
         "ids_info": "655372",
         "info": "",
@@ -196103,7 +197510,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF20_Phobos",
-        "name": "CF20_Phobos",
+        "name": "Phobos",
         "ids_name": "458773",
         "ids_info": "458813",
         "info": "",
@@ -196121,7 +197528,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF20_Deimos",
-        "name": "CF20_Deimos",
+        "name": "Deimos",
         "ids_name": "458772",
         "ids_info": "458812",
         "info": "",
@@ -196139,7 +197546,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF20_15_Base",
-        "name": "CF20_15_Base",
+        "name": "Battleship Deliverance",
         "ids_name": "500430",
         "ids_info": "480498",
         "info": "",
@@ -196195,7 +197602,7 @@ const GAME_SYSTEMS = {
     "planets": [
       {
         "nickname": "CF20_01",
-        "name": "CF20_01",
+        "name": "Mercury",
         "ids_name": "458753",
         "ids_info": "458793",
         "info": "",
@@ -196215,7 +197622,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF20_02",
-        "name": "CF20_02",
+        "name": "Venus",
         "ids_name": "458754",
         "ids_info": "458794",
         "info": "",
@@ -196235,7 +197642,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF20_03",
-        "name": "CF20_03",
+        "name": "Earth",
         "ids_name": "458755",
         "ids_info": "458795",
         "info": "",
@@ -196275,7 +197682,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF20_04",
-        "name": "CF20_04",
+        "name": "Mars",
         "ids_name": "458756",
         "ids_info": "458796",
         "info": "",
@@ -196295,7 +197702,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF20_05",
-        "name": "CF20_05",
+        "name": "Jupiter",
         "ids_name": "458757",
         "ids_info": "458797",
         "info": "",
@@ -196315,7 +197722,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF20_06",
-        "name": "CF20_06",
+        "name": "Saturn",
         "ids_name": "458758",
         "ids_info": "458798",
         "info": "",
@@ -196335,7 +197742,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF20_06atm",
-        "name": "CF20_06atm",
+        "name": "Saturn",
         "ids_name": "458758",
         "ids_info": "458798",
         "info": "",
@@ -196355,7 +197762,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF20_07",
-        "name": "CF20_07",
+        "name": "Uranus",
         "ids_name": "458759",
         "ids_info": "458799",
         "info": "",
@@ -196375,7 +197782,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF20_08",
-        "name": "CF20_08",
+        "name": "Neptune",
         "ids_name": "458760",
         "ids_info": "458800",
         "info": "",
@@ -196395,7 +197802,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF20_11",
-        "name": "CF20_11",
+        "name": "Moon",
         "ids_name": "458762",
         "ids_info": "458802",
         "info": "",
@@ -196415,7 +197822,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF20_12",
-        "name": "CF20_12",
+        "name": "Io",
         "ids_name": "458774",
         "ids_info": "458814",
         "info": "",
@@ -196435,7 +197842,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF20_13",
-        "name": "CF20_13",
+        "name": "Europa",
         "ids_name": "458775",
         "ids_info": "458815",
         "info": "",
@@ -196455,7 +197862,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF20_14",
-        "name": "CF20_14",
+        "name": "Callisto",
         "ids_name": "458776",
         "ids_info": "458816",
         "info": "",
@@ -196475,7 +197882,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF20_15",
-        "name": "CF20_15",
+        "name": "Metis",
         "ids_name": "458777",
         "ids_info": "458817",
         "info": "",
@@ -196495,7 +197902,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF20_19",
-        "name": "CF20_19",
+        "name": "Cressida",
         "ids_name": "458781",
         "ids_info": "458821",
         "info": "",
@@ -196515,7 +197922,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF20_20",
-        "name": "CF20_20",
+        "name": "Ariel",
         "ids_name": "458782",
         "ids_info": "458822",
         "info": "",
@@ -196535,7 +197942,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF20_21",
-        "name": "CF20_21",
+        "name": "Umbriel",
         "ids_name": "458783",
         "ids_info": "458823",
         "info": "",
@@ -196555,7 +197962,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF20_22",
-        "name": "CF20_22",
+        "name": "Titania",
         "ids_name": "458784",
         "ids_info": "458824",
         "info": "",
@@ -196575,7 +197982,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF20_23",
-        "name": "CF20_23",
+        "name": "Oberon",
         "ids_name": "458785",
         "ids_info": "458825",
         "info": "",
@@ -196595,7 +198002,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF20_24",
-        "name": "CF20_24",
+        "name": "Triton",
         "ids_name": "458786",
         "ids_info": "458826",
         "info": "",
@@ -196615,7 +198022,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF20_ganymed",
-        "name": "CF20_ganymed",
+        "name": "Ganymede",
         "ids_name": "470955",
         "ids_info": "470956",
         "info": "",
@@ -196635,7 +198042,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF20_09",
-        "name": "CF20_09",
+        "name": "Pluto",
         "ids_name": "458761",
         "ids_info": "458801",
         "info": "",
@@ -196655,7 +198062,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF20_10",
-        "name": "CF20_10",
+        "name": "Charon",
         "ids_name": "458787",
         "ids_info": "458827",
         "info": "",
@@ -196675,7 +198082,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF20_Proteus",
-        "name": "CF20_Proteus",
+        "name": "Proteus",
         "ids_name": "472253",
         "ids_info": "472254",
         "info": "",
@@ -196695,7 +198102,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF20_Miranda",
-        "name": "CF20_Miranda",
+        "name": "Miranda",
         "ids_name": "472255",
         "ids_info": "472256",
         "info": "",
@@ -196715,7 +198122,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF20_Nereid",
-        "name": "CF20_Nereid",
+        "name": "Nereid",
         "ids_name": "472257",
         "ids_info": "472258",
         "info": "",
@@ -196735,7 +198142,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF20_Mimas",
-        "name": "CF20_Mimas",
+        "name": "Mimas",
         "ids_name": "472259",
         "ids_info": "472260",
         "info": "",
@@ -196755,7 +198162,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF20_Enceladus",
-        "name": "CF20_Enceladus",
+        "name": "Enceladus",
         "ids_name": "472261",
         "ids_info": "458818",
         "info": "",
@@ -196775,7 +198182,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF20_Dione",
-        "name": "CF20_Dione",
+        "name": "Dione",
         "ids_name": "472263",
         "ids_info": "458818",
         "info": "",
@@ -196795,7 +198202,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF20_Iapetus",
-        "name": "CF20_Iapetus",
+        "name": "Iapetus",
         "ids_name": "472265",
         "ids_info": "458818",
         "info": "",
@@ -196815,7 +198222,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF20_16",
-        "name": "CF20_16",
+        "name": "Titan",
         "ids_name": "458778",
         "ids_info": "458818",
         "info": "",
@@ -196835,7 +198242,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF20_17",
-        "name": "CF20_17",
+        "name": "Rhea",
         "ids_name": "458779",
         "ids_info": "458819",
         "info": "",
@@ -196855,7 +198262,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF20_18",
-        "name": "CF20_18",
+        "name": "Tethys",
         "ids_name": "458780",
         "ids_info": "458820",
         "info": "",
@@ -201149,14 +202556,14 @@ const GAME_SYSTEMS = {
     "nebulae": []
   },
   "CF21": {
-    "name": "CF21",
+    "name": "Inner Cloud",
     "strid_name": "459204",
     "ids_info": "458931",
     "info": "",
     "jumpgates": [
       {
         "nickname": "CF21_to_CF22",
-        "name": "CF21_to_CF22",
+        "name": "The Corridor Jump Gate",
         "ids_name": "480936",
         "ids_info": "66145",
         "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
@@ -201173,7 +202580,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF21_to_CF14",
-        "name": "CF21_to_CF14",
+        "name": "Nephele Jump Gate",
         "ids_name": "480954",
         "ids_info": "66145",
         "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
@@ -201327,7 +202734,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF21_planet_1",
-        "name": "CF21_planet_1",
+        "name": "Wiest",
         "ids_name": "480081",
         "ids_info": "480082",
         "info": "",
@@ -201347,7 +202754,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF21_planet_2",
-        "name": "CF21_planet_2",
+        "name": "Banhona",
         "ids_name": "480083",
         "ids_info": "480084",
         "info": "",
@@ -204210,7 +205617,7 @@ const GAME_SYSTEMS = {
         "rings": [
           {
             "id": "CF21_Trade_Lane_Ring_01",
-            "name": "CF21_Trade_Lane_Ring_01",
+            "name": "Nephele Jump Gate",
             "x": -2146.0,
             "z": -90667.0,
             "rotate_y": 171.0
@@ -204389,7 +205796,7 @@ const GAME_SYSTEMS = {
           },
           {
             "id": "CF21_Trade_Lane_Ring_43",
-            "name": "CF21_Trade_Lane_Ring_43",
+            "name": "The Corridor Jump Gate",
             "x": -75645.0,
             "z": 49356.0,
             "rotate_y": 94.0
@@ -204416,7 +205823,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF22": {
-    "name": "CF22",
+    "name": "The Corridor",
     "strid_name": "459206",
     "ids_info": "458932",
     "info": "",
@@ -204440,7 +205847,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF22_to_CF21",
-        "name": "CF22_to_CF21",
+        "name": "Inner Cloud Jump Gate",
         "ids_name": "480934",
         "ids_info": "66145",
         "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
@@ -204646,7 +206053,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF22_planet_1",
-        "name": "CF22_planet_1",
+        "name": "Hesam",
         "ids_name": "480085",
         "ids_info": "480086",
         "info": "",
@@ -204666,7 +206073,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF22_planet_2",
-        "name": "CF22_planet_2",
+        "name": "Kimeny",
         "ids_name": "480087",
         "ids_info": "480088",
         "info": "",
@@ -204686,7 +206093,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF22_planet_3",
-        "name": "CF22_planet_3",
+        "name": "Ruskel",
         "ids_name": "480089",
         "ids_info": "480090",
         "info": "",
@@ -207192,14 +208599,14 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF23": {
-    "name": "CF23",
+    "name": "Hyperion",
     "strid_name": "459208",
     "ids_info": "458933",
     "info": "",
     "jumpgates": [
       {
         "nickname": "CF23_to_BR05",
-        "name": "CF23_to_BR05",
+        "name": "Dublin Jump Gate",
         "ids_name": "481436",
         "ids_info": "66145",
         "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
@@ -207331,7 +208738,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF23_planet_1",
-        "name": "CF23_planet_1",
+        "name": "Lacha",
         "ids_name": "480091",
         "ids_info": "480092",
         "info": "",
@@ -208853,7 +210260,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF24": {
-    "name": "CF24",
+    "name": "Far Point",
     "strid_name": "459210",
     "ids_info": "458934",
     "info": "",
@@ -208861,7 +210268,7 @@ const GAME_SYSTEMS = {
     "jumpholes": [
       {
         "nickname": "CF24_to_CF03_hole",
-        "name": "CF24_to_CF03_hole",
+        "name": "Tarsus Jump Hole",
         "ids_name": "480971",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -208878,7 +210285,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF24_to_CF04_hole",
-        "name": "CF24_to_CF04_hole",
+        "name": "Vega Jump Hole",
         "ids_name": "480390",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -208895,7 +210302,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF24_to_CF15_hole",
-        "name": "CF24_to_CF15_hole",
+        "name": "Enyo Jump Hole",
         "ids_name": "480391",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -209310,7 +210717,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF24_miningbase_abandoned_01",
-        "name": "CF24_miningbase_abandoned_01",
+        "name": "Abandoned Mining Base",
         "ids_name": "501194",
         "ids_info": "501195",
         "info": "",
@@ -209572,7 +210979,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF24_planet_1",
-        "name": "CF24_planet_1",
+        "name": "Heryn",
         "ids_name": "480093",
         "ids_info": "480094",
         "info": "",
@@ -209592,7 +210999,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF24_planet_2",
-        "name": "CF24_planet_2",
+        "name": "Rynit",
         "ids_name": "480095",
         "ids_info": "480096",
         "info": "",
@@ -209612,7 +211019,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF24_planet_3",
-        "name": "CF24_planet_3",
+        "name": "Thyper",
         "ids_name": "480097",
         "ids_info": "480098",
         "info": "",
@@ -212400,7 +213807,7 @@ const GAME_SYSTEMS = {
     "nebulae": []
   },
   "CF25": {
-    "name": "CF25",
+    "name": "Sea of Shadows",
     "strid_name": "459212",
     "ids_info": "458935",
     "info": "",
@@ -212408,7 +213815,7 @@ const GAME_SYSTEMS = {
     "jumpholes": [
       {
         "nickname": "cf25_to_Li03",
-        "name": "cf25_to_Li03",
+        "name": "Colorado Jump Hole",
         "ids_name": "481441",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -212425,7 +213832,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF25_to_CF06_hole",
-        "name": "CF25_to_CF06_hole",
+        "name": "Daedalus Jump Hole",
         "ids_name": "480392",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -213902,10 +215309,10 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF25_02",
-        "name": "CF25_02",
+        "name": "Freeport 11",
         "ids_name": "480441",
         "ids_info": "480450",
-        "info": "",
+        "info": "CLASS: Unknown\nGRAVITY: Complete\nDOCKING: Yes\nAMENITIES: Yes\nPOPULATION: 1900\nFreeport 11 was constructed as save habour in the Sea of Shadows system. With the discovery of new jumpholes leading to nearby system the station became more and more important.",
         "x": -25528.0,
         "y": 0.0,
         "z": 30783.0,
@@ -217642,7 +219049,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF26": {
-    "name": "CF26",
+    "name": "Oasis",
     "strid_name": "459214",
     "ids_info": "458936",
     "info": "",
@@ -217650,7 +219057,7 @@ const GAME_SYSTEMS = {
     "jumpholes": [
       {
         "nickname": "cf26_to_Li04",
-        "name": "cf26_to_Li04",
+        "name": "Texas Jump Hole",
         "ids_name": "481442",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -219055,7 +220462,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF26_proxy_base",
-        "name": "CF26_proxy_base",
+        "name": "StarFleet Academy",
         "ids_name": "459317",
         "ids_info": "481812",
         "info": "",
@@ -219073,7 +220480,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF26_proxy_base_01",
-        "name": "CF26_proxy_base_01",
+        "name": "StarFleet Academy",
         "ids_name": "459317",
         "ids_info": "481812",
         "info": "",
@@ -219091,7 +220498,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF26_proxy_base_02",
-        "name": "CF26_proxy_base_02",
+        "name": "StarFleet Academy",
         "ids_name": "459317",
         "ids_info": "481812",
         "info": "",
@@ -219109,7 +220516,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF26_proxy_base_03",
-        "name": "CF26_proxy_base_03",
+        "name": "StarFleet Academy",
         "ids_name": "459317",
         "ids_info": "481812",
         "info": "",
@@ -219127,7 +220534,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF26_proxy_base_04",
-        "name": "CF26_proxy_base_04",
+        "name": "StarFleet Academy",
         "ids_name": "459317",
         "ids_info": "481812",
         "info": "",
@@ -223480,7 +224887,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF27": {
-    "name": "CF27",
+    "name": "Midpoint Rift",
     "strid_name": "459216",
     "ids_info": "458937",
     "info": "",
@@ -223505,7 +224912,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "cf27_to_CF28",
-        "name": "cf27_to_CF28",
+        "name": "Wanderer's Pond Jump Hole",
         "ids_name": "480949",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -225183,7 +226590,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF28": {
-    "name": "CF28",
+    "name": "Wanderer's Pond",
     "strid_name": "459218",
     "ids_info": "458938",
     "info": "",
@@ -225191,7 +226598,7 @@ const GAME_SYSTEMS = {
     "jumpholes": [
       {
         "nickname": "CF28_to_cf27",
-        "name": "CF28_to_cf27",
+        "name": "Midpoint Rift Jump Hole",
         "ids_name": "480947",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -225208,7 +226615,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "cf28_to_Li04",
-        "name": "cf28_to_Li04",
+        "name": "Texas Jump Hole",
         "ids_name": "481442",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -225377,7 +226784,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF28_planet_1",
-        "name": "CF28_planet_1",
+        "name": "Eldnysa",
         "ids_name": "480099",
         "ids_info": "480100",
         "info": "",
@@ -225397,7 +226804,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF28_planet_2",
-        "name": "CF28_planet_2",
+        "name": "Ormves",
         "ids_name": "480101",
         "ids_info": "480102",
         "info": "",
@@ -225417,7 +226824,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF28_planet_3",
-        "name": "CF28_planet_3",
+        "name": "Wheir",
         "ids_name": "480103",
         "ids_info": "480104",
         "info": "",
@@ -227873,7 +229280,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF29": {
-    "name": "CF29",
+    "name": "Quantos",
     "strid_name": "459220",
     "ids_info": "458939",
     "info": "",
@@ -227881,7 +229288,7 @@ const GAME_SYSTEMS = {
     "jumpholes": [
       {
         "nickname": "cf29_to_Rh04",
-        "name": "cf29_to_Rh04",
+        "name": "Frankfurt Jump Hole",
         "ids_name": "481430",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -227898,7 +229305,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF29_to_FP7",
-        "name": "CF29_to_FP7",
+        "name": "Freeport 7 Jump Hole",
         "ids_name": "481431",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -228139,7 +229546,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF29_planet_1",
-        "name": "CF29_planet_1",
+        "name": "Undiao",
         "ids_name": "480105",
         "ids_info": "480106",
         "info": "",
@@ -228159,7 +229566,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF29_planet_2",
-        "name": "CF29_planet_2",
+        "name": "Nystia",
         "ids_name": "480107",
         "ids_info": "480108",
         "info": "",
@@ -228179,7 +229586,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF29_planet_3",
-        "name": "CF29_planet_3",
+        "name": "Lliusk",
         "ids_name": "480109",
         "ids_info": "480110",
         "info": "",
@@ -230935,7 +232342,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF30": {
-    "name": "CF30",
+    "name": "Purian Lake",
     "strid_name": "459222",
     "ids_info": "458940",
     "info": "",
@@ -230943,7 +232350,7 @@ const GAME_SYSTEMS = {
     "jumpholes": [
       {
         "nickname": "CF30_to_FP7",
-        "name": "CF30_to_FP7",
+        "name": "Freeport 7 Jump Hole",
         "ids_name": "481431",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -230960,7 +232367,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF30_to_St02_hole",
-        "name": "CF30_to_St02_hole",
+        "name": "Nomads Lair Jump Hole",
         "ids_name": "481433",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -231231,7 +232638,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF30_proxy_base",
-        "name": "CF30_proxy_base",
+        "name": "Nassau Depot",
         "ids_name": "459313",
         "ids_info": "481812",
         "info": "",
@@ -231249,7 +232656,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF30_proxy_base_01",
-        "name": "CF30_proxy_base_01",
+        "name": "Nassau Depot",
         "ids_name": "459313",
         "ids_info": "481812",
         "info": "",
@@ -231267,7 +232674,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF30_proxy_base_02",
-        "name": "CF30_proxy_base_02",
+        "name": "Nassau Depot",
         "ids_name": "459313",
         "ids_info": "481812",
         "info": "",
@@ -231285,7 +232692,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF30_proxy_base_03",
-        "name": "CF30_proxy_base_03",
+        "name": "Nassau Depot",
         "ids_name": "459313",
         "ids_info": "481812",
         "info": "",
@@ -231303,7 +232710,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF30_proxy_base_04",
-        "name": "CF30_proxy_base_04",
+        "name": "Nassau Depot",
         "ids_name": "459313",
         "ids_info": "481812",
         "info": "",
@@ -231363,7 +232770,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF30_planet_1",
-        "name": "CF30_planet_1",
+        "name": "Dynorm",
         "ids_name": "480111",
         "ids_info": "480112",
         "info": "",
@@ -231383,7 +232790,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF30_planet_2",
-        "name": "CF30_planet_2",
+        "name": "Poloughe",
         "ids_name": "480113",
         "ids_info": "480114",
         "info": "",
@@ -231403,7 +232810,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF30_planet_3",
-        "name": "CF30_planet_3",
+        "name": "Banona",
         "ids_name": "480115",
         "ids_info": "480116",
         "info": "",
@@ -235018,11 +236425,46 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF31": {
-    "name": "CF31",
+    "name": "Styx",
     "strid_name": "459272",
     "ids_info": "458941",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "CF31_to_CF33",
+        "name": "Mandar Warp Gate",
+        "ids_name": "481126",
+        "ids_info": "465001",
+        "info": "",
+        "x": 10000.0,
+        "y": 1300.0,
+        "z": 30000.0,
+        "archetype": "track_ring2coal",
+        "solar_radius": 600.0,
+        "dest_system": "CF33",
+        "dest_gate": "CF33_to_CF31",
+        "faction": "fc_cf4_grp",
+        "loadout": "",
+        "rotate_y": 194.0
+      },
+      {
+        "nickname": "CF31_to_CF40",
+        "name": "Kandiris Warp Gate",
+        "ids_name": "481140",
+        "ids_info": "465001",
+        "info": "",
+        "x": 10000.0,
+        "y": -1300.0,
+        "z": -30000.0,
+        "archetype": "track_ring2coal",
+        "solar_radius": 600.0,
+        "dest_system": "CF40",
+        "dest_gate": "CF40_to_CF31",
+        "faction": "fc_cf4_grp",
+        "loadout": "",
+        "rotate_y": 94.0
+      }
+    ],
     "jumpholes": [
       {
         "nickname": "CF31_to_CF20",
@@ -236076,11 +237518,46 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF32": {
-    "name": "CF32",
+    "name": "Coloseum",
     "strid_name": "459186",
     "ids_info": "458942",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "cf32_to_CF13",
+        "name": "Arena Gate",
+        "ids_name": "481358",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "archetype": "nomad_gate",
+        "solar_radius": 600.0,
+        "dest_system": "CF13",
+        "dest_gate": "CF13_to_cf32",
+        "faction": "li_p_grp",
+        "loadout": "",
+        "rotate_y": 0.0
+      },
+      {
+        "nickname": "cf32_to_CF13overlay",
+        "name": "Arena Gate",
+        "ids_name": "481358",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "archetype": "nomad_gate2",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "",
+        "loadout": "",
+        "rotate_y": 0.0
+      }
+    ],
     "jumpholes": [],
     "stations": [
       {
@@ -236575,11 +238052,63 @@ const GAME_SYSTEMS = {
     "nebulae": []
   },
   "CF33": {
-    "name": "CF33",
+    "name": "Mandar",
     "strid_name": "459188",
     "ids_info": "458943",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "CF33_to_CF31",
+        "name": "Styx Warp Gate",
+        "ids_name": "481202",
+        "ids_info": "465001",
+        "info": "",
+        "x": 35530.0,
+        "y": 0.0,
+        "z": 70078.0,
+        "archetype": "track_ring2coal",
+        "solar_radius": 600.0,
+        "dest_system": "CF31",
+        "dest_gate": "CF31_to_CF33",
+        "faction": "fc_cf4_grp",
+        "loadout": "",
+        "rotate_y": 14.0
+      },
+      {
+        "nickname": "CF33_to_CF34",
+        "name": "Gurm Warp Gate",
+        "ids_name": "481128",
+        "ids_info": "465001",
+        "info": "",
+        "x": 35530.0,
+        "y": 0.0,
+        "z": 30078.0,
+        "archetype": "track_ring2coal",
+        "solar_radius": 600.0,
+        "dest_system": "CF34",
+        "dest_gate": "CF34_to_CF33",
+        "faction": "fc_cf4_grp",
+        "loadout": "",
+        "rotate_y": 194.0
+      },
+      {
+        "nickname": "CF33_to_CF35",
+        "name": "Gladius Warp Gate",
+        "ids_name": "481130",
+        "ids_info": "465001",
+        "info": "",
+        "x": 25530.0,
+        "y": 0.0,
+        "z": 30078.0,
+        "archetype": "track_ring2coal",
+        "solar_radius": 600.0,
+        "dest_system": "CF35",
+        "dest_gate": "CF35_to_CF33",
+        "faction": "fc_cf4_grp",
+        "loadout": "",
+        "rotate_y": 194.0
+      }
+    ],
     "jumpholes": [],
     "stations": [],
     "planets": [
@@ -236605,7 +238134,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF33_planet_2",
-        "name": "CF33_planet_2",
+        "name": "Tonkal",
         "ids_name": "480117",
         "ids_info": "480118",
         "info": "",
@@ -236625,7 +238154,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF33_planet_3",
-        "name": "CF33_planet_3",
+        "name": "Kimundo",
         "ids_name": "480119",
         "ids_info": "480120",
         "info": "",
@@ -236645,7 +238174,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF33_planet_4",
-        "name": "CF33_planet_4",
+        "name": "Mawor",
         "ids_name": "480121",
         "ids_info": "480122",
         "info": "",
@@ -237228,11 +238757,46 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF34": {
-    "name": "CF34",
+    "name": "Gurm",
     "strid_name": "459190",
     "ids_info": "458944",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "CF34_to_CF33",
+        "name": "Mandar Warp Gate",
+        "ids_name": "481126",
+        "ids_info": "465001",
+        "info": "",
+        "x": 15530.0,
+        "y": 0.0,
+        "z": 20078.0,
+        "archetype": "track_ring2coal",
+        "solar_radius": 600.0,
+        "dest_system": "CF33",
+        "dest_gate": "CF33_to_CF34",
+        "faction": "fc_cf4_grp",
+        "loadout": "",
+        "rotate_y": 14.0
+      },
+      {
+        "nickname": "CF34_to_CF36",
+        "name": "Sovetskaya Warp Gate",
+        "ids_name": "481132",
+        "ids_info": "465001",
+        "info": "",
+        "x": -85995.0,
+        "y": 0.0,
+        "z": -11045.0,
+        "archetype": "track_ring2coal",
+        "solar_radius": 600.0,
+        "dest_system": "CF36",
+        "dest_gate": "CF36_to_CF34",
+        "faction": "fc_cf4_grp",
+        "loadout": "",
+        "rotate_y": 14.0
+      }
+    ],
     "jumpholes": [],
     "stations": [
       {
@@ -237345,7 +238909,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF34_cf20coalgasminer_01",
-        "name": "CF34_cf20coalgasminer_01",
+        "name": "Coalition Gas Miner",
         "ids_name": "480009",
         "ids_info": "066143",
         "info": "Eine Gasabbaustation ist eine beschränkt mobile Station zum Extrahieren wertvoller Ressourcen aus in Nebeln gefundenen Gasen.",
@@ -237363,7 +238927,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF34_cf20coalgasminer_02",
-        "name": "CF34_cf20coalgasminer_02",
+        "name": "Coalition Gas Miner",
         "ids_name": "480009",
         "ids_info": "066143",
         "info": "Eine Gasabbaustation ist eine beschränkt mobile Station zum Extrahieren wertvoller Ressourcen aus in Nebeln gefundenen Gasen.",
@@ -237381,7 +238945,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF34_cf20coalgasminer_03",
-        "name": "CF34_cf20coalgasminer_03",
+        "name": "Coalition Gas Miner",
         "ids_name": "480009",
         "ids_info": "066143",
         "info": "Eine Gasabbaustation ist eine beschränkt mobile Station zum Extrahieren wertvoller Ressourcen aus in Nebeln gefundenen Gasen.",
@@ -237399,7 +238963,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF34_cf20coalgasminer_04",
-        "name": "CF34_cf20coalgasminer_04",
+        "name": "Coalition Gas Miner",
         "ids_name": "480009",
         "ids_info": "066143",
         "info": "Eine Gasabbaustation ist eine beschränkt mobile Station zum Extrahieren wertvoller Ressourcen aus in Nebeln gefundenen Gasen.",
@@ -237417,7 +238981,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF34_cf20coalgasminer_05",
-        "name": "CF34_cf20coalgasminer_05",
+        "name": "Coalition Gas Miner",
         "ids_name": "480009",
         "ids_info": "066143",
         "info": "Eine Gasabbaustation ist eine beschränkt mobile Station zum Extrahieren wertvoller Ressourcen aus in Nebeln gefundenen Gasen.",
@@ -237435,7 +238999,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF34_cf20coalgasminer_06",
-        "name": "CF34_cf20coalgasminer_06",
+        "name": "Coalition Gas Miner",
         "ids_name": "480009",
         "ids_info": "066143",
         "info": "Eine Gasabbaustation ist eine beschränkt mobile Station zum Extrahieren wertvoller Ressourcen aus in Nebeln gefundenen Gasen.",
@@ -237531,7 +239095,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF34_planet_3",
-        "name": "CF34_planet_3",
+        "name": "Nocha",
         "ids_name": "480123",
         "ids_info": "480124",
         "info": "",
@@ -237551,7 +239115,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF34_planet_4",
-        "name": "CF34_planet_4",
+        "name": "Tonperi",
         "ids_name": "480125",
         "ids_info": "480126",
         "info": "",
@@ -237571,7 +239135,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF34_planet_5",
-        "name": "CF34_planet_5",
+        "name": "Sayrad",
         "ids_name": "480127",
         "ids_info": "480128",
         "info": "",
@@ -237591,7 +239155,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF34_planet_6",
-        "name": "CF34_planet_6",
+        "name": "Umlech",
         "ids_name": "480129",
         "ids_info": "480130",
         "info": "",
@@ -237611,7 +239175,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF34_planet_7",
-        "name": "CF34_planet_7",
+        "name": "Estani",
         "ids_name": "480131",
         "ids_info": "480132",
         "info": "",
@@ -238919,15 +240483,67 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF35": {
-    "name": "CF35",
+    "name": "Gladius",
     "strid_name": "459192",
     "ids_info": "458945",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "CF35_to_CF33",
+        "name": "Mandar Warp Gate",
+        "ids_name": "481126",
+        "ids_info": "465001",
+        "info": "",
+        "x": 25530.0,
+        "y": 0.0,
+        "z": 30078.0,
+        "archetype": "track_ring2coal",
+        "solar_radius": 600.0,
+        "dest_system": "CF33",
+        "dest_gate": "CF33_to_CF35",
+        "faction": "fc_cf4_grp",
+        "loadout": "",
+        "rotate_y": 14.0
+      },
+      {
+        "nickname": "CF35_to_CF36",
+        "name": "Sovetskaya Warp Gate",
+        "ids_name": "481132",
+        "ids_info": "465001",
+        "info": "",
+        "x": 34319.0,
+        "y": 0.0,
+        "z": -71399.0,
+        "archetype": "track_ring2coal",
+        "solar_radius": 600.0,
+        "dest_system": "CF36",
+        "dest_gate": "CF36_to_CF35",
+        "faction": "fc_cf4_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF35_to_CF65",
+        "name": "Guangdong Warp Gate",
+        "ids_name": "481296",
+        "ids_info": "465001",
+        "info": "",
+        "x": -67720.0,
+        "y": 0.0,
+        "z": 9385.0,
+        "archetype": "track_ring2coal",
+        "solar_radius": 600.0,
+        "dest_system": "CF65",
+        "dest_gate": "CF65_to_CF35",
+        "faction": "fc_cf4_grp",
+        "loadout": "",
+        "rotate_y": 284.0
+      }
+    ],
     "jumpholes": [
       {
         "nickname": "CF35_to_CF65_hole",
-        "name": "CF35_to_CF65_hole",
+        "name": "Guangdong Jump Hole",
         "ids_name": "481089",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -238946,7 +240562,7 @@ const GAME_SYSTEMS = {
     "stations": [
       {
         "nickname": "CF35_cf20coalgasminer_01",
-        "name": "CF35_cf20coalgasminer_01",
+        "name": "Coalition Gas Miner",
         "ids_name": "480009",
         "ids_info": "066143",
         "info": "Eine Gasabbaustation ist eine beschränkt mobile Station zum Extrahieren wertvoller Ressourcen aus in Nebeln gefundenen Gasen.",
@@ -238964,7 +240580,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF35_cf20coalgasminer_02",
-        "name": "CF35_cf20coalgasminer_02",
+        "name": "Coalition Gas Miner",
         "ids_name": "480009",
         "ids_info": "066143",
         "info": "Eine Gasabbaustation ist eine beschränkt mobile Station zum Extrahieren wertvoller Ressourcen aus in Nebeln gefundenen Gasen.",
@@ -238982,7 +240598,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF35_cf20coalgasminer_03",
-        "name": "CF35_cf20coalgasminer_03",
+        "name": "Coalition Gas Miner",
         "ids_name": "480009",
         "ids_info": "066143",
         "info": "Eine Gasabbaustation ist eine beschränkt mobile Station zum Extrahieren wertvoller Ressourcen aus in Nebeln gefundenen Gasen.",
@@ -239000,7 +240616,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF35_cf20coalgasminer_04",
-        "name": "CF35_cf20coalgasminer_04",
+        "name": "Coalition Gas Miner",
         "ids_name": "480009",
         "ids_info": "066143",
         "info": "Eine Gasabbaustation ist eine beschränkt mobile Station zum Extrahieren wertvoller Ressourcen aus in Nebeln gefundenen Gasen.",
@@ -239018,7 +240634,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF35_cf20coalgasminer_05",
-        "name": "CF35_cf20coalgasminer_05",
+        "name": "Coalition Gas Miner",
         "ids_name": "480009",
         "ids_info": "066143",
         "info": "Eine Gasabbaustation ist eine beschränkt mobile Station zum Extrahieren wertvoller Ressourcen aus in Nebeln gefundenen Gasen.",
@@ -239094,7 +240710,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF35_planet_2",
-        "name": "CF35_planet_2",
+        "name": "Iairt",
         "ids_name": "480133",
         "ids_info": "480134",
         "info": "",
@@ -240132,11 +241748,97 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF36": {
-    "name": "CF36",
+    "name": "Sovetskaya",
     "strid_name": "459194",
     "ids_info": "458946",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "CF36_to_CF34",
+        "name": "Gurm Warp Gate",
+        "ids_name": "481128",
+        "ids_info": "465001",
+        "info": "",
+        "x": -85995.0,
+        "y": 0.0,
+        "z": -11045.0,
+        "archetype": "track_ring2coal",
+        "solar_radius": 600.0,
+        "dest_system": "CF34",
+        "dest_gate": "CF34_to_CF36",
+        "faction": "fc_cf4_grp",
+        "loadout": "",
+        "rotate_y": 14.0
+      },
+      {
+        "nickname": "CF36_to_CF35",
+        "name": "Gladius Warp Gate",
+        "ids_name": "481130",
+        "ids_info": "465001",
+        "info": "",
+        "x": -85995.0,
+        "y": 0.0,
+        "z": -21045.0,
+        "archetype": "track_ring2coal",
+        "solar_radius": 600.0,
+        "dest_system": "CF35",
+        "dest_gate": "CF35_to_CF36",
+        "faction": "fc_cf4_grp",
+        "loadout": "",
+        "rotate_y": 14.0
+      },
+      {
+        "nickname": "CF36_to_CF37",
+        "name": "Tomsk Warp Gate",
+        "ids_name": "481134",
+        "ids_info": "465001",
+        "info": "",
+        "x": -176445.0,
+        "y": 0.0,
+        "z": -273013.0,
+        "archetype": "track_ring2coal",
+        "solar_radius": 600.0,
+        "dest_system": "CF37",
+        "dest_gate": "CF37_to_CF36",
+        "faction": "fc_cf4_grp",
+        "loadout": "",
+        "rotate_y": 14.0
+      },
+      {
+        "nickname": "CF36_to_CF38",
+        "name": "Vorkuta Warp Gate",
+        "ids_name": "481136",
+        "ids_info": "465001",
+        "info": "",
+        "x": 183598.0,
+        "y": 0.0,
+        "z": 165715.0,
+        "archetype": "track_ring2coal",
+        "solar_radius": 600.0,
+        "dest_system": "CF38",
+        "dest_gate": "CF38_to_CF36",
+        "faction": "fc_cf4_grp",
+        "loadout": "",
+        "rotate_y": 14.0
+      },
+      {
+        "nickname": "CF36_to_CF61",
+        "name": "New Hongkong Warp Gate",
+        "ids_name": "481210",
+        "ids_info": "465001",
+        "info": "",
+        "x": 35530.0,
+        "y": 0.0,
+        "z": 70078.0,
+        "archetype": "track_ring2coal",
+        "solar_radius": 600.0,
+        "dest_system": "CF61",
+        "dest_gate": "CF61_to_CF36",
+        "faction": "fc_cf4_grp",
+        "loadout": "",
+        "rotate_y": 284.0
+      }
+    ],
     "jumpholes": [],
     "stations": [
       {
@@ -240159,7 +241861,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "Vesuviusstation",
-        "name": "Vesuviusstation",
+        "name": "Gorlowka Carrier",
         "ids_name": "500396",
         "ids_info": "500397",
         "info": "",
@@ -240213,7 +241915,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF36_station3",
-        "name": "CF36_station3",
+        "name": "Baku Station",
         "ids_name": "500366",
         "ids_info": "500376",
         "info": "",
@@ -240231,7 +241933,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF36_station2",
-        "name": "CF36_station2",
+        "name": "Charkow Outpost",
         "ids_name": "500365",
         "ids_info": "500377",
         "info": "",
@@ -240249,7 +241951,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF36_station1",
-        "name": "CF36_station1",
+        "name": "Kuibyschew Outpost",
         "ids_name": "500361",
         "ids_info": "500372",
         "info": "",
@@ -256910,11 +258612,80 @@ const GAME_SYSTEMS = {
     "nebulae": []
   },
   "CF37": {
-    "name": "CF37",
+    "name": "Tomsk",
     "strid_name": "459196",
     "ids_info": "458947",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "CF37_to_CF36",
+        "name": "Sovetskaya Warp Gate",
+        "ids_name": "481132",
+        "ids_info": "465001",
+        "info": "",
+        "x": 56445.0,
+        "y": 0.0,
+        "z": 33013.0,
+        "archetype": "track_ring2coal",
+        "solar_radius": 600.0,
+        "dest_system": "CF36",
+        "dest_gate": "CF36_to_CF37",
+        "faction": "fc_cf4_grp",
+        "loadout": "",
+        "rotate_y": 14.0
+      },
+      {
+        "nickname": "CF37_to_CF62",
+        "name": "Gagarin Warp Gate",
+        "ids_name": "481292",
+        "ids_info": "465001",
+        "info": "",
+        "x": -85995.0,
+        "y": 0.0,
+        "z": -11045.0,
+        "archetype": "track_ring2coal",
+        "solar_radius": 600.0,
+        "dest_system": "CF62",
+        "dest_gate": "CF62_to_CF37",
+        "faction": "fc_cf4_grp",
+        "loadout": "",
+        "rotate_y": 284.0
+      },
+      {
+        "nickname": "CF37_to_CF63",
+        "name": "Kalinin Warp Gate",
+        "ids_name": "481294",
+        "ids_info": "465001",
+        "info": "",
+        "x": 1183.0,
+        "y": 0.0,
+        "z": 42208.0,
+        "archetype": "track_ring2coal",
+        "solar_radius": 600.0,
+        "dest_system": "CF63",
+        "dest_gate": "CF63_to_CF37",
+        "faction": "fc_cf4_grp",
+        "loadout": "",
+        "rotate_y": 14.0
+      },
+      {
+        "nickname": "CF37_to_CF64",
+        "name": "New Beijing Warp Gate",
+        "ids_name": "481242",
+        "ids_info": "465001",
+        "info": "",
+        "x": -11439.0,
+        "y": 0.0,
+        "z": -51281.0,
+        "archetype": "track_ring2coal",
+        "solar_radius": 600.0,
+        "dest_system": "CF64",
+        "dest_gate": "CF64_to_CF37",
+        "faction": "fc_cf4_grp",
+        "loadout": "",
+        "rotate_y": 194.0
+      }
+    ],
     "jumpholes": [],
     "stations": [],
     "planets": [],
@@ -257630,15 +259401,84 @@ const GAME_SYSTEMS = {
     "nebulae": []
   },
   "CF38": {
-    "name": "CF38",
+    "name": "Vorkuta",
     "strid_name": "459198",
     "ids_info": "458948",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "CF38_to_CF36",
+        "name": "Sovetskaya Warp Gate",
+        "ids_name": "481132",
+        "ids_info": "465001",
+        "info": "",
+        "x": 56445.0,
+        "y": 0.0,
+        "z": 43013.0,
+        "archetype": "track_ring2coal",
+        "solar_radius": 600.0,
+        "dest_system": "CF36",
+        "dest_gate": "CF36_to_CF38",
+        "faction": "fc_cf4_grp",
+        "loadout": "",
+        "rotate_y": 14.0
+      },
+      {
+        "nickname": "CF38_to_CF39",
+        "name": "Yakutsk Warp Gate",
+        "ids_name": "481138",
+        "ids_info": "465001",
+        "info": "",
+        "x": 56445.0,
+        "y": 0.0,
+        "z": -63013.0,
+        "archetype": "track_ring2coal",
+        "solar_radius": 600.0,
+        "dest_system": "CF39",
+        "dest_gate": "CF39_to_CF38",
+        "faction": "fc_cf4_grp",
+        "loadout": "",
+        "rotate_y": 194.0
+      },
+      {
+        "nickname": "CF38_to_CF66",
+        "name": "New Mekka Warp Gate",
+        "ids_name": "481298",
+        "ids_info": "465001",
+        "info": "",
+        "x": 36360.0,
+        "y": 0.0,
+        "z": 43048.0,
+        "archetype": "track_ring2coal",
+        "solar_radius": 600.0,
+        "dest_system": "CF66",
+        "dest_gate": "CF66_to_CF38",
+        "faction": "fc_cf4_grp",
+        "loadout": "",
+        "rotate_y": 14.0
+      },
+      {
+        "nickname": "CF38_to_CF67",
+        "name": "Er Riad Warp Gate",
+        "ids_name": "481300",
+        "ids_info": "465001",
+        "info": "",
+        "x": -2094.0,
+        "y": 0.0,
+        "z": 39864.0,
+        "archetype": "track_ring2coal",
+        "solar_radius": 600.0,
+        "dest_system": "CF67",
+        "dest_gate": "CF67_to_CF38",
+        "faction": "fc_cf4_grp",
+        "loadout": "",
+        "rotate_y": 14.0
+      }
+    ],
     "jumpholes": [
       {
         "nickname": "CF38_to_CF61_hole",
-        "name": "CF38_to_CF61_hole",
+        "name": "New Hongkong Jump Hole",
         "ids_name": "481003",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -257655,7 +259495,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF38_to_CF69_hole",
-        "name": "CF38_to_CF69_hole",
+        "name": "Meschhed Jump Hole",
         "ids_name": "481097",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -257728,7 +259568,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF38_station4",
-        "name": "CF38_station4",
+        "name": "Pawlowdar Station",
         "ids_name": "500358",
         "ids_info": "500369",
         "info": "",
@@ -257746,7 +259586,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF38_station5",
-        "name": "CF38_station5",
+        "name": "Donezk Station",
         "ids_name": "500362",
         "ids_info": "500373",
         "info": "",
@@ -257764,7 +259604,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF38_station6",
-        "name": "CF38_station6",
+        "name": "Gorkij Station",
         "ids_name": "500363",
         "ids_info": "500374",
         "info": "",
@@ -257782,7 +259622,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF38_station0",
-        "name": "CF38_station0",
+        "name": "Odessa Station",
         "ids_name": "500364",
         "ids_info": "500375",
         "info": "",
@@ -257800,7 +259640,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF38_station8",
-        "name": "CF38_station8",
+        "name": "Swerdlowsk Station",
         "ids_name": "500368",
         "ids_info": "500379",
         "info": "",
@@ -266761,11 +268601,63 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF39": {
-    "name": "CF39",
+    "name": "Yakutsk",
     "strid_name": "459200",
     "ids_info": "458949",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "CF39_to_CF38",
+        "name": "Vorkuta Warp Gate",
+        "ids_name": "481136",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 50445.0,
+        "y": 0.0,
+        "z": 43013.0,
+        "archetype": "track_ring2coal",
+        "solar_radius": 600.0,
+        "dest_system": "CF38",
+        "dest_gate": "CF38_to_CF39",
+        "faction": "fc_cf4_grp",
+        "loadout": "",
+        "rotate_y": 14.0
+      },
+      {
+        "nickname": "CF39_to_CF69",
+        "name": "Meschhed Warp Gate",
+        "ids_name": "481304",
+        "ids_info": "465001",
+        "info": "",
+        "x": 76174.0,
+        "y": 0.0,
+        "z": -87441.0,
+        "archetype": "track_ring2coal",
+        "solar_radius": 600.0,
+        "dest_system": "CF69",
+        "dest_gate": "CF69_to_CF39",
+        "faction": "fc_cf4_grp",
+        "loadout": "",
+        "rotate_y": 104.0
+      },
+      {
+        "nickname": "CF39_to_CF68",
+        "name": "Nedjef Warp Gate",
+        "ids_name": "481302",
+        "ids_info": "465001",
+        "info": "",
+        "x": 19349.0,
+        "y": 0.0,
+        "z": -86216.0,
+        "archetype": "track_ring2coal",
+        "solar_radius": 600.0,
+        "dest_system": "CF68",
+        "dest_gate": "CF68_to_CF39",
+        "faction": "fc_cf4_grp",
+        "loadout": "",
+        "rotate_y": 284.0
+      }
+    ],
     "jumpholes": [
       {
         "nickname": "CF39_to_EW06",
@@ -268238,11 +270130,29 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF40": {
-    "name": "CF40",
+    "name": "Kandiris",
     "strid_name": "459202",
     "ids_info": "458950",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "CF40_to_CF31",
+        "name": "Styx Warp Gate",
+        "ids_name": "481202",
+        "ids_info": "465001",
+        "info": "",
+        "x": 20162.0,
+        "y": 0.0,
+        "z": 13301.0,
+        "archetype": "track_ring2coal",
+        "solar_radius": 600.0,
+        "dest_system": "CF31",
+        "dest_gate": "CF31_to_CF40",
+        "faction": "fc_cf4_grp",
+        "loadout": "",
+        "rotate_y": 94.0
+      }
+    ],
     "jumpholes": [],
     "stations": [
       {
@@ -268421,7 +270331,7 @@ const GAME_SYSTEMS = {
     "nebulae": []
   },
   "CF41": {
-    "name": "CF41",
+    "name": "Hive",
     "strid_name": "459270",
     "ids_info": "458951",
     "info": "",
@@ -268470,7 +270380,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF42": {
-    "name": "CF42",
+    "name": "Hieron",
     "strid_name": "459286",
     "ids_info": "458952",
     "info": "",
@@ -268478,7 +270388,7 @@ const GAME_SYSTEMS = {
     "jumpholes": [
       {
         "nickname": "CF42_to_CF43_hole",
-        "name": "CF42_to_CF43_hole",
+        "name": "Jokusuka Jump Hole",
         "ids_name": "481011",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -268495,7 +270405,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF42_to_CF49_hole",
-        "name": "CF42_to_CF49_hole",
+        "name": "Lemnos Jump Hole",
         "ids_name": "481023",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -268642,7 +270552,7 @@ const GAME_SYSTEMS = {
     "planets": [
       {
         "nickname": "CF42_planet_1",
-        "name": "CF42_planet_1",
+        "name": "Planet São Paulo",
         "ids_name": "500320",
         "ids_info": "500380",
         "info": "",
@@ -268662,7 +270572,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF42_planet_2",
-        "name": "CF42_planet_2",
+        "name": "Planet Rio de Janeiro",
         "ids_name": "500321",
         "ids_info": "459045",
         "info": "",
@@ -268682,7 +270592,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF42_planet_3",
-        "name": "CF42_planet_3",
+        "name": "Planet Eniwetok",
         "ids_name": "500322",
         "ids_info": "459050",
         "info": "",
@@ -268702,7 +270612,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF42_planet_4",
-        "name": "CF42_planet_4",
+        "name": "Planet Damanhur",
         "ids_name": "500323",
         "ids_info": "459051",
         "info": "",
@@ -268722,7 +270632,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF42_planet_5",
-        "name": "CF42_planet_5",
+        "name": "Tontpol",
         "ids_name": "480135",
         "ids_info": "480136",
         "info": "",
@@ -268742,7 +270652,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF42_planet_6",
-        "name": "CF42_planet_6",
+        "name": "Eryl",
         "ids_name": "480137",
         "ids_info": "480138",
         "info": "",
@@ -268762,7 +270672,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF42_planet_7",
-        "name": "CF42_planet_7",
+        "name": "Ageema",
         "ids_name": "480139",
         "ids_info": "480140",
         "info": "",
@@ -268782,7 +270692,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF42_planet_8",
-        "name": "CF42_planet_8",
+        "name": "Skelrsul",
         "ids_name": "480141",
         "ids_info": "480142",
         "info": "",
@@ -268802,7 +270712,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF42_planet_9",
-        "name": "CF42_planet_9",
+        "name": "Engady",
         "ids_name": "480143",
         "ids_info": "480144",
         "info": "",
@@ -269897,7 +271807,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF43": {
-    "name": "CF43",
+    "name": "Jokusuka",
     "strid_name": "459288",
     "ids_info": "458953",
     "info": "",
@@ -269905,7 +271815,7 @@ const GAME_SYSTEMS = {
     "jumpholes": [
       {
         "nickname": "CF43_to_CF42_hole",
-        "name": "CF43_to_CF42_hole",
+        "name": "Hieron Jump Hole",
         "ids_name": "481009",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -269922,7 +271832,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF43_to_CF44_hole",
-        "name": "CF43_to_CF44_hole",
+        "name": "Spica Jump Hole",
         "ids_name": "481013",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -270141,7 +272051,7 @@ const GAME_SYSTEMS = {
     "planets": [
       {
         "nickname": "CF43_planet_1",
-        "name": "CF43_planet_1",
+        "name": "Planet Dakar",
         "ids_name": "500324",
         "ids_info": "459052",
         "info": "",
@@ -270161,7 +272071,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF43_planet_2",
-        "name": "CF43_planet_2",
+        "name": "Planet Balboa",
         "ids_name": "500325",
         "ids_info": "459053",
         "info": "",
@@ -270181,7 +272091,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF43_planet_3",
-        "name": "CF43_planet_3",
+        "name": "Planet Eleusis",
         "ids_name": "500326",
         "ids_info": "459054",
         "info": "",
@@ -270201,7 +272111,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF43_planet_4",
-        "name": "CF43_planet_4",
+        "name": "Quarile",
         "ids_name": "480145",
         "ids_info": "480146",
         "info": "",
@@ -270221,7 +272131,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF43_planet_5",
-        "name": "CF43_planet_5",
+        "name": "Isqua",
         "ids_name": "480147",
         "ids_info": "480148",
         "info": "",
@@ -271058,7 +272968,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF44": {
-    "name": "CF44",
+    "name": "Spica",
     "strid_name": "459290",
     "ids_info": "458954",
     "info": "",
@@ -271066,7 +272976,7 @@ const GAME_SYSTEMS = {
     "jumpholes": [
       {
         "nickname": "CF44_to_CF43_hole",
-        "name": "CF44_to_CF43_hole",
+        "name": "Jokusuka Jump Hole",
         "ids_name": "481011",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -271083,7 +272993,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF44_to_CF45_hole",
-        "name": "CF44_to_CF45_hole",
+        "name": "Pretoria Jump Hole",
         "ids_name": "481015",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -271100,7 +273010,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF44_to_CF49_hole",
-        "name": "CF44_to_CF49_hole",
+        "name": "Lemnos Jump Hole",
         "ids_name": "481023",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -271265,7 +273175,7 @@ const GAME_SYSTEMS = {
     "planets": [
       {
         "nickname": "CF44_planet_1",
-        "name": "CF44_planet_1",
+        "name": "Planet Katanga",
         "ids_name": "500327",
         "ids_info": "459055",
         "info": "",
@@ -271285,7 +273195,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF44_planet_2",
-        "name": "CF44_planet_2",
+        "name": "Planet Sucre",
         "ids_name": "500328",
         "ids_info": "459056",
         "info": "",
@@ -271305,7 +273215,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF44_planet_3",
-        "name": "CF44_planet_3",
+        "name": "Streest",
         "ids_name": "480149",
         "ids_info": "480150",
         "info": "",
@@ -271325,7 +273235,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF44_planet_4",
-        "name": "CF44_planet_4",
+        "name": "Ightrod",
         "ids_name": "480151",
         "ids_info": "480152",
         "info": "",
@@ -271903,7 +273813,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF45": {
-    "name": "CF45",
+    "name": "Pretoria",
     "strid_name": "459292",
     "ids_info": "458955",
     "info": "",
@@ -271911,7 +273821,7 @@ const GAME_SYSTEMS = {
     "jumpholes": [
       {
         "nickname": "CF45_to_CF44_hole",
-        "name": "CF45_to_CF44_hole",
+        "name": "Spica Jump Hole",
         "ids_name": "481013",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -271928,7 +273838,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF45_to_CF46_hole",
-        "name": "CF45_to_CF46_hole",
+        "name": "Tonga Jump Hole",
         "ids_name": "481017",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -271947,7 +273857,7 @@ const GAME_SYSTEMS = {
     "stations": [
       {
         "nickname": "CF45_dombase_01",
-        "name": "CF45_dombase_01",
+        "name": "Dom'Kavash Station",
         "ids_name": "500389",
         "ids_info": "500390",
         "info": "",
@@ -271965,7 +273875,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF45_dombase_02",
-        "name": "CF45_dombase_02",
+        "name": "Dom'Kavash Station",
         "ids_name": "500389",
         "ids_info": "500390",
         "info": "",
@@ -271983,7 +273893,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF45_dombase_03",
-        "name": "CF45_dombase_03",
+        "name": "Dom'Kavash Station",
         "ids_name": "500389",
         "ids_info": "500390",
         "info": "",
@@ -272147,7 +274057,7 @@ const GAME_SYSTEMS = {
     "planets": [
       {
         "nickname": "CF45_planet_1",
-        "name": "CF45_planet_1",
+        "name": "Planet Novara",
         "ids_name": "500329",
         "ids_info": "459057",
         "info": "",
@@ -272167,7 +274077,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF45_planet_2",
-        "name": "CF45_planet_2",
+        "name": "Planet Mendoza",
         "ids_name": "500330",
         "ids_info": "459058",
         "info": "",
@@ -272187,7 +274097,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF45_planet_3",
-        "name": "CF45_planet_3",
+        "name": "Risshy",
         "ids_name": "480153",
         "ids_info": "480154",
         "info": "",
@@ -272207,7 +274117,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF45_planet_4",
-        "name": "CF45_planet_4",
+        "name": "Enthkim",
         "ids_name": "480155",
         "ids_info": "480156",
         "info": "",
@@ -272227,7 +274137,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF45_planet_5",
-        "name": "CF45_planet_5",
+        "name": "Attas",
         "ids_name": "480157",
         "ids_info": "480158",
         "info": "",
@@ -272247,7 +274157,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF45_planet_6",
-        "name": "CF45_planet_6",
+        "name": "Celos",
         "ids_name": "481535",
         "ids_info": "481537",
         "info": "",
@@ -272267,7 +274177,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF45_planet_7",
-        "name": "CF45_planet_7",
+        "name": "Triam",
         "ids_name": "481536",
         "ids_info": "481538",
         "info": "",
@@ -272863,7 +274773,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF46": {
-    "name": "CF46",
+    "name": "Tonga",
     "strid_name": "459294",
     "ids_info": "458976",
     "info": "",
@@ -272871,7 +274781,7 @@ const GAME_SYSTEMS = {
     "jumpholes": [
       {
         "nickname": "CF46_to_CF45_hole",
-        "name": "CF46_to_CF45_hole",
+        "name": "Pretoria Jump Hole",
         "ids_name": "481015",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -272888,7 +274798,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF46_to_CF47_hole",
-        "name": "CF46_to_CF47_hole",
+        "name": "Scotia Jump Hole",
         "ids_name": "481019",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -272907,7 +274817,7 @@ const GAME_SYSTEMS = {
     "stations": [
       {
         "nickname": "CF46_dombase_01",
-        "name": "CF46_dombase_01",
+        "name": "Dom'Kavash Station",
         "ids_name": "500389",
         "ids_info": "500390",
         "info": "",
@@ -272925,7 +274835,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF46_dombase_02",
-        "name": "CF46_dombase_02",
+        "name": "Dom'Kavash Station",
         "ids_name": "500389",
         "ids_info": "500390",
         "info": "",
@@ -272943,7 +274853,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF46_dombase_03",
-        "name": "CF46_dombase_03",
+        "name": "Dom'Kavash Station",
         "ids_name": "500389",
         "ids_info": "500390",
         "info": "",
@@ -272961,7 +274871,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF46_dombase_04",
-        "name": "CF46_dombase_04",
+        "name": "Dom'Kavash Station",
         "ids_name": "500389",
         "ids_info": "500390",
         "info": "",
@@ -273125,7 +275035,7 @@ const GAME_SYSTEMS = {
     "planets": [
       {
         "nickname": "CF46_planet_1",
-        "name": "CF46_planet_1",
+        "name": "Planet Patras",
         "ids_name": "500331",
         "ids_info": "459059",
         "info": "",
@@ -273685,7 +275595,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF47": {
-    "name": "CF47",
+    "name": "Scotia",
     "strid_name": "459296",
     "ids_info": "458956",
     "info": "",
@@ -273693,7 +275603,7 @@ const GAME_SYSTEMS = {
     "jumpholes": [
       {
         "nickname": "CF47_to_CF46_hole",
-        "name": "CF47_to_CF46_hole",
+        "name": "Tonga Jump Hole",
         "ids_name": "481017",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -273710,7 +275620,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF47_to_CF48_hole",
-        "name": "CF47_to_CF48_hole",
+        "name": "Menton Jump Hole",
         "ids_name": "481021",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -273729,7 +275639,7 @@ const GAME_SYSTEMS = {
     "stations": [
       {
         "nickname": "CF47_dombase_01",
-        "name": "CF47_dombase_01",
+        "name": "Dom'Kavash Station",
         "ids_name": "500389",
         "ids_info": "500390",
         "info": "",
@@ -273747,7 +275657,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF47_dombase_02",
-        "name": "CF47_dombase_02",
+        "name": "Dom'Kavash Station",
         "ids_name": "500389",
         "ids_info": "500390",
         "info": "",
@@ -273765,7 +275675,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF47_dombase_03",
-        "name": "CF47_dombase_03",
+        "name": "Dom'Kavash Station",
         "ids_name": "500389",
         "ids_info": "500390",
         "info": "",
@@ -273783,7 +275693,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF47_dombase_04",
-        "name": "CF47_dombase_04",
+        "name": "Dom'Kavash Station",
         "ids_name": "500389",
         "ids_info": "500390",
         "info": "",
@@ -273801,7 +275711,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF47_dombase_05",
-        "name": "CF47_dombase_05",
+        "name": "Dom'Kavash Station",
         "ids_name": "500389",
         "ids_info": "500390",
         "info": "",
@@ -274048,7 +275958,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF48": {
-    "name": "CF48",
+    "name": "Menton",
     "strid_name": "459298",
     "ids_info": "458957",
     "info": "",
@@ -274056,7 +275966,7 @@ const GAME_SYSTEMS = {
     "jumpholes": [
       {
         "nickname": "CF48_to_CF47_hole",
-        "name": "CF48_to_CF47_hole",
+        "name": "Scotia Jump Hole",
         "ids_name": "481019",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -274221,7 +276131,7 @@ const GAME_SYSTEMS = {
     "planets": [
       {
         "nickname": "CF48_planet_1",
-        "name": "CF48_planet_1",
+        "name": "Planet Brisbane",
         "ids_name": "500334",
         "ids_info": "500380",
         "info": "",
@@ -274241,7 +276151,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF48_planet_2",
-        "name": "CF48_planet_2",
+        "name": "Planet Taipeh",
         "ids_name": "500335",
         "ids_info": "459060",
         "info": "",
@@ -274261,7 +276171,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF48_planet_3",
-        "name": "CF48_planet_3",
+        "name": "Planet Jakarta",
         "ids_name": "500336",
         "ids_info": "459061",
         "info": "",
@@ -274281,7 +276191,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF48_planet_4",
-        "name": "CF48_planet_4",
+        "name": "Planet Poitiers",
         "ids_name": "500333",
         "ids_info": "459062",
         "info": "",
@@ -274301,7 +276211,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF48_planet_5",
-        "name": "CF48_planet_5",
+        "name": "Onew",
         "ids_name": "480159",
         "ids_info": "480160",
         "info": "",
@@ -274321,7 +276231,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF48_planet_6",
-        "name": "CF48_planet_6",
+        "name": "Osrad",
         "ids_name": "480161",
         "ids_info": "480162",
         "info": "",
@@ -274341,7 +276251,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF48_planet_7",
-        "name": "CF48_planet_7",
+        "name": "Elmard",
         "ids_name": "480163",
         "ids_info": "480164",
         "info": "",
@@ -274361,7 +276271,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF48_planet_8",
-        "name": "CF48_planet_8",
+        "name": "Ardlos",
         "ids_name": "480165",
         "ids_info": "480166",
         "info": "",
@@ -274381,7 +276291,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF48_planet_9",
-        "name": "CF48_planet_9",
+        "name": "Essasho",
         "ids_name": "480167",
         "ids_info": "480168",
         "info": "",
@@ -275036,7 +276946,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF49": {
-    "name": "CF49",
+    "name": "Lemnos",
     "strid_name": "459300",
     "ids_info": "458958",
     "info": "",
@@ -275044,7 +276954,7 @@ const GAME_SYSTEMS = {
     "jumpholes": [
       {
         "nickname": "CF49_to_CF42_hole",
-        "name": "CF49_to_CF42_hole",
+        "name": "Hieron Jump Hole",
         "ids_name": "481009",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -275061,7 +276971,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF49_to_CF44_hole",
-        "name": "CF49_to_CF44_hole",
+        "name": "Spica Jump Hole",
         "ids_name": "481013",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -275078,7 +276988,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF49_to_CF50_hole",
-        "name": "CF49_to_CF50_hole",
+        "name": "Mitra Jump Hole",
         "ids_name": "481025",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -275095,7 +277005,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF49_to_CF51_hole",
-        "name": "CF49_to_CF51_hole",
+        "name": "Mira Ceti Jump Hole",
         "ids_name": "481027",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -275114,7 +277024,7 @@ const GAME_SYSTEMS = {
     "stations": [
       {
         "nickname": "CF49_dombase_01",
-        "name": "CF49_dombase_01",
+        "name": "Dom'Kavash Station",
         "ids_name": "500389",
         "ids_info": "500390",
         "info": "",
@@ -275132,7 +277042,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF49_dombase_02",
-        "name": "CF49_dombase_02",
+        "name": "Dom'Kavash Station",
         "ids_name": "500389",
         "ids_info": "500390",
         "info": "",
@@ -275150,7 +277060,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF49_dombase_03",
-        "name": "CF49_dombase_03",
+        "name": "Dom'Kavash Station",
         "ids_name": "500389",
         "ids_info": "500390",
         "info": "",
@@ -275206,7 +277116,7 @@ const GAME_SYSTEMS = {
     "planets": [
       {
         "nickname": "CF49_planet_1",
-        "name": "CF49_planet_1",
+        "name": "Planet Seoul",
         "ids_name": "500337",
         "ids_info": "459063",
         "info": "",
@@ -275226,7 +277136,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF49_planet_2",
-        "name": "CF49_planet_2",
+        "name": "Planet Nagput",
         "ids_name": "500338",
         "ids_info": "459064",
         "info": "",
@@ -275246,7 +277156,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF49_planet_3",
-        "name": "CF49_planet_3",
+        "name": "Nyith",
         "ids_name": "480169",
         "ids_info": "480170",
         "info": "",
@@ -275796,7 +277706,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF50": {
-    "name": "CF50",
+    "name": "Mitra",
     "strid_name": "459302",
     "ids_info": "458959",
     "info": "",
@@ -275804,7 +277714,7 @@ const GAME_SYSTEMS = {
     "jumpholes": [
       {
         "nickname": "CF50_to_CF49_hole",
-        "name": "CF50_to_CF49_hole",
+        "name": "Lemnos Jump Hole",
         "ids_name": "481023",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -275931,7 +277841,7 @@ const GAME_SYSTEMS = {
     "nebulae": []
   },
   "CF51": {
-    "name": "CF51",
+    "name": "Mira Ceti",
     "strid_name": "459304",
     "ids_info": "458960",
     "info": "",
@@ -275939,7 +277849,7 @@ const GAME_SYSTEMS = {
     "jumpholes": [
       {
         "nickname": "CF51_to_CF52_hole",
-        "name": "CF51_to_CF52_hole",
+        "name": "Ptah Jump Hole",
         "ids_name": "481029",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -275956,7 +277866,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF51_to_CF49_hole",
-        "name": "CF51_to_CF49_hole",
+        "name": "Lemnos Jump Hole",
         "ids_name": "481023",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -276157,7 +278067,7 @@ const GAME_SYSTEMS = {
     "planets": [
       {
         "nickname": "CF51_planet_1",
-        "name": "CF51_planet_1",
+        "name": "Planet Portland",
         "ids_name": "500339",
         "ids_info": "459065",
         "info": "",
@@ -276177,7 +278087,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF51_planet_2",
-        "name": "CF51_planet_2",
+        "name": "Planet Cali",
         "ids_name": "500340",
         "ids_info": "459066",
         "info": "",
@@ -276197,7 +278107,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF51_planet_3",
-        "name": "CF51_planet_3",
+        "name": "Planet Salvador",
         "ids_name": "500341",
         "ids_info": "459067",
         "info": "",
@@ -276217,7 +278127,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF51_planet_4",
-        "name": "CF51_planet_4",
+        "name": "Planet Espirito Santo",
         "ids_name": "500342",
         "ids_info": "459068",
         "info": "",
@@ -276237,7 +278147,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF51_planet_5",
-        "name": "CF51_planet_5",
+        "name": "Ardvor",
         "ids_name": "480171",
         "ids_info": "480172",
         "info": "",
@@ -276257,7 +278167,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF51_planet_6",
-        "name": "CF51_planet_6",
+        "name": "Gosul",
         "ids_name": "480173",
         "ids_info": "480174",
         "info": "",
@@ -276277,7 +278187,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF51_planet_7",
-        "name": "CF51_planet_7",
+        "name": "Wardyn",
         "ids_name": "480175",
         "ids_info": "480176",
         "info": "",
@@ -276297,7 +278207,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF51_planet_8",
-        "name": "CF51_planet_8",
+        "name": "Undtai",
         "ids_name": "480177",
         "ids_info": "480178",
         "info": "",
@@ -276933,7 +278843,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF52": {
-    "name": "CF52",
+    "name": "Ptah",
     "strid_name": "459306",
     "ids_info": "458961",
     "info": "",
@@ -276941,7 +278851,7 @@ const GAME_SYSTEMS = {
     "jumpholes": [
       {
         "nickname": "CF52_to_CF51_hole",
-        "name": "CF52_to_CF51_hole",
+        "name": "Mira Ceti Jump Hole",
         "ids_name": "481027",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -277034,7 +278944,7 @@ const GAME_SYSTEMS = {
     "planets": [
       {
         "nickname": "CF52_planet_1",
-        "name": "CF52_planet_1",
+        "name": "Planet Matnerrey",
         "ids_name": "500343",
         "ids_info": "459069",
         "info": "",
@@ -277054,7 +278964,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF52_planet_2",
-        "name": "CF52_planet_2",
+        "name": "Planet Guadalajara",
         "ids_name": "500344",
         "ids_info": "459070",
         "info": "",
@@ -277648,7 +279558,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF53": {
-    "name": "CF53",
+    "name": "Planet Lost Paradise",
     "strid_name": "459282",
     "ids_info": "458962",
     "info": "",
@@ -277657,7 +279567,7 @@ const GAME_SYSTEMS = {
     "stations": [
       {
         "nickname": "CF53_to_CF54",
-        "name": "CF53_to_CF54",
+        "name": "Launch to Space",
         "ids_name": "499974",
         "ids_info": "216501",
         "info": "",
@@ -277675,7 +279585,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF53_to_CF54x2",
-        "name": "CF53_to_CF54x2",
+        "name": "Launch to Space",
         "ids_name": "499974",
         "ids_info": "216501",
         "info": "",
@@ -277693,7 +279603,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF5313",
-        "name": "CF5313",
+        "name": "Landing Pad",
         "ids_name": "499976",
         "ids_info": "499976",
         "info": "",
@@ -277713,7 +279623,7 @@ const GAME_SYSTEMS = {
     "planets": [
       {
         "nickname": "CF53_planet_2",
-        "name": "CF53_planet_2",
+        "name": "Planet Eden",
         "ids_name": "491017",
         "ids_info": "491018",
         "info": "",
@@ -277817,7 +279727,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF54": {
-    "name": "CF54",
+    "name": "Lost Paradise",
     "strid_name": "459284",
     "ids_info": "458962",
     "info": "",
@@ -277825,7 +279735,7 @@ const GAME_SYSTEMS = {
     "jumpholes": [
       {
         "nickname": "CF54_to_CF56",
-        "name": "CF54_to_CF56",
+        "name": "Unknown Jump Hole",
         "ids_name": "480997",
         "ids_info": "60212",
         "info": "",
@@ -277844,7 +279754,7 @@ const GAME_SYSTEMS = {
     "stations": [
       {
         "nickname": "CF54_to_CF53",
-        "name": "CF54_to_CF53",
+        "name": "Planet Lost Paradise",
         "ids_name": "499977",
         "ids_info": "216501",
         "info": "",
@@ -277862,7 +279772,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF54_to_CF53x2",
-        "name": "CF54_to_CF53x2",
+        "name": "Planet Lost Paradise",
         "ids_name": "499977",
         "ids_info": "216501",
         "info": "",
@@ -277882,7 +279792,7 @@ const GAME_SYSTEMS = {
     "planets": [
       {
         "nickname": "CF54_planet_1",
-        "name": "CF54_planet_1",
+        "name": "Planet Lost Paradise",
         "ids_name": "499977",
         "ids_info": "499978",
         "info": "",
@@ -277922,7 +279832,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF54_planet_2",
-        "name": "CF54_planet_2",
+        "name": "Planet Nisrial",
         "ids_name": "500401",
         "ids_info": "500402",
         "info": "",
@@ -278368,7 +280278,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF55": {
-    "name": "CF55",
+    "name": "Unknown",
     "strid_name": "459274",
     "ids_info": "458963",
     "info": "",
@@ -278376,7 +280286,7 @@ const GAME_SYSTEMS = {
     "jumpholes": [
       {
         "nickname": "CF55_to_CF54",
-        "name": "CF55_to_CF54",
+        "name": "Unknown Jumphole",
         "ids_name": "491015",
         "ids_info": "60212",
         "info": "",
@@ -278393,7 +280303,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF55_to_EW05",
-        "name": "CF55_to_EW05",
+        "name": "Unknown Jumphole",
         "ids_name": "491015",
         "ids_info": "60212",
         "info": "",
@@ -278413,7 +280323,7 @@ const GAME_SYSTEMS = {
     "planets": [
       {
         "nickname": "CF55_planet_1",
-        "name": "CF55_planet_1",
+        "name": "Planet Lorym",
         "ids_name": "500403",
         "ids_info": "500404",
         "info": "",
@@ -278453,7 +280363,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF55_planet_2",
-        "name": "CF55_planet_2",
+        "name": "Planet Tegra",
         "ids_name": "500405",
         "ids_info": "500406",
         "info": "",
@@ -278473,7 +280383,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF55_planet_3",
-        "name": "CF55_planet_3",
+        "name": "Planet Dryad",
         "ids_name": "500407",
         "ids_info": "500408",
         "info": "",
@@ -278493,7 +280403,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF55_planet_4",
-        "name": "CF55_planet_4",
+        "name": "Ustyw",
         "ids_name": "480179",
         "ids_info": "480180",
         "info": "",
@@ -278513,7 +280423,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF55_planet_5",
-        "name": "CF55_planet_5",
+        "name": "Sulasu",
         "ids_name": "480181",
         "ids_info": "480182",
         "info": "",
@@ -278533,7 +280443,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF55_planet_6",
-        "name": "CF55_planet_6",
+        "name": "Chaoni",
         "ids_name": "480183",
         "ids_info": "480184",
         "info": "",
@@ -278553,7 +280463,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF55_planet_7",
-        "name": "CF55_planet_7",
+        "name": "Raymim",
         "ids_name": "480185",
         "ids_info": "480186",
         "info": "",
@@ -279190,7 +281100,7 @@ const GAME_SYSTEMS = {
     "nebulae": []
   },
   "CF56": {
-    "name": "CF56",
+    "name": "Unknown",
     "strid_name": "459274",
     "ids_info": "458964",
     "info": "",
@@ -279198,7 +281108,7 @@ const GAME_SYSTEMS = {
     "jumpholes": [
       {
         "nickname": "CF56_to_CF54",
-        "name": "CF56_to_CF54",
+        "name": "Unknown Jumphole",
         "ids_name": "491015",
         "ids_info": "60212",
         "info": "",
@@ -279215,7 +281125,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF56_to_EW05",
-        "name": "CF56_to_EW05",
+        "name": "Unknown Jumphole",
         "ids_name": "491015",
         "ids_info": "60212",
         "info": "",
@@ -279232,7 +281142,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF56_to_CF57",
-        "name": "CF56_to_CF57",
+        "name": "Unknown Jumphole",
         "ids_name": "491015",
         "ids_info": "60212",
         "info": "",
@@ -279252,7 +281162,7 @@ const GAME_SYSTEMS = {
     "planets": [
       {
         "nickname": "CF56_planet_1",
-        "name": "CF56_planet_1",
+        "name": "Planet Parium",
         "ids_name": "500409",
         "ids_info": "500410",
         "info": "",
@@ -279272,7 +281182,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF56_planet_2",
-        "name": "CF56_planet_2",
+        "name": "Planet Horath",
         "ids_name": "500411",
         "ids_info": "500412",
         "info": "",
@@ -279292,7 +281202,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF56_planet_3",
-        "name": "CF56_planet_3",
+        "name": "Draenth",
         "ids_name": "480187",
         "ids_info": "480188",
         "info": "",
@@ -279312,7 +281222,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF56_planet_4",
-        "name": "CF56_planet_4",
+        "name": "Toncem",
         "ids_name": "480189",
         "ids_info": "480190",
         "info": "",
@@ -280233,7 +282143,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF57": {
-    "name": "CF57",
+    "name": "Unknown",
     "strid_name": "459274",
     "ids_info": "458965",
     "info": "",
@@ -280241,7 +282151,7 @@ const GAME_SYSTEMS = {
     "jumpholes": [
       {
         "nickname": "CF57_to_CF54",
-        "name": "CF57_to_CF54",
+        "name": "Unknown Jumphole",
         "ids_name": "491015",
         "ids_info": "60212",
         "info": "",
@@ -280258,7 +282168,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF57_to_CF56",
-        "name": "CF57_to_CF56",
+        "name": "Unknown Jumphole",
         "ids_name": "491015",
         "ids_info": "60212",
         "info": "",
@@ -280275,7 +282185,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF57_to_EW06",
-        "name": "CF57_to_EW06",
+        "name": "Unknown Jumphole",
         "ids_name": "491015",
         "ids_info": "60212",
         "info": "",
@@ -280295,7 +282205,7 @@ const GAME_SYSTEMS = {
     "planets": [
       {
         "nickname": "CF57_planet_1",
-        "name": "CF57_planet_1",
+        "name": "Planet Wortha",
         "ids_name": "500413",
         "ids_info": "500414",
         "info": "",
@@ -280315,7 +282225,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF57_planet_2",
-        "name": "CF57_planet_2",
+        "name": "Planet Nithlos",
         "ids_name": "500415",
         "ids_info": "500416",
         "info": "",
@@ -280335,7 +282245,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF57_planet_3",
-        "name": "CF57_planet_3",
+        "name": "Planet Persica",
         "ids_name": "500417",
         "ids_info": "500418",
         "info": "",
@@ -280355,7 +282265,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF57_planet_4",
-        "name": "CF57_planet_4",
+        "name": "Planet Cragira",
         "ids_name": "500419",
         "ids_info": "500420",
         "info": "",
@@ -280375,7 +282285,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF57_planet_5",
-        "name": "CF57_planet_5",
+        "name": "Rislest",
         "ids_name": "480191",
         "ids_info": "480192",
         "info": "",
@@ -280395,7 +282305,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF57_planet_6",
-        "name": "CF57_planet_6",
+        "name": "Rynvor",
         "ids_name": "480193",
         "ids_info": "480194",
         "info": "",
@@ -280415,7 +282325,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF57_planet_7",
-        "name": "CF57_planet_7",
+        "name": "Vina",
         "ids_name": "480195",
         "ids_info": "480196",
         "info": "",
@@ -280993,7 +282903,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF58": {
-    "name": "CF58",
+    "name": "Hyperspace",
     "strid_name": "459308",
     "ids_info": "",
     "info": "",
@@ -281001,7 +282911,7 @@ const GAME_SYSTEMS = {
     "jumpholes": [
       {
         "nickname": "CF58_to_CF48",
-        "name": "CF58_to_CF48",
+        "name": "Back to normal space",
         "ids_name": "500422",
         "ids_info": "500422",
         "info": "",
@@ -281073,7 +282983,7 @@ const GAME_SYSTEMS = {
     "nebulae": []
   },
   "CF59": {
-    "name": "CF59",
+    "name": "Utopia",
     "strid_name": "459310",
     "ids_info": "458966",
     "info": "",
@@ -281098,7 +283008,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF59_to_CF70_hole",
-        "name": "CF59_to_CF70_hole",
+        "name": "Dervon Jump Hole",
         "ids_name": "481037",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -281117,7 +283027,7 @@ const GAME_SYSTEMS = {
     "stations": [
       {
         "nickname": "CF59_MSN_d_l_dreadnought_1",
-        "name": "CF59_MSN_d_l_dreadnought_1",
+        "name": "Liberty Dreadnaught wreck",
         "ids_name": "458977",
         "ids_info": "458977",
         "info": "",
@@ -281135,7 +283045,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF59_MSN_d_l_dreadnought_2",
-        "name": "CF59_MSN_d_l_dreadnought_2",
+        "name": "Liberty Dreadnaught wreck",
         "ids_name": "458977",
         "ids_info": "458977",
         "info": "",
@@ -281153,7 +283063,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF59_MSN_d_l_dreadnought_3",
-        "name": "CF59_MSN_d_l_dreadnought_3",
+        "name": "Liberty Dreadnaught wreck",
         "ids_name": "458977",
         "ids_info": "458977",
         "info": "",
@@ -281171,7 +283081,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF59_MSN_d_l_dreadnought_4",
-        "name": "CF59_MSN_d_l_dreadnought_4",
+        "name": "Liberty Dreadnaught wreck",
         "ids_name": "458977",
         "ids_info": "458977",
         "info": "",
@@ -281189,7 +283099,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF59_MSN_d_l_dreadnought_5",
-        "name": "CF59_MSN_d_l_dreadnought_5",
+        "name": "Liberty Dreadnaught wreck",
         "ids_name": "458977",
         "ids_info": "458977",
         "info": "",
@@ -281207,7 +283117,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF59_MSN_d_l_dreadnought_6",
-        "name": "CF59_MSN_d_l_dreadnought_6",
+        "name": "Liberty Dreadnaught wreck",
         "ids_name": "458977",
         "ids_info": "458977",
         "info": "",
@@ -281225,7 +283135,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF59_MSN_d_l_dreadnought_7",
-        "name": "CF59_MSN_d_l_dreadnought_7",
+        "name": "Liberty Dreadnaught wreck",
         "ids_name": "458977",
         "ids_info": "458977",
         "info": "",
@@ -281243,7 +283153,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF59_MSN_d_l_dreadnought_8",
-        "name": "CF59_MSN_d_l_dreadnought_8",
+        "name": "Liberty Dreadnaught wreck",
         "ids_name": "458977",
         "ids_info": "458977",
         "info": "",
@@ -281261,7 +283171,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF59_MSN_d_l_dreadnought_9",
-        "name": "CF59_MSN_d_l_dreadnought_9",
+        "name": "Liberty Dreadnaught wreck",
         "ids_name": "458977",
         "ids_info": "458977",
         "info": "",
@@ -281279,7 +283189,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF59_MSN_d_l_dreadnought_10",
-        "name": "CF59_MSN_d_l_dreadnought_10",
+        "name": "Liberty Dreadnaught wreck",
         "ids_name": "458977",
         "ids_info": "458977",
         "info": "",
@@ -282989,7 +284899,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF59_Ithaca_station_01",
-        "name": "CF59_Ithaca_station_01",
+        "name": "Triangulum - Dock 1",
         "ids_name": "471662",
         "ids_info": "471665",
         "info": "",
@@ -283007,7 +284917,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF59_Ithaca_station_02",
-        "name": "CF59_Ithaca_station_02",
+        "name": "Triangulum - Dock 2",
         "ids_name": "471663",
         "ids_info": "471665",
         "info": "",
@@ -283025,7 +284935,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF59_Ithaca_station_03",
-        "name": "CF59_Ithaca_station_03",
+        "name": "Triangulum - Dock 3",
         "ids_name": "471664",
         "ids_info": "471665",
         "info": "",
@@ -285959,7 +287869,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF59_08",
-        "name": "CF59_08",
+        "name": "Battleship Bismark",
         "ids_name": "471666",
         "ids_info": "471667",
         "info": "",
@@ -286571,7 +288481,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF59_MSN_d_l_dreadnought_1a",
-        "name": "CF59_MSN_d_l_dreadnought_1a",
+        "name": "Liberty Dreadnaught wreck",
         "ids_name": "458977",
         "ids_info": "458977",
         "info": "",
@@ -286589,7 +288499,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF59_MSN_d_l_dreadnought_2a",
-        "name": "CF59_MSN_d_l_dreadnought_2a",
+        "name": "Liberty Dreadnaught wreck",
         "ids_name": "458977",
         "ids_info": "458977",
         "info": "",
@@ -286607,7 +288517,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF59_MSN_d_l_dreadnought_3a",
-        "name": "CF59_MSN_d_l_dreadnought_3a",
+        "name": "Liberty Dreadnaught wreck",
         "ids_name": "458977",
         "ids_info": "458977",
         "info": "",
@@ -286625,7 +288535,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF59_MSN_d_l_dreadnought_4a",
-        "name": "CF59_MSN_d_l_dreadnought_4a",
+        "name": "Liberty Dreadnaught wreck",
         "ids_name": "458977",
         "ids_info": "458977",
         "info": "",
@@ -286643,7 +288553,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF59_MSN_d_l_dreadnought_5a",
-        "name": "CF59_MSN_d_l_dreadnought_5a",
+        "name": "Liberty Dreadnaught wreck",
         "ids_name": "458977",
         "ids_info": "458977",
         "info": "",
@@ -286661,7 +288571,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF59_MSN_d_l_dreadnought_6a",
-        "name": "CF59_MSN_d_l_dreadnought_6a",
+        "name": "Liberty Dreadnaught wreck",
         "ids_name": "458977",
         "ids_info": "458977",
         "info": "",
@@ -286679,7 +288589,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF59_MSN_d_l_dreadnought_7a",
-        "name": "CF59_MSN_d_l_dreadnought_7a",
+        "name": "Liberty Dreadnaught wreck",
         "ids_name": "458977",
         "ids_info": "458977",
         "info": "",
@@ -286697,7 +288607,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF59_MSN_d_l_dreadnought_8a",
-        "name": "CF59_MSN_d_l_dreadnought_8a",
+        "name": "Liberty Dreadnaught wreck",
         "ids_name": "458977",
         "ids_info": "458977",
         "info": "",
@@ -286715,7 +288625,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF59_MSN_d_l_dreadnought_9a",
-        "name": "CF59_MSN_d_l_dreadnought_9a",
+        "name": "Liberty Dreadnaught wreck",
         "ids_name": "458977",
         "ids_info": "458977",
         "info": "",
@@ -286733,7 +288643,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF59_MSN_d_l_dreadnought_10a",
-        "name": "CF59_MSN_d_l_dreadnought_10a",
+        "name": "Liberty Dreadnaught wreck",
         "ids_name": "458977",
         "ids_info": "458977",
         "info": "",
@@ -286913,7 +288823,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF59_planet_1",
-        "name": "CF59_planet_1",
+        "name": "Peryn",
         "ids_name": "480197",
         "ids_info": "480198",
         "info": "",
@@ -286933,7 +288843,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF59_planet_2",
-        "name": "CF59_planet_2",
+        "name": "Lormos",
         "ids_name": "480199",
         "ids_info": "480200",
         "info": "",
@@ -286953,7 +288863,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF59_planet_3",
-        "name": "CF59_planet_3",
+        "name": "Aldther",
         "ids_name": "480201",
         "ids_info": "480202",
         "info": "",
@@ -286973,7 +288883,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF59_planet_4",
-        "name": "CF59_planet_4",
+        "name": "Imera",
         "ids_name": "480203",
         "ids_info": "480204",
         "info": "",
@@ -286993,7 +288903,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF59_planet_5",
-        "name": "CF59_planet_5",
+        "name": "Tiaqueo",
         "ids_name": "480205",
         "ids_info": "480206",
         "info": "",
@@ -291053,16 +292963,51 @@ const GAME_SYSTEMS = {
     "nebulae": []
   },
   "CF60": {
-    "name": "CF60",
+    "name": "Inner Core",
     "strid_name": "459278",
     "ids_info": "470592",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "CF60_CF71",
+        "name": "Venn Gate",
+        "ids_name": "481247",
+        "ids_info": "471709",
+        "info": "",
+        "x": 48053.0,
+        "y": 0.0,
+        "z": -500.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": -90.0
+      },
+      {
+        "nickname": "CF60_CF71vortex",
+        "name": "Venn Gate",
+        "ids_name": "481247",
+        "ids_info": "471709",
+        "info": "",
+        "x": 48053.0,
+        "y": 0.0,
+        "z": -500.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF71",
+        "dest_gate": "CF71_CF60vortex",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 0.0
+      }
+    ],
     "jumpholes": [],
     "stations": [
       {
         "nickname": "CF60_relais1",
-        "name": "CF60_relais1",
+        "name": "Dom'Kavash Energy Relais Station",
         "ids_name": "470595",
         "ids_info": "470596",
         "info": "",
@@ -291080,7 +293025,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF60_relais2",
-        "name": "CF60_relais2",
+        "name": "Dom'Kavash Energy Relais Station",
         "ids_name": "470595",
         "ids_info": "470596",
         "info": "",
@@ -291098,7 +293043,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF60_relais3",
-        "name": "CF60_relais3",
+        "name": "Dom'Kavash Energy Relais Station",
         "ids_name": "470595",
         "ids_info": "470596",
         "info": "",
@@ -291116,7 +293061,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF60_gate1",
-        "name": "CF60_gate1",
+        "name": "Galactic Hypergate",
         "ids_name": "470617",
         "ids_info": "470618",
         "info": "",
@@ -291134,7 +293079,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF60_gate2",
-        "name": "CF60_gate2",
+        "name": "Galactic Hypergate",
         "ids_name": "470617",
         "ids_info": "470618",
         "info": "",
@@ -291152,7 +293097,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF60_gate3",
-        "name": "CF60_gate3",
+        "name": "Galactic Hypergate",
         "ids_name": "470617",
         "ids_info": "470618",
         "info": "",
@@ -291244,7 +293189,7 @@ const GAME_SYSTEMS = {
     "planets": [
       {
         "nickname": "CF60_blackhole",
-        "name": "CF60_blackhole",
+        "name": "Black Hole",
         "ids_name": "458788",
         "ids_info": "470593",
         "info": "",
@@ -295887,15 +297832,50 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF61": {
-    "name": "CF61",
+    "name": "New Hongkong",
     "strid_name": "459280",
     "ids_info": "481749",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "CF61_to_CF36",
+        "name": "Sovetskaya Warp Gate",
+        "ids_name": "481132",
+        "ids_info": "465001",
+        "info": "",
+        "x": 35530.0,
+        "y": 0.0,
+        "z": 70078.0,
+        "archetype": "track_ring2coal",
+        "solar_radius": 600.0,
+        "dest_system": "CF36",
+        "dest_gate": "CF36_to_CF61",
+        "faction": "fc_cf4_grp",
+        "loadout": "",
+        "rotate_y": 14.0
+      },
+      {
+        "nickname": "CF61_to_CF64",
+        "name": "New Beijing Warp Gate",
+        "ids_name": "481242",
+        "ids_info": "465001",
+        "info": "",
+        "x": -22661.0,
+        "y": 0.0,
+        "z": 13581.0,
+        "archetype": "track_ring2coal",
+        "solar_radius": 600.0,
+        "dest_system": "CF64",
+        "dest_gate": "CF64_to_CF61",
+        "faction": "fc_cf4_grp",
+        "loadout": "",
+        "rotate_y": 29.0
+      }
+    ],
     "jumpholes": [
       {
         "nickname": "CF61_to_CF64_hole",
-        "name": "CF61_to_CF64_hole",
+        "name": "New Beijing Jump Hole",
         "ids_name": "481035",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -295912,7 +297892,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF61_to_CF38_hole",
-        "name": "CF61_to_CF38_hole",
+        "name": "Vorkuta Jump Hole",
         "ids_name": "480929",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -295931,7 +297911,7 @@ const GAME_SYSTEMS = {
     "stations": [
       {
         "nickname": "CF61_01",
-        "name": "CF61_01",
+        "name": "Lanzhou Shipyard",
         "ids_name": "471042",
         "ids_info": "471043",
         "info": "",
@@ -295949,7 +297929,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF61_02",
-        "name": "CF61_02",
+        "name": "Yantai Station",
         "ids_name": "471044",
         "ids_info": "471045",
         "info": "",
@@ -295967,7 +297947,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF61_03",
-        "name": "CF61_03",
+        "name": "Hefei Ore Refinery",
         "ids_name": "471039",
         "ids_info": "471040",
         "info": "",
@@ -295985,7 +297965,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF61_04",
-        "name": "CF61_04",
+        "name": "Bengbu Processing Facility",
         "ids_name": "471037",
         "ids_info": "471038",
         "info": "",
@@ -296003,7 +297983,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF61_05",
-        "name": "CF61_05",
+        "name": "Jinan Fuel Depot",
         "ids_name": "471035",
         "ids_info": "471036",
         "info": "",
@@ -296093,7 +298073,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF61_06",
-        "name": "CF61_06",
+        "name": "Sretensk Hideout",
         "ids_name": "500888",
         "ids_info": "500889",
         "info": "",
@@ -296111,7 +298091,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF61_massacc",
-        "name": "CF61_massacc",
+        "name": "Coalition Hypergate",
         "ids_name": "500894",
         "ids_info": "500895",
         "info": "",
@@ -297209,7 +299189,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF61_proxy_base",
-        "name": "CF61_proxy_base",
+        "name": "IOC Headquarters",
         "ids_name": "459316",
         "ids_info": "481812",
         "info": "",
@@ -297227,7 +299207,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF61_proxy_base_01",
-        "name": "CF61_proxy_base_01",
+        "name": "IOC Headquarters",
         "ids_name": "459316",
         "ids_info": "481812",
         "info": "",
@@ -297245,7 +299225,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF61_proxy_base_02",
-        "name": "CF61_proxy_base_02",
+        "name": "IOC Headquarters",
         "ids_name": "459316",
         "ids_info": "481812",
         "info": "",
@@ -297263,7 +299243,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF61_proxy_base_03",
-        "name": "CF61_proxy_base_03",
+        "name": "IOC Headquarters",
         "ids_name": "459316",
         "ids_info": "481812",
         "info": "",
@@ -297281,7 +299261,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF61_proxy_base_04",
-        "name": "CF61_proxy_base_04",
+        "name": "IOC Headquarters",
         "ids_name": "459316",
         "ids_info": "481812",
         "info": "",
@@ -297301,7 +299281,7 @@ const GAME_SYSTEMS = {
     "planets": [
       {
         "nickname": "CF61_planet_1",
-        "name": "CF61_planet_1",
+        "name": "Planet Xiamen",
         "ids_name": "470832",
         "ids_info": "470833",
         "info": "",
@@ -297321,7 +299301,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF61_planet_2",
-        "name": "CF61_planet_2",
+        "name": "Planet Tsingtau",
         "ids_name": "470834",
         "ids_info": "470835",
         "info": "",
@@ -297361,7 +299341,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF61_planet_3",
-        "name": "CF61_planet_3",
+        "name": "Rakdyne",
         "ids_name": "480207",
         "ids_info": "480208",
         "info": "",
@@ -297381,7 +299361,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF61_planet_4",
-        "name": "CF61_planet_4",
+        "name": "Nalineo",
         "ids_name": "480209",
         "ids_info": "480210",
         "info": "",
@@ -302494,15 +304474,33 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF62": {
-    "name": "CF62",
+    "name": "Gagarin",
     "strid_name": "472083",
     "ids_info": "481750",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "CF62_to_CF37",
+        "name": "Tomsk Warp Gate",
+        "ids_name": "481134",
+        "ids_info": "465001",
+        "info": "",
+        "x": -25649.0,
+        "y": 0.0,
+        "z": 77283.0,
+        "archetype": "track_ring2coal",
+        "solar_radius": 600.0,
+        "dest_system": "CF37",
+        "dest_gate": "CF37_to_CF62",
+        "faction": "fc_cf4_grp",
+        "loadout": "",
+        "rotate_y": 14.0
+      }
+    ],
     "jumpholes": [
       {
         "nickname": "CF62_to_CF63_hole",
-        "name": "CF62_to_CF63_hole",
+        "name": "Kalinin Jump Hole",
         "ids_name": "481087",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -302629,7 +304627,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF62_01",
-        "name": "CF62_01",
+        "name": "Gansu Research Outpost",
         "ids_name": "472103",
         "ids_info": "472104",
         "info": "",
@@ -302647,7 +304645,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF62_cf20coalgasminer_01",
-        "name": "CF62_cf20coalgasminer_01",
+        "name": "Coalition Gas Miner",
         "ids_name": "480009",
         "ids_info": "066143",
         "info": "Eine Gasabbaustation ist eine beschränkt mobile Station zum Extrahieren wertvoller Ressourcen aus in Nebeln gefundenen Gasen.",
@@ -302665,7 +304663,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF62_cf20coalgasminer_02",
-        "name": "CF62_cf20coalgasminer_02",
+        "name": "Coalition Gas Miner",
         "ids_name": "480009",
         "ids_info": "066143",
         "info": "Eine Gasabbaustation ist eine beschränkt mobile Station zum Extrahieren wertvoller Ressourcen aus in Nebeln gefundenen Gasen.",
@@ -302683,7 +304681,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF62_cf20coalgasminer_03",
-        "name": "CF62_cf20coalgasminer_03",
+        "name": "Coalition Gas Miner",
         "ids_name": "480009",
         "ids_info": "066143",
         "info": "Eine Gasabbaustation ist eine beschränkt mobile Station zum Extrahieren wertvoller Ressourcen aus in Nebeln gefundenen Gasen.",
@@ -302701,7 +304699,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF62_cf20coalgasminer_04",
-        "name": "CF62_cf20coalgasminer_04",
+        "name": "Coalition Gas Miner",
         "ids_name": "480009",
         "ids_info": "066143",
         "info": "Eine Gasabbaustation ist eine beschränkt mobile Station zum Extrahieren wertvoller Ressourcen aus in Nebeln gefundenen Gasen.",
@@ -304449,7 +306447,7 @@ const GAME_SYSTEMS = {
     "planets": [
       {
         "nickname": "CF62_planet_1",
-        "name": "CF62_planet_1",
+        "name": "Planet Tibet",
         "ids_name": "472089",
         "ids_info": "472090",
         "info": "",
@@ -304469,7 +306467,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF62_planet_2",
-        "name": "CF62_planet_2",
+        "name": "Planet Zhuang",
         "ids_name": "472091",
         "ids_info": "472092",
         "info": "",
@@ -304489,7 +306487,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF62_planet_3",
-        "name": "CF62_planet_3",
+        "name": "Ranan",
         "ids_name": "480211",
         "ids_info": "480212",
         "info": "",
@@ -305485,15 +307483,33 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF63": {
-    "name": "CF63",
+    "name": "Kalinin",
     "strid_name": "472086",
     "ids_info": "481751",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "CF63_to_CF37",
+        "name": "Tomsk Warp Gate",
+        "ids_name": "481134",
+        "ids_info": "465001",
+        "info": "",
+        "x": -107595.0,
+        "y": 0.0,
+        "z": 15990.0,
+        "archetype": "track_ring2coal",
+        "solar_radius": 600.0,
+        "dest_system": "CF37",
+        "dest_gate": "CF37_to_CF63",
+        "faction": "fc_cf4_grp",
+        "loadout": "",
+        "rotate_y": 14.0
+      }
+    ],
     "jumpholes": [
       {
         "nickname": "CF63_to_CF62_hole",
-        "name": "CF63_to_CF62_hole",
+        "name": "Gagarin Jump Hole",
         "ids_name": "481085",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -305512,7 +307528,7 @@ const GAME_SYSTEMS = {
     "stations": [
       {
         "nickname": "CF63_01",
-        "name": "CF63_01",
+        "name": "Yinchuan Outpost",
         "ids_name": "472101",
         "ids_info": "472102",
         "info": "",
@@ -305530,7 +307546,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF63_cf20coalgasminer_01",
-        "name": "CF63_cf20coalgasminer_01",
+        "name": "Coalition Gas Miner",
         "ids_name": "480009",
         "ids_info": "066143",
         "info": "Eine Gasabbaustation ist eine beschränkt mobile Station zum Extrahieren wertvoller Ressourcen aus in Nebeln gefundenen Gasen.",
@@ -305548,7 +307564,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF63_cf20coalgasminer_02",
-        "name": "CF63_cf20coalgasminer_02",
+        "name": "Coalition Gas Miner",
         "ids_name": "480009",
         "ids_info": "066143",
         "info": "Eine Gasabbaustation ist eine beschränkt mobile Station zum Extrahieren wertvoller Ressourcen aus in Nebeln gefundenen Gasen.",
@@ -306540,7 +308556,7 @@ const GAME_SYSTEMS = {
     "planets": [
       {
         "nickname": "CF63_planet_1",
-        "name": "CF63_planet_1",
+        "name": "Planet Guangxi",
         "ids_name": "472093",
         "ids_info": "472094",
         "info": "",
@@ -306560,7 +308576,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF63_planet_2",
-        "name": "CF63_planet_2",
+        "name": "Planet Uyghur",
         "ids_name": "472095",
         "ids_info": "472096",
         "info": "",
@@ -306580,7 +308596,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF63_planet_3",
-        "name": "CF63_planet_3",
+        "name": "Planet Ningxia",
         "ids_name": "472097",
         "ids_info": "472098",
         "info": "",
@@ -306600,7 +308616,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF63_planet_4",
-        "name": "CF63_planet_4",
+        "name": "Planet Shaanxi",
         "ids_name": "472099",
         "ids_info": "472100",
         "info": "",
@@ -306620,7 +308636,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF63_planet_5",
-        "name": "CF63_planet_5",
+        "name": "Weash",
         "ids_name": "480213",
         "ids_info": "480214",
         "info": "",
@@ -306640,7 +308656,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF63_planet_6",
-        "name": "CF63_planet_6",
+        "name": "Yerndyn",
         "ids_name": "480215",
         "ids_info": "480216",
         "info": "",
@@ -306660,7 +308676,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF63_planet_7",
-        "name": "CF63_planet_7",
+        "name": "Vesdyna",
         "ids_name": "480217",
         "ids_info": "480218",
         "info": "",
@@ -306680,7 +308696,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF63_planet_8",
-        "name": "CF63_planet_8",
+        "name": "Cerran",
         "ids_name": "480219",
         "ids_info": "480220",
         "info": "",
@@ -308392,15 +310408,50 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF64": {
-    "name": "CF64",
+    "name": "New Beijing",
     "strid_name": "471052",
     "ids_info": "481752",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "CF64_to_CF37",
+        "name": "Tomsk Warp Gate",
+        "ids_name": "481134",
+        "ids_info": "465001",
+        "info": "",
+        "x": -85995.0,
+        "y": 0.0,
+        "z": -11045.0,
+        "archetype": "track_ring2coal",
+        "solar_radius": 600.0,
+        "dest_system": "CF37",
+        "dest_gate": "CF37_to_CF64",
+        "faction": "fc_cf4_grp",
+        "loadout": "",
+        "rotate_y": 284.0
+      },
+      {
+        "nickname": "CF64_to_CF61",
+        "name": "New Hongkong Warp Gate",
+        "ids_name": "481210",
+        "ids_info": "465001",
+        "info": "",
+        "x": 35530.0,
+        "y": 0.0,
+        "z": 70078.0,
+        "archetype": "track_ring2coal",
+        "solar_radius": 600.0,
+        "dest_system": "CF61",
+        "dest_gate": "CF61_to_CF64",
+        "faction": "fc_cf4_grp",
+        "loadout": "",
+        "rotate_y": 194.0
+      }
+    ],
     "jumpholes": [
       {
         "nickname": "CF64_to_CF61_hole",
-        "name": "CF64_to_CF61_hole",
+        "name": "New Hongkong Jump Hole",
         "ids_name": "481003",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -308419,7 +310470,7 @@ const GAME_SYSTEMS = {
     "stations": [
       {
         "nickname": "CF64_01",
-        "name": "CF64_01",
+        "name": "Dzerzhinsky Military Academy",
         "ids_name": "472079",
         "ids_info": "472080",
         "info": "",
@@ -308437,7 +310488,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF64_02",
-        "name": "CF64_02",
+        "name": "Govorov Trading Station",
         "ids_name": "472081",
         "ids_info": "472082",
         "info": "",
@@ -308455,7 +310506,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF64_03",
-        "name": "CF64_03",
+        "name": "Chkalovsk Rogue Base",
         "ids_name": "500890",
         "ids_info": "500891",
         "info": "",
@@ -308473,7 +310524,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF64_cf20coalgasminer_01",
-        "name": "CF64_cf20coalgasminer_01",
+        "name": "Coalition Gas Miner",
         "ids_name": "480009",
         "ids_info": "066143",
         "info": "Eine Gasabbaustation ist eine beschränkt mobile Station zum Extrahieren wertvoller Ressourcen aus in Nebeln gefundenen Gasen.",
@@ -308491,7 +310542,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF64_cf20coalgasminer_02",
-        "name": "CF64_cf20coalgasminer_02",
+        "name": "Coalition Gas Miner",
         "ids_name": "480009",
         "ids_info": "066143",
         "info": "Eine Gasabbaustation ist eine beschränkt mobile Station zum Extrahieren wertvoller Ressourcen aus in Nebeln gefundenen Gasen.",
@@ -308509,7 +310560,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF64_cf20coalgasminer_03",
-        "name": "CF64_cf20coalgasminer_03",
+        "name": "Coalition Gas Miner",
         "ids_name": "480009",
         "ids_info": "066143",
         "info": "Eine Gasabbaustation ist eine beschränkt mobile Station zum Extrahieren wertvoller Ressourcen aus in Nebeln gefundenen Gasen.",
@@ -311031,7 +313082,7 @@ const GAME_SYSTEMS = {
     "planets": [
       {
         "nickname": "CF64_planet_1",
-        "name": "CF64_planet_1",
+        "name": "Planet Dakar",
         "ids_name": "500324",
         "ids_info": "459052",
         "info": "",
@@ -311051,7 +313102,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF64_planet_2",
-        "name": "CF64_planet_2",
+        "name": "Planet Balboa",
         "ids_name": "500325",
         "ids_info": "459053",
         "info": "",
@@ -311071,7 +313122,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF64_planet_3",
-        "name": "CF64_planet_3",
+        "name": "Planet Eleusis",
         "ids_name": "500326",
         "ids_info": "459054",
         "info": "",
@@ -311091,7 +313142,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF64_planet_4",
-        "name": "CF64_planet_4",
+        "name": "Theres",
         "ids_name": "480221",
         "ids_info": "480222",
         "info": "",
@@ -311111,7 +313162,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF64_planet_5",
-        "name": "CF64_planet_5",
+        "name": "Stuald",
         "ids_name": "480223",
         "ids_info": "480224",
         "info": "",
@@ -311131,7 +313182,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF64_planet_6",
-        "name": "CF64_planet_6",
+        "name": "Irvor",
         "ids_name": "480225",
         "ids_info": "480226",
         "info": "",
@@ -313722,15 +315773,33 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF65": {
-    "name": "CF65",
+    "name": "Guangdong",
     "strid_name": "472105",
     "ids_info": "481753",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "CF65_to_CF35",
+        "name": "Gladius Warp Gate",
+        "ids_name": "481130",
+        "ids_info": "465001",
+        "info": "",
+        "x": 30840.0,
+        "y": 0.0,
+        "z": -76526.0,
+        "archetype": "track_ring2coal",
+        "solar_radius": 600.0,
+        "dest_system": "CF35",
+        "dest_gate": "CF35_to_CF65",
+        "faction": "fc_cf4_grp",
+        "loadout": "",
+        "rotate_y": 90.0
+      }
+    ],
     "jumpholes": [
       {
         "nickname": "CF65_to_CF35_hole",
-        "name": "CF65_to_CF35_hole",
+        "name": "Gladius Jump Hole",
         "ids_name": "480923",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -313749,7 +315818,7 @@ const GAME_SYSTEMS = {
     "stations": [
       {
         "nickname": "CF65_01",
-        "name": "CF65_01",
+        "name": "Singapore Station",
         "ids_name": "472111",
         "ids_info": "472112",
         "info": "",
@@ -313767,7 +315836,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF65_02",
-        "name": "CF65_02",
+        "name": "Achinsk Station",
         "ids_name": "500892",
         "ids_info": "500893",
         "info": "",
@@ -313785,7 +315854,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF65_cf20coalgasminer_01",
-        "name": "CF65_cf20coalgasminer_01",
+        "name": "Coalition Gas Miner",
         "ids_name": "480009",
         "ids_info": "066143",
         "info": "Eine Gasabbaustation ist eine beschränkt mobile Station zum Extrahieren wertvoller Ressourcen aus in Nebeln gefundenen Gasen.",
@@ -313803,7 +315872,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF65_cf20coalgasminer_02",
-        "name": "CF65_cf20coalgasminer_02",
+        "name": "Coalition Gas Miner",
         "ids_name": "480009",
         "ids_info": "066143",
         "info": "Eine Gasabbaustation ist eine beschränkt mobile Station zum Extrahieren wertvoller Ressourcen aus in Nebeln gefundenen Gasen.",
@@ -313859,7 +315928,7 @@ const GAME_SYSTEMS = {
     "planets": [
       {
         "nickname": "CF65_planet_1",
-        "name": "CF65_planet_1",
+        "name": "Planet Chamdo",
         "ids_name": "472107",
         "ids_info": "472108",
         "info": "",
@@ -313879,7 +315948,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF65_planet_2",
-        "name": "CF65_planet_2",
+        "name": "Planet Kazakh",
         "ids_name": "472109",
         "ids_info": "472110",
         "info": "",
@@ -313899,7 +315968,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF65_planet_3",
-        "name": "CF65_planet_3",
+        "name": "Ildale",
         "ids_name": "480227",
         "ids_info": "480228",
         "info": "",
@@ -313919,7 +315988,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF65_planet_4",
-        "name": "CF65_planet_4",
+        "name": "Rakush",
         "ids_name": "480229",
         "ids_info": "480230",
         "info": "",
@@ -315711,16 +317780,51 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF66": {
-    "name": "CF66",
+    "name": "New Mekka",
     "strid_name": "472113",
     "ids_info": "481754",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "CF66_to_CF38",
+        "name": "Vorkuta Warp Gate",
+        "ids_name": "481136",
+        "ids_info": "465001",
+        "info": "",
+        "x": -86943.0,
+        "y": 0.0,
+        "z": 665.0,
+        "archetype": "track_ring2coal",
+        "solar_radius": 600.0,
+        "dest_system": "CF38",
+        "dest_gate": "CF38_to_CF66",
+        "faction": "fc_cf4_grp",
+        "loadout": "",
+        "rotate_y": 184.0
+      },
+      {
+        "nickname": "CF66_to_CF67",
+        "name": "Er Riad Warp Gate",
+        "ids_name": "481300",
+        "ids_info": "465001",
+        "info": "",
+        "x": 51966.0,
+        "y": 0.0,
+        "z": 72618.0,
+        "archetype": "track_ring2coal",
+        "solar_radius": 600.0,
+        "dest_system": "CF67",
+        "dest_gate": "CF67_to_CF66",
+        "faction": "fc_cf4_grp",
+        "loadout": "",
+        "rotate_y": 104.0
+      }
+    ],
     "jumpholes": [],
     "stations": [
       {
         "nickname": "CF66_01",
-        "name": "CF66_01",
+        "name": "Maskat Station",
         "ids_name": "472129",
         "ids_info": "472130",
         "info": "",
@@ -315738,7 +317842,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF66_02_dock_ring",
-        "name": "CF66_02_dock_ring",
+        "name": "Planet Medina",
         "ids_name": "472121",
         "ids_info": "66141",
         "info": ">>>ACHTUNG: Ohne Andockring keine Landung versuchen.<<<\nEin Andockring ist Teil eines 'Orbitalaufzug'-Systems, erfunden von Ageira Technologies. Durch superstarke kristalline Polymere und reibungslose Säulenlager ermöglichen Andockringe den problemlosen Ein- und Austritt landefähiger interstellarer Fahrzeuge.",
@@ -315756,7 +317860,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF66_cf20coalgasminer_01",
-        "name": "CF66_cf20coalgasminer_01",
+        "name": "Coalition Gas Miner",
         "ids_name": "480009",
         "ids_info": "066143",
         "info": "Eine Gasabbaustation ist eine beschränkt mobile Station zum Extrahieren wertvoller Ressourcen aus in Nebeln gefundenen Gasen.",
@@ -315774,7 +317878,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF66_cf20coalgasminer_02",
-        "name": "CF66_cf20coalgasminer_02",
+        "name": "Coalition Gas Miner",
         "ids_name": "480009",
         "ids_info": "066143",
         "info": "Eine Gasabbaustation ist eine beschränkt mobile Station zum Extrahieren wertvoller Ressourcen aus in Nebeln gefundenen Gasen.",
@@ -315792,7 +317896,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF66_cf20coalgasminer_03",
-        "name": "CF66_cf20coalgasminer_03",
+        "name": "Coalition Gas Miner",
         "ids_name": "480009",
         "ids_info": "066143",
         "info": "Eine Gasabbaustation ist eine beschränkt mobile Station zum Extrahieren wertvoller Ressourcen aus in Nebeln gefundenen Gasen.",
@@ -315810,7 +317914,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF66_cf20coalgasminer_04",
-        "name": "CF66_cf20coalgasminer_04",
+        "name": "Coalition Gas Miner",
         "ids_name": "480009",
         "ids_info": "066143",
         "info": "Eine Gasabbaustation ist eine beschränkt mobile Station zum Extrahieren wertvoller Ressourcen aus in Nebeln gefundenen Gasen.",
@@ -315828,7 +317932,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF66_cf20coalgasminer_05",
-        "name": "CF66_cf20coalgasminer_05",
+        "name": "Coalition Gas Miner",
         "ids_name": "480009",
         "ids_info": "066143",
         "info": "Eine Gasabbaustation ist eine beschränkt mobile Station zum Extrahieren wertvoller Ressourcen aus in Nebeln gefundenen Gasen.",
@@ -315846,7 +317950,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF66_cf20coalgasminer_06",
-        "name": "CF66_cf20coalgasminer_06",
+        "name": "Coalition Gas Miner",
         "ids_name": "480009",
         "ids_info": "066143",
         "info": "Eine Gasabbaustation ist eine beschränkt mobile Station zum Extrahieren wertvoller Ressourcen aus in Nebeln gefundenen Gasen.",
@@ -315864,7 +317968,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF66_cf20coalgasminer_07",
-        "name": "CF66_cf20coalgasminer_07",
+        "name": "Coalition Gas Miner",
         "ids_name": "480009",
         "ids_info": "066143",
         "info": "Eine Gasabbaustation ist eine beschränkt mobile Station zum Extrahieren wertvoller Ressourcen aus in Nebeln gefundenen Gasen.",
@@ -315956,7 +318060,7 @@ const GAME_SYSTEMS = {
     "planets": [
       {
         "nickname": "CF66_planet_1",
-        "name": "CF66_planet_1",
+        "name": "Planet Medina",
         "ids_name": "472121",
         "ids_info": "472122",
         "info": "",
@@ -315976,7 +318080,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF66_planet_2",
-        "name": "CF66_planet_2",
+        "name": "Planet Schiras",
         "ids_name": "472127",
         "ids_info": "472128",
         "info": "",
@@ -315996,7 +318100,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF66_planet_3",
-        "name": "CF66_planet_3",
+        "name": "Jerod",
         "ids_name": "480231",
         "ids_info": "480232",
         "info": "",
@@ -316016,7 +318120,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF66_planet_4",
-        "name": "CF66_planet_4",
+        "name": "Rothveru",
         "ids_name": "480233",
         "ids_info": "480234",
         "info": "",
@@ -317746,16 +319850,68 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF67": {
-    "name": "CF67",
+    "name": "Er Riad",
     "strid_name": "472115",
     "ids_info": "481748",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "CF67_to_CF38",
+        "name": "Vorkuta Warp Gate",
+        "ids_name": "481136",
+        "ids_info": "465001",
+        "info": "",
+        "x": -44819.0,
+        "y": 0.0,
+        "z": -47544.0,
+        "archetype": "track_ring2coal",
+        "solar_radius": 600.0,
+        "dest_system": "CF38",
+        "dest_gate": "CF38_to_CF67",
+        "faction": "fc_cf4_grp",
+        "loadout": "",
+        "rotate_y": 194.0
+      },
+      {
+        "nickname": "CF67_to_CF66",
+        "name": "New Mekka Warp Gate",
+        "ids_name": "481298",
+        "ids_info": "465001",
+        "info": "",
+        "x": -64806.0,
+        "y": 0.0,
+        "z": 54510.0,
+        "archetype": "track_ring2coal",
+        "solar_radius": 600.0,
+        "dest_system": "CF66",
+        "dest_gate": "CF66_to_CF67",
+        "faction": "fc_cf4_grp",
+        "loadout": "",
+        "rotate_y": 14.0
+      },
+      {
+        "nickname": "CF67_to_CF68",
+        "name": "Nedjef Warp Gate",
+        "ids_name": "481302",
+        "ids_info": "465001",
+        "info": "",
+        "x": 36445.0,
+        "y": 0.0,
+        "z": 43013.0,
+        "archetype": "track_ring2coal",
+        "solar_radius": 600.0,
+        "dest_system": "CF68",
+        "dest_gate": "CF68_to_CF67",
+        "faction": "fc_cf4_grp",
+        "loadout": "",
+        "rotate_y": 14.0
+      }
+    ],
     "jumpholes": [],
     "stations": [
       {
         "nickname": "CF67_01",
-        "name": "CF67_01",
+        "name": "Aden Station",
         "ids_name": "472125",
         "ids_info": "472126",
         "info": "",
@@ -317811,7 +319967,7 @@ const GAME_SYSTEMS = {
     "planets": [
       {
         "nickname": "CF67_planet_1",
-        "name": "CF67_planet_1",
+        "name": "Planet Sivas",
         "ids_name": "472123",
         "ids_info": "472124",
         "info": "",
@@ -319319,11 +321475,46 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF68": {
-    "name": "CF68",
+    "name": "Nedjef",
     "strid_name": "472117",
     "ids_info": "481747",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "CF68_to_CF39",
+        "name": "Yakutsk Warp Gate",
+        "ids_name": "481138",
+        "ids_info": "465001",
+        "info": "",
+        "x": 56445.0,
+        "y": 0.0,
+        "z": -63013.0,
+        "archetype": "track_ring2coal",
+        "solar_radius": 600.0,
+        "dest_system": "CF39",
+        "dest_gate": "CF39_to_CF68",
+        "faction": "fc_cf4_grp",
+        "loadout": "",
+        "rotate_y": 194.0
+      },
+      {
+        "nickname": "CF68_to_CF67",
+        "name": "Er Riad Warp Gate",
+        "ids_name": "481300",
+        "ids_info": "465001",
+        "info": "",
+        "x": 27644.0,
+        "y": 0.0,
+        "z": 26612.0,
+        "archetype": "track_ring2coal",
+        "solar_radius": 600.0,
+        "dest_system": "CF67",
+        "dest_gate": "CF67_to_CF68",
+        "faction": "fc_cf4_grp",
+        "loadout": "",
+        "rotate_y": 14.0
+      }
+    ],
     "jumpholes": [],
     "stations": [
       {
@@ -319366,7 +321557,7 @@ const GAME_SYSTEMS = {
     "planets": [
       {
         "nickname": "CF68_planet_1",
-        "name": "CF68_planet_1",
+        "name": "Planet Kirkuk",
         "ids_name": "472131",
         "ids_info": "472132",
         "info": "",
@@ -319386,7 +321577,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF68_planet_2",
-        "name": "CF68_planet_2",
+        "name": "Planet Abadan",
         "ids_name": "472133",
         "ids_info": "472134",
         "info": "",
@@ -319406,7 +321597,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF68_planet_3",
-        "name": "CF68_planet_3",
+        "name": "Planet Kaswin",
         "ids_name": "472135",
         "ids_info": "472136",
         "info": "",
@@ -319426,7 +321617,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF68_planet_4",
-        "name": "CF68_planet_4",
+        "name": "Planet Mosul",
         "ids_name": "472137",
         "ids_info": "472138",
         "info": "",
@@ -319446,7 +321637,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF68_planet_5",
-        "name": "CF68_planet_5",
+        "name": "Alekimi",
         "ids_name": "480235",
         "ids_info": "480236",
         "info": "",
@@ -319466,7 +321657,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF68_planet_6",
-        "name": "CF68_planet_6",
+        "name": "Aughlbel",
         "ids_name": "480237",
         "ids_info": "480238",
         "info": "",
@@ -319486,7 +321677,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF68_planet_7",
-        "name": "CF68_planet_7",
+        "name": "Banrper",
         "ids_name": "480239",
         "ids_info": "480240",
         "info": "",
@@ -319506,7 +321697,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF68_planet_8",
-        "name": "CF68_planet_8",
+        "name": "Ingol",
         "ids_name": "480241",
         "ids_info": "480242",
         "info": "",
@@ -320425,15 +322616,33 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF69": {
-    "name": "CF69",
+    "name": "Meschhed",
     "strid_name": "472119",
     "ids_info": "481755",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "CF69_to_CF39",
+        "name": "Yakutsk Warp Gate",
+        "ids_name": "481138",
+        "ids_info": "465001",
+        "info": "",
+        "x": 52399.0,
+        "y": 0.0,
+        "z": -72956.0,
+        "archetype": "track_ring2coal",
+        "solar_radius": 600.0,
+        "dest_system": "CF39",
+        "dest_gate": "CF39_to_CF69",
+        "faction": "fc_cf4_grp",
+        "loadout": "",
+        "rotate_y": 194.0
+      }
+    ],
     "jumpholes": [
       {
         "nickname": "CF69_to_CF38_hole",
-        "name": "CF69_to_CF38_hole",
+        "name": "Vorkuta Jump Hole",
         "ids_name": "480929",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -320452,7 +322661,7 @@ const GAME_SYSTEMS = {
     "stations": [
       {
         "nickname": "CF69_01",
-        "name": "CF69_01",
+        "name": "Amman Depot",
         "ids_name": "472139",
         "ids_info": "472140",
         "info": "",
@@ -320470,7 +322679,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF69_cf20coalgasminer_01",
-        "name": "CF69_cf20coalgasminer_01",
+        "name": "Coalition Gas Miner",
         "ids_name": "480009",
         "ids_info": "066143",
         "info": "Eine Gasabbaustation ist eine beschränkt mobile Station zum Extrahieren wertvoller Ressourcen aus in Nebeln gefundenen Gasen.",
@@ -320488,7 +322697,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF69_cf20coalgasminer_02",
-        "name": "CF69_cf20coalgasminer_02",
+        "name": "Coalition Gas Miner",
         "ids_name": "480009",
         "ids_info": "066143",
         "info": "Eine Gasabbaustation ist eine beschränkt mobile Station zum Extrahieren wertvoller Ressourcen aus in Nebeln gefundenen Gasen.",
@@ -320506,7 +322715,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF69_cf20coalgasminer_03",
-        "name": "CF69_cf20coalgasminer_03",
+        "name": "Coalition Gas Miner",
         "ids_name": "480009",
         "ids_info": "066143",
         "info": "Eine Gasabbaustation ist eine beschränkt mobile Station zum Extrahieren wertvoller Ressourcen aus in Nebeln gefundenen Gasen.",
@@ -320524,7 +322733,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF69_cf20coalgasminer_04",
-        "name": "CF69_cf20coalgasminer_04",
+        "name": "Coalition Gas Miner",
         "ids_name": "480009",
         "ids_info": "066143",
         "info": "Eine Gasabbaustation ist eine beschränkt mobile Station zum Extrahieren wertvoller Ressourcen aus in Nebeln gefundenen Gasen.",
@@ -320542,7 +322751,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF69_cf20coalgasminer_05",
-        "name": "CF69_cf20coalgasminer_05",
+        "name": "Coalition Gas Miner",
         "ids_name": "480009",
         "ids_info": "066143",
         "info": "Eine Gasabbaustation ist eine beschränkt mobile Station zum Extrahieren wertvoller Ressourcen aus in Nebeln gefundenen Gasen.",
@@ -320560,7 +322769,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF69_cf20coalgasminer_06",
-        "name": "CF69_cf20coalgasminer_06",
+        "name": "Coalition Gas Miner",
         "ids_name": "480009",
         "ids_info": "066143",
         "info": "Eine Gasabbaustation ist eine beschränkt mobile Station zum Extrahieren wertvoller Ressourcen aus in Nebeln gefundenen Gasen.",
@@ -320578,7 +322787,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF69_cf20coalgasminer_07",
-        "name": "CF69_cf20coalgasminer_07",
+        "name": "Coalition Gas Miner",
         "ids_name": "480009",
         "ids_info": "066143",
         "info": "Eine Gasabbaustation ist eine beschränkt mobile Station zum Extrahieren wertvoller Ressourcen aus in Nebeln gefundenen Gasen.",
@@ -320596,7 +322805,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF69_cf20coalgasminer_08",
-        "name": "CF69_cf20coalgasminer_08",
+        "name": "Coalition Gas Miner",
         "ids_name": "480009",
         "ids_info": "066143",
         "info": "Eine Gasabbaustation ist eine beschränkt mobile Station zum Extrahieren wertvoller Ressourcen aus in Nebeln gefundenen Gasen.",
@@ -320614,7 +322823,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF69_cf20coalgasminer_09",
-        "name": "CF69_cf20coalgasminer_09",
+        "name": "Coalition Gas Miner",
         "ids_name": "480009",
         "ids_info": "066143",
         "info": "Eine Gasabbaustation ist eine beschränkt mobile Station zum Extrahieren wertvoller Ressourcen aus in Nebeln gefundenen Gasen.",
@@ -320632,7 +322841,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF69_cf20coalgasminer_10",
-        "name": "CF69_cf20coalgasminer_10",
+        "name": "Coalition Gas Miner",
         "ids_name": "480009",
         "ids_info": "066143",
         "info": "Eine Gasabbaustation ist eine beschränkt mobile Station zum Extrahieren wertvoller Ressourcen aus in Nebeln gefundenen Gasen.",
@@ -323496,7 +325705,7 @@ const GAME_SYSTEMS = {
     "planets": [
       {
         "nickname": "CF69_planet_1",
-        "name": "CF69_planet_1",
+        "name": "Planet Damaskus",
         "ids_name": "472141",
         "ids_info": "472142",
         "info": "",
@@ -323516,7 +325725,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF69_planet_2",
-        "name": "CF69_planet_2",
+        "name": "Planet Taiz",
         "ids_name": "472143",
         "ids_info": "472144",
         "info": "",
@@ -323536,7 +325745,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF69_planet_3",
-        "name": "CF69_planet_3",
+        "name": "Schotia",
         "ids_name": "480243",
         "ids_info": "480244",
         "info": "",
@@ -325043,7 +327252,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF70": {
-    "name": "CF70",
+    "name": "Dervon",
     "strid_name": "471674",
     "ids_info": "471677",
     "info": "",
@@ -325051,7 +327260,7 @@ const GAME_SYSTEMS = {
     "jumpholes": [
       {
         "nickname": "CF70_to_CF59_hole",
-        "name": "CF70_to_CF59_hole",
+        "name": "Utopia Jump Hole",
         "ids_name": "481033",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -325070,7 +327279,7 @@ const GAME_SYSTEMS = {
     "stations": [
       {
         "nickname": "CF70_01",
-        "name": "CF70_01",
+        "name": "GMG Observatory Command Module",
         "ids_name": "471685",
         "ids_info": "471686",
         "info": "",
@@ -325088,7 +327297,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF70_gmgbuoy",
-        "name": "CF70_gmgbuoy",
+        "name": "Mobile Research Station",
         "ids_name": "471683",
         "ids_info": "471684",
         "info": "",
@@ -325106,7 +327315,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF70_planet_station01",
-        "name": "CF70_planet_station01",
+        "name": "Planet Devra",
         "ids_name": "471687",
         "ids_info": "471696",
         "info": "",
@@ -325124,7 +327333,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF70_planet_station02",
-        "name": "CF70_planet_station02",
+        "name": "Planet Devra",
         "ids_name": "471687",
         "ids_info": "471696",
         "info": "",
@@ -325142,7 +327351,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF70_planet_station03",
-        "name": "CF70_planet_station03",
+        "name": "Planet Devra",
         "ids_name": "471687",
         "ids_info": "471696",
         "info": "",
@@ -325160,7 +327369,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF70_planet_station04",
-        "name": "CF70_planet_station04",
+        "name": "Planet Devra",
         "ids_name": "471687",
         "ids_info": "471696",
         "info": "",
@@ -325178,7 +327387,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF70_planet_station05",
-        "name": "CF70_planet_station05",
+        "name": "Planet Devra",
         "ids_name": "471687",
         "ids_info": "471696",
         "info": "",
@@ -325198,7 +327407,7 @@ const GAME_SYSTEMS = {
     "planets": [
       {
         "nickname": "CF70_planet_1",
-        "name": "CF70_planet_1",
+        "name": "Planet Devra",
         "ids_name": "471687",
         "ids_info": "471688",
         "info": "",
@@ -325238,7 +327447,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF70_planet_2",
-        "name": "CF70_planet_2",
+        "name": "Planet Trestang",
         "ids_name": "471689",
         "ids_info": "471690",
         "info": "",
@@ -325258,7 +327467,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF70_planet_3",
-        "name": "CF70_planet_3",
+        "name": "Planet Lyr",
         "ids_name": "471691",
         "ids_info": "471692",
         "info": "",
@@ -325278,7 +327487,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF70_planet_4",
-        "name": "CF70_planet_4",
+        "name": "Planet Crorhon",
         "ids_name": "471693",
         "ids_info": "471694",
         "info": "",
@@ -325298,7 +327507,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF70_planet_5",
-        "name": "CF70_planet_5",
+        "name": "Planet Liwold",
         "ids_name": "471695",
         "ids_info": "471696",
         "info": "",
@@ -325940,16 +328149,119 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF71": {
-    "name": "CF71",
+    "name": "Venn",
     "strid_name": "471706",
     "ids_info": "471708",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "CF71_CF60",
+        "name": "CF71_CF60",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": -74571.0,
+        "y": 0.0,
+        "z": -43455.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": -90.0
+      },
+      {
+        "nickname": "CF71_CF60vortex",
+        "name": "Inner Core Gate",
+        "ids_name": "481209",
+        "ids_info": "471709",
+        "info": "",
+        "x": -74571.0,
+        "y": 0.0,
+        "z": -43455.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF60",
+        "dest_gate": "CF60_CF71vortex",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 0.0
+      },
+      {
+        "nickname": "CF71_CF72",
+        "name": "CF71_CF72",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": 83692.0,
+        "y": 0.0,
+        "z": 16094.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": -90.0
+      },
+      {
+        "nickname": "CF71_CF72vortex",
+        "name": "Jormdar Gate",
+        "ids_name": "481249",
+        "ids_info": "471709",
+        "info": "",
+        "x": 83692.0,
+        "y": 0.0,
+        "z": 16094.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF72",
+        "dest_gate": "CF72_CF71vortex",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF71_CF73",
+        "name": "CF71_CF73",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": 8047.0,
+        "y": 0.0,
+        "z": 46138.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": -90.0
+      },
+      {
+        "nickname": "CF71_CF73vortex",
+        "name": "Celldra Gate",
+        "ids_name": "481251",
+        "ids_info": "471709",
+        "info": "",
+        "x": 8047.0,
+        "y": 0.0,
+        "z": 46138.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF73",
+        "dest_gate": "CF73_CF71vortex",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      }
+    ],
     "jumpholes": [],
     "stations": [
       {
         "nickname": "CF71_dk6station1",
-        "name": "CF71_dk6station1",
+        "name": "Dom'Setek Station",
         "ids_name": "471811",
         "ids_info": "471811",
         "info": "",
@@ -325967,7 +328279,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF71_dk6station2",
-        "name": "CF71_dk6station2",
+        "name": "Dom'Setek Station",
         "ids_name": "471811",
         "ids_info": "471811",
         "info": "",
@@ -325985,7 +328297,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF71_dk3station1",
-        "name": "CF71_dk3station1",
+        "name": "Dom'Nepesh Station",
         "ids_name": "471812",
         "ids_info": "471812",
         "info": "",
@@ -326003,7 +328315,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF71_dk3station2",
-        "name": "CF71_dk3station2",
+        "name": "Dom'Nepesh Station",
         "ids_name": "471812",
         "ids_info": "471812",
         "info": "",
@@ -326021,7 +328333,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF71_dk7station1",
-        "name": "CF71_dk7station1",
+        "name": "Dom'Razak Station",
         "ids_name": "471813",
         "ids_info": "471813",
         "info": "",
@@ -326039,7 +328351,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF71_dk7station2",
-        "name": "CF71_dk7station2",
+        "name": "Dom'Razak Station",
         "ids_name": "471813",
         "ids_info": "471813",
         "info": "",
@@ -326095,7 +328407,7 @@ const GAME_SYSTEMS = {
     "planets": [
       {
         "nickname": "CF71_planet_Ayr",
-        "name": "CF71_planet_Ayr",
+        "name": "Planet Ryl",
         "ids_name": "471723",
         "ids_info": "471724",
         "info": "",
@@ -326115,7 +328427,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF71_01",
-        "name": "CF71_01",
+        "name": "Planet Brurr",
         "ids_name": "471725",
         "ids_info": "471726",
         "info": "",
@@ -326135,7 +328447,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF71_planet_Gaia",
-        "name": "CF71_planet_Gaia",
+        "name": "Planet Lerth",
         "ids_name": "471727",
         "ids_info": "471728",
         "info": "",
@@ -326155,7 +328467,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF71_repair_buoy_1",
-        "name": "CF71_repair_buoy_1",
+        "name": "Repair Buoy",
         "ids_name": "472250",
         "ids_info": "472251",
         "info": "",
@@ -326175,7 +328487,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF71_repair_buoy_2",
-        "name": "CF71_repair_buoy_2",
+        "name": "Repair Buoy",
         "ids_name": "472250",
         "ids_info": "472251",
         "info": "",
@@ -326195,7 +328507,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF71_repair_buoy_3",
-        "name": "CF71_repair_buoy_3",
+        "name": "Repair Buoy",
         "ids_name": "472250",
         "ids_info": "472251",
         "info": "",
@@ -326215,7 +328527,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF71_repair_buoy_4",
-        "name": "CF71_repair_buoy_4",
+        "name": "Repair Buoy",
         "ids_name": "472250",
         "ids_info": "472251",
         "info": "",
@@ -326235,7 +328547,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF71_repair_buoy_5",
-        "name": "CF71_repair_buoy_5",
+        "name": "Repair Buoy",
         "ids_name": "472250",
         "ids_info": "472251",
         "info": "",
@@ -326255,7 +328567,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF71_repair_buoy_6",
-        "name": "CF71_repair_buoy_6",
+        "name": "Repair Buoy",
         "ids_name": "472250",
         "ids_info": "472251",
         "info": "",
@@ -326275,7 +328587,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF71_repair_buoy_7",
-        "name": "CF71_repair_buoy_7",
+        "name": "Repair Buoy",
         "ids_name": "472250",
         "ids_info": "472251",
         "info": "",
@@ -326295,7 +328607,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF71_planet_1",
-        "name": "CF71_planet_1",
+        "name": "Rhuaugh",
         "ids_name": "480245",
         "ids_info": "480246",
         "info": "",
@@ -326315,7 +328627,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF71_planet_2",
-        "name": "CF71_planet_2",
+        "name": "Nyskel",
         "ids_name": "480247",
         "ids_info": "480248",
         "info": "",
@@ -326335,7 +328647,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF71_planet_3",
-        "name": "CF71_planet_3",
+        "name": "Raner",
         "ids_name": "480249",
         "ids_info": "480250",
         "info": "",
@@ -327859,16 +330171,119 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF72": {
-    "name": "CF72",
+    "name": "Jormdar",
     "strid_name": "471712",
     "ids_info": "471708",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "CF72_CF71",
+        "name": "CF72_CF71",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": 41846.0,
+        "y": 0.0,
+        "z": 63842.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": -90.0
+      },
+      {
+        "nickname": "CF72_CF71vortex",
+        "name": "Venn Gate",
+        "ids_name": "481247",
+        "ids_info": "471709",
+        "info": "",
+        "x": 41846.0,
+        "y": 0.0,
+        "z": 63842.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF71",
+        "dest_gate": "CF71_CF72vortex",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF72_CF74",
+        "name": "CF72_CF74",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": -41309.0,
+        "y": 0.0,
+        "z": 3218.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": -90.0
+      },
+      {
+        "nickname": "CF72_CF74vortex",
+        "name": "Sadurn Gate",
+        "ids_name": "481253",
+        "ids_info": "471709",
+        "info": "",
+        "x": -41309.0,
+        "y": 0.0,
+        "z": 3218.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF74",
+        "dest_gate": "CF74_CF72vortex",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF72_CF76",
+        "name": "CF72_CF76",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": 13948.0,
+        "y": 0.0,
+        "z": -24678.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": -90.0
+      },
+      {
+        "nickname": "CF72_CF76vortex",
+        "name": "Mepther Gate",
+        "ids_name": "481257",
+        "ids_info": "471709",
+        "info": "",
+        "x": 13948.0,
+        "y": 0.0,
+        "z": -24678.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF76",
+        "dest_gate": "CF76_CF72vortex",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      }
+    ],
     "jumpholes": [],
     "stations": [
       {
         "nickname": "CF72_dk3station1",
-        "name": "CF72_dk3station1",
+        "name": "Dom'Nepesh Station",
         "ids_name": "471812",
         "ids_info": "471812",
         "info": "",
@@ -327886,7 +330301,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF72_dk3station2",
-        "name": "CF72_dk3station2",
+        "name": "Dom'Nepesh Station",
         "ids_name": "471812",
         "ids_info": "471812",
         "info": "",
@@ -327904,7 +330319,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF72_dk3station3",
-        "name": "CF72_dk3station3",
+        "name": "Dom'Nepesh Station",
         "ids_name": "471812",
         "ids_info": "471812",
         "info": "",
@@ -327922,7 +330337,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF72_dk3station4",
-        "name": "CF72_dk3station4",
+        "name": "Dom'Nepesh Station",
         "ids_name": "471812",
         "ids_info": "471812",
         "info": "",
@@ -327940,7 +330355,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF72_dk3station5",
-        "name": "CF72_dk3station5",
+        "name": "Dom'Nepesh Station",
         "ids_name": "471812",
         "ids_info": "471812",
         "info": "",
@@ -327958,7 +330373,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF72_dk5station1",
-        "name": "CF72_dk5station1",
+        "name": "Savage Station",
         "ids_name": "471815",
         "ids_info": "471815",
         "info": "",
@@ -327976,7 +330391,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF72_dk5station2",
-        "name": "CF72_dk5station2",
+        "name": "Savage Station",
         "ids_name": "471815",
         "ids_info": "471815",
         "info": "",
@@ -327994,7 +330409,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF72_dk5station3",
-        "name": "CF72_dk5station3",
+        "name": "Savage Station",
         "ids_name": "471815",
         "ids_info": "471815",
         "info": "",
@@ -328048,7 +330463,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF72_proxy_base",
-        "name": "CF72_proxy_base",
+        "name": "Inner Core Outpost",
         "ids_name": "481820",
         "ids_info": "481819",
         "info": "",
@@ -328066,7 +330481,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF72_proxy_base_01",
-        "name": "CF72_proxy_base_01",
+        "name": "Inner Core Outpost",
         "ids_name": "481820",
         "ids_info": "481819",
         "info": "",
@@ -328084,7 +330499,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF72_proxy_base_02",
-        "name": "CF72_proxy_base_02",
+        "name": "Inner Core Outpost",
         "ids_name": "481820",
         "ids_info": "481819",
         "info": "",
@@ -328102,7 +330517,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF72_proxy_base_03",
-        "name": "CF72_proxy_base_03",
+        "name": "Inner Core Outpost",
         "ids_name": "481820",
         "ids_info": "481819",
         "info": "",
@@ -328120,7 +330535,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF72_proxy_base_04",
-        "name": "CF72_proxy_base_04",
+        "name": "Inner Core Outpost",
         "ids_name": "481820",
         "ids_info": "481819",
         "info": "",
@@ -328140,7 +330555,7 @@ const GAME_SYSTEMS = {
     "planets": [
       {
         "nickname": "CF72_planet_Jersey",
-        "name": "CF72_planet_Jersey",
+        "name": "Planet Vyntur",
         "ids_name": "471817",
         "ids_info": "471818",
         "info": "",
@@ -328160,7 +330575,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF72_planet_Wight",
-        "name": "CF72_planet_Wight",
+        "name": "Planet Resdel",
         "ids_name": "471819",
         "ids_info": "471820",
         "info": "",
@@ -328180,7 +330595,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF72_01",
-        "name": "CF72_01",
+        "name": "Planet Chrodd",
         "ids_name": "471821",
         "ids_info": "471822",
         "info": "",
@@ -328200,7 +330615,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF72_repair_buoy_1",
-        "name": "CF72_repair_buoy_1",
+        "name": "Repair Buoy",
         "ids_name": "472250",
         "ids_info": "472251",
         "info": "",
@@ -328220,7 +330635,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF72_repair_buoy_2",
-        "name": "CF72_repair_buoy_2",
+        "name": "Repair Buoy",
         "ids_name": "472250",
         "ids_info": "472251",
         "info": "",
@@ -328240,7 +330655,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF72_repair_buoy_3",
-        "name": "CF72_repair_buoy_3",
+        "name": "Repair Buoy",
         "ids_name": "472250",
         "ids_info": "472251",
         "info": "",
@@ -328260,7 +330675,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF72_planet_1",
-        "name": "CF72_planet_1",
+        "name": "Ineull",
         "ids_name": "480251",
         "ids_info": "480252",
         "info": "",
@@ -328280,7 +330695,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF72_planet_2",
-        "name": "CF72_planet_2",
+        "name": "Usttshy",
         "ids_name": "480253",
         "ids_info": "480254",
         "info": "",
@@ -328300,7 +330715,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF72_planet_3",
-        "name": "CF72_planet_3",
+        "name": "Oldtur",
         "ids_name": "480255",
         "ids_info": "480256",
         "info": "",
@@ -328320,7 +330735,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF72_planet_4",
-        "name": "CF72_planet_4",
+        "name": "Beess",
         "ids_name": "480257",
         "ids_info": "480258",
         "info": "",
@@ -330204,16 +332619,119 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF73": {
-    "name": "CF73",
+    "name": "Celldra",
     "strid_name": "471729",
     "ids_info": "471708",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "CF73_CF71",
+        "name": "CF73_CF71",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": 48284.0,
+        "y": 0.0,
+        "z": -21996.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": -90.0
+      },
+      {
+        "nickname": "CF73_CF71vortex",
+        "name": "Venn Gate",
+        "ids_name": "481247",
+        "ids_info": "471709",
+        "info": "",
+        "x": 48284.0,
+        "y": 0.0,
+        "z": -21996.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF71",
+        "dest_gate": "CF71_CF73vortex",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF73_CF74",
+        "name": "CF73_CF74",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": 10193.0,
+        "y": 0.0,
+        "z": 41846.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": -90.0
+      },
+      {
+        "nickname": "CF73_CF74vortex",
+        "name": "Sadurn Gate",
+        "ids_name": "481253",
+        "ids_info": "471709",
+        "info": "",
+        "x": 10193.0,
+        "y": 0.0,
+        "z": 41846.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF74",
+        "dest_gate": "CF74_CF73vortex",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF73_CF75",
+        "name": "CF73_CF75",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": 61696.0,
+        "y": 0.0,
+        "z": -92812.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": -90.0
+      },
+      {
+        "nickname": "CF73_CF75vortex",
+        "name": "Pyrddra Gate",
+        "ids_name": "481255",
+        "ids_info": "471709",
+        "info": "",
+        "x": 61696.0,
+        "y": 0.0,
+        "z": -92812.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF75",
+        "dest_gate": "CF75_CF73vortex",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      }
+    ],
     "jumpholes": [],
     "stations": [
       {
         "nickname": "CF73_dk4station1",
-        "name": "CF73_dk4station1",
+        "name": "Sentinel Station",
         "ids_name": "471814",
         "ids_info": "471814",
         "info": "",
@@ -330231,7 +332749,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF73_dk4station2",
-        "name": "CF73_dk4station2",
+        "name": "Sentinel Station",
         "ids_name": "471814",
         "ids_info": "471814",
         "info": "",
@@ -330249,7 +332767,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF73_dk4station3",
-        "name": "CF73_dk4station3",
+        "name": "Sentinel Station",
         "ids_name": "471814",
         "ids_info": "471814",
         "info": "",
@@ -330267,7 +332785,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF73_dk6station1",
-        "name": "CF73_dk6station1",
+        "name": "Dom'Setek Station",
         "ids_name": "471811",
         "ids_info": "471811",
         "info": "",
@@ -330285,7 +332803,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF73_dk6station2",
-        "name": "CF73_dk6station2",
+        "name": "Dom'Setek Station",
         "ids_name": "471811",
         "ids_info": "471811",
         "info": "",
@@ -330303,7 +332821,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF73_dk6station3",
-        "name": "CF73_dk6station3",
+        "name": "Dom'Setek Station",
         "ids_name": "471811",
         "ids_info": "471811",
         "info": "",
@@ -330341,7 +332859,7 @@ const GAME_SYSTEMS = {
     "planets": [
       {
         "nickname": "CF73_planet_Elysium",
-        "name": "CF73_planet_Elysium",
+        "name": "Planet Peltctor",
         "ids_name": "471847",
         "ids_info": "471848",
         "info": "",
@@ -330361,7 +332879,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF73_02",
-        "name": "CF73_02",
+        "name": "Planet Tinthcha",
         "ids_name": "471849",
         "ids_info": "471850",
         "info": "",
@@ -330381,7 +332899,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF73_repair_buoy_1",
-        "name": "CF73_repair_buoy_1",
+        "name": "Repair Buoy",
         "ids_name": "472250",
         "ids_info": "472251",
         "info": "",
@@ -330401,7 +332919,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF73_repair_buoy_2",
-        "name": "CF73_repair_buoy_2",
+        "name": "Repair Buoy",
         "ids_name": "472250",
         "ids_info": "472251",
         "info": "",
@@ -330421,7 +332939,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF73_planet_1",
-        "name": "CF73_planet_1",
+        "name": "Kelengi",
         "ids_name": "480259",
         "ids_info": "480260",
         "info": "",
@@ -330441,7 +332959,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF73_planet_2",
-        "name": "CF73_planet_2",
+        "name": "Kalny",
         "ids_name": "480261",
         "ids_info": "480262",
         "info": "",
@@ -330461,7 +332979,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF73_planet_3",
-        "name": "CF73_planet_3",
+        "name": "Endir",
         "ids_name": "480263",
         "ids_info": "480264",
         "info": "",
@@ -331500,16 +334018,119 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF74": {
-    "name": "CF74",
+    "name": "Sadurn",
     "strid_name": "471731",
     "ids_info": "471708",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "CF74_CF72",
+        "name": "CF74_CF72",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": -63842.0,
+        "y": 0.0,
+        "z": 25214.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": -90.0
+      },
+      {
+        "nickname": "CF74_CF72vortex",
+        "name": "Jormdar Gate",
+        "ids_name": "481249",
+        "ids_info": "471709",
+        "info": "",
+        "x": -63842.0,
+        "y": 0.0,
+        "z": 25214.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF72",
+        "dest_gate": "CF72_CF74vortex",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF74_CF73",
+        "name": "CF74_CF73",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": 71353.0,
+        "y": 0.0,
+        "z": -43455.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": -90.0
+      },
+      {
+        "nickname": "CF74_CF73vortex",
+        "name": "Celldra Gate",
+        "ids_name": "481251",
+        "ids_info": "471709",
+        "info": "",
+        "x": 71353.0,
+        "y": 0.0,
+        "z": -43455.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF73",
+        "dest_gate": "CF73_CF74vortex",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF74_CF75",
+        "name": "CF74_CF75",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": 51846.0,
+        "y": 0.0,
+        "z": 63842.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": -90.0
+      },
+      {
+        "nickname": "CF74_CF75vortex",
+        "name": "Pyrddra Gate",
+        "ids_name": "481255",
+        "ids_info": "471709",
+        "info": "",
+        "x": 51846.0,
+        "y": 0.0,
+        "z": 63842.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF75",
+        "dest_gate": "CF75_CF74vortex",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      }
+    ],
     "jumpholes": [],
     "stations": [
       {
         "nickname": "CF74_dk3station1",
-        "name": "CF74_dk3station1",
+        "name": "Dom'Nepesh Station",
         "ids_name": "471812",
         "ids_info": "471812",
         "info": "",
@@ -331527,7 +334148,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF74_dk3station2",
-        "name": "CF74_dk3station2",
+        "name": "Dom'Nepesh Station",
         "ids_name": "471812",
         "ids_info": "471812",
         "info": "",
@@ -331545,7 +334166,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF74_dk3station3",
-        "name": "CF74_dk3station3",
+        "name": "Dom'Nepesh Station",
         "ids_name": "471812",
         "ids_info": "471812",
         "info": "",
@@ -331563,7 +334184,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF74_dk3station4",
-        "name": "CF74_dk3station4",
+        "name": "Dom'Nepesh Station",
         "ids_name": "471812",
         "ids_info": "471812",
         "info": "",
@@ -331581,7 +334202,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF74_dk3station5",
-        "name": "CF74_dk3station5",
+        "name": "Dom'Nepesh Station",
         "ids_name": "471812",
         "ids_info": "471812",
         "info": "",
@@ -331599,7 +334220,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF74_dk5station1",
-        "name": "CF74_dk5station1",
+        "name": "Savage Station",
         "ids_name": "471815",
         "ids_info": "471815",
         "info": "",
@@ -331617,7 +334238,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF74_dk5station2",
-        "name": "CF74_dk5station2",
+        "name": "Savage Station",
         "ids_name": "471815",
         "ids_info": "471815",
         "info": "",
@@ -331635,7 +334256,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF74_dk5station3",
-        "name": "CF74_dk5station3",
+        "name": "Savage Station",
         "ids_name": "471815",
         "ids_info": "471815",
         "info": "",
@@ -331673,7 +334294,7 @@ const GAME_SYSTEMS = {
     "planets": [
       {
         "nickname": "CF74_02",
-        "name": "CF74_02",
+        "name": "Planet Gunnild",
         "ids_name": "471855",
         "ids_info": "471856",
         "info": "",
@@ -331693,7 +334314,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF74_repair_buoy_1",
-        "name": "CF74_repair_buoy_1",
+        "name": "Repair Buoy",
         "ids_name": "472250",
         "ids_info": "472251",
         "info": "",
@@ -331713,7 +334334,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF74_repair_buoy_2",
-        "name": "CF74_repair_buoy_2",
+        "name": "Repair Buoy",
         "ids_name": "472250",
         "ids_info": "472251",
         "info": "",
@@ -331733,7 +334354,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF74_repair_buoy_3",
-        "name": "CF74_repair_buoy_3",
+        "name": "Repair Buoy",
         "ids_name": "472250",
         "ids_info": "472251",
         "info": "",
@@ -331753,7 +334374,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF74_repair_buoy_4",
-        "name": "CF74_repair_buoy_4",
+        "name": "Repair Buoy",
         "ids_name": "472250",
         "ids_info": "472251",
         "info": "",
@@ -331773,7 +334394,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF74_planet_1",
-        "name": "CF74_planet_1",
+        "name": "Enthessi",
         "ids_name": "480265",
         "ids_info": "480266",
         "info": "",
@@ -332664,16 +335285,119 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF75": {
-    "name": "CF75",
+    "name": "Pyrddra",
     "strid_name": "471733",
     "ids_info": "471708",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "CF75_CF74",
+        "name": "CF75_CF74",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": -7100.0,
+        "y": 0.0,
+        "z": -50492.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": -90.0
+      },
+      {
+        "nickname": "CF75_CF74vortex",
+        "name": "Sadurn Gate",
+        "ids_name": "481253",
+        "ids_info": "471709",
+        "info": "",
+        "x": -7100.0,
+        "y": 0.0,
+        "z": -50492.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF74",
+        "dest_gate": "CF74_CF75vortex",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF75_CF73",
+        "name": "CF75_CF73",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": 58776.0,
+        "y": 0.0,
+        "z": -4339.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": -90.0
+      },
+      {
+        "nickname": "CF75_CF73vortex",
+        "name": "Celldra Gate",
+        "ids_name": "481251",
+        "ids_info": "471709",
+        "info": "",
+        "x": 58776.0,
+        "y": 0.0,
+        "z": -4339.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF73",
+        "dest_gate": "CF73_CF75vortex",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF75_CF76",
+        "name": "CF75_CF76",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": 6706.0,
+        "y": 0.0,
+        "z": 44969.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": -90.0
+      },
+      {
+        "nickname": "CF75_CF76vortex",
+        "name": "Mepther Gate",
+        "ids_name": "481257",
+        "ids_info": "471709",
+        "info": "",
+        "x": 6706.0,
+        "y": 0.0,
+        "z": 44969.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF76",
+        "dest_gate": "CF76_CF75vortex",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      }
+    ],
     "jumpholes": [],
     "stations": [
       {
         "nickname": "CF75_dk4station1",
-        "name": "CF75_dk4station1",
+        "name": "Sentinel Station",
         "ids_name": "471814",
         "ids_info": "471814",
         "info": "",
@@ -332691,7 +335415,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF75_dk4station2",
-        "name": "CF75_dk4station2",
+        "name": "Sentinel Station",
         "ids_name": "471814",
         "ids_info": "471814",
         "info": "",
@@ -332709,7 +335433,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF75_dk4station3",
-        "name": "CF75_dk4station3",
+        "name": "Sentinel Station",
         "ids_name": "471814",
         "ids_info": "471814",
         "info": "",
@@ -332727,7 +335451,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF75_dk6station1",
-        "name": "CF75_dk6station1",
+        "name": "Dom'Setek Station",
         "ids_name": "471811",
         "ids_info": "471811",
         "info": "",
@@ -332745,7 +335469,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF75_dk6station2",
-        "name": "CF75_dk6station2",
+        "name": "Dom'Setek Station",
         "ids_name": "471811",
         "ids_info": "471811",
         "info": "",
@@ -332763,7 +335487,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF75_dk6station3",
-        "name": "CF75_dk6station3",
+        "name": "Dom'Setek Station",
         "ids_name": "471811",
         "ids_info": "471811",
         "info": "",
@@ -332819,7 +335543,7 @@ const GAME_SYSTEMS = {
     "planets": [
       {
         "nickname": "CF75_planet_1",
-        "name": "CF75_planet_1",
+        "name": "Planet Culd",
         "ids_name": "471839",
         "ids_info": "471840",
         "info": "",
@@ -332839,7 +335563,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF75_planet_2",
-        "name": "CF75_planet_2",
+        "name": "Planet Tadssest",
         "ids_name": "471841",
         "ids_info": "471842",
         "info": "",
@@ -332859,7 +335583,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF75_planet_3",
-        "name": "CF75_planet_3",
+        "name": "Planet Strevum",
         "ids_name": "471843",
         "ids_info": "471844",
         "info": "",
@@ -332879,7 +335603,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF75_planet_4",
-        "name": "CF75_planet_4",
+        "name": "Planet Slor",
         "ids_name": "471845",
         "ids_info": "471846",
         "info": "",
@@ -332899,7 +335623,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF75_repair_buoy_1",
-        "name": "CF75_repair_buoy_1",
+        "name": "Repair Buoy",
         "ids_name": "472250",
         "ids_info": "472251",
         "info": "",
@@ -332919,7 +335643,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF75_repair_buoy_2",
-        "name": "CF75_repair_buoy_2",
+        "name": "Repair Buoy",
         "ids_name": "472250",
         "ids_info": "472251",
         "info": "",
@@ -332939,7 +335663,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF75_repair_buoy_3",
-        "name": "CF75_repair_buoy_3",
+        "name": "Repair Buoy",
         "ids_name": "472250",
         "ids_info": "472251",
         "info": "",
@@ -332959,7 +335683,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF75_planet_5",
-        "name": "CF75_planet_5",
+        "name": "Sulesh",
         "ids_name": "480267",
         "ids_info": "480268",
         "info": "",
@@ -332979,7 +335703,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF75_planet_6",
-        "name": "CF75_planet_6",
+        "name": "Bigha",
         "ids_name": "480269",
         "ids_info": "480270",
         "info": "",
@@ -332999,7 +335723,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF75_planet_7",
-        "name": "CF75_planet_7",
+        "name": "Uskdyn",
         "ids_name": "480271",
         "ids_info": "480272",
         "info": "",
@@ -333019,7 +335743,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF75_planet_8",
-        "name": "CF75_planet_8",
+        "name": "Kelusk",
         "ids_name": "480273",
         "ids_info": "480274",
         "info": "",
@@ -333039,7 +335763,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF75_planet_9",
-        "name": "CF75_planet_9",
+        "name": "Lokin",
         "ids_name": "480275",
         "ids_info": "480276",
         "info": "",
@@ -333059,7 +335783,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF75_planet_10",
-        "name": "CF75_planet_10",
+        "name": "Ustisy",
         "ids_name": "480277",
         "ids_info": "480278",
         "info": "",
@@ -334430,16 +337154,119 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF76": {
-    "name": "CF76",
+    "name": "Mepther",
     "strid_name": "471735",
     "ids_info": "471708",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "CF76_CF75",
+        "name": "CF76_CF75",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": 12623.0,
+        "y": 0.0,
+        "z": -35897.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": -90.0
+      },
+      {
+        "nickname": "CF76_CF75vortex",
+        "name": "Pyrddra Gate",
+        "ids_name": "481255",
+        "ids_info": "471709",
+        "info": "",
+        "x": 12623.0,
+        "y": 0.0,
+        "z": -35897.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF75",
+        "dest_gate": "CF75_CF76vortex",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF76_CF72",
+        "name": "CF76_CF72",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": 50887.0,
+        "y": 0.0,
+        "z": 34713.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": -90.0
+      },
+      {
+        "nickname": "CF76_CF72vortex",
+        "name": "Jormdar Gate",
+        "ids_name": "481249",
+        "ids_info": "471709",
+        "info": "",
+        "x": 50887.0,
+        "y": 0.0,
+        "z": 34713.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF72",
+        "dest_gate": "CF72_CF76vortex",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF76_CF77",
+        "name": "CF76_CF77",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": -41025.0,
+        "y": 0.0,
+        "z": 42603.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": -90.0
+      },
+      {
+        "nickname": "CF76_CF77vortex",
+        "name": "Ryssk Gate",
+        "ids_name": "481259",
+        "ids_info": "471709",
+        "info": "",
+        "x": -41025.0,
+        "y": 0.0,
+        "z": 42603.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF77",
+        "dest_gate": "CF77_CF76vortex",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      }
+    ],
     "jumpholes": [],
     "stations": [
       {
         "nickname": "CF76_dk2station1",
-        "name": "CF76_dk2station1",
+        "name": "Warrior Station",
         "ids_name": "471816",
         "ids_info": "471816",
         "info": "",
@@ -334457,7 +337284,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF76_dk2station2",
-        "name": "CF76_dk2station2",
+        "name": "Warrior Station",
         "ids_name": "471816",
         "ids_info": "471816",
         "info": "",
@@ -334475,7 +337302,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF76_dk7station1",
-        "name": "CF76_dk7station1",
+        "name": "Dom'Razak Station",
         "ids_name": "471813",
         "ids_info": "471813",
         "info": "",
@@ -334493,7 +337320,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF76_dk7station2",
-        "name": "CF76_dk7station2",
+        "name": "Dom'Razak Station",
         "ids_name": "471813",
         "ids_info": "471813",
         "info": "",
@@ -334511,7 +337338,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF76_dk7station3",
-        "name": "CF76_dk7station3",
+        "name": "Dom'Razak Station",
         "ids_name": "471813",
         "ids_info": "471813",
         "info": "",
@@ -334549,7 +337376,7 @@ const GAME_SYSTEMS = {
     "planets": [
       {
         "nickname": "CF76_planet_1",
-        "name": "CF76_planet_1",
+        "name": "Planet Tarr",
         "ids_name": "471823",
         "ids_info": "471824",
         "info": "",
@@ -334569,7 +337396,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF76_planet_2",
-        "name": "CF76_planet_2",
+        "name": "Planet Daytai",
         "ids_name": "471825",
         "ids_info": "471826",
         "info": "",
@@ -334589,7 +337416,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF76_planet_3",
-        "name": "CF76_planet_3",
+        "name": "Planet Toltsris",
         "ids_name": "471827",
         "ids_info": "471828",
         "info": "",
@@ -334609,7 +337436,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF76_repair_buoy_2",
-        "name": "CF76_repair_buoy_2",
+        "name": "Repair Buoy",
         "ids_name": "472250",
         "ids_info": "472251",
         "info": "",
@@ -334629,7 +337456,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF76_repair_buoy_3",
-        "name": "CF76_repair_buoy_3",
+        "name": "Repair Buoy",
         "ids_name": "472250",
         "ids_info": "472251",
         "info": "",
@@ -334649,7 +337476,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF76_repair_buoy_4",
-        "name": "CF76_repair_buoy_4",
+        "name": "Repair Buoy",
         "ids_name": "472250",
         "ids_info": "472251",
         "info": "",
@@ -334669,7 +337496,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF76_planet_4",
-        "name": "CF76_planet_4",
+        "name": "Umchea",
         "ids_name": "480279",
         "ids_info": "480280",
         "info": "",
@@ -334689,7 +337516,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF76_planet_5",
-        "name": "CF76_planet_5",
+        "name": "Ageinn",
         "ids_name": "480281",
         "ids_info": "480282",
         "info": "",
@@ -335787,16 +338614,85 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF77": {
-    "name": "CF77",
+    "name": "Ryssk",
     "strid_name": "471737",
     "ids_info": "471708",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "CF77_CF76",
+        "name": "CF77_CF76",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": 41846.0,
+        "y": 0.0,
+        "z": 63842.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": -90.0
+      },
+      {
+        "nickname": "CF77_CF76vortex",
+        "name": "Mepther Gate",
+        "ids_name": "481257",
+        "ids_info": "471709",
+        "info": "",
+        "x": 41846.0,
+        "y": 0.0,
+        "z": 63842.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF76",
+        "dest_gate": "CF76_CF77vortex",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF77_CF78",
+        "name": "CF77_CF78",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": 45364.0,
+        "y": 0.0,
+        "z": -43786.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": -90.0
+      },
+      {
+        "nickname": "CF77_to_CF78",
+        "name": "Weth Gate",
+        "ids_name": "481261",
+        "ids_info": "471709",
+        "info": "",
+        "x": 45364.0,
+        "y": 0.0,
+        "z": -43786.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF78",
+        "dest_gate": "CF78_to_CF77",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 140.0
+      }
+    ],
     "jumpholes": [],
     "stations": [
       {
         "nickname": "CF77_dk2station1",
-        "name": "CF77_dk2station1",
+        "name": "Warrior Station",
         "ids_name": "471816",
         "ids_info": "471816",
         "info": "",
@@ -335814,7 +338710,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF77_dk2station2",
-        "name": "CF77_dk2station2",
+        "name": "Warrior Station",
         "ids_name": "471816",
         "ids_info": "471816",
         "info": "",
@@ -335832,7 +338728,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF77_dk7station1",
-        "name": "CF77_dk7station1",
+        "name": "Dom'Razak Station",
         "ids_name": "471813",
         "ids_info": "471813",
         "info": "",
@@ -335850,7 +338746,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF77_dk7station2",
-        "name": "CF77_dk7station2",
+        "name": "Dom'Razak Station",
         "ids_name": "471813",
         "ids_info": "471813",
         "info": "",
@@ -335868,7 +338764,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF77_dk7station3",
-        "name": "CF77_dk7station3",
+        "name": "Dom'Razak Station",
         "ids_name": "471813",
         "ids_info": "471813",
         "info": "",
@@ -335924,7 +338820,7 @@ const GAME_SYSTEMS = {
     "planets": [
       {
         "nickname": "CF77_planet_1",
-        "name": "CF77_planet_1",
+        "name": "Planet Sakao",
         "ids_name": "500427",
         "ids_info": "500428",
         "info": "",
@@ -335944,7 +338840,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF77_planet_2",
-        "name": "CF77_planet_2",
+        "name": "Planet Pichon",
         "ids_name": "501190",
         "ids_info": "501191",
         "info": "",
@@ -335964,7 +338860,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF77_planet_3",
-        "name": "CF77_planet_3",
+        "name": "Planet Darust",
         "ids_name": "501192",
         "ids_info": "501193",
         "info": "",
@@ -335984,7 +338880,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF77_repair_buoy_1",
-        "name": "CF77_repair_buoy_1",
+        "name": "Repair Buoy",
         "ids_name": "472250",
         "ids_info": "472251",
         "info": "",
@@ -336004,7 +338900,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF77_repair_buoy_2",
-        "name": "CF77_repair_buoy_2",
+        "name": "Repair Buoy",
         "ids_name": "472250",
         "ids_info": "472251",
         "info": "",
@@ -336024,7 +338920,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF77_planet_4",
-        "name": "CF77_planet_4",
+        "name": "Sayash",
         "ids_name": "480283",
         "ids_info": "480284",
         "info": "",
@@ -336044,7 +338940,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF77_planet_5",
-        "name": "CF77_planet_5",
+        "name": "Sayfild",
         "ids_name": "480285",
         "ids_info": "480286",
         "info": "",
@@ -336064,7 +338960,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF77_planet_6",
-        "name": "CF77_planet_6",
+        "name": "Chartan",
         "ids_name": "480287",
         "ids_info": "480288",
         "info": "",
@@ -336084,7 +338980,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF77_planet_7",
-        "name": "CF77_planet_7",
+        "name": "Therit",
         "ids_name": "480289",
         "ids_info": "480290",
         "info": "",
@@ -337361,16 +340257,119 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF78": {
-    "name": "CF78",
+    "name": "Weth",
     "strid_name": "471779",
     "ids_info": "471708",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "CF78_CF77",
+        "name": "CF78_CF77",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": 56804.0,
+        "y": 0.0,
+        "z": 59565.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": -12.0
+      },
+      {
+        "nickname": "CF78_to_CF77",
+        "name": "Ryssk Gate",
+        "ids_name": "481259",
+        "ids_info": "471709",
+        "info": "",
+        "x": 56804.0,
+        "y": 0.0,
+        "z": 59565.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF77",
+        "dest_gate": "CF77_to_CF78",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": -102.0
+      },
+      {
+        "nickname": "CF78_CF82",
+        "name": "CF78_CF82",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": -51676.0,
+        "y": 0.0,
+        "z": -35897.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": -90.0
+      },
+      {
+        "nickname": "CF78_to_CF82",
+        "name": "Whyr Gate",
+        "ids_name": "481269",
+        "ids_info": "471709",
+        "info": "",
+        "x": -51676.0,
+        "y": 0.0,
+        "z": -35897.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF82",
+        "dest_gate": "CF82_to_CF78",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 140.0
+      },
+      {
+        "nickname": "CF78_CF79",
+        "name": "CF78_CF79",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": 42997.0,
+        "y": 0.0,
+        "z": -37474.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": -90.0
+      },
+      {
+        "nickname": "CF78_to_CF79",
+        "name": "Rhuntath Gate",
+        "ids_name": "481263",
+        "ids_info": "471709",
+        "info": "",
+        "x": 42997.0,
+        "y": 0.0,
+        "z": -37474.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF79",
+        "dest_gate": "CF79_to_CF78",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 140.0
+      }
+    ],
     "jumpholes": [],
     "stations": [
       {
         "nickname": "CF78_CF77cannon1",
-        "name": "CF78_CF77cannon1",
+        "name": "Defense Station",
         "ids_name": "471857",
         "ids_info": "471858",
         "info": "",
@@ -337388,7 +340387,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF78_CF77cannon2",
-        "name": "CF78_CF77cannon2",
+        "name": "Defense Station",
         "ids_name": "471857",
         "ids_info": "471858",
         "info": "",
@@ -337406,7 +340405,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF78_CF77cannon3",
-        "name": "CF78_CF77cannon3",
+        "name": "Defense Station",
         "ids_name": "471857",
         "ids_info": "471858",
         "info": "",
@@ -338956,7 +341955,7 @@ const GAME_SYSTEMS = {
     "planets": [
       {
         "nickname": "CF78_01",
-        "name": "CF78_01",
+        "name": "Mirtrrak Battle Station",
         "ids_name": "471859",
         "ids_info": "471860",
         "info": "",
@@ -339924,16 +342923,85 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF79": {
-    "name": "CF79",
+    "name": "Rhuntath",
     "strid_name": "471781",
     "ids_info": "471708",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "CF79_CF78",
+        "name": "CF79_CF78",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": 29191.0,
+        "y": 0.0,
+        "z": 63115.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": -12.0
+      },
+      {
+        "nickname": "CF79_to_CF78",
+        "name": "Weth Gate",
+        "ids_name": "481261",
+        "ids_info": "471709",
+        "info": "",
+        "x": 29191.0,
+        "y": 0.0,
+        "z": 63115.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF78",
+        "dest_gate": "CF78_to_CF79",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": -102.0
+      },
+      {
+        "nickname": "CF79_CF80",
+        "name": "CF79_CF80",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": 29979.0,
+        "y": 0.0,
+        "z": -39841.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 168.0
+      },
+      {
+        "nickname": "CF79_to_CF80",
+        "name": "Loret Gate",
+        "ids_name": "481265",
+        "ids_info": "471709",
+        "info": "",
+        "x": 29979.0,
+        "y": 0.0,
+        "z": -39841.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF80",
+        "dest_gate": "CF80_to_CF79",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 78.0
+      }
+    ],
     "jumpholes": [],
     "stations": [
       {
         "nickname": "CF79cannon1",
-        "name": "CF79cannon1",
+        "name": "Defense Station",
         "ids_name": "471857",
         "ids_info": "471858",
         "info": "",
@@ -339989,7 +343057,7 @@ const GAME_SYSTEMS = {
     "planets": [
       {
         "nickname": "CF79_planet_1",
-        "name": "CF79_planet_1",
+        "name": "Planet Stonrak",
         "ids_name": "471874",
         "ids_info": "471875",
         "info": "",
@@ -340009,7 +343077,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF79_planet_2",
-        "name": "CF79_planet_2",
+        "name": "Planet Nosl",
         "ids_name": "471876",
         "ids_info": "471877",
         "info": "",
@@ -340029,7 +343097,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF79_planet_3",
-        "name": "CF79_planet_3",
+        "name": "Planet Talrod",
         "ids_name": "471878",
         "ids_info": "471879",
         "info": "",
@@ -340049,7 +343117,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF79_planet_4",
-        "name": "CF79_planet_4",
+        "name": "Planet Yic",
         "ids_name": "471880",
         "ids_info": "471881",
         "info": "",
@@ -340069,7 +343137,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF79_planet_5",
-        "name": "CF79_planet_5",
+        "name": "Planet Chrordkas",
         "ids_name": "471882",
         "ids_info": "471883",
         "info": "",
@@ -340089,7 +343157,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF79_planet_6",
-        "name": "CF79_planet_6",
+        "name": "Planet Quowlir",
         "ids_name": "471884",
         "ids_info": "471885",
         "info": "",
@@ -340109,7 +343177,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF79_planet_7",
-        "name": "CF79_planet_7",
+        "name": "Planet Snockr",
         "ids_name": "471886",
         "ids_info": "471887",
         "info": "",
@@ -340149,7 +343217,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF79_planet_8",
-        "name": "CF79_planet_8",
+        "name": "Toriry",
         "ids_name": "480291",
         "ids_info": "480292",
         "info": "",
@@ -340169,7 +343237,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF79_planet_9",
-        "name": "CF79_planet_9",
+        "name": "Drale",
         "ids_name": "480293",
         "ids_info": "480294",
         "info": "",
@@ -340189,7 +343257,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF79_planet_10",
-        "name": "CF79_planet_10",
+        "name": "Smoale",
         "ids_name": "480295",
         "ids_info": "480296",
         "info": "",
@@ -340209,7 +343277,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF79_planet_11",
-        "name": "CF79_planet_11",
+        "name": "Rynil",
         "ids_name": "480297",
         "ids_info": "480298",
         "info": "",
@@ -340229,7 +343297,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF79_planet_12",
-        "name": "CF79_planet_12",
+        "name": "Ineev",
         "ids_name": "480299",
         "ids_info": "480300",
         "info": "",
@@ -341201,15 +344269,152 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF80": {
-    "name": "CF80",
+    "name": "Loret",
     "strid_name": "471783",
     "ids_info": "471708",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "CF80_CF79",
+        "name": "CF80_CF79",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": -35897.0,
+        "y": 0.0,
+        "z": 50887.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": -90.0
+      },
+      {
+        "nickname": "CF80_to_CF79",
+        "name": "Rhuntath Gate",
+        "ids_name": "481263",
+        "ids_info": "471709",
+        "info": "",
+        "x": -35897.0,
+        "y": 0.0,
+        "z": 50887.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF79",
+        "dest_gate": "CF79_to_CF80",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF80_CF81",
+        "name": "CF80_CF81",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": 42603.0,
+        "y": 0.0,
+        "z": 8678.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": -90.0
+      },
+      {
+        "nickname": "CF80_to_CF81",
+        "name": "Zhiklor Gate",
+        "ids_name": "481267",
+        "ids_info": "471709",
+        "info": "",
+        "x": 42603.0,
+        "y": 0.0,
+        "z": 8678.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF81",
+        "dest_gate": "CF81_to_CF80",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF80_CF82",
+        "name": "CF80_CF82",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": -42603.0,
+        "y": 0.0,
+        "z": -44181.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": -90.0
+      },
+      {
+        "nickname": "CF80_to_CF82",
+        "name": "Whyr Gate",
+        "ids_name": "481269",
+        "ids_info": "471709",
+        "info": "",
+        "x": -42603.0,
+        "y": 0.0,
+        "z": -44181.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF82",
+        "dest_gate": "CF82_to_CF80",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF80_CF83",
+        "name": "CF80_CF83",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": -50098.0,
+        "y": 0.0,
+        "z": -788.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": -90.0
+      },
+      {
+        "nickname": "CF80_to_CF83",
+        "name": "Lenas Gate",
+        "ids_name": "481271",
+        "ids_info": "471709",
+        "info": "",
+        "x": -50098.0,
+        "y": 0.0,
+        "z": -788.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF83",
+        "dest_gate": "CF83_to_CF80",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      }
+    ],
     "jumpholes": [
       {
         "nickname": "CF80_to_CF93_hole",
-        "name": "CF80_to_CF93_hole",
+        "name": "Crallard Jump Hole",
         "ids_name": "481083",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -341284,7 +344489,7 @@ const GAME_SYSTEMS = {
     "planets": [
       {
         "nickname": "CF80_planet_1",
-        "name": "CF80_planet_1",
+        "name": "Planet Falum",
         "ids_name": "471990",
         "ids_info": "471991",
         "info": "",
@@ -341304,7 +344509,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF80_planet_2",
-        "name": "CF80_planet_2",
+        "name": "Planet Whalcha",
         "ids_name": "471992",
         "ids_info": "471993",
         "info": "",
@@ -341324,7 +344529,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF80_01",
-        "name": "CF80_01",
+        "name": "Rywkim Battle Station",
         "ids_name": "472037",
         "ids_info": "472038",
         "info": "",
@@ -341344,7 +344549,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF80_planet_3",
-        "name": "CF80_planet_3",
+        "name": "Taslunt",
         "ids_name": "480301",
         "ids_info": "480302",
         "info": "",
@@ -343071,11 +346276,46 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF81": {
-    "name": "CF81",
+    "name": "Zhiklor",
     "strid_name": "471785",
     "ids_info": "471708",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "CF81_CF80",
+        "name": "CF81_CF80",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": -50887.0,
+        "y": 0.0,
+        "z": 33924.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": -90.0
+      },
+      {
+        "nickname": "CF81_to_CF80",
+        "name": "Loret Gate",
+        "ids_name": "481265",
+        "ids_info": "471709",
+        "info": "",
+        "x": -50887.0,
+        "y": 0.0,
+        "z": 33924.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF80",
+        "dest_gate": "CF80_to_CF81",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      }
+    ],
     "jumpholes": [],
     "stations": [
       {
@@ -343388,7 +346628,7 @@ const GAME_SYSTEMS = {
     "planets": [
       {
         "nickname": "CF81_planet_1",
-        "name": "CF81_planet_1",
+        "name": "Planet Sampol",
         "ids_name": "471994",
         "ids_info": "471995",
         "info": "",
@@ -343408,7 +346648,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF81_planet_2",
-        "name": "CF81_planet_2",
+        "name": "Planet Cesrak",
         "ids_name": "471996",
         "ids_info": "471997",
         "info": "",
@@ -343448,7 +346688,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF81_planet_3",
-        "name": "CF81_planet_3",
+        "name": "Planet Borst",
         "ids_name": "471998",
         "ids_info": "471999",
         "info": "",
@@ -343488,7 +346728,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF81_01",
-        "name": "CF81_01",
+        "name": "Drokorm Light Dome",
         "ids_name": "472039",
         "ids_info": "472040",
         "info": "",
@@ -343508,7 +346748,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF81_02",
-        "name": "CF81_02",
+        "name": "Raphrd Refinery",
         "ids_name": "472041",
         "ids_info": "472042",
         "info": "",
@@ -343528,7 +346768,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF81_planet_4",
-        "name": "CF81_planet_4",
+        "name": "Essagee",
         "ids_name": "480303",
         "ids_info": "480304",
         "info": "",
@@ -344808,11 +348048,114 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF82": {
-    "name": "CF82",
+    "name": "Whyr",
     "strid_name": "471787",
     "ids_info": "471708",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "CF82_CF78",
+        "name": "CF82_CF78",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": -35502.0,
+        "y": 0.0,
+        "z": 31557.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": -90.0
+      },
+      {
+        "nickname": "CF82_to_CF78",
+        "name": "Weth Gate",
+        "ids_name": "481261",
+        "ids_info": "471709",
+        "info": "",
+        "x": -35502.0,
+        "y": 0.0,
+        "z": 31557.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF78",
+        "dest_gate": "CF78_to_CF82",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF82_CF80",
+        "name": "CF82_CF80",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": 25640.0,
+        "y": 0.0,
+        "z": -59565.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 0.0
+      },
+      {
+        "nickname": "CF82_to_CF80",
+        "name": "Loret Gate",
+        "ids_name": "481265",
+        "ids_info": "471709",
+        "info": "",
+        "x": 25640.0,
+        "y": 0.0,
+        "z": -59565.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF80",
+        "dest_gate": "CF80_to_CF82",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 90.0
+      },
+      {
+        "nickname": "CF82_CF85",
+        "name": "CF82_CF85",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": -61143.0,
+        "y": 0.0,
+        "z": -4733.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": -90.0
+      },
+      {
+        "nickname": "CF82_to_CF85",
+        "name": "Minnck Gate",
+        "ids_name": "481275",
+        "ids_info": "471709",
+        "info": "",
+        "x": -61143.0,
+        "y": 0.0,
+        "z": -4733.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF85",
+        "dest_gate": "CF85_to_CF82",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      }
+    ],
     "jumpholes": [],
     "stations": [
       {
@@ -345339,7 +348682,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF82_Nomadstation_1",
-        "name": "CF82_Nomadstation_1",
+        "name": "Nomad Construction Facility",
         "ids_name": "480496",
         "ids_info": "480497",
         "info": "",
@@ -345359,7 +348702,7 @@ const GAME_SYSTEMS = {
     "planets": [
       {
         "nickname": "CF82_planet_1",
-        "name": "CF82_planet_1",
+        "name": "Planet Traltd",
         "ids_name": "472000",
         "ids_info": "472001",
         "info": "",
@@ -345399,7 +348742,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF82_planet_2",
-        "name": "CF82_planet_2",
+        "name": "Planet Tordrale",
         "ids_name": "472002",
         "ids_info": "472003",
         "info": "",
@@ -345439,7 +348782,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF82_01",
-        "name": "CF82_01",
+        "name": "Draghdan Academy",
         "ids_name": "472043",
         "ids_info": "472044",
         "info": "",
@@ -345459,7 +348802,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF82_planet_3",
-        "name": "CF82_planet_3",
+        "name": "Kimyw",
         "ids_name": "480305",
         "ids_info": "480306",
         "info": "",
@@ -345479,7 +348822,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF82_planet_4",
-        "name": "CF82_planet_4",
+        "name": "Undbelm",
         "ids_name": "480307",
         "ids_info": "480308",
         "info": "",
@@ -345499,7 +348842,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF82_planet_5",
-        "name": "CF82_planet_5",
+        "name": "Kimish",
         "ids_name": "480309",
         "ids_info": "480310",
         "info": "",
@@ -346547,11 +349890,114 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF83": {
-    "name": "CF83",
+    "name": "Lenas",
     "strid_name": "471789",
     "ids_info": "471708",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "CF83_CF80",
+        "name": "CF83_CF80",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": 35502.0,
+        "y": 0.0,
+        "z": 43392.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 0.0
+      },
+      {
+        "nickname": "CF83_to_CF80",
+        "name": "Loret Gate",
+        "ids_name": "481265",
+        "ids_info": "471709",
+        "info": "",
+        "x": 35502.0,
+        "y": 0.0,
+        "z": 43392.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF80",
+        "dest_gate": "CF80_to_CF83",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": -90.0
+      },
+      {
+        "nickname": "CF83_CF84",
+        "name": "CF83_CF84",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": -17751.0,
+        "y": 0.0,
+        "z": -51676.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": -90.0
+      },
+      {
+        "nickname": "CF83_to_CF84",
+        "name": "Dras Gate",
+        "ids_name": "481273",
+        "ids_info": "471709",
+        "info": "",
+        "x": -17751.0,
+        "y": 0.0,
+        "z": -51676.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF84",
+        "dest_gate": "CF84_to_CF83",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF83_CF86",
+        "name": "CF83_CF86",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": -43785.0,
+        "y": 0.0,
+        "z": 44968.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": -90.0
+      },
+      {
+        "nickname": "CF83_to_CF86",
+        "name": "Bimia Gate",
+        "ids_name": "481277",
+        "ids_info": "471709",
+        "info": "",
+        "x": -43785.0,
+        "y": 0.0,
+        "z": 44968.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF86",
+        "dest_gate": "CF86_to_CF83",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      }
+    ],
     "jumpholes": [],
     "stations": [
       {
@@ -347348,7 +350794,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF83_Nomadstation_1",
-        "name": "CF83_Nomadstation_1",
+        "name": "Nomad Breeder",
         "ids_name": "480494",
         "ids_info": "480495",
         "info": "",
@@ -347366,7 +350812,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF83_Nomadstation_1a",
-        "name": "CF83_Nomadstation_1a",
+        "name": "Nomad Breeder",
         "ids_name": "480494",
         "ids_info": "480495",
         "info": "",
@@ -347384,7 +350830,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF83_Nomadstation_1b",
-        "name": "CF83_Nomadstation_1b",
+        "name": "Nomad Breeder",
         "ids_name": "480494",
         "ids_info": "480495",
         "info": "",
@@ -347402,7 +350848,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF83_Nomadstation_1c",
-        "name": "CF83_Nomadstation_1c",
+        "name": "Nomad Breeder",
         "ids_name": "480494",
         "ids_info": "480495",
         "info": "",
@@ -347420,7 +350866,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF83_Nomadstation_1d",
-        "name": "CF83_Nomadstation_1d",
+        "name": "Nomad Breeder",
         "ids_name": "480494",
         "ids_info": "480495",
         "info": "",
@@ -347458,7 +350904,7 @@ const GAME_SYSTEMS = {
     "planets": [
       {
         "nickname": "CF83_planet_1",
-        "name": "CF83_planet_1",
+        "name": "Planet Rardrrlye",
         "ids_name": "472004",
         "ids_info": "472005",
         "info": "",
@@ -347498,7 +350944,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF83_planet_2",
-        "name": "CF83_planet_2",
+        "name": "Planet Dusiss",
         "ids_name": "472006",
         "ids_info": "472007",
         "info": "",
@@ -347538,7 +350984,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF83_01",
-        "name": "CF83_01",
+        "name": "Jartltend Research Station",
         "ids_name": "472045",
         "ids_info": "472046",
         "info": "",
@@ -347558,7 +351004,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF83_02",
-        "name": "CF83_02",
+        "name": "Zhirllis Citadel",
         "ids_name": "472047",
         "ids_info": "472048",
         "info": "",
@@ -347578,7 +351024,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF83_planet_3",
-        "name": "CF83_planet_3",
+        "name": "Gharay",
         "ids_name": "480311",
         "ids_info": "480312",
         "info": "",
@@ -347598,7 +351044,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF83_planet_4",
-        "name": "CF83_planet_4",
+        "name": "Inaul",
         "ids_name": "480313",
         "ids_info": "480314",
         "info": "",
@@ -347618,7 +351064,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF83_planet_5",
-        "name": "CF83_planet_5",
+        "name": "Inaes",
         "ids_name": "480315",
         "ids_info": "480316",
         "info": "",
@@ -349584,11 +353030,46 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF84": {
-    "name": "CF84",
+    "name": "Dras",
     "strid_name": "471791",
     "ids_info": "471708",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "CF84_CF83",
+        "name": "CF84_CF83",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": 3550.0,
+        "y": 0.0,
+        "z": 20907.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": -90.0
+      },
+      {
+        "nickname": "CF84_to_CF83",
+        "name": "Lenas Gate",
+        "ids_name": "481271",
+        "ids_info": "471709",
+        "info": "",
+        "x": 3550.0,
+        "y": 0.0,
+        "z": 20907.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF83",
+        "dest_gate": "CF83_to_CF84",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 140.0
+      }
+    ],
     "jumpholes": [],
     "stations": [
       {
@@ -350479,11 +353960,182 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF85": {
-    "name": "CF85",
+    "name": "Minnck",
     "strid_name": "471793",
     "ids_info": "471708",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "CF85_CF86",
+        "name": "CF85_CF86",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": 25640.0,
+        "y": 0.0,
+        "z": -61537.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 0.0
+      },
+      {
+        "nickname": "CF85_to_CF86",
+        "name": "Bimia Gate",
+        "ids_name": "481277",
+        "ids_info": "471709",
+        "info": "",
+        "x": 25640.0,
+        "y": 0.0,
+        "z": -61537.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF86",
+        "dest_gate": "CF86_to_CF85",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 90.0
+      },
+      {
+        "nickname": "CF85_CF87",
+        "name": "CF85_CF87",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": -19723.0,
+        "y": 0.0,
+        "z": 51676.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": -90.0
+      },
+      {
+        "nickname": "CF85_to_CF87",
+        "name": "Timath Gate",
+        "ids_name": "481279",
+        "ids_info": "471709",
+        "info": "",
+        "x": -19723.0,
+        "y": 0.0,
+        "z": 51676.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF87",
+        "dest_gate": "CF87_to_CF85",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF85_CF82",
+        "name": "CF85_CF82",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": 63115.0,
+        "y": 0.0,
+        "z": -5917.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": -90.0
+      },
+      {
+        "nickname": "CF85_to_CF82",
+        "name": "Whyr Gate",
+        "ids_name": "481269",
+        "ids_info": "471709",
+        "info": "",
+        "x": 63115.0,
+        "y": 0.0,
+        "z": -5917.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF82",
+        "dest_gate": "CF82_to_CF85",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 0.0
+      },
+      {
+        "nickname": "CF85_CF89",
+        "name": "CF85_CF89",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": -67849.0,
+        "y": 0.0,
+        "z": -25246.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": -90.0
+      },
+      {
+        "nickname": "CF85_to_CF89",
+        "name": "Sorror Gate",
+        "ids_name": "481283",
+        "ids_info": "471709",
+        "info": "",
+        "x": -67849.0,
+        "y": 0.0,
+        "z": -25246.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF89",
+        "dest_gate": "CF89_to_CF85",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF85_CF93",
+        "name": "CF85_CF93",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": -70610.0,
+        "y": 0.0,
+        "z": 31952.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": -90.0
+      },
+      {
+        "nickname": "CF85_to_CF93",
+        "name": "Crallard Gate",
+        "ids_name": "481291",
+        "ids_info": "471709",
+        "info": "",
+        "x": -70610.0,
+        "y": 0.0,
+        "z": 31952.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF93",
+        "dest_gate": "CF93_to_CF85",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      }
+    ],
     "jumpholes": [],
     "stations": [
       {
@@ -352164,7 +355816,7 @@ const GAME_SYSTEMS = {
     "planets": [
       {
         "nickname": "CF85_01",
-        "name": "CF85_01",
+        "name": "Chralrgha Breeder",
         "ids_name": "472049",
         "ids_info": "472050",
         "info": "",
@@ -352184,7 +355836,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF85_02",
-        "name": "CF85_02",
+        "name": "Lyselm Refinery",
         "ids_name": "472051",
         "ids_info": "472052",
         "info": "",
@@ -352204,7 +355856,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF85_03",
-        "name": "CF85_03",
+        "name": "Mannenth Research Station",
         "ids_name": "472053",
         "ids_info": "472054",
         "info": "",
@@ -353750,11 +357402,80 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF86": {
-    "name": "CF86",
+    "name": "Bimia",
     "strid_name": "471795",
     "ids_info": "471708",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "CF86_CF83",
+        "name": "CF86_CF83",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": 36291.0,
+        "y": 0.0,
+        "z": -62721.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 0.0
+      },
+      {
+        "nickname": "CF86_to_CF83",
+        "name": "Lenas Gate",
+        "ids_name": "481271",
+        "ids_info": "471709",
+        "info": "",
+        "x": 36291.0,
+        "y": 0.0,
+        "z": -62721.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF83",
+        "dest_gate": "CF83_to_CF86",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 90.0
+      },
+      {
+        "nickname": "CF86_CF85",
+        "name": "CF86_CF85",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": -23668.0,
+        "y": 0.0,
+        "z": 42997.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 0.0
+      },
+      {
+        "nickname": "CF86_to_CF85",
+        "name": "Minnck Gate",
+        "ids_name": "481275",
+        "ids_info": "471709",
+        "info": "",
+        "x": -23668.0,
+        "y": 0.0,
+        "z": 42997.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF85",
+        "dest_gate": "CF85_to_CF86",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": -90.0
+      }
+    ],
     "jumpholes": [],
     "stations": [
       {
@@ -354265,7 +357986,7 @@ const GAME_SYSTEMS = {
     "planets": [
       {
         "nickname": "CF86_planet_1",
-        "name": "CF86_planet_1",
+        "name": "Planet Nohrd",
         "ids_name": "472008",
         "ids_info": "472009",
         "info": "",
@@ -354305,7 +358026,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF86_planet_2",
-        "name": "CF86_planet_2",
+        "name": "Planet Sansam",
         "ids_name": "472010",
         "ids_info": "472011",
         "info": "",
@@ -354345,7 +358066,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF86_01",
-        "name": "CF86_01",
+        "name": "Hyltpol Outpost",
         "ids_name": "472055",
         "ids_info": "472056",
         "info": "",
@@ -354365,7 +358086,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF86_planet_3",
-        "name": "CF86_planet_3",
+        "name": "Duough",
         "ids_name": "480317",
         "ids_info": "480318",
         "info": "",
@@ -354385,7 +358106,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF86_planet_4",
-        "name": "CF86_planet_4",
+        "name": "Lais",
         "ids_name": "480319",
         "ids_info": "480320",
         "info": "",
@@ -354405,7 +358126,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF86_planet_5",
-        "name": "CF86_planet_5",
+        "name": "Arlyee",
         "ids_name": "480321",
         "ids_info": "480322",
         "info": "",
@@ -355455,11 +359176,46 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF87": {
-    "name": "CF87",
+    "name": "Timath",
     "strid_name": "471797",
     "ids_info": "471708",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "CF87_CF85",
+        "name": "CF87_CF85",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": 0.0,
+        "y": 0.0,
+        "z": 33135.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": -90.0
+      },
+      {
+        "nickname": "CF87_to_CF85",
+        "name": "Minnck Gate",
+        "ids_name": "481275",
+        "ids_info": "471709",
+        "info": "",
+        "x": 0.0,
+        "y": 0.0,
+        "z": 33135.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF85",
+        "dest_gate": "CF85_to_CF87",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      }
+    ],
     "jumpholes": [],
     "stations": [
       {
@@ -356117,11 +359873,46 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF88": {
-    "name": "CF88",
+    "name": "Lintkin",
     "strid_name": "471799",
     "ids_info": "471708",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "CF88_CF93",
+        "name": "CF88_CF93",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": 5917.0,
+        "y": 0.0,
+        "z": 16962.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": -90.0
+      },
+      {
+        "nickname": "CF88_to_CF93",
+        "name": "Crallard Gate",
+        "ids_name": "481291",
+        "ids_info": "471709",
+        "info": "",
+        "x": 5917.0,
+        "y": 0.0,
+        "z": 16962.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF93",
+        "dest_gate": "CF93_to_CF88",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 0.0
+      }
+    ],
     "jumpholes": [],
     "stations": [
       {
@@ -356182,7 +359973,7 @@ const GAME_SYSTEMS = {
     "planets": [
       {
         "nickname": "CF88_planet_1",
-        "name": "CF88_planet_1",
+        "name": "Planet Jesh",
         "ids_name": "472012",
         "ids_info": "472013",
         "info": "",
@@ -356222,7 +360013,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF88_planet_2",
-        "name": "CF88_planet_2",
+        "name": "Planet Satight",
         "ids_name": "472014",
         "ids_info": "472015",
         "info": "",
@@ -356242,7 +360033,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF88_planet_3",
-        "name": "CF88_planet_3",
+        "name": "Planet Nawnn",
         "ids_name": "472016",
         "ids_info": "472017",
         "info": "",
@@ -356262,7 +360053,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF88_01",
-        "name": "CF88_01",
+        "name": "Snoldwia Academy",
         "ids_name": "472057",
         "ids_info": "472058",
         "info": "",
@@ -356282,7 +360073,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF88_planet_4",
-        "name": "CF88_planet_4",
+        "name": "Serquey",
         "ids_name": "480323",
         "ids_info": "480324",
         "info": "",
@@ -357751,11 +361542,114 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF89": {
-    "name": "CF89",
+    "name": "Sorror",
     "strid_name": "471801",
     "ids_info": "471708",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "CF89_CF85",
+        "name": "CF89_CF85",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": 56409.0,
+        "y": 0.0,
+        "z": 44181.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": -90.0
+      },
+      {
+        "nickname": "CF89_to_CF85",
+        "name": "Minnck Gate",
+        "ids_name": "481275",
+        "ids_info": "471709",
+        "info": "",
+        "x": 56409.0,
+        "y": 0.0,
+        "z": 44181.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF85",
+        "dest_gate": "CF85_to_CF89",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 0.0
+      },
+      {
+        "nickname": "CF89_CF93",
+        "name": "CF89_CF93",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": -7100.0,
+        "y": 0.0,
+        "z": 65088.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 0.0
+      },
+      {
+        "nickname": "CF89_to_CF93",
+        "name": "Crallard Gate",
+        "ids_name": "481291",
+        "ids_info": "471709",
+        "info": "",
+        "x": -7100.0,
+        "y": 0.0,
+        "z": 65088.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF93",
+        "dest_gate": "CF93_to_CF89",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": -90.0
+      },
+      {
+        "nickname": "CF89_CF90",
+        "name": "CF89_CF90",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": 1183.0,
+        "y": 0.0,
+        "z": -34319.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 0.0
+      },
+      {
+        "nickname": "CF89_to_CF90",
+        "name": "Trawtai Gate",
+        "ids_name": "481285",
+        "ids_info": "471709",
+        "info": "",
+        "x": 1183.0,
+        "y": 0.0,
+        "z": -34319.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF90",
+        "dest_gate": "CF90_to_CF89",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 90.0
+      }
+    ],
     "jumpholes": [],
     "stations": [
       {
@@ -358770,7 +362664,7 @@ const GAME_SYSTEMS = {
     "planets": [
       {
         "nickname": "CF89_planet_1",
-        "name": "CF89_planet_1",
+        "name": "Planet Cynach",
         "ids_name": "472018",
         "ids_info": "472019",
         "info": "",
@@ -358810,7 +362704,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF89_planet_2",
-        "name": "CF89_planet_2",
+        "name": "Planet Bonkim",
         "ids_name": "472020",
         "ids_info": "472021",
         "info": "",
@@ -358830,7 +362724,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF89_planet_3",
-        "name": "CF89_planet_3",
+        "name": "Planet Quondash",
         "ids_name": "472022",
         "ids_info": "472023",
         "info": "",
@@ -358870,7 +362764,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF89_01",
-        "name": "CF89_01",
+        "name": "Fyrdsay Refinery",
         "ids_name": "472059",
         "ids_info": "472060",
         "info": "",
@@ -358890,7 +362784,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF89_02",
-        "name": "CF89_02",
+        "name": "Kyshfenth Outpost",
         "ids_name": "472061",
         "ids_info": "472062",
         "info": "",
@@ -358910,7 +362804,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF89_planet_4",
-        "name": "CF89_planet_4",
+        "name": "Rothal",
         "ids_name": "480325",
         "ids_info": "480326",
         "info": "",
@@ -358930,7 +362824,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF89_planet_5",
-        "name": "CF89_planet_5",
+        "name": "Hineldu",
         "ids_name": "480327",
         "ids_info": "480328",
         "info": "",
@@ -358950,7 +362844,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF89_planet_6",
-        "name": "CF89_planet_6",
+        "name": "Wyad",
         "ids_name": "480329",
         "ids_info": "480330",
         "info": "",
@@ -360544,11 +364438,114 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF90": {
-    "name": "CF90",
+    "name": "Trawtai",
     "strid_name": "471803",
     "ids_info": "471708",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "CF90_CF89",
+        "name": "CF90_CF89",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": -5917.0,
+        "y": 0.0,
+        "z": 58776.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 0.0
+      },
+      {
+        "nickname": "CF90_to_CF89",
+        "name": "Sorror Gate",
+        "ids_name": "481283",
+        "ids_info": "471709",
+        "info": "",
+        "x": -5917.0,
+        "y": 0.0,
+        "z": 58776.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF89",
+        "dest_gate": "CF89_to_CF90",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": -90.0
+      },
+      {
+        "nickname": "CF90_CF91",
+        "name": "CF90_CF91",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": 43392.0,
+        "y": 0.0,
+        "z": -37474.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 0.0
+      },
+      {
+        "nickname": "CF90_to_CF91",
+        "name": "Phanchdar Gate",
+        "ids_name": "481287",
+        "ids_info": "471709",
+        "info": "",
+        "x": 43392.0,
+        "y": 0.0,
+        "z": -37474.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF91",
+        "dest_gate": "CF91_to_CF90",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 90.0
+      },
+      {
+        "nickname": "CF90_CF92",
+        "name": "CF90_CF92",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": -70216.0,
+        "y": 0.0,
+        "z": -3944.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": -90.0
+      },
+      {
+        "nickname": "CF90_to_CF92",
+        "name": "Relenth Gate",
+        "ids_name": "481289",
+        "ids_info": "471709",
+        "info": "",
+        "x": -70216.0,
+        "y": 0.0,
+        "z": -3944.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF92",
+        "dest_gate": "CF92_to_CF90",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      }
+    ],
     "jumpholes": [],
     "stations": [
       {
@@ -362139,7 +366136,7 @@ const GAME_SYSTEMS = {
     "planets": [
       {
         "nickname": "CF90_planet_1",
-        "name": "CF90_planet_1",
+        "name": "Planet Noyging",
         "ids_name": "472024",
         "ids_info": "472025",
         "info": "",
@@ -362179,7 +366176,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF90_01",
-        "name": "CF90_01",
+        "name": "Sylroth Light Dome",
         "ids_name": "472063",
         "ids_info": "472064",
         "info": "",
@@ -362199,7 +366196,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF90_02",
-        "name": "CF90_02",
+        "name": "Nerllard Refinery",
         "ids_name": "472065",
         "ids_info": "472066",
         "info": "",
@@ -362219,7 +366216,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF90_03",
-        "name": "CF90_03",
+        "name": "Rhistis Breeder",
         "ids_name": "472067",
         "ids_info": "472068",
         "info": "",
@@ -362239,7 +366236,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF90_planet_2",
-        "name": "CF90_planet_2",
+        "name": "Ghaos",
         "ids_name": "480331",
         "ids_info": "480332",
         "info": "",
@@ -362259,7 +366256,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF90_planet_3",
-        "name": "CF90_planet_3",
+        "name": "Hadyn",
         "ids_name": "480333",
         "ids_info": "480334",
         "info": "",
@@ -363625,11 +367622,46 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF91": {
-    "name": "CF91",
+    "name": "Phanchdar",
     "strid_name": "471805",
     "ids_info": "471708",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "CF91_CF90",
+        "name": "CF91_CF90",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": -46942.0,
+        "y": 0.0,
+        "z": 31557.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": -90.0
+      },
+      {
+        "nickname": "CF91_to_CF90",
+        "name": "Trawtai Gate",
+        "ids_name": "481285",
+        "ids_info": "471709",
+        "info": "",
+        "x": -46942.0,
+        "y": 0.0,
+        "z": 31557.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF90",
+        "dest_gate": "CF90_to_CF91",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      }
+    ],
     "jumpholes": [],
     "stations": [],
     "planets": [],
@@ -363970,11 +368002,46 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF92": {
-    "name": "CF92",
+    "name": "Relenth",
     "strid_name": "471807",
     "ids_info": "471708",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "CF92_CF90",
+        "name": "CF92_CF90",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": 3944.0,
+        "y": 0.0,
+        "z": 25246.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": -90.0
+      },
+      {
+        "nickname": "CF92_to_CF90",
+        "name": "Trawtai Gate",
+        "ids_name": "481285",
+        "ids_info": "471709",
+        "info": "",
+        "x": 3944.0,
+        "y": 0.0,
+        "z": 25246.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF90",
+        "dest_gate": "CF90_to_CF92",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 0.0
+      }
+    ],
     "jumpholes": [],
     "stations": [
       {
@@ -365349,7 +369416,7 @@ const GAME_SYSTEMS = {
     "planets": [
       {
         "nickname": "CF92_planet_1",
-        "name": "CF92_planet_1",
+        "name": "Planet Kinrrash",
         "ids_name": "472026",
         "ids_info": "472027",
         "info": "",
@@ -365369,7 +369436,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF92_planet_2",
-        "name": "CF92_planet_2",
+        "name": "Planet Chithar",
         "ids_name": "472028",
         "ids_info": "472029",
         "info": "",
@@ -365389,7 +369456,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF92_01",
-        "name": "CF92_01",
+        "name": "Sirmtia Research Station",
         "ids_name": "472069",
         "ids_info": "472070",
         "info": "",
@@ -365409,7 +369476,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF92_02",
-        "name": "CF92_02",
+        "name": "Kirrt Outpost",
         "ids_name": "472071",
         "ids_info": "472072",
         "info": "",
@@ -365429,7 +369496,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF92_03",
-        "name": "CF92_03",
+        "name": "Chrazll Citadel",
         "ids_name": "472073",
         "ids_info": "472074",
         "info": "",
@@ -365449,7 +369516,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF92_planet_3",
-        "name": "CF92_planet_3",
+        "name": "Swielm",
         "ids_name": "480335",
         "ids_info": "480336",
         "info": "",
@@ -365469,7 +369536,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF92_planet_4",
-        "name": "CF92_planet_4",
+        "name": "Saynyso",
         "ids_name": "480337",
         "ids_info": "480338",
         "info": "",
@@ -365489,7 +369556,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF92_planet_5",
-        "name": "CF92_planet_5",
+        "name": "Ormdyni",
         "ids_name": "480339",
         "ids_info": "480340",
         "info": "",
@@ -366860,15 +370927,118 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF93": {
-    "name": "CF93",
+    "name": "Crallard",
     "strid_name": "471809",
     "ids_info": "471708",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "CF93_CF85",
+        "name": "CF93_CF85",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": 32741.0,
+        "y": 0.0,
+        "z": 26035.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": -90.0
+      },
+      {
+        "nickname": "CF93_to_CF85",
+        "name": "Minnck Gate",
+        "ids_name": "481275",
+        "ids_info": "471709",
+        "info": "",
+        "x": 32741.0,
+        "y": 0.0,
+        "z": 26035.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF85",
+        "dest_gate": "CF85_to_CF93",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 0.0
+      },
+      {
+        "nickname": "CF93_CF89",
+        "name": "CF93_CF89",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": -5917.0,
+        "y": 0.0,
+        "z": -49309.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 0.0
+      },
+      {
+        "nickname": "CF93_to_CF89",
+        "name": "Sorror Gate",
+        "ids_name": "481283",
+        "ids_info": "471709",
+        "info": "",
+        "x": -5917.0,
+        "y": 0.0,
+        "z": -49309.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF89",
+        "dest_gate": "CF89_to_CF93",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 90.0
+      },
+      {
+        "nickname": "CF93_CF88",
+        "name": "CF93_CF88",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": -69032.0,
+        "y": 0.0,
+        "z": 26035.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": -90.0
+      },
+      {
+        "nickname": "CF93_to_CF88",
+        "name": "Lintkin Gate",
+        "ids_name": "481281",
+        "ids_info": "471709",
+        "info": "",
+        "x": -69032.0,
+        "y": 0.0,
+        "z": 26035.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF88",
+        "dest_gate": "CF88_to_CF93",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      }
+    ],
     "jumpholes": [
       {
         "nickname": "CF93_to_CF80_hole",
-        "name": "CF93_to_CF80_hole",
+        "name": "Loret Jump Hole",
         "ids_name": "481057",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -367303,7 +371473,7 @@ const GAME_SYSTEMS = {
     "planets": [
       {
         "nickname": "CF93_planet_1",
-        "name": "CF93_planet_1",
+        "name": "Planet Rokg",
         "ids_name": "472030",
         "ids_info": "472031",
         "info": "",
@@ -367343,7 +371513,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF93_01",
-        "name": "CF93_01",
+        "name": "Smonkves Breeder",
         "ids_name": "472075",
         "ids_info": "472076",
         "info": "",
@@ -367363,7 +371533,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF93_planet_2",
-        "name": "CF93_planet_2",
+        "name": "Dight",
         "ids_name": "480341",
         "ids_info": "480342",
         "info": "",
@@ -368719,11 +372889,80 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF94": {
-    "name": "CF94",
+    "name": "Assris",
     "strid_name": "500896",
     "ids_info": "471708",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "CF94_CF95",
+        "name": "CF94_CF95",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": 43358.0,
+        "y": 0.0,
+        "z": -12109.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 90.0
+      },
+      {
+        "nickname": "CF94_to_CF95",
+        "name": "Kinak Gate",
+        "ids_name": "481313",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 43358.0,
+        "y": 0.0,
+        "z": -12109.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF95",
+        "dest_gate": "CF95_to_CF94",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 0.0
+      },
+      {
+        "nickname": "CF94_CF96",
+        "name": "CF94_CF96",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": 34375.0,
+        "y": 0.0,
+        "z": 52733.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 90.0
+      },
+      {
+        "nickname": "CF94_to_CF96",
+        "name": "Keltur Gate",
+        "ids_name": "481315",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 34375.0,
+        "y": 0.0,
+        "z": 52733.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF96",
+        "dest_gate": "CF96_to_CF94",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 0.0
+      }
+    ],
     "jumpholes": [],
     "stations": [],
     "planets": [],
@@ -369535,17 +373774,120 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF95": {
-    "name": "CF95",
+    "name": "Kinak",
     "strid_name": "500898",
     "ids_info": "471708",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "CF95_CF94",
+        "name": "CF95_CF94",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": -80078.0,
+        "y": 0.0,
+        "z": -33530.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 90.0
+      },
+      {
+        "nickname": "CF95_to_CF94",
+        "name": "Assris Gate",
+        "ids_name": "481311",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": -80078.0,
+        "y": 0.0,
+        "z": -33530.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF94",
+        "dest_gate": "CF94_to_CF95",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      },
+      {
+        "nickname": "CF95_CF96",
+        "name": "CF95_CF96",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": 6706.0,
+        "y": 0.0,
+        "z": 50098.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 0.0
+      },
+      {
+        "nickname": "CF95_to_CF96",
+        "name": "Keltur Gate",
+        "ids_name": "481315",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 6706.0,
+        "y": 0.0,
+        "z": 50098.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF96",
+        "dest_gate": "CF96_to_CF95",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": -90.0
+      },
+      {
+        "nickname": "CF95_CF97",
+        "name": "CF95_CF97",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": 64842.0,
+        "y": 0.0,
+        "z": -38671.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 90.0
+      },
+      {
+        "nickname": "CF95_to_CF97",
+        "name": "Belay Gate",
+        "ids_name": "481317",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 64842.0,
+        "y": 0.0,
+        "z": -38671.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF97",
+        "dest_gate": "CF97_to_CF95",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 0.0
+      }
+    ],
     "jumpholes": [],
     "stations": [],
     "planets": [
       {
         "nickname": "CF95_planet_1",
-        "name": "CF95_planet_1",
+        "name": "Planet Ennyray",
         "ids_name": "500922",
         "ids_info": "500923",
         "info": "",
@@ -369585,7 +373927,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF95_planet_2",
-        "name": "CF95_planet_2",
+        "name": "Planet Castis",
         "ids_name": "500924",
         "ids_info": "472011",
         "info": "",
@@ -369625,7 +373967,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF95_planet_3",
-        "name": "CF95_planet_3",
+        "name": "Onunde",
         "ids_name": "480343",
         "ids_info": "480344",
         "info": "",
@@ -369645,7 +373987,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF95_planet_4",
-        "name": "CF95_planet_4",
+        "name": "Awund",
         "ids_name": "480345",
         "ids_info": "480346",
         "info": "",
@@ -370492,11 +374834,80 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF96": {
-    "name": "CF96",
+    "name": "Keltur",
     "strid_name": "500900",
     "ids_info": "471708",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "CF96_CF95",
+        "name": "CF96_CF95",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": 781.0,
+        "y": 0.0,
+        "z": -69139.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 0.0
+      },
+      {
+        "nickname": "CF96_to_CF95",
+        "name": "Kinak Gate",
+        "ids_name": "481313",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 781.0,
+        "y": 0.0,
+        "z": -69139.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF95",
+        "dest_gate": "CF95_to_CF96",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 90.0
+      },
+      {
+        "nickname": "CF96_CF94",
+        "name": "CF96_CF94",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": -69920.0,
+        "y": 0.0,
+        "z": -6640.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 90.0
+      },
+      {
+        "nickname": "CF96_to_CF94",
+        "name": "Assris Gate",
+        "ids_name": "481311",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": -69920.0,
+        "y": 0.0,
+        "z": -6640.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF94",
+        "dest_gate": "CF94_to_CF96",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 180.0
+      }
+    ],
     "jumpholes": [],
     "stations": [
       {
@@ -370777,17 +375188,86 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF97": {
-    "name": "CF97",
+    "name": "Belay",
     "strid_name": "500902",
     "ids_info": "471708",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "CF97_CF95",
+        "name": "CF97_CF95",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": -17187.0,
+        "y": 0.0,
+        "z": -34374.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 0.0
+      },
+      {
+        "nickname": "CF97_to_CF95",
+        "name": "Kinak Gate",
+        "ids_name": "481313",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": -17187.0,
+        "y": 0.0,
+        "z": -34374.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF95",
+        "dest_gate": "CF95_to_CF97",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 90.0
+      },
+      {
+        "nickname": "CF97_CF98",
+        "name": "CF97_CF98",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": -26035.0,
+        "y": 0.0,
+        "z": 49309.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 0.0
+      },
+      {
+        "nickname": "CF97_to_CF98",
+        "name": "Banysia Gate",
+        "ids_name": "481319",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": -26035.0,
+        "y": 0.0,
+        "z": 49309.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF98",
+        "dest_gate": "CF98_to_CF97",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": -90.0
+      }
+    ],
     "jumpholes": [],
     "stations": [],
     "planets": [
       {
         "nickname": "CF97_planet_1",
-        "name": "CF97_planet_1",
+        "name": "Planet Taedvor",
         "ids_name": "500937",
         "ids_info": "500938",
         "info": "",
@@ -370827,7 +375307,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF97_planet_2",
-        "name": "CF97_planet_2",
+        "name": "Planet Deindrod",
         "ids_name": "500939",
         "ids_info": "500940",
         "info": "",
@@ -370847,7 +375327,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF97_planet_3",
-        "name": "CF97_planet_3",
+        "name": "Planet Quadtor",
         "ids_name": "500941",
         "ids_info": "500942",
         "info": "",
@@ -370887,7 +375367,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF97_planet_4",
-        "name": "CF97_planet_4",
+        "name": "Banran",
         "ids_name": "480347",
         "ids_info": "480348",
         "info": "",
@@ -370907,7 +375387,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF97_planet_5",
-        "name": "CF97_planet_5",
+        "name": "Urnfold",
         "ids_name": "480349",
         "ids_info": "480350",
         "info": "",
@@ -370927,7 +375407,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF97_planet_6",
-        "name": "CF97_planet_6",
+        "name": "Shyslor",
         "ids_name": "480351",
         "ids_info": "480352",
         "info": "",
@@ -370947,7 +375427,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF97_planet_7",
-        "name": "CF97_planet_7",
+        "name": "Engqua",
         "ids_name": "480353",
         "ids_info": "480354",
         "info": "",
@@ -372061,11 +376541,46 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF98": {
-    "name": "CF98",
+    "name": "Banysia",
     "strid_name": "500904",
     "ids_info": "471708",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "CF98_CF97",
+        "name": "CF98_CF97",
+        "ids_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": -44575.0,
+        "y": 0.0,
+        "z": 44180.0,
+        "archetype": "dkjumpgate",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": 0.0
+      },
+      {
+        "nickname": "CF98_to_CF97",
+        "name": "Belay Gate",
+        "ids_name": "481317",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": -44575.0,
+        "y": 0.0,
+        "z": 44180.0,
+        "archetype": "vortex",
+        "solar_radius": 600.0,
+        "dest_system": "CF97",
+        "dest_gate": "CF97_to_CF98",
+        "faction": "fc_cf6_grp",
+        "loadout": "",
+        "rotate_y": -90.0
+      }
+    ],
     "jumpholes": [],
     "stations": [
       {
@@ -372090,7 +376605,7 @@ const GAME_SYSTEMS = {
     "planets": [
       {
         "nickname": "CF98_planet_1",
-        "name": "CF98_planet_1",
+        "name": "Planet Meitkin",
         "ids_name": "500949",
         "ids_info": "500950",
         "info": "",
@@ -372130,7 +376645,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF98_hazard_buoy_18",
-        "name": "CF98_hazard_buoy_18",
+        "name": "Kavash Arc",
         "ids_name": "500953",
         "ids_info": "500954",
         "info": "",
@@ -372150,7 +376665,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF98_planet_2",
-        "name": "CF98_planet_2",
+        "name": "Isime",
         "ids_name": "480355",
         "ids_info": "480356",
         "info": "",
@@ -372932,7 +377447,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "CF99": {
-    "name": "CF99",
+    "name": "Triam",
     "strid_name": "481536",
     "ids_info": "471708",
     "info": "",
@@ -373238,7 +377753,7 @@ const GAME_SYSTEMS = {
     "nebulae": []
   },
   "EW01": {
-    "name": "Ew01",
+    "name": "Tau-37",
     "strid_name": "459168",
     "ids_info": "66125",
     "info": "RANDWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nFreihafen 10\nStützpunkt Falkland\nUnternehmen\nKnappschaft der unabhängigen Bergleute\nKriminelle\nAusgestoßene\nErzeugnisse\nNiob\nWasser\nLebensmittel",
@@ -375564,7 +380079,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "EW02": {
-    "name": "Ew02",
+    "name": "Omicron Beta",
     "strid_name": "459170",
     "ids_info": "66113",
     "info": "RANDWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nAusgestoßene\nErzeugnisse\nXeno-Organismen",
@@ -376527,7 +381042,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "EW03": {
-    "name": "Ew03",
+    "name": "Omega-41",
     "strid_name": "459172",
     "ids_info": "66109",
     "info": "RANDWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nFreihafen 5\nUnternehmen\nKeine\nKriminelle\nKorsaren\nRote Hessen\nErzeugnisse\nNichts",
@@ -376603,7 +381118,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "Ew03_to_CF59_hole",
-        "name": "Ew03_to_CF59_hole",
+        "name": "Utopia Jump Hole",
         "ids_name": "481033",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -379247,7 +383762,7 @@ const GAME_SYSTEMS = {
     "nebulae": []
   },
   "EW04": {
-    "name": "Ew04",
+    "name": "Omicron Theta",
     "strid_name": "459174",
     "ids_info": "66116",
     "info": "RANDWELTEN\nBesiedelte Planeten\nPygar (begrenzter Zutritt)\nStützpunkte\nFreihafen 9\nUnternehmen\nKeine\nKriminelle\nKorsaren\nErzeugnisse\nLebensmittel\nXeno-Artefakte\nXeno-Organismen",
@@ -379415,7 +383930,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "Ew04_02_dock_ring",
-        "name": "Ew04_02_dock_ring",
+        "name": "Planet Pygar Docking Ring",
         "ids_name": "500443",
         "ids_info": "66141",
         "info": ">>>ACHTUNG: Ohne Andockring keine Landung versuchen.<<<\nEin Andockring ist Teil eines 'Orbitalaufzug'-Systems, erfunden von Ageira Technologies. Durch superstarke kristalline Polymere und reibungslose Säulenlager ermöglichen Andockringe den problemlosen Ein- und Austritt landefähiger interstellarer Fahrzeuge.",
@@ -381003,7 +385518,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "EW05": {
-    "name": "Ew05",
+    "name": "Unknown",
     "strid_name": "459274",
     "ids_info": "66115",
     "info": "NOMADEN\nBesiedelte Planeten\n???\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nUnbekannt\nErzeugnisse\nNichts",
@@ -381028,7 +385543,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "EW05_to_CF55",
-        "name": "EW05_to_CF55",
+        "name": "Unknown Jump Hole",
         "ids_name": "480997",
         "ids_info": "60212",
         "info": "",
@@ -381045,7 +385560,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "EW05_to_CF56",
-        "name": "EW05_to_CF56",
+        "name": "Unknown Jump Hole",
         "ids_name": "480997",
         "ids_info": "60212",
         "info": "",
@@ -381251,7 +385766,7 @@ const GAME_SYSTEMS = {
     "nebulae": []
   },
   "EW06": {
-    "name": "Ew06",
+    "name": "Unknown",
     "strid_name": "459274",
     "ids_info": "66115",
     "info": "NOMADEN\nBesiedelte Planeten\n???\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nUnbekannt\nErzeugnisse\nNichts",
@@ -381276,7 +385791,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "EW06_to_CF57",
-        "name": "EW06_to_CF57",
+        "name": "Unknown Jump Hole",
         "ids_name": "480997",
         "ids_info": "60212",
         "info": "",
@@ -381564,11 +386079,46 @@ const GAME_SYSTEMS = {
     "nebulae": []
   },
   "HI01": {
-    "name": "Hi01",
+    "name": "Omicron Alpha",
     "strid_name": "459176",
     "ids_info": "66112",
     "info": "AUSGESTOSSENE\nBesiedelte Planeten\nMalta\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nAusgestoßene\nErzeugnisse\nSauerstoff\nWasser\nLebensmittel\nSchaumkraut",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "Hi01_to_CF01",
+        "name": "X-3043 Gate",
+        "ids_name": "481347",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 18777.0,
+        "y": 0.0,
+        "z": -27092.0,
+        "archetype": "nomad_gate",
+        "solar_radius": 600.0,
+        "dest_system": "CF01",
+        "dest_gate": "CF01_to_Hi01",
+        "faction": "fc_ou_grp",
+        "loadout": "",
+        "rotate_y": 0.0
+      },
+      {
+        "nickname": "Hi01_to_CF01overlay",
+        "name": "X-3043 Gate",
+        "ids_name": "481347",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 18777.0,
+        "y": 0.0,
+        "z": -27092.0,
+        "archetype": "nomad_gate2",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "",
+        "loadout": "",
+        "rotate_y": 0.0
+      }
+    ],
     "jumpholes": [
       {
         "nickname": "Hi01_to_Ew01_hole",
@@ -383171,7 +387721,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "HI02": {
-    "name": "Hi02",
+    "name": "Omicron Gamma",
     "strid_name": "459178",
     "ids_info": "66114",
     "info": "KORSAREN\nBesiedelte Planeten\nKreta\nStützpunkte\nTripoli-Werft\nUnternehmen\nKeine\nKriminelle\nKorsaren\nErzeugnisse\nSauerstoff\nWasser\nArtefakte",
@@ -400185,7 +404735,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "IW01": {
-    "name": "Iw01",
+    "name": "Bering",
     "strid_name": "459156",
     "ids_info": "66083",
     "info": "UNABHÄNGIG\nBesiedelte Planeten\nKeine\nStützpunkte\nFreihafen 2\nUnternehmen\nKeine\nKriminelle\nUnionisten\nXenos\nRogues\nErzeugnisse\nLebensmittel",
@@ -403297,7 +407847,7 @@ const GAME_SYSTEMS = {
     "nebulae": []
   },
   "IW02": {
-    "name": "Iw02",
+    "name": "Hudson",
     "strid_name": "459158",
     "ids_info": "66097",
     "info": "UNABHÄNGIG\nBesiedelte Planeten\nKeine\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nXenos\nLiberty Rogues\nUnionisten\nErzeugnisse\nNichts",
@@ -406292,7 +410842,7 @@ const GAME_SYSTEMS = {
     "nebulae": []
   },
   "IW03": {
-    "name": "Iw03",
+    "name": "Magellan",
     "strid_name": "459160",
     "ids_info": "66101",
     "info": "UNABHÄNGIG\nBesiedelte Planeten\nKeine\nStützpunkte\nFreihafen 4\nUnternehmen\nKnappschaft der unabhängigen Bergleute\nKriminelle\nWegelagerer\nLiberty Rogues\nAusgestoßene\nErzeugnisse\nWasser\nSauerstoff",
@@ -409256,7 +413806,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "IW04": {
-    "name": "Iw04",
+    "name": "Cortez",
     "strid_name": "459162",
     "ids_info": "66088",
     "info": "UNABHÄNGIG\nBesiedelte Planeten\nCuraçao\nStützpunkte\nKeine\nUnternehmen\nOrbital Kuren und Kreuzfahrten\nKriminelle\nLiberty Rogues\nAusgestoßene\nWegelagerer\nErzeugnisse\nWasser\nSauerstoff",
@@ -412414,7 +416964,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "IW05": {
-    "name": "Iw05",
+    "name": "Kepler",
     "strid_name": "459164",
     "ids_info": "66098",
     "info": "UNABHÄNGIG\nBesiedelte Planeten\nKeine\nStützpunkte\nForschungsstation Ames\nUnternehmen\nDeep Space Engineering\nKriminelle\nXenos\nWegelagerer\nErzeugnisse\nNichts",
@@ -415030,7 +419580,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "IW06": {
-    "name": "Iw06",
+    "name": "Galileo",
     "strid_name": "459166",
     "ids_info": "66093",
     "info": "UNABHÄNGIG\nBesiedelte Planeten\nKeine\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nWegelagerer\nLiberty Rogues\nErzeugnisse\nNichts",
@@ -418636,7 +423186,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "KU01": {
-    "name": "Ku01",
+    "name": "New Tokyo",
     "strid_name": "459122",
     "ids_info": "66105",
     "info": "KUSARI\nBesiedelte Planeten\nNeu-Tokio\nStützpunkte\nStation Shinjuku\nStation Shinagawa\nStation Roppongi\nAußenposten Narita\nYokohama-Werft\nUnternehmen\nSamura Industries\nKishiro Technologies\nInterspace Commerce\nKriminelle\nHogosha\nBlutdrachen\nGoldene Chrysantheme\nErzeugnisse\nOptische Chips\nSauerstoff\nWasser\nGiftmüll",
@@ -426177,7 +430727,7 @@ const GAME_SYSTEMS = {
     "nebulae": []
   },
   "KU02": {
-    "name": "Ku02",
+    "name": "Shikoku",
     "strid_name": "459124",
     "ids_info": "66117",
     "info": "KUSARI\nBesiedelte Planeten\nJunyo\nStützpunkte\nStation Deshima\nGefängnis von Fuchu\nSchlachtschiff\nMyoko\nGrenzstation Ohashi\nUnternehmen\nSamura Industries\nKishiro Technologies\nGilde der Kopfgeldjäger\nSynth Foods\nKriminelle\nBlutdrachen\nGoldenen Chrysanthemen\nErzeugnisse\nLebensmittel\nLuxuslebensmittel\nKonsumgüter\nKohlenwasserstoffe",
@@ -432018,7 +436568,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "KU03": {
-    "name": "Ku03",
+    "name": "Kyushu",
     "strid_name": "459126",
     "ids_info": "66099",
     "info": "KUSARI\nBesiedelte Planeten\nKyushu\nStützpunkte\nDepot Tsushima\nForschungszentrum Nansei\nSchlachtschiff\nNagumo\nUnternehmen\nSamura Industries\nKriminelle\nBlutdrachen\nGoldene Chrysantheme\nBauernallianz\nErzeugnisse\nLebensmittel\nPolymere",
@@ -436227,7 +440777,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "KU04": {
-    "name": "Ku04",
+    "name": "Honshu",
     "strid_name": "459128",
     "ids_info": "66096",
     "info": "KUSARI\nBesiedelte Planeten\nHonshu\nStützpunkte\nStation Aomori\nLager Osaka\nForschungsstation Kansai\nYukawa-Werft\nGrenzstation Akita\nUnternehmen\nKishiro Technologies\nSamura Industries\nKnappschaft der Gasschürfer\nKriminelle\nBlutdrachen\nBauernallianz\nKorsaren\nAusgestoßene\nErzeugnisse\nTriebwerkteile\nBaumaschinen\nOptronik\nH-Treibstoff",
@@ -443049,7 +447599,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "KU05": {
-    "name": "Ku05",
+    "name": "Hokkaido",
     "strid_name": "459130",
     "ids_info": "66095",
     "info": "KUSARI\nBesiedelte Planeten\nKeine\nStützpunkte\nStation Sapporo\nBaustelle Chugoku-Tor\nSchlachtschiff\nMatsumoto\nUnternehmen\nSamura Industries\nDeep Space Engineering\nKriminelle\nBlutdrachen\nGoldene Chrysantheme\nErzeugnisse\nH-Treibstoff",
@@ -444298,7 +448848,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "Ku05_proxy_base",
-        "name": "Ku05_proxy_base",
+        "name": "Camelot",
         "ids_name": "459315",
         "ids_info": "481812",
         "info": "",
@@ -444316,7 +448866,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "Ku05_proxy_base_01",
-        "name": "Ku05_proxy_base_01",
+        "name": "Camelot",
         "ids_name": "459315",
         "ids_info": "481812",
         "info": "",
@@ -444334,7 +448884,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "Ku05_proxy_base_02",
-        "name": "Ku05_proxy_base_02",
+        "name": "Camelot",
         "ids_name": "459315",
         "ids_info": "481812",
         "info": "",
@@ -444352,7 +448902,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "Ku05_proxy_base_03",
-        "name": "Ku05_proxy_base_03",
+        "name": "Camelot",
         "ids_name": "459315",
         "ids_info": "481812",
         "info": "",
@@ -444370,7 +448920,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "Ku05_proxy_base_04",
-        "name": "Ku05_proxy_base_04",
+        "name": "Camelot",
         "ids_name": "459315",
         "ids_info": "481812",
         "info": "",
@@ -447514,7 +452064,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "KU06": {
-    "name": "Ku06",
+    "name": "Chugoku",
     "strid_name": "459132",
     "ids_info": "66086",
     "info": "KUSARI\nBesiedelte Planeten\nKeine\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nUnbekannt\nErzeugnisse\nNichts",
@@ -447590,7 +452140,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "Ku06_to_CF19_hole",
-        "name": "Ku06_to_CF19_hole",
+        "name": "Hiruga Jump Hole",
         "ids_name": "480915",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -448407,11 +452957,46 @@ const GAME_SYSTEMS = {
     ]
   },
   "KU07": {
-    "name": "Ku07",
+    "name": "Tohoku",
     "strid_name": "459134",
     "ids_info": "66127",
     "info": "KUSARI\nBesiedelte Planeten\nKeine\nStützpunkte\nHimmelstor\nUnternehmen\nKeine\nErzeugnisse\nNichts\nKriminelle\nBlutdrachen",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "Ku07_to_CF01",
+        "name": "X-3043 Gate",
+        "ids_name": "481347",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": -48041.0,
+        "y": 1000.0,
+        "z": 35322.0,
+        "archetype": "nomad_gate",
+        "solar_radius": 600.0,
+        "dest_system": "CF01",
+        "dest_gate": "CF01_to_Ku07",
+        "faction": "fc_n_grp",
+        "loadout": "",
+        "rotate_y": 0.0
+      },
+      {
+        "nickname": "Ku07_to_CF01overlay",
+        "name": "X-3043 Gate",
+        "ids_name": "481347",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": -48041.0,
+        "y": 1000.0,
+        "z": 35322.0,
+        "archetype": "nomad_gate2",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "",
+        "loadout": "",
+        "rotate_y": 0.0
+      }
+    ],
     "jumpholes": [
       {
         "nickname": "Ku07_to_Ku06_hole",
@@ -448559,7 +453144,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "Ku07_03",
-        "name": "Ku07_03",
+        "name": "Atsugi Naval Shipyards",
         "ids_name": "470818",
         "ids_info": "470819",
         "info": "",
@@ -450870,7 +455455,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "LI01": {
-    "name": "Li01",
+    "name": "New York",
     "strid_name": "459090",
     "ids_info": "66106",
     "info": "LIBERTY\nBesiedelte Planeten\nManhattan\nPittsburgh\nStützpunkte\nFt. Bush\nStation Newark\nAußenposten Trenton\nDetroiter Munitionswerke\nAkademie West Point\nNorfolk-Werft\nBaltimore-Werft\nSchlachtschiff\nMissouri\nUnternehmen\nAgeira Technologies\nInterspace Commerce\nUniversal Shipping\nDeep Space Engineering\nLiberty Police, Inc.\nKriminelle\nLiberty Rogues\nAusgestoßene\nXenos\nSchrotties\nErzeugnisse\nBor\nSeitenwaffen\nLuxusgüter\nGiftmüll",
@@ -450962,7 +455547,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "Li01_to_CF02",
-        "name": "Li01_to_CF02",
+        "name": "Custodian Jump Gate",
         "ids_name": "480966",
         "ids_info": "66145",
         "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
@@ -466498,7 +471083,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "LI02": {
-    "name": "Li02",
+    "name": "California",
     "strid_name": "459092",
     "ids_info": "66084",
     "info": "LIBERTY\nBesiedelte Planeten\nLos Angeles\nCalifornia Minor\nStützpunkte\nSchlachtschiff\nYukon\nGrenzstation San Diego\nUnternehmen\nSynth Foods\nAgeira Technologies\nPlanetform, Inc.\nKriminelle\nLiberty Rogues\nAusgestoßene\nWegelagerer\nErzeugnisse\nLebensmittel\nOptische Chips\nSauerstoff",
@@ -474925,7 +479510,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "LI03": {
-    "name": "Li03",
+    "name": "Colorado",
     "strid_name": "459094",
     "ids_info": "66087",
     "info": "LIBERTY\nBesiedelte Planeten\nDenver\nStützpunkte\nStation Pueblo\nSchlachtschiff\nRio Grande\nUnternehmen\nAgeira Technologies\nCryer Pharmaceuticals\nKriminelle\nXenos\nLiberty Rogues\nErzeugnisse\nPharmazeutika\nSupraleiter\nSuperlegierungen\nBauteile für Handelsrouten\nTerraforming-Gase\nGiftmüll",
@@ -475036,7 +479621,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "Li03_to_cf25",
-        "name": "Li03_to_cf25",
+        "name": "Sea of Shadows Jump Hole",
         "ids_name": "480943",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -481768,7 +486353,7 @@ const GAME_SYSTEMS = {
     "nebulae": []
   },
   "LI04": {
-    "name": "Li04",
+    "name": "Texas",
     "strid_name": "459096",
     "ids_info": "66126",
     "info": "LIBERTY\nBesiedelte Planeten\nHouston\nStützpunkte\nLPI\nHuntsville\nLPI\nSugarland\nSchlachtschiff\nMississippi\nUnternehmen\nLiberty Police, Inc.\nGilde der Kopfgeldjäger\nDeep Space Engineering\nKriminelle\nXenos\nLiberty Rogues\nAusgestoßene\nSchrotties\nErzeugnisse\nDünger\nKonsumgüter\nGrundlegierungen\nGiftmüll",
@@ -481879,7 +486464,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "Li04_to_cf26",
-        "name": "Li04_to_cf26",
+        "name": "Oasis Jump Hole",
         "ids_name": "480945",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -481896,7 +486481,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "Li04_to_cf28",
-        "name": "Li04_to_cf28",
+        "name": "Wanderer's Pond Jump Hole",
         "ids_name": "480949",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -492370,7 +496955,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "LI05": {
-    "name": "Li05",
+    "name": "Alaska",
     "strid_name": "459098",
     "ids_info": "66082",
     "info": "LIBERTY\nBesiedelte Planeten\nGEHEIM\nStützpunkte\nGEHEIM\nUnternehmen\nGEHEIM\nKriminelle\nGEHEIM\nErzeugnisse\nGEHEIM",
@@ -492391,12 +496976,46 @@ const GAME_SYSTEMS = {
         "faction": "",
         "loadout": "",
         "rotate_y": 0.0
+      },
+      {
+        "nickname": "Li05_to_CF01",
+        "name": "X-3043 Gate",
+        "ids_name": "481347",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 70000.0,
+        "y": 180.0,
+        "z": 30000.0,
+        "archetype": "nomad_gate",
+        "solar_radius": 600.0,
+        "dest_system": "CF01",
+        "dest_gate": "CF01_to_Li05",
+        "faction": "li_n_grp",
+        "loadout": "",
+        "rotate_y": 0.0
+      },
+      {
+        "nickname": "Li05_to_CF01overlay",
+        "name": "X-3043 Gate",
+        "ids_name": "481347",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 70000.0,
+        "y": 180.0,
+        "z": 30000.0,
+        "archetype": "nomad_gate2",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "",
+        "loadout": "",
+        "rotate_y": 0.0
       }
     ],
     "jumpholes": [
       {
         "nickname": "Li05_to_cf27",
-        "name": "Li05_to_cf27",
+        "name": "Midpoint Rift Jump Hole",
         "ids_name": "480947",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -494399,7 +499018,7 @@ const GAME_SYSTEMS = {
     "nebulae": []
   },
   "RH01": {
-    "name": "Rh01",
+    "name": "New Berlin",
     "strid_name": "459112",
     "ids_info": "66103",
     "info": "RHEINLAND\nBesiedelte Planeten\nNeu-Berlin\nStützpunkte\nDer Ring\nStation Dortmund\nStation Essen\nStation Bonn\nOder-Werft\nGrenzstation Brandenburg\nUnternehmen\nDaumann Hoch- und Tiefbau\nKrüger Mineralien\nALG Abfallentsorgung\nRepublikanische Großspedition\nInterspace Commerce\nKriminelle\nRote Hessen\nBundschuh\nUnionisten\nLWB\nSchrotties\nErzeugnisse\nMOX\nKonsumgüter\nTriebwerkteile\nBaumaschinen\nBergbaumaschinen\nGrundlegierungen\nHochtemperaturlegierungen\nGiftmüll\nSauerstoff\nWasser\nSchiffsrumpfplatten",
@@ -504186,7 +508805,7 @@ const GAME_SYSTEMS = {
     "nebulae": []
   },
   "RH02": {
-    "name": "Rh02",
+    "name": "Hamburg",
     "strid_name": "459114",
     "ids_info": "66094",
     "info": "RHEINLAND\nBesiedelte Planeten\nHamburg\nStützpunkte\nStation Altona\nAlster-Werft\nVierlandegefängnis\nSchlachtschiff\nWestfalen\nGrenzstation Lübeck\nUnternehmen\nRepublikanische Großspedition\nKriminelle\nRote Hessen\nUnionisten\nBundschuh\nSchrotties\nErzeugnisse\nSauerstoff\nWasser\nGiftmüll",
@@ -509991,7 +514610,7 @@ const GAME_SYSTEMS = {
     "nebulae": []
   },
   "RH03": {
-    "name": "Rh03",
+    "name": "Stuttgart",
     "strid_name": "459116",
     "ids_info": "66121",
     "info": "RHEINLAND\nBesiedelte Planeten\nStuttgart\nBaden-Baden\nStützpunkte\nStation Freiburg\nGrenzstation Ulm\nGrenzstation Konstanz\nUnternehmen\nSynth Foods\nOrbital Kuren und Kreuzfahrten\nRepublikanische Großspedition\nKriminelle\nRote Hessen\nLWB\nErzeugnisse\nLebensmittel\nLuxuslebensmittel",
@@ -514618,7 +519237,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "RH04": {
-    "name": "Rh04",
+    "name": "Frankfurt",
     "strid_name": "459118",
     "ids_info": "66092",
     "info": "RHEINLAND\nBesiedelte Planeten\nHolstein\nStützpunkte\nStation Mannheim\nLager Mainz\nGrenzstation Fulda\nUnternehmen\nDaumann Hoch- und Tiefbau\nKrüger Mineralien\nRepublikanische Großspedition\nKriminelle\nBundschuh\nUnionisten\nRote Hessen\nSchrotties\nErzeugnisse\nBor\nH-Treibstoff",
@@ -514729,7 +519348,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "Rh04_to_cf29",
-        "name": "Rh04_to_cf29",
+        "name": "Quantos Jump Hole",
         "ids_name": "480951",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -517997,7 +522616,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "RH05": {
-    "name": "Rh05",
+    "name": "Dresden",
     "strid_name": "459120",
     "ids_info": "66089",
     "info": "RHEINLAND\nBesiedelte Planeten\nKeine\nStützpunkte\nStation Leipzig\nStation Bautzen\nGrenzstation Pirna\nUnternehmen\nDaumann Hoch- und Tiefbau\nKrüger Mineralien\nKriminelle\nRote Hessen\nErzeugnisse\nKupfer\nHochtemperaturlegierungen\nDiamanten\nKobalt",
@@ -522858,14 +527477,14 @@ const GAME_SYSTEMS = {
     ]
   },
   "RW01": {
-    "name": "rw01",
+    "name": "Wheel of Sirius",
     "strid_name": "459232",
     "ids_info": "481746",
     "info": "",
     "jumpgates": [
       {
         "nickname": "rw01_to_cf01",
-        "name": "rw01_to_cf01",
+        "name": "X-3043 Jump Gate",
         "ids_name": "480968",
         "ids_info": "",
         "info": "",
@@ -522884,7 +527503,7 @@ const GAME_SYSTEMS = {
     "jumpholes": [
       {
         "nickname": "rw01_to_CF07_hole",
-        "name": "rw01_to_CF07_hole",
+        "name": "Helios Jump Hole",
         "ids_name": "480395",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -522901,7 +527520,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "rw01_to_CF13_hole",
-        "name": "rw01_to_CF13_hole",
+        "name": "Arena Jump Hole",
         "ids_name": "480387",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -525282,7 +529901,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "rw01_planet_1",
-        "name": "rw01_planet_1",
+        "name": "Sniough",
         "ids_name": "480357",
         "ids_info": "480358",
         "info": "",
@@ -525302,7 +529921,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "rw01_planet_2",
-        "name": "rw01_planet_2",
+        "name": "Itbel",
         "ids_name": "480359",
         "ids_info": "480360",
         "info": "",
@@ -527777,11 +532396,80 @@ const GAME_SYSTEMS = {
     "nebulae": []
   },
   "ST01": {
-    "name": "St01",
+    "name": "Omicron Minor",
     "strid_name": "459180",
     "ids_info": "66115",
     "info": "NOMADEN\nBesiedelte Planeten\n???\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nUnbekannt\nErzeugnisse\nNichts",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "St01_to_St03_hole",
+        "name": "Alien Jump Gate",
+        "ids_name": "261793",
+        "ids_info": "",
+        "info": "",
+        "x": 46983.0,
+        "y": 0.0,
+        "z": -10694.0,
+        "archetype": "nomad_gate",
+        "solar_radius": 600.0,
+        "dest_system": "St03",
+        "dest_gate": "St03_to_St01_hole",
+        "faction": "",
+        "loadout": "",
+        "rotate_y": 90.0
+      },
+      {
+        "nickname": "St01_to_St03_holeoverlay",
+        "name": "Alien Jump Gate",
+        "ids_name": "261793",
+        "ids_info": "",
+        "info": "",
+        "x": 46983.0,
+        "y": 0.0,
+        "z": -10694.0,
+        "archetype": "nomad_gate2",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "",
+        "loadout": "",
+        "rotate_y": 90.0
+      },
+      {
+        "nickname": "St01_to_CF01g",
+        "name": "X-3043 Gate",
+        "ids_name": "481347",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 10000.0,
+        "y": 180.0,
+        "z": -10000.0,
+        "archetype": "nomad_gate",
+        "solar_radius": 600.0,
+        "dest_system": "CF01",
+        "dest_gate": "CF01g_to_St01",
+        "faction": "fc_n_grp",
+        "loadout": "",
+        "rotate_y": 0.0
+      },
+      {
+        "nickname": "St01_to_CF01goverlay",
+        "name": "X-3043 Gate",
+        "ids_name": "481347",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 10000.0,
+        "y": 180.0,
+        "z": -10000.0,
+        "archetype": "nomad_gate2",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "",
+        "loadout": "",
+        "rotate_y": 0.0
+      }
+    ],
     "jumpholes": [
       {
         "nickname": "St01_to_St02_hole",
@@ -527961,11 +532649,80 @@ const GAME_SYSTEMS = {
     ]
   },
   "ST02": {
-    "name": "St02",
+    "name": "Nomads Lair",
     "strid_name": "459242",
     "ids_info": "66115",
     "info": "NOMADEN\nBesiedelte Planeten\n???\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nUnbekannt\nErzeugnisse\nNichts",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "St02_to_CF01",
+        "name": "X-3043 Gate",
+        "ids_name": "481347",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": -1200.0,
+        "y": 180.0,
+        "z": 13000.0,
+        "archetype": "nomad_gate",
+        "solar_radius": 600.0,
+        "dest_system": "CF01",
+        "dest_gate": "CF01_to_St02",
+        "faction": "fc_n_grp",
+        "loadout": "",
+        "rotate_y": 0.0
+      },
+      {
+        "nickname": "St02_to_CF01overlay",
+        "name": "X-3043 Gate",
+        "ids_name": "481347",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": -1200.0,
+        "y": 180.0,
+        "z": 13000.0,
+        "archetype": "nomad_gate2",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "",
+        "loadout": "",
+        "rotate_y": 0.0
+      },
+      {
+        "nickname": "St02_to_cf18",
+        "name": "Death Valley Gate",
+        "ids_name": "481345",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": -41200.0,
+        "y": 2180.0,
+        "z": 33000.0,
+        "archetype": "nomad_gate",
+        "solar_radius": 600.0,
+        "dest_system": "CF18",
+        "dest_gate": "cf18_to_St02",
+        "faction": "fc_n_grp",
+        "loadout": "",
+        "rotate_y": 0.0
+      },
+      {
+        "nickname": "St02_to_cf18overlay",
+        "name": "Death Valley Gate",
+        "ids_name": "481345",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": -41200.0,
+        "y": 2180.0,
+        "z": 33000.0,
+        "archetype": "nomad_gate2",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "",
+        "loadout": "",
+        "rotate_y": 0.0
+      }
+    ],
     "jumpholes": [
       {
         "nickname": "St02_to_St01_hole",
@@ -527986,7 +532743,7 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "St02_to_CF30_hole",
-        "name": "St02_to_CF30_hole",
+        "name": "Purian Lake Jump Hole",
         "ids_name": "480396",
         "ids_info": "66146",
         "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
@@ -528142,7 +532899,7 @@ const GAME_SYSTEMS = {
     ]
   },
   "ST02C": {
-    "name": "St02c",
+    "name": "Omicron Major",
     "strid_name": "459182",
     "ids_info": "66115",
     "info": "NOMADEN\nBesiedelte Planeten\n???\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nUnbekannt\nErzeugnisse\nNichts",
@@ -528195,11 +532952,80 @@ const GAME_SYSTEMS = {
     ]
   },
   "ST03": {
-    "name": "St03",
+    "name": "Outer Dyson Sphere",
     "strid_name": "459246",
     "ids_info": "66115",
     "info": "NOMADEN\nBesiedelte Planeten\n???\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nUnbekannt\nErzeugnisse\nNichts",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "St03_to_St01_hole",
+        "name": "Alien Jump Gate",
+        "ids_name": "261793",
+        "ids_info": "66146",
+        "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
+        "x": 9493.0,
+        "y": 7100.0,
+        "z": 10625.0,
+        "archetype": "nomad_gate",
+        "solar_radius": 600.0,
+        "dest_system": "St01",
+        "dest_gate": "St01_to_St03_hole",
+        "faction": "",
+        "loadout": "",
+        "rotate_y": 29.0
+      },
+      {
+        "nickname": "St03_to_St01_holeoverlay",
+        "name": "Alien Jump Gate",
+        "ids_name": "261793",
+        "ids_info": "66146",
+        "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
+        "x": 9493.0,
+        "y": 7100.0,
+        "z": 10625.0,
+        "archetype": "nomad_gate2",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "",
+        "loadout": "",
+        "rotate_y": 29.0
+      },
+      {
+        "nickname": "St03_to_CF01",
+        "name": "X-3043 Gate",
+        "ids_name": "481347",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 10000.0,
+        "y": 3500.0,
+        "z": 10000.0,
+        "archetype": "nomad_gate",
+        "solar_radius": 600.0,
+        "dest_system": "CF01",
+        "dest_gate": "CF01_to_St03",
+        "faction": "fc_n_grp",
+        "loadout": "",
+        "rotate_y": 210.0
+      },
+      {
+        "nickname": "St03_to_CF01overlay",
+        "name": "X-3043 Gate",
+        "ids_name": "481347",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": 10000.0,
+        "y": 3500.0,
+        "z": 10000.0,
+        "archetype": "nomad_gate2",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "",
+        "loadout": "",
+        "rotate_y": 210.0
+      }
+    ],
     "jumpholes": [],
     "stations": [],
     "planets": [
@@ -528326,11 +533152,46 @@ const GAME_SYSTEMS = {
     ]
   },
   "ST03B": {
-    "name": "St03b",
+    "name": "Dyson Sphere",
     "strid_name": "459240",
     "ids_info": "66115",
     "info": "NOMADEN\nBesiedelte Planeten\n???\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nUnbekannt\nErzeugnisse\nNichts",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "St03b_to_CF01j",
+        "name": "X-3043 Gate",
+        "ids_name": "481347",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": -30000.0,
+        "y": 180.0,
+        "z": 30000.0,
+        "archetype": "nomad_gate",
+        "solar_radius": 600.0,
+        "dest_system": "CF01",
+        "dest_gate": "CF01j_to_St03b",
+        "faction": "fc_n_grp",
+        "loadout": "",
+        "rotate_y": 210.0
+      },
+      {
+        "nickname": "St03b_to_CF01joverlay",
+        "name": "X-3043 Gate",
+        "ids_name": "481347",
+        "ids_info": "66145",
+        "info": "Ein Sprungtor ermöglicht den sofortigen Wechsel zwischen zwei bestimmten Punkten im All. Sprungtore wurden von Ageira Technologies entwickelt und werden partnerschaftlich mit Deep Space Engineering gebaut.",
+        "x": -30000.0,
+        "y": 180.0,
+        "z": 30000.0,
+        "archetype": "nomad_gate2",
+        "solar_radius": 600.0,
+        "dest_system": "",
+        "dest_gate": "",
+        "faction": "",
+        "loadout": "",
+        "rotate_y": 210.0
+      }
+    ],
     "jumpholes": [],
     "stations": [
       {
@@ -528509,6 +533370,7 @@ const UNIVERSE_CONNECTIONS = {
   "BR03": [
     "Br01",
     "Bw01",
+    "Bw02",
     "Br04"
   ],
   "BR04": [
@@ -528526,7 +533388,8 @@ const UNIVERSE_CONNECTIONS = {
     "CF23"
   ],
   "BR06": [
-    "Br04"
+    "Br04",
+    "Bw10"
   ],
   "BW01": [
     "Bw03",
@@ -528556,16 +533419,21 @@ const UNIVERSE_CONNECTIONS = {
   "BW05": [
     "Rh04",
     "Ku04",
+    "Bw06",
+    "Bw07",
     "Ku06",
     "Rh01"
   ],
   "BW06": [
+    "Ew04",
     "Bw07",
     "Bw05"
   ],
   "BW07": [
     "Ku04",
-    "Bw06"
+    "Bw06",
+    "Ew02",
+    "Bw05"
   ],
   "BW08": [
     "Ku03",
@@ -528581,44 +533449,90 @@ const UNIVERSE_CONNECTIONS = {
   "BW10": [
     "Br04",
     "Bw09",
-    "Bw08"
+    "Bw08",
+    "Br06"
+  ],
+  "CF01": [
+    "Hi01",
+    "FP7_systemmp",
+    "CF02",
+    "Li05",
+    "Ku07",
+    "St01",
+    "St02",
+    "St03",
+    "St03b",
+    "CF03",
+    "CF04",
+    "CF05",
+    "CF06",
+    "CF07",
+    "CF08",
+    "CF09",
+    "CF10",
+    "CF11",
+    "CF12",
+    "CF13",
+    "CF14",
+    "CF15",
+    "CF16",
+    "CF17",
+    "RW01"
   ],
   "CF02": [
+    "CF01",
     "Li01"
   ],
   "Cf03": [
-    "CF24"
+    "CF24",
+    "CF01"
   ],
   "Cf04": [
-    "CF08"
+    "CF01",
+    "CF08",
+    "CF24"
   ],
   "Cf05": [
+    "CF01",
     "CF15"
   ],
   "Cf06": [
+    "CF01",
+    "CF25",
     "CF08"
   ],
+  "Cf07": [
+    "CF01",
+    "rw01"
+  ],
   "Cf08": [
+    "CF01",
     "CF06",
     "CF04"
   ],
   "Cf09": [
+    "CF01",
+    "CF11",
     "CF10"
   ],
   "Cf10": [
+    "CF01",
     "CF09",
     "CF12"
   ],
   "CF100": [
+    "CF20",
     "CF101"
   ],
   "CF101": [
-    "CF100"
+    "CF100",
+    "CF104"
   ],
   "CF102": [
     "St03b2"
   ],
   "CF104": [
+    "CF101",
     "CF105"
   ],
   "CF105": [
@@ -528631,11 +533545,25 @@ const UNIVERSE_CONNECTIONS = {
   "CF109": [
     "CF108"
   ],
+  "Cf11": [
+    "CF01",
+    "CF09"
+  ],
   "Cf12": [
-    "CF10"
+    "CF01",
+    "CF10",
+    "CF17"
+  ],
+  "Cf13": [
+    "CF01",
+    "CF32",
+    "CF41",
+    "rw01",
+    "CF16"
   ],
   "cf14": [
-    "CF01"
+    "CF01",
+    "CF21"
   ],
   "cf15": [
     "CF01",
@@ -528643,14 +533571,24 @@ const UNIVERSE_CONNECTIONS = {
     "CF24"
   ],
   "cf16": [
-    "CF01"
+    "CF01",
+    "CF13"
   ],
   "cf17": [
     "CF01",
+    "CF12",
     "FP7_systemmp"
   ],
+  "Cf18": [
+    "ST02"
+  ],
   "CF19": [
-    "CF19"
+    "CF19",
+    "Ku06"
+  ],
+  "CF20": [
+    "CF31",
+    "CF100"
   ],
   "CF21": [
     "CF22",
@@ -528665,10 +533603,12 @@ const UNIVERSE_CONNECTIONS = {
   ],
   "CF24": [
     "CF03",
+    "CF04",
     "CF15"
   ],
   "CF25": [
-    "LI03"
+    "LI03",
+    "CF06"
   ],
   "CF26": [
     "LI04"
@@ -528686,21 +533626,84 @@ const UNIVERSE_CONNECTIONS = {
     "FP7_systemmp"
   ],
   "CF30": [
-    "FP7_systemmp"
+    "FP7_systemmp",
+    "St02"
+  ],
+  "CF31": [
+    "CF20",
+    "CF33",
+    "CF40"
+  ],
+  "CF32": [
+    "CF13"
+  ],
+  "CF33": [
+    "CF31",
+    "CF34",
+    "CF35"
+  ],
+  "CF34": [
+    "CF33",
+    "CF36"
+  ],
+  "CF35": [
+    "CF33",
+    "CF36",
+    "CF65"
+  ],
+  "CF36": [
+    "CF34",
+    "CF35",
+    "CF37",
+    "CF38",
+    "CF61"
+  ],
+  "CF37": [
+    "CF36",
+    "CF62",
+    "CF63",
+    "CF64"
   ],
   "CF38": [
+    "CF36",
+    "CF39",
+    "CF66",
+    "CF67",
+    "CF61",
     "CF69"
   ],
+  "CF39": [
+    "CF38",
+    "EW06",
+    "CF69",
+    "CF68"
+  ],
+  "CF40": [
+    "CF31"
+  ],
   "CF42": [
+    "CF43",
     "CF49"
   ],
   "CF43": [
+    "CF42",
     "CF44"
   ],
   "CF44": [
-    "CF43"
+    "CF43",
+    "CF45",
+    "CF49"
+  ],
+  "CF45": [
+    "CF44",
+    "CF46"
+  ],
+  "CF46": [
+    "CF45",
+    "CF47"
   ],
   "CF47": [
+    "CF46",
     "CF48"
   ],
   "CF48": [
@@ -528708,6 +533711,7 @@ const UNIVERSE_CONNECTIONS = {
   ],
   "CF49": [
     "CF42",
+    "CF44",
     "CF50",
     "CF51"
   ],
@@ -528715,7 +533719,11 @@ const UNIVERSE_CONNECTIONS = {
     "CF49"
   ],
   "CF51": [
+    "CF52",
     "CF49"
+  ],
+  "CF52": [
+    "CF51"
   ],
   "CF54": [
     "CF56"
@@ -528737,20 +533745,181 @@ const UNIVERSE_CONNECTIONS = {
   "CF58": [
     "CF48"
   ],
+  "CF59": [
+    "Ew03",
+    "CF70"
+  ],
+  "CF60": [
+    "CF71"
+  ],
   "CF61": [
-    "CF64"
+    "CF36",
+    "CF64",
+    "CF38"
   ],
   "CF62": [
+    "CF37",
     "CF63"
   ],
   "CF63": [
+    "CF37",
     "CF62"
   ],
   "CF64": [
+    "CF37",
     "CF61"
   ],
+  "CF65": [
+    "CF35"
+  ],
+  "CF66": [
+    "CF38",
+    "CF67"
+  ],
+  "CF67": [
+    "CF38",
+    "CF66",
+    "CF68"
+  ],
+  "CF68": [
+    "CF39",
+    "CF67"
+  ],
   "CF69": [
+    "CF39",
     "CF38"
+  ],
+  "CF70": [
+    "CF59"
+  ],
+  "CF71": [
+    "CF60",
+    "CF72",
+    "CF73"
+  ],
+  "CF72": [
+    "CF71",
+    "CF74",
+    "CF76"
+  ],
+  "CF73": [
+    "CF71",
+    "CF74",
+    "CF75"
+  ],
+  "CF74": [
+    "CF72",
+    "CF73",
+    "CF75"
+  ],
+  "CF75": [
+    "CF74",
+    "CF73",
+    "CF76"
+  ],
+  "CF76": [
+    "CF75",
+    "CF72",
+    "CF77"
+  ],
+  "CF77": [
+    "CF76",
+    "CF78"
+  ],
+  "CF78": [
+    "CF77",
+    "CF82",
+    "CF79"
+  ],
+  "CF79": [
+    "CF78",
+    "CF80"
+  ],
+  "CF80": [
+    "CF79",
+    "CF81",
+    "CF82",
+    "CF83",
+    "CF93"
+  ],
+  "CF81": [
+    "CF80"
+  ],
+  "CF82": [
+    "CF78",
+    "CF80",
+    "CF85"
+  ],
+  "CF83": [
+    "CF80",
+    "CF84",
+    "CF86"
+  ],
+  "CF84": [
+    "CF83"
+  ],
+  "CF85": [
+    "CF86",
+    "CF87",
+    "CF82",
+    "CF89",
+    "CF93"
+  ],
+  "CF86": [
+    "CF83",
+    "CF85"
+  ],
+  "CF87": [
+    "CF85"
+  ],
+  "CF88": [
+    "CF93"
+  ],
+  "CF89": [
+    "CF85",
+    "CF93",
+    "CF90"
+  ],
+  "CF90": [
+    "CF89",
+    "CF91",
+    "CF92"
+  ],
+  "CF91": [
+    "CF90"
+  ],
+  "CF92": [
+    "CF90"
+  ],
+  "CF93": [
+    "CF85",
+    "CF89",
+    "CF88",
+    "CF80"
+  ],
+  "CF94": [
+    "CF95",
+    "CF96"
+  ],
+  "CF95": [
+    "CF94",
+    "CF96",
+    "CF97"
+  ],
+  "CF96": [
+    "CF95",
+    "CF94"
+  ],
+  "CF97": [
+    "CF95",
+    "CF98"
+  ],
+  "CF98": [
+    "CF97"
+  ],
+  "EW01": [
+    "Bw08",
+    "Hi01"
   ],
   "EW02": [
     "Hi01",
@@ -528760,12 +533929,14 @@ const UNIVERSE_CONNECTIONS = {
     "Ew04",
     "Bw04",
     "Hi02",
-    "Bw02"
+    "Bw02",
+    "CF59"
   ],
   "EW04": [
     "Hi02",
     "Bw06",
-    "Ew03"
+    "Ew03",
+    "Hi01"
   ],
   "EW05": [
     "Hi01",
@@ -528778,11 +533949,15 @@ const UNIVERSE_CONNECTIONS = {
   ],
   "HI01": [
     "Ew01",
-    "Ew02"
+    "Ew02",
+    "Ew04",
+    "Ew05",
+    "CF01"
   ],
   "HI02": [
     "Ew03",
-    "Ew04"
+    "Ew04",
+    "Ew06"
   ],
   "INTRO": [
     "Li02",
@@ -528804,11 +533979,14 @@ const UNIVERSE_CONNECTIONS = {
   "IW03": [
     "Br02",
     "Li02",
-    "Li01"
+    "Iw04",
+    "Li01",
+    "Br04"
   ],
   "IW04": [
     "Br02",
-    "Li02"
+    "Li02",
+    "Iw03"
   ],
   "IW05": [
     "Ku02",
@@ -528829,26 +534007,39 @@ const UNIVERSE_CONNECTIONS = {
   "KU02": [
     "Ku01",
     "Iw06",
-    "Iw05"
+    "Iw05",
+    "Ku03"
   ],
   "KU03": [
     "Ku01",
-    "Bw09"
+    "Bw09",
+    "Bw08",
+    "Ku05",
+    "Ku02"
   ],
   "KU04": [
     "Ku01",
     "Bw07",
-    "Bw05"
+    "Bw05",
+    "Ku06"
   ],
   "KU05": [
-    "Ku01"
+    "Ku01",
+    "Ku03",
+    "Ku06",
+    "Ku07"
   ],
   "KU06": [
-    "Bw05"
+    "Ku05",
+    "Ku07",
+    "Ku04",
+    "Bw05",
+    "CF19"
   ],
   "KU07": [
     "Ku06",
-    "Ku05"
+    "Ku05",
+    "CF01"
   ],
   "LI01": [
     "Li02",
@@ -528881,6 +534072,7 @@ const UNIVERSE_CONNECTIONS = {
   ],
   "LI05": [
     "Li01",
+    "CF01",
     "CF27"
   ],
   "RH01": [
@@ -528916,20 +534108,213 @@ const UNIVERSE_CONNECTIONS = {
     "Rh04"
   ],
   "RW01": [
-    "cf01"
+    "cf01",
+    "CF07",
+    "CF13"
   ],
   "ST01": [
-    "St02"
+    "St02",
+    "St03",
+    "CF01"
   ],
   "ST02": [
-    "St01"
+    "St01",
+    "CF01",
+    "CF18",
+    "CF30"
+  ],
+  "ST03": [
+    "St01",
+    "CF01"
+  ],
+  "ST03B": [
+    "CF01"
+  ],
+  "Ku03b": [
+    "Ku01",
+    "Bw09",
+    "Bw08",
+    "Ku05",
+    "Ku02"
+  ],
+  "Bw01b": [
+    "Bw03",
+    "Br03",
+    "Bw02"
+  ],
+  "St02tk": [
+    "St01",
+    "CF01",
+    "CF18",
+    "CF30"
+  ],
+  "St03b2": [
+    "CF01"
+  ],
+  "CF01t": [
+    "Hi01",
+    "FP7_systemmp",
+    "CF02",
+    "Li05",
+    "Ku07",
+    "St01",
+    "St02",
+    "St03",
+    "St03b",
+    "CF03",
+    "CF04",
+    "CF05",
+    "CF06",
+    "CF07",
+    "CF08",
+    "CF09",
+    "CF10",
+    "CF11",
+    "CF12",
+    "CF13",
+    "CF14",
+    "CF15",
+    "CF16",
+    "CF17",
+    "RW01"
+  ],
+  "CF01tk": [
+    "Hi01",
+    "FP7_systemmp",
+    "CF02",
+    "Li05",
+    "Ku07",
+    "St01",
+    "St02",
+    "St03",
+    "St03b",
+    "CF03",
+    "CF04",
+    "CF05",
+    "CF06",
+    "CF07",
+    "CF08",
+    "CF09",
+    "CF10",
+    "CF11",
+    "CF12",
+    "CF13",
+    "CF14",
+    "CF15",
+    "CF16",
+    "CF17",
+    "RW01"
+  ],
+  "CF01tn": [
+    "Hi01",
+    "FP7_systemmp",
+    "CF02",
+    "Li05",
+    "Ku07",
+    "St01",
+    "St02",
+    "St03",
+    "St03b",
+    "CF03",
+    "CF04",
+    "CF05",
+    "CF06",
+    "CF07",
+    "CF08",
+    "CF09",
+    "CF10",
+    "CF11",
+    "CF12",
+    "CF13",
+    "CF14",
+    "CF15",
+    "CF16",
+    "CF17",
+    "RW01"
+  ],
+  "CF01tn2": [
+    "Hi01",
+    "FP7_systemmp",
+    "CF02",
+    "Li05",
+    "Ku07",
+    "St01",
+    "St02",
+    "St03",
+    "St03b",
+    "CF03",
+    "CF04",
+    "CF05",
+    "CF06",
+    "CF07",
+    "CF08",
+    "CF09",
+    "CF10",
+    "CF11",
+    "CF12",
+    "CF13",
+    "CF14",
+    "CF15",
+    "CF16",
+    "CF17",
+    "RW01"
+  ],
+  "CF01ts": [
+    "Hi01",
+    "FP7_systemmp",
+    "CF02",
+    "Li05",
+    "Ku07",
+    "St01",
+    "St02",
+    "St03",
+    "St03b",
+    "CF03",
+    "CF04",
+    "CF05",
+    "CF06",
+    "CF07",
+    "CF08",
+    "CF09",
+    "CF10",
+    "CF11",
+    "CF12",
+    "CF13",
+    "CF14",
+    "CF15",
+    "CF16",
+    "CF17",
+    "RW01"
+  ],
+  "CF14tk": [
+    "CF01",
+    "CF21"
+  ],
+  "CF20t": [
+    "CF31",
+    "CF100"
+  ],
+  "CF60b": [
+    "CF71"
+  ],
+  "CF60c": [
+    "CF71"
+  ],
+  "CF68b": [
+    "CF39",
+    "CF67"
+  ],
+  "CF90b": [
+    "CF89",
+    "CF91",
+    "CF92"
   ]
 };
 
 const UNIVERSE_SYSTEMS = [
   {
     "nickname": "CF60c_01_Base",
-    "name": "CF60c_01_Base",
+    "name": "Battleship Nassau",
     "strid_name": "481684",
     "ids_info": "",
     "info": "",
@@ -528977,7 +534362,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF99_01_Base",
-    "name": "CF99_01_Base",
+    "name": "Triam",
     "strid_name": "481536",
     "ids_info": "",
     "info": "",
@@ -528989,7 +534374,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF68_01_Base",
-    "name": "CF68_01_Base",
+    "name": "Gorshkov Carrier",
     "strid_name": "481466",
     "ids_info": "",
     "info": "",
@@ -529001,7 +534386,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF80_02_Base",
-    "name": "CF80_02_Base",
+    "name": "Taslunt, Dom'Kavash Colony",
     "strid_name": "481457",
     "ids_info": "",
     "info": "",
@@ -529013,7 +534398,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF98_01_Base",
-    "name": "CF98_01_Base",
+    "name": "Kavash Arc",
     "strid_name": "500953",
     "ids_info": "",
     "info": "",
@@ -529025,7 +534410,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF65_02_Base",
-    "name": "CF65_02_Base",
+    "name": "Achinsk Station",
     "strid_name": "500892",
     "ids_info": "",
     "info": "",
@@ -529037,7 +534422,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF64_03_Base",
-    "name": "CF64_03_Base",
+    "name": "Chkalovsk Rogue Base",
     "strid_name": "500890",
     "ids_info": "",
     "info": "",
@@ -529049,7 +534434,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF61_06_Base",
-    "name": "CF61_06_Base",
+    "name": "Sretensk Hideout",
     "strid_name": "500888",
     "ids_info": "",
     "info": "",
@@ -529061,7 +534446,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF61_05_Base",
-    "name": "CF61_05_Base",
+    "name": "Jinan Fuel Depot",
     "strid_name": "471035",
     "ids_info": "",
     "info": "",
@@ -529073,7 +534458,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF61_04_Base",
-    "name": "CF61_04_Base",
+    "name": "Bengbu Processing Facility",
     "strid_name": "471037",
     "ids_info": "",
     "info": "",
@@ -529085,7 +534470,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF61_03_Base",
-    "name": "CF61_03_Base",
+    "name": "Hefei Ore Refinery",
     "strid_name": "471039",
     "ids_info": "",
     "info": "",
@@ -529097,7 +534482,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF61_02_Base",
-    "name": "CF61_02_Base",
+    "name": "Yantai Station",
     "strid_name": "471044",
     "ids_info": "",
     "info": "",
@@ -529109,7 +534494,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF61_01_Base",
-    "name": "CF61_01_Base",
+    "name": "Lanzhou Shipyard",
     "strid_name": "471042",
     "ids_info": "",
     "info": "",
@@ -529133,7 +534518,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "Li01_01_Basemp",
-    "name": "Li01_01_Basemp",
+    "name": "Welcome to Crossfire. Please make sure to read the server rules. Planet Manhattan",
     "strid_name": "470616",
     "ids_info": "",
     "info": "",
@@ -530333,7 +535718,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "Ku07_03_Base",
-    "name": "Ku07_03_Base",
+    "name": "Atsugi Naval Shipyards",
     "strid_name": "470818",
     "ids_info": "",
     "info": "",
@@ -530981,7 +536366,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "Bw01_06_Base",
-    "name": "Bw01_06_Base",
+    "name": "Secret GMG Research Facility",
     "strid_name": "470142",
     "ids_info": "",
     "info": "",
@@ -530993,7 +536378,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "Bw01_06b_Base",
-    "name": "Bw01_06b_Base",
+    "name": "Secret GMG Research Facility",
     "strid_name": "470142",
     "ids_info": "",
     "info": "",
@@ -531473,7 +536858,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "St03b_02_Base",
-    "name": "St03b_02_Base",
+    "name": "Icarus Station",
     "strid_name": "481599",
     "ids_info": "",
     "info": "",
@@ -532301,7 +537686,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF20_01_base",
-    "name": "CF20_01_base",
+    "name": "Earth",
     "strid_name": "458755",
     "ids_info": "",
     "info": "",
@@ -532313,7 +537698,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF53_01_base",
-    "name": "CF53_01_base",
+    "name": "Cathedral Outpost",
     "strid_name": "499975",
     "ids_info": "",
     "info": "",
@@ -532421,7 +537806,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF03_03_Base",
-    "name": "CF03_03_Base",
+    "name": "Campos Station",
     "strid_name": "470015",
     "ids_info": "",
     "info": "",
@@ -532433,7 +537818,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF04_03_base",
-    "name": "CF04_03_base",
+    "name": "Karnak Prison",
     "strid_name": "470017",
     "ids_info": "",
     "info": "",
@@ -532445,7 +537830,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF05_03_Base",
-    "name": "CF05_03_Base",
+    "name": "Perg Shipyard",
     "strid_name": "470019",
     "ids_info": "",
     "info": "",
@@ -532457,7 +537842,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF06_03_Base",
-    "name": "CF06_03_Base",
+    "name": "Carmona Shipyard",
     "strid_name": "470021",
     "ids_info": "",
     "info": "",
@@ -532469,7 +537854,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF07_03_Base",
-    "name": "CF07_03_Base",
+    "name": "Capua Station",
     "strid_name": "470023",
     "ids_info": "",
     "info": "",
@@ -532481,7 +537866,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF08_03_Base",
-    "name": "CF08_03_Base",
+    "name": "Enugu Station",
     "strid_name": "470025",
     "ids_info": "",
     "info": "",
@@ -532493,7 +537878,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF09_03_Base",
-    "name": "CF09_03_Base",
+    "name": "Ghats Prison",
     "strid_name": "470027",
     "ids_info": "",
     "info": "",
@@ -532517,7 +537902,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF11_03_Base",
-    "name": "CF11_03_Base",
+    "name": "Karun Shipyard",
     "strid_name": "470031",
     "ids_info": "",
     "info": "",
@@ -532529,7 +537914,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF12_03_Base",
-    "name": "CF12_03_Base",
+    "name": "Lhasa Station",
     "strid_name": "470033",
     "ids_info": "",
     "info": "",
@@ -532541,7 +537926,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF15_02_Base",
-    "name": "CF15_02_Base",
+    "name": "Saba Station",
     "strid_name": "470039",
     "ids_info": "",
     "info": "",
@@ -532553,7 +537938,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF15_03_Base",
-    "name": "CF15_03_Base",
+    "name": "Quetzal Station",
     "strid_name": "470041",
     "ids_info": "",
     "info": "",
@@ -532565,7 +537950,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF17_02_Base",
-    "name": "CF17_02_Base",
+    "name": "Lynen Station",
     "strid_name": "470049",
     "ids_info": "",
     "info": "",
@@ -532577,7 +537962,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF17_03_Base",
-    "name": "CF17_03_Base",
+    "name": "Shiras Station",
     "strid_name": "470051",
     "ids_info": "",
     "info": "",
@@ -532589,7 +537974,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF16_02_Base",
-    "name": "CF16_02_Base",
+    "name": "Pescara Station",
     "strid_name": "470043",
     "ids_info": "",
     "info": "",
@@ -532601,7 +537986,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF16_03_Base",
-    "name": "CF16_03_Base",
+    "name": "Novara Station",
     "strid_name": "470045",
     "ids_info": "",
     "info": "",
@@ -532613,7 +537998,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF16_04_Base",
-    "name": "CF16_04_Base",
+    "name": "Murcia Station",
     "strid_name": "470047",
     "ids_info": "",
     "info": "",
@@ -532625,7 +538010,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF14_02_Base",
-    "name": "CF14_02_Base",
+    "name": "Severn Station",
     "strid_name": "470035",
     "ids_info": "",
     "info": "",
@@ -532637,7 +538022,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF14_03_Base",
-    "name": "CF14_03_Base",
+    "name": "Lith Station",
     "strid_name": "470037",
     "ids_info": "",
     "info": "",
@@ -532649,7 +538034,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF36_01_Base",
-    "name": "CF36_01_Base",
+    "name": "Gorlowka Carrier",
     "strid_name": "500396",
     "ids_info": "",
     "info": "",
@@ -532661,7 +538046,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF36_02_Base",
-    "name": "CF36_02_Base",
+    "name": "Kuibyschew Outpost",
     "strid_name": "500361",
     "ids_info": "",
     "info": "",
@@ -532673,7 +538058,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF36_03_Base",
-    "name": "CF36_03_Base",
+    "name": "Charkow Outpost",
     "strid_name": "500365",
     "ids_info": "",
     "info": "",
@@ -532685,7 +538070,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF36_04_Base",
-    "name": "CF36_04_Base",
+    "name": "Baku Station",
     "strid_name": "500366",
     "ids_info": "",
     "info": "",
@@ -532721,7 +538106,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF38_01_Base",
-    "name": "CF38_01_Base",
+    "name": "Pawlowdar Station",
     "strid_name": "500358",
     "ids_info": "",
     "info": "",
@@ -532733,7 +538118,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF38_02_Base",
-    "name": "CF38_02_Base",
+    "name": "Donezk Station",
     "strid_name": "500362",
     "ids_info": "",
     "info": "",
@@ -532745,7 +538130,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF38_03_Base",
-    "name": "CF38_03_Base",
+    "name": "Gorkij Station",
     "strid_name": "500363",
     "ids_info": "",
     "info": "",
@@ -532757,7 +538142,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF38_04_Base",
-    "name": "CF38_04_Base",
+    "name": "Odessa Station",
     "strid_name": "500364",
     "ids_info": "",
     "info": "",
@@ -532769,7 +538154,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF38_05_Base",
-    "name": "CF38_05_Base",
+    "name": "Swerdlowsk Station",
     "strid_name": "500368",
     "ids_info": "",
     "info": "",
@@ -532805,7 +538190,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF20_25_Base",
-    "name": "CF20_25_Base",
+    "name": "Order Military HQ",
     "strid_name": "499992",
     "ids_info": "",
     "info": "",
@@ -532817,7 +538202,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF20_15_Base",
-    "name": "CF20_15_Base",
+    "name": "Battleship Deliverance",
     "strid_name": "500430",
     "ids_info": "",
     "info": "",
@@ -532829,7 +538214,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF59_01_Base",
-    "name": "CF59_01_Base",
+    "name": "Triangulum - Dock 1",
     "strid_name": "471662",
     "ids_info": "",
     "info": "",
@@ -532841,7 +538226,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF59_02_Base",
-    "name": "CF59_02_Base",
+    "name": "Triangulum - Dock 2",
     "strid_name": "471663",
     "ids_info": "",
     "info": "",
@@ -532853,7 +538238,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF59_03_Base",
-    "name": "CF59_03_Base",
+    "name": "Triangulum - Dock 3",
     "strid_name": "471664",
     "ids_info": "",
     "info": "",
@@ -532865,7 +538250,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF59_04_Base",
-    "name": "CF59_04_Base",
+    "name": "Battleship Bismark",
     "strid_name": "471666",
     "ids_info": "",
     "info": "",
@@ -532877,7 +538262,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF70_01_Base",
-    "name": "CF70_01_Base",
+    "name": "GMG Observatory Command Module",
     "strid_name": "471685",
     "ids_info": "",
     "info": "",
@@ -532889,7 +538274,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF78_01_Base",
-    "name": "CF78_01_Base",
+    "name": "Mirtrrak Battle Station",
     "strid_name": "471859",
     "ids_info": "",
     "info": "",
@@ -532901,7 +538286,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF80_01_Base",
-    "name": "CF80_01_Base",
+    "name": "Rywkim Battle Station",
     "strid_name": "472037",
     "ids_info": "",
     "info": "",
@@ -532913,7 +538298,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF81_01_Base",
-    "name": "CF81_01_Base",
+    "name": "Drokorm Light Dome",
     "strid_name": "472039",
     "ids_info": "",
     "info": "",
@@ -532925,7 +538310,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF81_02_Base",
-    "name": "CF81_02_Base",
+    "name": "Raphrd Refinery",
     "strid_name": "472041",
     "ids_info": "",
     "info": "",
@@ -532937,7 +538322,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF82_01_Base",
-    "name": "CF82_01_Base",
+    "name": "Draghdan Academy",
     "strid_name": "472043",
     "ids_info": "",
     "info": "",
@@ -532949,7 +538334,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF83_01_Base",
-    "name": "CF83_01_Base",
+    "name": "Jartltend Research Station",
     "strid_name": "472045",
     "ids_info": "",
     "info": "",
@@ -532961,7 +538346,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF83_02_Base",
-    "name": "CF83_02_Base",
+    "name": "Zhirllis Citadel",
     "strid_name": "472047",
     "ids_info": "",
     "info": "",
@@ -532973,7 +538358,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF85_01_Base",
-    "name": "CF85_01_Base",
+    "name": "Chralrgha Breeder",
     "strid_name": "472049",
     "ids_info": "",
     "info": "",
@@ -532985,7 +538370,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF85_02_Base",
-    "name": "CF85_02_Base",
+    "name": "Lyselm Refinery",
     "strid_name": "472051",
     "ids_info": "",
     "info": "",
@@ -532997,7 +538382,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF85_03_Base",
-    "name": "CF85_03_Base",
+    "name": "Mannenth Research Station",
     "strid_name": "472053",
     "ids_info": "",
     "info": "",
@@ -533009,7 +538394,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF86_01_Base",
-    "name": "CF86_01_Base",
+    "name": "Hyltpol Outpost",
     "strid_name": "472055",
     "ids_info": "",
     "info": "",
@@ -533021,7 +538406,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF88_01_Base",
-    "name": "CF88_01_Base",
+    "name": "Snoldwia Academy",
     "strid_name": "472057",
     "ids_info": "",
     "info": "",
@@ -533033,7 +538418,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF89_01_Base",
-    "name": "CF89_01_Base",
+    "name": "Fyrdsay Refinery",
     "strid_name": "472059",
     "ids_info": "",
     "info": "",
@@ -533045,7 +538430,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF89_02_Base",
-    "name": "CF89_02_Base",
+    "name": "Kyshfenth Outpost",
     "strid_name": "472061",
     "ids_info": "",
     "info": "",
@@ -533057,7 +538442,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF90_01_Base",
-    "name": "CF90_01_Base",
+    "name": "Sylroth Light Dome",
     "strid_name": "472063",
     "ids_info": "",
     "info": "",
@@ -533069,7 +538454,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF90_01b_Base",
-    "name": "CF90_01b_Base",
+    "name": "Sylroth Light Dome",
     "strid_name": "472063",
     "ids_info": "",
     "info": "",
@@ -533081,7 +538466,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF90_02_Base",
-    "name": "CF90_02_Base",
+    "name": "Nerllard Refinery",
     "strid_name": "472065",
     "ids_info": "",
     "info": "",
@@ -533093,7 +538478,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF90_03_Base",
-    "name": "CF90_03_Base",
+    "name": "Rhistis Breeder",
     "strid_name": "472067",
     "ids_info": "",
     "info": "",
@@ -533105,7 +538490,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF92_01_Base",
-    "name": "CF92_01_Base",
+    "name": "Sirmtia Research Station",
     "strid_name": "472069",
     "ids_info": "",
     "info": "",
@@ -533117,7 +538502,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF92_02_Base",
-    "name": "CF92_02_Base",
+    "name": "Kirrt Outpost",
     "strid_name": "472071",
     "ids_info": "",
     "info": "",
@@ -533129,7 +538514,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF92_03_Base",
-    "name": "CF92_03_Base",
+    "name": "Chrazll Citadel",
     "strid_name": "472073",
     "ids_info": "",
     "info": "",
@@ -533141,7 +538526,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF93_01_Base",
-    "name": "CF93_01_Base",
+    "name": "Smonkves Breeder",
     "strid_name": "472075",
     "ids_info": "",
     "info": "",
@@ -533153,7 +538538,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF64_01_Base",
-    "name": "CF64_01_Base",
+    "name": "Dzerzhinsky Military Academy",
     "strid_name": "472079",
     "ids_info": "",
     "info": "",
@@ -533165,7 +538550,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF64_02_Base",
-    "name": "CF64_02_Base",
+    "name": "Govorov Trading Station",
     "strid_name": "472081",
     "ids_info": "",
     "info": "",
@@ -533177,7 +538562,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF63_01_Base",
-    "name": "CF63_01_Base",
+    "name": "Yinchuan Outpost",
     "strid_name": "472101",
     "ids_info": "",
     "info": "",
@@ -533189,7 +538574,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF62_01_Base",
-    "name": "CF62_01_Base",
+    "name": "Gansu Research Outpost",
     "strid_name": "472103",
     "ids_info": "",
     "info": "",
@@ -533201,7 +538586,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF65_01_Base",
-    "name": "CF65_01_Base",
+    "name": "Singapore Station",
     "strid_name": "472111",
     "ids_info": "",
     "info": "",
@@ -533213,7 +538598,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF67_01_Base",
-    "name": "CF67_01_Base",
+    "name": "Aden Station",
     "strid_name": "472125",
     "ids_info": "",
     "info": "",
@@ -533225,7 +538610,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF66_01_Base",
-    "name": "CF66_01_Base",
+    "name": "Maskat Station",
     "strid_name": "472129",
     "ids_info": "",
     "info": "",
@@ -533237,7 +538622,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF66_02_Base",
-    "name": "CF66_02_Base",
+    "name": "Planet Medina",
     "strid_name": "472121",
     "ids_info": "",
     "info": "",
@@ -533249,7 +538634,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF69_01_Base",
-    "name": "CF69_01_Base",
+    "name": "Amman Depot",
     "strid_name": "472139",
     "ids_info": "",
     "info": "",
@@ -533261,7 +538646,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF01_04_Base",
-    "name": "CF01_04_Base",
+    "name": "Aeston Shipyard",
     "strid_name": "480451",
     "ids_info": "",
     "info": "",
@@ -533273,7 +538658,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF25_02_Base",
-    "name": "CF25_02_Base",
+    "name": "Freeport 11",
     "strid_name": "480441",
     "ids_info": "",
     "info": "",
@@ -533285,7 +538670,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF01_05_Base",
-    "name": "CF01_05_Base",
+    "name": "Far Water Shipyard",
     "strid_name": "480454",
     "ids_info": "",
     "info": "",
@@ -533297,7 +538682,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "Ku05_proxy_base",
-    "name": "Ku05_proxy_base",
+    "name": "Camelot",
     "strid_name": "459315",
     "ids_info": "",
     "info": "",
@@ -533309,7 +538694,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "Ku05_proxy_base_01",
-    "name": "Ku05_proxy_base_01",
+    "name": "Camelot",
     "strid_name": "459315",
     "ids_info": "",
     "info": "",
@@ -533321,7 +538706,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "Ku05_proxy_base_02",
-    "name": "Ku05_proxy_base_02",
+    "name": "Camelot",
     "strid_name": "459315",
     "ids_info": "",
     "info": "",
@@ -533333,7 +538718,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "Ku05_proxy_base_03",
-    "name": "Ku05_proxy_base_03",
+    "name": "Camelot",
     "strid_name": "459315",
     "ids_info": "",
     "info": "",
@@ -533345,7 +538730,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "Ku05_proxy_base_04",
-    "name": "Ku05_proxy_base_04",
+    "name": "Camelot",
     "strid_name": "459315",
     "ids_info": "",
     "info": "",
@@ -533477,7 +538862,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "BW06_proxy_base",
-    "name": "BW06_proxy_base",
+    "name": "The_Mercy_Dark",
     "strid_name": "459314",
     "ids_info": "",
     "info": "",
@@ -533489,7 +538874,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "BW06_proxy_base_01",
-    "name": "BW06_proxy_base_01",
+    "name": "The_Mercy_Dark",
     "strid_name": "459314",
     "ids_info": "",
     "info": "",
@@ -533501,7 +538886,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "BW06_proxy_base_02",
-    "name": "BW06_proxy_base_02",
+    "name": "The_Mercy_Dark",
     "strid_name": "459314",
     "ids_info": "",
     "info": "",
@@ -533513,7 +538898,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "BW06_proxy_base_03",
-    "name": "BW06_proxy_base_03",
+    "name": "The_Mercy_Dark",
     "strid_name": "459314",
     "ids_info": "",
     "info": "",
@@ -533525,7 +538910,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "BW06_proxy_base_04",
-    "name": "BW06_proxy_base_04",
+    "name": "The_Mercy_Dark",
     "strid_name": "459314",
     "ids_info": "",
     "info": "",
@@ -533837,7 +539222,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF30_proxy_base",
-    "name": "CF30_proxy_base",
+    "name": "Nassau Depot",
     "strid_name": "459313",
     "ids_info": "",
     "info": "",
@@ -533849,7 +539234,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF30_proxy_base_01",
-    "name": "CF30_proxy_base_01",
+    "name": "Nassau Depot",
     "strid_name": "459313",
     "ids_info": "",
     "info": "",
@@ -533861,7 +539246,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF30_proxy_base_02",
-    "name": "CF30_proxy_base_02",
+    "name": "Nassau Depot",
     "strid_name": "459313",
     "ids_info": "",
     "info": "",
@@ -533873,7 +539258,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF30_proxy_base_03",
-    "name": "CF30_proxy_base_03",
+    "name": "Nassau Depot",
     "strid_name": "459313",
     "ids_info": "",
     "info": "",
@@ -533885,7 +539270,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF30_proxy_base_04",
-    "name": "CF30_proxy_base_04",
+    "name": "Nassau Depot",
     "strid_name": "459313",
     "ids_info": "",
     "info": "",
@@ -533897,7 +539282,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF61_proxy_base",
-    "name": "CF61_proxy_base",
+    "name": "IOC Headquarters",
     "strid_name": "459316",
     "ids_info": "",
     "info": "",
@@ -533909,7 +539294,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF61_proxy_base_01",
-    "name": "CF61_proxy_base_01",
+    "name": "IOC Headquarters",
     "strid_name": "459316",
     "ids_info": "",
     "info": "",
@@ -533921,7 +539306,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF61_proxy_base_02",
-    "name": "CF61_proxy_base_02",
+    "name": "IOC Headquarters",
     "strid_name": "459316",
     "ids_info": "",
     "info": "",
@@ -533933,7 +539318,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF61_proxy_base_03",
-    "name": "CF61_proxy_base_03",
+    "name": "IOC Headquarters",
     "strid_name": "459316",
     "ids_info": "",
     "info": "",
@@ -533945,7 +539330,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF61_proxy_base_04",
-    "name": "CF61_proxy_base_04",
+    "name": "IOC Headquarters",
     "strid_name": "459316",
     "ids_info": "",
     "info": "",
@@ -533957,7 +539342,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF26proxy_base",
-    "name": "CF26proxy_base",
+    "name": "StarFleet Academy",
     "strid_name": "459317",
     "ids_info": "",
     "info": "",
@@ -533969,7 +539354,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF26_proxy_base_01",
-    "name": "CF26_proxy_base_01",
+    "name": "StarFleet Academy",
     "strid_name": "459317",
     "ids_info": "",
     "info": "",
@@ -533981,7 +539366,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF26_proxy_base_02",
-    "name": "CF26_proxy_base_02",
+    "name": "StarFleet Academy",
     "strid_name": "459317",
     "ids_info": "",
     "info": "",
@@ -533993,7 +539378,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF26_proxy_base_03",
-    "name": "CF26_proxy_base_03",
+    "name": "StarFleet Academy",
     "strid_name": "459317",
     "ids_info": "",
     "info": "",
@@ -534005,7 +539390,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF26_proxy_base_04",
-    "name": "CF26_proxy_base_04",
+    "name": "StarFleet Academy",
     "strid_name": "459317",
     "ids_info": "",
     "info": "",
@@ -534197,7 +539582,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF72_proxy_base",
-    "name": "CF72_proxy_base",
+    "name": "Inner Core Outpost",
     "strid_name": "481820",
     "ids_info": "",
     "info": "",
@@ -534209,7 +539594,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF72_proxy_base_01",
-    "name": "CF72_proxy_base_01",
+    "name": "Inner Core Outpost",
     "strid_name": "481820",
     "ids_info": "",
     "info": "",
@@ -534221,7 +539606,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF72_proxy_base_02",
-    "name": "CF72_proxy_base_02",
+    "name": "Inner Core Outpost",
     "strid_name": "481820",
     "ids_info": "",
     "info": "",
@@ -534233,7 +539618,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF72_proxy_base_03",
-    "name": "CF72_proxy_base_03",
+    "name": "Inner Core Outpost",
     "strid_name": "481820",
     "ids_info": "",
     "info": "",
@@ -534245,7 +539630,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF72_proxy_base_04",
-    "name": "CF72_proxy_base_04",
+    "name": "Inner Core Outpost",
     "strid_name": "481820",
     "ids_info": "",
     "info": "",
@@ -534257,7 +539642,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF106_01_Base",
-    "name": "CF106_01_Base",
+    "name": "Arles Station",
     "strid_name": "501869",
     "ids_info": "",
     "info": "",
@@ -534269,7 +539654,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF107_01_Base",
-    "name": "CF107_01_Base",
+    "name": "Orléans Station",
     "strid_name": "501861",
     "ids_info": "",
     "info": "",
@@ -534281,7 +539666,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF107_02_Base",
-    "name": "CF107_02_Base",
+    "name": "Bordeaux Station",
     "strid_name": "501863",
     "ids_info": "",
     "info": "",
@@ -534293,7 +539678,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF107_03_Base",
-    "name": "CF107_03_Base",
+    "name": "Martinique Station",
     "strid_name": "501871",
     "ids_info": "",
     "info": "",
@@ -534305,7 +539690,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF107_04_Base",
-    "name": "CF107_04_Base",
+    "name": "Marseille Shipyard",
     "strid_name": "501873",
     "ids_info": "",
     "info": "",
@@ -534317,7 +539702,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF108_01_Base",
-    "name": "CF108_01_Base",
+    "name": "Strasbourg Station",
     "strid_name": "501865",
     "ids_info": "",
     "info": "",
@@ -534329,7 +539714,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF108_02_Base",
-    "name": "CF108_02_Base",
+    "name": "Lyon Station",
     "strid_name": "501867",
     "ids_info": "",
     "info": "",
@@ -534341,7 +539726,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "Li01",
-    "name": "Li01",
+    "name": "New York",
     "strid_name": "459090",
     "ids_info": "66106",
     "info": "LIBERTY\nBesiedelte Planeten\nManhattan\nPittsburgh\nStützpunkte\nFt. Bush\nStation Newark\nAußenposten Trenton\nDetroiter Munitionswerke\nAkademie West Point\nNorfolk-Werft\nBaltimore-Werft\nSchlachtschiff\nMissouri\nUnternehmen\nAgeira Technologies\nInterspace Commerce\nUniversal Shipping\nDeep Space Engineering\nLiberty Police, Inc.\nKriminelle\nLiberty Rogues\nAusgestoßene\nXenos\nSchrotties\nErzeugnisse\nBor\nSeitenwaffen\nLuxusgüter\nGiftmüll",
@@ -534353,7 +539738,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "Li02",
-    "name": "Li02",
+    "name": "California",
     "strid_name": "459092",
     "ids_info": "66084",
     "info": "LIBERTY\nBesiedelte Planeten\nLos Angeles\nCalifornia Minor\nStützpunkte\nSchlachtschiff\nYukon\nGrenzstation San Diego\nUnternehmen\nSynth Foods\nAgeira Technologies\nPlanetform, Inc.\nKriminelle\nLiberty Rogues\nAusgestoßene\nWegelagerer\nErzeugnisse\nLebensmittel\nOptische Chips\nSauerstoff",
@@ -534365,7 +539750,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "Li03",
-    "name": "Li03",
+    "name": "Colorado",
     "strid_name": "459094",
     "ids_info": "66087",
     "info": "LIBERTY\nBesiedelte Planeten\nDenver\nStützpunkte\nStation Pueblo\nSchlachtschiff\nRio Grande\nUnternehmen\nAgeira Technologies\nCryer Pharmaceuticals\nKriminelle\nXenos\nLiberty Rogues\nErzeugnisse\nPharmazeutika\nSupraleiter\nSuperlegierungen\nBauteile für Handelsrouten\nTerraforming-Gase\nGiftmüll",
@@ -534377,7 +539762,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "Li04",
-    "name": "Li04",
+    "name": "Texas",
     "strid_name": "459096",
     "ids_info": "66126",
     "info": "LIBERTY\nBesiedelte Planeten\nHouston\nStützpunkte\nLPI\nHuntsville\nLPI\nSugarland\nSchlachtschiff\nMississippi\nUnternehmen\nLiberty Police, Inc.\nGilde der Kopfgeldjäger\nDeep Space Engineering\nKriminelle\nXenos\nLiberty Rogues\nAusgestoßene\nSchrotties\nErzeugnisse\nDünger\nKonsumgüter\nGrundlegierungen\nGiftmüll",
@@ -534389,7 +539774,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "Li05",
-    "name": "Li05",
+    "name": "Alaska",
     "strid_name": "459098",
     "ids_info": "66082",
     "info": "LIBERTY\nBesiedelte Planeten\nGEHEIM\nStützpunkte\nGEHEIM\nUnternehmen\nGEHEIM\nKriminelle\nGEHEIM\nErzeugnisse\nGEHEIM",
@@ -534401,7 +539786,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "Br01",
-    "name": "Br01",
+    "name": "New London",
     "strid_name": "459100",
     "ids_info": "66104",
     "info": "BRETONIA\nBesiedelte Planeten\nNew London\nStützpunkte\nStation Canterbury\nStation Waterloo\nStation Kensington\nSouthampton-Werft\nSchlachtschiff\nSuffolk\nAußenposten Thames\nUnternehmen\nBretonia Mining and Metals\nPlanetform, Inc.\nGateway Shipping\nInterspace Commerce\nKriminelle\nKorsaren\nMollys\nAusgestoßene\nGaianer\nSchrotties\nErzeugnisse\nSauerstoff\nWasser",
@@ -534413,7 +539798,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "Br02",
-    "name": "Br02",
+    "name": "Manchester",
     "strid_name": "459102",
     "ids_info": "66102",
     "info": "BRETONIA\nBesiedelte Planeten\nKeine\nStützpunkte\nStation Birmingham\nStation Sheffield\nBPA\nNewgate\nGrenzstation Liverpool\nGrenzstation Kingston\nUnternehmen\nBretonia Mining and Metals\nGilde der Kopfgeldjäger\nKriminelle\nMollys\nGaianer\nWegelagerer\nAusgestoßene\nErzeugnisse\nPolymere\nKohlenwasserstoffe\nTerraforming-Gase\nSauerstoff\nWasser",
@@ -534425,7 +539810,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "Br03",
-    "name": "Br03",
+    "name": "Cambridge",
     "strid_name": "459104",
     "ids_info": "66085",
     "info": "BRETONIA\nBesiedelte Planeten\nCambridge\nStützpunkte\nForschungsstation Cambridge\nBergbaustation Cardiff\nSchlachtschiff\nNorfolk\nUnternehmen\nCryer Pharmaceuticals\nKnappschaft der unabhängigen Bergleute\nKriminelle\nKorsaren\nErzeugnisse\nLebensmittel\nLuxuslebensmittel\nPharmazeutika\nBeryllium",
@@ -534437,7 +539822,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "Br04",
-    "name": "Br04",
+    "name": "Leeds",
     "strid_name": "459106",
     "ids_info": "66100",
     "info": "BRETONIA\nBesiedelte Planeten\nLeeds\nStützpunkte\nLD-14\nBergbaustation Stokes\nAußenposten Glasgow\nSchlachtschiff\nYork\nGrenzstation Durham\nUnternehmen\nBowex\nBretonia Mining and Metals\nKriminelle\nMollys\nGaianer\nAusgestoßene\nErzeugnisse\nMOX\nBergbaumaschinen\nBaumaschinen\nSeitenwaffen\nRumpfplatten\nGrundlegierungen\nSuperlegierungen\nTerraforming-Gase\nGiftmüll\nNiob",
@@ -534449,7 +539834,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "Br05",
-    "name": "Br05",
+    "name": "Dublin",
     "strid_name": "459108",
     "ids_info": "66090",
     "info": "BRETONIA\nBesiedelte Planeten\nKeine\nStützpunkte\nStation Graves\nSchlachtschiff\nHood\nSchlachtschiff\nEssex\nUnternehmen\nBretonia Mining and Metals\nKnappschaft der unabhängigen Bergleute\nKriminelle\nMollys\nErzeugnisse\nGold",
@@ -534461,7 +539846,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "Br06",
-    "name": "Br06",
+    "name": "Edinburgh",
     "strid_name": "459110",
     "ids_info": "66091",
     "info": "BRETONIA\nBesiedelte Planeten\nGaia (begrenzter Zutritt)\nStützpunkte\nStation Perth\nLuxusliner\nShetland\nUnternehmen\nOrbital Kuren und Kreuzfahrten\nPlanetform, Inc.\nKriminelle\nGaianer\nAusgestoßene\nErzeugnisse\nWasser\nSauerstoff",
@@ -534473,7 +539858,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "Ku01",
-    "name": "Ku01",
+    "name": "New Tokyo",
     "strid_name": "459122",
     "ids_info": "66105",
     "info": "KUSARI\nBesiedelte Planeten\nNeu-Tokio\nStützpunkte\nStation Shinjuku\nStation Shinagawa\nStation Roppongi\nAußenposten Narita\nYokohama-Werft\nUnternehmen\nSamura Industries\nKishiro Technologies\nInterspace Commerce\nKriminelle\nHogosha\nBlutdrachen\nGoldene Chrysantheme\nErzeugnisse\nOptische Chips\nSauerstoff\nWasser\nGiftmüll",
@@ -534485,7 +539870,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "Ku02",
-    "name": "Ku02",
+    "name": "Shikoku",
     "strid_name": "459124",
     "ids_info": "66117",
     "info": "KUSARI\nBesiedelte Planeten\nJunyo\nStützpunkte\nStation Deshima\nGefängnis von Fuchu\nSchlachtschiff\nMyoko\nGrenzstation Ohashi\nUnternehmen\nSamura Industries\nKishiro Technologies\nGilde der Kopfgeldjäger\nSynth Foods\nKriminelle\nBlutdrachen\nGoldenen Chrysanthemen\nErzeugnisse\nLebensmittel\nLuxuslebensmittel\nKonsumgüter\nKohlenwasserstoffe",
@@ -534497,7 +539882,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "Ku03",
-    "name": "Ku03",
+    "name": "Kyushu",
     "strid_name": "459126",
     "ids_info": "66099",
     "info": "KUSARI\nBesiedelte Planeten\nKyushu\nStützpunkte\nDepot Tsushima\nForschungszentrum Nansei\nSchlachtschiff\nNagumo\nUnternehmen\nSamura Industries\nKriminelle\nBlutdrachen\nGoldene Chrysantheme\nBauernallianz\nErzeugnisse\nLebensmittel\nPolymere",
@@ -534509,7 +539894,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "Ku03b",
-    "name": "Ku03b",
+    "name": "Kyushu",
     "strid_name": "459126",
     "ids_info": "66099",
     "info": "KUSARI\nBesiedelte Planeten\nKyushu\nStützpunkte\nDepot Tsushima\nForschungszentrum Nansei\nSchlachtschiff\nNagumo\nUnternehmen\nSamura Industries\nKriminelle\nBlutdrachen\nGoldene Chrysantheme\nBauernallianz\nErzeugnisse\nLebensmittel\nPolymere",
@@ -534521,7 +539906,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "Ku04",
-    "name": "Ku04",
+    "name": "Honshu",
     "strid_name": "459128",
     "ids_info": "66096",
     "info": "KUSARI\nBesiedelte Planeten\nHonshu\nStützpunkte\nStation Aomori\nLager Osaka\nForschungsstation Kansai\nYukawa-Werft\nGrenzstation Akita\nUnternehmen\nKishiro Technologies\nSamura Industries\nKnappschaft der Gasschürfer\nKriminelle\nBlutdrachen\nBauernallianz\nKorsaren\nAusgestoßene\nErzeugnisse\nTriebwerkteile\nBaumaschinen\nOptronik\nH-Treibstoff",
@@ -534533,7 +539918,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "Ku05",
-    "name": "Ku05",
+    "name": "Hokkaido",
     "strid_name": "459130",
     "ids_info": "66095",
     "info": "KUSARI\nBesiedelte Planeten\nKeine\nStützpunkte\nStation Sapporo\nBaustelle Chugoku-Tor\nSchlachtschiff\nMatsumoto\nUnternehmen\nSamura Industries\nDeep Space Engineering\nKriminelle\nBlutdrachen\nGoldene Chrysantheme\nErzeugnisse\nH-Treibstoff",
@@ -534545,7 +539930,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "Ku06",
-    "name": "Ku06",
+    "name": "Chugoku",
     "strid_name": "459132",
     "ids_info": "66086",
     "info": "KUSARI\nBesiedelte Planeten\nKeine\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nUnbekannt\nErzeugnisse\nNichts",
@@ -534557,7 +539942,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "Ku07",
-    "name": "Ku07",
+    "name": "Tohoku",
     "strid_name": "459134",
     "ids_info": "66127",
     "info": "KUSARI\nBesiedelte Planeten\nKeine\nStützpunkte\nHimmelstor\nUnternehmen\nKeine\nErzeugnisse\nNichts\nKriminelle\nBlutdrachen",
@@ -534569,7 +539954,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "Rh01",
-    "name": "Rh01",
+    "name": "New Berlin",
     "strid_name": "459112",
     "ids_info": "66103",
     "info": "RHEINLAND\nBesiedelte Planeten\nNeu-Berlin\nStützpunkte\nDer Ring\nStation Dortmund\nStation Essen\nStation Bonn\nOder-Werft\nGrenzstation Brandenburg\nUnternehmen\nDaumann Hoch- und Tiefbau\nKrüger Mineralien\nALG Abfallentsorgung\nRepublikanische Großspedition\nInterspace Commerce\nKriminelle\nRote Hessen\nBundschuh\nUnionisten\nLWB\nSchrotties\nErzeugnisse\nMOX\nKonsumgüter\nTriebwerkteile\nBaumaschinen\nBergbaumaschinen\nGrundlegierungen\nHochtemperaturlegierungen\nGiftmüll\nSauerstoff\nWasser\nSchiffsrumpfplatten",
@@ -534581,7 +539966,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "Rh02",
-    "name": "Rh02",
+    "name": "Hamburg",
     "strid_name": "459114",
     "ids_info": "66094",
     "info": "RHEINLAND\nBesiedelte Planeten\nHamburg\nStützpunkte\nStation Altona\nAlster-Werft\nVierlandegefängnis\nSchlachtschiff\nWestfalen\nGrenzstation Lübeck\nUnternehmen\nRepublikanische Großspedition\nKriminelle\nRote Hessen\nUnionisten\nBundschuh\nSchrotties\nErzeugnisse\nSauerstoff\nWasser\nGiftmüll",
@@ -534593,7 +539978,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "Rh03",
-    "name": "Rh03",
+    "name": "Stuttgart",
     "strid_name": "459116",
     "ids_info": "66121",
     "info": "RHEINLAND\nBesiedelte Planeten\nStuttgart\nBaden-Baden\nStützpunkte\nStation Freiburg\nGrenzstation Ulm\nGrenzstation Konstanz\nUnternehmen\nSynth Foods\nOrbital Kuren und Kreuzfahrten\nRepublikanische Großspedition\nKriminelle\nRote Hessen\nLWB\nErzeugnisse\nLebensmittel\nLuxuslebensmittel",
@@ -534605,7 +539990,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "Rh04",
-    "name": "Rh04",
+    "name": "Frankfurt",
     "strid_name": "459118",
     "ids_info": "66092",
     "info": "RHEINLAND\nBesiedelte Planeten\nHolstein\nStützpunkte\nStation Mannheim\nLager Mainz\nGrenzstation Fulda\nUnternehmen\nDaumann Hoch- und Tiefbau\nKrüger Mineralien\nRepublikanische Großspedition\nKriminelle\nBundschuh\nUnionisten\nRote Hessen\nSchrotties\nErzeugnisse\nBor\nH-Treibstoff",
@@ -534617,7 +540002,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "Rh05",
-    "name": "Rh05",
+    "name": "Dresden",
     "strid_name": "459120",
     "ids_info": "66089",
     "info": "RHEINLAND\nBesiedelte Planeten\nKeine\nStützpunkte\nStation Leipzig\nStation Bautzen\nGrenzstation Pirna\nUnternehmen\nDaumann Hoch- und Tiefbau\nKrüger Mineralien\nKriminelle\nRote Hessen\nErzeugnisse\nKupfer\nHochtemperaturlegierungen\nDiamanten\nKobalt",
@@ -534629,7 +540014,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "Iw01",
-    "name": "Iw01",
+    "name": "Bering",
     "strid_name": "459156",
     "ids_info": "66083",
     "info": "UNABHÄNGIG\nBesiedelte Planeten\nKeine\nStützpunkte\nFreihafen 2\nUnternehmen\nKeine\nKriminelle\nUnionisten\nXenos\nRogues\nErzeugnisse\nLebensmittel",
@@ -534641,7 +540026,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "Iw02",
-    "name": "Iw02",
+    "name": "Hudson",
     "strid_name": "459158",
     "ids_info": "66097",
     "info": "UNABHÄNGIG\nBesiedelte Planeten\nKeine\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nXenos\nLiberty Rogues\nUnionisten\nErzeugnisse\nNichts",
@@ -534653,7 +540038,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "Iw03",
-    "name": "Iw03",
+    "name": "Magellan",
     "strid_name": "459160",
     "ids_info": "66101",
     "info": "UNABHÄNGIG\nBesiedelte Planeten\nKeine\nStützpunkte\nFreihafen 4\nUnternehmen\nKnappschaft der unabhängigen Bergleute\nKriminelle\nWegelagerer\nLiberty Rogues\nAusgestoßene\nErzeugnisse\nWasser\nSauerstoff",
@@ -534665,7 +540050,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "Iw04",
-    "name": "Iw04",
+    "name": "Cortez",
     "strid_name": "459162",
     "ids_info": "66088",
     "info": "UNABHÄNGIG\nBesiedelte Planeten\nCuraçao\nStützpunkte\nKeine\nUnternehmen\nOrbital Kuren und Kreuzfahrten\nKriminelle\nLiberty Rogues\nAusgestoßene\nWegelagerer\nErzeugnisse\nWasser\nSauerstoff",
@@ -534677,7 +540062,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "Iw05",
-    "name": "Iw05",
+    "name": "Kepler",
     "strid_name": "459164",
     "ids_info": "66098",
     "info": "UNABHÄNGIG\nBesiedelte Planeten\nKeine\nStützpunkte\nForschungsstation Ames\nUnternehmen\nDeep Space Engineering\nKriminelle\nXenos\nWegelagerer\nErzeugnisse\nNichts",
@@ -534689,7 +540074,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "Iw06",
-    "name": "Iw06",
+    "name": "Galileo",
     "strid_name": "459166",
     "ids_info": "66093",
     "info": "UNABHÄNGIG\nBesiedelte Planeten\nKeine\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nWegelagerer\nLiberty Rogues\nErzeugnisse\nNichts",
@@ -534701,7 +540086,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "Bw01",
-    "name": "Bw01",
+    "name": "Omega-3",
     "strid_name": "459136",
     "ids_info": "66108",
     "info": "GRENZWELTEN\nBesiedelte Planeten\nSprague (begrenzter Zutritt)\nStützpunkte\nFreihafen 1\nStation Rügen\nStation Douglas\nUnternehmen\nDaumann Hoch- und Tiefbau\nBretonia Mining and Metals\nPlanetform, Inc.\nKriminelle\nRote Hessen\nKorsaren\nErzeugnisse\nLebensmittel\nPolymere\nKohlenwasserstoffe\nSauerstoff\nWasser",
@@ -534713,7 +540098,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "Bw01b",
-    "name": "Bw01b",
+    "name": "Omega-3",
     "strid_name": "459136",
     "ids_info": "66108",
     "info": "GRENZWELTEN\nBesiedelte Planeten\nSprague (begrenzter Zutritt)\nStützpunkte\nFreihafen 1\nStation Rügen\nStation Douglas\nUnternehmen\nDaumann Hoch- und Tiefbau\nBretonia Mining and Metals\nPlanetform, Inc.\nKriminelle\nRote Hessen\nKorsaren\nErzeugnisse\nLebensmittel\nPolymere\nKohlenwasserstoffe\nSauerstoff\nWasser",
@@ -534725,7 +540110,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "Bw02",
-    "name": "Bw02",
+    "name": "Omega-5",
     "strid_name": "459138",
     "ids_info": "66110",
     "info": "GRENZWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nKorsaren\nRote Hessen\nErzeugnisse\nNichts",
@@ -534737,7 +540122,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "Bw03",
-    "name": "Bw03",
+    "name": "Omega-7",
     "strid_name": "459140",
     "ids_info": "66111",
     "info": "GRENZWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nAußenposten Friestadt\nBergbaustation Wismar\nBergbaustation Erlangen\nUnternehmen\nDaumann Hoch- und Tiefbau\nKrüger Mineralien\nKnappschaft der unabhängigen Bergleute\nKriminelle\nRote Hessen\nKorsaren\nErzeugnisse\nKupfer\nKobalt\nSilber",
@@ -534749,7 +540134,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "Bw04",
-    "name": "Bw04",
+    "name": "Omega-11",
     "strid_name": "459142",
     "ids_info": "66107",
     "info": "GRENZWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nStation Solarius\nUnternehmen\nDaumann Hoch- und Tiefbau\nKriminelle\nRote Hessen\nKorsaren\nErzeugnisse\nDiamanten",
@@ -534761,7 +540146,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "Bw05",
-    "name": "Bw05",
+    "name": "Sigma-13",
     "strid_name": "459144",
     "ids_info": "66118",
     "info": "GRENZWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nGasabbaustation\nNaha\nStation Helgoland\nUnternehmen\nKnappschaft der Gasschürfer\nALG Abfallentsorgung\nKriminelle\nKorsaren\nAusgestoßene\nSchrotties\nErzeugnisse\nH-Treibstoff\nSchrott",
@@ -534773,7 +540158,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "Bw06",
-    "name": "Bw06",
+    "name": "Sigma-17",
     "strid_name": "459146",
     "ids_info": "66119",
     "info": "GRENZWELTEN\nBesiedelte Planeten\nKurilen\nStützpunkte\nForschungsstation Atka\nUnternehmen\nSamura Industries\nCryer Pharmaceuticals\nKriminelle\nKorsaren\nAusgestoßene\nErzeugnisse\nXeno-Organismen",
@@ -534785,7 +540170,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "Bw07",
-    "name": "Bw07",
+    "name": "Sigma-19",
     "strid_name": "459148",
     "ids_info": "66120",
     "info": "GRENZWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nLuxusliner\nHawaii\nGasabbaustation\nOgashawa\nUnternehmen\nOrbital Kuren und Kreuzfahrten\nKnappschaft der Gasschürfer\nKishiro Technologies\nKriminelle\nAusgestoßene\nKorsaren\nErzeugnisse\nH-Treibstoff",
@@ -534797,7 +540182,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "Bw08",
-    "name": "Bw08",
+    "name": "Tau-23",
     "strid_name": "459150",
     "ids_info": "66122",
     "info": "GRENZWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nStation Java\nTau 31-Sprungtor\nUnternehmen\nBretonia Mining and Metals\nKnappschaft der unabhängigen Bergleute\nDeep Space Engineering\nKriminelle\nAusgestoßene\nErzeugnisse\nBeryllium\nNiob",
@@ -534809,7 +540194,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "Bw09",
-    "name": "Bw09",
+    "name": "Tau-29",
     "strid_name": "459152",
     "ids_info": "66123",
     "info": "GRENZWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nStation Nago\nStation Shinkaku\nFreihafen 6\nUnternehmen\nKishiro Technologies\nSamura Industries\nKriminelle\nAusgestoßene\nErzeugnisse\nPolymere\nKohlenwasserstoffe\nDünger\nLebensmittel\nTerraforming-Gase\nSauerstoff\nWasser",
@@ -534821,7 +540206,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "Bw10",
-    "name": "Bw10",
+    "name": "Tau-31",
     "strid_name": "459154",
     "ids_info": "66124",
     "info": "GRENZWELTEN\nBesiedelte Planeten\nHarris\nStützpunkte\nAußenposten Holman\nUnternehmen\nPlanetform, Inc.\nKnappschaft der unabhängigen Bergleute\nKriminelle\nAusgestoßene\nGaianer\nErzeugnisse\nSauerstoff\nWasser",
@@ -534833,7 +540218,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "Ew01",
-    "name": "Ew01",
+    "name": "Tau-37",
     "strid_name": "459168",
     "ids_info": "66125",
     "info": "RANDWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nFreihafen 10\nStützpunkt Falkland\nUnternehmen\nKnappschaft der unabhängigen Bergleute\nKriminelle\nAusgestoßene\nErzeugnisse\nNiob\nWasser\nLebensmittel",
@@ -534845,7 +540230,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "Ew02",
-    "name": "Ew02",
+    "name": "Omicron Beta",
     "strid_name": "459170",
     "ids_info": "66113",
     "info": "RANDWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nAusgestoßene\nErzeugnisse\nXeno-Organismen",
@@ -534857,7 +540242,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "Ew03",
-    "name": "Ew03",
+    "name": "Omega-41",
     "strid_name": "459172",
     "ids_info": "66109",
     "info": "RANDWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nFreihafen 5\nUnternehmen\nKeine\nKriminelle\nKorsaren\nRote Hessen\nErzeugnisse\nNichts",
@@ -534869,7 +540254,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "Ew04",
-    "name": "Ew04",
+    "name": "Omicron Theta",
     "strid_name": "459174",
     "ids_info": "66116",
     "info": "RANDWELTEN\nBesiedelte Planeten\nPygar (begrenzter Zutritt)\nStützpunkte\nFreihafen 9\nUnternehmen\nKeine\nKriminelle\nKorsaren\nErzeugnisse\nLebensmittel\nXeno-Artefakte\nXeno-Organismen",
@@ -534881,7 +540266,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "Hi01",
-    "name": "Hi01",
+    "name": "Omicron Alpha",
     "strid_name": "459176",
     "ids_info": "66112",
     "info": "AUSGESTOSSENE\nBesiedelte Planeten\nMalta\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nAusgestoßene\nErzeugnisse\nSauerstoff\nWasser\nLebensmittel\nSchaumkraut",
@@ -534893,7 +540278,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "Hi02",
-    "name": "Hi02",
+    "name": "Omicron Gamma",
     "strid_name": "459178",
     "ids_info": "66114",
     "info": "KORSAREN\nBesiedelte Planeten\nKreta\nStützpunkte\nTripoli-Werft\nUnternehmen\nKeine\nKriminelle\nKorsaren\nErzeugnisse\nSauerstoff\nWasser\nArtefakte",
@@ -534905,7 +540290,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "St01",
-    "name": "St01",
+    "name": "Omicron Minor",
     "strid_name": "459180",
     "ids_info": "66115",
     "info": "NOMADEN\nBesiedelte Planeten\n???\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nUnbekannt\nErzeugnisse\nNichts",
@@ -534917,7 +540302,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "St02",
-    "name": "St02",
+    "name": "Nomads Lair",
     "strid_name": "459242",
     "ids_info": "66115",
     "info": "NOMADEN\nBesiedelte Planeten\n???\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nUnbekannt\nErzeugnisse\nNichts",
@@ -534929,7 +540314,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "St02tk",
-    "name": "St02tk",
+    "name": "Nomads Lair",
     "strid_name": "459242",
     "ids_info": "66115",
     "info": "NOMADEN\nBesiedelte Planeten\n???\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nUnbekannt\nErzeugnisse\nNichts",
@@ -534941,7 +540326,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "St03",
-    "name": "St03",
+    "name": "Outer Dyson Sphere",
     "strid_name": "459246",
     "ids_info": "66115",
     "info": "NOMADEN\nBesiedelte Planeten\n???\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nUnbekannt\nErzeugnisse\nNichts",
@@ -534953,7 +540338,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "St03b",
-    "name": "St03b",
+    "name": "Dyson Sphere",
     "strid_name": "459240",
     "ids_info": "66115",
     "info": "NOMADEN\nBesiedelte Planeten\n???\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nUnbekannt\nErzeugnisse\nNichts",
@@ -534965,7 +540350,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "St03b2",
-    "name": "St03b2",
+    "name": "Dyson Sphere",
     "strid_name": "459240",
     "ids_info": "66115",
     "info": "NOMADEN\nBesiedelte Planeten\n???\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nUnbekannt\nErzeugnisse\nNichts",
@@ -534977,7 +540362,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "St02c",
-    "name": "St02c",
+    "name": "Omicron Major",
     "strid_name": "459182",
     "ids_info": "66115",
     "info": "NOMADEN\nBesiedelte Planeten\n???\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nUnbekannt\nErzeugnisse\nNichts",
@@ -534989,7 +540374,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "Ew05",
-    "name": "Ew05",
+    "name": "Unknown",
     "strid_name": "459274",
     "ids_info": "66115",
     "info": "NOMADEN\nBesiedelte Planeten\n???\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nUnbekannt\nErzeugnisse\nNichts",
@@ -535001,7 +540386,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "Ew06",
-    "name": "Ew06",
+    "name": "Unknown",
     "strid_name": "459274",
     "ids_info": "66115",
     "info": "NOMADEN\nBesiedelte Planeten\n???\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nUnbekannt\nErzeugnisse\nNichts",
@@ -535013,7 +540398,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "FP7_system",
-    "name": "FP7_system",
+    "name": "Freeport 7",
     "strid_name": "459244",
     "ids_info": "",
     "info": "",
@@ -535025,7 +540410,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "FP7_systemmp",
-    "name": "FP7_systemmp",
+    "name": "Freeport 7",
     "strid_name": "459244",
     "ids_info": "",
     "info": "",
@@ -535037,7 +540422,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF01",
-    "name": "CF01",
+    "name": "X-3043",
     "strid_name": "459238",
     "ids_info": "458912",
     "info": "",
@@ -535049,7 +540434,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF01t",
-    "name": "CF01t",
+    "name": "X-3043",
     "strid_name": "459238",
     "ids_info": "458912",
     "info": "",
@@ -535061,7 +540446,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF01tk",
-    "name": "CF01tk",
+    "name": "X-3043",
     "strid_name": "459238",
     "ids_info": "458912",
     "info": "",
@@ -535073,7 +540458,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF01tn",
-    "name": "CF01tn",
+    "name": "X-3043",
     "strid_name": "459238",
     "ids_info": "458912",
     "info": "",
@@ -535085,7 +540470,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF01tn2",
-    "name": "CF01tn2",
+    "name": "X-3043",
     "strid_name": "459238",
     "ids_info": "458912",
     "info": "",
@@ -535097,7 +540482,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF01ts",
-    "name": "CF01ts",
+    "name": "X-3043",
     "strid_name": "459238",
     "ids_info": "458912",
     "info": "",
@@ -535109,7 +540494,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF02",
-    "name": "CF02",
+    "name": "Custodian",
     "strid_name": "459236",
     "ids_info": "458913",
     "info": "",
@@ -535121,7 +540506,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF03",
-    "name": "CF03",
+    "name": "Tarsus",
     "strid_name": "459248",
     "ids_info": "458914",
     "info": "",
@@ -535133,7 +540518,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF04",
-    "name": "CF04",
+    "name": "Vega",
     "strid_name": "459250",
     "ids_info": "458915",
     "info": "",
@@ -535145,7 +540530,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF05",
-    "name": "CF05",
+    "name": "Telosis",
     "strid_name": "459252",
     "ids_info": "458916",
     "info": "",
@@ -535157,7 +540542,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF06",
-    "name": "CF06",
+    "name": "Daedalus",
     "strid_name": "459254",
     "ids_info": "458917",
     "info": "",
@@ -535169,7 +540554,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF07",
-    "name": "CF07",
+    "name": "Helios",
     "strid_name": "459256",
     "ids_info": "458918",
     "info": "",
@@ -535181,7 +540566,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF08",
-    "name": "CF08",
+    "name": "Seltos",
     "strid_name": "459258",
     "ids_info": "458919",
     "info": "",
@@ -535193,7 +540578,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF09",
-    "name": "CF09",
+    "name": "Neophobos",
     "strid_name": "459260",
     "ids_info": "458920",
     "info": "",
@@ -535205,7 +540590,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF10",
-    "name": "CF10",
+    "name": "Vespus",
     "strid_name": "459262",
     "ids_info": "458921",
     "info": "",
@@ -535217,7 +540602,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF11",
-    "name": "CF11",
+    "name": "Regalis",
     "strid_name": "459264",
     "ids_info": "458922",
     "info": "",
@@ -535229,7 +540614,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF12",
-    "name": "CF12",
+    "name": "Casius",
     "strid_name": "459266",
     "ids_info": "458923",
     "info": "",
@@ -535241,7 +540626,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF41",
-    "name": "CF41",
+    "name": "Hive",
     "strid_name": "459270",
     "ids_info": "458951",
     "info": "",
@@ -535253,7 +540638,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF13",
-    "name": "CF13",
+    "name": "Arena",
     "strid_name": "459268",
     "ids_info": "458886",
     "info": "",
@@ -535265,7 +540650,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF14",
-    "name": "CF14",
+    "name": "Nephele",
     "strid_name": "459224",
     "ids_info": "458924",
     "info": "",
@@ -535277,7 +540662,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF14tk",
-    "name": "CF14tk",
+    "name": "Nephele",
     "strid_name": "459224",
     "ids_info": "458924",
     "info": "",
@@ -535289,7 +540674,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF15",
-    "name": "CF15",
+    "name": "Enyo",
     "strid_name": "459226",
     "ids_info": "458925",
     "info": "",
@@ -535301,7 +540686,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF16",
-    "name": "CF16",
+    "name": "Enigma",
     "strid_name": "459228",
     "ids_info": "458926",
     "info": "",
@@ -535313,7 +540698,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF17",
-    "name": "CF17",
+    "name": "Sekar",
     "strid_name": "459230",
     "ids_info": "458927",
     "info": "",
@@ -535325,7 +540710,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF18",
-    "name": "CF18",
+    "name": "Death Valley",
     "strid_name": "459234",
     "ids_info": "458928",
     "info": "",
@@ -535337,7 +540722,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF18tk",
-    "name": "CF18tk",
+    "name": "Death Valley",
     "strid_name": "459234",
     "ids_info": "458928",
     "info": "",
@@ -535349,7 +540734,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "rw01",
-    "name": "rw01",
+    "name": "Wheel of Sirius",
     "strid_name": "459232",
     "ids_info": "481746",
     "info": "",
@@ -535361,7 +540746,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF20",
-    "name": "CF20",
+    "name": "Sol",
     "strid_name": "459276",
     "ids_info": "458930",
     "info": "",
@@ -535373,7 +540758,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF20t",
-    "name": "CF20t",
+    "name": "Sol",
     "strid_name": "459276",
     "ids_info": "458930",
     "info": "",
@@ -535385,7 +540770,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF53",
-    "name": "CF53",
+    "name": "Planet Lost Paradise",
     "strid_name": "459282",
     "ids_info": "458962",
     "info": "",
@@ -535397,7 +540782,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF54",
-    "name": "CF54",
+    "name": "Lost Paradise",
     "strid_name": "459284",
     "ids_info": "458962",
     "info": "",
@@ -535409,7 +540794,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF55",
-    "name": "CF55",
+    "name": "Unknown",
     "strid_name": "459274",
     "ids_info": "458963",
     "info": "",
@@ -535421,7 +540806,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF56",
-    "name": "CF56",
+    "name": "Unknown",
     "strid_name": "459274",
     "ids_info": "458964",
     "info": "",
@@ -535433,7 +540818,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF57",
-    "name": "CF57",
+    "name": "Unknown",
     "strid_name": "459274",
     "ids_info": "458965",
     "info": "",
@@ -535445,7 +540830,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF58",
-    "name": "CF58",
+    "name": "Hyperspace",
     "strid_name": "459308",
     "ids_info": "",
     "info": "",
@@ -535457,7 +540842,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF59",
-    "name": "CF59",
+    "name": "Utopia",
     "strid_name": "459310",
     "ids_info": "458966",
     "info": "",
@@ -535469,7 +540854,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF19",
-    "name": "CF19",
+    "name": "Hiruga",
     "strid_name": "459184",
     "ids_info": "458929",
     "info": "",
@@ -535481,7 +540866,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF21",
-    "name": "CF21",
+    "name": "Inner Cloud",
     "strid_name": "459204",
     "ids_info": "458931",
     "info": "",
@@ -535493,7 +540878,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF22",
-    "name": "CF22",
+    "name": "The Corridor",
     "strid_name": "459206",
     "ids_info": "458932",
     "info": "",
@@ -535505,7 +540890,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF23",
-    "name": "CF23",
+    "name": "Hyperion",
     "strid_name": "459208",
     "ids_info": "458933",
     "info": "",
@@ -535517,7 +540902,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF24",
-    "name": "CF24",
+    "name": "Far Point",
     "strid_name": "459210",
     "ids_info": "458934",
     "info": "",
@@ -535529,7 +540914,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF25",
-    "name": "CF25",
+    "name": "Sea of Shadows",
     "strid_name": "459212",
     "ids_info": "458935",
     "info": "",
@@ -535541,7 +540926,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF26",
-    "name": "CF26",
+    "name": "Oasis",
     "strid_name": "459214",
     "ids_info": "458936",
     "info": "",
@@ -535553,7 +540938,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF27",
-    "name": "CF27",
+    "name": "Midpoint Rift",
     "strid_name": "459216",
     "ids_info": "458937",
     "info": "",
@@ -535565,7 +540950,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF28",
-    "name": "CF28",
+    "name": "Wanderer's Pond",
     "strid_name": "459218",
     "ids_info": "458938",
     "info": "",
@@ -535577,7 +540962,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF29",
-    "name": "CF29",
+    "name": "Quantos",
     "strid_name": "459220",
     "ids_info": "458939",
     "info": "",
@@ -535589,7 +540974,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF30",
-    "name": "CF30",
+    "name": "Purian Lake",
     "strid_name": "459222",
     "ids_info": "458940",
     "info": "",
@@ -535601,7 +540986,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF31",
-    "name": "CF31",
+    "name": "Styx",
     "strid_name": "459272",
     "ids_info": "458941",
     "info": "",
@@ -535613,7 +540998,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF32",
-    "name": "CF32",
+    "name": "Coloseum",
     "strid_name": "459186",
     "ids_info": "458942",
     "info": "",
@@ -535625,7 +541010,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF33",
-    "name": "CF33",
+    "name": "Mandar",
     "strid_name": "459188",
     "ids_info": "458943",
     "info": "",
@@ -535637,7 +541022,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF34",
-    "name": "CF34",
+    "name": "Gurm",
     "strid_name": "459190",
     "ids_info": "458944",
     "info": "",
@@ -535649,7 +541034,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF35",
-    "name": "CF35",
+    "name": "Gladius",
     "strid_name": "459192",
     "ids_info": "458945",
     "info": "",
@@ -535661,7 +541046,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF36",
-    "name": "CF36",
+    "name": "Sovetskaya",
     "strid_name": "459194",
     "ids_info": "458946",
     "info": "",
@@ -535673,7 +541058,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF37",
-    "name": "CF37",
+    "name": "Tomsk",
     "strid_name": "459196",
     "ids_info": "458947",
     "info": "",
@@ -535685,7 +541070,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF38",
-    "name": "CF38",
+    "name": "Vorkuta",
     "strid_name": "459198",
     "ids_info": "458948",
     "info": "",
@@ -535697,7 +541082,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF39",
-    "name": "CF39",
+    "name": "Yakutsk",
     "strid_name": "459200",
     "ids_info": "458949",
     "info": "",
@@ -535709,7 +541094,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF40",
-    "name": "CF40",
+    "name": "Kandiris",
     "strid_name": "459202",
     "ids_info": "458950",
     "info": "",
@@ -535721,7 +541106,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF42",
-    "name": "CF42",
+    "name": "Hieron",
     "strid_name": "459286",
     "ids_info": "458952",
     "info": "",
@@ -535733,7 +541118,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF43",
-    "name": "CF43",
+    "name": "Jokusuka",
     "strid_name": "459288",
     "ids_info": "458953",
     "info": "",
@@ -535745,7 +541130,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF44",
-    "name": "CF44",
+    "name": "Spica",
     "strid_name": "459290",
     "ids_info": "458954",
     "info": "",
@@ -535757,7 +541142,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF45",
-    "name": "CF45",
+    "name": "Pretoria",
     "strid_name": "459292",
     "ids_info": "458955",
     "info": "",
@@ -535769,7 +541154,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF46",
-    "name": "CF46",
+    "name": "Tonga",
     "strid_name": "459294",
     "ids_info": "458976",
     "info": "",
@@ -535781,7 +541166,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF47",
-    "name": "CF47",
+    "name": "Scotia",
     "strid_name": "459296",
     "ids_info": "458956",
     "info": "",
@@ -535793,7 +541178,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF48",
-    "name": "CF48",
+    "name": "Menton",
     "strid_name": "459298",
     "ids_info": "458957",
     "info": "",
@@ -535805,7 +541190,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF49",
-    "name": "CF49",
+    "name": "Lemnos",
     "strid_name": "459300",
     "ids_info": "458958",
     "info": "",
@@ -535817,7 +541202,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF50",
-    "name": "CF50",
+    "name": "Mitra",
     "strid_name": "459302",
     "ids_info": "458959",
     "info": "",
@@ -535829,7 +541214,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF51",
-    "name": "CF51",
+    "name": "Mira Ceti",
     "strid_name": "459304",
     "ids_info": "458960",
     "info": "",
@@ -535841,7 +541226,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF52",
-    "name": "CF52",
+    "name": "Ptah",
     "strid_name": "459306",
     "ids_info": "458961",
     "info": "",
@@ -535853,7 +541238,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF60",
-    "name": "CF60",
+    "name": "Inner Core",
     "strid_name": "459278",
     "ids_info": "470592",
     "info": "",
@@ -535865,7 +541250,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF60b",
-    "name": "CF60b",
+    "name": "Inner Core",
     "strid_name": "459278",
     "ids_info": "470592",
     "info": "",
@@ -535877,7 +541262,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF60c",
-    "name": "CF60c",
+    "name": "Inner Core",
     "strid_name": "459278",
     "ids_info": "470592",
     "info": "",
@@ -535889,7 +541274,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF61",
-    "name": "CF61",
+    "name": "New Hongkong",
     "strid_name": "459280",
     "ids_info": "481749",
     "info": "",
@@ -535901,7 +541286,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF62",
-    "name": "CF62",
+    "name": "Gagarin",
     "strid_name": "472083",
     "ids_info": "481750",
     "info": "",
@@ -535913,7 +541298,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF63",
-    "name": "CF63",
+    "name": "Kalinin",
     "strid_name": "472086",
     "ids_info": "481751",
     "info": "",
@@ -535925,7 +541310,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF64",
-    "name": "CF64",
+    "name": "New Beijing",
     "strid_name": "471052",
     "ids_info": "481752",
     "info": "",
@@ -535937,7 +541322,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF65",
-    "name": "CF65",
+    "name": "Guangdong",
     "strid_name": "472105",
     "ids_info": "481753",
     "info": "",
@@ -535949,7 +541334,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF66",
-    "name": "CF66",
+    "name": "New Mekka",
     "strid_name": "472113",
     "ids_info": "481754",
     "info": "",
@@ -535961,7 +541346,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF67",
-    "name": "CF67",
+    "name": "Er Riad",
     "strid_name": "472115",
     "ids_info": "481748",
     "info": "",
@@ -535973,7 +541358,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF68",
-    "name": "CF68",
+    "name": "Nedjef",
     "strid_name": "472117",
     "ids_info": "481747",
     "info": "",
@@ -535985,7 +541370,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF68b",
-    "name": "CF68b",
+    "name": "Nedjef",
     "strid_name": "472117",
     "ids_info": "481747",
     "info": "",
@@ -535997,7 +541382,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF69",
-    "name": "CF69",
+    "name": "Meschhed",
     "strid_name": "472119",
     "ids_info": "481755",
     "info": "",
@@ -536009,7 +541394,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF70",
-    "name": "CF70",
+    "name": "Dervon",
     "strid_name": "471674",
     "ids_info": "471677",
     "info": "",
@@ -536021,7 +541406,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF71",
-    "name": "CF71",
+    "name": "Venn",
     "strid_name": "471706",
     "ids_info": "471708",
     "info": "",
@@ -536033,7 +541418,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF72",
-    "name": "CF72",
+    "name": "Jormdar",
     "strid_name": "471712",
     "ids_info": "471708",
     "info": "",
@@ -536045,7 +541430,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF73",
-    "name": "CF73",
+    "name": "Celldra",
     "strid_name": "471729",
     "ids_info": "471708",
     "info": "",
@@ -536057,7 +541442,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF74",
-    "name": "CF74",
+    "name": "Sadurn",
     "strid_name": "471731",
     "ids_info": "471708",
     "info": "",
@@ -536069,7 +541454,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF75",
-    "name": "CF75",
+    "name": "Pyrddra",
     "strid_name": "471733",
     "ids_info": "471708",
     "info": "",
@@ -536081,7 +541466,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF76",
-    "name": "CF76",
+    "name": "Mepther",
     "strid_name": "471735",
     "ids_info": "471708",
     "info": "",
@@ -536093,7 +541478,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF77",
-    "name": "CF77",
+    "name": "Ryssk",
     "strid_name": "471737",
     "ids_info": "471708",
     "info": "",
@@ -536105,7 +541490,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF78",
-    "name": "CF78",
+    "name": "Weth",
     "strid_name": "471779",
     "ids_info": "471708",
     "info": "",
@@ -536117,7 +541502,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF79",
-    "name": "CF79",
+    "name": "Rhuntath",
     "strid_name": "471781",
     "ids_info": "471708",
     "info": "",
@@ -536129,7 +541514,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF80",
-    "name": "CF80",
+    "name": "Loret",
     "strid_name": "471783",
     "ids_info": "471708",
     "info": "",
@@ -536141,7 +541526,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF81",
-    "name": "CF81",
+    "name": "Zhiklor",
     "strid_name": "471785",
     "ids_info": "471708",
     "info": "",
@@ -536153,7 +541538,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF82",
-    "name": "CF82",
+    "name": "Whyr",
     "strid_name": "471787",
     "ids_info": "471708",
     "info": "",
@@ -536165,7 +541550,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF83",
-    "name": "CF83",
+    "name": "Lenas",
     "strid_name": "471789",
     "ids_info": "471708",
     "info": "",
@@ -536177,7 +541562,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF84",
-    "name": "CF84",
+    "name": "Dras",
     "strid_name": "471791",
     "ids_info": "471708",
     "info": "",
@@ -536189,7 +541574,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF85",
-    "name": "CF85",
+    "name": "Minnck",
     "strid_name": "471793",
     "ids_info": "471708",
     "info": "",
@@ -536201,7 +541586,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF86",
-    "name": "CF86",
+    "name": "Bimia",
     "strid_name": "471795",
     "ids_info": "471708",
     "info": "",
@@ -536213,7 +541598,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF87",
-    "name": "CF87",
+    "name": "Timath",
     "strid_name": "471797",
     "ids_info": "471708",
     "info": "",
@@ -536225,7 +541610,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF88",
-    "name": "CF88",
+    "name": "Lintkin",
     "strid_name": "471799",
     "ids_info": "471708",
     "info": "",
@@ -536237,7 +541622,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF89",
-    "name": "CF89",
+    "name": "Sorror",
     "strid_name": "471801",
     "ids_info": "471708",
     "info": "",
@@ -536249,7 +541634,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF90",
-    "name": "CF90",
+    "name": "Trawtai",
     "strid_name": "471803",
     "ids_info": "471708",
     "info": "",
@@ -536261,7 +541646,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF90b",
-    "name": "CF90b",
+    "name": "Trawtai",
     "strid_name": "471803",
     "ids_info": "471708",
     "info": "",
@@ -536273,7 +541658,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF91",
-    "name": "CF91",
+    "name": "Phanchdar",
     "strid_name": "471805",
     "ids_info": "471708",
     "info": "",
@@ -536285,7 +541670,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF92",
-    "name": "CF92",
+    "name": "Relenth",
     "strid_name": "471807",
     "ids_info": "471708",
     "info": "",
@@ -536297,7 +541682,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF93",
-    "name": "CF93",
+    "name": "Crallard",
     "strid_name": "471809",
     "ids_info": "471708",
     "info": "",
@@ -536309,7 +541694,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF94",
-    "name": "CF94",
+    "name": "Assris",
     "strid_name": "500896",
     "ids_info": "471708",
     "info": "",
@@ -536321,7 +541706,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF95",
-    "name": "CF95",
+    "name": "Kinak",
     "strid_name": "500898",
     "ids_info": "471708",
     "info": "",
@@ -536333,7 +541718,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF96",
-    "name": "CF96",
+    "name": "Keltur",
     "strid_name": "500900",
     "ids_info": "471708",
     "info": "",
@@ -536345,7 +541730,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF97",
-    "name": "CF97",
+    "name": "Belay",
     "strid_name": "500902",
     "ids_info": "471708",
     "info": "",
@@ -536357,7 +541742,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF98",
-    "name": "CF98",
+    "name": "Banysia",
     "strid_name": "500904",
     "ids_info": "471708",
     "info": "",
@@ -536369,7 +541754,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF99",
-    "name": "CF99",
+    "name": "Triam",
     "strid_name": "481536",
     "ids_info": "471708",
     "info": "",
@@ -536393,7 +541778,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF100",
-    "name": "CF100",
+    "name": "Epsilon Eridani",
     "strid_name": "480779",
     "ids_info": "480781",
     "info": "",
@@ -536405,7 +541790,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF101",
-    "name": "CF101",
+    "name": "Tau Ceti",
     "strid_name": "480780",
     "ids_info": "480782",
     "info": "",
@@ -536417,7 +541802,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF103",
-    "name": "CF103",
+    "name": "Hive",
     "strid_name": "459270",
     "ids_info": "458951",
     "info": "",
@@ -536429,7 +541814,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF104",
-    "name": "CF104",
+    "name": "Epsilon Indi",
     "strid_name": "501851",
     "ids_info": "501852",
     "info": "",
@@ -536441,7 +541826,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF105",
-    "name": "CF105",
+    "name": "Luyten",
     "strid_name": "501849",
     "ids_info": "501850",
     "info": "",
@@ -536453,7 +541838,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF106",
-    "name": "CF106",
+    "name": "Alsace",
     "strid_name": "501855",
     "ids_info": "501856",
     "info": "",
@@ -536465,7 +541850,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF107",
-    "name": "CF107",
+    "name": "New Caledonia",
     "strid_name": "501859",
     "ids_info": "501860",
     "info": "",
@@ -536477,7 +541862,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF108",
-    "name": "CF108",
+    "name": "Burgundy",
     "strid_name": "501857",
     "ids_info": "501858",
     "info": "",
@@ -536489,7 +541874,7 @@ const UNIVERSE_SYSTEMS = [
   },
   {
     "nickname": "CF109",
-    "name": "CF109",
+    "name": "Procyon",
     "strid_name": "501853",
     "ids_info": "501854",
     "info": "",
@@ -536498,5 +541883,1722 @@ const UNIVERSE_SYSTEMS = [
     "file": "systems\\CF109\\CF109.ini",
     "reputation": "",
     "visit": "0"
+  }
+];
+
+const UNIVERSE_SECTORS = [
+  {
+    "key": "sector01",
+    "name": "Sector 1",
+    "layout": {
+      "x": 0.245,
+      "y": -0.275
+    },
+    "labels": [
+      {
+        "id": "001249",
+        "text": "001249",
+        "x": -0.05,
+        "y": 0.01
+      },
+      {
+        "id": "001251",
+        "text": "001251",
+        "x": -0.05,
+        "y": 0.17
+      },
+      {
+        "id": "001252",
+        "text": "001252",
+        "x": 0.055,
+        "y": -0.153
+      },
+      {
+        "id": "001250",
+        "text": "001250",
+        "x": -0.255,
+        "y": -0.153
+      }
+    ],
+    "systems": [
+      {
+        "nickname": "Hi01",
+        "name": "Omicron Alpha",
+        "strid_name": "459176",
+        "ids_info": "66112",
+        "info": "AUSGESTOSSENE\nBesiedelte Planeten\nMalta\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nAusgestoßene\nErzeugnisse\nSauerstoff\nWasser\nLebensmittel\nSchaumkraut",
+        "x": 8.0,
+        "z": 0.0
+      },
+      {
+        "nickname": "Li05",
+        "name": "Alaska",
+        "strid_name": "459098",
+        "ids_info": "66082",
+        "info": "LIBERTY\nBesiedelte Planeten\nGEHEIM\nStützpunkte\nGEHEIM\nUnternehmen\nGEHEIM\nKriminelle\nGEHEIM\nErzeugnisse\nGEHEIM",
+        "x": 9.0,
+        "z": 7.0
+      },
+      {
+        "nickname": "Li01",
+        "name": "New York",
+        "strid_name": "459090",
+        "ids_info": "66106",
+        "info": "LIBERTY\nBesiedelte Planeten\nManhattan\nPittsburgh\nStützpunkte\nFt. Bush\nStation Newark\nAußenposten Trenton\nDetroiter Munitionswerke\nAkademie West Point\nNorfolk-Werft\nBaltimore-Werft\nSchlachtschiff\nMissouri\nUnternehmen\nAgeira Technologies\nInterspace Commerce\nUniversal Shipping\nDeep Space Engineering\nLiberty Police, Inc.\nKriminelle\nLiberty Rogues\nAusgestoßene\nXenos\nSchrotties\nErzeugnisse\nBor\nSeitenwaffen\nLuxusgüter\nGiftmüll",
+        "x": 7.0,
+        "z": 8.0
+      },
+      {
+        "nickname": "Li03",
+        "name": "Colorado",
+        "strid_name": "459094",
+        "ids_info": "66087",
+        "info": "LIBERTY\nBesiedelte Planeten\nDenver\nStützpunkte\nStation Pueblo\nSchlachtschiff\nRio Grande\nUnternehmen\nAgeira Technologies\nCryer Pharmaceuticals\nKriminelle\nXenos\nLiberty Rogues\nErzeugnisse\nPharmazeutika\nSupraleiter\nSuperlegierungen\nBauteile für Handelsrouten\nTerraforming-Gase\nGiftmüll",
+        "x": 7.0,
+        "z": 7.0
+      },
+      {
+        "nickname": "Rh05",
+        "name": "Dresden",
+        "strid_name": "459120",
+        "ids_info": "66089",
+        "info": "RHEINLAND\nBesiedelte Planeten\nKeine\nStützpunkte\nStation Leipzig\nStation Bautzen\nGrenzstation Pirna\nUnternehmen\nDaumann Hoch- und Tiefbau\nKrüger Mineralien\nKriminelle\nRote Hessen\nErzeugnisse\nKupfer\nHochtemperaturlegierungen\nDiamanten\nKobalt",
+        "x": 11.0,
+        "z": 12.0
+      },
+      {
+        "nickname": "Rh01",
+        "name": "New Berlin",
+        "strid_name": "459112",
+        "ids_info": "66103",
+        "info": "RHEINLAND\nBesiedelte Planeten\nNeu-Berlin\nStützpunkte\nDer Ring\nStation Dortmund\nStation Essen\nStation Bonn\nOder-Werft\nGrenzstation Brandenburg\nUnternehmen\nDaumann Hoch- und Tiefbau\nKrüger Mineralien\nALG Abfallentsorgung\nRepublikanische Großspedition\nInterspace Commerce\nKriminelle\nRote Hessen\nBundschuh\nUnionisten\nLWB\nSchrotties\nErzeugnisse\nMOX\nKonsumgüter\nTriebwerkteile\nBaumaschinen\nBergbaumaschinen\nGrundlegierungen\nHochtemperaturlegierungen\nGiftmüll\nSauerstoff\nWasser\nSchiffsrumpfplatten",
+        "x": 11.0,
+        "z": 11.0
+      },
+      {
+        "nickname": "Rh03",
+        "name": "Stuttgart",
+        "strid_name": "459116",
+        "ids_info": "66121",
+        "info": "RHEINLAND\nBesiedelte Planeten\nStuttgart\nBaden-Baden\nStützpunkte\nStation Freiburg\nGrenzstation Ulm\nGrenzstation Konstanz\nUnternehmen\nSynth Foods\nOrbital Kuren und Kreuzfahrten\nRepublikanische Großspedition\nKriminelle\nRote Hessen\nLWB\nErzeugnisse\nLebensmittel\nLuxuslebensmittel",
+        "x": 10.0,
+        "z": 11.0
+      },
+      {
+        "nickname": "Br06",
+        "name": "Edinburgh",
+        "strid_name": "459110",
+        "ids_info": "66091",
+        "info": "BRETONIA\nBesiedelte Planeten\nGaia (begrenzter Zutritt)\nStützpunkte\nStation Perth\nLuxusliner\nShetland\nUnternehmen\nOrbital Kuren und Kreuzfahrten\nPlanetform, Inc.\nKriminelle\nGaianer\nAusgestoßene\nErzeugnisse\nWasser\nSauerstoff",
+        "x": 0.0,
+        "z": 10.0
+      },
+      {
+        "nickname": "Br04",
+        "name": "Leeds",
+        "strid_name": "459106",
+        "ids_info": "66100",
+        "info": "BRETONIA\nBesiedelte Planeten\nLeeds\nStützpunkte\nLD-14\nBergbaustation Stokes\nAußenposten Glasgow\nSchlachtschiff\nYork\nGrenzstation Durham\nUnternehmen\nBowex\nBretonia Mining and Metals\nKriminelle\nMollys\nGaianer\nAusgestoßene\nErzeugnisse\nMOX\nBergbaumaschinen\nBaumaschinen\nSeitenwaffen\nRumpfplatten\nGrundlegierungen\nSuperlegierungen\nTerraforming-Gase\nGiftmüll\nNiob",
+        "x": 2.0,
+        "z": 9.0
+      },
+      {
+        "nickname": "Br02",
+        "name": "Manchester",
+        "strid_name": "459102",
+        "ids_info": "66102",
+        "info": "BRETONIA\nBesiedelte Planeten\nKeine\nStützpunkte\nStation Birmingham\nStation Sheffield\nBPA\nNewgate\nGrenzstation Liverpool\nGrenzstation Kingston\nUnternehmen\nBretonia Mining and Metals\nGilde der Kopfgeldjäger\nKriminelle\nMollys\nGaianer\nWegelagerer\nAusgestoßene\nErzeugnisse\nPolymere\nKohlenwasserstoffe\nTerraforming-Gase\nSauerstoff\nWasser",
+        "x": 4.0,
+        "z": 10.0
+      },
+      {
+        "nickname": "Ku06",
+        "name": "Chugoku",
+        "strid_name": "459132",
+        "ids_info": "66086",
+        "info": "KUSARI\nBesiedelte Planeten\nKeine\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nUnbekannt\nErzeugnisse\nNichts",
+        "x": 7.0,
+        "z": 2.0
+      },
+      {
+        "nickname": "Ku04",
+        "name": "Honshu",
+        "strid_name": "459128",
+        "ids_info": "66096",
+        "info": "KUSARI\nBesiedelte Planeten\nHonshu\nStützpunkte\nStation Aomori\nLager Osaka\nForschungsstation Kansai\nYukawa-Werft\nGrenzstation Akita\nUnternehmen\nKishiro Technologies\nSamura Industries\nKnappschaft der Gasschürfer\nKriminelle\nBlutdrachen\nBauernallianz\nKorsaren\nAusgestoßene\nErzeugnisse\nTriebwerkteile\nBaumaschinen\nOptronik\nH-Treibstoff",
+        "x": 8.0,
+        "z": 4.0
+      },
+      {
+        "nickname": "Ku02",
+        "name": "Shikoku",
+        "strid_name": "459124",
+        "ids_info": "66117",
+        "info": "KUSARI\nBesiedelte Planeten\nJunyo\nStützpunkte\nStation Deshima\nGefängnis von Fuchu\nSchlachtschiff\nMyoko\nGrenzstation Ohashi\nUnternehmen\nSamura Industries\nKishiro Technologies\nGilde der Kopfgeldjäger\nSynth Foods\nKriminelle\nBlutdrachen\nGoldenen Chrysanthemen\nErzeugnisse\nLebensmittel\nLuxuslebensmittel\nKonsumgüter\nKohlenwasserstoffe",
+        "x": 7.0,
+        "z": 5.0
+      },
+      {
+        "nickname": "FP7_system",
+        "name": "Freeport 7",
+        "strid_name": "459244",
+        "ids_info": "",
+        "info": "",
+        "x": 14.0,
+        "z": 6.0
+      },
+      {
+        "nickname": "FP7_systemmp",
+        "name": "Freeport 7",
+        "strid_name": "459244",
+        "ids_info": "",
+        "info": "",
+        "x": 14.0,
+        "z": 6.0
+      },
+      {
+        "nickname": "St02",
+        "name": "Nomads Lair",
+        "strid_name": "459242",
+        "ids_info": "66115",
+        "info": "NOMADEN\nBesiedelte Planeten\n???\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nUnbekannt\nErzeugnisse\nNichts",
+        "x": 13.0,
+        "z": -1.0
+      },
+      {
+        "nickname": "St02tk",
+        "name": "Nomads Lair",
+        "strid_name": "459242",
+        "ids_info": "66115",
+        "info": "NOMADEN\nBesiedelte Planeten\n???\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nUnbekannt\nErzeugnisse\nNichts",
+        "x": 13.0,
+        "z": -1.0
+      },
+      {
+        "nickname": "Iw06",
+        "name": "Galileo",
+        "strid_name": "459166",
+        "ids_info": "66093",
+        "info": "UNABHÄNGIG\nBesiedelte Planeten\nKeine\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nWegelagerer\nLiberty Rogues\nErzeugnisse\nNichts",
+        "x": 8.0,
+        "z": 6.0
+      },
+      {
+        "nickname": "Iw04",
+        "name": "Cortez",
+        "strid_name": "459162",
+        "ids_info": "66088",
+        "info": "UNABHÄNGIG\nBesiedelte Planeten\nCuraçao\nStützpunkte\nKeine\nUnternehmen\nOrbital Kuren und Kreuzfahrten\nKriminelle\nLiberty Rogues\nAusgestoßene\nWegelagerer\nErzeugnisse\nWasser\nSauerstoff",
+        "x": 5.0,
+        "z": 9.0
+      },
+      {
+        "nickname": "Iw02",
+        "name": "Hudson",
+        "strid_name": "459158",
+        "ids_info": "66097",
+        "info": "UNABHÄNGIG\nBesiedelte Planeten\nKeine\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nXenos\nLiberty Rogues\nUnionisten\nErzeugnisse\nNichts",
+        "x": 9.0,
+        "z": 10.0
+      },
+      {
+        "nickname": "Bw10",
+        "name": "Tau-31",
+        "strid_name": "459154",
+        "ids_info": "66124",
+        "info": "GRENZWELTEN\nBesiedelte Planeten\nHarris\nStützpunkte\nAußenposten Holman\nUnternehmen\nPlanetform, Inc.\nKnappschaft der unabhängigen Bergleute\nKriminelle\nAusgestoßene\nGaianer\nErzeugnisse\nSauerstoff\nWasser",
+        "x": 2.0,
+        "z": 7.0
+      },
+      {
+        "nickname": "Bw08",
+        "name": "Tau-23",
+        "strid_name": "459150",
+        "ids_info": "66122",
+        "info": "GRENZWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nStation Java\nTau 31-Sprungtor\nUnternehmen\nBretonia Mining and Metals\nKnappschaft der unabhängigen Bergleute\nDeep Space Engineering\nKriminelle\nAusgestoßene\nErzeugnisse\nBeryllium\nNiob",
+        "x": 2.0,
+        "z": 5.0
+      },
+      {
+        "nickname": "Bw06",
+        "name": "Sigma-17",
+        "strid_name": "459146",
+        "ids_info": "66119",
+        "info": "GRENZWELTEN\nBesiedelte Planeten\nKurilen\nStützpunkte\nForschungsstation Atka\nUnternehmen\nSamura Industries\nCryer Pharmaceuticals\nKriminelle\nKorsaren\nAusgestoßene\nErzeugnisse\nXeno-Organismen",
+        "x": 12.0,
+        "z": 6.0
+      },
+      {
+        "nickname": "Bw04",
+        "name": "Omega-11",
+        "strid_name": "459142",
+        "ids_info": "66107",
+        "info": "GRENZWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nStation Solarius\nUnternehmen\nDaumann Hoch- und Tiefbau\nKriminelle\nRote Hessen\nKorsaren\nErzeugnisse\nDiamanten",
+        "x": 8.0,
+        "z": 13.0
+      },
+      {
+        "nickname": "Bw02",
+        "name": "Omega-5",
+        "strid_name": "459138",
+        "ids_info": "66110",
+        "info": "GRENZWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nKorsaren\nRote Hessen\nErzeugnisse\nNichts",
+        "x": 5.0,
+        "z": 14.0
+      },
+      {
+        "nickname": "Ew06",
+        "name": "Unknown",
+        "strid_name": "459274",
+        "ids_info": "66115",
+        "info": "NOMADEN\nBesiedelte Planeten\n???\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nUnbekannt\nErzeugnisse\nNichts",
+        "x": 15.0,
+        "z": 9.0
+      },
+      {
+        "nickname": "Ew04",
+        "name": "Omicron Theta",
+        "strid_name": "459174",
+        "ids_info": "66116",
+        "info": "RANDWELTEN\nBesiedelte Planeten\nPygar (begrenzter Zutritt)\nStützpunkte\nFreihafen 9\nUnternehmen\nKeine\nKriminelle\nKorsaren\nErzeugnisse\nLebensmittel\nXeno-Artefakte\nXeno-Organismen",
+        "x": 15.0,
+        "z": 12.0
+      },
+      {
+        "nickname": "Ew02",
+        "name": "Omicron Beta",
+        "strid_name": "459170",
+        "ids_info": "66113",
+        "info": "RANDWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nAusgestoßene\nErzeugnisse\nXeno-Organismen",
+        "x": 10.0,
+        "z": 1.0
+      },
+      {
+        "nickname": "CF54",
+        "name": "Lost Paradise",
+        "strid_name": "459284",
+        "ids_info": "458962",
+        "info": "",
+        "x": 15.0,
+        "z": 6.0
+      },
+      {
+        "nickname": "CF56",
+        "name": "Unknown",
+        "strid_name": "459274",
+        "ids_info": "458964",
+        "info": "",
+        "x": 12.0,
+        "z": 5.0
+      },
+      {
+        "nickname": "CF70",
+        "name": "Dervon",
+        "strid_name": "471674",
+        "ids_info": "471677",
+        "info": "",
+        "x": 8.0,
+        "z": 12.0
+      },
+      {
+        "nickname": "CF18",
+        "name": "Death Valley",
+        "strid_name": "459234",
+        "ids_info": "458928",
+        "info": "",
+        "x": 15.0,
+        "z": 0.0
+      },
+      {
+        "nickname": "CF18tk",
+        "name": "Death Valley",
+        "strid_name": "459234",
+        "ids_info": "458928",
+        "info": "",
+        "x": 15.0,
+        "z": 0.0
+      },
+      {
+        "nickname": "CF14",
+        "name": "Nephele",
+        "strid_name": "459224",
+        "ids_info": "458924",
+        "info": "",
+        "x": 0.0,
+        "z": 6.0
+      },
+      {
+        "nickname": "CF14tk",
+        "name": "Nephele",
+        "strid_name": "459224",
+        "ids_info": "458924",
+        "info": "",
+        "x": 0.0,
+        "z": 6.0
+      },
+      {
+        "nickname": "CF16",
+        "name": "Enigma",
+        "strid_name": "459228",
+        "ids_info": "458926",
+        "info": "",
+        "x": 3.0,
+        "z": 9.0
+      },
+      {
+        "nickname": "CF10",
+        "name": "Vespus",
+        "strid_name": "459262",
+        "ids_info": "458921",
+        "info": "",
+        "x": 13.0,
+        "z": 0.0
+      },
+      {
+        "nickname": "CF12",
+        "name": "Casius",
+        "strid_name": "459266",
+        "ids_info": "458923",
+        "info": "",
+        "x": 10.0,
+        "z": 2.0
+      },
+      {
+        "nickname": "CF08",
+        "name": "Seltos",
+        "strid_name": "459258",
+        "ids_info": "458919",
+        "info": "",
+        "x": 1.0,
+        "z": 7.0
+      },
+      {
+        "nickname": "CF04",
+        "name": "Vega",
+        "strid_name": "459250",
+        "ids_info": "458915",
+        "info": "",
+        "x": 1.0,
+        "z": 1.0
+      },
+      {
+        "nickname": "CF06",
+        "name": "Daedalus",
+        "strid_name": "459254",
+        "ids_info": "458917",
+        "info": "",
+        "x": 2.0,
+        "z": 3.0
+      },
+      {
+        "nickname": "CF02",
+        "name": "Custodian",
+        "strid_name": "459236",
+        "ids_info": "458913",
+        "info": "",
+        "x": 1.0,
+        "z": -1.0
+      },
+      {
+        "nickname": "St03b",
+        "name": "Dyson Sphere",
+        "strid_name": "459240",
+        "ids_info": "66115",
+        "info": "NOMADEN\nBesiedelte Planeten\n???\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nUnbekannt\nErzeugnisse\nNichts",
+        "x": 15.0,
+        "z": 3.0
+      },
+      {
+        "nickname": "St03b2",
+        "name": "Dyson Sphere",
+        "strid_name": "459240",
+        "ids_info": "66115",
+        "info": "NOMADEN\nBesiedelte Planeten\n???\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nUnbekannt\nErzeugnisse\nNichts",
+        "x": 15.0,
+        "z": 3.0
+      },
+      {
+        "nickname": "St02b",
+        "name": "Omicron Major",
+        "strid_name": "196657",
+        "ids_info": "5146",
+        "info": "",
+        "x": 12.0,
+        "z": 2.0
+      },
+      {
+        "nickname": "CF30",
+        "name": "Purian Lake",
+        "strid_name": "459222",
+        "ids_info": "458940",
+        "info": "",
+        "x": 14.0,
+        "z": 4.0
+      },
+      {
+        "nickname": "CF32",
+        "name": "Coloseum",
+        "strid_name": "459186",
+        "ids_info": "458942",
+        "info": "",
+        "x": 3.0,
+        "z": 8.0
+      },
+      {
+        "nickname": "CF28",
+        "name": "Wanderer's Pond",
+        "strid_name": "459218",
+        "ids_info": "458938",
+        "info": "",
+        "x": 10.0,
+        "z": 8.0
+      },
+      {
+        "nickname": "CF24",
+        "name": "Far Point",
+        "strid_name": "459210",
+        "ids_info": "458934",
+        "info": "",
+        "x": 0.0,
+        "z": 4.0
+      },
+      {
+        "nickname": "CF26",
+        "name": "Oasis",
+        "strid_name": "459214",
+        "ids_info": "458936",
+        "info": "",
+        "x": 7.0,
+        "z": 10.0
+      },
+      {
+        "nickname": "CF22",
+        "name": "The Corridor",
+        "strid_name": "459206",
+        "ids_info": "458932",
+        "info": "",
+        "x": 1.0,
+        "z": 11.0
+      },
+      {
+        "nickname": "Hi02",
+        "name": "Omicron Gamma",
+        "strid_name": "459178",
+        "ids_info": "66114",
+        "info": "KORSAREN\nBesiedelte Planeten\nKreta\nStützpunkte\nTripoli-Werft\nUnternehmen\nKeine\nKriminelle\nKorsaren\nErzeugnisse\nSauerstoff\nWasser\nArtefakte",
+        "x": 13.0,
+        "z": 14.0
+      },
+      {
+        "nickname": "Li04",
+        "name": "Texas",
+        "strid_name": "459096",
+        "ids_info": "66126",
+        "info": "LIBERTY\nBesiedelte Planeten\nHouston\nStützpunkte\nLPI\nHuntsville\nLPI\nSugarland\nSchlachtschiff\nMississippi\nUnternehmen\nLiberty Police, Inc.\nGilde der Kopfgeldjäger\nDeep Space Engineering\nKriminelle\nXenos\nLiberty Rogues\nAusgestoßene\nSchrotties\nErzeugnisse\nDünger\nKonsumgüter\nGrundlegierungen\nGiftmüll",
+        "x": 8.0,
+        "z": 9.0
+      },
+      {
+        "nickname": "Li02",
+        "name": "California",
+        "strid_name": "459092",
+        "ids_info": "66084",
+        "info": "LIBERTY\nBesiedelte Planeten\nLos Angeles\nCalifornia Minor\nStützpunkte\nSchlachtschiff\nYukon\nGrenzstation San Diego\nUnternehmen\nSynth Foods\nAgeira Technologies\nPlanetform, Inc.\nKriminelle\nLiberty Rogues\nAusgestoßene\nWegelagerer\nErzeugnisse\nLebensmittel\nOptische Chips\nSauerstoff",
+        "x": 6.0,
+        "z": 9.0
+      },
+      {
+        "nickname": "Rh04",
+        "name": "Frankfurt",
+        "strid_name": "459118",
+        "ids_info": "66092",
+        "info": "RHEINLAND\nBesiedelte Planeten\nHolstein\nStützpunkte\nStation Mannheim\nLager Mainz\nGrenzstation Fulda\nUnternehmen\nDaumann Hoch- und Tiefbau\nKrüger Mineralien\nRepublikanische Großspedition\nKriminelle\nBundschuh\nUnionisten\nRote Hessen\nSchrotties\nErzeugnisse\nBor\nH-Treibstoff",
+        "x": 12.0,
+        "z": 10.0
+      },
+      {
+        "nickname": "Rh02",
+        "name": "Hamburg",
+        "strid_name": "459114",
+        "ids_info": "66094",
+        "info": "RHEINLAND\nBesiedelte Planeten\nHamburg\nStützpunkte\nStation Altona\nAlster-Werft\nVierlandegefängnis\nSchlachtschiff\nWestfalen\nGrenzstation Lübeck\nUnternehmen\nRepublikanische Großspedition\nKriminelle\nRote Hessen\nUnionisten\nBundschuh\nSchrotties\nErzeugnisse\nSauerstoff\nWasser\nGiftmüll",
+        "x": 10.0,
+        "z": 10.0
+      },
+      {
+        "nickname": "Br05",
+        "name": "Dublin",
+        "strid_name": "459108",
+        "ids_info": "66090",
+        "info": "BRETONIA\nBesiedelte Planeten\nKeine\nStützpunkte\nStation Graves\nSchlachtschiff\nHood\nSchlachtschiff\nEssex\nUnternehmen\nBretonia Mining and Metals\nKnappschaft der unabhängigen Bergleute\nKriminelle\nMollys\nErzeugnisse\nGold",
+        "x": 1.0,
+        "z": 13.0
+      },
+      {
+        "nickname": "Br03",
+        "name": "Cambridge",
+        "strid_name": "459104",
+        "ids_info": "66085",
+        "info": "BRETONIA\nBesiedelte Planeten\nCambridge\nStützpunkte\nForschungsstation Cambridge\nBergbaustation Cardiff\nSchlachtschiff\nNorfolk\nUnternehmen\nCryer Pharmaceuticals\nKnappschaft der unabhängigen Bergleute\nKriminelle\nKorsaren\nErzeugnisse\nLebensmittel\nLuxuslebensmittel\nPharmazeutika\nBeryllium",
+        "x": 3.0,
+        "z": 12.0
+      },
+      {
+        "nickname": "Br01",
+        "name": "New London",
+        "strid_name": "459100",
+        "ids_info": "66104",
+        "info": "BRETONIA\nBesiedelte Planeten\nNew London\nStützpunkte\nStation Canterbury\nStation Waterloo\nStation Kensington\nSouthampton-Werft\nSchlachtschiff\nSuffolk\nAußenposten Thames\nUnternehmen\nBretonia Mining and Metals\nPlanetform, Inc.\nGateway Shipping\nInterspace Commerce\nKriminelle\nKorsaren\nMollys\nAusgestoßene\nGaianer\nSchrotties\nErzeugnisse\nSauerstoff\nWasser",
+        "x": 2.0,
+        "z": 11.0
+      },
+      {
+        "nickname": "Ku07",
+        "name": "Tohoku",
+        "strid_name": "459134",
+        "ids_info": "66127",
+        "info": "KUSARI\nBesiedelte Planeten\nKeine\nStützpunkte\nHimmelstor\nUnternehmen\nKeine\nErzeugnisse\nNichts\nKriminelle\nBlutdrachen",
+        "x": 9.0,
+        "z": 2.0
+      },
+      {
+        "nickname": "Ku05",
+        "name": "Hokkaido",
+        "strid_name": "459130",
+        "ids_info": "66095",
+        "info": "KUSARI\nBesiedelte Planeten\nKeine\nStützpunkte\nStation Sapporo\nBaustelle Chugoku-Tor\nSchlachtschiff\nMatsumoto\nUnternehmen\nSamura Industries\nDeep Space Engineering\nKriminelle\nBlutdrachen\nGoldene Chrysantheme\nErzeugnisse\nH-Treibstoff",
+        "x": 7.0,
+        "z": 3.0
+      },
+      {
+        "nickname": "Ku03",
+        "name": "Kyushu",
+        "strid_name": "459126",
+        "ids_info": "66099",
+        "info": "KUSARI\nBesiedelte Planeten\nKyushu\nStützpunkte\nDepot Tsushima\nForschungszentrum Nansei\nSchlachtschiff\nNagumo\nUnternehmen\nSamura Industries\nKriminelle\nBlutdrachen\nGoldene Chrysantheme\nBauernallianz\nErzeugnisse\nLebensmittel\nPolymere",
+        "x": 6.0,
+        "z": 4.0
+      },
+      {
+        "nickname": "Ku03b",
+        "name": "Kyushu",
+        "strid_name": "459126",
+        "ids_info": "66099",
+        "info": "KUSARI\nBesiedelte Planeten\nKyushu\nStützpunkte\nDepot Tsushima\nForschungszentrum Nansei\nSchlachtschiff\nNagumo\nUnternehmen\nSamura Industries\nKriminelle\nBlutdrachen\nGoldene Chrysantheme\nBauernallianz\nErzeugnisse\nLebensmittel\nPolymere",
+        "x": 6.0,
+        "z": 4.0
+      },
+      {
+        "nickname": "Ku01",
+        "name": "New Tokyo",
+        "strid_name": "459122",
+        "ids_info": "66105",
+        "info": "KUSARI\nBesiedelte Planeten\nNeu-Tokio\nStützpunkte\nStation Shinjuku\nStation Shinagawa\nStation Roppongi\nAußenposten Narita\nYokohama-Werft\nUnternehmen\nSamura Industries\nKishiro Technologies\nInterspace Commerce\nKriminelle\nHogosha\nBlutdrachen\nGoldene Chrysantheme\nErzeugnisse\nOptische Chips\nSauerstoff\nWasser\nGiftmüll",
+        "x": 7.0,
+        "z": 4.0
+      },
+      {
+        "nickname": "St03",
+        "name": "Outer Dyson Sphere",
+        "strid_name": "459246",
+        "ids_info": "66115",
+        "info": "NOMADEN\nBesiedelte Planeten\n???\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nUnbekannt\nErzeugnisse\nNichts",
+        "x": 14.0,
+        "z": 3.0
+      },
+      {
+        "nickname": "St01",
+        "name": "Omicron Minor",
+        "strid_name": "459180",
+        "ids_info": "66115",
+        "info": "NOMADEN\nBesiedelte Planeten\n???\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nUnbekannt\nErzeugnisse\nNichts",
+        "x": 13.0,
+        "z": 3.0
+      },
+      {
+        "nickname": "Iw05",
+        "name": "Kepler",
+        "strid_name": "459164",
+        "ids_info": "66098",
+        "info": "UNABHÄNGIG\nBesiedelte Planeten\nKeine\nStützpunkte\nForschungsstation Ames\nUnternehmen\nDeep Space Engineering\nKriminelle\nXenos\nWegelagerer\nErzeugnisse\nNichts",
+        "x": 6.0,
+        "z": 6.0
+      },
+      {
+        "nickname": "Iw03",
+        "name": "Magellan",
+        "strid_name": "459160",
+        "ids_info": "66101",
+        "info": "UNABHÄNGIG\nBesiedelte Planeten\nKeine\nStützpunkte\nFreihafen 4\nUnternehmen\nKnappschaft der unabhängigen Bergleute\nKriminelle\nWegelagerer\nLiberty Rogues\nAusgestoßene\nErzeugnisse\nWasser\nSauerstoff",
+        "x": 5.0,
+        "z": 10.0
+      },
+      {
+        "nickname": "Iw01",
+        "name": "Bering",
+        "strid_name": "459156",
+        "ids_info": "66083",
+        "info": "UNABHÄNGIG\nBesiedelte Planeten\nKeine\nStützpunkte\nFreihafen 2\nUnternehmen\nKeine\nKriminelle\nUnionisten\nXenos\nRogues\nErzeugnisse\nLebensmittel",
+        "x": 9.0,
+        "z": 9.0
+      },
+      {
+        "nickname": "Bw09",
+        "name": "Tau-29",
+        "strid_name": "459152",
+        "ids_info": "66123",
+        "info": "GRENZWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nStation Nago\nStation Shinkaku\nFreihafen 6\nUnternehmen\nKishiro Technologies\nSamura Industries\nKriminelle\nAusgestoßene\nErzeugnisse\nPolymere\nKohlenwasserstoffe\nDünger\nLebensmittel\nTerraforming-Gase\nSauerstoff\nWasser",
+        "x": 3.0,
+        "z": 6.0
+      },
+      {
+        "nickname": "Bw07",
+        "name": "Sigma-19",
+        "strid_name": "459148",
+        "ids_info": "66120",
+        "info": "GRENZWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nLuxusliner\nHawaii\nGasabbaustation\nOgashawa\nUnternehmen\nOrbital Kuren und Kreuzfahrten\nKnappschaft der Gasschürfer\nKishiro Technologies\nKriminelle\nAusgestoßene\nKorsaren\nErzeugnisse\nH-Treibstoff",
+        "x": 11.0,
+        "z": 4.0
+      },
+      {
+        "nickname": "Bw05",
+        "name": "Sigma-13",
+        "strid_name": "459144",
+        "ids_info": "66118",
+        "info": "GRENZWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nGasabbaustation\nNaha\nStation Helgoland\nUnternehmen\nKnappschaft der Gasschürfer\nALG Abfallentsorgung\nKriminelle\nKorsaren\nAusgestoßene\nSchrotties\nErzeugnisse\nH-Treibstoff\nSchrott",
+        "x": 11.0,
+        "z": 6.0
+      },
+      {
+        "nickname": "Bw03",
+        "name": "Omega-7",
+        "strid_name": "459140",
+        "ids_info": "66111",
+        "info": "GRENZWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nAußenposten Friestadt\nBergbaustation Wismar\nBergbaustation Erlangen\nUnternehmen\nDaumann Hoch- und Tiefbau\nKrüger Mineralien\nKnappschaft der unabhängigen Bergleute\nKriminelle\nRote Hessen\nKorsaren\nErzeugnisse\nKupfer\nKobalt\nSilber",
+        "x": 7.0,
+        "z": 12.0
+      },
+      {
+        "nickname": "Bw01",
+        "name": "Omega-3",
+        "strid_name": "459136",
+        "ids_info": "66108",
+        "info": "GRENZWELTEN\nBesiedelte Planeten\nSprague (begrenzter Zutritt)\nStützpunkte\nFreihafen 1\nStation Rügen\nStation Douglas\nUnternehmen\nDaumann Hoch- und Tiefbau\nBretonia Mining and Metals\nPlanetform, Inc.\nKriminelle\nRote Hessen\nKorsaren\nErzeugnisse\nLebensmittel\nPolymere\nKohlenwasserstoffe\nSauerstoff\nWasser",
+        "x": 5.0,
+        "z": 12.0
+      },
+      {
+        "nickname": "Bw01b",
+        "name": "Omega-3",
+        "strid_name": "459136",
+        "ids_info": "66108",
+        "info": "GRENZWELTEN\nBesiedelte Planeten\nSprague (begrenzter Zutritt)\nStützpunkte\nFreihafen 1\nStation Rügen\nStation Douglas\nUnternehmen\nDaumann Hoch- und Tiefbau\nBretonia Mining and Metals\nPlanetform, Inc.\nKriminelle\nRote Hessen\nKorsaren\nErzeugnisse\nLebensmittel\nPolymere\nKohlenwasserstoffe\nSauerstoff\nWasser",
+        "x": 5.0,
+        "z": 12.0
+      },
+      {
+        "nickname": "Ew05",
+        "name": "Unknown",
+        "strid_name": "459274",
+        "ids_info": "66115",
+        "info": "NOMADEN\nBesiedelte Planeten\n???\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nUnbekannt\nErzeugnisse\nNichts",
+        "x": 15.0,
+        "z": 0.0
+      },
+      {
+        "nickname": "Ew03",
+        "name": "Omega-41",
+        "strid_name": "459172",
+        "ids_info": "66109",
+        "info": "RANDWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nFreihafen 5\nUnternehmen\nKeine\nKriminelle\nKorsaren\nRote Hessen\nErzeugnisse\nNichts",
+        "x": 10.0,
+        "z": 14.0
+      },
+      {
+        "nickname": "Ew01",
+        "name": "Tau-37",
+        "strid_name": "459168",
+        "ids_info": "66125",
+        "info": "RANDWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nFreihafen 10\nStützpunkt Falkland\nUnternehmen\nKnappschaft der unabhängigen Bergleute\nKriminelle\nAusgestoßene\nErzeugnisse\nNiob\nWasser\nLebensmittel",
+        "x": 4.0,
+        "z": 1.0
+      },
+      {
+        "nickname": "rw01",
+        "name": "Wheel of Sirius",
+        "strid_name": "459232",
+        "ids_info": "481746",
+        "info": "",
+        "x": 0.0,
+        "z": 9.0
+      },
+      {
+        "nickname": "CF59",
+        "name": "Utopia",
+        "strid_name": "459310",
+        "ids_info": "458966",
+        "info": "",
+        "x": 10.0,
+        "z": 12.0
+      },
+      {
+        "nickname": "CF55",
+        "name": "Unknown",
+        "strid_name": "459274",
+        "ids_info": "458963",
+        "info": "",
+        "x": 15.0,
+        "z": 1.0
+      },
+      {
+        "nickname": "CF57",
+        "name": "Unknown",
+        "strid_name": "459274",
+        "ids_info": "458965",
+        "info": "",
+        "x": 15.0,
+        "z": 8.0
+      },
+      {
+        "nickname": "CF53",
+        "name": "Planet Lost Paradise",
+        "strid_name": "459282",
+        "ids_info": "458962",
+        "info": "",
+        "x": 15.0,
+        "z": 6.0
+      },
+      {
+        "nickname": "CF41",
+        "name": "Hive",
+        "strid_name": "459270",
+        "ids_info": "458951",
+        "info": "",
+        "x": 3.0,
+        "z": 7.0
+      },
+      {
+        "nickname": "CF103",
+        "name": "Hive",
+        "strid_name": "459270",
+        "ids_info": "458951",
+        "info": "",
+        "x": 3.0,
+        "z": 7.0
+      },
+      {
+        "nickname": "CF19",
+        "name": "Hiruga",
+        "strid_name": "459184",
+        "ids_info": "458929",
+        "info": "",
+        "x": 8.0,
+        "z": 3.0
+      },
+      {
+        "nickname": "CF15",
+        "name": "Enyo",
+        "strid_name": "459226",
+        "ids_info": "458925",
+        "info": "",
+        "x": 0.0,
+        "z": 0.0
+      },
+      {
+        "nickname": "CF17",
+        "name": "Sekar",
+        "strid_name": "459230",
+        "ids_info": "458927",
+        "info": "",
+        "x": 10.0,
+        "z": 3.0
+      },
+      {
+        "nickname": "CF11",
+        "name": "Regalis",
+        "strid_name": "459264",
+        "ids_info": "458922",
+        "info": "",
+        "x": 14.0,
+        "z": 2.0
+      },
+      {
+        "nickname": "CF13",
+        "name": "Arena",
+        "strid_name": "459268",
+        "ids_info": "458886",
+        "info": "",
+        "x": 3.0,
+        "z": 7.0
+      },
+      {
+        "nickname": "CF09",
+        "name": "Neophobos",
+        "strid_name": "459260",
+        "ids_info": "458920",
+        "info": "",
+        "x": 13.0,
+        "z": 2.0
+      },
+      {
+        "nickname": "CF05",
+        "name": "Telosis",
+        "strid_name": "459252",
+        "ids_info": "458916",
+        "info": "",
+        "x": 0.0,
+        "z": 2.0
+      },
+      {
+        "nickname": "CF07",
+        "name": "Helios",
+        "strid_name": "459256",
+        "ids_info": "458918",
+        "info": "",
+        "x": 0.0,
+        "z": 5.0
+      },
+      {
+        "nickname": "CF01",
+        "name": "X-3043",
+        "strid_name": "459238",
+        "ids_info": "458912",
+        "info": "",
+        "x": 8.0,
+        "z": -1.0
+      },
+      {
+        "nickname": "CF01t",
+        "name": "X-3043",
+        "strid_name": "459238",
+        "ids_info": "458912",
+        "info": "",
+        "x": 8.0,
+        "z": -1.0
+      },
+      {
+        "nickname": "CF01tk",
+        "name": "X-3043",
+        "strid_name": "459238",
+        "ids_info": "458912",
+        "info": "",
+        "x": 8.0,
+        "z": -1.0
+      },
+      {
+        "nickname": "CF01tn",
+        "name": "X-3043",
+        "strid_name": "459238",
+        "ids_info": "458912",
+        "info": "",
+        "x": 8.0,
+        "z": -1.0
+      },
+      {
+        "nickname": "CF01tn2",
+        "name": "X-3043",
+        "strid_name": "459238",
+        "ids_info": "458912",
+        "info": "",
+        "x": 8.0,
+        "z": -1.0
+      },
+      {
+        "nickname": "CF01tns",
+        "name": "CF01tns",
+        "strid_name": "",
+        "ids_info": "",
+        "info": "",
+        "x": 8.0,
+        "z": -1.0
+      },
+      {
+        "nickname": "CF03",
+        "name": "Tarsus",
+        "strid_name": "459248",
+        "ids_info": "458914",
+        "info": "",
+        "x": 3.0,
+        "z": 0.0
+      },
+      {
+        "nickname": "St02c",
+        "name": "Omicron Major",
+        "strid_name": "459182",
+        "ids_info": "66115",
+        "info": "NOMADEN\nBesiedelte Planeten\n???\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nUnbekannt\nErzeugnisse\nNichts",
+        "x": 13.0,
+        "z": 1.0
+      },
+      {
+        "nickname": "CF29",
+        "name": "Quantos",
+        "strid_name": "459220",
+        "ids_info": "458939",
+        "info": "",
+        "x": 12.0,
+        "z": 8.0
+      },
+      {
+        "nickname": "CF25",
+        "name": "Sea of Shadows",
+        "strid_name": "459212",
+        "ids_info": "458935",
+        "info": "",
+        "x": 5.0,
+        "z": 7.0
+      },
+      {
+        "nickname": "CF27",
+        "name": "Midpoint Rift",
+        "strid_name": "459216",
+        "ids_info": "458937",
+        "info": "",
+        "x": 8.0,
+        "z": 8.0
+      },
+      {
+        "nickname": "CF21",
+        "name": "Inner Cloud",
+        "strid_name": "459204",
+        "ids_info": "458931",
+        "info": "",
+        "x": 1.0,
+        "z": 9.0
+      },
+      {
+        "nickname": "CF23",
+        "name": "Hyperion",
+        "strid_name": "459208",
+        "ids_info": "458933",
+        "info": "",
+        "x": 2.0,
+        "z": 14.0
+      }
+    ]
+  },
+  {
+    "key": "sector02",
+    "name": "Sector 2",
+    "layout": {
+      "x": 0.0,
+      "y": -0.275
+    },
+    "labels": [
+      {
+        "id": "001381",
+        "text": "001381",
+        "x": -0.195,
+        "y": -0.153
+      }
+    ],
+    "systems": [
+      {
+        "nickname": "CF86",
+        "name": "Bimia",
+        "strid_name": "471795",
+        "ids_info": "471708",
+        "info": "",
+        "x": 8.0,
+        "z": 2.0
+      },
+      {
+        "nickname": "CF93",
+        "name": "Crallard",
+        "strid_name": "471809",
+        "ids_info": "471708",
+        "info": "",
+        "x": 3.0,
+        "z": 8.0
+      },
+      {
+        "nickname": "CF84",
+        "name": "Dras",
+        "strid_name": "471791",
+        "ids_info": "471708",
+        "info": "",
+        "x": 8.0,
+        "z": -1.0
+      },
+      {
+        "nickname": "CF58",
+        "name": "Hyperspace",
+        "strid_name": "459308",
+        "ids_info": "",
+        "info": "",
+        "x": 0.0,
+        "z": -1.0
+      },
+      {
+        "nickname": "CF83",
+        "name": "Lenas",
+        "strid_name": "471789",
+        "ids_info": "471708",
+        "info": "",
+        "x": 9.0,
+        "z": 0.0
+      },
+      {
+        "nickname": "CF88",
+        "name": "Lintkin",
+        "strid_name": "471799",
+        "ids_info": "471708",
+        "info": "",
+        "x": 0.0,
+        "z": 6.0
+      },
+      {
+        "nickname": "CF80",
+        "name": "Loret",
+        "strid_name": "471783",
+        "ids_info": "471708",
+        "info": "",
+        "x": 13.0,
+        "z": 2.0
+      },
+      {
+        "nickname": "CF85",
+        "name": "Minnck",
+        "strid_name": "471793",
+        "ids_info": "471708",
+        "info": "",
+        "x": 8.0,
+        "z": 5.0
+      },
+      {
+        "nickname": "CF91",
+        "name": "Phanchdar",
+        "strid_name": "471805",
+        "ids_info": "471708",
+        "info": "",
+        "x": 7.0,
+        "z": 0.0
+      },
+      {
+        "nickname": "CF92",
+        "name": "Relenth",
+        "strid_name": "471807",
+        "ids_info": "471708",
+        "info": "",
+        "x": 2.0,
+        "z": 1.0
+      },
+      {
+        "nickname": "CF79",
+        "name": "Rhuntath",
+        "strid_name": "471781",
+        "ids_info": "471708",
+        "info": "",
+        "x": 16.0,
+        "z": 3.0
+      },
+      {
+        "nickname": "CF89",
+        "name": "Sorror",
+        "strid_name": "471801",
+        "ids_info": "471708",
+        "info": "",
+        "x": 5.0,
+        "z": 6.0
+      },
+      {
+        "nickname": "CF87",
+        "name": "Timath",
+        "strid_name": "471797",
+        "ids_info": "471708",
+        "info": "",
+        "x": 7.0,
+        "z": 8.0
+      },
+      {
+        "nickname": "CF90",
+        "name": "Trawtai",
+        "strid_name": "471803",
+        "ids_info": "471708",
+        "info": "",
+        "x": 5.0,
+        "z": 2.0
+      },
+      {
+        "nickname": "CF90b",
+        "name": "Trawtai",
+        "strid_name": "471803",
+        "ids_info": "471708",
+        "info": "",
+        "x": 5.0,
+        "z": 2.0
+      },
+      {
+        "nickname": "CF78",
+        "name": "Weth",
+        "strid_name": "471779",
+        "ids_info": "471708",
+        "info": "",
+        "x": 15.0,
+        "z": 5.0
+      },
+      {
+        "nickname": "CF82",
+        "name": "Whyr",
+        "strid_name": "471787",
+        "ids_info": "471708",
+        "info": "",
+        "x": 11.0,
+        "z": 4.0
+      },
+      {
+        "nickname": "CF81",
+        "name": "Zhiklor",
+        "strid_name": "471785",
+        "ids_info": "471708",
+        "info": "",
+        "x": 15.0,
+        "z": 0.0
+      },
+      {
+        "nickname": "CF73",
+        "name": "Celldra",
+        "strid_name": "471729",
+        "ids_info": "471708",
+        "info": "",
+        "x": 9.0,
+        "z": 14.0
+      },
+      {
+        "nickname": "CF60",
+        "name": "Inner Core",
+        "strid_name": "459278",
+        "ids_info": "470592",
+        "info": "",
+        "x": 1.0,
+        "z": 14.0
+      },
+      {
+        "nickname": "CF60b",
+        "name": "Inner Core",
+        "strid_name": "459278",
+        "ids_info": "470592",
+        "info": "",
+        "x": 1.0,
+        "z": 14.0
+      },
+      {
+        "nickname": "CF60c",
+        "name": "Inner Core",
+        "strid_name": "459278",
+        "ids_info": "470592",
+        "info": "",
+        "x": 1.0,
+        "z": 14.0
+      },
+      {
+        "nickname": "CF72",
+        "name": "Jormdar",
+        "strid_name": "471712",
+        "ids_info": "471708",
+        "info": "",
+        "x": 7.0,
+        "z": 11.0
+      },
+      {
+        "nickname": "CF76",
+        "name": "Mepther",
+        "strid_name": "471735",
+        "ids_info": "471708",
+        "info": "",
+        "x": 10.0,
+        "z": 9.0
+      },
+      {
+        "nickname": "CF75",
+        "name": "Pyrddra",
+        "strid_name": "471733",
+        "ids_info": "471708",
+        "info": "",
+        "x": 12.0,
+        "z": 11.0
+      },
+      {
+        "nickname": "CF77",
+        "name": "Ryssk",
+        "strid_name": "471737",
+        "ids_info": "471708",
+        "info": "",
+        "x": 14.0,
+        "z": 8.0
+      },
+      {
+        "nickname": "CF74",
+        "name": "Sadurn",
+        "strid_name": "471731",
+        "ids_info": "471708",
+        "info": "",
+        "x": 9.0,
+        "z": 12.0
+      },
+      {
+        "nickname": "CF71",
+        "name": "Venn",
+        "strid_name": "471706",
+        "ids_info": "471708",
+        "info": "",
+        "x": 6.0,
+        "z": 13.0
+      }
+    ]
+  },
+  {
+    "key": "sector03",
+    "name": "Sector 3",
+    "layout": {
+      "x": -0.245,
+      "y": -0.275
+    },
+    "labels": [
+      {
+        "id": "196899",
+        "text": "Coalition",
+        "x": -0.13,
+        "y": 0.113
+      }
+    ],
+    "systems": [
+      {
+        "nickname": "CF67",
+        "name": "Er Riad",
+        "strid_name": "472115",
+        "ids_info": "481748",
+        "info": "",
+        "x": 9.0,
+        "z": 3.0
+      },
+      {
+        "nickname": "CF62",
+        "name": "Gagarin",
+        "strid_name": "472083",
+        "ids_info": "481750",
+        "info": "",
+        "x": -1.0,
+        "z": 0.0
+      },
+      {
+        "nickname": "CF35",
+        "name": "Gladius",
+        "strid_name": "459192",
+        "ids_info": "458945",
+        "info": "",
+        "x": 1.0,
+        "z": 6.0
+      },
+      {
+        "nickname": "CF65",
+        "name": "Guangdong",
+        "strid_name": "472105",
+        "ids_info": "481753",
+        "info": "",
+        "x": 0.0,
+        "z": 9.0
+      },
+      {
+        "nickname": "CF34",
+        "name": "Gurm",
+        "strid_name": "459190",
+        "ids_info": "458944",
+        "info": "",
+        "x": 5.0,
+        "z": 7.0
+      },
+      {
+        "nickname": "CF63",
+        "name": "Kalinin",
+        "strid_name": "472086",
+        "ids_info": "481751",
+        "info": "",
+        "x": 0.0,
+        "z": 3.0
+      },
+      {
+        "nickname": "CF69",
+        "name": "Meschhed",
+        "strid_name": "472119",
+        "ids_info": "481755",
+        "info": "",
+        "x": 14.0,
+        "z": 5.0
+      },
+      {
+        "nickname": "CF68",
+        "name": "Nedjef",
+        "strid_name": "472117",
+        "ids_info": "481747",
+        "info": "",
+        "x": 12.0,
+        "z": 4.0
+      },
+      {
+        "nickname": "CF68b",
+        "name": "Nedjef",
+        "strid_name": "472117",
+        "ids_info": "481747",
+        "info": "",
+        "x": 12.0,
+        "z": 4.0
+      },
+      {
+        "nickname": "CF64",
+        "name": "New Beijing",
+        "strid_name": "471052",
+        "ids_info": "481752",
+        "info": "",
+        "x": 1.0,
+        "z": -1.0
+      },
+      {
+        "nickname": "CF61",
+        "name": "New Hongkong",
+        "strid_name": "459280",
+        "ids_info": "481749",
+        "info": "",
+        "x": 4.0,
+        "z": 1.0
+      },
+      {
+        "nickname": "CF66",
+        "name": "New Mekka",
+        "strid_name": "472113",
+        "ids_info": "481754",
+        "info": "",
+        "x": 7.0,
+        "z": 3.0
+      },
+      {
+        "nickname": "CF36",
+        "name": "Sovetskaya",
+        "strid_name": "459194",
+        "ids_info": "458946",
+        "info": "",
+        "x": 3.0,
+        "z": 2.0
+      },
+      {
+        "nickname": "CF37",
+        "name": "Tomsk",
+        "strid_name": "459196",
+        "ids_info": "458947",
+        "info": "",
+        "x": 1.0,
+        "z": 1.0
+      },
+      {
+        "nickname": "CF38",
+        "name": "Vorkuta",
+        "strid_name": "459198",
+        "ids_info": "458948",
+        "info": "",
+        "x": 8.0,
+        "z": 1.0
+      },
+      {
+        "nickname": "CF39",
+        "name": "Yakutsk",
+        "strid_name": "459200",
+        "ids_info": "458949",
+        "info": "",
+        "x": 13.0,
+        "z": 2.0
+      },
+      {
+        "nickname": "CF40",
+        "name": "Kandiris",
+        "strid_name": "459202",
+        "ids_info": "458950",
+        "info": "",
+        "x": 0.0,
+        "z": 14.0
+      },
+      {
+        "nickname": "CF33",
+        "name": "Mandar",
+        "strid_name": "459188",
+        "ids_info": "458943",
+        "info": "",
+        "x": 3.0,
+        "z": 10.0
+      },
+      {
+        "nickname": "CF31",
+        "name": "Styx",
+        "strid_name": "459272",
+        "ids_info": "458941",
+        "info": "",
+        "x": 2.0,
+        "z": 16.0
+      },
+      {
+        "nickname": "CF42",
+        "name": "Hieron",
+        "strid_name": "459286",
+        "ids_info": "458952",
+        "info": "",
+        "x": 7.0,
+        "z": 8.0
+      },
+      {
+        "nickname": "CF58",
+        "name": "Hyperspace",
+        "strid_name": "459308",
+        "ids_info": "",
+        "info": "",
+        "x": 16.0,
+        "z": 16.0
+      },
+      {
+        "nickname": "CF43",
+        "name": "Jokusuka",
+        "strid_name": "459288",
+        "ids_info": "458953",
+        "info": "",
+        "x": 8.0,
+        "z": 8.0
+      },
+      {
+        "nickname": "CF49",
+        "name": "Lemnos",
+        "strid_name": "459300",
+        "ids_info": "458958",
+        "info": "",
+        "x": 8.0,
+        "z": 5.0
+      },
+      {
+        "nickname": "CF48",
+        "name": "Menton",
+        "strid_name": "459298",
+        "ids_info": "458957",
+        "info": "",
+        "x": 12.0,
+        "z": 14.0
+      },
+      {
+        "nickname": "CF51",
+        "name": "Mira Ceti",
+        "strid_name": "459304",
+        "ids_info": "458960",
+        "info": "",
+        "x": 10.0,
+        "z": 5.0
+      },
+      {
+        "nickname": "CF50",
+        "name": "Mitra",
+        "strid_name": "459302",
+        "ids_info": "458959",
+        "info": "",
+        "x": 6.0,
+        "z": 5.0
+      },
+      {
+        "nickname": "CF45",
+        "name": "Pretoria",
+        "strid_name": "459292",
+        "ids_info": "458955",
+        "info": "",
+        "x": 12.0,
+        "z": 8.0
+      },
+      {
+        "nickname": "CF52",
+        "name": "Ptah",
+        "strid_name": "459306",
+        "ids_info": "458961",
+        "info": "",
+        "x": 12.0,
+        "z": 6.0
+      },
+      {
+        "nickname": "CF47",
+        "name": "Scotia",
+        "strid_name": "459296",
+        "ids_info": "458956",
+        "info": "",
+        "x": 13.0,
+        "z": 11.0
+      },
+      {
+        "nickname": "CF44",
+        "name": "Spica",
+        "strid_name": "459290",
+        "ids_info": "458954",
+        "info": "",
+        "x": 10.0,
+        "z": 8.0
+      },
+      {
+        "nickname": "CF46",
+        "name": "Tonga",
+        "strid_name": "459294",
+        "ids_info": "458976",
+        "info": "",
+        "x": 13.0,
+        "z": 9.0
+      }
+    ]
+  },
+  {
+    "key": "sector04",
+    "name": "Sector 4",
+    "layout": {
+      "x": 0.245,
+      "y": 0.0
+    },
+    "labels": [],
+    "systems": [
+      {
+        "nickname": "CF94",
+        "name": "Assris",
+        "strid_name": "500896",
+        "ids_info": "471708",
+        "info": "",
+        "x": 0.0,
+        "z": 10.0
+      },
+      {
+        "nickname": "CF98",
+        "name": "Banysia",
+        "strid_name": "500904",
+        "ids_info": "471708",
+        "info": "",
+        "x": 15.0,
+        "z": 8.0
+      },
+      {
+        "nickname": "CF97",
+        "name": "Belay",
+        "strid_name": "500902",
+        "ids_info": "471708",
+        "info": "",
+        "x": 9.0,
+        "z": 6.0
+      },
+      {
+        "nickname": "CF96",
+        "name": "Keltur",
+        "strid_name": "500900",
+        "ids_info": "471708",
+        "info": "",
+        "x": 8.0,
+        "z": 11.0
+      },
+      {
+        "nickname": "CF95",
+        "name": "Kinak",
+        "strid_name": "500898",
+        "ids_info": "471708",
+        "info": "",
+        "x": 6.0,
+        "z": 8.0
+      }
+    ]
+  },
+  {
+    "key": "sector05",
+    "name": "Sector 5",
+    "layout": {
+      "x": -0.245,
+      "y": 0.0
+    },
+    "labels": [],
+    "systems": [
+      {
+        "nickname": "CF20",
+        "name": "Sol",
+        "strid_name": "459276",
+        "ids_info": "458930",
+        "info": "",
+        "x": 4.0,
+        "z": 7.0
+      },
+      {
+        "nickname": "CF20t",
+        "name": "Sol",
+        "strid_name": "459276",
+        "ids_info": "458930",
+        "info": "",
+        "x": 4.0,
+        "z": 7.0
+      },
+      {
+        "nickname": "CF100",
+        "name": "Epsilon Eridani",
+        "strid_name": "480779",
+        "ids_info": "480781",
+        "info": "",
+        "x": 9.0,
+        "z": 6.0
+      },
+      {
+        "nickname": "CF101",
+        "name": "Tau Ceti",
+        "strid_name": "480780",
+        "ids_info": "480782",
+        "info": "",
+        "x": 8.0,
+        "z": 11.0
+      },
+      {
+        "nickname": "CF104",
+        "name": "Epsilon Indi",
+        "strid_name": "501851",
+        "ids_info": "501852",
+        "info": "",
+        "x": 11.0,
+        "z": 6.0
+      },
+      {
+        "nickname": "CF105",
+        "name": "Luyten",
+        "strid_name": "501849",
+        "ids_info": "501850",
+        "info": "",
+        "x": 10.0,
+        "z": 3.0
+      },
+      {
+        "nickname": "CF106",
+        "name": "Alsace",
+        "strid_name": "501855",
+        "ids_info": "501856",
+        "info": "",
+        "x": 8.0,
+        "z": 2.0
+      },
+      {
+        "nickname": "CF107",
+        "name": "New Caledonia",
+        "strid_name": "501859",
+        "ids_info": "501860",
+        "info": "",
+        "x": 5.0,
+        "z": 3.0
+      },
+      {
+        "nickname": "CF108",
+        "name": "Burgundy",
+        "strid_name": "501857",
+        "ids_info": "501858",
+        "info": "",
+        "x": 6.0,
+        "z": 5.0
+      },
+      {
+        "nickname": "CF109",
+        "name": "Procyon",
+        "strid_name": "501853",
+        "ids_info": "501854",
+        "info": "",
+        "x": 3.0,
+        "z": 5.0
+      }
+    ]
   }
 ];

@@ -6,6 +6,8 @@ from pathlib import Path
 
 DEFAULT_FL_ROOT = Path("C:/Users/steve/Github/FL-Installationen/Freelancer-HD")
 _ENV_KEYS = ("FREELANCER2D_FL_ROOT", "FREELANCER_ROOT", "FL_ROOT")
+_DATA_ENV_KEYS = ("FREELANCER2D_FL_DATA_ROOT", "FREELANCER_DATA_ROOT", "FL_DATA_ROOT")
+_EXE_ENV_KEYS = ("FREELANCER2D_FL_EXE_ROOT", "FREELANCER_EXE_ROOT", "FL_EXE_ROOT")
 
 
 def _cli_value(name: str) -> str:
@@ -32,10 +34,28 @@ def freelancer_root(default: Path = DEFAULT_FL_ROOT) -> Path:
 
 
 def freelancer_data(default: Path = DEFAULT_FL_ROOT) -> Path:
+    raw = _cli_value("--fl-data-root") or _cli_value("--data-root")
+    if not raw:
+        for key in _DATA_ENV_KEYS:
+            raw = os.environ.get(key, "")
+            if raw:
+                break
+    if raw:
+        path = Path(raw).expanduser()
+        return (path if path.name.upper() == "DATA" else path / "DATA").resolve()
     return freelancer_root(default) / "DATA"
 
 
 def freelancer_exe(default: Path = DEFAULT_FL_ROOT) -> Path:
+    raw = _cli_value("--fl-exe-root") or _cli_value("--exe-root")
+    if not raw:
+        for key in _EXE_ENV_KEYS:
+            raw = os.environ.get(key, "")
+            if raw:
+                break
+    if raw:
+        path = Path(raw).expanduser()
+        return (path if path.name.upper() == "EXE" else path / "EXE").resolve()
     return freelancer_root(default) / "EXE"
 
 

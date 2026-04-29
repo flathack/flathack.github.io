@@ -2,7 +2,7 @@
   "systems": [
     {
       "nickname": "CF60c_01_Base",
-      "name": "CF60c_01_Base",
+      "name": "Battleship Nassau",
       "strid_name": "481684",
       "ids_info": "",
       "info": "",
@@ -50,7 +50,7 @@
     },
     {
       "nickname": "CF99_01_Base",
-      "name": "CF99_01_Base",
+      "name": "Triam",
       "strid_name": "481536",
       "ids_info": "",
       "info": "",
@@ -62,7 +62,7 @@
     },
     {
       "nickname": "CF68_01_Base",
-      "name": "CF68_01_Base",
+      "name": "Gorshkov Carrier",
       "strid_name": "481466",
       "ids_info": "",
       "info": "",
@@ -74,7 +74,7 @@
     },
     {
       "nickname": "CF80_02_Base",
-      "name": "CF80_02_Base",
+      "name": "Taslunt, Dom'Kavash Colony",
       "strid_name": "481457",
       "ids_info": "",
       "info": "",
@@ -86,7 +86,7 @@
     },
     {
       "nickname": "CF98_01_Base",
-      "name": "CF98_01_Base",
+      "name": "Kavash Arc",
       "strid_name": "500953",
       "ids_info": "",
       "info": "",
@@ -98,7 +98,7 @@
     },
     {
       "nickname": "CF65_02_Base",
-      "name": "CF65_02_Base",
+      "name": "Achinsk Station",
       "strid_name": "500892",
       "ids_info": "",
       "info": "",
@@ -110,7 +110,7 @@
     },
     {
       "nickname": "CF64_03_Base",
-      "name": "CF64_03_Base",
+      "name": "Chkalovsk Rogue Base",
       "strid_name": "500890",
       "ids_info": "",
       "info": "",
@@ -122,7 +122,7 @@
     },
     {
       "nickname": "CF61_06_Base",
-      "name": "CF61_06_Base",
+      "name": "Sretensk Hideout",
       "strid_name": "500888",
       "ids_info": "",
       "info": "",
@@ -134,7 +134,7 @@
     },
     {
       "nickname": "CF61_05_Base",
-      "name": "CF61_05_Base",
+      "name": "Jinan Fuel Depot",
       "strid_name": "471035",
       "ids_info": "",
       "info": "",
@@ -146,7 +146,7 @@
     },
     {
       "nickname": "CF61_04_Base",
-      "name": "CF61_04_Base",
+      "name": "Bengbu Processing Facility",
       "strid_name": "471037",
       "ids_info": "",
       "info": "",
@@ -158,7 +158,7 @@
     },
     {
       "nickname": "CF61_03_Base",
-      "name": "CF61_03_Base",
+      "name": "Hefei Ore Refinery",
       "strid_name": "471039",
       "ids_info": "",
       "info": "",
@@ -170,7 +170,7 @@
     },
     {
       "nickname": "CF61_02_Base",
-      "name": "CF61_02_Base",
+      "name": "Yantai Station",
       "strid_name": "471044",
       "ids_info": "",
       "info": "",
@@ -182,7 +182,7 @@
     },
     {
       "nickname": "CF61_01_Base",
-      "name": "CF61_01_Base",
+      "name": "Lanzhou Shipyard",
       "strid_name": "471042",
       "ids_info": "",
       "info": "",
@@ -206,7 +206,7 @@
     },
     {
       "nickname": "Li01_01_Basemp",
-      "name": "Li01_01_Basemp",
+      "name": "Welcome to Crossfire. Please make sure to read the server rules. Planet Manhattan",
       "strid_name": "470616",
       "ids_info": "",
       "info": "",
@@ -1406,7 +1406,7 @@
     },
     {
       "nickname": "Ku07_03_Base",
-      "name": "Ku07_03_Base",
+      "name": "Atsugi Naval Shipyards",
       "strid_name": "470818",
       "ids_info": "",
       "info": "",
@@ -2054,7 +2054,7 @@
     },
     {
       "nickname": "Bw01_06_Base",
-      "name": "Bw01_06_Base",
+      "name": "Secret GMG Research Facility",
       "strid_name": "470142",
       "ids_info": "",
       "info": "",
@@ -2066,7 +2066,7 @@
     },
     {
       "nickname": "Bw01_06b_Base",
-      "name": "Bw01_06b_Base",
+      "name": "Secret GMG Research Facility",
       "strid_name": "470142",
       "ids_info": "",
       "info": "",
@@ -2546,7 +2546,7 @@
     },
     {
       "nickname": "St03b_02_Base",
-      "name": "St03b_02_Base",
+      "name": "Icarus Station",
       "strid_name": "481599",
       "ids_info": "",
       "info": "",
@@ -3374,7 +3374,7 @@
     },
     {
       "nickname": "CF20_01_base",
-      "name": "CF20_01_base",
+      "name": "Earth",
       "strid_name": "458755",
       "ids_info": "",
       "info": "",
@@ -3386,7 +3386,7 @@
     },
     {
       "nickname": "CF53_01_base",
-      "name": "CF53_01_base",
+      "name": "Cathedral Outpost",
       "strid_name": "499975",
       "ids_info": "",
       "info": "",
@@ -3494,7 +3494,7 @@
     },
     {
       "nickname": "CF03_03_Base",
-      "name": "CF03_03_Base",
+      "name": "Campos Station",
       "strid_name": "470015",
       "ids_info": "",
       "info": "",
@@ -3506,7 +3506,7 @@
     },
     {
       "nickname": "CF04_03_base",
-      "name": "CF04_03_base",
+      "name": "Karnak Prison",
       "strid_name": "470017",
       "ids_info": "",
       "info": "",
@@ -3518,7 +3518,7 @@
     },
     {
       "nickname": "CF05_03_Base",
-      "name": "CF05_03_Base",
+      "name": "Perg Shipyard",
       "strid_name": "470019",
       "ids_info": "",
       "info": "",
@@ -3530,7 +3530,7 @@
     },
     {
       "nickname": "CF06_03_Base",
-      "name": "CF06_03_Base",
+      "name": "Carmona Shipyard",
       "strid_name": "470021",
       "ids_info": "",
       "info": "",
@@ -3542,7 +3542,7 @@
     },
     {
       "nickname": "CF07_03_Base",
-      "name": "CF07_03_Base",
+      "name": "Capua Station",
       "strid_name": "470023",
       "ids_info": "",
       "info": "",
@@ -3554,7 +3554,7 @@
     },
     {
       "nickname": "CF08_03_Base",
-      "name": "CF08_03_Base",
+      "name": "Enugu Station",
       "strid_name": "470025",
       "ids_info": "",
       "info": "",
@@ -3566,7 +3566,7 @@
     },
     {
       "nickname": "CF09_03_Base",
-      "name": "CF09_03_Base",
+      "name": "Ghats Prison",
       "strid_name": "470027",
       "ids_info": "",
       "info": "",
@@ -3590,7 +3590,7 @@
     },
     {
       "nickname": "CF11_03_Base",
-      "name": "CF11_03_Base",
+      "name": "Karun Shipyard",
       "strid_name": "470031",
       "ids_info": "",
       "info": "",
@@ -3602,7 +3602,7 @@
     },
     {
       "nickname": "CF12_03_Base",
-      "name": "CF12_03_Base",
+      "name": "Lhasa Station",
       "strid_name": "470033",
       "ids_info": "",
       "info": "",
@@ -3614,7 +3614,7 @@
     },
     {
       "nickname": "CF15_02_Base",
-      "name": "CF15_02_Base",
+      "name": "Saba Station",
       "strid_name": "470039",
       "ids_info": "",
       "info": "",
@@ -3626,7 +3626,7 @@
     },
     {
       "nickname": "CF15_03_Base",
-      "name": "CF15_03_Base",
+      "name": "Quetzal Station",
       "strid_name": "470041",
       "ids_info": "",
       "info": "",
@@ -3638,7 +3638,7 @@
     },
     {
       "nickname": "CF17_02_Base",
-      "name": "CF17_02_Base",
+      "name": "Lynen Station",
       "strid_name": "470049",
       "ids_info": "",
       "info": "",
@@ -3650,7 +3650,7 @@
     },
     {
       "nickname": "CF17_03_Base",
-      "name": "CF17_03_Base",
+      "name": "Shiras Station",
       "strid_name": "470051",
       "ids_info": "",
       "info": "",
@@ -3662,7 +3662,7 @@
     },
     {
       "nickname": "CF16_02_Base",
-      "name": "CF16_02_Base",
+      "name": "Pescara Station",
       "strid_name": "470043",
       "ids_info": "",
       "info": "",
@@ -3674,7 +3674,7 @@
     },
     {
       "nickname": "CF16_03_Base",
-      "name": "CF16_03_Base",
+      "name": "Novara Station",
       "strid_name": "470045",
       "ids_info": "",
       "info": "",
@@ -3686,7 +3686,7 @@
     },
     {
       "nickname": "CF16_04_Base",
-      "name": "CF16_04_Base",
+      "name": "Murcia Station",
       "strid_name": "470047",
       "ids_info": "",
       "info": "",
@@ -3698,7 +3698,7 @@
     },
     {
       "nickname": "CF14_02_Base",
-      "name": "CF14_02_Base",
+      "name": "Severn Station",
       "strid_name": "470035",
       "ids_info": "",
       "info": "",
@@ -3710,7 +3710,7 @@
     },
     {
       "nickname": "CF14_03_Base",
-      "name": "CF14_03_Base",
+      "name": "Lith Station",
       "strid_name": "470037",
       "ids_info": "",
       "info": "",
@@ -3722,7 +3722,7 @@
     },
     {
       "nickname": "CF36_01_Base",
-      "name": "CF36_01_Base",
+      "name": "Gorlowka Carrier",
       "strid_name": "500396",
       "ids_info": "",
       "info": "",
@@ -3734,7 +3734,7 @@
     },
     {
       "nickname": "CF36_02_Base",
-      "name": "CF36_02_Base",
+      "name": "Kuibyschew Outpost",
       "strid_name": "500361",
       "ids_info": "",
       "info": "",
@@ -3746,7 +3746,7 @@
     },
     {
       "nickname": "CF36_03_Base",
-      "name": "CF36_03_Base",
+      "name": "Charkow Outpost",
       "strid_name": "500365",
       "ids_info": "",
       "info": "",
@@ -3758,7 +3758,7 @@
     },
     {
       "nickname": "CF36_04_Base",
-      "name": "CF36_04_Base",
+      "name": "Baku Station",
       "strid_name": "500366",
       "ids_info": "",
       "info": "",
@@ -3794,7 +3794,7 @@
     },
     {
       "nickname": "CF38_01_Base",
-      "name": "CF38_01_Base",
+      "name": "Pawlowdar Station",
       "strid_name": "500358",
       "ids_info": "",
       "info": "",
@@ -3806,7 +3806,7 @@
     },
     {
       "nickname": "CF38_02_Base",
-      "name": "CF38_02_Base",
+      "name": "Donezk Station",
       "strid_name": "500362",
       "ids_info": "",
       "info": "",
@@ -3818,7 +3818,7 @@
     },
     {
       "nickname": "CF38_03_Base",
-      "name": "CF38_03_Base",
+      "name": "Gorkij Station",
       "strid_name": "500363",
       "ids_info": "",
       "info": "",
@@ -3830,7 +3830,7 @@
     },
     {
       "nickname": "CF38_04_Base",
-      "name": "CF38_04_Base",
+      "name": "Odessa Station",
       "strid_name": "500364",
       "ids_info": "",
       "info": "",
@@ -3842,7 +3842,7 @@
     },
     {
       "nickname": "CF38_05_Base",
-      "name": "CF38_05_Base",
+      "name": "Swerdlowsk Station",
       "strid_name": "500368",
       "ids_info": "",
       "info": "",
@@ -3878,7 +3878,7 @@
     },
     {
       "nickname": "CF20_25_Base",
-      "name": "CF20_25_Base",
+      "name": "Order Military HQ",
       "strid_name": "499992",
       "ids_info": "",
       "info": "",
@@ -3890,7 +3890,7 @@
     },
     {
       "nickname": "CF20_15_Base",
-      "name": "CF20_15_Base",
+      "name": "Battleship Deliverance",
       "strid_name": "500430",
       "ids_info": "",
       "info": "",
@@ -3902,7 +3902,7 @@
     },
     {
       "nickname": "CF59_01_Base",
-      "name": "CF59_01_Base",
+      "name": "Triangulum - Dock 1",
       "strid_name": "471662",
       "ids_info": "",
       "info": "",
@@ -3914,7 +3914,7 @@
     },
     {
       "nickname": "CF59_02_Base",
-      "name": "CF59_02_Base",
+      "name": "Triangulum - Dock 2",
       "strid_name": "471663",
       "ids_info": "",
       "info": "",
@@ -3926,7 +3926,7 @@
     },
     {
       "nickname": "CF59_03_Base",
-      "name": "CF59_03_Base",
+      "name": "Triangulum - Dock 3",
       "strid_name": "471664",
       "ids_info": "",
       "info": "",
@@ -3938,7 +3938,7 @@
     },
     {
       "nickname": "CF59_04_Base",
-      "name": "CF59_04_Base",
+      "name": "Battleship Bismark",
       "strid_name": "471666",
       "ids_info": "",
       "info": "",
@@ -3950,7 +3950,7 @@
     },
     {
       "nickname": "CF70_01_Base",
-      "name": "CF70_01_Base",
+      "name": "GMG Observatory Command Module",
       "strid_name": "471685",
       "ids_info": "",
       "info": "",
@@ -3962,7 +3962,7 @@
     },
     {
       "nickname": "CF78_01_Base",
-      "name": "CF78_01_Base",
+      "name": "Mirtrrak Battle Station",
       "strid_name": "471859",
       "ids_info": "",
       "info": "",
@@ -3974,7 +3974,7 @@
     },
     {
       "nickname": "CF80_01_Base",
-      "name": "CF80_01_Base",
+      "name": "Rywkim Battle Station",
       "strid_name": "472037",
       "ids_info": "",
       "info": "",
@@ -3986,7 +3986,7 @@
     },
     {
       "nickname": "CF81_01_Base",
-      "name": "CF81_01_Base",
+      "name": "Drokorm Light Dome",
       "strid_name": "472039",
       "ids_info": "",
       "info": "",
@@ -3998,7 +3998,7 @@
     },
     {
       "nickname": "CF81_02_Base",
-      "name": "CF81_02_Base",
+      "name": "Raphrd Refinery",
       "strid_name": "472041",
       "ids_info": "",
       "info": "",
@@ -4010,7 +4010,7 @@
     },
     {
       "nickname": "CF82_01_Base",
-      "name": "CF82_01_Base",
+      "name": "Draghdan Academy",
       "strid_name": "472043",
       "ids_info": "",
       "info": "",
@@ -4022,7 +4022,7 @@
     },
     {
       "nickname": "CF83_01_Base",
-      "name": "CF83_01_Base",
+      "name": "Jartltend Research Station",
       "strid_name": "472045",
       "ids_info": "",
       "info": "",
@@ -4034,7 +4034,7 @@
     },
     {
       "nickname": "CF83_02_Base",
-      "name": "CF83_02_Base",
+      "name": "Zhirllis Citadel",
       "strid_name": "472047",
       "ids_info": "",
       "info": "",
@@ -4046,7 +4046,7 @@
     },
     {
       "nickname": "CF85_01_Base",
-      "name": "CF85_01_Base",
+      "name": "Chralrgha Breeder",
       "strid_name": "472049",
       "ids_info": "",
       "info": "",
@@ -4058,7 +4058,7 @@
     },
     {
       "nickname": "CF85_02_Base",
-      "name": "CF85_02_Base",
+      "name": "Lyselm Refinery",
       "strid_name": "472051",
       "ids_info": "",
       "info": "",
@@ -4070,7 +4070,7 @@
     },
     {
       "nickname": "CF85_03_Base",
-      "name": "CF85_03_Base",
+      "name": "Mannenth Research Station",
       "strid_name": "472053",
       "ids_info": "",
       "info": "",
@@ -4082,7 +4082,7 @@
     },
     {
       "nickname": "CF86_01_Base",
-      "name": "CF86_01_Base",
+      "name": "Hyltpol Outpost",
       "strid_name": "472055",
       "ids_info": "",
       "info": "",
@@ -4094,7 +4094,7 @@
     },
     {
       "nickname": "CF88_01_Base",
-      "name": "CF88_01_Base",
+      "name": "Snoldwia Academy",
       "strid_name": "472057",
       "ids_info": "",
       "info": "",
@@ -4106,7 +4106,7 @@
     },
     {
       "nickname": "CF89_01_Base",
-      "name": "CF89_01_Base",
+      "name": "Fyrdsay Refinery",
       "strid_name": "472059",
       "ids_info": "",
       "info": "",
@@ -4118,7 +4118,7 @@
     },
     {
       "nickname": "CF89_02_Base",
-      "name": "CF89_02_Base",
+      "name": "Kyshfenth Outpost",
       "strid_name": "472061",
       "ids_info": "",
       "info": "",
@@ -4130,7 +4130,7 @@
     },
     {
       "nickname": "CF90_01_Base",
-      "name": "CF90_01_Base",
+      "name": "Sylroth Light Dome",
       "strid_name": "472063",
       "ids_info": "",
       "info": "",
@@ -4142,7 +4142,7 @@
     },
     {
       "nickname": "CF90_01b_Base",
-      "name": "CF90_01b_Base",
+      "name": "Sylroth Light Dome",
       "strid_name": "472063",
       "ids_info": "",
       "info": "",
@@ -4154,7 +4154,7 @@
     },
     {
       "nickname": "CF90_02_Base",
-      "name": "CF90_02_Base",
+      "name": "Nerllard Refinery",
       "strid_name": "472065",
       "ids_info": "",
       "info": "",
@@ -4166,7 +4166,7 @@
     },
     {
       "nickname": "CF90_03_Base",
-      "name": "CF90_03_Base",
+      "name": "Rhistis Breeder",
       "strid_name": "472067",
       "ids_info": "",
       "info": "",
@@ -4178,7 +4178,7 @@
     },
     {
       "nickname": "CF92_01_Base",
-      "name": "CF92_01_Base",
+      "name": "Sirmtia Research Station",
       "strid_name": "472069",
       "ids_info": "",
       "info": "",
@@ -4190,7 +4190,7 @@
     },
     {
       "nickname": "CF92_02_Base",
-      "name": "CF92_02_Base",
+      "name": "Kirrt Outpost",
       "strid_name": "472071",
       "ids_info": "",
       "info": "",
@@ -4202,7 +4202,7 @@
     },
     {
       "nickname": "CF92_03_Base",
-      "name": "CF92_03_Base",
+      "name": "Chrazll Citadel",
       "strid_name": "472073",
       "ids_info": "",
       "info": "",
@@ -4214,7 +4214,7 @@
     },
     {
       "nickname": "CF93_01_Base",
-      "name": "CF93_01_Base",
+      "name": "Smonkves Breeder",
       "strid_name": "472075",
       "ids_info": "",
       "info": "",
@@ -4226,7 +4226,7 @@
     },
     {
       "nickname": "CF64_01_Base",
-      "name": "CF64_01_Base",
+      "name": "Dzerzhinsky Military Academy",
       "strid_name": "472079",
       "ids_info": "",
       "info": "",
@@ -4238,7 +4238,7 @@
     },
     {
       "nickname": "CF64_02_Base",
-      "name": "CF64_02_Base",
+      "name": "Govorov Trading Station",
       "strid_name": "472081",
       "ids_info": "",
       "info": "",
@@ -4250,7 +4250,7 @@
     },
     {
       "nickname": "CF63_01_Base",
-      "name": "CF63_01_Base",
+      "name": "Yinchuan Outpost",
       "strid_name": "472101",
       "ids_info": "",
       "info": "",
@@ -4262,7 +4262,7 @@
     },
     {
       "nickname": "CF62_01_Base",
-      "name": "CF62_01_Base",
+      "name": "Gansu Research Outpost",
       "strid_name": "472103",
       "ids_info": "",
       "info": "",
@@ -4274,7 +4274,7 @@
     },
     {
       "nickname": "CF65_01_Base",
-      "name": "CF65_01_Base",
+      "name": "Singapore Station",
       "strid_name": "472111",
       "ids_info": "",
       "info": "",
@@ -4286,7 +4286,7 @@
     },
     {
       "nickname": "CF67_01_Base",
-      "name": "CF67_01_Base",
+      "name": "Aden Station",
       "strid_name": "472125",
       "ids_info": "",
       "info": "",
@@ -4298,7 +4298,7 @@
     },
     {
       "nickname": "CF66_01_Base",
-      "name": "CF66_01_Base",
+      "name": "Maskat Station",
       "strid_name": "472129",
       "ids_info": "",
       "info": "",
@@ -4310,7 +4310,7 @@
     },
     {
       "nickname": "CF66_02_Base",
-      "name": "CF66_02_Base",
+      "name": "Planet Medina",
       "strid_name": "472121",
       "ids_info": "",
       "info": "",
@@ -4322,7 +4322,7 @@
     },
     {
       "nickname": "CF69_01_Base",
-      "name": "CF69_01_Base",
+      "name": "Amman Depot",
       "strid_name": "472139",
       "ids_info": "",
       "info": "",
@@ -4334,7 +4334,7 @@
     },
     {
       "nickname": "CF01_04_Base",
-      "name": "CF01_04_Base",
+      "name": "Aeston Shipyard",
       "strid_name": "480451",
       "ids_info": "",
       "info": "",
@@ -4346,7 +4346,7 @@
     },
     {
       "nickname": "CF25_02_Base",
-      "name": "CF25_02_Base",
+      "name": "Freeport 11",
       "strid_name": "480441",
       "ids_info": "",
       "info": "",
@@ -4358,7 +4358,7 @@
     },
     {
       "nickname": "CF01_05_Base",
-      "name": "CF01_05_Base",
+      "name": "Far Water Shipyard",
       "strid_name": "480454",
       "ids_info": "",
       "info": "",
@@ -4370,7 +4370,7 @@
     },
     {
       "nickname": "Ku05_proxy_base",
-      "name": "Ku05_proxy_base",
+      "name": "Camelot",
       "strid_name": "459315",
       "ids_info": "",
       "info": "",
@@ -4382,7 +4382,7 @@
     },
     {
       "nickname": "Ku05_proxy_base_01",
-      "name": "Ku05_proxy_base_01",
+      "name": "Camelot",
       "strid_name": "459315",
       "ids_info": "",
       "info": "",
@@ -4394,7 +4394,7 @@
     },
     {
       "nickname": "Ku05_proxy_base_02",
-      "name": "Ku05_proxy_base_02",
+      "name": "Camelot",
       "strid_name": "459315",
       "ids_info": "",
       "info": "",
@@ -4406,7 +4406,7 @@
     },
     {
       "nickname": "Ku05_proxy_base_03",
-      "name": "Ku05_proxy_base_03",
+      "name": "Camelot",
       "strid_name": "459315",
       "ids_info": "",
       "info": "",
@@ -4418,7 +4418,7 @@
     },
     {
       "nickname": "Ku05_proxy_base_04",
-      "name": "Ku05_proxy_base_04",
+      "name": "Camelot",
       "strid_name": "459315",
       "ids_info": "",
       "info": "",
@@ -4550,7 +4550,7 @@
     },
     {
       "nickname": "BW06_proxy_base",
-      "name": "BW06_proxy_base",
+      "name": "The_Mercy_Dark",
       "strid_name": "459314",
       "ids_info": "",
       "info": "",
@@ -4562,7 +4562,7 @@
     },
     {
       "nickname": "BW06_proxy_base_01",
-      "name": "BW06_proxy_base_01",
+      "name": "The_Mercy_Dark",
       "strid_name": "459314",
       "ids_info": "",
       "info": "",
@@ -4574,7 +4574,7 @@
     },
     {
       "nickname": "BW06_proxy_base_02",
-      "name": "BW06_proxy_base_02",
+      "name": "The_Mercy_Dark",
       "strid_name": "459314",
       "ids_info": "",
       "info": "",
@@ -4586,7 +4586,7 @@
     },
     {
       "nickname": "BW06_proxy_base_03",
-      "name": "BW06_proxy_base_03",
+      "name": "The_Mercy_Dark",
       "strid_name": "459314",
       "ids_info": "",
       "info": "",
@@ -4598,7 +4598,7 @@
     },
     {
       "nickname": "BW06_proxy_base_04",
-      "name": "BW06_proxy_base_04",
+      "name": "The_Mercy_Dark",
       "strid_name": "459314",
       "ids_info": "",
       "info": "",
@@ -4910,7 +4910,7 @@
     },
     {
       "nickname": "CF30_proxy_base",
-      "name": "CF30_proxy_base",
+      "name": "Nassau Depot",
       "strid_name": "459313",
       "ids_info": "",
       "info": "",
@@ -4922,7 +4922,7 @@
     },
     {
       "nickname": "CF30_proxy_base_01",
-      "name": "CF30_proxy_base_01",
+      "name": "Nassau Depot",
       "strid_name": "459313",
       "ids_info": "",
       "info": "",
@@ -4934,7 +4934,7 @@
     },
     {
       "nickname": "CF30_proxy_base_02",
-      "name": "CF30_proxy_base_02",
+      "name": "Nassau Depot",
       "strid_name": "459313",
       "ids_info": "",
       "info": "",
@@ -4946,7 +4946,7 @@
     },
     {
       "nickname": "CF30_proxy_base_03",
-      "name": "CF30_proxy_base_03",
+      "name": "Nassau Depot",
       "strid_name": "459313",
       "ids_info": "",
       "info": "",
@@ -4958,7 +4958,7 @@
     },
     {
       "nickname": "CF30_proxy_base_04",
-      "name": "CF30_proxy_base_04",
+      "name": "Nassau Depot",
       "strid_name": "459313",
       "ids_info": "",
       "info": "",
@@ -4970,7 +4970,7 @@
     },
     {
       "nickname": "CF61_proxy_base",
-      "name": "CF61_proxy_base",
+      "name": "IOC Headquarters",
       "strid_name": "459316",
       "ids_info": "",
       "info": "",
@@ -4982,7 +4982,7 @@
     },
     {
       "nickname": "CF61_proxy_base_01",
-      "name": "CF61_proxy_base_01",
+      "name": "IOC Headquarters",
       "strid_name": "459316",
       "ids_info": "",
       "info": "",
@@ -4994,7 +4994,7 @@
     },
     {
       "nickname": "CF61_proxy_base_02",
-      "name": "CF61_proxy_base_02",
+      "name": "IOC Headquarters",
       "strid_name": "459316",
       "ids_info": "",
       "info": "",
@@ -5006,7 +5006,7 @@
     },
     {
       "nickname": "CF61_proxy_base_03",
-      "name": "CF61_proxy_base_03",
+      "name": "IOC Headquarters",
       "strid_name": "459316",
       "ids_info": "",
       "info": "",
@@ -5018,7 +5018,7 @@
     },
     {
       "nickname": "CF61_proxy_base_04",
-      "name": "CF61_proxy_base_04",
+      "name": "IOC Headquarters",
       "strid_name": "459316",
       "ids_info": "",
       "info": "",
@@ -5030,7 +5030,7 @@
     },
     {
       "nickname": "CF26proxy_base",
-      "name": "CF26proxy_base",
+      "name": "StarFleet Academy",
       "strid_name": "459317",
       "ids_info": "",
       "info": "",
@@ -5042,7 +5042,7 @@
     },
     {
       "nickname": "CF26_proxy_base_01",
-      "name": "CF26_proxy_base_01",
+      "name": "StarFleet Academy",
       "strid_name": "459317",
       "ids_info": "",
       "info": "",
@@ -5054,7 +5054,7 @@
     },
     {
       "nickname": "CF26_proxy_base_02",
-      "name": "CF26_proxy_base_02",
+      "name": "StarFleet Academy",
       "strid_name": "459317",
       "ids_info": "",
       "info": "",
@@ -5066,7 +5066,7 @@
     },
     {
       "nickname": "CF26_proxy_base_03",
-      "name": "CF26_proxy_base_03",
+      "name": "StarFleet Academy",
       "strid_name": "459317",
       "ids_info": "",
       "info": "",
@@ -5078,7 +5078,7 @@
     },
     {
       "nickname": "CF26_proxy_base_04",
-      "name": "CF26_proxy_base_04",
+      "name": "StarFleet Academy",
       "strid_name": "459317",
       "ids_info": "",
       "info": "",
@@ -5270,7 +5270,7 @@
     },
     {
       "nickname": "CF72_proxy_base",
-      "name": "CF72_proxy_base",
+      "name": "Inner Core Outpost",
       "strid_name": "481820",
       "ids_info": "",
       "info": "",
@@ -5282,7 +5282,7 @@
     },
     {
       "nickname": "CF72_proxy_base_01",
-      "name": "CF72_proxy_base_01",
+      "name": "Inner Core Outpost",
       "strid_name": "481820",
       "ids_info": "",
       "info": "",
@@ -5294,7 +5294,7 @@
     },
     {
       "nickname": "CF72_proxy_base_02",
-      "name": "CF72_proxy_base_02",
+      "name": "Inner Core Outpost",
       "strid_name": "481820",
       "ids_info": "",
       "info": "",
@@ -5306,7 +5306,7 @@
     },
     {
       "nickname": "CF72_proxy_base_03",
-      "name": "CF72_proxy_base_03",
+      "name": "Inner Core Outpost",
       "strid_name": "481820",
       "ids_info": "",
       "info": "",
@@ -5318,7 +5318,7 @@
     },
     {
       "nickname": "CF72_proxy_base_04",
-      "name": "CF72_proxy_base_04",
+      "name": "Inner Core Outpost",
       "strid_name": "481820",
       "ids_info": "",
       "info": "",
@@ -5330,7 +5330,7 @@
     },
     {
       "nickname": "CF106_01_Base",
-      "name": "CF106_01_Base",
+      "name": "Arles Station",
       "strid_name": "501869",
       "ids_info": "",
       "info": "",
@@ -5342,7 +5342,7 @@
     },
     {
       "nickname": "CF107_01_Base",
-      "name": "CF107_01_Base",
+      "name": "Orléans Station",
       "strid_name": "501861",
       "ids_info": "",
       "info": "",
@@ -5354,7 +5354,7 @@
     },
     {
       "nickname": "CF107_02_Base",
-      "name": "CF107_02_Base",
+      "name": "Bordeaux Station",
       "strid_name": "501863",
       "ids_info": "",
       "info": "",
@@ -5366,7 +5366,7 @@
     },
     {
       "nickname": "CF107_03_Base",
-      "name": "CF107_03_Base",
+      "name": "Martinique Station",
       "strid_name": "501871",
       "ids_info": "",
       "info": "",
@@ -5378,7 +5378,7 @@
     },
     {
       "nickname": "CF107_04_Base",
-      "name": "CF107_04_Base",
+      "name": "Marseille Shipyard",
       "strid_name": "501873",
       "ids_info": "",
       "info": "",
@@ -5390,7 +5390,7 @@
     },
     {
       "nickname": "CF108_01_Base",
-      "name": "CF108_01_Base",
+      "name": "Strasbourg Station",
       "strid_name": "501865",
       "ids_info": "",
       "info": "",
@@ -5402,7 +5402,7 @@
     },
     {
       "nickname": "CF108_02_Base",
-      "name": "CF108_02_Base",
+      "name": "Lyon Station",
       "strid_name": "501867",
       "ids_info": "",
       "info": "",
@@ -5414,7 +5414,7 @@
     },
     {
       "nickname": "Li01",
-      "name": "Li01",
+      "name": "New York",
       "strid_name": "459090",
       "ids_info": "66106",
       "info": "LIBERTY\nBesiedelte Planeten\nManhattan\nPittsburgh\nStützpunkte\nFt. Bush\nStation Newark\nAußenposten Trenton\nDetroiter Munitionswerke\nAkademie West Point\nNorfolk-Werft\nBaltimore-Werft\nSchlachtschiff\nMissouri\nUnternehmen\nAgeira Technologies\nInterspace Commerce\nUniversal Shipping\nDeep Space Engineering\nLiberty Police, Inc.\nKriminelle\nLiberty Rogues\nAusgestoßene\nXenos\nSchrotties\nErzeugnisse\nBor\nSeitenwaffen\nLuxusgüter\nGiftmüll",
@@ -5426,7 +5426,7 @@
     },
     {
       "nickname": "Li02",
-      "name": "Li02",
+      "name": "California",
       "strid_name": "459092",
       "ids_info": "66084",
       "info": "LIBERTY\nBesiedelte Planeten\nLos Angeles\nCalifornia Minor\nStützpunkte\nSchlachtschiff\nYukon\nGrenzstation San Diego\nUnternehmen\nSynth Foods\nAgeira Technologies\nPlanetform, Inc.\nKriminelle\nLiberty Rogues\nAusgestoßene\nWegelagerer\nErzeugnisse\nLebensmittel\nOptische Chips\nSauerstoff",
@@ -5438,7 +5438,7 @@
     },
     {
       "nickname": "Li03",
-      "name": "Li03",
+      "name": "Colorado",
       "strid_name": "459094",
       "ids_info": "66087",
       "info": "LIBERTY\nBesiedelte Planeten\nDenver\nStützpunkte\nStation Pueblo\nSchlachtschiff\nRio Grande\nUnternehmen\nAgeira Technologies\nCryer Pharmaceuticals\nKriminelle\nXenos\nLiberty Rogues\nErzeugnisse\nPharmazeutika\nSupraleiter\nSuperlegierungen\nBauteile für Handelsrouten\nTerraforming-Gase\nGiftmüll",
@@ -5450,7 +5450,7 @@
     },
     {
       "nickname": "Li04",
-      "name": "Li04",
+      "name": "Texas",
       "strid_name": "459096",
       "ids_info": "66126",
       "info": "LIBERTY\nBesiedelte Planeten\nHouston\nStützpunkte\nLPI\nHuntsville\nLPI\nSugarland\nSchlachtschiff\nMississippi\nUnternehmen\nLiberty Police, Inc.\nGilde der Kopfgeldjäger\nDeep Space Engineering\nKriminelle\nXenos\nLiberty Rogues\nAusgestoßene\nSchrotties\nErzeugnisse\nDünger\nKonsumgüter\nGrundlegierungen\nGiftmüll",
@@ -5462,7 +5462,7 @@
     },
     {
       "nickname": "Li05",
-      "name": "Li05",
+      "name": "Alaska",
       "strid_name": "459098",
       "ids_info": "66082",
       "info": "LIBERTY\nBesiedelte Planeten\nGEHEIM\nStützpunkte\nGEHEIM\nUnternehmen\nGEHEIM\nKriminelle\nGEHEIM\nErzeugnisse\nGEHEIM",
@@ -5474,7 +5474,7 @@
     },
     {
       "nickname": "Br01",
-      "name": "Br01",
+      "name": "New London",
       "strid_name": "459100",
       "ids_info": "66104",
       "info": "BRETONIA\nBesiedelte Planeten\nNew London\nStützpunkte\nStation Canterbury\nStation Waterloo\nStation Kensington\nSouthampton-Werft\nSchlachtschiff\nSuffolk\nAußenposten Thames\nUnternehmen\nBretonia Mining and Metals\nPlanetform, Inc.\nGateway Shipping\nInterspace Commerce\nKriminelle\nKorsaren\nMollys\nAusgestoßene\nGaianer\nSchrotties\nErzeugnisse\nSauerstoff\nWasser",
@@ -5486,7 +5486,7 @@
     },
     {
       "nickname": "Br02",
-      "name": "Br02",
+      "name": "Manchester",
       "strid_name": "459102",
       "ids_info": "66102",
       "info": "BRETONIA\nBesiedelte Planeten\nKeine\nStützpunkte\nStation Birmingham\nStation Sheffield\nBPA\nNewgate\nGrenzstation Liverpool\nGrenzstation Kingston\nUnternehmen\nBretonia Mining and Metals\nGilde der Kopfgeldjäger\nKriminelle\nMollys\nGaianer\nWegelagerer\nAusgestoßene\nErzeugnisse\nPolymere\nKohlenwasserstoffe\nTerraforming-Gase\nSauerstoff\nWasser",
@@ -5498,7 +5498,7 @@
     },
     {
       "nickname": "Br03",
-      "name": "Br03",
+      "name": "Cambridge",
       "strid_name": "459104",
       "ids_info": "66085",
       "info": "BRETONIA\nBesiedelte Planeten\nCambridge\nStützpunkte\nForschungsstation Cambridge\nBergbaustation Cardiff\nSchlachtschiff\nNorfolk\nUnternehmen\nCryer Pharmaceuticals\nKnappschaft der unabhängigen Bergleute\nKriminelle\nKorsaren\nErzeugnisse\nLebensmittel\nLuxuslebensmittel\nPharmazeutika\nBeryllium",
@@ -5510,7 +5510,7 @@
     },
     {
       "nickname": "Br04",
-      "name": "Br04",
+      "name": "Leeds",
       "strid_name": "459106",
       "ids_info": "66100",
       "info": "BRETONIA\nBesiedelte Planeten\nLeeds\nStützpunkte\nLD-14\nBergbaustation Stokes\nAußenposten Glasgow\nSchlachtschiff\nYork\nGrenzstation Durham\nUnternehmen\nBowex\nBretonia Mining and Metals\nKriminelle\nMollys\nGaianer\nAusgestoßene\nErzeugnisse\nMOX\nBergbaumaschinen\nBaumaschinen\nSeitenwaffen\nRumpfplatten\nGrundlegierungen\nSuperlegierungen\nTerraforming-Gase\nGiftmüll\nNiob",
@@ -5522,7 +5522,7 @@
     },
     {
       "nickname": "Br05",
-      "name": "Br05",
+      "name": "Dublin",
       "strid_name": "459108",
       "ids_info": "66090",
       "info": "BRETONIA\nBesiedelte Planeten\nKeine\nStützpunkte\nStation Graves\nSchlachtschiff\nHood\nSchlachtschiff\nEssex\nUnternehmen\nBretonia Mining and Metals\nKnappschaft der unabhängigen Bergleute\nKriminelle\nMollys\nErzeugnisse\nGold",
@@ -5534,7 +5534,7 @@
     },
     {
       "nickname": "Br06",
-      "name": "Br06",
+      "name": "Edinburgh",
       "strid_name": "459110",
       "ids_info": "66091",
       "info": "BRETONIA\nBesiedelte Planeten\nGaia (begrenzter Zutritt)\nStützpunkte\nStation Perth\nLuxusliner\nShetland\nUnternehmen\nOrbital Kuren und Kreuzfahrten\nPlanetform, Inc.\nKriminelle\nGaianer\nAusgestoßene\nErzeugnisse\nWasser\nSauerstoff",
@@ -5546,7 +5546,7 @@
     },
     {
       "nickname": "Ku01",
-      "name": "Ku01",
+      "name": "New Tokyo",
       "strid_name": "459122",
       "ids_info": "66105",
       "info": "KUSARI\nBesiedelte Planeten\nNeu-Tokio\nStützpunkte\nStation Shinjuku\nStation Shinagawa\nStation Roppongi\nAußenposten Narita\nYokohama-Werft\nUnternehmen\nSamura Industries\nKishiro Technologies\nInterspace Commerce\nKriminelle\nHogosha\nBlutdrachen\nGoldene Chrysantheme\nErzeugnisse\nOptische Chips\nSauerstoff\nWasser\nGiftmüll",
@@ -5558,7 +5558,7 @@
     },
     {
       "nickname": "Ku02",
-      "name": "Ku02",
+      "name": "Shikoku",
       "strid_name": "459124",
       "ids_info": "66117",
       "info": "KUSARI\nBesiedelte Planeten\nJunyo\nStützpunkte\nStation Deshima\nGefängnis von Fuchu\nSchlachtschiff\nMyoko\nGrenzstation Ohashi\nUnternehmen\nSamura Industries\nKishiro Technologies\nGilde der Kopfgeldjäger\nSynth Foods\nKriminelle\nBlutdrachen\nGoldenen Chrysanthemen\nErzeugnisse\nLebensmittel\nLuxuslebensmittel\nKonsumgüter\nKohlenwasserstoffe",
@@ -5570,7 +5570,7 @@
     },
     {
       "nickname": "Ku03",
-      "name": "Ku03",
+      "name": "Kyushu",
       "strid_name": "459126",
       "ids_info": "66099",
       "info": "KUSARI\nBesiedelte Planeten\nKyushu\nStützpunkte\nDepot Tsushima\nForschungszentrum Nansei\nSchlachtschiff\nNagumo\nUnternehmen\nSamura Industries\nKriminelle\nBlutdrachen\nGoldene Chrysantheme\nBauernallianz\nErzeugnisse\nLebensmittel\nPolymere",
@@ -5582,7 +5582,7 @@
     },
     {
       "nickname": "Ku03b",
-      "name": "Ku03b",
+      "name": "Kyushu",
       "strid_name": "459126",
       "ids_info": "66099",
       "info": "KUSARI\nBesiedelte Planeten\nKyushu\nStützpunkte\nDepot Tsushima\nForschungszentrum Nansei\nSchlachtschiff\nNagumo\nUnternehmen\nSamura Industries\nKriminelle\nBlutdrachen\nGoldene Chrysantheme\nBauernallianz\nErzeugnisse\nLebensmittel\nPolymere",
@@ -5594,7 +5594,7 @@
     },
     {
       "nickname": "Ku04",
-      "name": "Ku04",
+      "name": "Honshu",
       "strid_name": "459128",
       "ids_info": "66096",
       "info": "KUSARI\nBesiedelte Planeten\nHonshu\nStützpunkte\nStation Aomori\nLager Osaka\nForschungsstation Kansai\nYukawa-Werft\nGrenzstation Akita\nUnternehmen\nKishiro Technologies\nSamura Industries\nKnappschaft der Gasschürfer\nKriminelle\nBlutdrachen\nBauernallianz\nKorsaren\nAusgestoßene\nErzeugnisse\nTriebwerkteile\nBaumaschinen\nOptronik\nH-Treibstoff",
@@ -5606,7 +5606,7 @@
     },
     {
       "nickname": "Ku05",
-      "name": "Ku05",
+      "name": "Hokkaido",
       "strid_name": "459130",
       "ids_info": "66095",
       "info": "KUSARI\nBesiedelte Planeten\nKeine\nStützpunkte\nStation Sapporo\nBaustelle Chugoku-Tor\nSchlachtschiff\nMatsumoto\nUnternehmen\nSamura Industries\nDeep Space Engineering\nKriminelle\nBlutdrachen\nGoldene Chrysantheme\nErzeugnisse\nH-Treibstoff",
@@ -5618,7 +5618,7 @@
     },
     {
       "nickname": "Ku06",
-      "name": "Ku06",
+      "name": "Chugoku",
       "strid_name": "459132",
       "ids_info": "66086",
       "info": "KUSARI\nBesiedelte Planeten\nKeine\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nUnbekannt\nErzeugnisse\nNichts",
@@ -5630,7 +5630,7 @@
     },
     {
       "nickname": "Ku07",
-      "name": "Ku07",
+      "name": "Tohoku",
       "strid_name": "459134",
       "ids_info": "66127",
       "info": "KUSARI\nBesiedelte Planeten\nKeine\nStützpunkte\nHimmelstor\nUnternehmen\nKeine\nErzeugnisse\nNichts\nKriminelle\nBlutdrachen",
@@ -5642,7 +5642,7 @@
     },
     {
       "nickname": "Rh01",
-      "name": "Rh01",
+      "name": "New Berlin",
       "strid_name": "459112",
       "ids_info": "66103",
       "info": "RHEINLAND\nBesiedelte Planeten\nNeu-Berlin\nStützpunkte\nDer Ring\nStation Dortmund\nStation Essen\nStation Bonn\nOder-Werft\nGrenzstation Brandenburg\nUnternehmen\nDaumann Hoch- und Tiefbau\nKrüger Mineralien\nALG Abfallentsorgung\nRepublikanische Großspedition\nInterspace Commerce\nKriminelle\nRote Hessen\nBundschuh\nUnionisten\nLWB\nSchrotties\nErzeugnisse\nMOX\nKonsumgüter\nTriebwerkteile\nBaumaschinen\nBergbaumaschinen\nGrundlegierungen\nHochtemperaturlegierungen\nGiftmüll\nSauerstoff\nWasser\nSchiffsrumpfplatten",
@@ -5654,7 +5654,7 @@
     },
     {
       "nickname": "Rh02",
-      "name": "Rh02",
+      "name": "Hamburg",
       "strid_name": "459114",
       "ids_info": "66094",
       "info": "RHEINLAND\nBesiedelte Planeten\nHamburg\nStützpunkte\nStation Altona\nAlster-Werft\nVierlandegefängnis\nSchlachtschiff\nWestfalen\nGrenzstation Lübeck\nUnternehmen\nRepublikanische Großspedition\nKriminelle\nRote Hessen\nUnionisten\nBundschuh\nSchrotties\nErzeugnisse\nSauerstoff\nWasser\nGiftmüll",
@@ -5666,7 +5666,7 @@
     },
     {
       "nickname": "Rh03",
-      "name": "Rh03",
+      "name": "Stuttgart",
       "strid_name": "459116",
       "ids_info": "66121",
       "info": "RHEINLAND\nBesiedelte Planeten\nStuttgart\nBaden-Baden\nStützpunkte\nStation Freiburg\nGrenzstation Ulm\nGrenzstation Konstanz\nUnternehmen\nSynth Foods\nOrbital Kuren und Kreuzfahrten\nRepublikanische Großspedition\nKriminelle\nRote Hessen\nLWB\nErzeugnisse\nLebensmittel\nLuxuslebensmittel",
@@ -5678,7 +5678,7 @@
     },
     {
       "nickname": "Rh04",
-      "name": "Rh04",
+      "name": "Frankfurt",
       "strid_name": "459118",
       "ids_info": "66092",
       "info": "RHEINLAND\nBesiedelte Planeten\nHolstein\nStützpunkte\nStation Mannheim\nLager Mainz\nGrenzstation Fulda\nUnternehmen\nDaumann Hoch- und Tiefbau\nKrüger Mineralien\nRepublikanische Großspedition\nKriminelle\nBundschuh\nUnionisten\nRote Hessen\nSchrotties\nErzeugnisse\nBor\nH-Treibstoff",
@@ -5690,7 +5690,7 @@
     },
     {
       "nickname": "Rh05",
-      "name": "Rh05",
+      "name": "Dresden",
       "strid_name": "459120",
       "ids_info": "66089",
       "info": "RHEINLAND\nBesiedelte Planeten\nKeine\nStützpunkte\nStation Leipzig\nStation Bautzen\nGrenzstation Pirna\nUnternehmen\nDaumann Hoch- und Tiefbau\nKrüger Mineralien\nKriminelle\nRote Hessen\nErzeugnisse\nKupfer\nHochtemperaturlegierungen\nDiamanten\nKobalt",
@@ -5702,7 +5702,7 @@
     },
     {
       "nickname": "Iw01",
-      "name": "Iw01",
+      "name": "Bering",
       "strid_name": "459156",
       "ids_info": "66083",
       "info": "UNABHÄNGIG\nBesiedelte Planeten\nKeine\nStützpunkte\nFreihafen 2\nUnternehmen\nKeine\nKriminelle\nUnionisten\nXenos\nRogues\nErzeugnisse\nLebensmittel",
@@ -5714,7 +5714,7 @@
     },
     {
       "nickname": "Iw02",
-      "name": "Iw02",
+      "name": "Hudson",
       "strid_name": "459158",
       "ids_info": "66097",
       "info": "UNABHÄNGIG\nBesiedelte Planeten\nKeine\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nXenos\nLiberty Rogues\nUnionisten\nErzeugnisse\nNichts",
@@ -5726,7 +5726,7 @@
     },
     {
       "nickname": "Iw03",
-      "name": "Iw03",
+      "name": "Magellan",
       "strid_name": "459160",
       "ids_info": "66101",
       "info": "UNABHÄNGIG\nBesiedelte Planeten\nKeine\nStützpunkte\nFreihafen 4\nUnternehmen\nKnappschaft der unabhängigen Bergleute\nKriminelle\nWegelagerer\nLiberty Rogues\nAusgestoßene\nErzeugnisse\nWasser\nSauerstoff",
@@ -5738,7 +5738,7 @@
     },
     {
       "nickname": "Iw04",
-      "name": "Iw04",
+      "name": "Cortez",
       "strid_name": "459162",
       "ids_info": "66088",
       "info": "UNABHÄNGIG\nBesiedelte Planeten\nCuraçao\nStützpunkte\nKeine\nUnternehmen\nOrbital Kuren und Kreuzfahrten\nKriminelle\nLiberty Rogues\nAusgestoßene\nWegelagerer\nErzeugnisse\nWasser\nSauerstoff",
@@ -5750,7 +5750,7 @@
     },
     {
       "nickname": "Iw05",
-      "name": "Iw05",
+      "name": "Kepler",
       "strid_name": "459164",
       "ids_info": "66098",
       "info": "UNABHÄNGIG\nBesiedelte Planeten\nKeine\nStützpunkte\nForschungsstation Ames\nUnternehmen\nDeep Space Engineering\nKriminelle\nXenos\nWegelagerer\nErzeugnisse\nNichts",
@@ -5762,7 +5762,7 @@
     },
     {
       "nickname": "Iw06",
-      "name": "Iw06",
+      "name": "Galileo",
       "strid_name": "459166",
       "ids_info": "66093",
       "info": "UNABHÄNGIG\nBesiedelte Planeten\nKeine\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nWegelagerer\nLiberty Rogues\nErzeugnisse\nNichts",
@@ -5774,7 +5774,7 @@
     },
     {
       "nickname": "Bw01",
-      "name": "Bw01",
+      "name": "Omega-3",
       "strid_name": "459136",
       "ids_info": "66108",
       "info": "GRENZWELTEN\nBesiedelte Planeten\nSprague (begrenzter Zutritt)\nStützpunkte\nFreihafen 1\nStation Rügen\nStation Douglas\nUnternehmen\nDaumann Hoch- und Tiefbau\nBretonia Mining and Metals\nPlanetform, Inc.\nKriminelle\nRote Hessen\nKorsaren\nErzeugnisse\nLebensmittel\nPolymere\nKohlenwasserstoffe\nSauerstoff\nWasser",
@@ -5786,7 +5786,7 @@
     },
     {
       "nickname": "Bw01b",
-      "name": "Bw01b",
+      "name": "Omega-3",
       "strid_name": "459136",
       "ids_info": "66108",
       "info": "GRENZWELTEN\nBesiedelte Planeten\nSprague (begrenzter Zutritt)\nStützpunkte\nFreihafen 1\nStation Rügen\nStation Douglas\nUnternehmen\nDaumann Hoch- und Tiefbau\nBretonia Mining and Metals\nPlanetform, Inc.\nKriminelle\nRote Hessen\nKorsaren\nErzeugnisse\nLebensmittel\nPolymere\nKohlenwasserstoffe\nSauerstoff\nWasser",
@@ -5798,7 +5798,7 @@
     },
     {
       "nickname": "Bw02",
-      "name": "Bw02",
+      "name": "Omega-5",
       "strid_name": "459138",
       "ids_info": "66110",
       "info": "GRENZWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nKorsaren\nRote Hessen\nErzeugnisse\nNichts",
@@ -5810,7 +5810,7 @@
     },
     {
       "nickname": "Bw03",
-      "name": "Bw03",
+      "name": "Omega-7",
       "strid_name": "459140",
       "ids_info": "66111",
       "info": "GRENZWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nAußenposten Friestadt\nBergbaustation Wismar\nBergbaustation Erlangen\nUnternehmen\nDaumann Hoch- und Tiefbau\nKrüger Mineralien\nKnappschaft der unabhängigen Bergleute\nKriminelle\nRote Hessen\nKorsaren\nErzeugnisse\nKupfer\nKobalt\nSilber",
@@ -5822,7 +5822,7 @@
     },
     {
       "nickname": "Bw04",
-      "name": "Bw04",
+      "name": "Omega-11",
       "strid_name": "459142",
       "ids_info": "66107",
       "info": "GRENZWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nStation Solarius\nUnternehmen\nDaumann Hoch- und Tiefbau\nKriminelle\nRote Hessen\nKorsaren\nErzeugnisse\nDiamanten",
@@ -5834,7 +5834,7 @@
     },
     {
       "nickname": "Bw05",
-      "name": "Bw05",
+      "name": "Sigma-13",
       "strid_name": "459144",
       "ids_info": "66118",
       "info": "GRENZWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nGasabbaustation\nNaha\nStation Helgoland\nUnternehmen\nKnappschaft der Gasschürfer\nALG Abfallentsorgung\nKriminelle\nKorsaren\nAusgestoßene\nSchrotties\nErzeugnisse\nH-Treibstoff\nSchrott",
@@ -5846,7 +5846,7 @@
     },
     {
       "nickname": "Bw06",
-      "name": "Bw06",
+      "name": "Sigma-17",
       "strid_name": "459146",
       "ids_info": "66119",
       "info": "GRENZWELTEN\nBesiedelte Planeten\nKurilen\nStützpunkte\nForschungsstation Atka\nUnternehmen\nSamura Industries\nCryer Pharmaceuticals\nKriminelle\nKorsaren\nAusgestoßene\nErzeugnisse\nXeno-Organismen",
@@ -5858,7 +5858,7 @@
     },
     {
       "nickname": "Bw07",
-      "name": "Bw07",
+      "name": "Sigma-19",
       "strid_name": "459148",
       "ids_info": "66120",
       "info": "GRENZWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nLuxusliner\nHawaii\nGasabbaustation\nOgashawa\nUnternehmen\nOrbital Kuren und Kreuzfahrten\nKnappschaft der Gasschürfer\nKishiro Technologies\nKriminelle\nAusgestoßene\nKorsaren\nErzeugnisse\nH-Treibstoff",
@@ -5870,7 +5870,7 @@
     },
     {
       "nickname": "Bw08",
-      "name": "Bw08",
+      "name": "Tau-23",
       "strid_name": "459150",
       "ids_info": "66122",
       "info": "GRENZWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nStation Java\nTau 31-Sprungtor\nUnternehmen\nBretonia Mining and Metals\nKnappschaft der unabhängigen Bergleute\nDeep Space Engineering\nKriminelle\nAusgestoßene\nErzeugnisse\nBeryllium\nNiob",
@@ -5882,7 +5882,7 @@
     },
     {
       "nickname": "Bw09",
-      "name": "Bw09",
+      "name": "Tau-29",
       "strid_name": "459152",
       "ids_info": "66123",
       "info": "GRENZWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nStation Nago\nStation Shinkaku\nFreihafen 6\nUnternehmen\nKishiro Technologies\nSamura Industries\nKriminelle\nAusgestoßene\nErzeugnisse\nPolymere\nKohlenwasserstoffe\nDünger\nLebensmittel\nTerraforming-Gase\nSauerstoff\nWasser",
@@ -5894,7 +5894,7 @@
     },
     {
       "nickname": "Bw10",
-      "name": "Bw10",
+      "name": "Tau-31",
       "strid_name": "459154",
       "ids_info": "66124",
       "info": "GRENZWELTEN\nBesiedelte Planeten\nHarris\nStützpunkte\nAußenposten Holman\nUnternehmen\nPlanetform, Inc.\nKnappschaft der unabhängigen Bergleute\nKriminelle\nAusgestoßene\nGaianer\nErzeugnisse\nSauerstoff\nWasser",
@@ -5906,7 +5906,7 @@
     },
     {
       "nickname": "Ew01",
-      "name": "Ew01",
+      "name": "Tau-37",
       "strid_name": "459168",
       "ids_info": "66125",
       "info": "RANDWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nFreihafen 10\nStützpunkt Falkland\nUnternehmen\nKnappschaft der unabhängigen Bergleute\nKriminelle\nAusgestoßene\nErzeugnisse\nNiob\nWasser\nLebensmittel",
@@ -5918,7 +5918,7 @@
     },
     {
       "nickname": "Ew02",
-      "name": "Ew02",
+      "name": "Omicron Beta",
       "strid_name": "459170",
       "ids_info": "66113",
       "info": "RANDWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nAusgestoßene\nErzeugnisse\nXeno-Organismen",
@@ -5930,7 +5930,7 @@
     },
     {
       "nickname": "Ew03",
-      "name": "Ew03",
+      "name": "Omega-41",
       "strid_name": "459172",
       "ids_info": "66109",
       "info": "RANDWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nFreihafen 5\nUnternehmen\nKeine\nKriminelle\nKorsaren\nRote Hessen\nErzeugnisse\nNichts",
@@ -5942,7 +5942,7 @@
     },
     {
       "nickname": "Ew04",
-      "name": "Ew04",
+      "name": "Omicron Theta",
       "strid_name": "459174",
       "ids_info": "66116",
       "info": "RANDWELTEN\nBesiedelte Planeten\nPygar (begrenzter Zutritt)\nStützpunkte\nFreihafen 9\nUnternehmen\nKeine\nKriminelle\nKorsaren\nErzeugnisse\nLebensmittel\nXeno-Artefakte\nXeno-Organismen",
@@ -5954,7 +5954,7 @@
     },
     {
       "nickname": "Hi01",
-      "name": "Hi01",
+      "name": "Omicron Alpha",
       "strid_name": "459176",
       "ids_info": "66112",
       "info": "AUSGESTOSSENE\nBesiedelte Planeten\nMalta\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nAusgestoßene\nErzeugnisse\nSauerstoff\nWasser\nLebensmittel\nSchaumkraut",
@@ -5966,7 +5966,7 @@
     },
     {
       "nickname": "Hi02",
-      "name": "Hi02",
+      "name": "Omicron Gamma",
       "strid_name": "459178",
       "ids_info": "66114",
       "info": "KORSAREN\nBesiedelte Planeten\nKreta\nStützpunkte\nTripoli-Werft\nUnternehmen\nKeine\nKriminelle\nKorsaren\nErzeugnisse\nSauerstoff\nWasser\nArtefakte",
@@ -5978,7 +5978,7 @@
     },
     {
       "nickname": "St01",
-      "name": "St01",
+      "name": "Omicron Minor",
       "strid_name": "459180",
       "ids_info": "66115",
       "info": "NOMADEN\nBesiedelte Planeten\n???\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nUnbekannt\nErzeugnisse\nNichts",
@@ -5990,7 +5990,7 @@
     },
     {
       "nickname": "St02",
-      "name": "St02",
+      "name": "Nomads Lair",
       "strid_name": "459242",
       "ids_info": "66115",
       "info": "NOMADEN\nBesiedelte Planeten\n???\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nUnbekannt\nErzeugnisse\nNichts",
@@ -6002,7 +6002,7 @@
     },
     {
       "nickname": "St02tk",
-      "name": "St02tk",
+      "name": "Nomads Lair",
       "strid_name": "459242",
       "ids_info": "66115",
       "info": "NOMADEN\nBesiedelte Planeten\n???\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nUnbekannt\nErzeugnisse\nNichts",
@@ -6014,7 +6014,7 @@
     },
     {
       "nickname": "St03",
-      "name": "St03",
+      "name": "Outer Dyson Sphere",
       "strid_name": "459246",
       "ids_info": "66115",
       "info": "NOMADEN\nBesiedelte Planeten\n???\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nUnbekannt\nErzeugnisse\nNichts",
@@ -6026,7 +6026,7 @@
     },
     {
       "nickname": "St03b",
-      "name": "St03b",
+      "name": "Dyson Sphere",
       "strid_name": "459240",
       "ids_info": "66115",
       "info": "NOMADEN\nBesiedelte Planeten\n???\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nUnbekannt\nErzeugnisse\nNichts",
@@ -6038,7 +6038,7 @@
     },
     {
       "nickname": "St03b2",
-      "name": "St03b2",
+      "name": "Dyson Sphere",
       "strid_name": "459240",
       "ids_info": "66115",
       "info": "NOMADEN\nBesiedelte Planeten\n???\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nUnbekannt\nErzeugnisse\nNichts",
@@ -6050,7 +6050,7 @@
     },
     {
       "nickname": "St02c",
-      "name": "St02c",
+      "name": "Omicron Major",
       "strid_name": "459182",
       "ids_info": "66115",
       "info": "NOMADEN\nBesiedelte Planeten\n???\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nUnbekannt\nErzeugnisse\nNichts",
@@ -6062,7 +6062,7 @@
     },
     {
       "nickname": "Ew05",
-      "name": "Ew05",
+      "name": "Unknown",
       "strid_name": "459274",
       "ids_info": "66115",
       "info": "NOMADEN\nBesiedelte Planeten\n???\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nUnbekannt\nErzeugnisse\nNichts",
@@ -6074,7 +6074,7 @@
     },
     {
       "nickname": "Ew06",
-      "name": "Ew06",
+      "name": "Unknown",
       "strid_name": "459274",
       "ids_info": "66115",
       "info": "NOMADEN\nBesiedelte Planeten\n???\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nUnbekannt\nErzeugnisse\nNichts",
@@ -6086,7 +6086,7 @@
     },
     {
       "nickname": "FP7_system",
-      "name": "FP7_system",
+      "name": "Freeport 7",
       "strid_name": "459244",
       "ids_info": "",
       "info": "",
@@ -6098,7 +6098,7 @@
     },
     {
       "nickname": "FP7_systemmp",
-      "name": "FP7_systemmp",
+      "name": "Freeport 7",
       "strid_name": "459244",
       "ids_info": "",
       "info": "",
@@ -6110,7 +6110,7 @@
     },
     {
       "nickname": "CF01",
-      "name": "CF01",
+      "name": "X-3043",
       "strid_name": "459238",
       "ids_info": "458912",
       "info": "",
@@ -6122,7 +6122,7 @@
     },
     {
       "nickname": "CF01t",
-      "name": "CF01t",
+      "name": "X-3043",
       "strid_name": "459238",
       "ids_info": "458912",
       "info": "",
@@ -6134,7 +6134,7 @@
     },
     {
       "nickname": "CF01tk",
-      "name": "CF01tk",
+      "name": "X-3043",
       "strid_name": "459238",
       "ids_info": "458912",
       "info": "",
@@ -6146,7 +6146,7 @@
     },
     {
       "nickname": "CF01tn",
-      "name": "CF01tn",
+      "name": "X-3043",
       "strid_name": "459238",
       "ids_info": "458912",
       "info": "",
@@ -6158,7 +6158,7 @@
     },
     {
       "nickname": "CF01tn2",
-      "name": "CF01tn2",
+      "name": "X-3043",
       "strid_name": "459238",
       "ids_info": "458912",
       "info": "",
@@ -6170,7 +6170,7 @@
     },
     {
       "nickname": "CF01ts",
-      "name": "CF01ts",
+      "name": "X-3043",
       "strid_name": "459238",
       "ids_info": "458912",
       "info": "",
@@ -6182,7 +6182,7 @@
     },
     {
       "nickname": "CF02",
-      "name": "CF02",
+      "name": "Custodian",
       "strid_name": "459236",
       "ids_info": "458913",
       "info": "",
@@ -6194,7 +6194,7 @@
     },
     {
       "nickname": "CF03",
-      "name": "CF03",
+      "name": "Tarsus",
       "strid_name": "459248",
       "ids_info": "458914",
       "info": "",
@@ -6206,7 +6206,7 @@
     },
     {
       "nickname": "CF04",
-      "name": "CF04",
+      "name": "Vega",
       "strid_name": "459250",
       "ids_info": "458915",
       "info": "",
@@ -6218,7 +6218,7 @@
     },
     {
       "nickname": "CF05",
-      "name": "CF05",
+      "name": "Telosis",
       "strid_name": "459252",
       "ids_info": "458916",
       "info": "",
@@ -6230,7 +6230,7 @@
     },
     {
       "nickname": "CF06",
-      "name": "CF06",
+      "name": "Daedalus",
       "strid_name": "459254",
       "ids_info": "458917",
       "info": "",
@@ -6242,7 +6242,7 @@
     },
     {
       "nickname": "CF07",
-      "name": "CF07",
+      "name": "Helios",
       "strid_name": "459256",
       "ids_info": "458918",
       "info": "",
@@ -6254,7 +6254,7 @@
     },
     {
       "nickname": "CF08",
-      "name": "CF08",
+      "name": "Seltos",
       "strid_name": "459258",
       "ids_info": "458919",
       "info": "",
@@ -6266,7 +6266,7 @@
     },
     {
       "nickname": "CF09",
-      "name": "CF09",
+      "name": "Neophobos",
       "strid_name": "459260",
       "ids_info": "458920",
       "info": "",
@@ -6278,7 +6278,7 @@
     },
     {
       "nickname": "CF10",
-      "name": "CF10",
+      "name": "Vespus",
       "strid_name": "459262",
       "ids_info": "458921",
       "info": "",
@@ -6290,7 +6290,7 @@
     },
     {
       "nickname": "CF11",
-      "name": "CF11",
+      "name": "Regalis",
       "strid_name": "459264",
       "ids_info": "458922",
       "info": "",
@@ -6302,7 +6302,7 @@
     },
     {
       "nickname": "CF12",
-      "name": "CF12",
+      "name": "Casius",
       "strid_name": "459266",
       "ids_info": "458923",
       "info": "",
@@ -6314,7 +6314,7 @@
     },
     {
       "nickname": "CF41",
-      "name": "CF41",
+      "name": "Hive",
       "strid_name": "459270",
       "ids_info": "458951",
       "info": "",
@@ -6326,7 +6326,7 @@
     },
     {
       "nickname": "CF13",
-      "name": "CF13",
+      "name": "Arena",
       "strid_name": "459268",
       "ids_info": "458886",
       "info": "",
@@ -6338,7 +6338,7 @@
     },
     {
       "nickname": "CF14",
-      "name": "CF14",
+      "name": "Nephele",
       "strid_name": "459224",
       "ids_info": "458924",
       "info": "",
@@ -6350,7 +6350,7 @@
     },
     {
       "nickname": "CF14tk",
-      "name": "CF14tk",
+      "name": "Nephele",
       "strid_name": "459224",
       "ids_info": "458924",
       "info": "",
@@ -6362,7 +6362,7 @@
     },
     {
       "nickname": "CF15",
-      "name": "CF15",
+      "name": "Enyo",
       "strid_name": "459226",
       "ids_info": "458925",
       "info": "",
@@ -6374,7 +6374,7 @@
     },
     {
       "nickname": "CF16",
-      "name": "CF16",
+      "name": "Enigma",
       "strid_name": "459228",
       "ids_info": "458926",
       "info": "",
@@ -6386,7 +6386,7 @@
     },
     {
       "nickname": "CF17",
-      "name": "CF17",
+      "name": "Sekar",
       "strid_name": "459230",
       "ids_info": "458927",
       "info": "",
@@ -6398,7 +6398,7 @@
     },
     {
       "nickname": "CF18",
-      "name": "CF18",
+      "name": "Death Valley",
       "strid_name": "459234",
       "ids_info": "458928",
       "info": "",
@@ -6410,7 +6410,7 @@
     },
     {
       "nickname": "CF18tk",
-      "name": "CF18tk",
+      "name": "Death Valley",
       "strid_name": "459234",
       "ids_info": "458928",
       "info": "",
@@ -6422,7 +6422,7 @@
     },
     {
       "nickname": "rw01",
-      "name": "rw01",
+      "name": "Wheel of Sirius",
       "strid_name": "459232",
       "ids_info": "481746",
       "info": "",
@@ -6434,7 +6434,7 @@
     },
     {
       "nickname": "CF20",
-      "name": "CF20",
+      "name": "Sol",
       "strid_name": "459276",
       "ids_info": "458930",
       "info": "",
@@ -6446,7 +6446,7 @@
     },
     {
       "nickname": "CF20t",
-      "name": "CF20t",
+      "name": "Sol",
       "strid_name": "459276",
       "ids_info": "458930",
       "info": "",
@@ -6458,7 +6458,7 @@
     },
     {
       "nickname": "CF53",
-      "name": "CF53",
+      "name": "Planet Lost Paradise",
       "strid_name": "459282",
       "ids_info": "458962",
       "info": "",
@@ -6470,7 +6470,7 @@
     },
     {
       "nickname": "CF54",
-      "name": "CF54",
+      "name": "Lost Paradise",
       "strid_name": "459284",
       "ids_info": "458962",
       "info": "",
@@ -6482,7 +6482,7 @@
     },
     {
       "nickname": "CF55",
-      "name": "CF55",
+      "name": "Unknown",
       "strid_name": "459274",
       "ids_info": "458963",
       "info": "",
@@ -6494,7 +6494,7 @@
     },
     {
       "nickname": "CF56",
-      "name": "CF56",
+      "name": "Unknown",
       "strid_name": "459274",
       "ids_info": "458964",
       "info": "",
@@ -6506,7 +6506,7 @@
     },
     {
       "nickname": "CF57",
-      "name": "CF57",
+      "name": "Unknown",
       "strid_name": "459274",
       "ids_info": "458965",
       "info": "",
@@ -6518,7 +6518,7 @@
     },
     {
       "nickname": "CF58",
-      "name": "CF58",
+      "name": "Hyperspace",
       "strid_name": "459308",
       "ids_info": "",
       "info": "",
@@ -6530,7 +6530,7 @@
     },
     {
       "nickname": "CF59",
-      "name": "CF59",
+      "name": "Utopia",
       "strid_name": "459310",
       "ids_info": "458966",
       "info": "",
@@ -6542,7 +6542,7 @@
     },
     {
       "nickname": "CF19",
-      "name": "CF19",
+      "name": "Hiruga",
       "strid_name": "459184",
       "ids_info": "458929",
       "info": "",
@@ -6554,7 +6554,7 @@
     },
     {
       "nickname": "CF21",
-      "name": "CF21",
+      "name": "Inner Cloud",
       "strid_name": "459204",
       "ids_info": "458931",
       "info": "",
@@ -6566,7 +6566,7 @@
     },
     {
       "nickname": "CF22",
-      "name": "CF22",
+      "name": "The Corridor",
       "strid_name": "459206",
       "ids_info": "458932",
       "info": "",
@@ -6578,7 +6578,7 @@
     },
     {
       "nickname": "CF23",
-      "name": "CF23",
+      "name": "Hyperion",
       "strid_name": "459208",
       "ids_info": "458933",
       "info": "",
@@ -6590,7 +6590,7 @@
     },
     {
       "nickname": "CF24",
-      "name": "CF24",
+      "name": "Far Point",
       "strid_name": "459210",
       "ids_info": "458934",
       "info": "",
@@ -6602,7 +6602,7 @@
     },
     {
       "nickname": "CF25",
-      "name": "CF25",
+      "name": "Sea of Shadows",
       "strid_name": "459212",
       "ids_info": "458935",
       "info": "",
@@ -6614,7 +6614,7 @@
     },
     {
       "nickname": "CF26",
-      "name": "CF26",
+      "name": "Oasis",
       "strid_name": "459214",
       "ids_info": "458936",
       "info": "",
@@ -6626,7 +6626,7 @@
     },
     {
       "nickname": "CF27",
-      "name": "CF27",
+      "name": "Midpoint Rift",
       "strid_name": "459216",
       "ids_info": "458937",
       "info": "",
@@ -6638,7 +6638,7 @@
     },
     {
       "nickname": "CF28",
-      "name": "CF28",
+      "name": "Wanderer's Pond",
       "strid_name": "459218",
       "ids_info": "458938",
       "info": "",
@@ -6650,7 +6650,7 @@
     },
     {
       "nickname": "CF29",
-      "name": "CF29",
+      "name": "Quantos",
       "strid_name": "459220",
       "ids_info": "458939",
       "info": "",
@@ -6662,7 +6662,7 @@
     },
     {
       "nickname": "CF30",
-      "name": "CF30",
+      "name": "Purian Lake",
       "strid_name": "459222",
       "ids_info": "458940",
       "info": "",
@@ -6674,7 +6674,7 @@
     },
     {
       "nickname": "CF31",
-      "name": "CF31",
+      "name": "Styx",
       "strid_name": "459272",
       "ids_info": "458941",
       "info": "",
@@ -6686,7 +6686,7 @@
     },
     {
       "nickname": "CF32",
-      "name": "CF32",
+      "name": "Coloseum",
       "strid_name": "459186",
       "ids_info": "458942",
       "info": "",
@@ -6698,7 +6698,7 @@
     },
     {
       "nickname": "CF33",
-      "name": "CF33",
+      "name": "Mandar",
       "strid_name": "459188",
       "ids_info": "458943",
       "info": "",
@@ -6710,7 +6710,7 @@
     },
     {
       "nickname": "CF34",
-      "name": "CF34",
+      "name": "Gurm",
       "strid_name": "459190",
       "ids_info": "458944",
       "info": "",
@@ -6722,7 +6722,7 @@
     },
     {
       "nickname": "CF35",
-      "name": "CF35",
+      "name": "Gladius",
       "strid_name": "459192",
       "ids_info": "458945",
       "info": "",
@@ -6734,7 +6734,7 @@
     },
     {
       "nickname": "CF36",
-      "name": "CF36",
+      "name": "Sovetskaya",
       "strid_name": "459194",
       "ids_info": "458946",
       "info": "",
@@ -6746,7 +6746,7 @@
     },
     {
       "nickname": "CF37",
-      "name": "CF37",
+      "name": "Tomsk",
       "strid_name": "459196",
       "ids_info": "458947",
       "info": "",
@@ -6758,7 +6758,7 @@
     },
     {
       "nickname": "CF38",
-      "name": "CF38",
+      "name": "Vorkuta",
       "strid_name": "459198",
       "ids_info": "458948",
       "info": "",
@@ -6770,7 +6770,7 @@
     },
     {
       "nickname": "CF39",
-      "name": "CF39",
+      "name": "Yakutsk",
       "strid_name": "459200",
       "ids_info": "458949",
       "info": "",
@@ -6782,7 +6782,7 @@
     },
     {
       "nickname": "CF40",
-      "name": "CF40",
+      "name": "Kandiris",
       "strid_name": "459202",
       "ids_info": "458950",
       "info": "",
@@ -6794,7 +6794,7 @@
     },
     {
       "nickname": "CF42",
-      "name": "CF42",
+      "name": "Hieron",
       "strid_name": "459286",
       "ids_info": "458952",
       "info": "",
@@ -6806,7 +6806,7 @@
     },
     {
       "nickname": "CF43",
-      "name": "CF43",
+      "name": "Jokusuka",
       "strid_name": "459288",
       "ids_info": "458953",
       "info": "",
@@ -6818,7 +6818,7 @@
     },
     {
       "nickname": "CF44",
-      "name": "CF44",
+      "name": "Spica",
       "strid_name": "459290",
       "ids_info": "458954",
       "info": "",
@@ -6830,7 +6830,7 @@
     },
     {
       "nickname": "CF45",
-      "name": "CF45",
+      "name": "Pretoria",
       "strid_name": "459292",
       "ids_info": "458955",
       "info": "",
@@ -6842,7 +6842,7 @@
     },
     {
       "nickname": "CF46",
-      "name": "CF46",
+      "name": "Tonga",
       "strid_name": "459294",
       "ids_info": "458976",
       "info": "",
@@ -6854,7 +6854,7 @@
     },
     {
       "nickname": "CF47",
-      "name": "CF47",
+      "name": "Scotia",
       "strid_name": "459296",
       "ids_info": "458956",
       "info": "",
@@ -6866,7 +6866,7 @@
     },
     {
       "nickname": "CF48",
-      "name": "CF48",
+      "name": "Menton",
       "strid_name": "459298",
       "ids_info": "458957",
       "info": "",
@@ -6878,7 +6878,7 @@
     },
     {
       "nickname": "CF49",
-      "name": "CF49",
+      "name": "Lemnos",
       "strid_name": "459300",
       "ids_info": "458958",
       "info": "",
@@ -6890,7 +6890,7 @@
     },
     {
       "nickname": "CF50",
-      "name": "CF50",
+      "name": "Mitra",
       "strid_name": "459302",
       "ids_info": "458959",
       "info": "",
@@ -6902,7 +6902,7 @@
     },
     {
       "nickname": "CF51",
-      "name": "CF51",
+      "name": "Mira Ceti",
       "strid_name": "459304",
       "ids_info": "458960",
       "info": "",
@@ -6914,7 +6914,7 @@
     },
     {
       "nickname": "CF52",
-      "name": "CF52",
+      "name": "Ptah",
       "strid_name": "459306",
       "ids_info": "458961",
       "info": "",
@@ -6926,7 +6926,7 @@
     },
     {
       "nickname": "CF60",
-      "name": "CF60",
+      "name": "Inner Core",
       "strid_name": "459278",
       "ids_info": "470592",
       "info": "",
@@ -6938,7 +6938,7 @@
     },
     {
       "nickname": "CF60b",
-      "name": "CF60b",
+      "name": "Inner Core",
       "strid_name": "459278",
       "ids_info": "470592",
       "info": "",
@@ -6950,7 +6950,7 @@
     },
     {
       "nickname": "CF60c",
-      "name": "CF60c",
+      "name": "Inner Core",
       "strid_name": "459278",
       "ids_info": "470592",
       "info": "",
@@ -6962,7 +6962,7 @@
     },
     {
       "nickname": "CF61",
-      "name": "CF61",
+      "name": "New Hongkong",
       "strid_name": "459280",
       "ids_info": "481749",
       "info": "",
@@ -6974,7 +6974,7 @@
     },
     {
       "nickname": "CF62",
-      "name": "CF62",
+      "name": "Gagarin",
       "strid_name": "472083",
       "ids_info": "481750",
       "info": "",
@@ -6986,7 +6986,7 @@
     },
     {
       "nickname": "CF63",
-      "name": "CF63",
+      "name": "Kalinin",
       "strid_name": "472086",
       "ids_info": "481751",
       "info": "",
@@ -6998,7 +6998,7 @@
     },
     {
       "nickname": "CF64",
-      "name": "CF64",
+      "name": "New Beijing",
       "strid_name": "471052",
       "ids_info": "481752",
       "info": "",
@@ -7010,7 +7010,7 @@
     },
     {
       "nickname": "CF65",
-      "name": "CF65",
+      "name": "Guangdong",
       "strid_name": "472105",
       "ids_info": "481753",
       "info": "",
@@ -7022,7 +7022,7 @@
     },
     {
       "nickname": "CF66",
-      "name": "CF66",
+      "name": "New Mekka",
       "strid_name": "472113",
       "ids_info": "481754",
       "info": "",
@@ -7034,7 +7034,7 @@
     },
     {
       "nickname": "CF67",
-      "name": "CF67",
+      "name": "Er Riad",
       "strid_name": "472115",
       "ids_info": "481748",
       "info": "",
@@ -7046,7 +7046,7 @@
     },
     {
       "nickname": "CF68",
-      "name": "CF68",
+      "name": "Nedjef",
       "strid_name": "472117",
       "ids_info": "481747",
       "info": "",
@@ -7058,7 +7058,7 @@
     },
     {
       "nickname": "CF68b",
-      "name": "CF68b",
+      "name": "Nedjef",
       "strid_name": "472117",
       "ids_info": "481747",
       "info": "",
@@ -7070,7 +7070,7 @@
     },
     {
       "nickname": "CF69",
-      "name": "CF69",
+      "name": "Meschhed",
       "strid_name": "472119",
       "ids_info": "481755",
       "info": "",
@@ -7082,7 +7082,7 @@
     },
     {
       "nickname": "CF70",
-      "name": "CF70",
+      "name": "Dervon",
       "strid_name": "471674",
       "ids_info": "471677",
       "info": "",
@@ -7094,7 +7094,7 @@
     },
     {
       "nickname": "CF71",
-      "name": "CF71",
+      "name": "Venn",
       "strid_name": "471706",
       "ids_info": "471708",
       "info": "",
@@ -7106,7 +7106,7 @@
     },
     {
       "nickname": "CF72",
-      "name": "CF72",
+      "name": "Jormdar",
       "strid_name": "471712",
       "ids_info": "471708",
       "info": "",
@@ -7118,7 +7118,7 @@
     },
     {
       "nickname": "CF73",
-      "name": "CF73",
+      "name": "Celldra",
       "strid_name": "471729",
       "ids_info": "471708",
       "info": "",
@@ -7130,7 +7130,7 @@
     },
     {
       "nickname": "CF74",
-      "name": "CF74",
+      "name": "Sadurn",
       "strid_name": "471731",
       "ids_info": "471708",
       "info": "",
@@ -7142,7 +7142,7 @@
     },
     {
       "nickname": "CF75",
-      "name": "CF75",
+      "name": "Pyrddra",
       "strid_name": "471733",
       "ids_info": "471708",
       "info": "",
@@ -7154,7 +7154,7 @@
     },
     {
       "nickname": "CF76",
-      "name": "CF76",
+      "name": "Mepther",
       "strid_name": "471735",
       "ids_info": "471708",
       "info": "",
@@ -7166,7 +7166,7 @@
     },
     {
       "nickname": "CF77",
-      "name": "CF77",
+      "name": "Ryssk",
       "strid_name": "471737",
       "ids_info": "471708",
       "info": "",
@@ -7178,7 +7178,7 @@
     },
     {
       "nickname": "CF78",
-      "name": "CF78",
+      "name": "Weth",
       "strid_name": "471779",
       "ids_info": "471708",
       "info": "",
@@ -7190,7 +7190,7 @@
     },
     {
       "nickname": "CF79",
-      "name": "CF79",
+      "name": "Rhuntath",
       "strid_name": "471781",
       "ids_info": "471708",
       "info": "",
@@ -7202,7 +7202,7 @@
     },
     {
       "nickname": "CF80",
-      "name": "CF80",
+      "name": "Loret",
       "strid_name": "471783",
       "ids_info": "471708",
       "info": "",
@@ -7214,7 +7214,7 @@
     },
     {
       "nickname": "CF81",
-      "name": "CF81",
+      "name": "Zhiklor",
       "strid_name": "471785",
       "ids_info": "471708",
       "info": "",
@@ -7226,7 +7226,7 @@
     },
     {
       "nickname": "CF82",
-      "name": "CF82",
+      "name": "Whyr",
       "strid_name": "471787",
       "ids_info": "471708",
       "info": "",
@@ -7238,7 +7238,7 @@
     },
     {
       "nickname": "CF83",
-      "name": "CF83",
+      "name": "Lenas",
       "strid_name": "471789",
       "ids_info": "471708",
       "info": "",
@@ -7250,7 +7250,7 @@
     },
     {
       "nickname": "CF84",
-      "name": "CF84",
+      "name": "Dras",
       "strid_name": "471791",
       "ids_info": "471708",
       "info": "",
@@ -7262,7 +7262,7 @@
     },
     {
       "nickname": "CF85",
-      "name": "CF85",
+      "name": "Minnck",
       "strid_name": "471793",
       "ids_info": "471708",
       "info": "",
@@ -7274,7 +7274,7 @@
     },
     {
       "nickname": "CF86",
-      "name": "CF86",
+      "name": "Bimia",
       "strid_name": "471795",
       "ids_info": "471708",
       "info": "",
@@ -7286,7 +7286,7 @@
     },
     {
       "nickname": "CF87",
-      "name": "CF87",
+      "name": "Timath",
       "strid_name": "471797",
       "ids_info": "471708",
       "info": "",
@@ -7298,7 +7298,7 @@
     },
     {
       "nickname": "CF88",
-      "name": "CF88",
+      "name": "Lintkin",
       "strid_name": "471799",
       "ids_info": "471708",
       "info": "",
@@ -7310,7 +7310,7 @@
     },
     {
       "nickname": "CF89",
-      "name": "CF89",
+      "name": "Sorror",
       "strid_name": "471801",
       "ids_info": "471708",
       "info": "",
@@ -7322,7 +7322,7 @@
     },
     {
       "nickname": "CF90",
-      "name": "CF90",
+      "name": "Trawtai",
       "strid_name": "471803",
       "ids_info": "471708",
       "info": "",
@@ -7334,7 +7334,7 @@
     },
     {
       "nickname": "CF90b",
-      "name": "CF90b",
+      "name": "Trawtai",
       "strid_name": "471803",
       "ids_info": "471708",
       "info": "",
@@ -7346,7 +7346,7 @@
     },
     {
       "nickname": "CF91",
-      "name": "CF91",
+      "name": "Phanchdar",
       "strid_name": "471805",
       "ids_info": "471708",
       "info": "",
@@ -7358,7 +7358,7 @@
     },
     {
       "nickname": "CF92",
-      "name": "CF92",
+      "name": "Relenth",
       "strid_name": "471807",
       "ids_info": "471708",
       "info": "",
@@ -7370,7 +7370,7 @@
     },
     {
       "nickname": "CF93",
-      "name": "CF93",
+      "name": "Crallard",
       "strid_name": "471809",
       "ids_info": "471708",
       "info": "",
@@ -7382,7 +7382,7 @@
     },
     {
       "nickname": "CF94",
-      "name": "CF94",
+      "name": "Assris",
       "strid_name": "500896",
       "ids_info": "471708",
       "info": "",
@@ -7394,7 +7394,7 @@
     },
     {
       "nickname": "CF95",
-      "name": "CF95",
+      "name": "Kinak",
       "strid_name": "500898",
       "ids_info": "471708",
       "info": "",
@@ -7406,7 +7406,7 @@
     },
     {
       "nickname": "CF96",
-      "name": "CF96",
+      "name": "Keltur",
       "strid_name": "500900",
       "ids_info": "471708",
       "info": "",
@@ -7418,7 +7418,7 @@
     },
     {
       "nickname": "CF97",
-      "name": "CF97",
+      "name": "Belay",
       "strid_name": "500902",
       "ids_info": "471708",
       "info": "",
@@ -7430,7 +7430,7 @@
     },
     {
       "nickname": "CF98",
-      "name": "CF98",
+      "name": "Banysia",
       "strid_name": "500904",
       "ids_info": "471708",
       "info": "",
@@ -7442,7 +7442,7 @@
     },
     {
       "nickname": "CF99",
-      "name": "CF99",
+      "name": "Triam",
       "strid_name": "481536",
       "ids_info": "471708",
       "info": "",
@@ -7466,7 +7466,7 @@
     },
     {
       "nickname": "CF100",
-      "name": "CF100",
+      "name": "Epsilon Eridani",
       "strid_name": "480779",
       "ids_info": "480781",
       "info": "",
@@ -7478,7 +7478,7 @@
     },
     {
       "nickname": "CF101",
-      "name": "CF101",
+      "name": "Tau Ceti",
       "strid_name": "480780",
       "ids_info": "480782",
       "info": "",
@@ -7490,7 +7490,7 @@
     },
     {
       "nickname": "CF103",
-      "name": "CF103",
+      "name": "Hive",
       "strid_name": "459270",
       "ids_info": "458951",
       "info": "",
@@ -7502,7 +7502,7 @@
     },
     {
       "nickname": "CF104",
-      "name": "CF104",
+      "name": "Epsilon Indi",
       "strid_name": "501851",
       "ids_info": "501852",
       "info": "",
@@ -7514,7 +7514,7 @@
     },
     {
       "nickname": "CF105",
-      "name": "CF105",
+      "name": "Luyten",
       "strid_name": "501849",
       "ids_info": "501850",
       "info": "",
@@ -7526,7 +7526,7 @@
     },
     {
       "nickname": "CF106",
-      "name": "CF106",
+      "name": "Alsace",
       "strid_name": "501855",
       "ids_info": "501856",
       "info": "",
@@ -7538,7 +7538,7 @@
     },
     {
       "nickname": "CF107",
-      "name": "CF107",
+      "name": "New Caledonia",
       "strid_name": "501859",
       "ids_info": "501860",
       "info": "",
@@ -7550,7 +7550,7 @@
     },
     {
       "nickname": "CF108",
-      "name": "CF108",
+      "name": "Burgundy",
       "strid_name": "501857",
       "ids_info": "501858",
       "info": "",
@@ -7562,7 +7562,7 @@
     },
     {
       "nickname": "CF109",
-      "name": "CF109",
+      "name": "Procyon",
       "strid_name": "501853",
       "ids_info": "501854",
       "info": "",
@@ -7590,6 +7590,7 @@
     "BR03": [
       "Br01",
       "Bw01",
+      "Bw02",
       "Br04"
     ],
     "BR04": [
@@ -7607,7 +7608,8 @@
       "CF23"
     ],
     "BR06": [
-      "Br04"
+      "Br04",
+      "Bw10"
     ],
     "BW01": [
       "Bw03",
@@ -7637,16 +7639,21 @@
     "BW05": [
       "Rh04",
       "Ku04",
+      "Bw06",
+      "Bw07",
       "Ku06",
       "Rh01"
     ],
     "BW06": [
+      "Ew04",
       "Bw07",
       "Bw05"
     ],
     "BW07": [
       "Ku04",
-      "Bw06"
+      "Bw06",
+      "Ew02",
+      "Bw05"
     ],
     "BW08": [
       "Ku03",
@@ -7662,44 +7669,90 @@
     "BW10": [
       "Br04",
       "Bw09",
-      "Bw08"
+      "Bw08",
+      "Br06"
+    ],
+    "CF01": [
+      "Hi01",
+      "FP7_systemmp",
+      "CF02",
+      "Li05",
+      "Ku07",
+      "St01",
+      "St02",
+      "St03",
+      "St03b",
+      "CF03",
+      "CF04",
+      "CF05",
+      "CF06",
+      "CF07",
+      "CF08",
+      "CF09",
+      "CF10",
+      "CF11",
+      "CF12",
+      "CF13",
+      "CF14",
+      "CF15",
+      "CF16",
+      "CF17",
+      "RW01"
     ],
     "CF02": [
+      "CF01",
       "Li01"
     ],
     "Cf03": [
-      "CF24"
+      "CF24",
+      "CF01"
     ],
     "Cf04": [
-      "CF08"
+      "CF01",
+      "CF08",
+      "CF24"
     ],
     "Cf05": [
+      "CF01",
       "CF15"
     ],
     "Cf06": [
+      "CF01",
+      "CF25",
       "CF08"
     ],
+    "Cf07": [
+      "CF01",
+      "rw01"
+    ],
     "Cf08": [
+      "CF01",
       "CF06",
       "CF04"
     ],
     "Cf09": [
+      "CF01",
+      "CF11",
       "CF10"
     ],
     "Cf10": [
+      "CF01",
       "CF09",
       "CF12"
     ],
     "CF100": [
+      "CF20",
       "CF101"
     ],
     "CF101": [
-      "CF100"
+      "CF100",
+      "CF104"
     ],
     "CF102": [
       "St03b2"
     ],
     "CF104": [
+      "CF101",
       "CF105"
     ],
     "CF105": [
@@ -7712,11 +7765,25 @@
     "CF109": [
       "CF108"
     ],
+    "Cf11": [
+      "CF01",
+      "CF09"
+    ],
     "Cf12": [
-      "CF10"
+      "CF01",
+      "CF10",
+      "CF17"
+    ],
+    "Cf13": [
+      "CF01",
+      "CF32",
+      "CF41",
+      "rw01",
+      "CF16"
     ],
     "cf14": [
-      "CF01"
+      "CF01",
+      "CF21"
     ],
     "cf15": [
       "CF01",
@@ -7724,14 +7791,24 @@
       "CF24"
     ],
     "cf16": [
-      "CF01"
+      "CF01",
+      "CF13"
     ],
     "cf17": [
       "CF01",
+      "CF12",
       "FP7_systemmp"
     ],
+    "Cf18": [
+      "ST02"
+    ],
     "CF19": [
-      "CF19"
+      "CF19",
+      "Ku06"
+    ],
+    "CF20": [
+      "CF31",
+      "CF100"
     ],
     "CF21": [
       "CF22",
@@ -7746,10 +7823,12 @@
     ],
     "CF24": [
       "CF03",
+      "CF04",
       "CF15"
     ],
     "CF25": [
-      "LI03"
+      "LI03",
+      "CF06"
     ],
     "CF26": [
       "LI04"
@@ -7767,21 +7846,84 @@
       "FP7_systemmp"
     ],
     "CF30": [
-      "FP7_systemmp"
+      "FP7_systemmp",
+      "St02"
+    ],
+    "CF31": [
+      "CF20",
+      "CF33",
+      "CF40"
+    ],
+    "CF32": [
+      "CF13"
+    ],
+    "CF33": [
+      "CF31",
+      "CF34",
+      "CF35"
+    ],
+    "CF34": [
+      "CF33",
+      "CF36"
+    ],
+    "CF35": [
+      "CF33",
+      "CF36",
+      "CF65"
+    ],
+    "CF36": [
+      "CF34",
+      "CF35",
+      "CF37",
+      "CF38",
+      "CF61"
+    ],
+    "CF37": [
+      "CF36",
+      "CF62",
+      "CF63",
+      "CF64"
     ],
     "CF38": [
+      "CF36",
+      "CF39",
+      "CF66",
+      "CF67",
+      "CF61",
       "CF69"
     ],
+    "CF39": [
+      "CF38",
+      "EW06",
+      "CF69",
+      "CF68"
+    ],
+    "CF40": [
+      "CF31"
+    ],
     "CF42": [
+      "CF43",
       "CF49"
     ],
     "CF43": [
+      "CF42",
       "CF44"
     ],
     "CF44": [
-      "CF43"
+      "CF43",
+      "CF45",
+      "CF49"
+    ],
+    "CF45": [
+      "CF44",
+      "CF46"
+    ],
+    "CF46": [
+      "CF45",
+      "CF47"
     ],
     "CF47": [
+      "CF46",
       "CF48"
     ],
     "CF48": [
@@ -7789,6 +7931,7 @@
     ],
     "CF49": [
       "CF42",
+      "CF44",
       "CF50",
       "CF51"
     ],
@@ -7796,7 +7939,11 @@
       "CF49"
     ],
     "CF51": [
+      "CF52",
       "CF49"
+    ],
+    "CF52": [
+      "CF51"
     ],
     "CF54": [
       "CF56"
@@ -7818,20 +7965,181 @@
     "CF58": [
       "CF48"
     ],
+    "CF59": [
+      "Ew03",
+      "CF70"
+    ],
+    "CF60": [
+      "CF71"
+    ],
     "CF61": [
-      "CF64"
+      "CF36",
+      "CF64",
+      "CF38"
     ],
     "CF62": [
+      "CF37",
       "CF63"
     ],
     "CF63": [
+      "CF37",
       "CF62"
     ],
     "CF64": [
+      "CF37",
       "CF61"
     ],
+    "CF65": [
+      "CF35"
+    ],
+    "CF66": [
+      "CF38",
+      "CF67"
+    ],
+    "CF67": [
+      "CF38",
+      "CF66",
+      "CF68"
+    ],
+    "CF68": [
+      "CF39",
+      "CF67"
+    ],
     "CF69": [
+      "CF39",
       "CF38"
+    ],
+    "CF70": [
+      "CF59"
+    ],
+    "CF71": [
+      "CF60",
+      "CF72",
+      "CF73"
+    ],
+    "CF72": [
+      "CF71",
+      "CF74",
+      "CF76"
+    ],
+    "CF73": [
+      "CF71",
+      "CF74",
+      "CF75"
+    ],
+    "CF74": [
+      "CF72",
+      "CF73",
+      "CF75"
+    ],
+    "CF75": [
+      "CF74",
+      "CF73",
+      "CF76"
+    ],
+    "CF76": [
+      "CF75",
+      "CF72",
+      "CF77"
+    ],
+    "CF77": [
+      "CF76",
+      "CF78"
+    ],
+    "CF78": [
+      "CF77",
+      "CF82",
+      "CF79"
+    ],
+    "CF79": [
+      "CF78",
+      "CF80"
+    ],
+    "CF80": [
+      "CF79",
+      "CF81",
+      "CF82",
+      "CF83",
+      "CF93"
+    ],
+    "CF81": [
+      "CF80"
+    ],
+    "CF82": [
+      "CF78",
+      "CF80",
+      "CF85"
+    ],
+    "CF83": [
+      "CF80",
+      "CF84",
+      "CF86"
+    ],
+    "CF84": [
+      "CF83"
+    ],
+    "CF85": [
+      "CF86",
+      "CF87",
+      "CF82",
+      "CF89",
+      "CF93"
+    ],
+    "CF86": [
+      "CF83",
+      "CF85"
+    ],
+    "CF87": [
+      "CF85"
+    ],
+    "CF88": [
+      "CF93"
+    ],
+    "CF89": [
+      "CF85",
+      "CF93",
+      "CF90"
+    ],
+    "CF90": [
+      "CF89",
+      "CF91",
+      "CF92"
+    ],
+    "CF91": [
+      "CF90"
+    ],
+    "CF92": [
+      "CF90"
+    ],
+    "CF93": [
+      "CF85",
+      "CF89",
+      "CF88",
+      "CF80"
+    ],
+    "CF94": [
+      "CF95",
+      "CF96"
+    ],
+    "CF95": [
+      "CF94",
+      "CF96",
+      "CF97"
+    ],
+    "CF96": [
+      "CF95",
+      "CF94"
+    ],
+    "CF97": [
+      "CF95",
+      "CF98"
+    ],
+    "CF98": [
+      "CF97"
+    ],
+    "EW01": [
+      "Bw08",
+      "Hi01"
     ],
     "EW02": [
       "Hi01",
@@ -7841,12 +8149,14 @@
       "Ew04",
       "Bw04",
       "Hi02",
-      "Bw02"
+      "Bw02",
+      "CF59"
     ],
     "EW04": [
       "Hi02",
       "Bw06",
-      "Ew03"
+      "Ew03",
+      "Hi01"
     ],
     "EW05": [
       "Hi01",
@@ -7859,11 +8169,15 @@
     ],
     "HI01": [
       "Ew01",
-      "Ew02"
+      "Ew02",
+      "Ew04",
+      "Ew05",
+      "CF01"
     ],
     "HI02": [
       "Ew03",
-      "Ew04"
+      "Ew04",
+      "Ew06"
     ],
     "INTRO": [
       "Li02",
@@ -7885,11 +8199,14 @@
     "IW03": [
       "Br02",
       "Li02",
-      "Li01"
+      "Iw04",
+      "Li01",
+      "Br04"
     ],
     "IW04": [
       "Br02",
-      "Li02"
+      "Li02",
+      "Iw03"
     ],
     "IW05": [
       "Ku02",
@@ -7910,26 +8227,39 @@
     "KU02": [
       "Ku01",
       "Iw06",
-      "Iw05"
+      "Iw05",
+      "Ku03"
     ],
     "KU03": [
       "Ku01",
-      "Bw09"
+      "Bw09",
+      "Bw08",
+      "Ku05",
+      "Ku02"
     ],
     "KU04": [
       "Ku01",
       "Bw07",
-      "Bw05"
+      "Bw05",
+      "Ku06"
     ],
     "KU05": [
-      "Ku01"
+      "Ku01",
+      "Ku03",
+      "Ku06",
+      "Ku07"
     ],
     "KU06": [
-      "Bw05"
+      "Ku05",
+      "Ku07",
+      "Ku04",
+      "Bw05",
+      "CF19"
     ],
     "KU07": [
       "Ku06",
-      "Ku05"
+      "Ku05",
+      "CF01"
     ],
     "LI01": [
       "Li02",
@@ -7962,6 +8292,7 @@
     ],
     "LI05": [
       "Li01",
+      "CF01",
       "CF27"
     ],
     "RH01": [
@@ -7997,13 +8328,1922 @@
       "Rh04"
     ],
     "RW01": [
-      "cf01"
+      "cf01",
+      "CF07",
+      "CF13"
     ],
     "ST01": [
-      "St02"
+      "St02",
+      "St03",
+      "CF01"
     ],
     "ST02": [
-      "St01"
+      "St01",
+      "CF01",
+      "CF18",
+      "CF30"
+    ],
+    "ST03": [
+      "St01",
+      "CF01"
+    ],
+    "ST03B": [
+      "CF01"
+    ],
+    "Ku03b": [
+      "Ku01",
+      "Bw09",
+      "Bw08",
+      "Ku05",
+      "Ku02"
+    ],
+    "Bw01b": [
+      "Bw03",
+      "Br03",
+      "Bw02"
+    ],
+    "St02tk": [
+      "St01",
+      "CF01",
+      "CF18",
+      "CF30"
+    ],
+    "St03b2": [
+      "CF01"
+    ],
+    "CF01t": [
+      "Hi01",
+      "FP7_systemmp",
+      "CF02",
+      "Li05",
+      "Ku07",
+      "St01",
+      "St02",
+      "St03",
+      "St03b",
+      "CF03",
+      "CF04",
+      "CF05",
+      "CF06",
+      "CF07",
+      "CF08",
+      "CF09",
+      "CF10",
+      "CF11",
+      "CF12",
+      "CF13",
+      "CF14",
+      "CF15",
+      "CF16",
+      "CF17",
+      "RW01"
+    ],
+    "CF01tk": [
+      "Hi01",
+      "FP7_systemmp",
+      "CF02",
+      "Li05",
+      "Ku07",
+      "St01",
+      "St02",
+      "St03",
+      "St03b",
+      "CF03",
+      "CF04",
+      "CF05",
+      "CF06",
+      "CF07",
+      "CF08",
+      "CF09",
+      "CF10",
+      "CF11",
+      "CF12",
+      "CF13",
+      "CF14",
+      "CF15",
+      "CF16",
+      "CF17",
+      "RW01"
+    ],
+    "CF01tn": [
+      "Hi01",
+      "FP7_systemmp",
+      "CF02",
+      "Li05",
+      "Ku07",
+      "St01",
+      "St02",
+      "St03",
+      "St03b",
+      "CF03",
+      "CF04",
+      "CF05",
+      "CF06",
+      "CF07",
+      "CF08",
+      "CF09",
+      "CF10",
+      "CF11",
+      "CF12",
+      "CF13",
+      "CF14",
+      "CF15",
+      "CF16",
+      "CF17",
+      "RW01"
+    ],
+    "CF01tn2": [
+      "Hi01",
+      "FP7_systemmp",
+      "CF02",
+      "Li05",
+      "Ku07",
+      "St01",
+      "St02",
+      "St03",
+      "St03b",
+      "CF03",
+      "CF04",
+      "CF05",
+      "CF06",
+      "CF07",
+      "CF08",
+      "CF09",
+      "CF10",
+      "CF11",
+      "CF12",
+      "CF13",
+      "CF14",
+      "CF15",
+      "CF16",
+      "CF17",
+      "RW01"
+    ],
+    "CF01ts": [
+      "Hi01",
+      "FP7_systemmp",
+      "CF02",
+      "Li05",
+      "Ku07",
+      "St01",
+      "St02",
+      "St03",
+      "St03b",
+      "CF03",
+      "CF04",
+      "CF05",
+      "CF06",
+      "CF07",
+      "CF08",
+      "CF09",
+      "CF10",
+      "CF11",
+      "CF12",
+      "CF13",
+      "CF14",
+      "CF15",
+      "CF16",
+      "CF17",
+      "RW01"
+    ],
+    "CF14tk": [
+      "CF01",
+      "CF21"
+    ],
+    "CF20t": [
+      "CF31",
+      "CF100"
+    ],
+    "CF60b": [
+      "CF71"
+    ],
+    "CF60c": [
+      "CF71"
+    ],
+    "CF68b": [
+      "CF39",
+      "CF67"
+    ],
+    "CF90b": [
+      "CF89",
+      "CF91",
+      "CF92"
     ]
-  }
+  },
+  "sectors": [
+    {
+      "key": "sector01",
+      "name": "Sector 1",
+      "layout": {
+        "x": 0.245,
+        "y": -0.275
+      },
+      "labels": [
+        {
+          "id": "001249",
+          "text": "001249",
+          "x": -0.05,
+          "y": 0.01
+        },
+        {
+          "id": "001251",
+          "text": "001251",
+          "x": -0.05,
+          "y": 0.17
+        },
+        {
+          "id": "001252",
+          "text": "001252",
+          "x": 0.055,
+          "y": -0.153
+        },
+        {
+          "id": "001250",
+          "text": "001250",
+          "x": -0.255,
+          "y": -0.153
+        }
+      ],
+      "systems": [
+        {
+          "nickname": "Hi01",
+          "name": "Omicron Alpha",
+          "strid_name": "459176",
+          "ids_info": "66112",
+          "info": "AUSGESTOSSENE\nBesiedelte Planeten\nMalta\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nAusgestoßene\nErzeugnisse\nSauerstoff\nWasser\nLebensmittel\nSchaumkraut",
+          "x": 8.0,
+          "z": 0.0
+        },
+        {
+          "nickname": "Li05",
+          "name": "Alaska",
+          "strid_name": "459098",
+          "ids_info": "66082",
+          "info": "LIBERTY\nBesiedelte Planeten\nGEHEIM\nStützpunkte\nGEHEIM\nUnternehmen\nGEHEIM\nKriminelle\nGEHEIM\nErzeugnisse\nGEHEIM",
+          "x": 9.0,
+          "z": 7.0
+        },
+        {
+          "nickname": "Li01",
+          "name": "New York",
+          "strid_name": "459090",
+          "ids_info": "66106",
+          "info": "LIBERTY\nBesiedelte Planeten\nManhattan\nPittsburgh\nStützpunkte\nFt. Bush\nStation Newark\nAußenposten Trenton\nDetroiter Munitionswerke\nAkademie West Point\nNorfolk-Werft\nBaltimore-Werft\nSchlachtschiff\nMissouri\nUnternehmen\nAgeira Technologies\nInterspace Commerce\nUniversal Shipping\nDeep Space Engineering\nLiberty Police, Inc.\nKriminelle\nLiberty Rogues\nAusgestoßene\nXenos\nSchrotties\nErzeugnisse\nBor\nSeitenwaffen\nLuxusgüter\nGiftmüll",
+          "x": 7.0,
+          "z": 8.0
+        },
+        {
+          "nickname": "Li03",
+          "name": "Colorado",
+          "strid_name": "459094",
+          "ids_info": "66087",
+          "info": "LIBERTY\nBesiedelte Planeten\nDenver\nStützpunkte\nStation Pueblo\nSchlachtschiff\nRio Grande\nUnternehmen\nAgeira Technologies\nCryer Pharmaceuticals\nKriminelle\nXenos\nLiberty Rogues\nErzeugnisse\nPharmazeutika\nSupraleiter\nSuperlegierungen\nBauteile für Handelsrouten\nTerraforming-Gase\nGiftmüll",
+          "x": 7.0,
+          "z": 7.0
+        },
+        {
+          "nickname": "Rh05",
+          "name": "Dresden",
+          "strid_name": "459120",
+          "ids_info": "66089",
+          "info": "RHEINLAND\nBesiedelte Planeten\nKeine\nStützpunkte\nStation Leipzig\nStation Bautzen\nGrenzstation Pirna\nUnternehmen\nDaumann Hoch- und Tiefbau\nKrüger Mineralien\nKriminelle\nRote Hessen\nErzeugnisse\nKupfer\nHochtemperaturlegierungen\nDiamanten\nKobalt",
+          "x": 11.0,
+          "z": 12.0
+        },
+        {
+          "nickname": "Rh01",
+          "name": "New Berlin",
+          "strid_name": "459112",
+          "ids_info": "66103",
+          "info": "RHEINLAND\nBesiedelte Planeten\nNeu-Berlin\nStützpunkte\nDer Ring\nStation Dortmund\nStation Essen\nStation Bonn\nOder-Werft\nGrenzstation Brandenburg\nUnternehmen\nDaumann Hoch- und Tiefbau\nKrüger Mineralien\nALG Abfallentsorgung\nRepublikanische Großspedition\nInterspace Commerce\nKriminelle\nRote Hessen\nBundschuh\nUnionisten\nLWB\nSchrotties\nErzeugnisse\nMOX\nKonsumgüter\nTriebwerkteile\nBaumaschinen\nBergbaumaschinen\nGrundlegierungen\nHochtemperaturlegierungen\nGiftmüll\nSauerstoff\nWasser\nSchiffsrumpfplatten",
+          "x": 11.0,
+          "z": 11.0
+        },
+        {
+          "nickname": "Rh03",
+          "name": "Stuttgart",
+          "strid_name": "459116",
+          "ids_info": "66121",
+          "info": "RHEINLAND\nBesiedelte Planeten\nStuttgart\nBaden-Baden\nStützpunkte\nStation Freiburg\nGrenzstation Ulm\nGrenzstation Konstanz\nUnternehmen\nSynth Foods\nOrbital Kuren und Kreuzfahrten\nRepublikanische Großspedition\nKriminelle\nRote Hessen\nLWB\nErzeugnisse\nLebensmittel\nLuxuslebensmittel",
+          "x": 10.0,
+          "z": 11.0
+        },
+        {
+          "nickname": "Br06",
+          "name": "Edinburgh",
+          "strid_name": "459110",
+          "ids_info": "66091",
+          "info": "BRETONIA\nBesiedelte Planeten\nGaia (begrenzter Zutritt)\nStützpunkte\nStation Perth\nLuxusliner\nShetland\nUnternehmen\nOrbital Kuren und Kreuzfahrten\nPlanetform, Inc.\nKriminelle\nGaianer\nAusgestoßene\nErzeugnisse\nWasser\nSauerstoff",
+          "x": 0.0,
+          "z": 10.0
+        },
+        {
+          "nickname": "Br04",
+          "name": "Leeds",
+          "strid_name": "459106",
+          "ids_info": "66100",
+          "info": "BRETONIA\nBesiedelte Planeten\nLeeds\nStützpunkte\nLD-14\nBergbaustation Stokes\nAußenposten Glasgow\nSchlachtschiff\nYork\nGrenzstation Durham\nUnternehmen\nBowex\nBretonia Mining and Metals\nKriminelle\nMollys\nGaianer\nAusgestoßene\nErzeugnisse\nMOX\nBergbaumaschinen\nBaumaschinen\nSeitenwaffen\nRumpfplatten\nGrundlegierungen\nSuperlegierungen\nTerraforming-Gase\nGiftmüll\nNiob",
+          "x": 2.0,
+          "z": 9.0
+        },
+        {
+          "nickname": "Br02",
+          "name": "Manchester",
+          "strid_name": "459102",
+          "ids_info": "66102",
+          "info": "BRETONIA\nBesiedelte Planeten\nKeine\nStützpunkte\nStation Birmingham\nStation Sheffield\nBPA\nNewgate\nGrenzstation Liverpool\nGrenzstation Kingston\nUnternehmen\nBretonia Mining and Metals\nGilde der Kopfgeldjäger\nKriminelle\nMollys\nGaianer\nWegelagerer\nAusgestoßene\nErzeugnisse\nPolymere\nKohlenwasserstoffe\nTerraforming-Gase\nSauerstoff\nWasser",
+          "x": 4.0,
+          "z": 10.0
+        },
+        {
+          "nickname": "Ku06",
+          "name": "Chugoku",
+          "strid_name": "459132",
+          "ids_info": "66086",
+          "info": "KUSARI\nBesiedelte Planeten\nKeine\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nUnbekannt\nErzeugnisse\nNichts",
+          "x": 7.0,
+          "z": 2.0
+        },
+        {
+          "nickname": "Ku04",
+          "name": "Honshu",
+          "strid_name": "459128",
+          "ids_info": "66096",
+          "info": "KUSARI\nBesiedelte Planeten\nHonshu\nStützpunkte\nStation Aomori\nLager Osaka\nForschungsstation Kansai\nYukawa-Werft\nGrenzstation Akita\nUnternehmen\nKishiro Technologies\nSamura Industries\nKnappschaft der Gasschürfer\nKriminelle\nBlutdrachen\nBauernallianz\nKorsaren\nAusgestoßene\nErzeugnisse\nTriebwerkteile\nBaumaschinen\nOptronik\nH-Treibstoff",
+          "x": 8.0,
+          "z": 4.0
+        },
+        {
+          "nickname": "Ku02",
+          "name": "Shikoku",
+          "strid_name": "459124",
+          "ids_info": "66117",
+          "info": "KUSARI\nBesiedelte Planeten\nJunyo\nStützpunkte\nStation Deshima\nGefängnis von Fuchu\nSchlachtschiff\nMyoko\nGrenzstation Ohashi\nUnternehmen\nSamura Industries\nKishiro Technologies\nGilde der Kopfgeldjäger\nSynth Foods\nKriminelle\nBlutdrachen\nGoldenen Chrysanthemen\nErzeugnisse\nLebensmittel\nLuxuslebensmittel\nKonsumgüter\nKohlenwasserstoffe",
+          "x": 7.0,
+          "z": 5.0
+        },
+        {
+          "nickname": "FP7_system",
+          "name": "Freeport 7",
+          "strid_name": "459244",
+          "ids_info": "",
+          "info": "",
+          "x": 14.0,
+          "z": 6.0
+        },
+        {
+          "nickname": "FP7_systemmp",
+          "name": "Freeport 7",
+          "strid_name": "459244",
+          "ids_info": "",
+          "info": "",
+          "x": 14.0,
+          "z": 6.0
+        },
+        {
+          "nickname": "St02",
+          "name": "Nomads Lair",
+          "strid_name": "459242",
+          "ids_info": "66115",
+          "info": "NOMADEN\nBesiedelte Planeten\n???\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nUnbekannt\nErzeugnisse\nNichts",
+          "x": 13.0,
+          "z": -1.0
+        },
+        {
+          "nickname": "St02tk",
+          "name": "Nomads Lair",
+          "strid_name": "459242",
+          "ids_info": "66115",
+          "info": "NOMADEN\nBesiedelte Planeten\n???\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nUnbekannt\nErzeugnisse\nNichts",
+          "x": 13.0,
+          "z": -1.0
+        },
+        {
+          "nickname": "Iw06",
+          "name": "Galileo",
+          "strid_name": "459166",
+          "ids_info": "66093",
+          "info": "UNABHÄNGIG\nBesiedelte Planeten\nKeine\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nWegelagerer\nLiberty Rogues\nErzeugnisse\nNichts",
+          "x": 8.0,
+          "z": 6.0
+        },
+        {
+          "nickname": "Iw04",
+          "name": "Cortez",
+          "strid_name": "459162",
+          "ids_info": "66088",
+          "info": "UNABHÄNGIG\nBesiedelte Planeten\nCuraçao\nStützpunkte\nKeine\nUnternehmen\nOrbital Kuren und Kreuzfahrten\nKriminelle\nLiberty Rogues\nAusgestoßene\nWegelagerer\nErzeugnisse\nWasser\nSauerstoff",
+          "x": 5.0,
+          "z": 9.0
+        },
+        {
+          "nickname": "Iw02",
+          "name": "Hudson",
+          "strid_name": "459158",
+          "ids_info": "66097",
+          "info": "UNABHÄNGIG\nBesiedelte Planeten\nKeine\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nXenos\nLiberty Rogues\nUnionisten\nErzeugnisse\nNichts",
+          "x": 9.0,
+          "z": 10.0
+        },
+        {
+          "nickname": "Bw10",
+          "name": "Tau-31",
+          "strid_name": "459154",
+          "ids_info": "66124",
+          "info": "GRENZWELTEN\nBesiedelte Planeten\nHarris\nStützpunkte\nAußenposten Holman\nUnternehmen\nPlanetform, Inc.\nKnappschaft der unabhängigen Bergleute\nKriminelle\nAusgestoßene\nGaianer\nErzeugnisse\nSauerstoff\nWasser",
+          "x": 2.0,
+          "z": 7.0
+        },
+        {
+          "nickname": "Bw08",
+          "name": "Tau-23",
+          "strid_name": "459150",
+          "ids_info": "66122",
+          "info": "GRENZWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nStation Java\nTau 31-Sprungtor\nUnternehmen\nBretonia Mining and Metals\nKnappschaft der unabhängigen Bergleute\nDeep Space Engineering\nKriminelle\nAusgestoßene\nErzeugnisse\nBeryllium\nNiob",
+          "x": 2.0,
+          "z": 5.0
+        },
+        {
+          "nickname": "Bw06",
+          "name": "Sigma-17",
+          "strid_name": "459146",
+          "ids_info": "66119",
+          "info": "GRENZWELTEN\nBesiedelte Planeten\nKurilen\nStützpunkte\nForschungsstation Atka\nUnternehmen\nSamura Industries\nCryer Pharmaceuticals\nKriminelle\nKorsaren\nAusgestoßene\nErzeugnisse\nXeno-Organismen",
+          "x": 12.0,
+          "z": 6.0
+        },
+        {
+          "nickname": "Bw04",
+          "name": "Omega-11",
+          "strid_name": "459142",
+          "ids_info": "66107",
+          "info": "GRENZWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nStation Solarius\nUnternehmen\nDaumann Hoch- und Tiefbau\nKriminelle\nRote Hessen\nKorsaren\nErzeugnisse\nDiamanten",
+          "x": 8.0,
+          "z": 13.0
+        },
+        {
+          "nickname": "Bw02",
+          "name": "Omega-5",
+          "strid_name": "459138",
+          "ids_info": "66110",
+          "info": "GRENZWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nKorsaren\nRote Hessen\nErzeugnisse\nNichts",
+          "x": 5.0,
+          "z": 14.0
+        },
+        {
+          "nickname": "Ew06",
+          "name": "Unknown",
+          "strid_name": "459274",
+          "ids_info": "66115",
+          "info": "NOMADEN\nBesiedelte Planeten\n???\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nUnbekannt\nErzeugnisse\nNichts",
+          "x": 15.0,
+          "z": 9.0
+        },
+        {
+          "nickname": "Ew04",
+          "name": "Omicron Theta",
+          "strid_name": "459174",
+          "ids_info": "66116",
+          "info": "RANDWELTEN\nBesiedelte Planeten\nPygar (begrenzter Zutritt)\nStützpunkte\nFreihafen 9\nUnternehmen\nKeine\nKriminelle\nKorsaren\nErzeugnisse\nLebensmittel\nXeno-Artefakte\nXeno-Organismen",
+          "x": 15.0,
+          "z": 12.0
+        },
+        {
+          "nickname": "Ew02",
+          "name": "Omicron Beta",
+          "strid_name": "459170",
+          "ids_info": "66113",
+          "info": "RANDWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nAusgestoßene\nErzeugnisse\nXeno-Organismen",
+          "x": 10.0,
+          "z": 1.0
+        },
+        {
+          "nickname": "CF54",
+          "name": "Lost Paradise",
+          "strid_name": "459284",
+          "ids_info": "458962",
+          "info": "",
+          "x": 15.0,
+          "z": 6.0
+        },
+        {
+          "nickname": "CF56",
+          "name": "Unknown",
+          "strid_name": "459274",
+          "ids_info": "458964",
+          "info": "",
+          "x": 12.0,
+          "z": 5.0
+        },
+        {
+          "nickname": "CF70",
+          "name": "Dervon",
+          "strid_name": "471674",
+          "ids_info": "471677",
+          "info": "",
+          "x": 8.0,
+          "z": 12.0
+        },
+        {
+          "nickname": "CF18",
+          "name": "Death Valley",
+          "strid_name": "459234",
+          "ids_info": "458928",
+          "info": "",
+          "x": 15.0,
+          "z": 0.0
+        },
+        {
+          "nickname": "CF18tk",
+          "name": "Death Valley",
+          "strid_name": "459234",
+          "ids_info": "458928",
+          "info": "",
+          "x": 15.0,
+          "z": 0.0
+        },
+        {
+          "nickname": "CF14",
+          "name": "Nephele",
+          "strid_name": "459224",
+          "ids_info": "458924",
+          "info": "",
+          "x": 0.0,
+          "z": 6.0
+        },
+        {
+          "nickname": "CF14tk",
+          "name": "Nephele",
+          "strid_name": "459224",
+          "ids_info": "458924",
+          "info": "",
+          "x": 0.0,
+          "z": 6.0
+        },
+        {
+          "nickname": "CF16",
+          "name": "Enigma",
+          "strid_name": "459228",
+          "ids_info": "458926",
+          "info": "",
+          "x": 3.0,
+          "z": 9.0
+        },
+        {
+          "nickname": "CF10",
+          "name": "Vespus",
+          "strid_name": "459262",
+          "ids_info": "458921",
+          "info": "",
+          "x": 13.0,
+          "z": 0.0
+        },
+        {
+          "nickname": "CF12",
+          "name": "Casius",
+          "strid_name": "459266",
+          "ids_info": "458923",
+          "info": "",
+          "x": 10.0,
+          "z": 2.0
+        },
+        {
+          "nickname": "CF08",
+          "name": "Seltos",
+          "strid_name": "459258",
+          "ids_info": "458919",
+          "info": "",
+          "x": 1.0,
+          "z": 7.0
+        },
+        {
+          "nickname": "CF04",
+          "name": "Vega",
+          "strid_name": "459250",
+          "ids_info": "458915",
+          "info": "",
+          "x": 1.0,
+          "z": 1.0
+        },
+        {
+          "nickname": "CF06",
+          "name": "Daedalus",
+          "strid_name": "459254",
+          "ids_info": "458917",
+          "info": "",
+          "x": 2.0,
+          "z": 3.0
+        },
+        {
+          "nickname": "CF02",
+          "name": "Custodian",
+          "strid_name": "459236",
+          "ids_info": "458913",
+          "info": "",
+          "x": 1.0,
+          "z": -1.0
+        },
+        {
+          "nickname": "St03b",
+          "name": "Dyson Sphere",
+          "strid_name": "459240",
+          "ids_info": "66115",
+          "info": "NOMADEN\nBesiedelte Planeten\n???\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nUnbekannt\nErzeugnisse\nNichts",
+          "x": 15.0,
+          "z": 3.0
+        },
+        {
+          "nickname": "St03b2",
+          "name": "Dyson Sphere",
+          "strid_name": "459240",
+          "ids_info": "66115",
+          "info": "NOMADEN\nBesiedelte Planeten\n???\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nUnbekannt\nErzeugnisse\nNichts",
+          "x": 15.0,
+          "z": 3.0
+        },
+        {
+          "nickname": "St02b",
+          "name": "Omicron Major",
+          "strid_name": "196657",
+          "ids_info": "5146",
+          "info": "",
+          "x": 12.0,
+          "z": 2.0
+        },
+        {
+          "nickname": "CF30",
+          "name": "Purian Lake",
+          "strid_name": "459222",
+          "ids_info": "458940",
+          "info": "",
+          "x": 14.0,
+          "z": 4.0
+        },
+        {
+          "nickname": "CF32",
+          "name": "Coloseum",
+          "strid_name": "459186",
+          "ids_info": "458942",
+          "info": "",
+          "x": 3.0,
+          "z": 8.0
+        },
+        {
+          "nickname": "CF28",
+          "name": "Wanderer's Pond",
+          "strid_name": "459218",
+          "ids_info": "458938",
+          "info": "",
+          "x": 10.0,
+          "z": 8.0
+        },
+        {
+          "nickname": "CF24",
+          "name": "Far Point",
+          "strid_name": "459210",
+          "ids_info": "458934",
+          "info": "",
+          "x": 0.0,
+          "z": 4.0
+        },
+        {
+          "nickname": "CF26",
+          "name": "Oasis",
+          "strid_name": "459214",
+          "ids_info": "458936",
+          "info": "",
+          "x": 7.0,
+          "z": 10.0
+        },
+        {
+          "nickname": "CF22",
+          "name": "The Corridor",
+          "strid_name": "459206",
+          "ids_info": "458932",
+          "info": "",
+          "x": 1.0,
+          "z": 11.0
+        },
+        {
+          "nickname": "Hi02",
+          "name": "Omicron Gamma",
+          "strid_name": "459178",
+          "ids_info": "66114",
+          "info": "KORSAREN\nBesiedelte Planeten\nKreta\nStützpunkte\nTripoli-Werft\nUnternehmen\nKeine\nKriminelle\nKorsaren\nErzeugnisse\nSauerstoff\nWasser\nArtefakte",
+          "x": 13.0,
+          "z": 14.0
+        },
+        {
+          "nickname": "Li04",
+          "name": "Texas",
+          "strid_name": "459096",
+          "ids_info": "66126",
+          "info": "LIBERTY\nBesiedelte Planeten\nHouston\nStützpunkte\nLPI\nHuntsville\nLPI\nSugarland\nSchlachtschiff\nMississippi\nUnternehmen\nLiberty Police, Inc.\nGilde der Kopfgeldjäger\nDeep Space Engineering\nKriminelle\nXenos\nLiberty Rogues\nAusgestoßene\nSchrotties\nErzeugnisse\nDünger\nKonsumgüter\nGrundlegierungen\nGiftmüll",
+          "x": 8.0,
+          "z": 9.0
+        },
+        {
+          "nickname": "Li02",
+          "name": "California",
+          "strid_name": "459092",
+          "ids_info": "66084",
+          "info": "LIBERTY\nBesiedelte Planeten\nLos Angeles\nCalifornia Minor\nStützpunkte\nSchlachtschiff\nYukon\nGrenzstation San Diego\nUnternehmen\nSynth Foods\nAgeira Technologies\nPlanetform, Inc.\nKriminelle\nLiberty Rogues\nAusgestoßene\nWegelagerer\nErzeugnisse\nLebensmittel\nOptische Chips\nSauerstoff",
+          "x": 6.0,
+          "z": 9.0
+        },
+        {
+          "nickname": "Rh04",
+          "name": "Frankfurt",
+          "strid_name": "459118",
+          "ids_info": "66092",
+          "info": "RHEINLAND\nBesiedelte Planeten\nHolstein\nStützpunkte\nStation Mannheim\nLager Mainz\nGrenzstation Fulda\nUnternehmen\nDaumann Hoch- und Tiefbau\nKrüger Mineralien\nRepublikanische Großspedition\nKriminelle\nBundschuh\nUnionisten\nRote Hessen\nSchrotties\nErzeugnisse\nBor\nH-Treibstoff",
+          "x": 12.0,
+          "z": 10.0
+        },
+        {
+          "nickname": "Rh02",
+          "name": "Hamburg",
+          "strid_name": "459114",
+          "ids_info": "66094",
+          "info": "RHEINLAND\nBesiedelte Planeten\nHamburg\nStützpunkte\nStation Altona\nAlster-Werft\nVierlandegefängnis\nSchlachtschiff\nWestfalen\nGrenzstation Lübeck\nUnternehmen\nRepublikanische Großspedition\nKriminelle\nRote Hessen\nUnionisten\nBundschuh\nSchrotties\nErzeugnisse\nSauerstoff\nWasser\nGiftmüll",
+          "x": 10.0,
+          "z": 10.0
+        },
+        {
+          "nickname": "Br05",
+          "name": "Dublin",
+          "strid_name": "459108",
+          "ids_info": "66090",
+          "info": "BRETONIA\nBesiedelte Planeten\nKeine\nStützpunkte\nStation Graves\nSchlachtschiff\nHood\nSchlachtschiff\nEssex\nUnternehmen\nBretonia Mining and Metals\nKnappschaft der unabhängigen Bergleute\nKriminelle\nMollys\nErzeugnisse\nGold",
+          "x": 1.0,
+          "z": 13.0
+        },
+        {
+          "nickname": "Br03",
+          "name": "Cambridge",
+          "strid_name": "459104",
+          "ids_info": "66085",
+          "info": "BRETONIA\nBesiedelte Planeten\nCambridge\nStützpunkte\nForschungsstation Cambridge\nBergbaustation Cardiff\nSchlachtschiff\nNorfolk\nUnternehmen\nCryer Pharmaceuticals\nKnappschaft der unabhängigen Bergleute\nKriminelle\nKorsaren\nErzeugnisse\nLebensmittel\nLuxuslebensmittel\nPharmazeutika\nBeryllium",
+          "x": 3.0,
+          "z": 12.0
+        },
+        {
+          "nickname": "Br01",
+          "name": "New London",
+          "strid_name": "459100",
+          "ids_info": "66104",
+          "info": "BRETONIA\nBesiedelte Planeten\nNew London\nStützpunkte\nStation Canterbury\nStation Waterloo\nStation Kensington\nSouthampton-Werft\nSchlachtschiff\nSuffolk\nAußenposten Thames\nUnternehmen\nBretonia Mining and Metals\nPlanetform, Inc.\nGateway Shipping\nInterspace Commerce\nKriminelle\nKorsaren\nMollys\nAusgestoßene\nGaianer\nSchrotties\nErzeugnisse\nSauerstoff\nWasser",
+          "x": 2.0,
+          "z": 11.0
+        },
+        {
+          "nickname": "Ku07",
+          "name": "Tohoku",
+          "strid_name": "459134",
+          "ids_info": "66127",
+          "info": "KUSARI\nBesiedelte Planeten\nKeine\nStützpunkte\nHimmelstor\nUnternehmen\nKeine\nErzeugnisse\nNichts\nKriminelle\nBlutdrachen",
+          "x": 9.0,
+          "z": 2.0
+        },
+        {
+          "nickname": "Ku05",
+          "name": "Hokkaido",
+          "strid_name": "459130",
+          "ids_info": "66095",
+          "info": "KUSARI\nBesiedelte Planeten\nKeine\nStützpunkte\nStation Sapporo\nBaustelle Chugoku-Tor\nSchlachtschiff\nMatsumoto\nUnternehmen\nSamura Industries\nDeep Space Engineering\nKriminelle\nBlutdrachen\nGoldene Chrysantheme\nErzeugnisse\nH-Treibstoff",
+          "x": 7.0,
+          "z": 3.0
+        },
+        {
+          "nickname": "Ku03",
+          "name": "Kyushu",
+          "strid_name": "459126",
+          "ids_info": "66099",
+          "info": "KUSARI\nBesiedelte Planeten\nKyushu\nStützpunkte\nDepot Tsushima\nForschungszentrum Nansei\nSchlachtschiff\nNagumo\nUnternehmen\nSamura Industries\nKriminelle\nBlutdrachen\nGoldene Chrysantheme\nBauernallianz\nErzeugnisse\nLebensmittel\nPolymere",
+          "x": 6.0,
+          "z": 4.0
+        },
+        {
+          "nickname": "Ku03b",
+          "name": "Kyushu",
+          "strid_name": "459126",
+          "ids_info": "66099",
+          "info": "KUSARI\nBesiedelte Planeten\nKyushu\nStützpunkte\nDepot Tsushima\nForschungszentrum Nansei\nSchlachtschiff\nNagumo\nUnternehmen\nSamura Industries\nKriminelle\nBlutdrachen\nGoldene Chrysantheme\nBauernallianz\nErzeugnisse\nLebensmittel\nPolymere",
+          "x": 6.0,
+          "z": 4.0
+        },
+        {
+          "nickname": "Ku01",
+          "name": "New Tokyo",
+          "strid_name": "459122",
+          "ids_info": "66105",
+          "info": "KUSARI\nBesiedelte Planeten\nNeu-Tokio\nStützpunkte\nStation Shinjuku\nStation Shinagawa\nStation Roppongi\nAußenposten Narita\nYokohama-Werft\nUnternehmen\nSamura Industries\nKishiro Technologies\nInterspace Commerce\nKriminelle\nHogosha\nBlutdrachen\nGoldene Chrysantheme\nErzeugnisse\nOptische Chips\nSauerstoff\nWasser\nGiftmüll",
+          "x": 7.0,
+          "z": 4.0
+        },
+        {
+          "nickname": "St03",
+          "name": "Outer Dyson Sphere",
+          "strid_name": "459246",
+          "ids_info": "66115",
+          "info": "NOMADEN\nBesiedelte Planeten\n???\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nUnbekannt\nErzeugnisse\nNichts",
+          "x": 14.0,
+          "z": 3.0
+        },
+        {
+          "nickname": "St01",
+          "name": "Omicron Minor",
+          "strid_name": "459180",
+          "ids_info": "66115",
+          "info": "NOMADEN\nBesiedelte Planeten\n???\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nUnbekannt\nErzeugnisse\nNichts",
+          "x": 13.0,
+          "z": 3.0
+        },
+        {
+          "nickname": "Iw05",
+          "name": "Kepler",
+          "strid_name": "459164",
+          "ids_info": "66098",
+          "info": "UNABHÄNGIG\nBesiedelte Planeten\nKeine\nStützpunkte\nForschungsstation Ames\nUnternehmen\nDeep Space Engineering\nKriminelle\nXenos\nWegelagerer\nErzeugnisse\nNichts",
+          "x": 6.0,
+          "z": 6.0
+        },
+        {
+          "nickname": "Iw03",
+          "name": "Magellan",
+          "strid_name": "459160",
+          "ids_info": "66101",
+          "info": "UNABHÄNGIG\nBesiedelte Planeten\nKeine\nStützpunkte\nFreihafen 4\nUnternehmen\nKnappschaft der unabhängigen Bergleute\nKriminelle\nWegelagerer\nLiberty Rogues\nAusgestoßene\nErzeugnisse\nWasser\nSauerstoff",
+          "x": 5.0,
+          "z": 10.0
+        },
+        {
+          "nickname": "Iw01",
+          "name": "Bering",
+          "strid_name": "459156",
+          "ids_info": "66083",
+          "info": "UNABHÄNGIG\nBesiedelte Planeten\nKeine\nStützpunkte\nFreihafen 2\nUnternehmen\nKeine\nKriminelle\nUnionisten\nXenos\nRogues\nErzeugnisse\nLebensmittel",
+          "x": 9.0,
+          "z": 9.0
+        },
+        {
+          "nickname": "Bw09",
+          "name": "Tau-29",
+          "strid_name": "459152",
+          "ids_info": "66123",
+          "info": "GRENZWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nStation Nago\nStation Shinkaku\nFreihafen 6\nUnternehmen\nKishiro Technologies\nSamura Industries\nKriminelle\nAusgestoßene\nErzeugnisse\nPolymere\nKohlenwasserstoffe\nDünger\nLebensmittel\nTerraforming-Gase\nSauerstoff\nWasser",
+          "x": 3.0,
+          "z": 6.0
+        },
+        {
+          "nickname": "Bw07",
+          "name": "Sigma-19",
+          "strid_name": "459148",
+          "ids_info": "66120",
+          "info": "GRENZWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nLuxusliner\nHawaii\nGasabbaustation\nOgashawa\nUnternehmen\nOrbital Kuren und Kreuzfahrten\nKnappschaft der Gasschürfer\nKishiro Technologies\nKriminelle\nAusgestoßene\nKorsaren\nErzeugnisse\nH-Treibstoff",
+          "x": 11.0,
+          "z": 4.0
+        },
+        {
+          "nickname": "Bw05",
+          "name": "Sigma-13",
+          "strid_name": "459144",
+          "ids_info": "66118",
+          "info": "GRENZWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nGasabbaustation\nNaha\nStation Helgoland\nUnternehmen\nKnappschaft der Gasschürfer\nALG Abfallentsorgung\nKriminelle\nKorsaren\nAusgestoßene\nSchrotties\nErzeugnisse\nH-Treibstoff\nSchrott",
+          "x": 11.0,
+          "z": 6.0
+        },
+        {
+          "nickname": "Bw03",
+          "name": "Omega-7",
+          "strid_name": "459140",
+          "ids_info": "66111",
+          "info": "GRENZWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nAußenposten Friestadt\nBergbaustation Wismar\nBergbaustation Erlangen\nUnternehmen\nDaumann Hoch- und Tiefbau\nKrüger Mineralien\nKnappschaft der unabhängigen Bergleute\nKriminelle\nRote Hessen\nKorsaren\nErzeugnisse\nKupfer\nKobalt\nSilber",
+          "x": 7.0,
+          "z": 12.0
+        },
+        {
+          "nickname": "Bw01",
+          "name": "Omega-3",
+          "strid_name": "459136",
+          "ids_info": "66108",
+          "info": "GRENZWELTEN\nBesiedelte Planeten\nSprague (begrenzter Zutritt)\nStützpunkte\nFreihafen 1\nStation Rügen\nStation Douglas\nUnternehmen\nDaumann Hoch- und Tiefbau\nBretonia Mining and Metals\nPlanetform, Inc.\nKriminelle\nRote Hessen\nKorsaren\nErzeugnisse\nLebensmittel\nPolymere\nKohlenwasserstoffe\nSauerstoff\nWasser",
+          "x": 5.0,
+          "z": 12.0
+        },
+        {
+          "nickname": "Bw01b",
+          "name": "Omega-3",
+          "strid_name": "459136",
+          "ids_info": "66108",
+          "info": "GRENZWELTEN\nBesiedelte Planeten\nSprague (begrenzter Zutritt)\nStützpunkte\nFreihafen 1\nStation Rügen\nStation Douglas\nUnternehmen\nDaumann Hoch- und Tiefbau\nBretonia Mining and Metals\nPlanetform, Inc.\nKriminelle\nRote Hessen\nKorsaren\nErzeugnisse\nLebensmittel\nPolymere\nKohlenwasserstoffe\nSauerstoff\nWasser",
+          "x": 5.0,
+          "z": 12.0
+        },
+        {
+          "nickname": "Ew05",
+          "name": "Unknown",
+          "strid_name": "459274",
+          "ids_info": "66115",
+          "info": "NOMADEN\nBesiedelte Planeten\n???\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nUnbekannt\nErzeugnisse\nNichts",
+          "x": 15.0,
+          "z": 0.0
+        },
+        {
+          "nickname": "Ew03",
+          "name": "Omega-41",
+          "strid_name": "459172",
+          "ids_info": "66109",
+          "info": "RANDWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nFreihafen 5\nUnternehmen\nKeine\nKriminelle\nKorsaren\nRote Hessen\nErzeugnisse\nNichts",
+          "x": 10.0,
+          "z": 14.0
+        },
+        {
+          "nickname": "Ew01",
+          "name": "Tau-37",
+          "strid_name": "459168",
+          "ids_info": "66125",
+          "info": "RANDWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nFreihafen 10\nStützpunkt Falkland\nUnternehmen\nKnappschaft der unabhängigen Bergleute\nKriminelle\nAusgestoßene\nErzeugnisse\nNiob\nWasser\nLebensmittel",
+          "x": 4.0,
+          "z": 1.0
+        },
+        {
+          "nickname": "rw01",
+          "name": "Wheel of Sirius",
+          "strid_name": "459232",
+          "ids_info": "481746",
+          "info": "",
+          "x": 0.0,
+          "z": 9.0
+        },
+        {
+          "nickname": "CF59",
+          "name": "Utopia",
+          "strid_name": "459310",
+          "ids_info": "458966",
+          "info": "",
+          "x": 10.0,
+          "z": 12.0
+        },
+        {
+          "nickname": "CF55",
+          "name": "Unknown",
+          "strid_name": "459274",
+          "ids_info": "458963",
+          "info": "",
+          "x": 15.0,
+          "z": 1.0
+        },
+        {
+          "nickname": "CF57",
+          "name": "Unknown",
+          "strid_name": "459274",
+          "ids_info": "458965",
+          "info": "",
+          "x": 15.0,
+          "z": 8.0
+        },
+        {
+          "nickname": "CF53",
+          "name": "Planet Lost Paradise",
+          "strid_name": "459282",
+          "ids_info": "458962",
+          "info": "",
+          "x": 15.0,
+          "z": 6.0
+        },
+        {
+          "nickname": "CF41",
+          "name": "Hive",
+          "strid_name": "459270",
+          "ids_info": "458951",
+          "info": "",
+          "x": 3.0,
+          "z": 7.0
+        },
+        {
+          "nickname": "CF103",
+          "name": "Hive",
+          "strid_name": "459270",
+          "ids_info": "458951",
+          "info": "",
+          "x": 3.0,
+          "z": 7.0
+        },
+        {
+          "nickname": "CF19",
+          "name": "Hiruga",
+          "strid_name": "459184",
+          "ids_info": "458929",
+          "info": "",
+          "x": 8.0,
+          "z": 3.0
+        },
+        {
+          "nickname": "CF15",
+          "name": "Enyo",
+          "strid_name": "459226",
+          "ids_info": "458925",
+          "info": "",
+          "x": 0.0,
+          "z": 0.0
+        },
+        {
+          "nickname": "CF17",
+          "name": "Sekar",
+          "strid_name": "459230",
+          "ids_info": "458927",
+          "info": "",
+          "x": 10.0,
+          "z": 3.0
+        },
+        {
+          "nickname": "CF11",
+          "name": "Regalis",
+          "strid_name": "459264",
+          "ids_info": "458922",
+          "info": "",
+          "x": 14.0,
+          "z": 2.0
+        },
+        {
+          "nickname": "CF13",
+          "name": "Arena",
+          "strid_name": "459268",
+          "ids_info": "458886",
+          "info": "",
+          "x": 3.0,
+          "z": 7.0
+        },
+        {
+          "nickname": "CF09",
+          "name": "Neophobos",
+          "strid_name": "459260",
+          "ids_info": "458920",
+          "info": "",
+          "x": 13.0,
+          "z": 2.0
+        },
+        {
+          "nickname": "CF05",
+          "name": "Telosis",
+          "strid_name": "459252",
+          "ids_info": "458916",
+          "info": "",
+          "x": 0.0,
+          "z": 2.0
+        },
+        {
+          "nickname": "CF07",
+          "name": "Helios",
+          "strid_name": "459256",
+          "ids_info": "458918",
+          "info": "",
+          "x": 0.0,
+          "z": 5.0
+        },
+        {
+          "nickname": "CF01",
+          "name": "X-3043",
+          "strid_name": "459238",
+          "ids_info": "458912",
+          "info": "",
+          "x": 8.0,
+          "z": -1.0
+        },
+        {
+          "nickname": "CF01t",
+          "name": "X-3043",
+          "strid_name": "459238",
+          "ids_info": "458912",
+          "info": "",
+          "x": 8.0,
+          "z": -1.0
+        },
+        {
+          "nickname": "CF01tk",
+          "name": "X-3043",
+          "strid_name": "459238",
+          "ids_info": "458912",
+          "info": "",
+          "x": 8.0,
+          "z": -1.0
+        },
+        {
+          "nickname": "CF01tn",
+          "name": "X-3043",
+          "strid_name": "459238",
+          "ids_info": "458912",
+          "info": "",
+          "x": 8.0,
+          "z": -1.0
+        },
+        {
+          "nickname": "CF01tn2",
+          "name": "X-3043",
+          "strid_name": "459238",
+          "ids_info": "458912",
+          "info": "",
+          "x": 8.0,
+          "z": -1.0
+        },
+        {
+          "nickname": "CF01tns",
+          "name": "CF01tns",
+          "strid_name": "",
+          "ids_info": "",
+          "info": "",
+          "x": 8.0,
+          "z": -1.0
+        },
+        {
+          "nickname": "CF03",
+          "name": "Tarsus",
+          "strid_name": "459248",
+          "ids_info": "458914",
+          "info": "",
+          "x": 3.0,
+          "z": 0.0
+        },
+        {
+          "nickname": "St02c",
+          "name": "Omicron Major",
+          "strid_name": "459182",
+          "ids_info": "66115",
+          "info": "NOMADEN\nBesiedelte Planeten\n???\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nUnbekannt\nErzeugnisse\nNichts",
+          "x": 13.0,
+          "z": 1.0
+        },
+        {
+          "nickname": "CF29",
+          "name": "Quantos",
+          "strid_name": "459220",
+          "ids_info": "458939",
+          "info": "",
+          "x": 12.0,
+          "z": 8.0
+        },
+        {
+          "nickname": "CF25",
+          "name": "Sea of Shadows",
+          "strid_name": "459212",
+          "ids_info": "458935",
+          "info": "",
+          "x": 5.0,
+          "z": 7.0
+        },
+        {
+          "nickname": "CF27",
+          "name": "Midpoint Rift",
+          "strid_name": "459216",
+          "ids_info": "458937",
+          "info": "",
+          "x": 8.0,
+          "z": 8.0
+        },
+        {
+          "nickname": "CF21",
+          "name": "Inner Cloud",
+          "strid_name": "459204",
+          "ids_info": "458931",
+          "info": "",
+          "x": 1.0,
+          "z": 9.0
+        },
+        {
+          "nickname": "CF23",
+          "name": "Hyperion",
+          "strid_name": "459208",
+          "ids_info": "458933",
+          "info": "",
+          "x": 2.0,
+          "z": 14.0
+        }
+      ]
+    },
+    {
+      "key": "sector02",
+      "name": "Sector 2",
+      "layout": {
+        "x": 0.0,
+        "y": -0.275
+      },
+      "labels": [
+        {
+          "id": "001381",
+          "text": "001381",
+          "x": -0.195,
+          "y": -0.153
+        }
+      ],
+      "systems": [
+        {
+          "nickname": "CF86",
+          "name": "Bimia",
+          "strid_name": "471795",
+          "ids_info": "471708",
+          "info": "",
+          "x": 8.0,
+          "z": 2.0
+        },
+        {
+          "nickname": "CF93",
+          "name": "Crallard",
+          "strid_name": "471809",
+          "ids_info": "471708",
+          "info": "",
+          "x": 3.0,
+          "z": 8.0
+        },
+        {
+          "nickname": "CF84",
+          "name": "Dras",
+          "strid_name": "471791",
+          "ids_info": "471708",
+          "info": "",
+          "x": 8.0,
+          "z": -1.0
+        },
+        {
+          "nickname": "CF58",
+          "name": "Hyperspace",
+          "strid_name": "459308",
+          "ids_info": "",
+          "info": "",
+          "x": 0.0,
+          "z": -1.0
+        },
+        {
+          "nickname": "CF83",
+          "name": "Lenas",
+          "strid_name": "471789",
+          "ids_info": "471708",
+          "info": "",
+          "x": 9.0,
+          "z": 0.0
+        },
+        {
+          "nickname": "CF88",
+          "name": "Lintkin",
+          "strid_name": "471799",
+          "ids_info": "471708",
+          "info": "",
+          "x": 0.0,
+          "z": 6.0
+        },
+        {
+          "nickname": "CF80",
+          "name": "Loret",
+          "strid_name": "471783",
+          "ids_info": "471708",
+          "info": "",
+          "x": 13.0,
+          "z": 2.0
+        },
+        {
+          "nickname": "CF85",
+          "name": "Minnck",
+          "strid_name": "471793",
+          "ids_info": "471708",
+          "info": "",
+          "x": 8.0,
+          "z": 5.0
+        },
+        {
+          "nickname": "CF91",
+          "name": "Phanchdar",
+          "strid_name": "471805",
+          "ids_info": "471708",
+          "info": "",
+          "x": 7.0,
+          "z": 0.0
+        },
+        {
+          "nickname": "CF92",
+          "name": "Relenth",
+          "strid_name": "471807",
+          "ids_info": "471708",
+          "info": "",
+          "x": 2.0,
+          "z": 1.0
+        },
+        {
+          "nickname": "CF79",
+          "name": "Rhuntath",
+          "strid_name": "471781",
+          "ids_info": "471708",
+          "info": "",
+          "x": 16.0,
+          "z": 3.0
+        },
+        {
+          "nickname": "CF89",
+          "name": "Sorror",
+          "strid_name": "471801",
+          "ids_info": "471708",
+          "info": "",
+          "x": 5.0,
+          "z": 6.0
+        },
+        {
+          "nickname": "CF87",
+          "name": "Timath",
+          "strid_name": "471797",
+          "ids_info": "471708",
+          "info": "",
+          "x": 7.0,
+          "z": 8.0
+        },
+        {
+          "nickname": "CF90",
+          "name": "Trawtai",
+          "strid_name": "471803",
+          "ids_info": "471708",
+          "info": "",
+          "x": 5.0,
+          "z": 2.0
+        },
+        {
+          "nickname": "CF90b",
+          "name": "Trawtai",
+          "strid_name": "471803",
+          "ids_info": "471708",
+          "info": "",
+          "x": 5.0,
+          "z": 2.0
+        },
+        {
+          "nickname": "CF78",
+          "name": "Weth",
+          "strid_name": "471779",
+          "ids_info": "471708",
+          "info": "",
+          "x": 15.0,
+          "z": 5.0
+        },
+        {
+          "nickname": "CF82",
+          "name": "Whyr",
+          "strid_name": "471787",
+          "ids_info": "471708",
+          "info": "",
+          "x": 11.0,
+          "z": 4.0
+        },
+        {
+          "nickname": "CF81",
+          "name": "Zhiklor",
+          "strid_name": "471785",
+          "ids_info": "471708",
+          "info": "",
+          "x": 15.0,
+          "z": 0.0
+        },
+        {
+          "nickname": "CF73",
+          "name": "Celldra",
+          "strid_name": "471729",
+          "ids_info": "471708",
+          "info": "",
+          "x": 9.0,
+          "z": 14.0
+        },
+        {
+          "nickname": "CF60",
+          "name": "Inner Core",
+          "strid_name": "459278",
+          "ids_info": "470592",
+          "info": "",
+          "x": 1.0,
+          "z": 14.0
+        },
+        {
+          "nickname": "CF60b",
+          "name": "Inner Core",
+          "strid_name": "459278",
+          "ids_info": "470592",
+          "info": "",
+          "x": 1.0,
+          "z": 14.0
+        },
+        {
+          "nickname": "CF60c",
+          "name": "Inner Core",
+          "strid_name": "459278",
+          "ids_info": "470592",
+          "info": "",
+          "x": 1.0,
+          "z": 14.0
+        },
+        {
+          "nickname": "CF72",
+          "name": "Jormdar",
+          "strid_name": "471712",
+          "ids_info": "471708",
+          "info": "",
+          "x": 7.0,
+          "z": 11.0
+        },
+        {
+          "nickname": "CF76",
+          "name": "Mepther",
+          "strid_name": "471735",
+          "ids_info": "471708",
+          "info": "",
+          "x": 10.0,
+          "z": 9.0
+        },
+        {
+          "nickname": "CF75",
+          "name": "Pyrddra",
+          "strid_name": "471733",
+          "ids_info": "471708",
+          "info": "",
+          "x": 12.0,
+          "z": 11.0
+        },
+        {
+          "nickname": "CF77",
+          "name": "Ryssk",
+          "strid_name": "471737",
+          "ids_info": "471708",
+          "info": "",
+          "x": 14.0,
+          "z": 8.0
+        },
+        {
+          "nickname": "CF74",
+          "name": "Sadurn",
+          "strid_name": "471731",
+          "ids_info": "471708",
+          "info": "",
+          "x": 9.0,
+          "z": 12.0
+        },
+        {
+          "nickname": "CF71",
+          "name": "Venn",
+          "strid_name": "471706",
+          "ids_info": "471708",
+          "info": "",
+          "x": 6.0,
+          "z": 13.0
+        }
+      ]
+    },
+    {
+      "key": "sector03",
+      "name": "Sector 3",
+      "layout": {
+        "x": -0.245,
+        "y": -0.275
+      },
+      "labels": [
+        {
+          "id": "196899",
+          "text": "Coalition",
+          "x": -0.13,
+          "y": 0.113
+        }
+      ],
+      "systems": [
+        {
+          "nickname": "CF67",
+          "name": "Er Riad",
+          "strid_name": "472115",
+          "ids_info": "481748",
+          "info": "",
+          "x": 9.0,
+          "z": 3.0
+        },
+        {
+          "nickname": "CF62",
+          "name": "Gagarin",
+          "strid_name": "472083",
+          "ids_info": "481750",
+          "info": "",
+          "x": -1.0,
+          "z": 0.0
+        },
+        {
+          "nickname": "CF35",
+          "name": "Gladius",
+          "strid_name": "459192",
+          "ids_info": "458945",
+          "info": "",
+          "x": 1.0,
+          "z": 6.0
+        },
+        {
+          "nickname": "CF65",
+          "name": "Guangdong",
+          "strid_name": "472105",
+          "ids_info": "481753",
+          "info": "",
+          "x": 0.0,
+          "z": 9.0
+        },
+        {
+          "nickname": "CF34",
+          "name": "Gurm",
+          "strid_name": "459190",
+          "ids_info": "458944",
+          "info": "",
+          "x": 5.0,
+          "z": 7.0
+        },
+        {
+          "nickname": "CF63",
+          "name": "Kalinin",
+          "strid_name": "472086",
+          "ids_info": "481751",
+          "info": "",
+          "x": 0.0,
+          "z": 3.0
+        },
+        {
+          "nickname": "CF69",
+          "name": "Meschhed",
+          "strid_name": "472119",
+          "ids_info": "481755",
+          "info": "",
+          "x": 14.0,
+          "z": 5.0
+        },
+        {
+          "nickname": "CF68",
+          "name": "Nedjef",
+          "strid_name": "472117",
+          "ids_info": "481747",
+          "info": "",
+          "x": 12.0,
+          "z": 4.0
+        },
+        {
+          "nickname": "CF68b",
+          "name": "Nedjef",
+          "strid_name": "472117",
+          "ids_info": "481747",
+          "info": "",
+          "x": 12.0,
+          "z": 4.0
+        },
+        {
+          "nickname": "CF64",
+          "name": "New Beijing",
+          "strid_name": "471052",
+          "ids_info": "481752",
+          "info": "",
+          "x": 1.0,
+          "z": -1.0
+        },
+        {
+          "nickname": "CF61",
+          "name": "New Hongkong",
+          "strid_name": "459280",
+          "ids_info": "481749",
+          "info": "",
+          "x": 4.0,
+          "z": 1.0
+        },
+        {
+          "nickname": "CF66",
+          "name": "New Mekka",
+          "strid_name": "472113",
+          "ids_info": "481754",
+          "info": "",
+          "x": 7.0,
+          "z": 3.0
+        },
+        {
+          "nickname": "CF36",
+          "name": "Sovetskaya",
+          "strid_name": "459194",
+          "ids_info": "458946",
+          "info": "",
+          "x": 3.0,
+          "z": 2.0
+        },
+        {
+          "nickname": "CF37",
+          "name": "Tomsk",
+          "strid_name": "459196",
+          "ids_info": "458947",
+          "info": "",
+          "x": 1.0,
+          "z": 1.0
+        },
+        {
+          "nickname": "CF38",
+          "name": "Vorkuta",
+          "strid_name": "459198",
+          "ids_info": "458948",
+          "info": "",
+          "x": 8.0,
+          "z": 1.0
+        },
+        {
+          "nickname": "CF39",
+          "name": "Yakutsk",
+          "strid_name": "459200",
+          "ids_info": "458949",
+          "info": "",
+          "x": 13.0,
+          "z": 2.0
+        },
+        {
+          "nickname": "CF40",
+          "name": "Kandiris",
+          "strid_name": "459202",
+          "ids_info": "458950",
+          "info": "",
+          "x": 0.0,
+          "z": 14.0
+        },
+        {
+          "nickname": "CF33",
+          "name": "Mandar",
+          "strid_name": "459188",
+          "ids_info": "458943",
+          "info": "",
+          "x": 3.0,
+          "z": 10.0
+        },
+        {
+          "nickname": "CF31",
+          "name": "Styx",
+          "strid_name": "459272",
+          "ids_info": "458941",
+          "info": "",
+          "x": 2.0,
+          "z": 16.0
+        },
+        {
+          "nickname": "CF42",
+          "name": "Hieron",
+          "strid_name": "459286",
+          "ids_info": "458952",
+          "info": "",
+          "x": 7.0,
+          "z": 8.0
+        },
+        {
+          "nickname": "CF58",
+          "name": "Hyperspace",
+          "strid_name": "459308",
+          "ids_info": "",
+          "info": "",
+          "x": 16.0,
+          "z": 16.0
+        },
+        {
+          "nickname": "CF43",
+          "name": "Jokusuka",
+          "strid_name": "459288",
+          "ids_info": "458953",
+          "info": "",
+          "x": 8.0,
+          "z": 8.0
+        },
+        {
+          "nickname": "CF49",
+          "name": "Lemnos",
+          "strid_name": "459300",
+          "ids_info": "458958",
+          "info": "",
+          "x": 8.0,
+          "z": 5.0
+        },
+        {
+          "nickname": "CF48",
+          "name": "Menton",
+          "strid_name": "459298",
+          "ids_info": "458957",
+          "info": "",
+          "x": 12.0,
+          "z": 14.0
+        },
+        {
+          "nickname": "CF51",
+          "name": "Mira Ceti",
+          "strid_name": "459304",
+          "ids_info": "458960",
+          "info": "",
+          "x": 10.0,
+          "z": 5.0
+        },
+        {
+          "nickname": "CF50",
+          "name": "Mitra",
+          "strid_name": "459302",
+          "ids_info": "458959",
+          "info": "",
+          "x": 6.0,
+          "z": 5.0
+        },
+        {
+          "nickname": "CF45",
+          "name": "Pretoria",
+          "strid_name": "459292",
+          "ids_info": "458955",
+          "info": "",
+          "x": 12.0,
+          "z": 8.0
+        },
+        {
+          "nickname": "CF52",
+          "name": "Ptah",
+          "strid_name": "459306",
+          "ids_info": "458961",
+          "info": "",
+          "x": 12.0,
+          "z": 6.0
+        },
+        {
+          "nickname": "CF47",
+          "name": "Scotia",
+          "strid_name": "459296",
+          "ids_info": "458956",
+          "info": "",
+          "x": 13.0,
+          "z": 11.0
+        },
+        {
+          "nickname": "CF44",
+          "name": "Spica",
+          "strid_name": "459290",
+          "ids_info": "458954",
+          "info": "",
+          "x": 10.0,
+          "z": 8.0
+        },
+        {
+          "nickname": "CF46",
+          "name": "Tonga",
+          "strid_name": "459294",
+          "ids_info": "458976",
+          "info": "",
+          "x": 13.0,
+          "z": 9.0
+        }
+      ]
+    },
+    {
+      "key": "sector04",
+      "name": "Sector 4",
+      "layout": {
+        "x": 0.245,
+        "y": 0.0
+      },
+      "labels": [],
+      "systems": [
+        {
+          "nickname": "CF94",
+          "name": "Assris",
+          "strid_name": "500896",
+          "ids_info": "471708",
+          "info": "",
+          "x": 0.0,
+          "z": 10.0
+        },
+        {
+          "nickname": "CF98",
+          "name": "Banysia",
+          "strid_name": "500904",
+          "ids_info": "471708",
+          "info": "",
+          "x": 15.0,
+          "z": 8.0
+        },
+        {
+          "nickname": "CF97",
+          "name": "Belay",
+          "strid_name": "500902",
+          "ids_info": "471708",
+          "info": "",
+          "x": 9.0,
+          "z": 6.0
+        },
+        {
+          "nickname": "CF96",
+          "name": "Keltur",
+          "strid_name": "500900",
+          "ids_info": "471708",
+          "info": "",
+          "x": 8.0,
+          "z": 11.0
+        },
+        {
+          "nickname": "CF95",
+          "name": "Kinak",
+          "strid_name": "500898",
+          "ids_info": "471708",
+          "info": "",
+          "x": 6.0,
+          "z": 8.0
+        }
+      ]
+    },
+    {
+      "key": "sector05",
+      "name": "Sector 5",
+      "layout": {
+        "x": -0.245,
+        "y": 0.0
+      },
+      "labels": [],
+      "systems": [
+        {
+          "nickname": "CF20",
+          "name": "Sol",
+          "strid_name": "459276",
+          "ids_info": "458930",
+          "info": "",
+          "x": 4.0,
+          "z": 7.0
+        },
+        {
+          "nickname": "CF20t",
+          "name": "Sol",
+          "strid_name": "459276",
+          "ids_info": "458930",
+          "info": "",
+          "x": 4.0,
+          "z": 7.0
+        },
+        {
+          "nickname": "CF100",
+          "name": "Epsilon Eridani",
+          "strid_name": "480779",
+          "ids_info": "480781",
+          "info": "",
+          "x": 9.0,
+          "z": 6.0
+        },
+        {
+          "nickname": "CF101",
+          "name": "Tau Ceti",
+          "strid_name": "480780",
+          "ids_info": "480782",
+          "info": "",
+          "x": 8.0,
+          "z": 11.0
+        },
+        {
+          "nickname": "CF104",
+          "name": "Epsilon Indi",
+          "strid_name": "501851",
+          "ids_info": "501852",
+          "info": "",
+          "x": 11.0,
+          "z": 6.0
+        },
+        {
+          "nickname": "CF105",
+          "name": "Luyten",
+          "strid_name": "501849",
+          "ids_info": "501850",
+          "info": "",
+          "x": 10.0,
+          "z": 3.0
+        },
+        {
+          "nickname": "CF106",
+          "name": "Alsace",
+          "strid_name": "501855",
+          "ids_info": "501856",
+          "info": "",
+          "x": 8.0,
+          "z": 2.0
+        },
+        {
+          "nickname": "CF107",
+          "name": "New Caledonia",
+          "strid_name": "501859",
+          "ids_info": "501860",
+          "info": "",
+          "x": 5.0,
+          "z": 3.0
+        },
+        {
+          "nickname": "CF108",
+          "name": "Burgundy",
+          "strid_name": "501857",
+          "ids_info": "501858",
+          "info": "",
+          "x": 6.0,
+          "z": 5.0
+        },
+        {
+          "nickname": "CF109",
+          "name": "Procyon",
+          "strid_name": "501853",
+          "ids_info": "501854",
+          "info": "",
+          "x": 3.0,
+          "z": 5.0
+        }
+      ]
+    }
+  ]
 }
