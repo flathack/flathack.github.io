@@ -105,25 +105,31 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
     #hud-info { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 .hidden { display: none !important; }
-#start-screen { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; background: linear-gradient(rgba(0,0,8,0.24), rgba(0,0,8,0.62)), url('assets/cover-stellar-drift.svg') center/cover no-repeat; z-index: 1000; }
-#start-screen > div { position: relative; z-index: 1; text-shadow: 0 2px 12px #000; }
-#start-screen h1 { font-size: 42px; letter-spacing: 8px; margin-bottom: 10px; text-shadow: 0 0 20px #0088ff, 0 0 40px #0044aa; }
-#start-screen .subtitle { font-size: 16px; color: #a8c9e8; margin-bottom: 24px; }
-.start-actions { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
-.start-meta-bar { display: flex; justify-content: center; gap: 10px; margin-bottom: 12px; }
-#start-screen button { padding: 12px 32px; font-size: 16px; background: rgba(0,50,100,0.56); border: 2px solid #0088ff; color: #b9efff; cursor: pointer; }
-#start-screen button:hover { background: rgba(0,100,200,0.6); box-shadow: 0 0 20px rgba(0,136,255,0.4); }
-#btn-new-game { border-color: #666; color: #bbb; background: rgba(20,20,28,0.62); }
-#btn-new-game:hover { border-color: #ffaa00; color: #ffaa00; background: rgba(70,45,0,0.55); }
-#btn-delete-save { border-color: #aa3333; color: #ff7777; background: rgba(70,10,10,0.55); }
-#btn-delete-save:hover { border-color: #ff5555; color: #ffd0d0; background: rgba(120,20,20,0.62); }
-#btn-language-menu { min-width: 140px; padding: 9px 20px; font-size: 13px; border-color: #66b8ff; color: #dff7ff; background: rgba(4,36,70,0.72); }
-#btn-language-menu:hover { border-color: #a3dcff; }
-.save-hint { margin-top: 10px; color: #8bb6ca; font-size: 12px; min-height: 16px; }
-.save-panel { width: min(620px, calc(100vw - 40px)); margin: 12px auto 0; padding: 12px; background: rgba(0,8,18,0.64); border: 1px solid rgba(0,136,255,0.38); text-align: left; }
-.save-slot-list { display: grid; gap: 6px; margin-bottom: 10px; max-height: 180px; overflow-y: auto; }
-.save-slot { display: grid; grid-template-columns: 1fr auto; gap: 8px; align-items: center; padding: 8px 10px; background: rgba(0,24,42,0.72); border: 1px solid rgba(70,150,190,0.35); color: #9edfff; cursor: pointer; }
-.save-slot.active { border-color: #ffaa00; color: #fff1c7; background: rgba(65,45,0,0.55); }
+#start-screen { position: absolute; inset: 0; overflow: hidden; background: #020612; z-index: 1000; color: #dff7ff; }
+#start-bg-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+#start-screen::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(90deg, rgba(2,8,24,0.52), rgba(2,8,24,0.12) 34%, rgba(0,0,0,0.08) 64%, rgba(0,0,0,0.36)), radial-gradient(circle at 46% 26%, rgba(255,190,65,0.18), transparent 18%), radial-gradient(circle at 84% 80%, rgba(255,110,18,0.18), transparent 24%); }
+.start-menu-content { position: relative; z-index: 1; min-height: 100%; padding: clamp(28px, 4vw, 62px) clamp(24px, 5vw, 76px); display: grid; grid-template-columns: minmax(320px, 430px) minmax(280px, 520px); grid-template-rows: auto auto 1fr auto; gap: 14px clamp(22px, 5vw, 70px); align-items: start; text-shadow: 0 2px 12px #000; }
+#start-title { grid-column: 1 / -1; justify-self: start; font-size: clamp(42px, 7vw, 96px); line-height: 0.95; margin: 0; color: #f5fbff; letter-spacing: 0; font-weight: 700; text-transform: uppercase; text-shadow: 0 0 12px rgba(220,246,255,0.96), 0 0 28px rgba(126,206,255,0.74), 0 0 54px rgba(70,120,180,0.58); }
+#start-title::before, #start-title::after { content: ''; display: block; width: min(42vw, 620px); height: 2px; margin: 0 0 10px; background: linear-gradient(90deg, rgba(255,255,255,0), rgba(245,252,255,0.96), rgba(255,255,255,0)); box-shadow: 0 0 12px rgba(210,246,255,0.86); }
+#start-title::after { margin: 12px 0 0; }
+#start-screen .subtitle { grid-column: 1; margin: 6px 0 18px; color: #9edfff; font-size: 14px; text-transform: uppercase; }
+.start-primary { grid-column: 1; grid-row: 3; align-self: center; }
+.start-actions { display: grid; gap: 22px; width: min(390px, calc(100vw - 48px)); }
+.start-meta-bar { display: flex; justify-content: flex-start; gap: 10px; margin: 0 0 18px; }
+#start-screen button { min-height: 58px; padding: 0 32px; position: relative; background: linear-gradient(180deg, rgba(24,34,92,0.86), rgba(6,13,48,0.82)); border: 1px solid #73cfff; color: #b9efff; cursor: pointer; font-family: 'Courier New', monospace; font-size: 26px; text-transform: uppercase; box-shadow: 0 0 16px rgba(0,180,255,0.38), inset 0 0 18px rgba(110,150,255,0.24); clip-path: polygon(0 14px, 14px 0, 35% 0, 40% 10px, 60% 10px, 65% 0, calc(100% - 14px) 0, 100% 14px, 100% calc(100% - 14px), calc(100% - 14px) 100%, 65% 100%, 60% calc(100% - 10px), 40% calc(100% - 10px), 35% 100%, 14px 100%, 0 calc(100% - 14px)); }
+#start-screen button:hover { color: #ffffff; border-color: #19d7ff; background: linear-gradient(180deg, rgba(36,56,130,0.96), rgba(10,24,70,0.9)); box-shadow: 0 0 24px rgba(0,210,255,0.56), inset 0 0 24px rgba(125,190,255,0.34); }
+#btn-new-game { border-color: #19d7ff; color: #8ee8ff; }
+#btn-delete-save { border-color: #aa3333; color: #ff9999; background: linear-gradient(180deg, rgba(82,20,32,0.9), rgba(28,6,16,0.84)); }
+#btn-delete-save:hover { border-color: #ff6666; color: #ffd0d0; background: linear-gradient(180deg, rgba(120,28,42,0.95), rgba(52,8,20,0.9)); }
+#btn-language-menu { min-height: 34px; padding: 0 16px; font-size: 12px; clip-path: none; border-color: rgba(115,207,255,0.68); background: rgba(4,36,70,0.72); }
+.start-footer { position: absolute; right: 24px; bottom: 20px; z-index: 2; display: flex; align-items: center; gap: 12px; color: rgba(170,235,255,0.92); font-size: 12px; text-shadow: 0 0 10px rgba(0,136,255,0.8); }
+.start-home-link { min-height: 30px !important; padding: 0 14px !important; display: inline-flex; align-items: center; justify-content: center; border: 1px solid rgba(115,207,255,0.72); color: #b9efff; background: rgba(4,36,70,0.74); text-decoration: none; font-family: 'Courier New', monospace; font-size: 12px; text-transform: uppercase; box-shadow: 0 0 14px rgba(0,136,255,0.22), inset 0 0 12px rgba(80,170,255,0.12); }
+.start-home-link:hover { color: #ffffff; border-color: #19d7ff; box-shadow: 0 0 18px rgba(0,210,255,0.42), inset 0 0 16px rgba(125,190,255,0.22); }
+.save-hint { margin-top: 12px; color: #9edfff; font-size: 12px; min-height: 16px; max-width: 520px; }
+.save-panel { grid-column: 2; grid-row: 2 / span 3; align-self: end; width: min(520px, calc(100vw - 48px)); margin: 0; padding: 13px; background: rgba(3,13,30,0.66); border: 1px solid rgba(0,190,255,0.42); box-shadow: 0 0 20px rgba(0,136,255,0.22), inset 0 0 18px rgba(60,130,255,0.1); text-align: left; }
+.save-slot-list { display: grid; gap: 6px; margin-bottom: 10px; max-height: 210px; overflow-y: auto; }
+.save-slot { display: grid; grid-template-columns: 1fr auto; gap: 8px; align-items: center; padding: 9px 10px; background: rgba(8,24,62,0.7); border: 1px solid rgba(85,180,230,0.32); color: #9edfff; cursor: pointer; }
+.save-slot.active { border-color: #19d7ff; color: #fff1c7; background: rgba(16,45,88,0.78); box-shadow: inset 0 0 12px rgba(0,170,255,0.18); }
 .save-slot-title { font-size: 13px; color: inherit; }
 .save-slot-meta { font-size: 11px; color: #7fa7bd; margin-top: 2px; }
 .save-slot.empty { color: #667f8f; cursor: default; }
@@ -132,9 +138,17 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
 .mod-select { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-bottom: 10px; }
 .mod-btn { padding: 9px 12px !important; font-size: 13px !important; }
 .mod-btn.active { border-color: #ffaa00 !important; color: #fff1c7 !important; background: rgba(65,45,0,0.62) !important; }
-.controls { margin-top: 30px; padding: 15px; background: rgba(0,0,0,0.5); border: 1px solid #333; text-align: left; display: inline-block; }
-.controls h3 { color: #00aaff; margin-bottom: 10px; }
-.controls p { margin: 4px 0; font-size: 12px; color: #888; }
+.controls { grid-column: 1; grid-row: 4; align-self: end; margin-top: 18px; padding: 12px; width: min(390px, calc(100vw - 48px)); background: rgba(0,8,20,0.42); border: 1px solid rgba(0,136,255,0.24); text-align: left; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2px 12px; }
+.controls h3 { grid-column: 1 / -1; color: #00aaff; margin-bottom: 5px; font-size: 12px; }
+.controls p { margin: 2px 0; font-size: 10px; color: #7898a8; }
+@media (max-width: 860px) {
+    .start-menu-content { grid-template-columns: 1fr; align-content: start; overflow-y: auto; }
+    #start-title { font-size: clamp(38px, 13vw, 68px); }
+    .start-primary, .save-panel, .controls { grid-column: 1; grid-row: auto; }
+    .save-panel { grid-row: auto; align-self: start; }
+    .controls { grid-template-columns: 1fr; }
+    .start-footer { position: relative; right: auto; bottom: auto; z-index: 2; margin: 14px 24px 18px; justify-content: flex-start; flex-wrap: wrap; }
+}
 #map-overlay { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 700px; height: 500px; background: rgba(0,10,20,0.95); border: 2px solid #00aaff; z-index: 2000; }
 #map-header { padding: 10px; border-bottom: 1px solid #333; display: flex; justify-content: space-between; align-items: center; }
 #map-header h3 { color: #00aaff; margin: 0; }
@@ -337,18 +351,21 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
     </div>
     
     <div id="start-screen">
-        <div style="text-align:center;">
+        <canvas id="start-bg-canvas"></canvas>
+        <div class="start-menu-content">
             <h1 id="start-title">Freelancer 2D</h1>
             <p id="start-subtitle" class="subtitle">a 2d adventure</p>
-            <div class="start-meta-bar">
-                <button id="btn-language-menu">LANGUAGE: EN</button>
+            <div class="start-primary">
+                <div class="start-meta-bar">
+                    <button id="btn-language-menu">LANGUAGE: EN</button>
+                </div>
+                <div class="start-actions">
+                    <button id="btn-start">CONTINUE</button>
+                    <button id="btn-new-game" class="hidden">NEW GAME</button>
+                    <button id="btn-delete-save" class="hidden">DELETE SAVE</button>
+                </div>
+                <div id="save-hint" class="save-hint"></div>
             </div>
-            <div class="start-actions">
-                <button id="btn-start">CONTINUE</button>
-                <button id="btn-new-game" class="hidden">NEW GAME</button>
-                <button id="btn-delete-save" class="hidden">DELETE SAVE</button>
-            </div>
-            <div id="save-hint" class="save-hint"></div>
             <div class="save-panel">
                 <div id="mod-select" class="mod-select"></div>
                 <div id="save-slot-list" class="save-slot-list"></div>
@@ -373,6 +390,10 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
                 <p id="control-batteries">F / B - Use shield battery</p>
                 <p id="control-zoom">Mouse Wheel - Zoom</p>
             </div>
+        </div>
+        <div class="start-footer">
+            <span>Made by Aldenmar Odin - flathack</span>
+            <a class="start-home-link" href="https://flathack.github.io/" target="_blank" rel="noopener noreferrer">Startseite</a>
         </div>
     </div>
     
@@ -5016,6 +5037,183 @@ function playWeaponFireAt(x, z, intensity = 1) {
     playSound('fire', Math.max(0.22, falloff * intensity));
 }
 
+const startMenuBackground = {
+    running: false,
+    stars: [],
+    lights: [],
+    nebulae: []
+};
+
+function resizeStartMenuCanvas(canvas) {
+    const dpr = Math.min(2, window.devicePixelRatio || 1);
+    const width = Math.max(1, Math.floor(canvas.clientWidth * dpr));
+    const height = Math.max(1, Math.floor(canvas.clientHeight * dpr));
+    if (canvas.width !== width || canvas.height !== height) {
+        canvas.width = width;
+        canvas.height = height;
+    }
+    return dpr;
+}
+
+function initStartMenuBackground() {
+    const rng = seededRandom(81257);
+    startMenuBackground.stars = Array.from({ length: 180 }, () => ({
+        x: rng(),
+        y: rng(),
+        size: 0.45 + rng() * 1.8,
+        speed: 0.012 + rng() * 0.035,
+        phase: rng() * Math.PI * 2
+    }));
+    startMenuBackground.nebulae = Array.from({ length: 7 }, (_, i) => ({
+        x: rng(),
+        y: rng(),
+        radius: 0.18 + rng() * 0.24,
+        hue: [205, 220, 268, 182, 292, 212, 246][i],
+        alpha: 0.05 + rng() * 0.12,
+        drift: 0.015 + rng() * 0.025
+    }));
+    startMenuBackground.lights = Array.from({ length: 110 }, () => ({
+        a: rng() * Math.PI * 2,
+        r: Math.sqrt(rng()) * 0.9,
+        size: 0.8 + rng() * 3.4,
+        alpha: 0.24 + rng() * 0.68
+    }));
+}
+
+function drawStartMenuPlanet(ctx, w, h, time) {
+    const radius = Math.max(w, h) * 0.34;
+    const cx = w * 0.86;
+    const cy = h * 0.8;
+    ctx.save();
+    ctx.beginPath();
+    ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+    ctx.clip();
+
+    const planet = ctx.createRadialGradient(cx - radius * 0.5, cy - radius * 0.45, radius * 0.08, cx, cy, radius);
+    planet.addColorStop(0, '#8c7650');
+    planet.addColorStop(0.35, '#3b2f22');
+    planet.addColorStop(0.63, '#08090b');
+    planet.addColorStop(1, '#000000');
+    ctx.fillStyle = planet;
+    ctx.fillRect(cx - radius, cy - radius, radius * 2, radius * 2);
+
+    ctx.globalCompositeOperation = 'screen';
+    for (const light of startMenuBackground.lights) {
+        const angle = light.a + time * 0.000055;
+        const lx = cx + Math.cos(angle) * light.r * radius * 0.78;
+        const ly = cy + Math.sin(angle * 1.7) * light.r * radius * 0.5;
+        const daySide = (lx - cx) / radius;
+        if (daySide < -0.72) continue;
+        ctx.globalAlpha = light.alpha * clamp((daySide + 0.78) / 1.78, 0, 1);
+        ctx.fillStyle = '#ff7a18';
+        ctx.beginPath();
+        ctx.arc(lx, ly, light.size, 0, Math.PI * 2);
+        ctx.fill();
+    }
+    ctx.restore();
+
+    ctx.globalAlpha = 0.36;
+    ctx.strokeStyle = 'rgba(255,145,40,0.45)';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.globalAlpha = 1;
+}
+
+function drawStartMenuBackground(currentTime) {
+    const canvas = document.getElementById('start-bg-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const dpr = resizeStartMenuCanvas(canvas);
+    const w = canvas.width;
+    const h = canvas.height;
+    const t = currentTime || performance.now();
+
+    const bg = ctx.createLinearGradient(0, 0, w, h);
+    bg.addColorStop(0, '#06152b');
+    bg.addColorStop(0.45, '#061024');
+    bg.addColorStop(1, '#01030a');
+    ctx.fillStyle = bg;
+    ctx.fillRect(0, 0, w, h);
+
+    ctx.save();
+    ctx.globalCompositeOperation = 'screen';
+    for (const n of startMenuBackground.nebulae) {
+        const x = (n.x + Math.sin(t * 0.00002 + n.hue) * n.drift) * w;
+        const y = (n.y + Math.cos(t * 0.000018 + n.hue) * n.drift) * h;
+        const r = n.radius * Math.max(w, h);
+        const nebula = ctx.createRadialGradient(x, y, 0, x, y, r);
+        nebula.addColorStop(0, `hsla(${n.hue}, 78%, 52%, ${n.alpha})`);
+        nebula.addColorStop(0.42, `hsla(${(n.hue + 28) % 360}, 70%, 34%, ${n.alpha * 0.38})`);
+        nebula.addColorStop(1, 'rgba(0,0,0,0)');
+        ctx.fillStyle = nebula;
+        ctx.beginPath();
+        ctx.arc(x, y, r, 0, Math.PI * 2);
+        ctx.fill();
+    }
+    ctx.restore();
+
+    for (const star of startMenuBackground.stars) {
+        const x = ((star.x + t * 0.00001 * star.speed) % 1) * w;
+        const y = star.y * h;
+        const blink = 0.58 + Math.sin(t * 0.002 + star.phase) * 0.36;
+        ctx.globalAlpha = clamp(blink, 0.2, 1);
+        ctx.fillStyle = '#ffffff';
+        ctx.beginPath();
+        ctx.arc(x, y, star.size * dpr, 0, Math.PI * 2);
+        ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+
+    const sunX = w * 0.47;
+    const sunY = h * 0.23;
+    const pulse = 0.85 + Math.sin(t * 0.0016) * 0.15;
+    const sun = ctx.createRadialGradient(sunX, sunY, 0, sunX, sunY, Math.max(w, h) * 0.14 * pulse);
+    sun.addColorStop(0, 'rgba(255,255,230,1)');
+    sun.addColorStop(0.08, 'rgba(255,206,72,0.92)');
+    sun.addColorStop(0.22, 'rgba(255,126,30,0.34)');
+    sun.addColorStop(1, 'rgba(255,126,30,0)');
+    ctx.fillStyle = sun;
+    ctx.fillRect(0, 0, w, h);
+    ctx.strokeStyle = 'rgba(255,225,150,0.18)';
+    ctx.lineWidth = 1 * dpr;
+    for (let i = 0; i < 10; i++) {
+        const angle = i * Math.PI / 5 + t * 0.00006;
+        ctx.beginPath();
+        ctx.moveTo(sunX + Math.cos(angle) * 18 * dpr, sunY + Math.sin(angle) * 18 * dpr);
+        ctx.lineTo(sunX + Math.cos(angle) * 180 * dpr * pulse, sunY + Math.sin(angle) * 180 * dpr * pulse);
+        ctx.stroke();
+    }
+
+    ctx.save();
+    ctx.translate(sunX, sunY + 22 * dpr);
+    ctx.rotate(Math.sin(t * 0.00012) * 0.05);
+    ctx.globalAlpha = 0.28;
+    ctx.strokeStyle = 'rgba(130,200,255,0.36)';
+    for (let i = 0; i < 5; i++) {
+        ctx.beginPath();
+        ctx.ellipse(0, 0, (180 + i * 28) * dpr, (16 + i * 4) * dpr, 0, 0, Math.PI * 2);
+        ctx.stroke();
+    }
+    ctx.restore();
+
+    drawStartMenuPlanet(ctx, w, h, t);
+
+}
+
+function startStartMenuBackground() {
+    if (startMenuBackground.running) return;
+    initStartMenuBackground();
+    startMenuBackground.running = true;
+    const loop = (time) => {
+        drawStartMenuBackground(time);
+        requestAnimationFrame(loop);
+    };
+    requestAnimationFrame(loop);
+    window.addEventListener('resize', () => drawStartMenuBackground(performance.now()));
+}
+
 function initStars() {
     game.stars = [];
     for (let layer = 0; layer < game.starLayers; layer++) {
@@ -7693,6 +7891,7 @@ window.buyShip = function(packageId) {
 async function init() {
     game.canvas = document.getElementById('game-canvas');
     game.ctx = game.canvas.getContext('2d');
+    startStartMenuBackground();
     game.width = window.innerWidth;
     game.height = window.innerHeight;
     game.canvas.width = game.width;
