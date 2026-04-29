@@ -1012,7 +1012,8 @@ const STARTER_MOUNTED_EQUIPMENT = {
     gf1_package: [
         { id: 'shield01_mark01_lf', slot: 'shield' },
         { id: 'li_gun01_mark01', slot: 'weapon1' },
-        { id: 'li_gun01_mark01', slot: 'weapon2' }
+            { id: 'li_gun01_mark01', slot: 'weapon2' },
+            { id: 'ge_s_thruster_01', slot: 'thruster' }
     ]
 };
 
@@ -2927,7 +2928,7 @@ class PlayerShip {
         this.powerPlantName = 'Powerplant';
         this.thrustCapacity = 1000;
         this.thrustChargeRate = 100;
-        this.credits = 10000; this.cargo = []; this.maxCargo = 50;
+        this.credits = 100000; this.cargo = []; this.maxCargo = 50;
         this.equipmentInventory = [];
         this.mountedEquipment = {};
         this.nanobots = 3;
