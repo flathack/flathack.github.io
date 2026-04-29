@@ -709,6 +709,7 @@ const game = {
     stars: [],
     approachTarget: null,
     dockTarget: null,
+    dockApproachVoicePlayed: false,
     commandMode: 'freeflight',
     obstacles: [],
     jumpTransition: null,
@@ -786,10 +787,14 @@ const JUSTICE_FIRE_SOUND_PATH = 'assets/audio/justice-fire.wav';
 const MUSIC_VOLUME = 0.315;
 const MUSIC_CROSSFADE_MS = 1400;
 const VOICE_SOUND_PATHS = {
-    dock: 'assets/audio/dock.mp3',
-    freeflight: 'assets/audio/free-flight.mp3',
-    goingTo: 'assets/audio/going-to.mp3',
-    tradeRouteInitiated: 'assets/audio/trade-route-initiated.mp3'
+    dock: { en: 'assets/audio/EN-dock.mp3', de: 'assets/audio/DE-dock.mp3' },
+    freeflight: { en: 'assets/audio/EN-free-flight.mp3', de: 'assets/audio/DE-free-flight.mp3' },
+    goingTo: { en: 'assets/audio/EN-going-to.mp3', de: 'assets/audio/DE-going-to.mp3' },
+    tradeRouteInitiated: { en: 'assets/audio/EN-trade-route-initiated.mp3', de: 'assets/audio/DE-trade-route-initiated.mp3' },
+    allowedToDock: { en: 'assets/audio/EN-allowed-to-dock.mp3', de: 'assets/audio/DE-allowed-to-dock.mp3' },
+    dockDisallowed: { en: 'assets/audio/EN-dock-disallowed.mp3', de: 'assets/audio/DE-dock-disallowed.mp3' },
+    dockDisallowedTooFar: { en: 'assets/audio/EN-dock-disallowed-toofar.mp3', de: 'assets/audio/DE-dock-disallowed-toofar.mp3' },
+    launch: { en: 'assets/audio/EN-launch.mp3', de: 'assets/audio/DE-launch.mp3' }
 };
 const MUSIC_TRACKS = {
     space: [
@@ -2361,6 +2366,7 @@ function returnToFreeflight(message = '', options = {}) {
     game.approachTarget = null;
     game.dockTarget = null;
     game.approachArrivalLogged = false;
+    game.dockApproachVoicePlayed = false;
     game.commandMode = 'freeflight';
     if (game.player) {
         const wasInTradeLane = game.player.inTradeLane;
@@ -2585,13 +2591,20 @@ function startDocking(target) {
         addLog('Can only dock at stations, planets, jump gates, jump holes, and trade lane rings!', 'alert');
         return false;
     }
+    if (game.player && Math.hypot((target.x || 0) - game.player.x, (target.z || 0) - game.player.z) > 10000) {
+        playVoice('dockDisallowedTooFar', 1);
+        addLog('Docking denied - target is more than 10 km away', 'alert');
+        return false;
+    }
     if (!canPlayerDockWithTarget(target)) {
+        playVoice('dockDisallowed', 1);
         addLog(tf('dockingDeniedHostile', { faction: factionDisplayName(targetFaction(target)) }), 'alert');
         return false;
     }
     game.approachTarget = target;
     game.dockTarget = target;
     game.approachArrivalLogged = false;
+    game.dockApproachVoicePlayed = false;
     game.commandMode = 'dock';
     updateCommandModeButtons();
     startAutopilotCruise();
@@ -3466,6 +3479,19 @@ class PlayerShip {
             const arrivalDistance = game.dockTarget ? 180 : 100;
             const brakeDistance = 700;
             const shouldBrakeForArrival = !game.dockTarget && dist <= brakeDistance;
+            const shouldDropDockCruise = game.dockTarget && !(game.dockTarget instanceof TradeLaneRing) && !(game.dockTarget instanceof JumpGate) && dist <= 500;
+            if (shouldDropDockCruise && (this.cruiseActive || this.cruiseCharging || this.afterburnerActive)) {
+                this.cancelCruise();
+                this.afterburnerActive = false;
+                this.reverseActive = false;
+                this.throttle = 1;
+                if (!game.dockApproachVoicePlayed) {
+                    playVoice('allowedToDock', 1);
+                    game.dockApproachVoicePlayed = true;
+                }
+                updateCruiseButton();
+                updateSpeedControl();
+            }
             if (shouldBrakeForArrival) {
                 this.cancelCruise();
                 this.afterburnerActive = false;
@@ -4935,7 +4961,7 @@ function loadAudioBuffer(name, path) {
 function primeImportedAudio() {
     if (!game.audioContext) return;
     loadAudioBuffer('justiceFire', JUSTICE_FIRE_SOUND_PATH);
-    for (const [name, path] of Object.entries(VOICE_SOUND_PATHS)) loadAudioBuffer('voice_' + name, path);
+    for (const [name, path] of collectVoiceSoundPaths()) loadAudioBuffer(name, path);
 }
 
 function playBufferedSound(name, path, volume = 0.08, playbackRate = 1) {
@@ -4991,12 +5017,36 @@ function playNoise(duration = 0.12, volume = 0.08) {
     source.start();
 }
 
+function voiceSoundPath(name) {
+    const entry = VOICE_SOUND_PATHS[name];
+    if (!entry) return '';
+    if (typeof entry === 'string') return entry;
+    const language = game.language === 'de' ? 'de' : 'en';
+    return entry[language] || entry.en || entry.de || '';
+}
+
+function voiceBufferKey(name) {
+    const language = game.language === 'de' ? 'de' : 'en';
+    return 'voice_' + language + '_' + name;
+}
+
+function collectVoiceSoundPaths() {
+    const paths = [];
+    for (const [name, entry] of Object.entries(VOICE_SOUND_PATHS)) {
+        if (typeof entry === 'string') paths.push(['voice_' + name, entry]);
+        else {
+            for (const [language, path] of Object.entries(entry)) paths.push(['voice_' + language + '_' + name, path]);
+        }
+    }
+    return paths;
+}
+
 function playVoice(name, intensity = 1) {
     ensureAudio();
-    const path = VOICE_SOUND_PATHS[name];
+    const path = voiceSoundPath(name);
     if (!path) return;
     const volume = clamp(0.55 * intensity, 0.18, 0.9);
-    const result = playBufferedSound('voice_' + name, path, volume);
+    const result = playBufferedSound(voiceBufferKey(name), path, volume);
     if (result === 'loading') {
         const voice = new Audio(path);
         voice.volume = volume;
@@ -5039,13 +5089,14 @@ function playWeaponFireAt(x, z, intensity = 1) {
 
 const startMenuBackground = {
     running: false,
+    lastFrameAt: 0,
     stars: [],
     lights: [],
     nebulae: []
 };
 
 function resizeStartMenuCanvas(canvas) {
-    const dpr = Math.min(2, window.devicePixelRatio || 1);
+    const dpr = Math.min(1.35, window.devicePixelRatio || 1);
     const width = Math.max(1, Math.floor(canvas.clientWidth * dpr));
     const height = Math.max(1, Math.floor(canvas.clientHeight * dpr));
     if (canvas.width !== width || canvas.height !== height) {
@@ -5057,14 +5108,14 @@ function resizeStartMenuCanvas(canvas) {
 
 function initStartMenuBackground() {
     const rng = seededRandom(81257);
-    startMenuBackground.stars = Array.from({ length: 180 }, () => ({
+    startMenuBackground.stars = Array.from({ length: 115 }, () => ({
         x: rng(),
         y: rng(),
         size: 0.45 + rng() * 1.8,
         speed: 0.012 + rng() * 0.035,
         phase: rng() * Math.PI * 2
     }));
-    startMenuBackground.nebulae = Array.from({ length: 7 }, (_, i) => ({
+    startMenuBackground.nebulae = Array.from({ length: 5 }, (_, i) => ({
         x: rng(),
         y: rng(),
         radius: 0.18 + rng() * 0.24,
@@ -5072,7 +5123,7 @@ function initStartMenuBackground() {
         alpha: 0.05 + rng() * 0.12,
         drift: 0.015 + rng() * 0.025
     }));
-    startMenuBackground.lights = Array.from({ length: 110 }, () => ({
+    startMenuBackground.lights = Array.from({ length: 70 }, () => ({
         a: rng() * Math.PI * 2,
         r: Math.sqrt(rng()) * 0.9,
         size: 0.8 + rng() * 3.4,
@@ -5124,6 +5175,7 @@ function drawStartMenuPlanet(ctx, w, h, time) {
 function drawStartMenuBackground(currentTime) {
     const canvas = document.getElementById('start-bg-canvas');
     if (!canvas) return;
+    if (document.getElementById('start-screen')?.classList.contains('hidden')) return;
     const ctx = canvas.getContext('2d');
     const dpr = resizeStartMenuCanvas(canvas);
     const w = canvas.width;
@@ -5207,7 +5259,10 @@ function startStartMenuBackground() {
     initStartMenuBackground();
     startMenuBackground.running = true;
     const loop = (time) => {
-        drawStartMenuBackground(time);
+        if (time - startMenuBackground.lastFrameAt >= 50) {
+            startMenuBackground.lastFrameAt = time;
+            drawStartMenuBackground(time);
+        }
         requestAnimationFrame(loop);
     };
     requestAnimationFrame(loop);
@@ -5579,6 +5634,7 @@ function update(dt) {
             updateCruiseButton();
             if (!canPlayerDockWithTarget(target)) {
                 addLog(tf('dockingDeniedHostile', { faction: factionDisplayName(targetFaction(target)) }), 'alert');
+                playVoice('dockDisallowed', 1);
                 game.dockTarget = null;
                 game.approachTarget = null;
                 return;
@@ -7423,6 +7479,7 @@ function launchFromBase() {
     }
     updateCruiseButton();
     updateSpeedControl();
+    playVoice('launch', 1);
     playSound('launch', 1);
     saveGame();
 }
