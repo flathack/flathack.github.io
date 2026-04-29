@@ -22,6 +22,7 @@
 
   const NAV_ITEMS = [
     { label: "Home", href: "index.html" },
+    { label: "Freelancer 2D", href: "freelancer2d/index.html" },
     { label: "Help", href: "help/index.html" },
     { label: "Trade Routes", href: "docs/trade-routes.html", children: MOD_CHILDREN },
     { label: "Schiff-Explorer", href: "docs/ship-explorer.html", children: MOD_CHILDREN },
