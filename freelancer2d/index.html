@@ -66,6 +66,9 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
 .hud-row-muted { color: #66889a; font-size: 11px; padding: 6px 4px; }
 .hud-kind { width: 18px; text-align: center; color: var(--hud-highlight); }
 .hud-distance { color: #8fb8c8; font-variant-numeric: tabular-nums; }
+.scanner-actions { pointer-events: auto; display: flex; justify-content: flex-end; margin-bottom: 6px; }
+.hud-action-btn { min-width: 118px; height: 28px; padding: 0 10px; background: rgba(0,34,58,0.82); border: 1px solid color-mix(in srgb, var(--hud-accent) 76%, transparent); color: var(--hud-accent-soft); cursor: pointer; font-family: 'Courier New', monospace; font-size: 11px; }
+.hud-action-btn:hover { border-color: var(--hud-highlight); color: var(--hud-highlight-soft); background: var(--hud-highlight-bg); }
 .loadout-consumables { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 7px; margin-top: 7px; }
 .consumable-box { border: 1px solid rgba(70,130,170,0.28); background: rgba(0,18,34,0.55); padding: 6px; color: #d8f7ff; font-size: 12px; }
 
@@ -134,6 +137,14 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
 .trade-table { width: 100%; border-collapse: collapse; font-size: 12px; }
 .trade-table th { text-align: left; padding: 7px; background: #002244; color: #8ee8ff; }
 .trade-table td { padding: 6px; border-bottom: 1px solid #1b2c38; }
+.trade-table tr.selected { background: rgba(80,52,0,0.28); }
+.trade-commodity-link { color: #00ff00; cursor: pointer; }
+.trade-commodity-link:hover { color: #fff1c7; }
+.trade-info-panel { margin: 10px 0; padding: 10px; border: 1px solid #22516b; background: rgba(0,18,34,0.72); color: #b9efff; }
+.trade-info-title { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; color: #ffaa00; margin-bottom: 8px; }
+.trade-info-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.trade-info-table th { text-align: left; padding: 6px; border-bottom: 1px solid #24445c; color: #8ee8ff; }
+.trade-info-table td { padding: 5px 6px; border-bottom: 1px solid #162d3c; }
 .trade-button { padding: 4px 9px; background: #003300; border: 1px solid #00aa00; color: #00ff00; cursor: pointer; font-family: 'Courier New', monospace; }
 .trade-button:disabled { background: #222; border-color: #555; color: #777; cursor: not-allowed; }
 .trade-qty-input { width: 64px; padding: 4px 6px; background: #001a24; border: 1px solid #24708f; color: #d8f7ff; font-family: 'Courier New', monospace; }
@@ -227,6 +238,9 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
             </div>
             
             <div id="hud-bottom">
+                <div class="scanner-actions">
+                    <button class="hud-action-btn" id="btn-clear-selection" onclick="clearNavigationSelection()">[-] CLEAR</button>
+                </div>
                 <div id="scanner-panel" class="hud-panel">
                     <div class="hud-panel-title"><span id="scanner-title">SCANNER</span><span id="scanner-range">12 km</span></div>
                     <div id="scanner-list" class="hud-list"></div>
@@ -626,6 +640,7 @@ const game = {
     maxUniverseZoom: 6,
     waypoint: null,
     equipmentDealerTab: 'equipment',
+    tradeInfoCommodityId: '',
     activeMission: null,
     missionOffers: {},
     populationSpawnTimer: 0,
@@ -656,7 +671,7 @@ const I18N = {
         freeflight: 'FREIFLUG', approach: 'ANFLIEGEN', dock: 'ANDOCKEN', cruise: 'REISEFLUG', menu: 'MENÜ', map: 'KARTE', inventory: 'INVENTAR', reputation: 'RUF', info: 'INFO', shipShop: 'SCHIFFHÄNDLER', universe: 'UNIVERSUM',
         launch: 'Starten', launchDeck: 'Launch Deck', bar: 'Bar', equipmentDealer: 'Equipment Dealer', tradeDealer: 'Trade Dealer', shipDealer: 'Ship Dealer', missions: 'Missionen',
         landedAt: 'Gelandet auf', noCommodityMarket: 'Dieser Ort hat keinen Commodity-Markt.', noEquipment: 'Equipment-Handel ist noch nicht implementiert.', barText: 'Piloten, Gerüchte und Jobangebote folgen später.',
-        buy: 'KAUFEN', sell: 'VERKAUFEN', owned: 'BESITZ', credits: 'Credits', cargo: 'Laderaum', price: 'Preis', stock: 'Bestand', commodity: 'Ware', quantity: 'Menge',
+        buy: 'KAUFEN', sell: 'VERKAUFEN', owned: 'BESITZ', credits: 'Credits', cargo: 'Laderaum', price: 'Preis', stock: 'Bestand', commodity: 'Ware', quantity: 'Menge', tradeInfo: 'Trade-Informationen', tradeInfoHint: 'Ware anklicken, um Verkaufsziele zu sehen.', sellAt: 'Verkaufen bei', jumps: 'Spruenge', profit: 'Profit', noSellTargets: 'Keine Verkaufsziele fuer diese Ware gefunden.', unreachable: 'nicht erreichbar',
         shipDealerDockOnly: 'Schiffe koennen nur nach dem Andocken gekauft werden.', noShipsSold: 'Hier werden keine Schiffe verkauft.', atmosphereWarning: 'Atmosphaereneintritt', planetImpact: 'Planetare Kollision',
         startGame: 'SPIEL STARTEN', continueGame: 'WEITER', startNew: 'NEUES SPIEL', startDelete: 'SAVE LOESCHEN', saveNamePlaceholder: 'Name fuer neues Savegame', mainMenuLanguage: 'SPRACHE',
         startControls: 'Steuerung', controlRotate: 'Linke Maustaste halten - Schiff drehen', controlCursor: 'Linke Maustaste loslassen - Cursor-Modus', controlFire: 'Rechte Maustaste - Primärwaffen | Q - Raketen',
@@ -667,7 +682,7 @@ const I18N = {
         maxSavesReached: 'Maximal 5 Savegames. Bitte zuerst einen Spielstand loeschen.', deleteSaveConfirm: 'Savegame "{name}" loeschen?', modDataMissing: '{mod}-Daten nicht gefunden. Starte mit Vanilla DE.',
         hudHull: 'HÜLLE', hudShield: 'SCHILD', hudEnergy: 'ENERGIE', loadoutTitle: 'WAFFEN', scannerTitle: 'SCANNER', labelNanobots: 'Nanobots', labelShieldBatteries: 'Schildbatterien',
         ammoTab: 'Ammo', missileAmmo: 'Raketen', ammoFull: 'Raketenlager voll.', ammoMissing: 'Keine Raketen-Munition.', missileAmmoCount: 'Raketen: {count}/{max}',
-        selected: 'Ausgewählt', distance: 'Distanz', modeRotate: 'DREHMODUS', modeCruiseCharge: 'REISEFLUG LÄDT', modeCruise: 'REISEFLUG', modeAfterburner: 'NACHBRENNER',
+        selected: 'Ausgewählt', distance: 'Distanz', clearSelection: '[-] Ziel/WP', selectionCleared: 'Zielauswahl geloescht.', modeRotate: 'DREHMODUS', modeCruiseCharge: 'REISEFLUG LÄDT', modeCruise: 'REISEFLUG', modeAfterburner: 'NACHBRENNER',
         scannerNone: 'Keine Schiffe oder Stationen in Reichweite.', noWeaponSlots: 'Keine Waffen-Slots vorhanden.', emptyWeapon: 'Leer', noGunMounted: 'Keine Waffe montiert',
         scannerShip: 'Schiff', scannerPlanet: 'Planet', scannerJumpGate: 'Sprungtor', scannerJumpHole: 'Sprungloch', scannerTradeLane: 'Tradelane', scannerStation: 'Station', scannerObject: 'Objekt', weaponSlot: 'Waffe',
         repChanged: 'Ruf geändert', repHostile: 'FEINDLICH', repFriendly: 'FREUNDLICH', repNeutral: 'NEUTRAL', noReputationData: 'Keine Rufdaten geladen.',
@@ -680,7 +695,7 @@ const I18N = {
         freeflight: 'FREEFLIGHT', approach: 'APPROACH', dock: 'DOCK', cruise: 'CRUISE', menu: 'MENU', map: 'MAP', inventory: 'INVENTORY', reputation: 'REP', info: 'INFO', shipShop: 'SHIP DEALER', universe: 'UNIVERSE',
         launch: 'Launch', launchDeck: 'Launch Deck', bar: 'Bar', equipmentDealer: 'Equipment Dealer', tradeDealer: 'Trade Dealer', shipDealer: 'Ship Dealer', missions: 'Missions',
         landedAt: 'Landed at', noCommodityMarket: 'This location has no commodity market.', noEquipment: 'Equipment trading is not implemented yet.', barText: 'Pilots, rumors, and job offers will arrive later.',
-        buy: 'BUY', sell: 'SELL', owned: 'OWNED', credits: 'Credits', cargo: 'Cargo', price: 'Price', stock: 'Stock', commodity: 'Commodity', quantity: 'Qty',
+        buy: 'BUY', sell: 'SELL', owned: 'OWNED', credits: 'Credits', cargo: 'Cargo', price: 'Price', stock: 'Stock', commodity: 'Commodity', quantity: 'Qty', tradeInfo: 'Trade Information', tradeInfoHint: 'Click a commodity to see sell destinations.', sellAt: 'Sell at', jumps: 'Jumps', profit: 'Profit', noSellTargets: 'No sell destinations found for this commodity.', unreachable: 'unreachable',
         shipDealerDockOnly: 'Ships can only be bought while docked.', noShipsSold: 'No ships are sold here.', atmosphereWarning: 'Atmosphere entry', planetImpact: 'Planetary collision',
         startGame: 'START GAME', continueGame: 'CONTINUE', startNew: 'NEW GAME', startDelete: 'DELETE SAVE', saveNamePlaceholder: 'Name for new savegame', mainMenuLanguage: 'LANGUAGE',
         startControls: 'Controls', controlRotate: 'Left Mouse (hold) - Rotate ship', controlCursor: 'Left Mouse (release) - Cursor mode', controlFire: 'Right Mouse - Primary fire | Q - Missiles',
@@ -691,7 +706,7 @@ const I18N = {
         maxSavesReached: 'Maximum of 5 savegames. Delete one first.', deleteSaveConfirm: 'Delete savegame "{name}"?', modDataMissing: '{mod} data not found. Starting with Vanilla DE.',
         hudHull: 'HULL', hudShield: 'SHIELD', hudEnergy: 'ENERGY', loadoutTitle: 'WEAPONS', scannerTitle: 'SCANNER', labelNanobots: 'Nanobots', labelShieldBatteries: 'Shield Batteries',
         ammoTab: 'Ammo', missileAmmo: 'Missiles', ammoFull: 'Missile bay full.', ammoMissing: 'No missile ammo.', missileAmmoCount: 'Missiles: {count}/{max}',
-        selected: 'Selected', distance: 'Distance', modeRotate: 'ROTATE MODE', modeCruiseCharge: 'CRUISE CHARGE', modeCruise: 'CRUISE', modeAfterburner: 'AFTERBURNER',
+        selected: 'Selected', distance: 'Distance', clearSelection: '[-] Clear', selectionCleared: 'Selection cleared.', modeRotate: 'ROTATE MODE', modeCruiseCharge: 'CRUISE CHARGE', modeCruise: 'CRUISE', modeAfterburner: 'AFTERBURNER',
         scannerNone: 'No ships or stations in range.', noWeaponSlots: 'No weapon slots available.', emptyWeapon: 'Empty', noGunMounted: 'No weapon mounted',
         scannerShip: 'Ship', scannerPlanet: 'Planet', scannerJumpGate: 'Jump Gate', scannerJumpHole: 'Jump Hole', scannerTradeLane: 'Trade Lane', scannerStation: 'Station', scannerObject: 'Object', weaponSlot: 'Weapon',
         repChanged: 'Reputation changed', repHostile: 'HOSTILE', repFriendly: 'FRIENDLY', repNeutral: 'NEUTRAL', noReputationData: 'No reputation data loaded.',
@@ -1366,7 +1381,7 @@ function updatePopulationNpcs(dt) {
 function applyLanguage() {
     const labels = [
         ['btn-freeflight', 'freeflight'], ['btn-approach', 'approach'], ['btn-dock', 'dock'], ['btn-cruise', 'cruise'], ['btn-map', 'map'],
-        ['btn-inventory', 'inventory'], ['btn-reputation', 'reputation'], ['btn-info', 'info'], ['btn-universe', 'universe'], ['btn-menu', 'menu'], ['btn-launch', 'launch']
+        ['btn-inventory', 'inventory'], ['btn-reputation', 'reputation'], ['btn-info', 'info'], ['btn-universe', 'universe'], ['btn-menu', 'menu'], ['btn-launch', 'launch'], ['btn-clear-selection', 'clearSelection']
     ];
     for (const [id, key] of labels) {
         const el = document.getElementById(id);
@@ -1467,6 +1482,8 @@ const NORMAL_FLIGHT_EXIT_SPEED = COMBAT_MAX_SPEED;
 const TRADE_LANE_ACCELERATION = 1250;
 const TRADE_LANE_DECELERATION = 1850;
 const TRADE_LANE_BRAKE_DISTANCE = 5200;
+const JUMP_TRANSITION_TOTAL_DURATION = 8;
+const JUMP_TRANSITION_PHASE_DURATION = JUMP_TRANSITION_TOTAL_DURATION / 2;
 const MISSION_SPAWN_DISTANCE = 1700;
 const MISSION_ENEMY_MIN_COUNT = 3;
 const MISSION_ENEMY_MAX_COUNT = 7;
@@ -1654,6 +1671,20 @@ function setFreeSpaceWaypoint(x, z) {
         return game.waypoint;
     }
     return setWaypointTarget({ x, z, name: 'Waypoint', type: 'Waypoint' }, 'Waypoint');
+}
+
+function clearNavigationSelection() {
+    const hadWaypoint = Boolean(game.waypoint);
+    game.selectedTarget = null;
+    game.approachTarget = null;
+    game.dockTarget = null;
+    if (!game.activeMission || game.waypoint?.type !== 'Mission') {
+        game.waypoint = null;
+    }
+    addLog(t('selectionCleared'));
+    playSound('select', 0.45);
+    updateHUD();
+    if (hadWaypoint && !game.waypoint) saveGame();
 }
 
 function getShipPackage(packageId) {
@@ -2158,7 +2189,9 @@ function startJumpTransition(target) {
     game.jumpTransition = {
         phase: 'out',
         timer: 0,
-        duration: 1.15,
+        elapsed: 0,
+        duration: JUMP_TRANSITION_PHASE_DURATION,
+        totalDuration: JUMP_TRANSITION_TOTAL_DURATION,
         angle,
         targetSystem: target.dest || currentSystemId,
         targetObject: target.destObject,
@@ -2857,8 +2890,9 @@ function loadSystem(systemId, arrivalObjectId = null) {
     if (game.player) {
         const arrival = findArrivalObject(arrivalObjectId) || systemData.stations[0] || systemData.jumpgates[0] || { x: 0, z: 0 };
         const angle = game.jumpTransition ? game.jumpTransition.angle : game.player.rotation;
-        game.player.x = arrival.x + Math.cos(angle) * 200;
-        game.player.z = arrival.z + Math.sin(angle) * 200;
+        const arrivalOffset = game.jumpTransition ? 0 : 200;
+        game.player.x = arrival.x + Math.cos(angle) * arrivalOffset;
+        game.player.z = arrival.z + Math.sin(angle) * arrivalOffset;
         game.player.rotation = angle;
         game.player.inTradeLane = false;
         game.player.laneRoute = null;
@@ -4534,11 +4568,12 @@ function updateJumpTransition(dt) {
     const transition = game.jumpTransition;
     if (!transition) return false;
     transition.timer += dt;
+    transition.elapsed = (transition.elapsed || 0) + dt;
     game.player.rotation = transition.angle;
 
     if (transition.phase === 'out') {
         const progress = Math.min(1, transition.timer / transition.duration);
-        const speed = 4500 + progress * 22000;
+        const speed = 2600 + smoothStep(progress) * 11000;
         game.player.x += Math.cos(transition.angle) * speed * dt;
         game.player.z += Math.sin(transition.angle) * speed * dt;
         if (progress >= 1) {
@@ -4547,7 +4582,7 @@ function updateJumpTransition(dt) {
                 ...transition,
                 phase: 'in',
                 timer: 0,
-                duration: 0.9
+                duration: JUMP_TRANSITION_PHASE_DURATION
             };
         }
         return true;
@@ -4568,26 +4603,46 @@ function renderJumpTunnel() {
     const cx = game.width / 2;
     const cy = game.height / 2;
     const progress = Math.min(1, transition.timer / transition.duration);
-    const pulse = transition.phase === 'out' ? progress : 1 - progress;
+    const totalProgress = Math.min(1, (transition.elapsed || transition.timer) / (transition.totalDuration || transition.duration));
+    const phasePulse = transition.phase === 'out' ? smoothStep(progress) : 1 - smoothStep(progress);
+    const tunnelPower = Math.sin(totalProgress * Math.PI);
+    const pulse = Math.max(0.12, Math.max(phasePulse * 0.72, tunnelPower));
+    const now = performance.now();
+    const tunnelRadius = Math.max(game.width, game.height) * (0.18 + pulse * 0.42);
     ctx.save();
     ctx.globalCompositeOperation = 'lighter';
     ctx.translate(cx, cy);
     ctx.rotate(transition.angle);
-    for (let i = 0; i < 46; i++) {
-        const lane = (i - 23) * 28;
-        const length = 250 + pulse * 900 + (i % 7) * 45;
-        const offset = ((transition.timer * 1800 + i * 97) % 900) - 450;
-        const alpha = 0.12 + pulse * 0.45;
-        ctx.strokeStyle = `rgba(90,210,255,${alpha})`;
-        ctx.lineWidth = 1 + pulse * 3;
+    for (let ring = 0; ring < 18; ring++) {
+        const ringT = (ring / 18 + now * 0.00045 + totalProgress * 0.9) % 1;
+        const radiusX = 80 + ringT * tunnelRadius * 1.65;
+        const radiusY = radiusX * (0.16 + ringT * 0.1);
+        const alpha = (1 - ringT) * (0.08 + pulse * 0.3);
+        ctx.strokeStyle = `rgba(140,225,255,${alpha})`;
+        ctx.lineWidth = 1 + (1 - ringT) * 4;
         ctx.beginPath();
-        ctx.moveTo(offset - length, lane);
-        ctx.lineTo(offset + length, lane * (0.16 + pulse * 0.18));
+        ctx.ellipse(0, 0, radiusX, radiusY, 0, 0, Math.PI * 2);
         ctx.stroke();
     }
-    const gradient = ctx.createRadialGradient(0, 0, 30, 0, 0, Math.max(game.width, game.height) * 0.72);
-    gradient.addColorStop(0, `rgba(210,250,255,${0.22 + pulse * 0.35})`);
-    gradient.addColorStop(0.35, `rgba(70,150,255,${0.08 + pulse * 0.18})`);
+    for (let i = 0; i < 76; i++) {
+        const side = (i % 2 === 0 ? 1 : -1);
+        const lane = side * (24 + (i % 19) * 18);
+        const depth = (i / 76 + now * 0.0012 + totalProgress * 1.8) % 1;
+        const focus = 1 - depth;
+        const length = 280 + pulse * 1250 + (i % 9) * 60;
+        const offset = -game.width * 0.58 + depth * game.width * 1.16;
+        const alpha = 0.06 + focus * (0.15 + pulse * 0.28);
+        ctx.strokeStyle = `rgba(${90 + i % 5 * 20},${190 + i % 4 * 14},255,${alpha})`;
+        ctx.lineWidth = 1 + focus * 4;
+        ctx.beginPath();
+        ctx.moveTo(offset - length, lane);
+        ctx.lineTo(offset + length, lane * (0.06 + depth * 0.18));
+        ctx.stroke();
+    }
+    const gradient = ctx.createRadialGradient(0, 0, 26, 0, 0, Math.max(game.width, game.height) * 0.78);
+    gradient.addColorStop(0, `rgba(230,255,255,${0.22 + pulse * 0.4})`);
+    gradient.addColorStop(0.32, `rgba(80,170,255,${0.08 + pulse * 0.22})`);
+    gradient.addColorStop(0.72, `rgba(30,80,200,${0.04 + pulse * 0.12})`);
     gradient.addColorStop(1, 'rgba(0,0,0,0)');
     ctx.fillStyle = gradient;
     ctx.beginPath();
@@ -4626,6 +4681,58 @@ function renderTradeLaneTunnel() {
     ctx.beginPath();
     ctx.arc(0, 0, Math.max(game.width, game.height), 0, Math.PI * 2);
     ctx.fill();
+    ctx.restore();
+}
+
+function renderTradeLaneWarpBubble() {
+    if (!game.player?.inTradeLane) return;
+    const ctx = game.ctx;
+    const pulse = (Math.sin(performance.now() * 0.015) + 1) * 0.5;
+    const speed = clamp(game.player.speed / game.player.laneSpeed, 0.08, 1.25);
+    const visualScale = Math.max(0.2, Math.min(3.2, game.zoom));
+    const shipSize = Math.max(42, Math.min(76, game.player.radius * 2.8)) * visualScale;
+    const bubbleLength = shipSize * (1.05 + speed * 0.72) + pulse * 5 * visualScale;
+    const bubbleWidth = shipSize * (0.48 + speed * 0.24) + pulse * 3 * visualScale;
+    const bubbleOffset = shipSize * 0.1;
+    ctx.save();
+    const pos = worldToScreen(game.player.x, game.player.z);
+    ctx.translate(pos.x, pos.y);
+    ctx.rotate(game.player.rotation);
+    ctx.globalCompositeOperation = 'lighter';
+
+    const shell = ctx.createRadialGradient(bubbleOffset, 0, shipSize * 0.15, bubbleOffset, 0, bubbleLength);
+    shell.addColorStop(0, `rgba(210,255,245,${0.08 + speed * 0.08})`);
+    shell.addColorStop(0.38, `rgba(80,255,200,${0.08 + speed * 0.1})`);
+    shell.addColorStop(0.72, `rgba(50,190,255,${0.06 + speed * 0.08})`);
+    shell.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = shell;
+    ctx.beginPath();
+    ctx.ellipse(bubbleOffset, 0, bubbleLength, bubbleWidth, 0, 0, Math.PI * 2);
+    ctx.fill();
+
+    for (let i = 0; i < 3; i++) {
+        const ringPulse = (pulse + i * 0.28) % 1;
+        const alpha = (0.28 - i * 0.055) * speed;
+        ctx.strokeStyle = `rgba(135,255,220,${alpha})`;
+        ctx.lineWidth = Math.max(0.7, (1.2 + ringPulse * 2.4) * visualScale);
+        ctx.beginPath();
+        ctx.ellipse(bubbleOffset + ringPulse * shipSize * 0.12, 0, bubbleLength * (0.78 + ringPulse * 0.18), bubbleWidth * (0.78 + ringPulse * 0.2), 0, 0, Math.PI * 2);
+        ctx.stroke();
+    }
+
+    for (let i = 0; i < 22; i++) {
+        const lane = ((i % 11) - 5) * shipSize * (0.08 + speed * 0.04);
+        const t = (i / 22 + performance.now() * 0.0032 * speed) % 1;
+        const start = -bubbleLength * (0.9 + t * 0.42);
+        const end = -shipSize * (0.34 + t * 0.85);
+        const alpha = (0.05 + t * 0.2) * speed;
+        ctx.strokeStyle = `rgba(180,255,235,${alpha})`;
+        ctx.lineWidth = Math.max(0.6, (1 + t * 2.2) * visualScale);
+        ctx.beginPath();
+        ctx.moveTo(start, lane * (1.2 + t));
+        ctx.lineTo(end, lane * 0.35);
+        ctx.stroke();
+    }
     ctx.restore();
 }
 
@@ -5005,8 +5112,8 @@ function render() {
 
     renderWaypointLine(ctx);
 
-    renderTradeLaneTunnel();
     renderJumpTunnel();
+    renderTradeLaneWarpBubble();
     renderApproachEdgeMarker(ctx);
     
     // Compass
@@ -6094,6 +6201,77 @@ function getCommodityMarket(location = game.landedBase) {
     return commodityMarketsData()[baseId] || [];
 }
 
+function canonicalSystemId(systemId) {
+    const wanted = String(systemId || '').toLowerCase();
+    return Object.keys(gameSystemsData() || {}).find(id => id.toLowerCase() === wanted) || systemId || '';
+}
+
+function systemJumpDistances(startSystemId = currentSystemId) {
+    const systems = gameSystemsData() || {};
+    const start = canonicalSystemId(startSystemId);
+    const distances = { [start]: 0 };
+    const queue = [start];
+    for (let cursor = 0; cursor < queue.length; cursor++) {
+        const systemId = queue[cursor];
+        const raw = systems[canonicalSystemId(systemId)] || {};
+        const links = [...(raw.jumpgates || []), ...(raw.jumpholes || [])]
+            .map(link => canonicalSystemId(link.dest_system))
+            .filter(Boolean);
+        for (const next of links) {
+            if (distances[next] !== undefined) continue;
+            distances[next] = distances[systemId] + 1;
+            queue.push(next);
+        }
+    }
+    return distances;
+}
+
+function baseLocationsById() {
+    const locations = {};
+    for (const systemId of Object.keys(gameSystemsData() || {})) {
+        const built = buildSystemData(systemId);
+        const dockables = [...(built.planets || []), ...(built.stations || [])];
+        for (const dockable of dockables) {
+            const baseId = getBaseId(dockable);
+            if (!baseId || locations[baseId]) continue;
+            locations[baseId] = { ...dockable, baseId, systemId: canonicalSystemId(systemId), systemName: built.name || systemId };
+        }
+    }
+    return locations;
+}
+
+function tradeDestinationDistance(location) {
+    if (!location) return Infinity;
+    if (location.systemId?.toLowerCase() === currentSystemId.toLowerCase()) {
+        return game.player ? Math.hypot((location.x || 0) - game.player.x, (location.z || 0) - game.player.z) : 0;
+    }
+    const built = buildSystemData(location.systemId);
+    const gates = built.jumpgates || [];
+    if (!gates.length) return Infinity;
+    return Math.min(...gates.map(gate => Math.hypot((location.x || 0) - gate.x, (location.z || 0) - gate.z)));
+}
+
+function commoditySellDestinations(commodityId, sourceBaseId, sourcePrice) {
+    const markets = commodityMarketsData();
+    const locations = baseLocationsById();
+    const jumpsBySystem = systemJumpDistances(currentSystemId);
+    return Object.entries(markets).flatMap(([baseId, market]) => {
+        if (baseId === sourceBaseId) return [];
+        const entry = (market || []).find(item => String(item.id || '').toLowerCase() === String(commodityId || '').toLowerCase());
+        if (!entry || Number(entry.price) <= 0) return [];
+        const location = locations[baseId] || { baseId, name: baseId, systemId: '', systemName: '' };
+        const jumps = jumpsBySystem[location.systemId];
+        const distance = tradeDestinationDistance(location);
+        return [{ baseId, location, entry, jumps, distance, profit: Number(entry.price) - Number(sourcePrice || 0) }];
+    }).sort((a, b) => {
+        const aJumps = a.jumps ?? Infinity;
+        const bJumps = b.jumps ?? Infinity;
+        if (aJumps !== bJumps) return aJumps - bJumps;
+        if (a.distance !== b.distance) return a.distance - b.distance;
+        return b.entry.price - a.entry.price;
+    });
+}
+
 function getEquipmentMarket(location = game.landedBase) {
     const baseId = getBaseId(location);
     if (!baseId) return [];
@@ -6443,8 +6621,10 @@ function renderTradeDealer() {
         content.innerHTML = `<div style="color:#ffaa00;">${t('noCommodityMarket')}</div>`;
         return;
     }
+    if (game.tradeInfoCommodityId && !market.some(entry => entry.id === game.tradeInfoCommodityId)) game.tradeInfoCommodityId = '';
     let html = `<div style="display:flex;justify-content:space-between;margin-bottom:10px;color:#b9efff;"><span>${t('credits')}: ${game.player.credits.toLocaleString()} CR</span><span>${t('cargo')}: ${cargoUnits()}/${game.player.maxCargo}</span></div>`;
-    html += `<table class="trade-table"><tr><th>${t('commodity')}</th><th>${t('price')}</th><th>${t('stock')}</th><th>${t('quantity')}</th><th></th><th>${t('owned')}</th><th></th></tr>`;
+    html += renderTradeInfoPanel(market);
+    html += `<table class="trade-table"><tr><th>${t('commodity')}</th><th>${t('price')}</th><th>${t('stock')}</th><th>${t('quantity')}</th><th></th><th>${t('owned')}</th><th>${t('quantity')}</th><th></th></tr>`;
     for (const entry of market) {
         const commodity = getCommodity(entry.id);
         if (!commodity) continue;
@@ -6455,11 +6635,42 @@ function renderTradeDealer() {
         const maxBuy = Math.max(0, Math.min(cargoSpace, affordable, marketStock));
         const canBuy = entry.forSale && maxBuy > 0;
         const canSell = !!cargoItem && cargoItem.quantity > 0;
-        const inputId = 'buy-qty-' + safeDomId(entry.id);
-        html += `<tr><td style="color:#00ff00;">${escapeHtml(commodity.name)}</td><td style="color:#ffaa00;">${entry.price.toLocaleString()} CR</td><td>${entry.forSale ? `${entry.stockMin}-${entry.stockMax}` : '-'}</td><td><input class="trade-qty-input" id="${inputId}" type="number" min="1" max="${maxBuy || 1}" value="${canBuy ? 1 : 0}" onkeydown="if(event.key==='Enter') buyCommodity('${entry.id}')" ${canBuy ? '' : 'disabled'}></td><td><button class="trade-button" onclick="buyCommodity('${entry.id}')" ${canBuy ? '' : 'disabled'}>${t('buy')}</button></td><td>${cargoItem ? cargoItem.quantity : 0}</td><td><button class="trade-button" onclick="sellCommodity('${entry.id}')" ${canSell ? '' : 'disabled'}>${t('sell')}</button></td></tr>`;
+        const buyInputId = 'buy-qty-' + safeDomId(entry.id);
+        const sellInputId = 'sell-qty-' + safeDomId(entry.id);
+        const selected = game.tradeInfoCommodityId === entry.id ? ' class="selected"' : '';
+        html += `<tr${selected}><td><span class="trade-commodity-link" onclick="selectTradeInfoCommodity('${entry.id}')">${escapeHtml(commodity.name)}</span></td><td style="color:#ffaa00;">${entry.price.toLocaleString()} CR</td><td>${entry.forSale ? `${entry.stockMin}-${entry.stockMax}` : '-'}</td><td><input class="trade-qty-input" id="${buyInputId}" type="number" min="1" max="${maxBuy || 1}" value="${canBuy ? 1 : 0}" onkeydown="if(event.key==='Enter') buyCommodity('${entry.id}')" ${canBuy ? '' : 'disabled'}></td><td><button class="trade-button" onclick="buyCommodity('${entry.id}')" ${canBuy ? '' : 'disabled'}>${t('buy')}</button></td><td>${cargoItem ? cargoItem.quantity : 0}</td><td><input class="trade-qty-input" id="${sellInputId}" type="number" min="1" max="${cargoItem ? cargoItem.quantity : 1}" value="${canSell ? 1 : 0}" onkeydown="if(event.key==='Enter') sellCommodity('${entry.id}')" ${canSell ? '' : 'disabled'}></td><td><button class="trade-button" onclick="sellCommodity('${entry.id}')" ${canSell ? '' : 'disabled'}>${t('sell')}</button></td></tr>`;
     }
     html += '</table>';
     content.innerHTML = html;
+}
+
+function renderTradeInfoPanel(market) {
+    const selectedId = game.tradeInfoCommodityId;
+    if (!selectedId) return `<div class="trade-info-panel"><div class="trade-info-title"><strong>${escapeHtml(t('tradeInfo'))}</strong></div><span style="color:#8fb8c8;">${escapeHtml(t('tradeInfoHint'))}</span></div>`;
+    const sourceEntry = market.find(entry => entry.id === selectedId);
+    const commodity = getCommodity(selectedId);
+    if (!sourceEntry || !commodity) return '';
+    const sourceBaseId = getBaseId(game.landedBase);
+    const destinations = commoditySellDestinations(selectedId, sourceBaseId, sourceEntry.price).slice(0, 20);
+    let html = `<div class="trade-info-panel"><div class="trade-info-title"><strong>${escapeHtml(t('tradeInfo'))}: ${escapeHtml(commodity.name)}</strong><span>${escapeHtml(t('price'))}: ${Number(sourceEntry.price || 0).toLocaleString()} CR</span></div>`;
+    if (!destinations.length) {
+        html += `<div style="color:#ffaa00;">${escapeHtml(t('noSellTargets'))}</div></div>`;
+        return html;
+    }
+    html += `<table class="trade-info-table"><tr><th>${escapeHtml(t('sellAt'))}</th><th>System</th><th>${escapeHtml(t('jumps'))}</th><th>${escapeHtml(t('distance'))}</th><th>${escapeHtml(t('price'))}</th><th>${escapeHtml(t('profit'))}</th></tr>`;
+    for (const destination of destinations) {
+        const jumps = destination.jumps === undefined ? t('unreachable') : destination.jumps;
+        const distance = Number.isFinite(destination.distance) ? formatDistance(destination.distance) : '-';
+        const profitColor = destination.profit >= 0 ? '#00ff00' : '#ff7777';
+        html += `<tr><td>${escapeHtml(destination.location.name || destination.baseId)}</td><td>${escapeHtml(destination.location.systemName || destination.location.systemId || '-')}</td><td>${escapeHtml(jumps)}</td><td>${escapeHtml(distance)}</td><td style="color:#ffaa00;">${Number(destination.entry.price || 0).toLocaleString()} CR</td><td style="color:${profitColor};">${destination.profit >= 0 ? '+' : ''}${destination.profit.toLocaleString()} CR</td></tr>`;
+    }
+    html += '</table></div>';
+    return html;
+}
+
+function selectTradeInfoCommodity(commodityId) {
+    game.tradeInfoCommodityId = commodityId;
+    renderTradeDealer();
 }
 
 function buyCommodity(commodityId, requestedQuantity = null) {
@@ -6487,12 +6698,16 @@ function buyCommodity(commodityId, requestedQuantity = null) {
     updateHUD();
 }
 
-function sellCommodity(commodityId) {
+function sellCommodity(commodityId, requestedQuantity = null) {
     const marketEntry = getCommodityMarket().find(entry => entry.id === commodityId);
     const cargoItem = findCargoItem(commodityId);
     if (!marketEntry || !cargoItem || cargoItem.quantity <= 0) return;
-    game.player.credits += marketEntry.price;
-    cargoItem.quantity -= 1;
+    const input = document.getElementById('sell-qty-' + safeDomId(commodityId));
+    const rawQuantity = requestedQuantity ?? Number(input?.value || 1);
+    const quantity = Math.floor(Math.max(0, Math.min(Number(rawQuantity) || 0, cargoItem.quantity)));
+    if (quantity <= 0) return;
+    game.player.credits += marketEntry.price * quantity;
+    cargoItem.quantity -= quantity;
     if (cargoItem.quantity <= 0) game.player.cargo = game.player.cargo.filter(item => item.id !== commodityId);
     playSound('buy', 0.45);
     saveGame();
