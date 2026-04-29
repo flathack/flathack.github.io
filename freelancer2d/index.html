@@ -37,6 +37,11 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
 }
 #command-bar, #utility-bar { display: flex; gap: 4px; pointer-events: auto; flex-wrap: wrap; padding: 5px; background: linear-gradient(180deg, var(--hud-panel-top), var(--hud-panel-bottom)); border: 1px solid var(--hud-accent); box-shadow: 0 0 16px var(--hud-panel-shadow), inset 0 0 18px var(--hud-panel-inner); }
 #utility-bar { position: absolute; top: 0; right: 0; }
+#music-player { position: absolute; top: 0; left: 0; width: min(300px, calc(100vw - 28px)); pointer-events: auto; display: grid; grid-template-columns: auto 1fr auto; gap: 5px; align-items: center; padding: 5px; background: linear-gradient(180deg, var(--hud-panel-top), var(--hud-panel-bottom)); border: 1px solid var(--hud-accent); box-shadow: 0 0 16px var(--hud-panel-shadow), inset 0 0 18px var(--hud-panel-inner); }
+#music-label { color: var(--hud-highlight); font-size: 11px; white-space: nowrap; }
+#music-track-select { min-width: 0; height: 28px; padding: 0 6px; background: rgba(0,18,34,0.88); border: 1px solid var(--hud-accent-strong); color: #d8f7ff; font-family: 'Courier New', monospace; font-size: 11px; }
+#music-toggle { min-width: 54px; height: 28px; padding: 0 7px; background: rgba(0,50,80,0.8); border: 1px solid var(--hud-accent-strong); color: var(--hud-accent-soft); cursor: pointer; font-family: 'Courier New', monospace; font-size: 11px; }
+#music-toggle:hover { background: rgba(0,100,150,0.8); }
 .cmd-btn { min-width: 74px; padding: 7px 9px; background: rgba(0,50,80,0.8); border: 1px solid var(--hud-accent-strong); color: var(--hud-accent-soft); cursor: pointer; font-size: 11px; font-family: 'Courier New', monospace; }
 .cmd-btn:hover { background: rgba(0,100,150,0.8); }
 .cmd-btn.active { background: rgba(0,150,50,0.8); border-color: #00ff00; color: #00ff00; }
@@ -73,6 +78,8 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
 .consumable-box { border: 1px solid rgba(70,130,170,0.28); background: rgba(0,18,34,0.55); padding: 6px; color: #d8f7ff; font-size: 12px; }
 
 @media (max-width: 980px) {
+    #command-bar { margin-top: 42px; }
+    #music-player { width: min(280px, calc(100vw - 28px)); }
     #hud-left { min-width: 300px; width: calc(100vw - 28px); bottom: 120px; }
     .cmd-btn { min-width: 62px; padding: 6px 8px; font-size: 10px; }
     #hud-info { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -114,6 +121,24 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
 #map-controls { display: flex; gap: 10px; }
 .map-btn { padding: 5px 12px; background: #003355; border: 1px solid #0088ff; color: #00aaff; cursor: pointer; font-size: 11px; }
 .map-btn:hover { background: #005588; }
+#inventory-overlay { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: min(760px, calc(100vw - 28px)); max-height: min(620px, calc(100vh - 28px)); background: rgba(0,10,20,0.96); border: 2px solid #00aaff; z-index: 2000; display: flex; flex-direction: column; box-shadow: 0 0 28px rgba(0,136,255,0.28); }
+#inventory-header { padding: 10px 12px; border-bottom: 1px solid #173c54; display: flex; justify-content: space-between; align-items: center; }
+#inventory-header h3 { color: #00aaff; margin: 0; font-size: 16px; }
+#inventory-content { padding: 12px; overflow-y: auto; display: grid; gap: 10px; }
+.inventory-summary { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+.inventory-stat { padding: 8px; border: 1px solid #1d4b62; background: rgba(0,22,34,0.72); color: #b9efff; font-size: 12px; }
+.inventory-stat strong { display: block; color: #ffaa00; font-size: 11px; margin-bottom: 3px; }
+.inventory-section { border: 1px solid #1f4d62; background: rgba(0,18,30,0.72); }
+.inventory-section-title { padding: 8px 10px; color: #ffaa00; border-bottom: 1px solid #1b3b4d; font-size: 13px; }
+.inventory-row { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: 10px; padding: 8px 10px; border-bottom: 1px solid #162d3c; color: #d8f7ff; font-size: 12px; align-items: center; }
+.inventory-row:last-child { border-bottom: 0; }
+.inventory-meta { color: #8fb8c8; font-size: 11px; }
+.inventory-empty { padding: 10px; color: #667f8f; font-size: 12px; }
+@media (max-width: 720px) {
+    .inventory-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .inventory-row { grid-template-columns: minmax(0, 1fr) auto; }
+    .inventory-row .inventory-meta { grid-column: 1 / -1; }
+}
 #map-canvas, #universe-canvas { cursor: grab; }
 #map-canvas:active, #universe-canvas:active { cursor: grabbing; }
 #log-area { position: absolute; top: 250px; left: 10px; width: 320px; max-height: 180px; background: rgba(0,0,0,0.85); border: 1px solid #333; overflow-y: auto; padding: 5px; font-size: 11px; display: none; }
@@ -171,6 +196,11 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
         
         <div id="hud">
             <div id="hud-top">
+                <div id="music-player">
+                    <span id="music-label">MUSIC</span>
+                    <select id="music-track-select" title="Music track"></select>
+                    <button id="music-toggle" title="Stop or resume music">STOP</button>
+                </div>
                 <div id="command-bar">
                     <button class="cmd-btn" id="btn-freeflight" onclick="setMode('freeflight')">FREEFLIGHT</button>
                     <button class="cmd-btn" id="btn-approach" onclick="setMode('approach')">ANFLIEGEN</button>
@@ -300,6 +330,14 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
             </div>
         </div>
         <canvas id="map-canvas" width="700" height="460"></canvas>
+    </div>
+
+    <div id="inventory-overlay" class="hidden">
+        <div id="inventory-header">
+            <h3 id="inventory-title">INVENTORY</h3>
+            <button class="map-btn" id="btn-close-inventory" style="background:#330000;border-color:#aa0000;color:#ff4444;">CLOSE</button>
+        </div>
+        <div id="inventory-content"></div>
     </div>
     
     <!-- Universe View Overlay -->
@@ -649,6 +687,13 @@ const game = {
     audioBuffers: {},
     audioBufferLoads: {},
     audioBufferFailures: {},
+    musicAudio: null,
+    musicFadeAudio: null,
+    musicFadeTimer: null,
+    musicMode: 'space',
+    musicStoppedByUser: false,
+    currentMusicTrackPath: '',
+    manualMusicTrackPath: '',
     lastEngineSoundAt: 0
 };
 
@@ -660,6 +705,26 @@ const SAVE_VERSION = 1;
 const MAX_SAVE_SLOTS = 5;
 const GAME_TITLE = 'Freelancer 2D - a 2d adventure';
 const JUSTICE_FIRE_SOUND_PATH = 'assets/audio/justice-fire.wav';
+const MUSIC_VOLUME = 0.315;
+const MUSIC_CROSSFADE_MS = 1400;
+const VOICE_SOUND_PATHS = {
+    dock: 'assets/audio/dock.mp3',
+    freeflight: 'assets/audio/free-flight.mp3',
+    goingTo: 'assets/audio/going-to.mp3',
+    tradeRouteInitiated: 'assets/audio/trade-route-initiated.mp3'
+};
+const MUSIC_TRACKS = {
+    space: [
+        { name: 'Deep Space', path: 'assets/music/space/SPACE-Deep-Space.mp3' },
+        { name: 'DeepSpace 2', path: 'assets/music/space/SPACE-DeepSpace2.mp3' },
+        { name: 'DeepSpace 5.1', path: 'assets/music/space/SPACE-DeepSpace5.1.mp3' },
+        { name: 'DeepSpace 5.2', path: 'assets/music/space/SPACE-DeepSpace5.2.mp3' },
+        { name: 'Orbital Drift', path: 'assets/music/space/SPACE-Orbital-Drift.mp3' }
+    ],
+    fight: [
+        { name: 'Fight 1', path: 'assets/music/fight/FIGHT-music1.mp3' }
+    ]
+};
 const ENABLE_CROSSFIRE_MOD = true;
 const MODS = [
     { id: 'vanilla', name: 'Vanilla DE', dataPath: '' },
@@ -784,10 +849,26 @@ function currentShipRecord() {
 }
 
 function parseShipWeaponSlots(ship) {
+    const counts = parseShipMountCounts(ship);
+    if (counts.total) return counts.total;
+    return clamp(Number(ship?.firePower || game.player?.firePower || 1), 0, 8);
+}
+
+function parseShipMountCounts(ship) {
     const info = String(ship?.info || '');
     const match = info.match(/(?:Geschuetz|Geschütz)-\/Turmsockel:\s*(\d+)\s*\/\s*(\d+)/i);
-    if (match) return clamp((Number(match[1]) || 0) + (Number(match[2]) || 0), 0, 8);
-    return clamp(Number(ship?.firePower || game.player?.firePower || 1), 0, 8);
+    if (match) {
+        const guns = clamp(Number(match[1]) || 0, 0, 8);
+        const turrets = clamp(Number(match[2]) || 0, 0, 8);
+        return { guns, turrets, total: clamp(guns + turrets, 0, 8) };
+    }
+    const singleMatch = info.match(/(?:Geschuetz|Geschütz|Gun)(?:-|\/|-\/| )?(?:Turmsockel|Turret hardpoints?|mounts?)?:\s*(\d+)/i);
+    if (singleMatch) {
+        const guns = clamp(Number(singleMatch[1]) || 0, 0, 8);
+        return { guns, turrets: 0, total: guns };
+    }
+    const fallback = clamp(Number(ship?.firePower || game.player?.firePower || 1), 0, 8);
+    return { guns: fallback, turrets: 0, total: fallback };
 }
 
 function getWeaponSlotCount() {
@@ -796,6 +877,133 @@ function getWeaponSlotCount() {
 
 function getWeaponSlotKeys() {
     return Array.from({ length: getWeaponSlotCount() }, (_, index) => 'weapon' + (index + 1));
+}
+
+function currentShipPackage() {
+    return game.player?.shipPackageId ? getShipPackage(game.player.shipPackageId) : null;
+}
+
+function parseMaxEquipmentClass(source, fallback = 1) {
+    const values = [
+        source?.maxWeaponClass,
+        source?.weaponClassMax,
+        source?.maxEquipmentClass,
+        source?.stats?.maxWeaponClass,
+        source?.stats?.weaponClassMax
+    ].map(Number).filter(Number.isFinite);
+    if (values.length) return clamp(Math.max(...values), 1, 10);
+    const text = String(source?.info || '');
+    const patterns = [
+        /Max\.?\s*Waffenklasse:\s*(\d+)/i,
+        /Max\.?\s*Weapon\s*Class:\s*(\d+)/i,
+        /Maximum\s*Weapon\s*Class:\s*(\d+)/i
+    ];
+    for (const pattern of patterns) {
+        const match = text.match(pattern);
+        if (match) return clamp(Number(match[1]) || fallback, 1, 10);
+    }
+    return clamp(Number(fallback) || 1, 1, 10);
+}
+
+function equipmentClass(item) {
+    const explicit = Number(item?.class ?? item?.equipmentClass ?? item?.weaponClass ?? item?.shieldClass);
+    if (Number.isFinite(explicit) && explicit > 0) return clamp(explicit, 1, 10);
+    const text = `${item?.id || ''} ${item?.name || ''} ${item?.info || ''}`.toLowerCase();
+    const markMatch = text.match(/(?:mark|mk|klasse|class)[_\\s.-]*0?(10|[1-9])/i);
+    if (markMatch) return clamp(Number(markMatch[1]) || 1, 1, 10);
+    const price = Number(item?.price || 0);
+    if (item?.category === 'weapon' || item?.category === 'turret' || item?.category === 'missile' || item?.category === 'shield') {
+        if (price >= 70000) return 10;
+        if (price >= 50000) return 9;
+        if (price >= 35000) return 8;
+        if (price >= 22000) return 7;
+        if (price >= 13000) return 6;
+        if (price >= 8000) return 5;
+        if (price >= 4000) return 4;
+        if (price >= 1800) return 3;
+        if (price >= 900) return 2;
+    }
+    return 1;
+}
+
+function equipmentMountType(item) {
+    const id = String(item?.id || item?.equipmentId || '').toLowerCase();
+    const name = String(item?.name || '').toLowerCase();
+    const category = String(item?.category || '').toLowerCase();
+    if (category === 'weapon') return 'weapon';
+    if (category === 'turret') return 'turret';
+    if (category === 'shield') return 'shield';
+    if (category === 'thruster') return 'thruster';
+    if (category === 'engine') return 'engine';
+    if (category === 'powerplant') return 'powerplant';
+    if (category === 'mine') return 'mine';
+    if (category === 'countermeasure') return 'countermeasure';
+    if (category === 'missile') {
+        if (id.includes('torpedo') || name.includes('torpedo')) return 'torpedo';
+        if (id.includes('disruptor') || name.includes('disruptor') || name.includes('reiseflug')) return 'cruise_disruptor';
+        return 'missile';
+    }
+    return category || 'equipment';
+}
+
+function shipShieldFamily() {
+    const shipId = String(game.player?.shipId || '').toLowerCase();
+    const packageId = String(game.player?.shipPackageId || '').toLowerCase();
+    const type = String(currentShipPackage()?.type || currentShipRecord()?.type || '').toUpperCase();
+    if (type.includes('FREIGHTER') || shipId.includes('freighter') || packageId.endsWith('fr_package')) return 'fr';
+    if (shipId.includes('elite') || /(^|_)[a-z]*e\d?_package$/.test(packageId) || parseMaxEquipmentClass(currentShipPackage() || currentShipRecord(), 1) >= 6) return 'hf';
+    return 'lf';
+}
+
+function shieldFamily(item) {
+    const text = `${item?.id || ''} ${item?.name || ''} ${item?.info || ''}`.toLowerCase();
+    if (/(^|_)fr($|_)|freighter|frachter/.test(text)) return 'fr';
+    if (/(^|_)hf($|_)|heavy fighter|schwerer|schwere-jäger|s\. j\./.test(text)) return 'hf';
+    if (/(^|_)lf($|_)|light fighter|leichter|leichte-jäger|l\. j\./.test(text)) return 'lf';
+    return '';
+}
+
+function slotSpec(slot) {
+    const maxClass = parseMaxEquipmentClass(currentShipPackage() || currentShipRecord(), game.player?.weaponClassMax || game.player?.firePower || 1);
+    if (slot.startsWith('weapon')) {
+        const index = Math.max(1, Number(slot.replace('weapon', '')) || 1);
+        const counts = parseShipMountCounts(currentShipRecord());
+        const isTurretSlot = index > Math.max(0, counts.guns || 0);
+        return {
+            type: isTurretSlot ? 'turret' : 'weapon',
+            accepts: isTurretSlot ? ['turret'] : ['weapon', 'missile', 'torpedo', 'cruise_disruptor'],
+            maxClass
+        };
+    }
+    if (slot === 'shield') return { type: 'shield', accepts: ['shield'], maxClass, shieldFamily: shipShieldFamily() };
+    if (slot === 'thruster') return { type: 'thruster', accepts: ['thruster'] };
+    if (slot === 'engine') return { type: 'engine', accepts: ['engine'] };
+    if (slot === 'powerplant') return { type: 'powerplant', accepts: ['powerplant'] };
+    if (slot === 'mine') return { type: 'mine', accepts: ['mine'] };
+    if (slot === 'countermeasure') return { type: 'countermeasure', accepts: ['countermeasure'] };
+    return { type: slot, accepts: [slot] };
+}
+
+function equipmentCompatibility(item, slot = '') {
+    if (!item) return { ok: false, reason: 'Item missing.' };
+    const mountType = equipmentMountType(item);
+    const candidateSlots = slot ? [slot] : categorySlotKeys(item.category);
+    for (const candidate of candidateSlots) {
+        const spec = slotSpec(candidate);
+        if (!spec.accepts.includes(mountType)) continue;
+        if (Number.isFinite(spec.maxClass) && equipmentClass(item) > spec.maxClass) {
+            return { ok: false, reason: `Class ${equipmentClass(item)} does not fit ${equipmentSlotLabel(candidate)}.` };
+        }
+        if (mountType === 'shield') {
+            const itemFamily = shieldFamily(item);
+            if (itemFamily && spec.shieldFamily && itemFamily !== spec.shieldFamily) {
+                const labels = { lf: 'Light Fighter', hf: 'Heavy Fighter', fr: 'Freighter' };
+                return { ok: false, reason: `${labels[itemFamily] || itemFamily} shield does not fit this ${labels[spec.shieldFamily] || spec.shieldFamily} ship.` };
+            }
+        }
+        return { ok: true, slot: candidate };
+    }
+    return { ok: false, reason: `${mountType} cannot be mounted on this ship.` };
 }
 
 function normalizeFactionId(faction) {
@@ -927,21 +1135,33 @@ function canPlayerDockWithTarget(target) {
 }
 
 function categorySlotKeys(category) {
-    if (category === 'weapon' || category === 'turret' || category === 'missile') return getWeaponSlotKeys();
-    if (category === 'shield') return ['shield'];
-    if (category === 'thruster') return ['thruster'];
-    if (category === 'mine') return ['mine'];
-    if (category === 'countermeasure') return ['countermeasure'];
+    const normalized = String(category || '').toLowerCase();
+    if (normalized === 'weapon' || normalized === 'turret' || normalized === 'missile') return getWeaponSlotKeys();
+    if (normalized === 'shield') return ['shield'];
+    if (normalized === 'thruster') return ['thruster'];
+    if (normalized === 'engine') return ['engine'];
+    if (normalized === 'powerplant') return ['powerplant'];
+    if (normalized === 'mine') return ['mine'];
+    if (normalized === 'countermeasure') return ['countermeasure'];
     return [];
 }
 
-function firstAvailableSlot(category) {
+function firstAvailableSlot(itemOrCategory) {
+    const item = typeof itemOrCategory === 'string' ? null : itemOrCategory;
+    const category = item ? item.category : itemOrCategory;
     const slots = categorySlotKeys(category);
-    return slots.find(slot => !game.player.mountedEquipment?.[slot]) || slots[0] || '';
+    const compatibleSlots = item ? slots.filter(slot => equipmentCompatibility(item, slot).ok) : slots;
+    const candidates = compatibleSlots.length ? compatibleSlots : slots;
+    return candidates.find(slot => !game.player.mountedEquipment?.[slot]) || candidates[0] || '';
 }
 
 function equipmentSlotLabel(slot) {
-    if (slot.startsWith('weapon')) return t('weaponSlot') + ' ' + slot.replace('weapon', '');
+    const spec = slotSpec(slot);
+    if (slot.startsWith('weapon')) return `${spec.type === 'turret' ? 'Turret' : t('weaponSlot')} ${slot.replace('weapon', '')} (Class ${spec.maxClass})`;
+    if (slot === 'shield') {
+        const labels = { lf: 'Light Fighter', hf: 'Heavy Fighter', fr: 'Freighter' };
+        return `Shield (Class ${spec.maxClass}, ${labels[spec.shieldFamily] || spec.shieldFamily})`;
+    }
     return slot.charAt(0).toUpperCase() + slot.slice(1);
 }
 
@@ -1627,6 +1847,7 @@ function startTradeLaneFromRing(ring) {
     const next = ring.laneRings[start.targetIndex];
     if (next) game.player.rotation = Math.atan2(next.z - ring.z, next.x - ring.x);
     addLog('Entered trade lane at ring ' + (ring.index + 1) + ' of ' + ring.laneRings.length);
+    playVoice('tradeRouteInitiated', 1);
     playSound('tradeLane', 1.1);
     return true;
 }
@@ -2148,10 +2369,18 @@ function applyShipPackage(packageId, logPurchase = false) {
     game.player.powerGen = Number.isFinite(stats.powerChargeRate) ? stats.powerChargeRate : game.player.powerGen;
     game.player.thrustCapacity = Number.isFinite(stats.thrustCapacity) ? stats.thrustCapacity : game.player.thrustCapacity;
     game.player.thrustChargeRate = Number.isFinite(stats.thrustChargeRate) ? stats.thrustChargeRate : game.player.thrustChargeRate;
+    game.player.baseMaxEnergy = game.player.maxEnergy;
+    game.player.basePowerGen = game.player.powerGen;
+    game.player.baseThrustCapacity = game.player.thrustCapacity;
+    game.player.baseThrustChargeRate = game.player.thrustChargeRate;
     game.player.energy = Math.min(game.player.maxEnergy, Math.max(game.player.energy || game.player.maxEnergy, game.player.maxEnergy));
     game.player.firePower = stats.firePower || game.player.firePower || 1;
+    game.player.baseFirePower = game.player.firePower;
     const shipRecord = shipsData()[String(shipPackage.ship || '').toLowerCase()] || null;
     game.player.weaponSlots = parseShipWeaponSlots(shipRecord) || clamp(game.player.firePower, 0, 8);
+    game.player.weaponClassMax = parseMaxEquipmentClass(shipPackage, parseMaxEquipmentClass(shipRecord, game.player.firePower || 1));
+    game.player.shieldClassMax = game.player.weaponClassMax;
+    game.player.shieldFamily = shipShieldFamily();
     game.player.radius = Math.max(18, Math.min(34, Math.sqrt(game.player.maxHull) * 0.28));
     ensureStarterEquipmentForEmptyLoadout();
     if (logPurchase) {
@@ -4260,6 +4489,190 @@ function addLog(message, type = 'system') {
     }
 }
 
+function allMusicTracks() {
+    return [...MUSIC_TRACKS.space, ...MUSIC_TRACKS.fight];
+}
+
+function musicTrackByPath(path) {
+    return allMusicTracks().find(track => track.path === path) || null;
+}
+
+function musicModeForTrack(path) {
+    return MUSIC_TRACKS.fight.some(track => track.path === path) ? 'fight' : 'space';
+}
+
+function defaultMusicTrack(mode = 'space') {
+    const tracks = MUSIC_TRACKS[mode] || MUSIC_TRACKS.space;
+    return tracks[0] || null;
+}
+
+function nextMusicTrack(mode = game.musicMode) {
+    const tracks = MUSIC_TRACKS[mode] || MUSIC_TRACKS.space;
+    if (!tracks.length) return null;
+    const currentIndex = tracks.findIndex(track => track.path === game.currentMusicTrackPath);
+    return tracks[(currentIndex + 1 + tracks.length) % tracks.length];
+}
+
+function ensureMusicAudio() {
+    if (game.musicAudio) return game.musicAudio;
+    const audio = new Audio();
+    audio.preload = 'auto';
+    audio.volume = MUSIC_VOLUME;
+    audio.addEventListener('ended', () => {
+        const track = nextMusicTrack(game.musicMode);
+        if (track) playMusicTrack(track, game.musicMode);
+    });
+    game.musicAudio = audio;
+    return audio;
+}
+
+function stopMusicFade() {
+    if (game.musicFadeTimer) {
+        clearInterval(game.musicFadeTimer);
+        game.musicFadeTimer = null;
+    }
+    if (game.musicFadeAudio) {
+        game.musicFadeAudio.pause();
+        game.musicFadeAudio = null;
+    }
+}
+
+function populateMusicPlayer() {
+    const select = document.getElementById('music-track-select');
+    if (!select) return;
+    select.innerHTML = '';
+    for (const mode of ['space', 'fight']) {
+        const group = document.createElement('optgroup');
+        group.label = mode.toUpperCase();
+        for (const track of MUSIC_TRACKS[mode]) {
+            const option = document.createElement('option');
+            option.value = track.path;
+            option.textContent = track.name;
+            group.appendChild(option);
+        }
+        select.appendChild(group);
+    }
+    const initialTrack = defaultMusicTrack('space');
+    if (initialTrack) select.value = initialTrack.path;
+}
+
+function updateMusicPlayer() {
+    const select = document.getElementById('music-track-select');
+    const button = document.getElementById('music-toggle');
+    const label = document.getElementById('music-label');
+    if (select && game.currentMusicTrackPath) select.value = game.currentMusicTrackPath;
+    if (button) button.textContent = game.musicStoppedByUser ? 'PLAY' : 'STOP';
+    if (label) label.textContent = game.musicMode === 'fight' ? 'FIGHT' : 'SPACE';
+}
+
+function playMusicTrack(track, mode = 'space', manual = false) {
+    if (!track) return;
+    const audio = ensureMusicAudio();
+    const nextSrc = new URL(track.path, window.location.href).href;
+    const sameTrack = audio.src === nextSrc;
+    game.musicMode = mode;
+    game.currentMusicTrackPath = track.path;
+    if (manual) game.manualMusicTrackPath = track.path;
+    if (sameTrack) {
+        audio.volume = MUSIC_VOLUME;
+        audio.loop = (MUSIC_TRACKS[mode] || []).length <= 1;
+        if (!game.musicStoppedByUser) audio.play().catch(error => console.warn('Music playback blocked:', error));
+        updateMusicPlayer();
+        return;
+    }
+    if (game.musicStoppedByUser) {
+        stopMusicFade();
+        audio.src = track.path;
+        audio.volume = MUSIC_VOLUME;
+        audio.loop = (MUSIC_TRACKS[mode] || []).length <= 1;
+        updateMusicPlayer();
+        return;
+    }
+    const previous = audio.src && !audio.paused ? audio : null;
+    const next = new Audio(track.path);
+    next.preload = 'auto';
+    next.loop = (MUSIC_TRACKS[mode] || []).length <= 1;
+    next.volume = previous ? 0 : MUSIC_VOLUME;
+    next.addEventListener('ended', () => {
+        if (game.musicAudio !== next) return;
+        const following = nextMusicTrack(game.musicMode);
+        if (following) playMusicTrack(following, game.musicMode);
+    });
+    stopMusicFade();
+    game.musicAudio = next;
+    next.play().catch(error => console.warn('Music playback blocked:', error));
+    if (previous) {
+        game.musicFadeAudio = previous;
+        const start = performance.now();
+        game.musicFadeTimer = setInterval(() => {
+            const t = clamp((performance.now() - start) / MUSIC_CROSSFADE_MS, 0, 1);
+            next.volume = MUSIC_VOLUME * t;
+            previous.volume = MUSIC_VOLUME * (1 - t);
+            if (t >= 1) {
+                previous.pause();
+                game.musicFadeAudio = null;
+                clearInterval(game.musicFadeTimer);
+                game.musicFadeTimer = null;
+            }
+        }, 40);
+    }
+    updateMusicPlayer();
+}
+
+function stopMusic(userInitiated = true) {
+    const audio = ensureMusicAudio();
+    audio.pause();
+    stopMusicFade();
+    if (userInitiated) game.musicStoppedByUser = true;
+    updateMusicPlayer();
+}
+
+function resumeMusic() {
+    game.musicStoppedByUser = false;
+    const track = musicTrackByPath(game.currentMusicTrackPath) || defaultMusicTrack(game.musicMode);
+    playMusicTrack(track, game.musicMode);
+}
+
+function setupMusicPlayer() {
+    populateMusicPlayer();
+    ensureMusicAudio();
+    const select = document.getElementById('music-track-select');
+    const button = document.getElementById('music-toggle');
+    select?.addEventListener('change', event => {
+        const track = musicTrackByPath(event.target.value);
+        if (!track) return;
+        const mode = musicModeForTrack(track.path);
+        game.musicStoppedByUser = false;
+        playMusicTrack(track, mode, true);
+    });
+    button?.addEventListener('click', () => {
+        if (game.musicStoppedByUser) resumeMusic();
+        else stopMusic(true);
+    });
+    updateMusicPlayer();
+}
+
+function combatMusicActive() {
+    if (!game.running || game.isDocked || !game.player) return false;
+    if (game.projectiles.some(p => p.targetId === 'player')) return true;
+    return game.npcs.some(npc => {
+        if (!npc || npc.hull <= 0) return false;
+        const distance = Math.hypot(npc.x - game.player.x, npc.z - game.player.z);
+        return distance < 2600 && (npc.hostileToPlayer || npc.missionId || playerIsHostileToFaction(npc.faction) || (npc.role === 'pirate' && !npc.faction));
+    });
+}
+
+function updateMusicMode() {
+    if (game.musicStoppedByUser) return;
+    const manualTrack = musicTrackByPath(game.manualMusicTrackPath);
+    const wantedMode = combatMusicActive() ? 'fight' : (manualTrack ? musicModeForTrack(manualTrack.path) : 'space');
+    if (game.musicMode === wantedMode && game.currentMusicTrackPath) return;
+    const track = manualTrack && musicModeForTrack(manualTrack.path) === wantedMode
+        ? manualTrack
+        : defaultMusicTrack(wantedMode);
+    playMusicTrack(track, wantedMode);
+}
+
 function ensureAudio() {
     if (game.audioContext) {
         if (game.audioContext.state === 'suspended') game.audioContext.resume();
@@ -4311,6 +4724,7 @@ function loadAudioBuffer(name, path) {
 function primeImportedAudio() {
     if (!game.audioContext) return;
     loadAudioBuffer('justiceFire', JUSTICE_FIRE_SOUND_PATH);
+    for (const [name, path] of Object.entries(VOICE_SOUND_PATHS)) loadAudioBuffer('voice_' + name, path);
 }
 
 function playBufferedSound(name, path, volume = 0.08, playbackRate = 1) {
@@ -4364,6 +4778,19 @@ function playNoise(duration = 0.12, volume = 0.08) {
     source.connect(gain);
     gain.connect(audio.destination);
     source.start();
+}
+
+function playVoice(name, intensity = 1) {
+    ensureAudio();
+    const path = VOICE_SOUND_PATHS[name];
+    if (!path) return;
+    const volume = clamp(0.55 * intensity, 0.18, 0.9);
+    const result = playBufferedSound('voice_' + name, path, volume);
+    if (result === 'loading') {
+        const voice = new Audio(path);
+        voice.volume = volume;
+        voice.play().catch(error => console.warn('Voice playback blocked:', error));
+    }
 }
 
 function playSound(name, intensity = 1) {
@@ -4737,6 +5164,7 @@ function renderTradeLaneWarpBubble() {
 }
 
 function update(dt) {
+    updateMusicMode();
     if (!game.running || game.isDocked) return;
     game.gameTime += dt;
     if (game.gameTime >= 1800) game.gameTime = 0;
@@ -4968,6 +5396,7 @@ function updateHUD() {
     updateCruiseButton();
     updateScannerPanel();
     updateLoadoutPanel();
+    if (!document.getElementById('inventory-overlay')?.classList.contains('hidden')) renderInventoryPanel();
     
     // Mode indicator
     const modeEl = document.getElementById('mode-indicator');
@@ -5292,7 +5721,11 @@ function setupInput() {
     
     window.addEventListener('keydown', (e) => {
         const tagName = e.target?.tagName?.toLowerCase();
-        if (tagName === 'input' || tagName === 'textarea' || e.target?.isContentEditable) return;
+        if (tagName === 'input' || tagName === 'textarea' || tagName === 'select' || e.target?.isContentEditable) return;
+        if (e.code === 'Escape') {
+            toggleInventoryPanel(false);
+            return;
+        }
         if (!game.player || game.isDocked || !game.running) return;
         
         switch (e.code) {
@@ -5330,6 +5763,9 @@ function setupInput() {
                 break;
             case 'KeyM':
                 toggleMap();
+                break;
+            case 'KeyI':
+                toggleInventoryPanel();
                 break;
             case 'KeyG':
             case 'KeyN':
@@ -6102,6 +6538,7 @@ document.getElementById('map-canvas')?.addEventListener('click', (e) => {
 });
 
 document.getElementById('btn-close-map')?.addEventListener('click', toggleMap);
+document.getElementById('btn-close-inventory')?.addEventListener('click', () => toggleInventoryPanel(false));
 document.getElementById('btn-close-universe')?.addEventListener('click', toggleUniverseView);
 // Command bar functions
 function setMode(mode) {
@@ -6110,6 +6547,7 @@ function setMode(mode) {
     document.getElementById('btn-' + mode)?.classList.add('active');
     
     if (mode === 'freeflight') {
+        playVoice('freeflight', 1);
         returnToFreeflight('Freeflight mode - no autopilot', { preserveMotion: true });
         return;
     }
@@ -6121,10 +6559,12 @@ function setMode(mode) {
     
     switch(mode) {
         case 'approach':
+            playVoice('goingTo', 1);
             game.approachTarget = game.selectedTarget;
             addLog('Approaching: ' + game.selectedTarget.name);
             break;
         case 'dock':
+            playVoice('dock', 1);
             if (isDockableTarget(game.selectedTarget)) {
                 startDocking(game.selectedTarget);
             } else {
@@ -6135,26 +6575,78 @@ function setMode(mode) {
 }
 
 function showInventory() {
-    addLog('--- INVENTORY ---');
-    addLog('Credits: ' + game.player.credits);
-    addLog('Cargo: ' + cargoUnits() + '/' + game.player.maxCargo);
-    addLog('Nanobots: ' + game.player.nanobots + '/' + game.player.maxNanobots + ' | Shield Batteries: ' + game.player.shieldBatteries + '/' + game.player.maxShieldBatteries);
-    const mounted = game.player.mountedEquipment || {};
-    const mountedNames = Object.keys(mounted).map(slot => slot + ': ' + (getEquipment(mounted[slot])?.name || mounted[slot]));
-    if (mountedNames.length) addLog('Mounted: ' + mountedNames.join(', '));
-    if (game.player.cargo.length > 0) {
-        for (const item of game.player.cargo) {
-            addLog('  - ' + item.name + ' x' + item.quantity);
+    toggleInventoryPanel(true);
+}
+
+function inventoryRow(name, quantity, meta = '') {
+    return `<div class="inventory-row"><span>${escapeHtml(name)}</span><span>x${Number(quantity || 0).toLocaleString()}</span><span class="inventory-meta">${escapeHtml(meta)}</span></div>`;
+}
+
+function renderInventoryPanel() {
+    const content = document.getElementById('inventory-content');
+    if (!content || !game.player) return;
+    const p = game.player;
+    const shieldText = p.maxShield > 0 ? `${Math.round(p.shield).toLocaleString()}/${Math.round(p.maxShield).toLocaleString()}` : 'none';
+    let html = '<div class="inventory-summary">';
+    html += `<div class="inventory-stat"><strong>${escapeHtml(t('credits'))}</strong>${p.credits.toLocaleString()} CR</div>`;
+    html += `<div class="inventory-stat"><strong>${escapeHtml(t('cargo'))}</strong>${cargoUnits()}/${p.maxCargo}</div>`;
+    html += `<div class="inventory-stat"><strong>${escapeHtml(t('hudHull'))}</strong>${Math.round(p.hull).toLocaleString()}/${Math.round(p.maxHull).toLocaleString()}</div>`;
+    html += `<div class="inventory-stat"><strong>${escapeHtml(t('hudShield'))}</strong>${shieldText}</div>`;
+    html += `<div class="inventory-stat"><strong>${escapeHtml(t('hudEnergy'))}</strong>${Math.round(p.energy).toLocaleString()}/${Math.round(p.maxEnergy).toLocaleString()}</div>`;
+    html += `<div class="inventory-stat"><strong>${escapeHtml(t('labelNanobots'))}</strong>${p.nanobots}/${p.maxNanobots}</div>`;
+    html += `<div class="inventory-stat"><strong>${escapeHtml(t('labelShieldBatteries'))}</strong>${p.shieldBatteries}/${p.maxShieldBatteries}</div>`;
+    html += `<div class="inventory-stat"><strong>${escapeHtml(t('missileAmmo'))}</strong>${totalMissileAmmoCount()}/${p.maxMissileAmmo}</div>`;
+    html += '</div>';
+
+    html += `<div class="inventory-section"><div class="inventory-section-title">${escapeHtml(t('cargo'))}</div>`;
+    if (p.cargo?.length) {
+        for (const item of p.cargo) {
+            const commodity = getCommodity(item.id);
+            const avgPrice = Number(item.avgPrice || 0) > 0 ? `Avg ${Number(item.avgPrice).toLocaleString()} CR` : '';
+            html += inventoryRow(item.name || commodity?.name || item.id, item.quantity, avgPrice);
         }
+    } else {
+        html += '<div class="inventory-empty">No cargo loaded.</div>';
     }
-    if (game.player.equipmentInventory?.length > 0) {
-        for (const item of game.player.equipmentInventory) {
-            addLog('  * ' + item.name + ' x' + item.quantity);
+    html += '</div>';
+
+    html += `<div class="inventory-section"><div class="inventory-section-title">Mounted Equipment</div>`;
+    const mountedEntries = Object.entries(p.mountedEquipment || {}).filter(([, itemId]) => itemId);
+    if (mountedEntries.length) {
+        for (const [slot, itemId] of mountedEntries) {
+            const item = getEquipment(itemId);
+            html += inventoryRow(item?.name || itemId, 1, equipmentSlotLabel(slot));
         }
+    } else {
+        html += '<div class="inventory-empty">No equipment mounted.</div>';
     }
-    addLog('Hull: ' + game.player.hull + '/' + game.player.maxHull);
-    addLog('Shield: ' + (game.player.maxShield > 0 ? Math.round(game.player.shield) + '/' + Math.round(game.player.maxShield) : 'none'));
-    addLog('Energy: ' + Math.round(game.player.energy) + '/' + game.player.maxEnergy);
+    html += '</div>';
+
+    html += `<div class="inventory-section"><div class="inventory-section-title">Equipment Inventory</div>`;
+    const inventory = (p.equipmentInventory || []).filter(item => (Number(item.quantity) || 0) > 0);
+    if (inventory.length) {
+        for (const item of inventory) {
+            const equipment = getEquipment(item.id);
+            const available = availableEquipmentQuantity(item.id);
+            html += inventoryRow(item.name || equipment?.name || item.id, item.quantity, `${equipment?.category || item.category || 'equipment'} | available ${available}`);
+        }
+    } else {
+        html += '<div class="inventory-empty">No equipment in inventory.</div>';
+    }
+    html += '</div>';
+    content.innerHTML = html;
+}
+
+function toggleInventoryPanel(force = null) {
+    const overlay = document.getElementById('inventory-overlay');
+    if (!overlay) return;
+    const shouldShow = force === null ? overlay.classList.contains('hidden') : Boolean(force);
+    if (shouldShow) {
+        renderInventoryPanel();
+        overlay.classList.remove('hidden');
+    } else {
+        overlay.classList.add('hidden');
+    }
 }
 
 function toggleInfoPanel() {
@@ -6199,6 +6691,22 @@ function getCommodityMarket(location = game.landedBase) {
     const baseId = getBaseId(location);
     if (!baseId) return [];
     return commodityMarketsData()[baseId] || [];
+}
+
+function commodityBasePrice(commodityId) {
+    const commodity = getCommodity(commodityId);
+    return Math.max(1, Number(commodity?.basePrice) || 1);
+}
+
+function getCommodityMarketEntry(commodityId, location = game.landedBase) {
+    const wanted = String(commodityId || '').toLowerCase();
+    return getCommodityMarket(location).find(entry => String(entry.id || '').toLowerCase() === wanted) || null;
+}
+
+function getCommoditySellPrice(commodityId, location = game.landedBase) {
+    const marketEntry = getCommodityMarketEntry(commodityId, location);
+    const marketPrice = Number(marketEntry?.price || 0);
+    return marketPrice > 0 ? marketPrice : commodityBasePrice(commodityId);
 }
 
 function canonicalSystemId(systemId) {
@@ -6255,14 +6763,26 @@ function commoditySellDestinations(commodityId, sourceBaseId, sourcePrice) {
     const markets = commodityMarketsData();
     const locations = baseLocationsById();
     const jumpsBySystem = systemJumpDistances(currentSystemId);
-    return Object.entries(markets).flatMap(([baseId, market]) => {
+    const commodity = getCommodity(commodityId);
+    if (!commodity) return [];
+    const basePriceEntry = {
+        id: commodity.id,
+        price: commodityBasePrice(commodity.id),
+        forSale: false,
+        stockMin: 0,
+        stockMax: 0,
+        basePriceFallback: true
+    };
+    const baseIds = new Set([...Object.keys(locations), ...Object.keys(markets)]);
+    return Array.from(baseIds).flatMap(baseId => {
         if (baseId === sourceBaseId) return [];
+        const market = markets[baseId] || [];
         const entry = (market || []).find(item => String(item.id || '').toLowerCase() === String(commodityId || '').toLowerCase());
-        if (!entry || Number(entry.price) <= 0) return [];
+        const sellEntry = Number(entry?.price || 0) > 0 ? entry : basePriceEntry;
         const location = locations[baseId] || { baseId, name: baseId, systemId: '', systemName: '' };
         const jumps = jumpsBySystem[location.systemId];
         const distance = tradeDestinationDistance(location);
-        return [{ baseId, location, entry, jumps, distance, profit: Number(entry.price) - Number(sourcePrice || 0) }];
+        return [{ baseId, location, entry: sellEntry, jumps, distance, profit: Number(sellEntry.price) - Number(sourcePrice || 0) }];
     }).sort((a, b) => {
         const aJumps = a.jumps ?? Infinity;
         const bJumps = b.jumps ?? Infinity;
@@ -6284,13 +6804,13 @@ function getBarData(location = game.landedBase) {
     return barData()[baseId] || { npcs: [], news: [], factions: [] };
 }
 
-function equipmentSlot(category) {
-    return firstAvailableSlot(category);
+function equipmentSlot(itemOrCategory) {
+    return firstAvailableSlot(itemOrCategory);
 }
 
 function applyMountedEquipmentEffects() {
     if (!game.player) return;
-    game.player.firePower = Math.max(3, game.player.firePower || 4);
+    game.player.firePower = Math.max(1, game.player.baseFirePower || game.player.firePower || 1);
     const previousMaxShield = Math.max(0, Number(game.player.maxShield) || 0);
     const previousShieldRatio = previousMaxShield > 0 ? clamp((Number(game.player.shield) || 0) / previousMaxShield, 0, 1) : 1;
     const mounted = game.player.mountedEquipment || {};
@@ -6299,7 +6819,8 @@ function applyMountedEquipmentEffects() {
         delete mounted.weapon;
     }
     for (const slot of Object.keys(mounted)) {
-        if (slot.startsWith('weapon') && !getWeaponSlotKeys().includes(slot)) delete mounted[slot];
+        const item = getEquipment(mounted[slot]);
+        if ((slot.startsWith('weapon') && !getWeaponSlotKeys().includes(slot)) || !item || !equipmentCompatibility(item, slot).ok) delete mounted[slot];
     }
     game.player.maxShield = 0;
     game.player.shieldRegen = 0;
@@ -6307,11 +6828,18 @@ function applyMountedEquipmentEffects() {
     game.player.shieldOfflineThreshold = 0;
     game.player.shieldRebuildPowerDraw = 0;
     game.player.shieldType = '';
+    game.player.maxEnergy = game.player.baseMaxEnergy || game.player.maxEnergy;
+    game.player.powerGen = game.player.basePowerGen || game.player.powerGen;
+    game.player.thrustCapacity = game.player.baseThrustCapacity || game.player.thrustCapacity;
+    game.player.thrustChargeRate = game.player.baseThrustChargeRate || game.player.thrustChargeRate;
+    game.player.baseMaxSpeed = COMBAT_MAX_SPEED;
+    game.player.maxSpeed = game.player.baseMaxSpeed;
     for (const itemId of Object.values(mounted)) {
         const item = getEquipment(itemId);
         if (!item) continue;
         const name = item.id.toLowerCase();
-        if (item.category === 'weapon' || item.category === 'turret') game.player.firePower = Math.max(game.player.firePower, 4 + (Number((name.match(/mark(\d+)/) || [])[1]) || 1));
+        const mountType = equipmentMountType(item);
+        if (['weapon', 'turret', 'missile', 'torpedo', 'cruise_disruptor'].includes(mountType)) game.player.firePower = Math.max(game.player.firePower, 4 + equipmentClass(item));
         if (item.category === 'shield') {
             game.player.maxShield = shieldCapacityFromEquipment(item);
             game.player.shieldRegen = shieldRegenFromEquipment(item);
@@ -6321,6 +6849,17 @@ function applyMountedEquipmentEffects() {
             game.player.shieldType = item.shieldType || '';
         }
         if (item.category === 'thruster') game.player.acceleration = Math.max(game.player.acceleration, 1.8 + (Number((name.match(/_(\d+)$/) || [])[1]) || 1) * 0.2);
+        if (mountType === 'powerplant') {
+            game.player.maxEnergy = Math.max(game.player.maxEnergy, Number(item.capacity) || 0);
+            game.player.powerGen = Math.max(game.player.powerGen, Number(item.chargeRate) || 0);
+            game.player.thrustCapacity = Math.max(game.player.thrustCapacity || 0, Number(item.thrustCapacity) || 0);
+            game.player.thrustChargeRate = Math.max(game.player.thrustChargeRate || 0, Number(item.thrustChargeRate) || 0);
+            game.player.energy = Math.min(game.player.maxEnergy, Math.max(game.player.energy || 0, game.player.maxEnergy));
+        }
+        if (mountType === 'engine') {
+            game.player.baseMaxSpeed = Math.max(game.player.baseMaxSpeed || COMBAT_MAX_SPEED, Number(item.maxSpeed) || 0);
+            game.player.maxSpeed = game.player.baseMaxSpeed;
+        }
     }
     game.player.shield = game.player.maxShield > 0 ? Math.min(game.player.maxShield, game.player.maxShield * previousShieldRatio) : 0;
 }
@@ -6468,11 +7007,12 @@ function renderEquipmentDealer() {
         return;
     }
     html += `<div class="bar-subtabs"><button class="bar-subtab ${dealerTab === 'equipment' ? 'active' : ''}" onclick="showEquipmentDealerTab('equipment')">${escapeHtml(t('equipmentDealer'))}</button><button class="bar-subtab ${dealerTab === 'ammo' ? 'active' : ''}" onclick="showEquipmentDealerTab('ammo')">${escapeHtml(t('ammoTab'))}</button></div>`;
-    const slots = [...getWeaponSlotKeys(), 'shield', 'thruster', 'mine', 'countermeasure'];
+    const slots = [...getWeaponSlotKeys(), 'shield', 'thruster', 'engine', 'powerplant', 'mine', 'countermeasure'];
     html += '<div class="equipment-layout"><div class="equipment-panel"><h4>Mounted Slots</h4>';
     for (const slot of slots) {
         const item = mountedEquipmentItem(slot);
-        html += `<div class="slot-row"><div><strong>${escapeHtml(equipmentSlotLabel(slot))}</strong><br><span style="color:${item ? '#b9efff' : '#667f8f'};">${item ? escapeHtml(item.name) : 'Empty'}</span></div><button class="trade-button" onclick="unmountEquipment('${slot}')" ${item ? '' : 'disabled'}>Unmount</button></div>`;
+        const itemMeta = item ? `${equipmentMountType(item)} class ${equipmentClass(item)}` : '';
+        html += `<div class="slot-row"><div><strong>${escapeHtml(equipmentSlotLabel(slot))}</strong><br><span style="color:${item ? '#b9efff' : '#667f8f'};">${item ? escapeHtml(item.name) : 'Empty'}</span>${item ? `<br><span style="color:#88a;">${escapeHtml(itemMeta)}</span>` : ''}</div><button class="trade-button" onclick="unmountEquipment('${slot}')" ${item ? '' : 'disabled'}>Unmount</button></div>`;
     }
     html += '</div><div class="equipment-panel"><h4>Inventory</h4>';
     const availableInventory = inventory.map(inv => ({ ...inv, availableQuantity: availableEquipmentQuantity(inv.id) })).filter(inv => inv.availableQuantity > 0);
@@ -6480,8 +7020,10 @@ function renderEquipmentDealer() {
         for (const inv of availableInventory) {
             const sellPrice = equipmentSellPrice(inv.id);
             const inventoryItem = getEquipment(inv.id);
-            const canMount = isMissileLauncher(inventoryItem) || (categorySlotKeys(inv.category).length && !inventoryItem?.combinable);
-            html += `<div class="slot-row"><div>${escapeHtml(inv.name)}<br><span style="color:#88a;">${escapeHtml(inv.category || '')} x${inv.availableQuantity} | ${sellPrice.toLocaleString()} CR</span></div><div style="display:flex;gap:6px;justify-content:flex-end;flex-wrap:wrap;"><button class="trade-button" onclick="mountEquipment('${inv.id}')" ${canMount ? '' : 'disabled'}>Mount</button><button class="trade-button" onclick="sellEquipment('${inv.id}')" ${sellPrice > 0 ? '' : 'disabled'}>${t('sell')}</button></div></div>`;
+            const compatibility = equipmentCompatibility(inventoryItem);
+            const canMount = !inventoryItem?.combinable && compatibility.ok;
+            const meta = `${equipmentMountType(inventoryItem)} class ${equipmentClass(inventoryItem)} x${inv.availableQuantity} | ${sellPrice.toLocaleString()} CR`;
+            html += `<div class="slot-row"><div>${escapeHtml(inv.name)}<br><span style="color:#88a;">${escapeHtml(meta)}</span>${compatibility.ok ? '' : `<br><span style="color:#ff7777;">${escapeHtml(compatibility.reason)}</span>`}</div><div style="display:flex;gap:6px;justify-content:flex-end;flex-wrap:wrap;"><button class="trade-button" onclick="mountEquipment('${inv.id}')" ${canMount ? '' : 'disabled'}>Mount</button><button class="trade-button" onclick="sellEquipment('${inv.id}')" ${sellPrice > 0 ? '' : 'disabled'}>${t('sell')}</button></div></div>`;
         }
     } else {
         html += '<div style="color:#667f8f;">No equipment in inventory.</div>';
@@ -6496,7 +7038,7 @@ function renderEquipmentDealer() {
             const item = getEquipment(entry.id);
             return item && !(String(item.category || '').toLowerCase() === 'missile' && item.combinable);
         });
-    html += '<table class="trade-table"><tr><th>Item</th><th>Type</th><th>Power</th><th>Damage</th><th>Price</th><th>Stock</th><th>Owned</th><th></th></tr>';
+    html += '<table class="trade-table"><tr><th>Item</th><th>Type</th><th>Class</th><th>Power</th><th>Damage</th><th>Price</th><th>Stock</th><th>Owned</th><th></th></tr>';
     for (const entry of marketEntries.slice(0, 120)) {
         const item = getEquipment(entry.id);
         if (!item) continue;
@@ -6507,7 +7049,8 @@ function renderEquipmentDealer() {
             ? `${Math.round(missileDamageForItem(item, getEquipment(missileAmmoItemId(item))))}`
             : (item.hullDamage || item.energyDamage ? `${Math.round(Number(item.hullDamage || 0))}/${Math.round(Number(item.energyDamage || 0))}` : '-');
         const powerLabel = item.powerUsage ? Number(item.powerUsage).toFixed(1) : (item.capacity ? `${Math.round(item.capacity).toLocaleString()} / +${Math.round(item.chargeRate || 0).toLocaleString()}` : '-');
-        html += `<tr><td style="color:#00ff00;">${escapeHtml(item.name)}</td><td>${escapeHtml(item.category)}</td><td>${escapeHtml(powerLabel)}</td><td>${escapeHtml(damageLabel)}</td><td style="color:#ffaa00;">${entry.price.toLocaleString()} CR</td><td>${entry.forSale ? `${entry.stockMin}-${entry.stockMax}` : '-'}</td><td>${owned}</td><td><button class="trade-button" onclick="buyEquipment('${item.id}')" ${canBuy ? '' : 'disabled'}>${t('buy')}</button></td></tr>`;
+        const typeLabel = equipmentMountType(item);
+        html += `<tr><td style="color:#00ff00;">${escapeHtml(item.name)}</td><td>${escapeHtml(typeLabel)}</td><td>${equipmentClass(item)}</td><td>${escapeHtml(powerLabel)}</td><td>${escapeHtml(damageLabel)}</td><td style="color:#ffaa00;">${entry.price.toLocaleString()} CR</td><td>${entry.forSale ? `${entry.stockMin}-${entry.stockMax}` : '-'}</td><td>${owned}</td><td><button class="trade-button" onclick="buyEquipment('${item.id}')" ${canBuy ? '' : 'disabled'}>${t('buy')}</button></td></tr>`;
     }
     html += '</table>';
     content.innerHTML = html;
@@ -6585,8 +7128,13 @@ function sellEquipment(itemId) {
 function mountEquipment(itemId) {
     const item = getEquipment(itemId);
     const inv = findEquipmentItem(itemId);
-    const slot = equipmentSlot(item?.category);
+    const slot = equipmentSlot(item);
     if (!item || !inv || inv.quantity <= 0 || !slot) return;
+    const compatibility = equipmentCompatibility(item, slot);
+    if (!compatibility.ok) {
+        addLog(compatibility.reason, 'alert');
+        return;
+    }
     const mountedCopies = Object.entries(game.player.mountedEquipment || {}).filter(([mountedSlot, mountedId]) => mountedSlot !== slot && mountedId === item.id).length;
     if (mountedCopies >= inv.quantity) {
         addLog('No free owned copy to mount: ' + item.name, 'alert');
@@ -6617,15 +7165,27 @@ function renderTradeDealer() {
     if (!content) return;
     const market = getCommodityMarket();
     const cargo = game.player.cargo || [];
-    if (!market.length) {
+    const marketIds = new Set(market.map(entry => String(entry.id || '').toLowerCase()));
+    const cargoOnlyEntries = cargo
+        .filter(item => !marketIds.has(String(item.id || '').toLowerCase()) && getCommodity(item.id))
+        .map(item => ({
+            id: String(item.id || '').toLowerCase(),
+            price: getCommoditySellPrice(item.id),
+            forSale: false,
+            stockMin: 0,
+            stockMax: 0,
+            basePriceFallback: true
+        }));
+    const tradeEntries = [...market, ...cargoOnlyEntries];
+    if (!tradeEntries.length) {
         content.innerHTML = `<div style="color:#ffaa00;">${t('noCommodityMarket')}</div>`;
         return;
     }
-    if (game.tradeInfoCommodityId && !market.some(entry => entry.id === game.tradeInfoCommodityId)) game.tradeInfoCommodityId = '';
+    if (game.tradeInfoCommodityId && !tradeEntries.some(entry => entry.id === game.tradeInfoCommodityId)) game.tradeInfoCommodityId = '';
     let html = `<div style="display:flex;justify-content:space-between;margin-bottom:10px;color:#b9efff;"><span>${t('credits')}: ${game.player.credits.toLocaleString()} CR</span><span>${t('cargo')}: ${cargoUnits()}/${game.player.maxCargo}</span></div>`;
-    html += renderTradeInfoPanel(market);
+    html += renderTradeInfoPanel(tradeEntries);
     html += `<table class="trade-table"><tr><th>${t('commodity')}</th><th>${t('price')}</th><th>${t('stock')}</th><th>${t('quantity')}</th><th></th><th>${t('owned')}</th><th>${t('quantity')}</th><th></th></tr>`;
-    for (const entry of market) {
+    for (const entry of tradeEntries) {
         const commodity = getCommodity(entry.id);
         if (!commodity) continue;
         const cargoItem = findCargoItem(entry.id);
@@ -6699,14 +7259,15 @@ function buyCommodity(commodityId, requestedQuantity = null) {
 }
 
 function sellCommodity(commodityId, requestedQuantity = null) {
-    const marketEntry = getCommodityMarket().find(entry => entry.id === commodityId);
+    const sellPrice = getCommoditySellPrice(commodityId);
+    const commodity = getCommodity(commodityId);
     const cargoItem = findCargoItem(commodityId);
-    if (!marketEntry || !cargoItem || cargoItem.quantity <= 0) return;
+    if (!commodity || sellPrice <= 0 || !cargoItem || cargoItem.quantity <= 0) return;
     const input = document.getElementById('sell-qty-' + safeDomId(commodityId));
     const rawQuantity = requestedQuantity ?? Number(input?.value || 1);
     const quantity = Math.floor(Math.max(0, Math.min(Number(rawQuantity) || 0, cargoItem.quantity)));
     if (quantity <= 0) return;
-    game.player.credits += marketEntry.price * quantity;
+    game.player.credits += sellPrice * quantity;
     cargoItem.quantity -= quantity;
     if (cargoItem.quantity <= 0) game.player.cargo = game.player.cargo.filter(item => item.id !== commodityId);
     playSound('buy', 0.45);
@@ -6847,6 +7408,7 @@ async function init() {
     });
     
     setupInput();
+    setupMusicPlayer();
     initStars();
     
     game.player = new PlayerShip(6173, -50515);
@@ -6875,6 +7437,7 @@ async function init() {
 
 function startGame() {
     ensureAudio();
+    if (!game.musicStoppedByUser) playMusicTrack(defaultMusicTrack('space'), 'space');
     document.getElementById('start-screen').classList.add('hidden');
     game.running = true;
     game.hasStarted = true;
