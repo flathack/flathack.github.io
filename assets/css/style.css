@@ -232,6 +232,180 @@ body.gaming-theme .domain-tab.active {
   border: 1px solid rgba(88, 196, 255, 0.3);
 }
 
+/* ── Unified Navigation Capsule ───────────────────── */
+.nav-capsule {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 28px;
+  border: 1px solid var(--panel-border);
+  border-radius: 28px;
+  background: rgba(5, 13, 23, 0.88);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+.nav-capsule-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  gap: 16px;
+}
+
+.nav-capsule .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.nav-capsule .brand-mark {
+  display: block;
+  width: 36px;
+  height: 36px;
+  flex: 0 0 auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.nav-capsule .brand-text {
+  white-space: nowrap;
+  font-size: 1.05rem;
+}
+
+.nav-capsule-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-capsule-help {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  border: 1px solid rgba(132, 177, 255, 0.2);
+  background: rgba(8, 20, 34, 0.6);
+  color: var(--muted);
+  font-weight: 700;
+  font-size: 1rem;
+  transition: all 200ms ease;
+}
+
+.nav-capsule-help:hover {
+  color: var(--text);
+  background: rgba(88, 196, 255, 0.12);
+  border-color: rgba(88, 196, 255, 0.35);
+}
+
+.nav-capsule-lang {
+  display: inline-flex;
+  gap: 4px;
+  padding: 3px;
+  border-radius: 999px;
+  background: rgba(8, 20, 34, 0.6);
+}
+
+.nav-capsule-lang button {
+  all: unset;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  min-height: 32px;
+  padding: 0 10px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  border-radius: 999px;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+
+.nav-capsule-lang button:hover {
+  color: var(--text);
+  background: rgba(88, 196, 255, 0.1);
+}
+
+.nav-capsule-lang button.active {
+  color: var(--text);
+  background: linear-gradient(135deg, rgba(88, 196, 255, 0.25), rgba(137, 240, 255, 0.2));
+  box-shadow: 0 2px 12px rgba(88, 196, 255, 0.2);
+}
+
+.nav-capsule-divider {
+  height: 1px;
+  margin: 0 20px;
+  background: linear-gradient(90deg, transparent, rgba(132, 177, 255, 0.2), transparent);
+}
+
+.nav-capsule-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  padding: 10px 12px;
+}
+
+.nav-capsule-items a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 0 14px;
+  border-radius: 0;
+  color: var(--muted);
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all 200ms ease;
+  position: relative;
+}
+
+/* First and last items get rounded corners */
+.nav-capsule-items a:first-child {
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+
+.nav-capsule-items a:last-child {
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+/* Inner dividers between items */
+.nav-capsule-items a:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 20px;
+  background: rgba(132, 177, 255, 0.15);
+}
+
+.nav-capsule-items a:hover {
+  color: var(--text);
+  background: rgba(88, 196, 255, 0.08);
+  border-radius: 10px;
+}
+
+.nav-capsule-items a.active {
+  color: var(--text);
+  background: linear-gradient(135deg, rgba(88, 196, 255, 0.18), rgba(137, 240, 255, 0.12));
+  box-shadow: 0 2px 10px rgba(88, 196, 255, 0.15);
+  border-radius: 10px;
+}
+
+/* Override the ::after divider for active and last items */
+.nav-capsule-items a.active::after,
+.nav-capsule-items a:last-child::after {
+  display: none;
+}
+
 /* ── Sub-navigation (mod tabs) ────────────────────── */
 .project-sub-nav {
   display: flex;

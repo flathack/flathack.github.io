@@ -23,7 +23,6 @@
   const NAV_ITEMS = [
     { label: "Home", href: "index.html" },
     { label: "Freelancer 2D", href: "freelancer2d/index.html" },
-    { label: "Help", href: "help/index.html" },
     { label: "Trade Routes", href: "docs/trade-routes.html", children: MOD_CHILDREN },
     { label: "Schiff-Explorer", href: "docs/ship-explorer.html", children: MOD_CHILDREN },
     { label: "Equipment Explorer", href: "docs/equipment-explorer.html", children: MOD_CHILDREN },
@@ -50,22 +49,24 @@
     ? folder + "/" + fileName
     : fileName;
 
+  // Find the nav container
   const nav = document.querySelector(".site-nav, .project-top-nav");
   if (!nav) return;
 
-  nav.setAttribute("aria-label", "Projekt-Navigation");
-  nav.className = "project-top-nav";
-
   var activeItem = null;
   var tradeRoutesItem = NAV_ITEMS.find(function (item) { return item.href === "docs/trade-routes.html"; }) || null;
-  nav.innerHTML = NAV_ITEMS.map(function (item) {
+
+  // ── Build the unified capsule navigation ──
+  var navHtml = '';
+
+  NAV_ITEMS.forEach(function (item) {
     const href = prefix + item.href;
     const isHelpSection = item.href === "help/index.html" && current.indexOf("help/") === 0;
     const isTradeGroup = item.href === "docs/trade-routes.html" && TRADE_TOOL_PAGES.has(current);
     const isActive = current === item.href || isHelpSection || isTradeGroup;
     if (isActive) activeItem = item;
-    return '<a href="' + href + '"' + (isActive ? ' class="active"' : "") + ">" + item.label + "</a>";
-  }).join("\n");
+    navHtml += '<a href="' + href + '"' + (isActive ? ' class="active"' : "") + ">" + item.label + "</a>";
+  });
 
   if (!activeItem && TRADE_TOOL_PAGES.has(current)) {
     activeItem = tradeRoutesItem;
@@ -76,13 +77,37 @@
   try { storedLang = sessionStorage.getItem("flathack-lang"); } catch(e) {}
   var currentLang = storedLang || "en";
 
-  var langToggle = document.createElement("div");
-  langToggle.className = "nav-lang-toggle";
-  langToggle.innerHTML =
+  var langToggleHtml =
     '<button data-lang="de"' + (currentLang === "de" ? ' class="active"' : '') + '>DE</button>' +
     '<button data-lang="en"' + (currentLang === "en" ? ' class="active"' : '') + '>EN</button>';
-  nav.appendChild(langToggle);
 
+  // ── Build the complete capsule structure ──
+  var capsule = document.createElement("div");
+  capsule.className = "nav-capsule";
+  capsule.innerHTML =
+    '<div class="nav-capsule-header">' +
+      '<a class="brand" href="' + prefix + 'index.html">' +
+        '<img class="brand-mark" src="' + prefix + 'assets/img/icons/flathack_icon.png" alt="" width="36" height="36">' +
+        '<span class="brand-text">Flathack Projects</span>' +
+      '</a>' +
+      '<div class="nav-capsule-actions">' +
+        '<a class="nav-capsule-help" href="' + prefix + 'help/index.html" title="Help">?</a>' +
+        '<div class="nav-capsule-lang" data-lang="' + currentLang + '">' + langToggleHtml + '</div>' +
+      '</div>' +
+    '</div>' +
+    '<div class="nav-capsule-divider"></div>' +
+    '<div class="nav-capsule-items">' + navHtml + '</div>';
+
+  // Replace the old header with the capsule
+  var siteHeader = document.querySelector(".site-header");
+  if (siteHeader) {
+    siteHeader.parentNode.replaceChild(capsule, siteHeader);
+  } else {
+    nav.parentNode.replaceChild(capsule, nav);
+  }
+
+  // ── Language toggle event listener ──
+  var langToggle = capsule.querySelector(".nav-capsule-lang");
   langToggle.addEventListener("click", function (e) {
     var btn = e.target.closest("button[data-lang]");
     if (!btn || btn.dataset.lang === currentLang) return;
@@ -132,13 +157,8 @@
       '<div class="project-sub-nav-main">' + modLinksHtml + '</div>' +
       (tradeLinksHtml ? '<div class="project-sub-nav-side">' + tradeLinksHtml + '</div>' : '');
 
-    // Insert sub-nav after the header
-    var header = nav.closest(".site-header");
-    if (header) {
-      header.parentNode.insertBefore(subNav, header.nextSibling);
-    } else {
-      nav.parentNode.insertBefore(subNav, nav.nextSibling);
-    }
+    // Insert sub-nav after the capsule
+    capsule.parentNode.insertBefore(subNav, capsule.nextSibling);
 
     // Handle sub-nav clicks
     subNav.addEventListener("click", function (e) {
