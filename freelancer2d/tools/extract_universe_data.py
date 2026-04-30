@@ -33,6 +33,8 @@ JUMP_GATE_ARCHETYPES = {
     'nomad_gate2',
     'dkjumpgate',
     'vortex',
+    'blhazard2',
+    'track_ring2',
     'track_ring2coal',
 }
 

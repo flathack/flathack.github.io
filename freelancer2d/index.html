@@ -62,7 +62,7 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
 .bar-fill.hull { background: linear-gradient(to right, #880000, #ff4444); }
 .bar-fill.shield { background: linear-gradient(to right, #004488, #44aaff); }
 .bar-fill.energy { background: linear-gradient(to right, #886600, #ffcc44); }
-#hud-bottom { position: absolute; bottom: 10px; left: 10px; width: min(360px, calc(50vw - 230px)); min-width: 260px; }
+#hud-bottom { position: absolute; bottom: 10px; left: 10px; width: min(360px, calc(50vw - 230px)); min-width: 260px; pointer-events: auto; }
 #hud-info { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px 12px; margin-top: 8px; font-size: 11px; color: #9edfff; }
 #hud-right { position: absolute; bottom: 10px; right: 10px; width: min(360px, calc(50vw - 230px)); min-width: 280px; text-align: left; }
 .side-control { position: absolute; top: 50%; transform: translateY(-50%); width: 74px; height: 260px; display: grid; grid-template-rows: auto 1fr auto; justify-items: center; align-items: center; gap: 8px; text-align: center; }
@@ -79,7 +79,8 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
 .hud-panel { pointer-events: auto; background: linear-gradient(180deg, color-mix(in srgb, var(--hud-panel-top) 70%, rgba(5,25,54,0.88)), color-mix(in srgb, var(--hud-panel-bottom) 80%, rgba(0,8,18,0.86))); border: 1px solid color-mix(in srgb, var(--hud-accent) 78%, transparent); box-shadow: 0 0 18px color-mix(in srgb, var(--hud-accent-strong) 20%, transparent), inset 0 0 18px var(--hud-panel-inner); padding: 9px; }
 .hud-panel-title { display: flex; justify-content: space-between; align-items: center; color: var(--hud-accent-soft); border-bottom: 1px solid color-mix(in srgb, var(--hud-accent) 36%, transparent); padding-bottom: 5px; margin-bottom: 6px; font-size: 12px; letter-spacing: 0; }
 .hud-list { display: grid; gap: 4px; max-height: 170px; overflow-y: auto; }
-.hud-row { display: grid; grid-template-columns: auto 1fr auto; gap: 7px; align-items: center; min-height: 24px; padding: 4px 5px; border: 1px solid rgba(70,130,170,0.2); background: rgba(0,18,34,0.55); color: #c8f2ff; font-size: 11px; cursor: pointer; }
+.hud-row { display: grid; grid-template-columns: auto 1fr auto; gap: 7px; align-items: center; min-height: 24px; padding: 4px 5px; border: 1px solid rgba(70,130,170,0.2); background: rgba(0,18,34,0.55); color: #c8f2ff; font-size: 11px; cursor: pointer; pointer-events: auto; }
+.scanner-row { width: 100%; text-align: left; font-family: 'Courier New', monospace; appearance: none; }
 .hud-row:hover, .hud-row.selected { border-color: var(--hud-highlight); color: var(--hud-highlight-soft); background: var(--hud-highlight-bg); }
 .hud-row-muted { color: #66889a; font-size: 11px; padding: 6px 4px; }
 .hud-kind { width: 18px; text-align: center; color: var(--hud-highlight); }
@@ -289,6 +290,7 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
                     <span id="system-name">SYSTEM: LI01</span>
                     <span id="game-time">00:00</span>
                     <span id="zoom-display">ZOOM: 1.0x</span>
+                    <span id="thrust-display">THRUST: 0/0</span>
                     <span id="mode-indicator">FREEFLIGHT</span>
                 </div>
             </div>
@@ -392,7 +394,7 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
             </div>
         </div>
         <div class="start-footer">
-            <span>Made by Aldenmar Odin - flathack</span>
+            <span>Made by Aldenmar Odin - flathack - v0.6.0</span>
             <a class="start-home-link" href="https://flathack.github.io/" target="_blank" rel="noopener noreferrer">Startseite</a>
         </div>
     </div>
@@ -401,6 +403,7 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
         <div id="map-header">
             <h3>SYSTEM MAP - LI01 MANHATTAN</h3>
             <div id="map-controls">
+                <button class="map-btn" id="btn-clear-waypoint">Wegpunkt löschen</button>
                 <button class="map-btn" id="btn-close-map" style="background:#330000;border-color:#aa0000;color:#ff4444;">CLOSE</button>
             </div>
         </div>
@@ -697,7 +700,7 @@ const FALLBACK_GAME_SYSTEMS = {
 const game = {
     canvas: null, ctx: null, width: 0, height: 0,
     running: false, lastTime: 0, gameTime: 0,
-    player: null, entities: [], npcs: [], projectiles: [], loot: [],
+    player: null, entities: [], npcs: [], npcFleets: [], projectiles: [], loot: [],
     isDocked: false, showMap: false, showCursor: false,
     hasStarted: false,
     mouseX: 0, mouseY: 0, mouseDown: false, rightMouseDown: false,
@@ -706,6 +709,7 @@ const game = {
     zoom: 1.0, minZoom: 0.15, maxZoom: 3.0,
     stars: [], starLayers: 3,
     selectedTarget: null,
+    scannerTargetMap: new Map(),
     stars: [],
     approachTarget: null,
     dockTarget: null,
@@ -761,6 +765,8 @@ const game = {
     activeMission: null,
     missionOffers: {},
     populationSpawnTimer: 0,
+    stationLaunchTimer: 0,
+    ambientTradeSeededSystemId: '',
     audioContext: null,
     audioEnabled: false,
     audioBuffers: {},
@@ -794,7 +800,8 @@ const VOICE_SOUND_PATHS = {
     allowedToDock: { en: 'assets/audio/EN-allowed-to-dock.mp3', de: 'assets/audio/DE-allowed-to-dock.mp3' },
     dockDisallowed: { en: 'assets/audio/EN-dock-disallowed.mp3', de: 'assets/audio/DE-dock-disallowed.mp3' },
     dockDisallowedTooFar: { en: 'assets/audio/EN-dock-disallowed-toofar.mp3', de: 'assets/audio/DE-dock-disallowed-toofar.mp3' },
-    launch: { en: 'assets/audio/EN-launch.mp3', de: 'assets/audio/DE-launch.mp3' }
+    launch: { en: 'assets/audio/EN-launch.mp3', de: 'assets/audio/DE-launch.mp3' },
+    shipPurchase: { en: 'assets/audio/EN-ship-purchase.mp3', de: 'assets/audio/DE-ship-purchase.mp3' }
 };
 const MUSIC_TRACKS = {
     space: [
@@ -832,7 +839,7 @@ const I18N = {
         ammoTab: 'Ammo', missileAmmo: 'Raketen', ammoFull: 'Raketenlager voll.', ammoMissing: 'Keine Raketen-Munition.', missileAmmoCount: 'Raketen: {count}/{max}',
         selected: 'Ausgewählt', distance: 'Distanz', clearSelection: '[-] Ziel/WP', selectionCleared: 'Zielauswahl geloescht.', modeRotate: 'DREHMODUS', modeCruiseCharge: 'REISEFLUG LÄDT', modeCruise: 'REISEFLUG', modeAfterburner: 'NACHBRENNER',
         scannerNone: 'Keine Schiffe oder Stationen in Reichweite.', noWeaponSlots: 'Keine Waffen-Slots vorhanden.', emptyWeapon: 'Leer', noGunMounted: 'Keine Waffe montiert',
-        scannerShip: 'Schiff', scannerPlanet: 'Planet', scannerJumpGate: 'Sprungtor', scannerJumpHole: 'Sprungloch', scannerTradeLane: 'Tradelane', scannerStation: 'Station', scannerObject: 'Objekt', weaponSlot: 'Waffe',
+        scannerShip: 'Schiff', scannerPlanet: 'Planet', scannerJumpGate: 'Sprungtor', scannerJumpHole: 'Sprungloch', scannerTradeLane: 'Tradelane', scannerStation: 'Station', scannerWaypoint: 'Wegpunkt', scannerObject: 'Objekt', weaponSlot: 'Waffe',
         repChanged: 'Ruf geändert', repHostile: 'FEINDLICH', repFriendly: 'FREUNDLICH', repNeutral: 'NEUTRAL', noReputationData: 'Keine Rufdaten geladen.',
         missionEliminate: 'Eliminiere feindliche Kontakte in {zone}.', missionWaypointLocked: 'Mission aktiv: Wegpunkt bleibt auf dem Missionsziel.', missionFreeWaypointsLocked: 'Mission aktiv: Freie Wegpunkte sind gesperrt.',
         saveStored: 'Spielstand gespeichert', saveStoreFailed: 'Spielstand konnte nicht gespeichert werden', cruiseDisabled: 'Reiseflug deaktiviert', cruiseCharging: 'Reiseflug lädt: {seconds} Sekunden', cruiseEnabled: 'Reiseflug aktiviert',
@@ -856,7 +863,7 @@ const I18N = {
         ammoTab: 'Ammo', missileAmmo: 'Missiles', ammoFull: 'Missile bay full.', ammoMissing: 'No missile ammo.', missileAmmoCount: 'Missiles: {count}/{max}',
         selected: 'Selected', distance: 'Distance', clearSelection: '[-] Clear', selectionCleared: 'Selection cleared.', modeRotate: 'ROTATE MODE', modeCruiseCharge: 'CRUISE CHARGE', modeCruise: 'CRUISE', modeAfterburner: 'AFTERBURNER',
         scannerNone: 'No ships or stations in range.', noWeaponSlots: 'No weapon slots available.', emptyWeapon: 'Empty', noGunMounted: 'No weapon mounted',
-        scannerShip: 'Ship', scannerPlanet: 'Planet', scannerJumpGate: 'Jump Gate', scannerJumpHole: 'Jump Hole', scannerTradeLane: 'Trade Lane', scannerStation: 'Station', scannerObject: 'Object', weaponSlot: 'Weapon',
+        scannerShip: 'Ship', scannerPlanet: 'Planet', scannerJumpGate: 'Jump Gate', scannerJumpHole: 'Jump Hole', scannerTradeLane: 'Trade Lane', scannerStation: 'Station', scannerWaypoint: 'Waypoint', scannerObject: 'Object', weaponSlot: 'Weapon',
         repChanged: 'Reputation changed', repHostile: 'HOSTILE', repFriendly: 'FRIENDLY', repNeutral: 'NEUTRAL', noReputationData: 'No reputation data loaded.',
         missionEliminate: 'Eliminate hostile contacts in {zone}.', missionWaypointLocked: 'Mission active: waypoint remains on the mission target.', missionFreeWaypointsLocked: 'Mission active: free waypoints are locked.',
         saveStored: 'Game saved', saveStoreFailed: 'Could not save game', cruiseDisabled: 'Cruise disabled', cruiseCharging: 'Cruise charging: {seconds} seconds', cruiseEnabled: 'Cruise enabled',
@@ -1248,8 +1255,40 @@ function equipmentSlotLabel(slot) {
     return slot.charAt(0).toUpperCase() + slot.slice(1);
 }
 
+function currentPowerPlantItem() {
+    if (!game.player) return null;
+    const mountedPowerplant = getEquipment(game.player.mountedEquipment?.powerplant);
+    if (mountedPowerplant) return mountedPowerplant;
+    const packagePowerplant = currentShipPackage()?.powerplant || null;
+    const equipmentPowerplant = getEquipment(game.player.powerPlantId);
+    if (equipmentPowerplant) return equipmentPowerplant;
+    if (!packagePowerplant && !game.player.powerPlantId) return null;
+    return {
+        id: game.player.powerPlantId || packagePowerplant?.id || 'ship_powerplant',
+        name: game.player.powerPlantName || packagePowerplant?.name || 'Powerplant',
+        category: 'powerplant',
+        capacity: game.player.baseMaxEnergy || game.player.maxEnergy || packagePowerplant?.capacity || 0,
+        chargeRate: game.player.basePowerGen || game.player.powerGen || packagePowerplant?.chargeRate || 0,
+        thrustCapacity: game.player.baseThrustCapacity || game.player.thrustCapacity || packagePowerplant?.thrustCapacity || 0,
+        thrustChargeRate: game.player.baseThrustChargeRate || game.player.thrustChargeRate || packagePowerplant?.thrustChargeRate || 0
+    };
+}
+
 function mountedEquipmentItem(slot) {
+    if (slot === 'powerplant') return currentPowerPlantItem();
     return getEquipment(game.player?.mountedEquipment?.[slot]);
+}
+
+function mountedThrusterItem() {
+    return mountedEquipmentItem('thruster');
+}
+
+function thrusterPowerUsage(item = mountedThrusterItem()) {
+    return Math.max(1, Number(item?.powerUsage || item?.thrustPowerUsage || 0) || 100);
+}
+
+function hasMountedThruster() {
+    return Boolean(mountedThrusterItem());
 }
 
 function equippedShieldItem() {
@@ -1550,6 +1589,38 @@ function chooseNpcShipForMission(difficulty = 1) {
     return scored[Math.floor(Math.random() * Math.min(8, scored.length))].entry;
 }
 
+function npcShipClassesText(entry) {
+    const classes = Array.isArray(entry?.classes) ? entry.classes.join(',') : String(entry?.classes || '');
+    return classes.toLowerCase();
+}
+
+function chooseNpcShipForRole(role = 'civilian', difficulty = 1, factionId = '') {
+    if (role !== 'trader') return chooseNpcShipForMission(difficulty);
+    const npcShips = npcShipsData();
+    const loadouts = npcLoadoutsData();
+    const ships = shipsData();
+    if (!npcShips.length || !Object.keys(loadouts).length || !Object.keys(ships).length) return null;
+    const targetLevel = 1 + difficulty * 3;
+    const factionPrefix = String(factionId || '').split('_').slice(0, 2).join('_');
+    const transport = npcShips.filter(entry => {
+        const shipId = String(entry.ship || '').toLowerCase();
+        const loadout = loadouts[String(entry.loadout || '').toLowerCase()];
+        const ship = ships[shipId] || ships[String(loadout?.archetype || '').toLowerCase()];
+        const classText = npcShipClassesText(entry);
+        return loadout && (ship || shipId.includes('ge_transport') || shipId.includes('ge_train') || classText.includes('class_transport'));
+    });
+    const factionTransport = transport.filter(entry => factionPrefix && String(entry.id || '').toLowerCase().startsWith(factionPrefix));
+    const pool = factionTransport.length ? factionTransport : transport;
+    if (!pool.length) return chooseNpcShipForMission(difficulty);
+    const scored = pool.map(entry => {
+        const shipText = String(entry.ship || '').toLowerCase();
+        const trainBias = shipText.includes('ge_train') ? -1.2 : 0;
+        return { entry, score: Math.abs((Number(entry.level) || 1) - targetLevel) + trainBias + Math.random() * 2 };
+    });
+    scored.sort((a, b) => a.score - b.score);
+    return scored[Math.floor(Math.random() * Math.min(6, scored.length))].entry;
+}
+
 function npcLoadoutDetails(npcShip, difficulty = 1) {
     const loadout = npcLoadoutsData()[String(npcShip?.loadout || '').toLowerCase()] || null;
     const ship = shipsData()[String(npcShip?.ship || loadout?.archetype || '').toLowerCase()] || null;
@@ -1636,10 +1707,449 @@ function randomPointNearPlayerInZone(zone) {
     return { x: zone.x + local.x, z: zone.z + local.z };
 }
 
+function npcDockingTargets() {
+    return (game.entities || []).filter(entity => entity instanceof Station || entity instanceof PlanetLocation);
+}
+
+function legalTrafficTargets() {
+    return (game.entities || []).filter(entity =>
+        entity instanceof Station
+        || entity instanceof PlanetLocation
+        || (entity instanceof JumpGate && entity.kind === 'gate' && entity.dest)
+    );
+}
+
+function irregularTrafficTargets() {
+    return (game.entities || []).filter(entity =>
+        entity instanceof Station
+        || entity instanceof PlanetLocation
+        || (entity instanceof JumpGate && entity.dest)
+    );
+}
+
+function formationOffset(index = 0, spacing = 260) {
+    const pattern = [
+        { x: 0, z: 0, role: 'Lead' },
+        { x: -spacing, z: -spacing * 0.65, role: 'Port Escort' },
+        { x: -spacing, z: spacing * 0.65, role: 'Starboard Escort' },
+        { x: -spacing * 1.85, z: 0, role: 'Rear Guard' }
+    ];
+    return pattern[index] || { x: -spacing * (1 + Math.floor(index / 2)), z: (index % 2 ? 1 : -1) * spacing * 0.8, role: 'Wing' };
+}
+
+function rotateFormationOffset(offset, rotation) {
+    const forwardX = Math.cos(rotation);
+    const forwardZ = Math.sin(rotation);
+    const sideX = Math.cos(rotation + Math.PI / 2);
+    const sideZ = Math.sin(rotation + Math.PI / 2);
+    return {
+        x: forwardX * offset.x + sideX * offset.z,
+        z: forwardZ * offset.x + sideZ * offset.z
+    };
+}
+
+function fleetById(id) {
+    return id ? (game.npcFleets || []).find(fleet => fleet.id === id) || null : null;
+}
+
+function fleetMembers(fleet) {
+    if (!fleet?.id) return [];
+    return (game.npcs || []).filter(npc => npc.fleetId === fleet.id && npc.hull > 0);
+}
+
+function fleetLeader(fleet) {
+    return (game.npcs || []).find(npc => npc.id === fleet?.leaderId && npc.hull > 0) || null;
+}
+
+function fleetIsFormed(fleet) {
+    const members = fleetMembers(fleet);
+    if (!fleet || members.length < Math.min(3, fleet.size || 3)) return false;
+    return members.every(npc => {
+        const target = formationWorldPoint(fleet, npc);
+        return !target || Math.hypot(npc.x - target.x, npc.z - target.z) < 420;
+    });
+}
+
+function formationWorldPoint(fleet, npc) {
+    if (!fleet || !npc) return null;
+    const leader = fleetLeader(fleet);
+    const rotation = fleet.state === 'forming' ? (fleet.gather?.rotation || 0) : (leader?.rotation ?? fleet.gather?.rotation ?? 0);
+    const baseX = fleet.state === 'forming' ? (fleet.gather?.x || npc.x) : (leader?.x ?? npc.x);
+    const baseZ = fleet.state === 'forming' ? (fleet.gather?.z || npc.z) : (leader?.z ?? npc.z);
+    const offset = formationOffset(npc.formationIndex || 0, fleet.spacing || 260);
+    const rotated = rotateFormationOffset(offset, rotation);
+    return { x: baseX + rotated.x, z: baseZ + rotated.z, rotation };
+}
+
+function launchPointFromTargetObject(target, angle = Math.random() * Math.PI * 2, distance = 360) {
+    if (!target) return { x: 0, z: 0, rotation: angle };
+    const radius = Math.max(distance, Number(target.radius || target.sourceRadius || 120) + distance);
+    return {
+        x: Number(target.x || 0) + Math.cos(angle) * radius,
+        z: Number(target.z || 0) + Math.sin(angle) * radius,
+        rotation: angle
+    };
+}
+
+function nearestTradeLaneRingToPoint(x, z) {
+    let best = null;
+    let bestDistance = Infinity;
+    for (const entity of game.entities || []) {
+        if (!(entity instanceof TradeLaneRing)) continue;
+        const distance = Math.hypot(entity.x - x, entity.z - z);
+        if (distance < bestDistance) {
+            best = entity;
+            bestDistance = distance;
+        }
+    }
+    return best ? { ring: best, distance: bestDistance } : null;
+}
+
+function tradeLaneExitRingForRoute(entryRing, destination) {
+    if (!entryRing?.laneRings?.length || !destination) return null;
+    let best = null;
+    let bestDistance = Infinity;
+    for (const ring of entryRing.laneRings) {
+        const distance = Math.hypot((destination.x || 0) - ring.x, (destination.z || 0) - ring.z);
+        if (distance < bestDistance) {
+            best = ring;
+            bestDistance = distance;
+        }
+    }
+    return best ? findTradeLaneRingEntity(best) || entryRing : null;
+}
+
+function buildNpcTradeRoute(origin, destination) {
+    if (!origin || !destination || origin === destination) return [];
+    const route = [];
+    const entry = nearestTradeLaneRingToPoint(origin.x, origin.z);
+    const exit = entry && entry.distance < 9000 ? tradeLaneExitRingForRoute(entry.ring, destination) : null;
+    if (entry?.ring && exit && exit !== entry.ring) {
+        route.push({ type: 'tradelane', target: entry.ring, exit });
+    }
+    route.push({ type: 'dock', target: destination });
+    return route;
+}
+
+function randomNpcTradeDestination(origin, options = {}) {
+    const targetPool = options.irregular ? irregularTrafficTargets() : legalTrafficTargets();
+    const targets = targetPool.filter(target => target !== origin);
+    if (!targets.length) return null;
+    if (!origin) return targets[Math.floor(Math.random() * targets.length)];
+    const sorted = targets
+        .map(target => ({ target, distance: Math.hypot((target.x || 0) - (origin?.x || 0), (target.z || 0) - (origin?.z || 0)) }))
+        .sort((a, b) => a.distance - b.distance);
+    const pool = sorted.slice(0, Math.min(5, sorted.length));
+    return pool[Math.floor(Math.random() * pool.length)]?.target || null;
+}
+
+function assignNpcTradeRoute(npc, origin = null, destination = null) {
+    const pool = npc.irregularTraffic ? irregularTrafficTargets() : legalTrafficTargets();
+    const source = origin || npc.tradeOrigin || pool.sort((a, b) => Math.hypot(a.x - npc.x, a.z - npc.z) - Math.hypot(b.x - npc.x, b.z - npc.z))[0] || null;
+    const target = destination || randomNpcTradeDestination(source, { irregular: npc.irregularTraffic });
+    npc.tradeOrigin = source;
+    npc.tradeDestination = target;
+    npc.tradeRoute = buildNpcTradeRoute(source, target);
+    npc.tradeWaypointIndex = 0;
+    npc.tradeState = 'enroute';
+    npc.tradeDockTimer = 0;
+}
+
+function startNpcTradeLane(npc, ring, exitRing = null) {
+    if (!npc || !(ring instanceof TradeLaneRing)) return false;
+    const route = ring.laneRings || [];
+    if (route.length < 2) return false;
+    const exitIndex = Number.isInteger(exitRing?.index) ? exitRing.index : (route.length - 1);
+    const direction = exitIndex < ring.index ? -1 : 1;
+    npc.x = ring.x;
+    npc.z = ring.z;
+    npc.inTradeLane = true;
+    npc.tradeLaneRoute = route;
+    npc.tradeLaneIndex = ring.index + direction;
+    npc.tradeLaneExitIndex = exitIndex;
+    npc.tradeLaneDirection = direction;
+    npc.speed = Math.max(90, Math.min(Number(npc.speed) || 90, 900));
+    npc.throttle = 1;
+    return true;
+}
+
+function updateNpcTradeLane(npc, dt) {
+    if (!npc?.inTradeLane || !npc.tradeLaneRoute) return false;
+    const target = npc.tradeLaneRoute[npc.tradeLaneIndex];
+    if (!target) {
+        npc.inTradeLane = false;
+        npc.tradeLaneRoute = null;
+        npc.speed = Math.min(npc.speed || 0, npc.maxSpeed || COMBAT_MAX_SPEED);
+        return false;
+    }
+    const dx = target.x - npc.x;
+    const dz = target.z - npc.z;
+    const distance = Math.hypot(dx, dz);
+    npc.speed += (1700 - npc.speed) * Math.min(1, dt * 1.2);
+    if (distance <= Math.max(1, npc.speed * dt)) {
+        npc.x = target.x;
+        npc.z = target.z;
+        if (distance > 0.001) npc.rotation = Math.atan2(dz, dx);
+        if (npc.tradeLaneIndex === npc.tradeLaneExitIndex) {
+            npc.inTradeLane = false;
+            npc.tradeLaneRoute = null;
+            npc.tradeLaneIndex = 0;
+            npc.speed = Math.min(npc.speed || 0, npc.maxSpeed || COMBAT_MAX_SPEED);
+            npc.tradeWaypointIndex = (npc.tradeWaypointIndex || 0) + 1;
+            return false;
+        }
+        npc.tradeLaneIndex += npc.tradeLaneDirection || 1;
+        return true;
+    }
+    npc.rotation = Math.atan2(dz, dx);
+    npc.x += (dx / distance) * npc.speed * dt;
+    npc.z += (dz / distance) * npc.speed * dt;
+    return true;
+}
+
+function placeEscortNearLeader(escort, leader, index = 0) {
+    if (!escort || !leader) return;
+    const side = index % 2 === 0 ? -1 : 1;
+    const back = 260 + Math.floor(index / 2) * 130;
+    const lateral = 180 * side;
+    escort.x = leader.x - Math.cos(leader.rotation) * back + Math.cos(leader.rotation + Math.PI / 2) * lateral;
+    escort.z = leader.z - Math.sin(leader.rotation) * back + Math.sin(leader.rotation + Math.PI / 2) * lateral;
+    escort.rotation = leader.rotation;
+    escort.speed = leader.speed;
+    escort.throttle = leader.throttle;
+}
+
+function convoyMembersForLeader(leader) {
+    if (!leader?.convoyId) return [];
+    return game.npcs.filter(npc => npc.convoyId === leader.convoyId && npc !== leader);
+}
+
+function createNpcFleet(type, origin, destination = null, options = {}) {
+    if (!origin || game.npcs.length > 48) return null;
+    const size = clamp(Number(options.size) || (3 + Math.floor(Math.random() * 2)), 3, 4);
+    const angle = destination ? Math.atan2((destination.z || 0) - origin.z, (destination.x || 0) - origin.x) : Math.random() * Math.PI * 2;
+    const launch = launchPointFromTargetObject(origin, angle, 520);
+    const fleetId = `${type}-fleet-${Math.random().toString(36).slice(2, 9)}`;
+    const faction = normalizeFactionId(options.faction || origin.faction || (type === 'security' ? 'li_p_grp' : type === 'pirate' ? 'fc_lr_grp' : 'co_ss_grp'));
+    const fleet = {
+        id: fleetId,
+        type,
+        state: options.ambientTrade ? 'enroute' : 'forming',
+        origin,
+        destination,
+        gather: {
+            x: launch.x + Math.cos(angle) * 650,
+            z: launch.z + Math.sin(angle) * 650,
+            rotation: angle
+        },
+        size,
+        spacing: type === 'trade' ? 290 : 240,
+        wait: 0,
+        maxWait: 7 + Math.random() * 5,
+        patrolIndex: 0,
+        combatTimer: 0,
+        mission: type === 'trade' ? 'trade-route' : type === 'security' ? 'security-patrol' : 'irregular-route'
+    };
+    game.npcFleets.push(fleet);
+
+    const members = [];
+    for (let i = 0; i < size && game.npcs.length < 52; i++) {
+        const role = type === 'trade'
+            ? (i === 0 || (i === 1 && Math.random() < 0.45) ? 'trader' : 'police')
+            : (type === 'pirate' ? 'pirate' : 'police');
+        const difficulty = type === 'trade' ? 4 + Math.floor(Math.random() * 3) : 3 + Math.floor(Math.random() * 4);
+        const offset = formationOffset(i, fleet.spacing);
+        const rotated = rotateFormationOffset(offset, angle);
+        const npc = createNPC(role, {
+            x: launch.x + rotated.x * 0.45 + (Math.random() - 0.5) * 90,
+            z: launch.z + rotated.z * 0.45 + (Math.random() - 0.5) * 90,
+            difficulty,
+            faction,
+            npcShip: role === 'trader' ? chooseNpcShipForRole('trader', difficulty, faction) : null,
+            populationZoneId: options.zone?.id || '',
+            name: (type === 'security' ? 'SEC' : type === 'pirate' ? 'IRG' : (role === 'trader' ? 'CNV' : 'ESC')) + '-' + (Math.floor(Math.random() * 9000) + 1000)
+        });
+        npc.rotation = angle;
+        npc.fleetId = fleetId;
+        npc.convoyId = fleetId;
+        npc.formationIndex = i;
+        npc.formationRole = offset.role;
+        npc.trafficRole = type;
+        npc.ambientTrade = Boolean(options.ambientTrade);
+        npc.irregularTraffic = type === 'pirate';
+        npc.isFleetLeader = i === 0;
+        npc.escortFor = i === 0 ? '' : members[0]?.id || '';
+        npc.escortIndex = i - 1;
+        if ((type === 'trade' || type === 'pirate') && i === 0) {
+            npc.isTradeConvoy = true;
+            npc.tradeOrigin = origin;
+            npc.tradeDestination = destination || randomNpcTradeDestination(origin, { irregular: type === 'pirate' });
+            npc.tradeRoute = buildNpcTradeRoute(origin, npc.tradeDestination);
+            npc.tradeWaypointIndex = 0;
+            npc.tradeState = fleet.state === 'forming' ? 'forming' : 'enroute';
+            npc.maxSpeed = Math.max(type === 'pirate' ? 120 : 82, Math.min(type === 'pirate' ? 160 : 105, npc.maxSpeed || 90));
+            npc.throttle = fleet.state === 'forming' ? 0.35 : 0.75;
+        } else if (type === 'security' && i === 0) {
+            npc.patrolRoute = buildSecurityPatrolRoute(origin);
+            npc.patrolIndex = 0;
+        }
+        game.npcs.push(npc);
+        members.push(npc);
+        if (i === 0) fleet.leaderId = npc.id;
+    }
+    return members[0] || null;
+}
+
+function buildSecurityPatrolRoute(origin) {
+    const points = [];
+    if (origin) points.push(origin);
+    const nearbyGates = (game.entities || [])
+        .filter(entity => entity instanceof JumpGate && entity.kind === 'gate')
+        .sort((a, b) => Math.hypot(a.x - (origin?.x || 0), a.z - (origin?.z || 0)) - Math.hypot(b.x - (origin?.x || 0), b.z - (origin?.z || 0)))
+        .slice(0, 2);
+    points.push(...nearbyGates);
+    for (const lane of (systemData.tradeLanes || []).slice(0, 2)) {
+        const first = lane.rings?.[0];
+        const last = lane.rings?.[lane.rings.length - 1];
+        if (first) points.push(first);
+        if (last) points.push(last);
+    }
+    if (points.length < 2 && game.player) points.push({ x: game.player.x + 2400, z: game.player.z, name: 'Patrol Point' });
+    return points;
+}
+
+function updateNpcFleets(dt) {
+    for (let i = game.npcFleets.length - 1; i >= 0; i--) {
+        const fleet = game.npcFleets[i];
+        const leader = fleetLeader(fleet);
+        const members = fleetMembers(fleet);
+        fleet.combatTimer = Math.max(0, (fleet.combatTimer || 0) - dt * 0.35);
+        if (!leader || members.length <= 0) {
+            game.npcFleets.splice(i, 1);
+            continue;
+        }
+        if (fleet.state === 'forming') {
+            fleet.wait += dt;
+            if (fleetIsFormed(fleet) || fleet.wait >= fleet.maxWait) {
+                fleet.state = 'enroute';
+                for (const member of members) {
+                    if (member.isTradeConvoy) member.tradeState = 'enroute';
+                    member.throttle = Math.max(member.throttle || 0, 0.65);
+                }
+            }
+        }
+    }
+}
+
+function positionAmbientConvoyInTradeLane(leader) {
+    const waypoint = leader?.tradeRoute?.find(item => item.type === 'tradelane' && item.target?.laneRings?.length && item.exit);
+    if (!waypoint) return false;
+    const rings = waypoint.target.laneRings || [];
+    if (rings.length < 2) return false;
+    const entryIndex = Number.isInteger(waypoint.target.index) ? waypoint.target.index : 0;
+    const exitIndex = Number.isInteger(waypoint.exit.index) ? waypoint.exit.index : rings.length - 1;
+    const direction = exitIndex < entryIndex ? -1 : 1;
+    const minIndex = Math.min(entryIndex, exitIndex);
+    const maxIndex = Math.max(entryIndex, exitIndex);
+    if (maxIndex - minIndex < 1) return false;
+    const currentIndex = direction > 0
+        ? clamp(Math.floor(minIndex + Math.random() * (maxIndex - minIndex)), minIndex, maxIndex - 1)
+        : clamp(Math.floor(minIndex + 1 + Math.random() * (maxIndex - minIndex)), minIndex + 1, maxIndex);
+    const nextIndex = currentIndex + direction;
+    const current = rings[currentIndex];
+    const next = rings[nextIndex];
+    if (!current || !next) return false;
+    const t = 0.12 + Math.random() * 0.76;
+    leader.x = current.x + (next.x - current.x) * t;
+    leader.z = current.z + (next.z - current.z) * t;
+    leader.rotation = Math.atan2(next.z - current.z, next.x - current.x);
+    leader.inTradeLane = true;
+    leader.tradeLaneRoute = rings;
+    leader.tradeLaneIndex = nextIndex;
+    leader.tradeLaneExitIndex = exitIndex;
+    leader.tradeLaneDirection = direction;
+    leader.tradeWaypointIndex = leader.tradeRoute.indexOf(waypoint);
+    leader.speed = 1300 + Math.random() * 300;
+    leader.throttle = 1;
+    convoyMembersForLeader(leader).forEach((escort, index) => placeEscortNearLeader(escort, leader, index));
+    return true;
+}
+
+function positionAmbientConvoyInTransit(leader) {
+    if (!leader?.tradeRoute?.length) return false;
+    const waypoint = leader.tradeRoute[0];
+    const origin = leader.tradeOrigin;
+    const target = waypoint?.target;
+    if (!origin || !target) return false;
+    const t = 0.18 + Math.random() * 0.64;
+    leader.x = (origin.x || 0) + ((target.x || 0) - (origin.x || 0)) * t + (Math.random() - 0.5) * 900;
+    leader.z = (origin.z || 0) + ((target.z || 0) - (origin.z || 0)) * t + (Math.random() - 0.5) * 900;
+    leader.rotation = Math.atan2((target.z || 0) - leader.z, (target.x || 0) - leader.x);
+    leader.speed = 55 + Math.random() * 35;
+    leader.throttle = 0.8;
+    convoyMembersForLeader(leader).forEach((escort, index) => placeEscortNearLeader(escort, leader, index));
+    return true;
+}
+
+function seedAmbientTradeTrafficForSystem() {
+    if (game.ambientTradeSeededSystemId === currentSystemId) return;
+    game.ambientTradeSeededSystemId = currentSystemId;
+    const targets = legalTrafficTargets();
+    if (targets.length < 2) return;
+    const laneCount = (systemData.tradeLanes || []).length;
+    const desiredConvoys = clamp(Math.ceil(targets.length * 0.45) + laneCount, 4, 8);
+    const existingLeaders = () => game.npcs.filter(npc => npc.isTradeConvoy && npc.isFleetLeader && !npc.missionId).length;
+    let attempts = 0;
+    while (existingLeaders() < desiredConvoys && game.npcs.length < 44 && attempts < desiredConvoys * 3) {
+        attempts++;
+        const origin = targets[Math.floor(Math.random() * targets.length)];
+        const leader = spawnTraderConvoy(origin, null, origin?.faction || '', { ambientTrade: true });
+        if (!leader) continue;
+        const placedInLane = Math.random() < 0.68 && positionAmbientConvoyInTradeLane(leader);
+        if (!placedInLane) positionAmbientConvoyInTransit(leader);
+    }
+    const securityOrigins = targets.filter(target => target instanceof Station || target instanceof JumpGate);
+    const desiredSecurity = clamp(Math.ceil(securityOrigins.length * 0.35), 2, 5);
+    let securityAttempts = 0;
+    while ((game.npcFleets || []).filter(fleet => fleet.type === 'security').length < desiredSecurity && game.npcs.length < 54 && securityAttempts < desiredSecurity * 3) {
+        securityAttempts++;
+        const origin = securityOrigins[Math.floor(Math.random() * securityOrigins.length)];
+        createNpcFleet('security', origin, null, { ambientTrade: true, faction: origin?.faction || 'li_p_grp' });
+    }
+}
+
+function spawnTraderConvoy(origin = null, zone = null, factionId = '', options = {}) {
+    const targets = legalTrafficTargets();
+    if (targets.length < 2 || game.npcs.length > 46) return null;
+    const visibleTargets = game.player ? targets.filter(target => Math.hypot((target.x || 0) - game.player.x, (target.z || 0) - game.player.z) < 19000) : [];
+    const sourcePool = visibleTargets.length ? visibleTargets : targets;
+    const source = origin || sourcePool[Math.floor(Math.random() * sourcePool.length)];
+    const destination = options.destination || randomNpcTradeDestination(source);
+    if (!source || !destination) return null;
+    return createNpcFleet('trade', source, destination, {
+        zone,
+        faction: factionId || source.faction || 'co_ss_grp',
+        ambientTrade: options.ambientTrade,
+        size: options.size || (3 + Math.floor(Math.random() * 2))
+    });
+}
+
 function spawnPopulationNpc(zone) {
     const encounter = weightedPick(zone.encounters) || { id: 'area_scout', difficulty: 1, weight: 1 };
     const faction = weightedPick(zone.factions) || null;
     const role = npcRoleFromPopulation(zone, encounter, faction);
+    if (role === 'trader' && Math.random() < 0.7) return spawnTraderConvoy(null, zone, faction?.id || '');
+    if (role === 'police' && Math.random() < 0.45) {
+        const origin = legalTrafficTargets()
+            .filter(target => Math.hypot((target.x || 0) - zone.x, (target.z || 0) - zone.z) < Math.max(zone.sizeX || zone.size || 8000, zone.sizeZ || zone.size || 8000) + 9000)
+            .sort((a, b) => Math.hypot(a.x - zone.x, a.z - zone.z) - Math.hypot(b.x - zone.x, b.z - zone.z))[0];
+        if (origin) return createNpcFleet('security', origin, null, { zone, faction: faction?.id || origin.faction || 'li_p_grp' });
+    }
+    if (role === 'pirate' && Math.random() < 0.35) {
+        const irregularTargets = irregularTrafficTargets();
+        const origin = irregularTargets[Math.floor(Math.random() * irregularTargets.length)];
+        if (origin) return createNpcFleet('pirate', origin, null, { zone, faction: faction?.id || 'fc_lr_grp' });
+    }
     const difficulty = populationDifficulty(encounter);
     const point = randomPointNearPlayerInZone(zone);
     const npc = createNPC(role, {
@@ -1661,11 +2171,20 @@ function spawnPopulationNpc(zone) {
 function updatePopulationNpcs(dt) {
     if (!game.player || game.activeMission?.spawned) return;
     game.populationSpawnTimer = Math.max(0, (game.populationSpawnTimer || 0) - dt);
+    game.stationLaunchTimer = Math.max(0, (game.stationLaunchTimer || 0) - dt);
     for (let i = game.npcs.length - 1; i >= 0; i--) {
         const npc = game.npcs[i];
         if (!npc.populationZoneId || npc.missionId) continue;
         const distance = Math.hypot(npc.x - game.player.x, npc.z - game.player.z);
         if (distance > 24000 || npc.hull <= 0) game.npcs.splice(i, 1);
+    }
+    if (game.stationLaunchTimer <= 0 && game.npcs.length < 44) {
+        game.stationLaunchTimer = 18 + Math.random() * 18;
+        const station = npcDockingTargets()
+            .filter(target => Math.hypot((target.x || 0) - game.player.x, (target.z || 0) - game.player.z) < 18000)
+            .sort((a, b) => Math.hypot(a.x - game.player.x, a.z - game.player.z) - Math.hypot(b.x - game.player.x, b.z - game.player.z))[0];
+        if (station && Math.random() < 0.65) spawnTraderConvoy(station, null, station.faction || '');
+        else if (station) createNpcFleet('security', station, null, { faction: station.faction || 'li_p_grp' });
     }
     if (game.populationSpawnTimer > 0) return;
     game.populationSpawnTimer = 4;
@@ -1963,10 +2482,11 @@ function setWaypointTarget(target, name = '') {
         }
     };
     game.waypoint = waypoint;
-    game.selectedTarget = target.id && !target.isWaypoint ? target : waypoint;
     addLog('Waypoint set: ' + waypoint.name);
     playSound('select', 0.8);
     saveGame();
+    updateHUD();
+    if (game.showMap) drawMapCanvas();
     return waypoint;
 }
 
@@ -1979,17 +2499,27 @@ function setFreeSpaceWaypoint(x, z) {
 }
 
 function clearNavigationSelection() {
-    const hadWaypoint = Boolean(game.waypoint);
     game.selectedTarget = null;
     game.approachTarget = null;
     game.dockTarget = null;
-    if (!game.activeMission || game.waypoint?.type !== 'Mission') {
-        game.waypoint = null;
-    }
     addLog(t('selectionCleared'));
     playSound('select', 0.45);
     updateHUD();
-    if (hadWaypoint && !game.waypoint) saveGame();
+    if (game.showMap) drawMapCanvas();
+}
+
+function clearWaypoint() {
+    if (!game.waypoint) return;
+    if (game.activeMission && game.waypoint.type === 'Mission') {
+        addLog(t('missionWaypointLocked'), 'alert');
+        return;
+    }
+    game.waypoint = null;
+    addLog('Waypoint cleared.');
+    playSound('select', 0.45);
+    saveGame();
+    updateHUD();
+    if (game.showMap) drawMapCanvas();
 }
 
 function getShipPackage(packageId) {
@@ -2001,10 +2531,12 @@ function getShipImage(iconPath) {
     if (!iconPath) return null;
     if (!game.shipImages[iconPath]) {
         const img = new Image();
+        img.onerror = () => { img.dataset.failed = '1'; };
         img.src = iconPath;
         game.shipImages[iconPath] = img;
     }
     const image = game.shipImages[iconPath];
+    if (image.dataset.failed === '1') return getShipImage('data/ship_icons/_fallback.png');
     return image.complete && image.naturalWidth > 0 ? image : null;
 }
 
@@ -2211,6 +2743,7 @@ function createSaveGameState() {
             hull: game.player.hull,
             shield: game.player.shield,
             energy: game.player.energy,
+            thrustEnergy: game.player.thrustEnergy,
             credits: game.player.credits,
             cargo: game.player.cargo,
             equipmentInventory: game.player.equipmentInventory,
@@ -2282,6 +2815,7 @@ function restorePlayerFromSave(save) {
     game.player.speed = Number.isFinite(savedPlayer.speed) ? Math.min(savedPlayer.speed, game.player.cruiseSpeed) : 0;
     game.player.hull = Math.max(1, Math.min(game.player.maxHull, Number(savedPlayer.hull) || game.player.maxHull));
     game.player.energy = Math.max(0, Math.min(game.player.maxEnergy, Number(savedPlayer.energy) || game.player.maxEnergy));
+    game.player.thrustEnergy = Math.max(0, Math.min(game.player.thrustCapacity, Number.isFinite(savedPlayer.thrustEnergy) ? savedPlayer.thrustEnergy : game.player.thrustCapacity));
     game.player.credits = Number.isFinite(savedPlayer.credits) ? savedPlayer.credits : game.player.credits;
     game.player.cargo = Array.isArray(savedPlayer.cargo) ? savedPlayer.cargo : [];
     game.player.equipmentInventory = Array.isArray(savedPlayer.equipmentInventory) ? savedPlayer.equipmentInventory : [];
@@ -2414,7 +2948,12 @@ function resetTouchJoystick() {
 }
 
 function canUseTouchAfterburner() {
-    return game.player && !game.isDocked && !game.player.inTradeLane && !game.player.cruiseActive && !game.player.cruiseCharging && !game.jumpTransition;
+    return canUseAfterburner();
+}
+
+function canUseAfterburner() {
+    const p = game.player;
+    return Boolean(p && !game.isDocked && !p.inTradeLane && !p.cruiseActive && !p.cruiseCharging && !game.jumpTransition && hasMountedThruster() && (Number(p.thrustEnergy) || 0) > 0);
 }
 
 function setTouchAfterburner(active) {
@@ -2430,6 +2969,12 @@ function setTouchAfterburner(active) {
         game.player.afterburnerActive = false;
     }
     updateSpeedControl();
+}
+
+function syncTouchAfterburnerButton() {
+    if (game.player?.afterburnerActive) return;
+    game.touchAfterburnerActive = false;
+    document.getElementById('touch-afterburner')?.classList.remove('active');
 }
 
 function setTouchFire(active) {
@@ -2558,10 +3103,12 @@ function applyShipPackage(packageId, logPurchase = false) {
     game.player.powerGen = Number.isFinite(stats.powerChargeRate) ? stats.powerChargeRate : game.player.powerGen;
     game.player.thrustCapacity = Number.isFinite(stats.thrustCapacity) ? stats.thrustCapacity : game.player.thrustCapacity;
     game.player.thrustChargeRate = Number.isFinite(stats.thrustChargeRate) ? stats.thrustChargeRate : game.player.thrustChargeRate;
+    game.player.thrustEnergy = game.player.thrustCapacity;
     game.player.baseMaxEnergy = game.player.maxEnergy;
     game.player.basePowerGen = game.player.powerGen;
     game.player.baseThrustCapacity = game.player.thrustCapacity;
     game.player.baseThrustChargeRate = game.player.thrustChargeRate;
+    game.player.baseAcceleration = game.player.acceleration;
     game.player.energy = Math.min(game.player.maxEnergy, Math.max(game.player.energy || game.player.maxEnergy, game.player.maxEnergy));
     game.player.firePower = stats.firePower || game.player.firePower || 1;
     game.player.baseFirePower = game.player.firePower;
@@ -3071,6 +3618,68 @@ function isPointInsideZone(zone, x, z) {
     return (local.x * local.x) / (radiusX * radiusX) + (local.z * local.z) / (radiusZ * radiusZ) <= 1;
 }
 
+function isPointInsideExpandedZone(zone, x, z, margin = 0) {
+    const rotation = -flYawToCanvasRotation(zone.rotateY || 0);
+    const local = rotatePoint(x - zone.x, z - zone.z, rotation);
+    const radiusX = Math.max(1, zone.sizeX || zone.size || 1) + margin;
+    const radiusZ = Math.max(1, zone.sizeZ || zone.size || 1) + margin;
+    if (String(zone.shape || '').toUpperCase() === 'SPHERE') {
+        return Math.sqrt(local.x * local.x + local.z * local.z) <= Math.max(radiusX, radiusZ);
+    }
+    return (local.x * local.x) / (radiusX * radiusX) + (local.z * local.z) / (radiusZ * radiusZ) <= 1;
+}
+
+function damagingZones() {
+    return (systemData.zones || []).filter(zone => Number(zone.damage || 0) > 0 && Number.isFinite(zone.x) && Number.isFinite(zone.z));
+}
+
+function segmentCrossesExpandedZone(zone, x1, z1, x2, z2, margin = 0) {
+    const distance = Math.hypot(x2 - x1, z2 - z1);
+    const steps = clamp(Math.ceil(distance / 1200), 8, 72);
+    for (let i = 0; i <= steps; i++) {
+        const t = i / steps;
+        if (isPointInsideExpandedZone(zone, x1 + (x2 - x1) * t, z1 + (z2 - z1) * t, margin)) return t;
+    }
+    return -1;
+}
+
+function getAutopilotDeathZoneAvoidance(x, z, targetX, targetZ, margin = 1400) {
+    const dx = targetX - x;
+    const dz = targetZ - z;
+    const routeLength = Math.hypot(dx, dz);
+    if (routeLength < 1) return { x: 0, z: 0, magnitude: 0 };
+    const ux = dx / routeLength;
+    const uz = dz / routeLength;
+    const nx = -uz;
+    const nz = ux;
+    let threat = null;
+    for (const zone of damagingZones()) {
+        if (isPointInsideExpandedZone(zone, targetX, targetZ, margin * 0.35) && routeLength < margin * 1.6) continue;
+        const t = segmentCrossesExpandedZone(zone, x, z, targetX, targetZ, margin);
+        if (t >= 0 && (!threat || t < threat.t)) threat = { zone, t };
+    }
+    if (!threat) return { x: 0, z: 0, magnitude: 0 };
+
+    const zone = threat.zone;
+    const radius = Math.max(zone.sizeX || zone.size || 1, zone.sizeZ || zone.size || 1) + margin + 420;
+    const sideHint = Math.sign((zone.x - x) * nx + (zone.z - z) * nz) || 1;
+    const candidates = [sideHint, -sideHint].map(side => ({
+        x: zone.x + nx * radius * side,
+        z: zone.z + nz * radius * side,
+        side
+    }));
+    const scored = candidates.map(point => {
+        const blocked = damagingZones().some(other => isPointInsideExpandedZone(other, point.x, point.z, margin * 0.5));
+        const pathCost = Math.hypot(point.x - x, point.z - z) + Math.hypot(targetX - point.x, targetZ - point.z);
+        return { point, score: pathCost + (blocked ? 100000000 : 0) };
+    }).sort((a, b) => a.score - b.score);
+    const detour = scored[0]?.point;
+    if (!detour) return { x: 0, z: 0, magnitude: 0 };
+    const vx = detour.x - x;
+    const vz = detour.z - z;
+    return { x: vx, z: vz, magnitude: Math.hypot(vx, vz), zone };
+}
+
 function checkZoneHazards(dt) {
     if (!game.player || game.isDocked || game.player.destroyed) return;
     for (const zone of systemData.zones || []) {
@@ -3082,7 +3691,7 @@ function checkZoneHazards(dt) {
             game.player.reverseActive = false;
             updateCruiseButton();
         }
-        game.player.takeDamage(damage * dt);
+        game.player.takeHullDamage(damage * dt, 'Radiation damage');
         if (zone.dragModifier && zone.dragModifier !== 1) game.player.speed *= Math.max(0.25, Math.min(1, zone.dragModifier));
         if (!game.player.lastZoneDamageWarning || performance.now() - game.player.lastZoneDamageWarning > 1200) {
             addLog('Zone damage: ' + (zone.name || zone.id) + ' (' + damage + '/s)', 'alert');
@@ -3311,6 +3920,7 @@ function findArrivalObject(destObjectId) {
 }
 
 function loadSystem(systemId, arrivalObjectId = null) {
+    const previousSystemId = currentSystemId;
     currentSystemId = systemId || currentSystemId;
     systemData = buildSystemData(currentSystemId);
     game.selectedTarget = null;
@@ -3318,7 +3928,8 @@ function loadSystem(systemId, arrivalObjectId = null) {
     game.dockTarget = null;
     game.loot = [];
     game.missionOffers = {};
-    game.npcs = game.npcs.filter(npc => !npc.missionId);
+    game.npcs = previousSystemId === currentSystemId ? game.npcs.filter(npc => !npc.missionId) : [];
+    if (previousSystemId !== currentSystemId) game.npcFleets = [];
     if (game.player) {
         const arrival = findArrivalObject(arrivalObjectId) || systemData.stations[0] || systemData.jumpgates[0] || { x: 0, z: 0 };
         const angle = game.jumpTransition ? game.jumpTransition.angle : game.player.rotation;
@@ -3334,6 +3945,8 @@ function loadSystem(systemId, arrivalObjectId = null) {
     }
     returnToFreeflight('', { preserveMotion: true });
     rebuildEntities();
+    if (previousSystemId !== currentSystemId) game.ambientTradeSeededSystemId = '';
+    seedAmbientTradeTrafficForSystem();
     updateSystemHud();
     if (game.showMap) drawMapCanvas();
     addLog('Entered system: ' + systemData.name);
@@ -3394,6 +4007,7 @@ class PlayerShip {
         this.powerPlantName = 'Powerplant';
         this.thrustCapacity = 1000;
         this.thrustChargeRate = 100;
+        this.thrustEnergy = this.thrustCapacity;
         this.credits = 100000; this.cargo = []; this.maxCargo = 50;
         this.equipmentInventory = [];
         this.mountedEquipment = {};
@@ -3437,6 +4051,16 @@ class PlayerShip {
         
         // Energy regen from powerplant
         this.energy = Math.min(this.maxEnergy, this.energy + this.powerGen * dt);
+        this.thrustCapacity = Math.max(0, Number(this.thrustCapacity) || 0);
+        this.thrustEnergy = Math.min(this.thrustCapacity, Math.max(0, Number(this.thrustEnergy) || 0));
+        if (this.afterburnerActive && !canUseAfterburner()) this.afterburnerActive = false;
+        if (this.afterburnerActive) {
+            this.thrustEnergy = Math.max(0, this.thrustEnergy - thrusterPowerUsage() * dt);
+            if (this.thrustEnergy <= 0) this.afterburnerActive = false;
+        } else {
+            this.thrustEnergy = Math.min(this.thrustCapacity, this.thrustEnergy + Math.max(0, Number(this.thrustChargeRate) || 0) * dt);
+        }
+        if (!this.afterburnerActive) syncTouchAfterburnerButton();
         
         // Shield regen (only when not taking damage)
         if (this.maxShield > 0 && this.shield < this.maxShield) {
@@ -3502,19 +4126,29 @@ class PlayerShip {
             
             if (dist > arrivalDistance) {
                 const avoidance = getAvoidanceVector(this.x, this.z, game.dockTarget ? 1900 : 1500);
-                const steerX = dx + avoidance.x * Math.min(dist, 4500);
-                const steerZ = dz + avoidance.z * Math.min(dist, 4500);
+                const deathZoneAvoidance = getAutopilotDeathZoneAvoidance(this.x, this.z, game.approachTarget.x, game.approachTarget.z, game.dockTarget ? 1700 : 1400);
+                const isAvoidingDeathZone = deathZoneAvoidance.magnitude > 0;
+                const steerX = isAvoidingDeathZone
+                    ? deathZoneAvoidance.x + avoidance.x * Math.min(dist, 2600)
+                    : dx + avoidance.x * Math.min(dist, 4500);
+                const steerZ = isAvoidingDeathZone
+                    ? deathZoneAvoidance.z + avoidance.z * Math.min(dist, 2600)
+                    : dz + avoidance.z * Math.min(dist, 4500);
                 const targetAngle = Math.atan2(steerZ, steerX);
                 let angleDiff = targetAngle - this.rotation;
                 while (angleDiff > Math.PI) angleDiff -= Math.PI * 2;
                 while (angleDiff < -Math.PI) angleDiff += Math.PI * 2;
                 if (Math.abs(angleDiff) > 0.05) {
-                    this.rotation += Math.sign(angleDiff) * this.turnRate * dt * (avoidance.magnitude > 0.05 ? 1.1 : 0.5);
+                    this.rotation += Math.sign(angleDiff) * this.turnRate * dt * (isAvoidingDeathZone || avoidance.magnitude > 0.05 ? 1.1 : 0.5);
                 }
                 if (shouldBrakeForArrival) {
                     this.throttle = 0;
                 } else if (!this.cruiseActive && !this.cruiseCharging && !this.afterburnerActive) {
-                    this.throttle = avoidance.magnitude > 0.35 ? 0.55 : 1;
+                    this.throttle = isAvoidingDeathZone ? 0.85 : (avoidance.magnitude > 0.35 ? 0.55 : 1);
+                }
+                if (isAvoidingDeathZone && (!game.lastDeathZoneAvoidanceLog || performance.now() - game.lastDeathZoneAvoidanceLog > 3500)) {
+                    addLog('Autopilot avoiding death zone: ' + (deathZoneAvoidance.zone?.name || deathZoneAvoidance.zone?.id || 'hazard'), 'alert');
+                    game.lastDeathZoneAvoidanceLog = performance.now();
                 }
             } else {
                 const finishedName = game.approachTarget.name;
@@ -3800,6 +4434,18 @@ class PlayerShip {
         if (this.hull <= 0) {
             this.hull = 0;
             addLog('Ship destroyed!', 'alert');
+            destroyPlayerShip();
+        }
+    }
+
+    takeHullDamage(amount, source = 'Hull damage') {
+        const damage = Math.max(0, Number(amount) || 0);
+        if (damage <= 0) return;
+        this.hull -= damage;
+        if (damage > 4) playSound('hit', Math.min(1.4, damage / 16));
+        if (this.hull <= 0) {
+            this.hull = 0;
+            addLog(source + ': ship destroyed!', 'alert');
             destroyPlayerShip();
         }
     }
@@ -4348,13 +4994,16 @@ class Nebula {
 function createNPC(type, options = {}) {
     const colors = { trader: '#44aa44', pirate: '#aa4444', police: '#4444aa', civilian: '#888888' };
     const difficulty = Number(options.difficulty || 1);
-    const npcShip = options.npcShip || (type !== 'civilian' ? chooseNpcShipForMission(difficulty) : null);
+    const optionFaction = normalizeFactionId(options.faction || (type === 'pirate' ? 'fc_lr_grp' : type === 'police' ? 'li_p_grp' : type === 'trader' ? 'co_ss_grp' : ''));
+    const npcShip = options.npcShip || (type !== 'civilian' ? chooseNpcShipForRole(type, difficulty, optionFaction) : null);
     const details = npcLoadoutDetails(npcShip, difficulty);
     const ship = details.ship;
     const shieldItem = details.shieldItem;
-    const factionId = normalizeFactionId(options.faction || (type === 'pirate' ? 'fc_lr_grp' : type === 'police' ? 'li_p_grp' : type === 'trader' ? 'co_ss_grp' : ''));
+    const factionId = optionFaction;
     const shipVisual = resolveNpcShipVisual(npcShip, ship, type, factionId);
-    const hullValue = options.hull || Math.round(Math.max(90, Math.min(900, Number(ship?.hitPts || 650) * 0.14 + difficulty * 28)));
+    const shipIdText = String(npcShip?.ship || shipVisual.shipId || '').toLowerCase();
+    const transportScale = shipIdText.includes('ge_train') || shipIdText.includes('large_train') ? 2.6 : shipIdText.includes('transport') ? 1.9 : 1;
+    const hullValue = options.hull || Math.round(Math.max(90, Math.min(1800, (Number(ship?.hitPts || 650) * 0.14 + difficulty * 28) * transportScale)));
     const shieldValue = options.shield || Math.round(Math.max(50, Math.min(520, Number(shieldItem?.hitPts || 180) * 0.35 + difficulty * 18)));
     const handling = ship?.handling || {};
     return {
@@ -4369,8 +5018,8 @@ function createNPC(type, options = {}) {
         populationZoneId: options.populationZoneId || '',
         encounter: options.encounter || '',
         shield: shieldValue, maxShield: shieldValue,
-        maxSpeed: options.maxSpeed || (110 + difficulty * 18 + Math.random() * 35),
-        turnRate: Math.max(1.25, Math.min(2.9, Number(handling.turnRate) || 2.0)), radius: Math.max(16, Math.min(28, Math.sqrt(Number(ship?.hitPts || 900)) * 0.34)),
+        maxSpeed: options.maxSpeed || (type === 'trader' ? 85 + Math.random() * 18 : 110 + difficulty * 18 + Math.random() * 35),
+        turnRate: Math.max(0.65, Math.min(2.9, Number(handling.turnRate) || (type === 'trader' ? 1.15 : 2.0))), radius: Math.max(16, Math.min(type === 'trader' ? 54 : 28, Math.sqrt(Number(ship?.hitPts || 900) * transportScale) * 0.34)),
         color: colors[type], stateTimer: 0,
         shieldRotation: 0,
         missionId: options.missionId || '',
@@ -4483,7 +5132,7 @@ function findStaticCombatTarget(source) {
         }
     }
     for (const npc of game.npcs) {
-        if (!npc.faction || npc.hull <= 0 || !factionsAreHostile(sourceFaction, npc.faction)) continue;
+        if (!npc.faction || npc.hull <= 0 || npc.hidden || npc.inTradeLane || !factionsAreHostile(sourceFaction, npc.faction)) continue;
         const distance = Math.hypot(npc.x - source.x, npc.z - source.z);
         if (distance < range && distance < bestDistance) {
             bestTarget = npc;
@@ -4532,18 +5181,21 @@ function updateStaticWeapons(source, dt) {
 }
 
 function findNpcCombatTarget(npc) {
+    if (npc.hidden || npc.inTradeLane) return null;
+    const fleet = fleetById(npc.fleetId);
+    if (fleet?.state === 'forming' || npc.role === 'trader' || npc.role === 'civilian') return null;
     let bestTarget = null;
     let bestDistance = Infinity;
     if (game.player && (npc.hostileToPlayer || npc.missionId || playerIsHostileToFaction(npc.faction) || (npc.role === 'pirate' && !npc.faction))) {
         const distance = Math.hypot(game.player.x - npc.x, game.player.z - npc.z);
-        if (distance < (npc.missionId ? 2400 : 1800)) {
+        if (distance < (npc.missionId ? 2400 : 1800) && (!fleet || distance < 2600)) {
             bestTarget = game.player;
             bestDistance = distance;
         }
     }
     if (npc.faction) {
         for (const other of game.npcs) {
-            if (other === npc || other.hull <= 0 || !other.faction) continue;
+            if (other === npc || other.hull <= 0 || other.hidden || other.inTradeLane || !other.faction) continue;
             if (!factionsAreHostile(npc.faction, other.faction)) continue;
             const distance = Math.hypot(other.x - npc.x, other.z - npc.z);
             if (distance < 2200 && distance < bestDistance) {
@@ -4555,8 +5207,176 @@ function findNpcCombatTarget(npc) {
     return bestTarget;
 }
 
+function shouldNpcHoldFormation(npc, combatTarget, dt) {
+    const fleet = fleetById(npc.fleetId);
+    if (!fleet || !combatTarget) return false;
+    if (fleet.type === 'trade' && !npc.hostileToPlayer) return true;
+    fleet.combatTimer = Math.max(0, (fleet.combatTimer || 0) + dt);
+    const anchor = fleetLeader(fleet) || fleet.gather || npc;
+    const distanceFromAnchor = Math.hypot(npc.x - anchor.x, npc.z - anchor.z);
+    if (fleet.combatTimer > 14 || distanceFromAnchor > 4200) {
+        fleet.state = 'reforming';
+        fleet.reformTimer = 4;
+        fleet.combatTimer = 0;
+        return true;
+    }
+    return false;
+}
+
+function updateNpcEscort(npc) {
+    const leader = game.npcs.find(item => item.id === npc.escortFor && item.hull > 0);
+    if (leader?.hidden) {
+        npc.hidden = true;
+        npc.tradeDockTimer = leader.tradeDockTimer || 4;
+        npc.speed = 0;
+        npc.throttle = 0;
+        return true;
+    }
+    if (!leader) {
+        npc.escortFor = '';
+        npc.role = npc.role || 'police';
+        return false;
+    }
+    if (leader.inTradeLane) {
+        placeEscortNearLeader(npc, leader, npc.formationIndex || (npc.escortIndex || 0) + 1);
+        npc.inTradeLane = true;
+        npc.tradeLaneRoute = leader.tradeLaneRoute;
+        npc.tradeLaneIndex = leader.tradeLaneIndex;
+        npc.tradeLaneExitIndex = leader.tradeLaneExitIndex;
+        npc.tradeLaneDirection = leader.tradeLaneDirection;
+        return true;
+    }
+    if (npc.inTradeLane && !leader.inTradeLane) {
+        npc.inTradeLane = false;
+        npc.tradeLaneRoute = null;
+    }
+    const fleet = fleetById(npc.fleetId);
+    const point = fleet ? formationWorldPoint(fleet, npc) : null;
+    const side = npc.escortIndex % 2 === 0 ? -1 : 1;
+    const back = 260 + Math.floor((npc.escortIndex || 0) / 2) * 130;
+    const lateral = 180 * side;
+    const lx = point?.x ?? (leader.x - Math.cos(leader.rotation) * back + Math.cos(leader.rotation + Math.PI / 2) * lateral);
+    const lz = point?.z ?? (leader.z - Math.sin(leader.rotation) * back + Math.sin(leader.rotation + Math.PI / 2) * lateral);
+    npc.targetAngle = Math.atan2(lz - npc.z, lx - npc.x);
+    const distance = Math.hypot(lx - npc.x, lz - npc.z);
+    npc.throttle = clamp(distance / (fleet?.state === 'forming' ? 260 : 450), 0.2, leader.inTradeLane ? 1 : 0.95);
+    if (distance > 3600) {
+        npc.x = lx + (Math.random() - 0.5) * 80;
+        npc.z = lz + (Math.random() - 0.5) * 80;
+        npc.speed = leader.speed;
+    }
+    return true;
+}
+
+function updateNpcFleetLeader(npc, dt) {
+    const fleet = fleetById(npc.fleetId);
+    if (!fleet || !npc.isFleetLeader) return false;
+    if (fleet.state === 'forming' || fleet.state === 'reforming') {
+        fleet.reformTimer = Math.max(0, (fleet.reformTimer || 0) - dt);
+        if (fleet.state === 'reforming' && fleet.reformTimer <= 0 && fleetIsFormed(fleet)) fleet.state = 'enroute';
+        const point = formationWorldPoint(fleet, npc);
+        if (point) {
+            npc.targetAngle = Math.atan2(point.z - npc.z, point.x - npc.x);
+            npc.throttle = clamp(Math.hypot(point.x - npc.x, point.z - npc.z) / 420, 0.15, 0.65);
+        }
+        return true;
+    }
+    return false;
+}
+
+function updateNpcSecurityPatrol(npc, dt) {
+    if (!npc.isFleetLeader || npc.trafficRole !== 'security') return false;
+    const fleet = fleetById(npc.fleetId);
+    const route = npc.patrolRoute || [];
+    if (!fleet || !route.length) return false;
+    const target = route[npc.patrolIndex % route.length];
+    if (!target) return false;
+    const dx = (target.x || 0) - npc.x;
+    const dz = (target.z || 0) - npc.z;
+    const distance = Math.hypot(dx, dz);
+    npc.targetAngle = Math.atan2(dz, dx);
+    npc.throttle = distance < 900 ? 0.38 : 0.72;
+    if (distance < 420) {
+        npc.patrolIndex = (npc.patrolIndex + 1) % route.length;
+        fleet.patrolIndex = npc.patrolIndex;
+    }
+    return true;
+}
+
+function updateNpcTraderRoute(npc, dt) {
+    if (!npc.isTradeConvoy) return false;
+    const fleet = fleetById(npc.fleetId);
+    if (fleet && (fleet.state === 'forming' || fleet.state === 'reforming')) return updateNpcFleetLeader(npc, dt);
+    if (npc.hidden) {
+        npc.tradeDockTimer = Math.max(0, (npc.tradeDockTimer || 0) - dt);
+        if (npc.tradeDockTimer > 0) return true;
+        npc.hidden = false;
+        const origin = npc.tradeDestination || npc.tradeOrigin;
+        const destination = randomNpcTradeDestination(origin, { irregular: npc.irregularTraffic });
+        const angle = destination ? Math.atan2(destination.z - origin.z, destination.x - origin.x) : Math.random() * Math.PI * 2;
+        const launch = launchPointFromTargetObject(origin, angle, 420);
+        npc.x = launch.x;
+        npc.z = launch.z;
+        npc.rotation = launch.rotation;
+        npc.speed = 0;
+        assignNpcTradeRoute(npc, origin, destination);
+        if (fleet) {
+            fleet.origin = origin;
+            fleet.destination = destination;
+            fleet.gather = {
+                x: launch.x + Math.cos(angle) * 650,
+                z: launch.z + Math.sin(angle) * 650,
+                rotation: angle
+            };
+            fleet.state = 'forming';
+            fleet.wait = 0;
+        }
+        convoyMembersForLeader(npc).forEach((escort, index) => {
+            escort.hidden = false;
+            escort.escortFor = npc.id;
+            escort.escortIndex = index;
+            placeEscortNearLeader(escort, npc, index);
+        });
+        return true;
+    }
+    if (updateNpcTradeLane(npc, dt)) return true;
+    if (!npc.tradeRoute?.length || npc.tradeWaypointIndex >= npc.tradeRoute.length) assignNpcTradeRoute(npc, npc.tradeDestination || npc.tradeOrigin);
+    const waypoint = npc.tradeRoute?.[npc.tradeWaypointIndex || 0];
+    if (!waypoint?.target) return false;
+    const target = waypoint.target;
+    const dx = target.x - npc.x;
+    const dz = target.z - npc.z;
+    const distance = Math.hypot(dx, dz);
+    npc.targetAngle = Math.atan2(dz, dx);
+    npc.throttle = waypoint.type === 'dock' && distance < 900 ? 0.45 : 0.82;
+    if (waypoint.type === 'tradelane' && distance < 260) {
+        startNpcTradeLane(npc, target, waypoint.exit);
+        return true;
+    }
+    if (waypoint.type === 'dock' && distance < 220) {
+        npc.hidden = true;
+        npc.tradeDockTimer = 8 + Math.random() * 8;
+        npc.tradeOrigin = target;
+        npc.speed = 0;
+        npc.throttle = 0;
+        if (fleet) {
+            fleet.state = 'docked';
+            fleetMembers(fleet).forEach(member => {
+                if (member !== npc) {
+                    member.hidden = true;
+                    member.tradeDockTimer = npc.tradeDockTimer;
+                    member.speed = 0;
+                    member.throttle = 0;
+                }
+            });
+        }
+        return true;
+    }
+    return true;
+}
+
 function damageNpc(npc, amount, attacker = null) {
-    if (!npc || npc.hull <= 0) return false;
+    if (!npc || npc.hull <= 0 || npc.hidden || npc.inTradeLane) return false;
     if (attacker === game.player) npc.hostileToPlayer = true;
     let damage = Number(amount) || 0;
     if (npc.shield > 0) {
@@ -4574,17 +5394,30 @@ function damageNpc(npc, amount, attacker = null) {
 }
 
 function updateNPC(npc, dt) {
+    if (npc.hidden) {
+        updateNpcTraderRoute(npc, dt);
+        return;
+    }
     npc.stateTimer += dt;
     npc.shieldRotation += dt * 0.5;
     npc.fireCooldown = Math.max(0, (npc.fireCooldown || 0) - dt);
 
-    const combatTarget = findNpcCombatTarget(npc);
+    let combatTarget = findNpcCombatTarget(npc);
+    if (shouldNpcHoldFormation(npc, combatTarget, dt)) combatTarget = null;
     if (combatTarget) {
         const dx = combatTarget.x - npc.x;
         const dz = combatTarget.z - npc.z;
         npc.targetAngle = Math.atan2(dz, dx);
         npc.throttle = 0.8;
         fireNPCWeapon(npc, combatTarget);
+    } else if (updateNpcFleetLeader(npc, dt)) {
+        // Fleet leader is gathering/re-forming the group.
+    } else if (npc.escortFor && updateNpcEscort(npc)) {
+        // Escort navigation is handled by updateNpcEscort.
+    } else if (updateNpcTraderRoute(npc, dt)) {
+        // Trader navigation is handled by updateNpcTraderRoute.
+    } else if (updateNpcSecurityPatrol(npc, dt)) {
+        // Security patrol route is handled by fleet logic.
     } else {
         if (npc.stateTimer > 4) {
             npc.targetAngle = Math.random() * Math.PI * 2;
@@ -4598,9 +5431,11 @@ function updateNPC(npc, dt) {
     while (angleDiff < -Math.PI) angleDiff += Math.PI * 2;
     if (Math.abs(angleDiff) > 0.01) npc.rotation += Math.sign(angleDiff) * Math.min(Math.abs(angleDiff), npc.turnRate * dt);
     
-    npc.speed += (npc.throttle * npc.maxSpeed - npc.speed) * 0.02;
-    npc.x += Math.cos(npc.rotation) * npc.speed * dt;
-    npc.z += Math.sin(npc.rotation) * npc.speed * dt;
+    if (!npc.inTradeLane) {
+        npc.speed += (npc.throttle * npc.maxSpeed - npc.speed) * 0.02;
+        npc.x += Math.cos(npc.rotation) * npc.speed * dt;
+        npc.z += Math.sin(npc.rotation) * npc.speed * dt;
+    }
 }
 
 function renderNpcStatusBars(ctx, npc, screenPos, visualScale) {
@@ -4636,7 +5471,8 @@ function renderNpcStatusBars(ctx, npc, screenPos, visualScale) {
 function renderNpcFactionLabel(ctx, npc, screenPos, visualScale) {
     const factionName = factionDisplayName(npc.faction);
     const name = npc.name || npc.ship || 'NPC';
-    const text = `${name} - ${factionName}`;
+    const role = npc.formationRole || (npc.isFleetLeader ? 'Lead' : '');
+    const text = `${name}${role ? ' [' + role + ']' : ''} - ${factionName}`;
     const y = screenPos.y - Math.max(28, (npc.radius || 18) * 1.85 * visualScale);
     ctx.save();
     ctx.font = '11px Arial';
@@ -4653,7 +5489,10 @@ function renderNpcFactionLabel(ctx, npc, screenPos, visualScale) {
 }
 
 function renderNPC(ctx, npc) {
+    if (npc.hidden) return;
     const pos = worldToScreen(npc.x, npc.z);
+    const margin = Math.max(120, (npc.radius || 20) * Math.max(1, game.zoom) * 4);
+    if (pos.x < -margin || pos.x > game.width + margin || pos.y < -margin || pos.y > game.height + margin) return;
     ctx.save();
     ctx.translate(pos.x, pos.y);
     ctx.rotate(npc.rotation);
@@ -5650,6 +6489,7 @@ function update(dt) {
     }
     
     for (const entity of game.entities) entity.update(dt);
+    updateNpcFleets(dt);
     for (const npc of game.npcs) updateNPC(npc, dt);
     updateMissionState();
     updatePopulationNpcs(dt);
@@ -5707,6 +6547,7 @@ function update(dt) {
             }
         } else {
             for (const npc of game.npcs) {
+                if (npc.hidden || npc.inTradeLane) continue;
                 const dx = npc.x - p.x, dz = npc.z - p.z;
                 if (Math.sqrt(dx * dx + dz * dz) < npc.radius + p.radius) {
                     damageNpc(npc, p.damage, game.player);
@@ -5732,6 +6573,7 @@ const SCANNER_RANGE = 12000;
 
 function scannerObjectKind(target) {
     if (!target) return t('scannerObject');
+    if (target.isWaypoint) return t('scannerWaypoint');
     if (game.npcs.includes(target)) return t('scannerShip');
     if (target instanceof PlanetLocation) return t('scannerPlanet');
     if (target instanceof JumpGate) return target.kind === 'hole' ? t('scannerJumpHole') : t('scannerJumpGate');
@@ -5745,38 +6587,92 @@ function scannerObjectIcon(kind) {
     if (kind === t('scannerPlanet')) return '●';
     if (kind === t('scannerJumpGate') || kind === t('scannerJumpHole')) return '◇';
     if (kind === t('scannerTradeLane')) return '◌';
+    if (kind === t('scannerWaypoint')) return '◆';
     return '■';
 }
 
 function scannerTargetKey(target) {
+    if (target?.isWaypoint) return target.id || 'waypoint';
     return target?.id || target?.nickname || target?.name || '';
 }
 
 function scannerTargets() {
     if (!game.player) return [];
     const candidates = [];
+    if (game.waypoint && game.waypoint.systemId === currentSystemId) candidates.push({ target: game.waypoint, alwaysVisible: true });
     for (const npc of game.npcs || []) {
-        if (!npc || npc.hull <= 0) continue;
-        candidates.push(npc);
+        if (!npc || npc.hull <= 0 || npc.hidden) continue;
+        candidates.push({ target: npc, alwaysVisible: false });
     }
     for (const entity of game.entities || []) {
-        if (entity instanceof Station || entity instanceof PlanetLocation || entity instanceof JumpGate || entity instanceof TradeLaneRing) candidates.push(entity);
+        if (entity instanceof Station || entity instanceof PlanetLocation || entity instanceof JumpGate || entity instanceof TradeLaneRing) {
+            candidates.push({ target: entity, alwaysVisible: false });
+        }
     }
-    return candidates.map(target => {
+    return candidates.map(entry => {
+        const target = entry.target;
         const distance = Math.hypot((target.x || 0) - game.player.x, (target.z || 0) - game.player.z);
-        return { target, distance, kind: scannerObjectKind(target) };
-    }).filter(entry => Number.isFinite(entry.distance) && entry.distance <= SCANNER_RANGE)
-      .sort((a, b) => a.distance - b.distance)
+        return { target, distance, kind: scannerObjectKind(target), alwaysVisible: entry.alwaysVisible };
+    }).filter(entry => Number.isFinite(entry.distance) && (entry.alwaysVisible || entry.distance <= SCANNER_RANGE))
+      .sort((a, b) => Number(b.alwaysVisible) - Number(a.alwaysVisible) || a.distance - b.distance)
       .slice(0, 14);
 }
 
-function selectScannerTarget(key) {
-    const target = [...(game.npcs || []), ...(game.entities || [])].find(item => scannerTargetKey(item) === key);
+function findScannerTargetByKey(key) {
+    if (game.scannerTargetMap?.has(key)) return game.scannerTargetMap.get(key);
+    if (game.waypoint && scannerTargetKey(game.waypoint) === key) return game.waypoint;
+    return [...(game.npcs || []), ...(game.entities || [])].find(item => scannerTargetKey(item) === key) || null;
+}
+
+function startApproachFromScanner(target) {
+    if (!target || !Number.isFinite(target.x) || !Number.isFinite(target.z)) return;
+    game.selectedTarget = target;
+    game.approachTarget = target;
+    game.dockTarget = null;
+    game.approachArrivalLogged = false;
+    game.commandMode = 'approach';
+    updateCommandModeButtons();
+    startAutopilotCruise();
+    updateSpeedControl();
+    addLog('Approaching: ' + (target.name || scannerObjectKind(target)));
+}
+
+function selectScannerTarget(encodedKey) {
+    const key = decodeURIComponent(encodedKey || '');
+    const target = findScannerTargetByKey(key);
     if (!target) return;
     game.selectedTarget = target;
-    addLog('Selected: ' + (target.name || scannerObjectKind(target)));
+    startApproachFromScanner(target);
     playSound('select', 0.7);
     updateHUD();
+}
+
+function activateScannerRow(row, event = null) {
+    if (!row) return;
+    event?.preventDefault?.();
+    event?.stopPropagation?.();
+    const key = row.dataset.scannerKey || '';
+    const now = performance.now();
+    if (game.lastScannerActivationKey === key && now - (game.lastScannerActivationAt || 0) < 220) return;
+    game.lastScannerActivationKey = key;
+    game.lastScannerActivationAt = now;
+    selectScannerTarget(key);
+}
+
+function bindScannerPanelEvents() {
+    const list = document.getElementById('scanner-list');
+    if (!list || list.dataset.bound === '1') return;
+    list.dataset.bound = '1';
+    list.addEventListener('pointerdown', event => {
+        const row = event.target.closest('.scanner-row[data-scanner-key]');
+        if (!row) return;
+        activateScannerRow(row, event);
+    });
+    list.addEventListener('click', event => {
+        const row = event.target.closest('.scanner-row[data-scanner-key]');
+        if (!row) return;
+        activateScannerRow(row, event);
+    });
 }
 
 function updateScannerPanel() {
@@ -5789,15 +6685,18 @@ function updateScannerPanel() {
         list.innerHTML = `<div class="hud-row-muted">${escapeHtml(t('scannerNone'))}</div>`;
         return;
     }
+    game.scannerTargetMap = new Map();
     list.innerHTML = entries.map(entry => {
         const key = scannerTargetKey(entry.target);
-        const selected = game.selectedTarget === entry.target ? ' selected' : '';
+        const encodedKey = encodeURIComponent(key).replace(/'/g, '%27');
+        game.scannerTargetMap.set(key, entry.target);
+        const selected = game.selectedTarget === entry.target || game.selectedTarget?.linkedTarget === entry.target || game.selectedTarget === entry.target.linkedTarget ? ' selected' : '';
         const name = entry.target.name || entry.target.shipName || key || entry.kind;
         const hasDefenseStats = Number.isFinite(entry.target?.maxHull) || Number.isFinite(entry.target?.maxShield);
         const defenseLine = hasDefenseStats
             ? `${t('hudShield')}: ${Math.round(Number(entry.target?.shield) || 0)}/${Math.max(0, Math.round(Number(entry.target?.maxShield) || 0))} | ${t('hudHull')}: ${Math.round(Number(entry.target?.hull) || 0)}/${Math.max(1, Math.round(Number(entry.target?.maxHull) || 0))}`
             : entry.kind;
-        return `<div class="hud-row${selected}" onclick="selectScannerTarget('${escapeHtml(key)}')"><span class="hud-kind">${scannerObjectIcon(entry.kind)}</span><span>${escapeHtml(name)}<br><span style="color:#7299aa;">${escapeHtml(defenseLine)}</span></span><span class="hud-distance">${formatDistance(entry.distance)}</span></div>`;
+        return `<button type="button" class="hud-row scanner-row${selected}" data-scanner-key="${encodedKey}"><span class="hud-kind">${scannerObjectIcon(entry.kind)}</span><span>${escapeHtml(name)}<br><span style="color:#7299aa;">${escapeHtml(defenseLine)}</span></span><span class="hud-distance">${formatDistance(entry.distance)}</span></button>`;
     }).join('');
 }
 
@@ -5888,6 +6787,8 @@ function updateHUD() {
     document.getElementById('game-time').textContent = `${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}`;
     document.getElementById('zoom-display').textContent = `ZOOM: ${game.zoom.toFixed(1)}x`;
     document.getElementById('speed-display').textContent = `SPEED: ${Math.round(p.speed)} m/s`;
+    const thrustDisplay = document.getElementById('thrust-display');
+    if (thrustDisplay) thrustDisplay.textContent = `THRUST: ${Math.round(p.thrustEnergy || 0)}/${Math.round(p.thrustCapacity || 0)}`;
     updateSpeedControl();
     updateZoomControl();
     updateCruiseButton();
@@ -5940,31 +6841,41 @@ function updateHUD() {
 }
 
 function renderWaypointLine(ctx) {
-    const waypoint = game.waypoint;
-    if (!waypoint || !game.player || currentSystemId !== (waypoint.systemId || currentSystemId)) return;
+    if (!game.player) return;
     const start = worldToScreen(game.player.x, game.player.z);
-    const end = worldToScreen(waypoint.x, waypoint.z);
-    ctx.save();
-    ctx.strokeStyle = 'rgba(255, 190, 45, 0.86)';
-    ctx.lineWidth = 2;
-    ctx.setLineDash([10, 7]);
-    ctx.beginPath();
-    ctx.moveTo(start.x, start.y);
-    ctx.lineTo(end.x, end.y);
-    ctx.stroke();
-    ctx.setLineDash([]);
-    ctx.fillStyle = '#ffaa00';
-    ctx.strokeStyle = '#000';
-    ctx.lineWidth = 2;
-    ctx.beginPath();
-    ctx.arc(end.x, end.y, 7, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.stroke();
-    ctx.font = '12px Courier New';
-    ctx.textAlign = 'center';
-    ctx.fillStyle = '#ffd36a';
-    ctx.fillText(waypoint.name || 'Waypoint', end.x, end.y - 13);
-    ctx.restore();
+    const drawLine = (target, color, fillColor, dash, label) => {
+        if (!target || !Number.isFinite(target.x) || !Number.isFinite(target.z)) return;
+        const end = worldToScreen(target.x, target.z);
+        ctx.save();
+        ctx.strokeStyle = color;
+        ctx.lineWidth = 2;
+        ctx.setLineDash(dash);
+        ctx.beginPath();
+        ctx.moveTo(start.x, start.y);
+        ctx.lineTo(end.x, end.y);
+        ctx.stroke();
+        ctx.setLineDash([]);
+        ctx.fillStyle = fillColor;
+        ctx.strokeStyle = '#000';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.arc(end.x, end.y, 7, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.stroke();
+        ctx.font = '12px Courier New';
+        ctx.textAlign = 'center';
+        ctx.fillStyle = fillColor;
+        ctx.fillText(label || target.name || 'Target', end.x, end.y - 13);
+        ctx.restore();
+    };
+    const waypoint = game.waypoint;
+    if (waypoint && currentSystemId === (waypoint.systemId || currentSystemId)) {
+        drawLine(waypoint, 'rgba(185, 95, 255, 0.88)', '#c77dff', [7, 6], waypoint.name || 'Waypoint');
+    }
+    const target = game.approachTarget || game.selectedTarget;
+    if (target && target !== waypoint && !target.isWaypoint) {
+        drawLine(target, 'rgba(255, 170, 0, 0.86)', '#ffaa00', [10, 7], target.name || 'Target');
+    }
 }
 
 function render() {
@@ -6341,7 +7252,7 @@ function setupInput() {
                 break;
             case 'Tab':
                 e.preventDefault();
-                if (!game.player.inTradeLane && !game.player.cruiseActive && !game.player.cruiseCharging && !game.jumpTransition) {
+                if (canUseAfterburner()) {
                     game.player.afterburnerActive = true;
                     game.player.reverseActive = false;
                     game.player.throttle = 1;
@@ -6426,6 +7337,16 @@ function screenToSystemMap(x, y, transform) {
     return { x: (x - transform.offsetX) / transform.scaleX, z: (y - transform.offsetY) / transform.scaleY };
 }
 
+function isSelectedMapObject(object, entity = null) {
+    const selected = game.selectedTarget;
+    if (!selected) return false;
+    if (selected === object || selected === entity) return true;
+    const selectedId = String(selected.id || selected.nickname || '');
+    const objectId = String(object?.id || object?.nickname || '');
+    const entityId = String(entity?.id || entity?.nickname || '');
+    return Boolean(selectedId && (selectedId === objectId || selectedId === entityId));
+}
+
 function drawMapCanvas() {
     const canvas = document.getElementById('map-canvas');
     if (!canvas) return;
@@ -6471,7 +7392,7 @@ function drawMapCanvas() {
         ctx.fillStyle = '#88aacc';
         ctx.fillText(planet.name, ex, ey + 25);
         const selectedPlanet = game.entities.find(e => e instanceof PlanetLocation && e.id === planet.id);
-        if (game.selectedTarget === selectedPlanet) {
+        if (isSelectedMapObject(planet, selectedPlanet)) {
             ctx.strokeStyle = '#ffaa00';
             ctx.lineWidth = 2;
             ctx.beginPath();
@@ -6499,10 +7420,11 @@ function drawMapCanvas() {
             const rx = ringPos.x;
             const ry = ringPos.y;
             const ringEntity = findTradeLaneRingEntity(ring, i);
-            ctx.strokeStyle = game.selectedTarget === ringEntity ? '#ffaa00' : '#00dd88';
-            ctx.lineWidth = game.selectedTarget === ringEntity ? 2 : 1;
+            const selectedRing = isSelectedMapObject(ring, ringEntity);
+            ctx.strokeStyle = selectedRing ? '#ffaa00' : '#00dd88';
+            ctx.lineWidth = selectedRing ? 2 : 1;
             ctx.beginPath();
-            ctx.arc(rx, ry, game.selectedTarget === ringEntity ? 5 : 3, 0, Math.PI * 2);
+            ctx.arc(rx, ry, selectedRing ? 5 : 3, 0, Math.PI * 2);
             ctx.stroke();
         }
         ctx.strokeStyle = 'rgba(0,200,100,0.5)';
@@ -6557,7 +7479,8 @@ function drawMapCanvas() {
         ctx.arc(ex, ey, mapRadius, 0, Math.PI * 2);
         ctx.fill();
         
-        if (game.selectedTarget === station) {
+        const selectedStation = game.entities.find(e => e.id === station.id);
+        if (isSelectedMapObject(station, selectedStation)) {
             ctx.strokeStyle = '#ffaa00';
             ctx.lineWidth = 2;
             ctx.beginPath();
@@ -6583,7 +7506,7 @@ function drawMapCanvas() {
         ctx.stroke();
 
         const selectedEntity = game.entities.find(e => e.id === gate.id);
-        if (game.selectedTarget === selectedEntity) {
+        if (isSelectedMapObject(gate, selectedEntity)) {
             ctx.strokeStyle = '#ffaa00';
             ctx.lineWidth = 2;
             ctx.beginPath();
@@ -6595,10 +7518,34 @@ function drawMapCanvas() {
         ctx.fillText(gate.name, ex, ey + 20);
     }
 
+    const mapPlayerPos = game.player ? systemMapToScreen(game.player.x, game.player.z, mapTransform) : null;
+    const selectedMapTarget = game.approachTarget || game.selectedTarget;
+    if (mapPlayerPos && selectedMapTarget && Number.isFinite(selectedMapTarget.x) && Number.isFinite(selectedMapTarget.z) && !selectedMapTarget.isWaypoint) {
+        const selectedPos = systemMapToScreen(selectedMapTarget.x, selectedMapTarget.z, mapTransform);
+        ctx.strokeStyle = 'rgba(255,170,0,0.78)';
+        ctx.lineWidth = 2;
+        ctx.setLineDash([9, 6]);
+        ctx.beginPath();
+        ctx.moveTo(mapPlayerPos.x, mapPlayerPos.y);
+        ctx.lineTo(selectedPos.x, selectedPos.y);
+        ctx.stroke();
+        ctx.setLineDash([]);
+    }
+
     if (game.waypoint && game.waypoint.systemId === currentSystemId) {
         const waypointPos = systemMapToScreen(game.waypoint.x, game.waypoint.z, mapTransform);
-        ctx.strokeStyle = '#ffaa00';
-        ctx.fillStyle = '#ffaa00';
+        if (mapPlayerPos) {
+            ctx.strokeStyle = 'rgba(185,95,255,0.82)';
+            ctx.lineWidth = 2;
+            ctx.setLineDash([6, 5]);
+            ctx.beginPath();
+            ctx.moveTo(mapPlayerPos.x, mapPlayerPos.y);
+            ctx.lineTo(waypointPos.x, waypointPos.y);
+            ctx.stroke();
+            ctx.setLineDash([]);
+        }
+        ctx.strokeStyle = '#c77dff';
+        ctx.fillStyle = '#c77dff';
         ctx.lineWidth = 2;
         ctx.beginPath();
         ctx.moveTo(waypointPos.x, waypointPos.y - 9);
@@ -7034,6 +7981,15 @@ function stopMapDrag() {
 document.getElementById('map-canvas')?.addEventListener('mouseup', stopMapDrag);
 document.getElementById('map-canvas')?.addEventListener('mouseleave', stopMapDrag);
 
+function selectMapTarget(target, name = '') {
+    if (!target) return;
+    game.selectedTarget = target;
+    addLog('Selected: ' + (name || target.name || scannerObjectKind(target)));
+    playSound('select', 0.7);
+    updateHUD();
+    drawMapCanvas();
+}
+
 // Click on map to select
 document.getElementById('map-canvas')?.addEventListener('click', (e) => {
     if (game.mapDragged) {
@@ -7051,10 +8007,7 @@ document.getElementById('map-canvas')?.addEventListener('click', (e) => {
         const dx = station.x - worldX;
         const dz = station.z - worldZ;
         if (Math.sqrt(dx * dx + dz * dz) < 5000) {
-            game.selectedTarget = game.entities.find(e => e.id === station.id);
-            setWaypointTarget(game.selectedTarget || station, station.name);
-            addLog('Selected: ' + station.name);
-            drawMapCanvas();
+            selectMapTarget(game.entities.find(e => e.id === station.id) || station, station.name);
             return;
         }
     }
@@ -7074,10 +8027,7 @@ document.getElementById('map-canvas')?.addEventListener('click', (e) => {
         }
     }
     if (nearestRing) {
-        game.selectedTarget = nearestRing;
-        setWaypointTarget(nearestRing, nearestRing.name);
-        addLog('Selected: ' + nearestRing.name);
-        drawMapCanvas();
+        selectMapTarget(nearestRing, nearestRing.name);
         return;
     }
 
@@ -7085,10 +8035,7 @@ document.getElementById('map-canvas')?.addEventListener('click', (e) => {
         const dx = planet.x - worldX;
         const dz = planet.z - worldZ;
         if (Math.sqrt(dx * dx + dz * dz) < Math.max(8000, planet.radius)) {
-            game.selectedTarget = game.entities.find(e => e instanceof PlanetLocation && e.id === planet.id);
-            setWaypointTarget(game.selectedTarget || planet, planet.name);
-            addLog('Selected: ' + planet.name);
-            drawMapCanvas();
+            selectMapTarget(game.entities.find(e => e instanceof PlanetLocation && e.id === planet.id) || planet, planet.name);
             return;
         }
     }
@@ -7097,10 +8044,7 @@ document.getElementById('map-canvas')?.addEventListener('click', (e) => {
         const dx = gate.x - worldX;
         const dz = gate.z - worldZ;
         if (Math.sqrt(dx * dx + dz * dz) < 5000) {
-            game.selectedTarget = game.entities.find(e => e.id === gate.id);
-            setWaypointTarget(game.selectedTarget || gate, gate.name);
-            addLog('Selected: ' + gate.name);
-            drawMapCanvas();
+            selectMapTarget(game.entities.find(e => e.id === gate.id) || gate, gate.name);
             return;
         }
     }
@@ -7109,6 +8053,7 @@ document.getElementById('map-canvas')?.addEventListener('click', (e) => {
     drawMapCanvas();
 });
 
+document.getElementById('btn-clear-waypoint')?.addEventListener('click', clearWaypoint);
 document.getElementById('btn-close-map')?.addEventListener('click', toggleMap);
 document.getElementById('btn-close-inventory')?.addEventListener('click', () => toggleInventoryPanel(false));
 document.getElementById('btn-close-universe')?.addEventListener('click', toggleUniverseView);
@@ -7185,10 +8130,13 @@ function renderInventoryPanel() {
     html += '</div>';
 
     html += `<div class="inventory-section"><div class="inventory-section-title">Mounted Equipment</div>`;
-    const mountedEntries = Object.entries(p.mountedEquipment || {}).filter(([, itemId]) => itemId);
+    const mountedEntries = [
+        ...(currentPowerPlantItem() ? [['powerplant', currentPowerPlantItem().id]] : []),
+        ...Object.entries(p.mountedEquipment || {}).filter(([slot]) => slot !== 'powerplant')
+    ].filter(([, itemId]) => itemId);
     if (mountedEntries.length) {
         for (const [slot, itemId] of mountedEntries) {
-            const item = getEquipment(itemId);
+            const item = slot === 'powerplant' ? currentPowerPlantItem() : getEquipment(itemId);
             html += inventoryRow(item?.name || itemId, 1, equipmentSlotLabel(slot));
         }
     } else {
@@ -7406,6 +8354,7 @@ function applyMountedEquipmentEffects() {
     game.player.powerGen = game.player.basePowerGen || game.player.powerGen;
     game.player.thrustCapacity = game.player.baseThrustCapacity || game.player.thrustCapacity;
     game.player.thrustChargeRate = game.player.baseThrustChargeRate || game.player.thrustChargeRate;
+    game.player.acceleration = game.player.baseAcceleration || game.player.acceleration;
     game.player.baseMaxSpeed = COMBAT_MAX_SPEED;
     game.player.maxSpeed = game.player.baseMaxSpeed;
     for (const itemId of Object.values(mounted)) {
@@ -7435,6 +8384,8 @@ function applyMountedEquipmentEffects() {
             game.player.maxSpeed = game.player.baseMaxSpeed;
         }
     }
+    game.player.thrustEnergy = Math.min(game.player.thrustCapacity, Number.isFinite(game.player.thrustEnergy) ? game.player.thrustEnergy : game.player.thrustCapacity);
+    if (!hasMountedThruster()) game.player.afterburnerActive = false;
     game.player.shield = game.player.maxShield > 0 ? Math.min(game.player.maxShield, game.player.maxShield * previousShieldRatio) : 0;
 }
 
@@ -7576,7 +8527,7 @@ function renderEquipmentDealer() {
     const inventory = game.player.equipmentInventory || [];
     const repairCost = shipRepairCost();
     const dealerTab = game.equipmentDealerTab || 'equipment';
-    let html = `<div style="display:flex;justify-content:space-between;margin-bottom:10px;color:#b9efff;gap:12px;flex-wrap:wrap;"><span>${t('credits')}: ${game.player.credits.toLocaleString()} CR</span><span>Ship: ${escapeHtml(game.player.shipName || 'Unknown')}</span><span>Hull: ${Math.round(game.player.hull).toLocaleString()}/${Math.round(game.player.maxHull).toLocaleString()}</span><span>Shield: ${game.player.maxShield > 0 ? `${Math.round(game.player.shield).toLocaleString()}/${Math.round(game.player.maxShield).toLocaleString()}` : 'none'}</span><span>Power: ${Math.round(game.player.maxEnergy).toLocaleString()} / +${Math.round(game.player.powerGen).toLocaleString()}/s</span><span>Nanobots: ${game.player.nanobots}/${game.player.maxNanobots}</span><span>Shield Batteries: ${game.player.shieldBatteries}/${game.player.maxShieldBatteries}</span><span>${tf('missileAmmoCount', { count: totalMissileAmmoCount(), max: game.player.maxMissileAmmo })}</span></div>`;
+    let html = `<div style="display:flex;justify-content:space-between;margin-bottom:10px;color:#b9efff;gap:12px;flex-wrap:wrap;"><span>${t('credits')}: ${game.player.credits.toLocaleString()} CR</span><span>Ship: ${escapeHtml(game.player.shipName || 'Unknown')}</span><span>Hull: ${Math.round(game.player.hull).toLocaleString()}/${Math.round(game.player.maxHull).toLocaleString()}</span><span>Shield: ${game.player.maxShield > 0 ? `${Math.round(game.player.shield).toLocaleString()}/${Math.round(game.player.maxShield).toLocaleString()}` : 'none'}</span><span>Power: ${Math.round(game.player.maxEnergy).toLocaleString()} / +${Math.round(game.player.powerGen).toLocaleString()}/s</span><span>Thrust: ${Math.round(game.player.thrustEnergy || 0).toLocaleString()}/${Math.round(game.player.thrustCapacity || 0).toLocaleString()} / +${Math.round(game.player.thrustChargeRate || 0).toLocaleString()}/s</span><span>Nanobots: ${game.player.nanobots}/${game.player.maxNanobots}</span><span>Shield Batteries: ${game.player.shieldBatteries}/${game.player.maxShieldBatteries}</span><span>${tf('missileAmmoCount', { count: totalMissileAmmoCount(), max: game.player.maxMissileAmmo })}</span></div>`;
     html += `<div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px;padding:8px;border:1px solid #24445c;background:#07141f;"><span style="color:#b9efff;">Ship repair: ${repairCost > 0 ? repairCost.toLocaleString() + ' CR' : 'no damage'}</span><button class="trade-button" onclick="repairPlayerShip()" ${repairCost > 0 && game.player.credits >= repairCost ? '' : 'disabled'}>REPAIR</button></div>`;
     if (!market.length) {
         html += `<div style="color:#ffaa00;">${t('noEquipment')}</div>`;
@@ -7589,7 +8540,8 @@ function renderEquipmentDealer() {
     for (const slot of slots) {
         const item = mountedEquipmentItem(slot);
         const itemMeta = item ? `${equipmentMountType(item)} class ${equipmentClass(item)}` : '';
-        html += `<div class="slot-row"><div><strong>${escapeHtml(equipmentSlotLabel(slot))}</strong><br><span style="color:${item ? '#b9efff' : '#667f8f'};">${item ? escapeHtml(item.name) : 'Empty'}</span>${item ? `<br><span style="color:#88a;">${escapeHtml(itemMeta)}</span>` : ''}</div><button class="trade-button" onclick="unmountEquipment('${slot}')" ${item ? '' : 'disabled'}>Unmount</button></div>`;
+        const lockedSlot = slot === 'powerplant';
+        html += `<div class="slot-row"><div><strong>${escapeHtml(equipmentSlotLabel(slot))}</strong><br><span style="color:${item ? '#b9efff' : '#667f8f'};">${item ? escapeHtml(item.name) : 'Empty'}</span>${item ? `<br><span style="color:#88a;">${escapeHtml(itemMeta)}${lockedSlot ? ' | fixed' : ''}</span>` : ''}</div><button class="trade-button" onclick="unmountEquipment('${slot}')" ${item && !lockedSlot ? '' : 'disabled'}>Unmount</button></div>`;
     }
     html += '</div><div class="equipment-panel"><h4>Inventory</h4>';
     const availableInventory = inventory.map(inv => ({ ...inv, availableQuantity: availableEquipmentQuantity(inv.id) })).filter(inv => inv.availableQuantity > 0);
@@ -7598,9 +8550,10 @@ function renderEquipmentDealer() {
             const sellPrice = equipmentSellPrice(inv.id);
             const inventoryItem = getEquipment(inv.id);
             const compatibility = equipmentCompatibility(inventoryItem);
-            const canMount = !inventoryItem?.combinable && compatibility.ok;
+            const isPowerplant = equipmentMountType(inventoryItem) === 'powerplant';
+            const canMount = !inventoryItem?.combinable && compatibility.ok && !isPowerplant;
             const meta = `${equipmentMountType(inventoryItem)} class ${equipmentClass(inventoryItem)} x${inv.availableQuantity} | ${sellPrice.toLocaleString()} CR`;
-            html += `<div class="slot-row"><div>${escapeHtml(inv.name)}<br><span style="color:#88a;">${escapeHtml(meta)}</span>${compatibility.ok ? '' : `<br><span style="color:#ff7777;">${escapeHtml(compatibility.reason)}</span>`}</div><div style="display:flex;gap:6px;justify-content:flex-end;flex-wrap:wrap;"><button class="trade-button" onclick="mountEquipment('${inv.id}')" ${canMount ? '' : 'disabled'}>Mount</button><button class="trade-button" onclick="sellEquipment('${inv.id}')" ${sellPrice > 0 ? '' : 'disabled'}>${t('sell')}</button></div></div>`;
+            html += `<div class="slot-row"><div>${escapeHtml(inv.name)}<br><span style="color:#88a;">${escapeHtml(meta)}${isPowerplant ? ' | fixed' : ''}</span>${compatibility.ok ? '' : `<br><span style="color:#ff7777;">${escapeHtml(compatibility.reason)}</span>`}</div><div style="display:flex;gap:6px;justify-content:flex-end;flex-wrap:wrap;"><button class="trade-button" onclick="mountEquipment('${inv.id}')" ${canMount ? '' : 'disabled'}>Mount</button><button class="trade-button" onclick="sellEquipment('${inv.id}')" ${sellPrice > 0 && !isPowerplant ? '' : 'disabled'}>${t('sell')}</button></div></div>`;
         }
     } else {
         html += '<div style="color:#667f8f;">No equipment in inventory.</div>';
@@ -7621,13 +8574,22 @@ function renderEquipmentDealer() {
         if (!item) continue;
         const inv = inventory.find(i => i.id === item.id);
         const owned = inv ? availableEquipmentQuantity(item.id) : 0;
-        const canBuy = entry.forSale && game.player.credits >= entry.price;
+        const needsShipCompatibility = !item.combinable && categorySlotKeys(item.category).length > 0;
+        const compatibility = needsShipCompatibility ? equipmentCompatibility(item) : { ok: true, reason: '' };
+        const canBuy = entry.forSale && game.player.credits >= entry.price && compatibility.ok;
         const damageLabel = isMissileLauncher(item)
             ? `${Math.round(missileDamageForItem(item, getEquipment(missileAmmoItemId(item))))}`
             : (item.hullDamage || item.energyDamage ? `${Math.round(Number(item.hullDamage || 0))}/${Math.round(Number(item.energyDamage || 0))}` : '-');
-        const powerLabel = item.powerUsage ? Number(item.powerUsage).toFixed(1) : (item.capacity ? `${Math.round(item.capacity).toLocaleString()} / +${Math.round(item.chargeRate || 0).toLocaleString()}` : '-');
+        const powerLabel = item.category === 'thruster'
+            ? `${Math.round(thrusterPowerUsage(item)).toLocaleString()}/s thrust`
+            : (item.powerUsage ? Number(item.powerUsage).toFixed(1) : (item.capacity ? `${Math.round(item.capacity).toLocaleString()} / +${Math.round(item.chargeRate || 0).toLocaleString()}` : '-'));
         const typeLabel = equipmentMountType(item);
-        html += `<tr><td style="color:#00ff00;">${escapeHtml(item.name)}</td><td>${escapeHtml(typeLabel)}</td><td>${equipmentClass(item)}</td><td>${escapeHtml(powerLabel)}</td><td>${escapeHtml(damageLabel)}</td><td style="color:#ffaa00;">${entry.price.toLocaleString()} CR</td><td>${entry.forSale ? `${entry.stockMin}-${entry.stockMax}` : '-'}</td><td>${owned}</td><td><button class="trade-button" onclick="buyEquipment('${item.id}')" ${canBuy ? '' : 'disabled'}>${t('buy')}</button></td></tr>`;
+        const muted = !compatibility.ok;
+        const rowStyle = muted ? ' style="opacity:0.48;color:#778899;"' : '';
+        const mutedCellStyle = muted ? ' style="color:#778899;"' : '';
+        const reasonHtml = muted ? `<br><span style="color:#ff7777;font-size:11px;">${escapeHtml(compatibility.reason)}</span>` : '';
+        const titleAttr = muted ? ` title="${escapeHtml(compatibility.reason)}"` : '';
+        html += `<tr${rowStyle}${titleAttr}><td style="color:${muted ? '#778899' : '#00ff00'};">${escapeHtml(item.name)}${reasonHtml}</td><td${mutedCellStyle}>${escapeHtml(typeLabel)}</td><td${mutedCellStyle}>${equipmentClass(item)}</td><td${mutedCellStyle}>${escapeHtml(powerLabel)}</td><td${mutedCellStyle}>${escapeHtml(damageLabel)}</td><td style="color:${muted ? '#777' : '#ffaa00'};">${entry.price.toLocaleString()} CR</td><td${mutedCellStyle}>${entry.forSale ? `${entry.stockMin}-${entry.stockMax}` : '-'}</td><td${mutedCellStyle}>${owned}</td><td><button class="trade-button" onclick="buyEquipment('${item.id}')" ${canBuy ? '' : 'disabled'}>${t('buy')}</button></td></tr>`;
     }
     html += '</table>';
     content.innerHTML = html;
@@ -7667,6 +8629,14 @@ function buyEquipment(itemId) {
     const marketEntry = getEquipmentMarket().find(entry => entry.id === itemId);
     const item = getEquipment(itemId);
     if (!marketEntry || !item || !marketEntry.forSale || game.player.credits < marketEntry.price) return;
+    const needsShipCompatibility = !item.combinable && categorySlotKeys(item.category).length > 0;
+    if (needsShipCompatibility) {
+        const compatibility = equipmentCompatibility(item);
+        if (!compatibility.ok) {
+            addLog(compatibility.reason, 'alert');
+            return;
+        }
+    }
     if (String(item.category || '').toLowerCase() === 'missile' && item.combinable && totalMissileAmmoCount() >= game.player.maxMissileAmmo) {
         addLog(t('ammoFull'), 'alert');
         return;
@@ -7691,6 +8661,10 @@ function buyEquipment(itemId) {
 function sellEquipment(itemId) {
     const inv = findEquipmentItem(itemId);
     if (!inv || availableEquipmentQuantity(itemId) <= 0) return;
+    if (equipmentMountType(getEquipment(itemId)) === 'powerplant') {
+        addLog('Powerplants are fixed equipment and cannot be sold.', 'alert');
+        return;
+    }
     const sellPrice = equipmentSellPrice(itemId);
     if (sellPrice <= 0) return;
     inv.quantity = Math.max(0, (Number(inv.quantity) || 0) - 1);
@@ -7707,6 +8681,10 @@ function mountEquipment(itemId) {
     const inv = findEquipmentItem(itemId);
     const slot = equipmentSlot(item);
     if (!item || !inv || inv.quantity <= 0 || !slot) return;
+    if (equipmentMountType(item) === 'powerplant') {
+        addLog('Powerplants are fixed equipment and cannot be mounted manually.', 'alert');
+        return;
+    }
     const compatibility = equipmentCompatibility(item, slot);
     if (!compatibility.ok) {
         addLog(compatibility.reason, 'alert');
@@ -7728,6 +8706,10 @@ function mountEquipment(itemId) {
 
 function unmountEquipment(slot) {
     if (!game.player?.mountedEquipment?.[slot]) return;
+    if (slot === 'powerplant') {
+        addLog('Powerplants are fixed equipment and cannot be unmounted.', 'alert');
+        return;
+    }
     const item = getEquipment(game.player.mountedEquipment[slot]);
     delete game.player.mountedEquipment[slot];
     applyMountedEquipmentEffects();
@@ -7879,7 +8861,7 @@ function openShipShop() {
         const canAfford = game.player.credits >= ship.price;
         const stats = ship.stats || {};
         const isCurrent = game.player.shipPackageId === ship.id;
-        const icon = ship.icon ? `<img src="${escapeHtml(ship.icon)}" style="width:34px;height:34px;object-fit:contain;vertical-align:middle;margin-right:8px;">` : '';
+        const icon = ship.icon ? `<img src="${escapeHtml(ship.icon)}" onerror="this.onerror=null;this.src='data/ship_icons/_fallback.png';" style="width:34px;height:34px;object-fit:contain;vertical-align:middle;margin-right:8px;">` : '';
         html += `<tr style="border-bottom:1px solid #222;">
             <td style="padding:6px;color:#00ff00;">${icon}${escapeHtml(ship.name)}</td>
             <td style="padding:6px;color:#888;">${escapeHtml(ship.type || '-')}</td>
@@ -7938,6 +8920,7 @@ window.buyShip = function(packageId) {
     if (game.player.credits >= shipPackage.price) {
         game.player.credits -= shipPackage.price;
         applyShipPackage(shipPackage.id, true);
+        playVoice('shipPurchase', 1);
         saveGame(true);
         openShipShop(); // Refresh list
     } else {
@@ -7987,6 +8970,7 @@ async function init() {
     
     setupInput();
     setupMusicPlayer();
+    bindScannerPanelEvents();
     initStars();
     
     game.player = new PlayerShip(6173, -50515);
@@ -7996,6 +8980,8 @@ async function init() {
     rebuildEntities();
     
     game.npcs = [];
+    game.npcFleets = [];
+    seedAmbientTradeTrafficForSystem();
     
     document.getElementById('btn-start').addEventListener('click', startGame);
     document.getElementById('btn-new-game')?.addEventListener('click', () => {
@@ -8015,6 +9001,7 @@ async function init() {
 
 function startGame() {
     ensureAudio();
+    seedAmbientTradeTrafficForSystem();
     if (!game.musicStoppedByUser) playMusicTrack(defaultMusicTrack('space'), 'space');
     document.getElementById('start-screen').classList.add('hidden');
     game.running = true;

@@ -196552,7 +196552,25 @@ const GAME_SYSTEMS = {
     "strid_name": "459276",
     "ids_info": "458930",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "CF20_to_CF23",
+        "name": "Sol -> Hyperion",
+        "ids_name": "252680",
+        "ids_info": "465001",
+        "info": "",
+        "x": 521949.0,
+        "y": 0.0,
+        "z": 95033.0,
+        "archetype": "track_ring2",
+        "solar_radius": 600.0,
+        "dest_system": "CF23",
+        "dest_gate": "CF23_to_CF20",
+        "faction": "li_n_grp",
+        "loadout": "",
+        "rotate_y": 14.0
+      }
+    ],
     "jumpholes": [
       {
         "nickname": "CF20_to_CF31",
@@ -208604,6 +208622,7 @@ const GAME_SYSTEMS = {
     "ids_info": "458933",
     "info": "",
     "jumpgates": [
+
       {
         "nickname": "CF23_to_BR05",
         "name": "Dublin Jump Gate",
@@ -208620,6 +208639,23 @@ const GAME_SYSTEMS = {
         "faction": "ku_n_grp",
         "loadout": "jumpgatecfsys",
         "rotate_y": 173.0
+      },
+      {
+        "nickname": "CF23_to_CF20",
+        "name": "Hyperion -> Sol",
+        "ids_name": "252678",
+        "ids_info": "465001",
+        "info": "",
+        "x": -165.0,
+        "y": 0.0,
+        "z": 37369.0,
+        "archetype": "blhazard2",
+        "solar_radius": 600.0,
+        "dest_system": "CF20",
+        "dest_gate": "CF20_to_CF23",
+        "faction": "ku_n_grp",
+        "loadout": "",
+        "rotate_y": 0.0
       }
     ],
     "jumpholes": [],
@@ -533588,7 +533624,8 @@ const UNIVERSE_CONNECTIONS = {
   ],
   "CF20": [
     "CF31",
-    "CF100"
+    "CF100",
+    "CF23"
   ],
   "CF21": [
     "CF22",
@@ -533599,7 +533636,8 @@ const UNIVERSE_CONNECTIONS = {
     "CF21"
   ],
   "CF23": [
-    "BR05"
+    "BR05",
+    "CF20"
   ],
   "CF24": [
     "CF03",
