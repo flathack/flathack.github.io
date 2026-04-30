@@ -196555,7 +196555,7 @@ const GAME_SYSTEMS = {
     "jumpgates": [
       {
         "nickname": "CF20_to_CF23",
-        "name": "Sol -> Hyperion",
+        "name": "Hyperion Warp Gate",
         "ids_name": "252680",
         "ids_info": "465001",
         "info": "",
@@ -196569,6 +196569,142 @@ const GAME_SYSTEMS = {
         "faction": "li_n_grp",
         "loadout": "",
         "rotate_y": 14.0
+      },
+      {
+        "nickname": "Sol05_to_Sol06",
+        "name": "Saturn Warp Gate",
+        "ids_name": "458767",
+        "ids_info": "465001",
+        "info": "",
+        "x": -113137.0,
+        "y": 0.0,
+        "z": 103137.0,
+        "archetype": "track_ring2",
+        "solar_radius": 600.0,
+        "dest_system": "CF20",
+        "dest_gate": "Sol06_to_Sol05",
+        "faction": "li_p_grp",
+        "loadout": "",
+        "rotate_y": -90.0
+      },
+      {
+        "nickname": "Sol06_to_Sol05",
+        "name": "Jupiter Warp Gate",
+        "ids_name": "458764",
+        "ids_info": "465001",
+        "info": "",
+        "x": -115500.0,
+        "y": 0.0,
+        "z": -200176.0,
+        "archetype": "track_ring2",
+        "solar_radius": 600.0,
+        "dest_system": "CF20",
+        "dest_gate": "Sol05_to_Sol06",
+        "faction": "li_p_grp",
+        "loadout": "",
+        "rotate_y": -30.0
+      },
+      {
+        "nickname": "Sol06_to_Sol07",
+        "name": "Uranus Warp Gate",
+        "ids_name": "458768",
+        "ids_info": "465001",
+        "info": "",
+        "x": -116500.0,
+        "y": 0.0,
+        "z": -202176.0,
+        "archetype": "track_ring2",
+        "solar_radius": 600.0,
+        "dest_system": "CF20",
+        "dest_gate": "Sol07_to_Sol06",
+        "faction": "li_p_grp",
+        "loadout": "",
+        "rotate_y": -90.0
+      },
+      {
+        "nickname": "Sol07_to_Sol06",
+        "name": "Saturn Warp Gate",
+        "ids_name": "458767",
+        "ids_info": "465001",
+        "info": "",
+        "x": 81004.0,
+        "y": 0.0,
+        "z": 320585.0,
+        "archetype": "track_ring2",
+        "solar_radius": 600.0,
+        "dest_system": "CF20",
+        "dest_gate": "Sol06_to_Sol07",
+        "faction": "li_p_grp",
+        "loadout": "",
+        "rotate_y": -45.0
+      },
+      {
+        "nickname": "Sol07_to_Sol08",
+        "name": "Neptune Warp Gate",
+        "ids_name": "458769",
+        "ids_info": "465001",
+        "info": "",
+        "x": 82743.0,
+        "y": 0.0,
+        "z": 317969.0,
+        "archetype": "track_ring2",
+        "solar_radius": 600.0,
+        "dest_system": "CF20",
+        "dest_gate": "Sol08_to_Sol07",
+        "faction": "li_p_grp",
+        "loadout": "",
+        "rotate_y": -180.0
+      },
+      {
+        "nickname": "Sol08_to_Sol07",
+        "name": "Uranus Warp Gate",
+        "ids_name": "458768",
+        "ids_info": "465001",
+        "info": "",
+        "x": -107292.0,
+        "y": 0.0,
+        "z": 410348.0,
+        "archetype": "track_ring2",
+        "solar_radius": 600.0,
+        "dest_system": "CF20",
+        "dest_gate": "Sol07_to_Sol08",
+        "faction": "li_p_grp",
+        "loadout": "",
+        "rotate_y": -45.0
+      },
+      {
+        "nickname": "Sol08_to_Sol09",
+        "name": "Pluto Warp Gate",
+        "ids_name": "458770",
+        "ids_info": "465001",
+        "info": "",
+        "x": -107292.0,
+        "y": 0.0,
+        "z": 408348.0,
+        "archetype": "track_ring2",
+        "solar_radius": 600.0,
+        "dest_system": "CF20",
+        "dest_gate": "Sol09_to_Sol08",
+        "faction": "li_p_grp",
+        "loadout": "",
+        "rotate_y": 225.0
+      },
+      {
+        "nickname": "Sol09_to_Sol08",
+        "name": "Neptune Warp Gate",
+        "ids_name": "458769",
+        "ids_info": "465001",
+        "info": "",
+        "x": 520949.0,
+        "y": 0.0,
+        "z": 90033.0,
+        "archetype": "track_ring2",
+        "solar_radius": 600.0,
+        "dest_system": "CF20",
+        "dest_gate": "Sol08_to_Sol09",
+        "faction": "li_p_grp",
+        "loadout": "",
+        "rotate_y": -145.0
       }
     ],
     "jumpholes": [
@@ -208622,7 +208758,6 @@ const GAME_SYSTEMS = {
     "ids_info": "458933",
     "info": "",
     "jumpgates": [
-
       {
         "nickname": "CF23_to_BR05",
         "name": "Dublin Jump Gate",
@@ -208642,10 +208777,10 @@ const GAME_SYSTEMS = {
       },
       {
         "nickname": "CF23_to_CF20",
-        "name": "Hyperion -> Sol",
+        "name": "Warp Anomaly",
         "ids_name": "252678",
-        "ids_info": "465001",
-        "info": "",
+        "ids_info": "66146",
+        "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
         "x": -165.0,
         "y": 0.0,
         "z": 37369.0,
@@ -208653,7 +208788,7 @@ const GAME_SYSTEMS = {
         "solar_radius": 600.0,
         "dest_system": "CF20",
         "dest_gate": "CF20_to_CF23",
-        "faction": "ku_n_grp",
+        "faction": "",
         "loadout": "",
         "rotate_y": 0.0
       }
@@ -238831,6 +238966,23 @@ const GAME_SYSTEMS = {
         "faction": "fc_cf4_grp",
         "loadout": "",
         "rotate_y": 14.0
+      },
+      {
+        "nickname": "CF34_to_CF42_hole",
+        "name": "Warp Anomaly",
+        "ids_name": "252678",
+        "ids_info": "66146",
+        "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
+        "x": 35384.0,
+        "y": 0.0,
+        "z": 55108.0,
+        "archetype": "blhazard2",
+        "solar_radius": 600.0,
+        "dest_system": "CF42",
+        "dest_gate": "CF42_to_CF34_hole",
+        "faction": "",
+        "loadout": "",
+        "rotate_y": 140.0
       }
     ],
     "jumpholes": [],
@@ -270420,7 +270572,25 @@ const GAME_SYSTEMS = {
     "strid_name": "459286",
     "ids_info": "458952",
     "info": "",
-    "jumpgates": [],
+    "jumpgates": [
+      {
+        "nickname": "CF42_to_CF34_hole",
+        "name": "Warp Anomaly",
+        "ids_name": "252678",
+        "ids_info": "66146",
+        "info": "***GRAVITATIONSANOMALIE ERFASST***\nMagnetische und gravimetrische Messungen lassen auf ein \"Sprungloch\" schließen -- ein Naturphänomen, das ähnlich wie ein Sprungtor funktioniert. Die Gefahren einer Reise durch ein Sprungloch sind weitgehend unbekannt. Ageira Technologies empfiehlt, jeden Kontakt mit Sprunglöchern zu vermeiden.",
+        "x": -112977.0,
+        "y": 0.0,
+        "z": 58697.0,
+        "archetype": "blhazard2",
+        "solar_radius": 600.0,
+        "dest_system": "CF34",
+        "dest_gate": "CF34_to_CF42_hole",
+        "faction": "",
+        "loadout": "",
+        "rotate_y": 140.0
+      }
+    ],
     "jumpholes": [
       {
         "nickname": "CF42_to_CF43_hole",
@@ -293004,6 +293174,23 @@ const GAME_SYSTEMS = {
     "ids_info": "470592",
     "info": "",
     "jumpgates": [
+      {
+        "nickname": "CF60_Bw01",
+        "name": "Anomaly",
+        "ids_name": "470594",
+        "ids_info": "60240",
+        "info": "",
+        "x": -35702.0,
+        "y": 0.0,
+        "z": 32506.0,
+        "archetype": "blhazard2",
+        "solar_radius": 600.0,
+        "dest_system": "CF60",
+        "dest_gate": "CF60_Bw01",
+        "faction": "",
+        "loadout": "",
+        "rotate_y": -90.0
+      },
       {
         "nickname": "CF60_CF71",
         "name": "Venn Gate",
@@ -533619,13 +533806,12 @@ const UNIVERSE_CONNECTIONS = {
     "ST02"
   ],
   "CF19": [
-    "CF19",
     "Ku06"
   ],
   "CF20": [
+    "CF23",
     "CF31",
-    "CF100",
-    "CF23"
+    "CF100"
   ],
   "CF21": [
     "CF22",
@@ -533682,7 +533868,8 @@ const UNIVERSE_CONNECTIONS = {
   ],
   "CF34": [
     "CF33",
-    "CF36"
+    "CF36",
+    "CF42"
   ],
   "CF35": [
     "CF33",
@@ -533721,7 +533908,8 @@ const UNIVERSE_CONNECTIONS = {
   ],
   "CF42": [
     "CF43",
-    "CF49"
+    "CF49",
+    "CF34"
   ],
   "CF43": [
     "CF42",
@@ -534085,7 +534273,6 @@ const UNIVERSE_CONNECTIONS = {
     "Li04",
     "Li05",
     "Iw03",
-    "Li01",
     "CF02"
   ],
   "LI02": [
@@ -534329,6 +534516,7 @@ const UNIVERSE_CONNECTIONS = {
     "CF21"
   ],
   "CF20t": [
+    "CF23",
     "CF31",
     "CF100"
   ],

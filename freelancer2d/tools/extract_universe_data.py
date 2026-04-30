@@ -958,7 +958,7 @@ def extract_universe_map() -> dict:
                             if goto:
                                 goto_parts = goto.split(',')
                                 dest_system = goto_parts[0].strip()
-                                if dest_system:
+                                if dest_system and dest_system.lower() != system_name.lower():
                                     if system_name not in connections:
                                         connections[system_name] = []
                                     if dest_system not in connections[system_name]:
