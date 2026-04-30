@@ -255,7 +255,6 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
                     <button class="cmd-btn" id="btn-inventory" onclick="showInventory()">INVENTAR</button>
                     <button class="cmd-btn" id="btn-reputation" onclick="toggleReputationPanel()">RUF</button>
                     <button class="cmd-btn" id="btn-map" onclick="toggleMap()">MAP</button>
-                    <button class="cmd-btn" id="btn-universe" onclick="toggleUniverseView()">UNIVERSUM</button>
                     <button class="cmd-btn" id="btn-info" onclick="toggleInfoPanel()">INFO</button>
                     <button class="cmd-btn" id="btn-menu" onclick="returnToMainMenu()">MENÜ</button>
                 </div>
@@ -394,20 +393,26 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
             </div>
         </div>
         <div class="start-footer">
-            <span>Made by Aldenmar Odin - flathack - v0.6.0</span>
+            <span>Made by Aldenmar Odin - flathack - v0.6.1</span>
             <a class="start-home-link" href="https://flathack.github.io/" target="_blank" rel="noopener noreferrer">Startseite</a>
         </div>
     </div>
     
     <div id="map-overlay" class="hidden">
         <div id="map-header">
-            <h3>SYSTEM MAP - LI01 MANHATTAN</h3>
+            <h3 id="map-title">SYSTEM MAP - LI01 MANHATTAN</h3>
             <div id="map-controls">
                 <button class="map-btn" id="btn-clear-waypoint">Wegpunkt löschen</button>
                 <button class="map-btn" id="btn-close-map" style="background:#330000;border-color:#aa0000;color:#ff4444;">CLOSE</button>
             </div>
         </div>
-        <canvas id="map-canvas" width="700" height="460"></canvas>
+        <div id="map-tabs" style="display:flex;gap:8px;padding:8px 10px;border-bottom:1px solid #1d2b1d;">
+            <button class="map-btn map-tab active" data-maptab="system" onclick="switchMapTab('system')" title="Systemkarte">⏺</button>
+            <button class="map-btn map-tab" data-maptab="universe" onclick="switchMapTab('universe')" title="Universum">✦</button>
+        </div>
+        <canvas id="map-canvas" width="700" height="430"></canvas>
+        <div id="map-universe-sector-tabs" style="display:none;gap:6px;padding:6px 10px;border-bottom:1px solid #1d2b1d;flex-wrap:wrap;"></div>
+        <canvas id="map-universe-canvas" width="700" height="430" style="display:none;"></canvas>
     </div>
 
     <div id="inventory-overlay" class="hidden">
@@ -2203,7 +2208,7 @@ function updatePopulationNpcs(dt) {
 function applyLanguage() {
     const labels = [
         ['btn-freeflight', 'freeflight'], ['btn-approach', 'approach'], ['btn-dock', 'dock'], ['btn-cruise', 'cruise'], ['btn-map', 'map'],
-        ['btn-inventory', 'inventory'], ['btn-reputation', 'reputation'], ['btn-info', 'info'], ['btn-universe', 'universe'], ['btn-menu', 'menu'], ['btn-launch', 'launch'], ['btn-clear-selection', 'clearSelection']
+        ['btn-inventory', 'inventory'], ['btn-reputation', 'reputation'], ['btn-info', 'info'], ['btn-menu', 'menu'], ['btn-launch', 'launch'], ['btn-clear-selection', 'clearSelection']
     ];
     for (const [id, key] of labels) {
         const el = document.getElementById(id);
@@ -3129,13 +3134,39 @@ function applyShipPackage(packageId, logPurchase = false) {
     return true;
 }
 
+function jumpTargetSystem(target) {
+    return canonicalSystemId(target?.dest || currentSystemId);
+}
+
+function findArrivalObjectInSystem(systemId, destObjectId) {
+    if (!destObjectId) return null;
+    const destinationSystemId = canonicalSystemId(systemId || currentSystemId);
+    const destinationData = destinationSystemId.toLowerCase() === currentSystemId.toLowerCase()
+        ? systemData
+        : buildSystemData(destinationSystemId);
+    return [...(destinationData.jumpgates || []), ...(destinationData.stations || [])]
+        .find(obj => obj.id && obj.id.toLowerCase() === destObjectId.toLowerCase()) || null;
+}
+
+function hasJumpDestination(target) {
+    if (!(target instanceof JumpGate)) return false;
+    return !!findArrivalObjectInSystem(jumpTargetSystem(target), target.destObject);
+}
+
 function isDockableTarget(target) {
-    return target instanceof Station || target instanceof JumpGate || target instanceof PlanetLocation || target instanceof TradeLaneRing;
+    return target instanceof Station
+        || target instanceof PlanetLocation
+        || target instanceof TradeLaneRing
+        || hasJumpDestination(target);
 }
 
 function startDocking(target) {
     if (!isDockableTarget(target)) {
-        addLog('Can only dock at stations, planets, jump gates, jump holes, and trade lane rings!', 'alert');
+        if (target instanceof JumpGate) {
+            addLog('Jump target is inactive or has no destination.', 'alert');
+        } else {
+            addLog('Can only dock at stations, planets, jump gates, jump holes, and trade lane rings!', 'alert');
+        }
         return false;
     }
     if (game.player && Math.hypot((target.x || 0) - game.player.x, (target.z || 0) - game.player.z) > 10000) {
@@ -3163,6 +3194,10 @@ function startDocking(target) {
 }
 
 function startJumpTransition(target) {
+    if (!hasJumpDestination(target)) {
+        addLog('Jump target is inactive or has no destination.', 'alert');
+        return false;
+    }
     const angle = Math.atan2(target.z - game.player.z, target.x - game.player.x);
     game.jumpTransition = {
         phase: 'out',
@@ -3171,7 +3206,7 @@ function startJumpTransition(target) {
         duration: JUMP_TRANSITION_PHASE_DURATION,
         totalDuration: JUMP_TRANSITION_TOTAL_DURATION,
         angle,
-        targetSystem: target.dest || currentSystemId,
+        targetSystem: jumpTargetSystem(target),
         targetObject: target.destObject,
         gateName: target.name
     };
@@ -3184,8 +3219,10 @@ function startJumpTransition(target) {
     game.player.speed = 0;
     updateCruiseButton();
     updateSpeedControl();
-    addLog('Jumping through ' + target.name + ' to ' + (target.dest || 'unknown system'));
+    const sameSystemJump = jumpTargetSystem(target).toLowerCase() === currentSystemId.toLowerCase();
+    addLog('Jumping through ' + target.name + (sameSystemJump ? ' to another point in ' : ' to ') + jumpTargetSystem(target));
     playSound('jump', 1.2);
+    return true;
 }
 
 let currentSystemId = 'Li01';
@@ -3915,13 +3952,26 @@ function updateSystemHud() {
 }
 
 function findArrivalObject(destObjectId) {
-    if (!destObjectId) return null;
-    return [...systemData.jumpgates, ...systemData.stations].find(obj => obj.id && obj.id.toLowerCase() === destObjectId.toLowerCase()) || null;
+    return findArrivalObjectInSystem(currentSystemId, destObjectId);
+}
+
+function jumpArrivalPose(arrival, fallbackAngle) {
+    const angle = arrival instanceof JumpGate || arrival?.kind
+        ? flYawToCanvasRotation(arrival.rotateY || 0)
+        : fallbackAngle;
+    const distance = arrival instanceof JumpGate || arrival?.kind
+        ? Math.max(650, Math.min(1600, (arrival.radius || 600) + 260))
+        : 200;
+    return {
+        x: (arrival?.x || 0) + Math.cos(angle) * distance,
+        z: (arrival?.z || 0) + Math.sin(angle) * distance,
+        rotation: angle
+    };
 }
 
 function loadSystem(systemId, arrivalObjectId = null) {
     const previousSystemId = currentSystemId;
-    currentSystemId = systemId || currentSystemId;
+    currentSystemId = canonicalSystemId(systemId || currentSystemId);
     systemData = buildSystemData(currentSystemId);
     game.selectedTarget = null;
     game.approachTarget = null;
@@ -3932,11 +3982,17 @@ function loadSystem(systemId, arrivalObjectId = null) {
     if (previousSystemId !== currentSystemId) game.npcFleets = [];
     if (game.player) {
         const arrival = findArrivalObject(arrivalObjectId) || systemData.stations[0] || systemData.jumpgates[0] || { x: 0, z: 0 };
-        const angle = game.jumpTransition ? game.jumpTransition.angle : game.player.rotation;
-        const arrivalOffset = game.jumpTransition ? 0 : 200;
-        game.player.x = arrival.x + Math.cos(angle) * arrivalOffset;
-        game.player.z = arrival.z + Math.sin(angle) * arrivalOffset;
-        game.player.rotation = angle;
+        const fallbackAngle = game.jumpTransition ? game.jumpTransition.angle : game.player.rotation;
+        const pose = game.jumpTransition
+            ? jumpArrivalPose(arrival, fallbackAngle)
+            : {
+                x: arrival.x + Math.cos(fallbackAngle) * 200,
+                z: arrival.z + Math.sin(fallbackAngle) * 200,
+                rotation: fallbackAngle
+            };
+        game.player.x = pose.x;
+        game.player.z = pose.z;
+        game.player.rotation = pose.rotation;
         game.player.inTradeLane = false;
         game.player.laneRoute = null;
         game.player.laneDirection = 1;
@@ -7305,13 +7361,58 @@ function setupInput() {
     }, 50);
 }
 
+function switchMapTab(tab) {
+    const systemCanvas = document.getElementById('map-canvas');
+    const universeCanvas = document.getElementById('map-universe-canvas');
+    const sectorTabs = document.getElementById('map-universe-sector-tabs');
+    const tabs = document.querySelectorAll('.map-tab');
+    tabs.forEach(t => t.classList.toggle('active', t.dataset.maptab === tab));
+    if (tab === 'universe') {
+        systemCanvas.style.display = 'none';
+        universeCanvas.style.display = 'block';
+        if (sectorTabs) sectorTabs.style.display = 'flex';
+        renderMapUniverseSectorTabs();
+        drawUniverseMapInMapDialog();
+    } else {
+        systemCanvas.style.display = 'block';
+        universeCanvas.style.display = 'none';
+        if (sectorTabs) sectorTabs.style.display = 'none';
+        drawMapCanvas();
+    }
+}
+
+function renderMapUniverseSectorTabs() {
+    const container = document.getElementById('map-universe-sector-tabs');
+    if (!container) return;
+    const sectors = availableUniverseSectors();
+    if (sectors.length <= 1) {
+        container.style.display = 'none';
+        container.innerHTML = '';
+        return;
+    }
+    const buttons = [`<button type="button" data-sector="all" class="${game.universeSector === 'all' ? 'active' : ''}" style="padding:5px 9px;border:1px solid ${game.universeSector === 'all' ? '#66ffaa' : '#335544'};background:${game.universeSector === 'all' ? '#10351c' : '#08150d'};color:${game.universeSector === 'all' ? '#ccffe0' : '#77aa88'};cursor:pointer;font-size:11px;font-family:'Courier New',monospace;">OVERVIEW</button>`];
+    buttons.push(...sectors.map(sector => `<button type="button" data-sector="${escapeHtml(sector.key)}" class="${game.universeSector === sector.key ? 'active' : ''}" style="padding:5px 9px;border:1px solid ${game.universeSector === sector.key ? '#66ffaa' : '#335544'};background:${game.universeSector === sector.key ? '#10351c' : '#08150d'};color:${game.universeSector === sector.key ? '#ccffe0' : '#77aa88'};cursor:pointer;font-size:11px;font-family:'Courier New',monospace;">${escapeHtml(sector.name || sector.key.toUpperCase())}</button>`));
+    container.innerHTML = buttons.join('');
+    container.style.display = 'flex';
+    container.querySelectorAll('button[data-sector]').forEach(button => {
+        button.addEventListener('click', () => setMapUniverseSector(button.dataset.sector || 'all'));
+    });
+}
+
+function setMapUniverseSector(sectorKey) {
+    game.universeSector = sectorKey || 'all';
+    resetUniverseViewport();
+    renderMapUniverseSectorTabs();
+    drawUniverseMapInMapDialog();
+}
+
 function toggleMap() {
     game.showMap = !game.showMap;
     const overlay = document.getElementById('map-overlay');
     if (overlay) {
         if (game.showMap) {
             overlay.classList.remove('hidden');
-            drawMapCanvas();
+            switchMapTab('system');
         } else {
             overlay.classList.add('hidden');
         }
@@ -7582,15 +7683,165 @@ function drawMapCanvas() {
 
 // Universe View
 function toggleUniverseView() {
-    const overlay = document.getElementById('universe-overlay');
-    if (!overlay) return;
-    
-    if (overlay.classList.contains('hidden')) {
+    // Open the map dialog and switch to the universe tab
+    game.showMap = true;
+    const overlay = document.getElementById('map-overlay');
+    if (overlay) {
         overlay.classList.remove('hidden');
-        drawUniverseMap();
-    } else {
-        overlay.classList.add('hidden');
+        switchMapTab('universe');
     }
+}
+
+function drawUniverseMapInMapDialog() {
+    const canvas = document.getElementById('map-universe-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const w = canvas.width, h = canvas.height;
+    
+    ctx.fillStyle = '#000508';
+    ctx.fillRect(0, 0, w, h);
+    
+    // Grid
+    ctx.strokeStyle = 'rgba(0,50,30,0.3)';
+    ctx.lineWidth = 1;
+    for (let i = 0; i <= 20; i++) {
+        ctx.beginPath();
+        ctx.moveTo(i * w/20, 0);
+        ctx.lineTo(i * w/20, h);
+        ctx.moveTo(0, i * h/20);
+        ctx.lineTo(w, i * h/20);
+        ctx.stroke();
+    }
+    
+    const systemColor = (id) => {
+        const lower = id.toLowerCase();
+        if (lower.startsWith('li')) return '#00aaff';
+        if (lower.startsWith('br')) return '#ff6644';
+        if (lower.startsWith('rh')) return '#ffaa00';
+        if (lower.startsWith('ku')) return '#ff55cc';
+        if (lower.startsWith('bw') || lower.startsWith('ew')) return '#aaaaaa';
+        return '#44ff88';
+    };
+    const universeSystems = dataSet('UNIVERSE_SYSTEMS', typeof UNIVERSE_SYSTEMS !== 'undefined' ? UNIVERSE_SYSTEMS : []);
+    const universeConnections = dataSet('UNIVERSE_CONNECTIONS', typeof UNIVERSE_CONNECTIONS !== 'undefined' ? UNIVERSE_CONNECTIONS : {});
+    const sectors = availableUniverseSectors();
+    
+    // Check if we should show sector overview
+    if (universeViewMode() === 'overview' && sectors.length > 1) {
+        drawUniverseSectorOverview(ctx, canvas, sectors, universeConnections);
+        return;
+    }
+    
+    const selectedSector = currentUniverseSector();
+    const sourceSystems = selectedSector ? (selectedSector.systems || []) : universeSystems;
+    const systems = sourceSystems.map(sys => ({
+        id: sys.nickname,
+        name: displayName(sys.name, sys.nickname),
+        x: Number(sys.x || 0),
+        y: Number(sys.z || 0),
+        color: systemColor(sys.nickname)
+    }));
+    
+    if (!systems.length) {
+        ctx.fillStyle = '#88aa99';
+        ctx.font = '14px Courier New';
+        ctx.textAlign = 'center';
+        ctx.fillText('No universe data available.', w / 2, h / 2);
+        return;
+    }
+    
+    const connections = [];
+    if (universeConnections && typeof universeConnections === 'object') {
+        for (const [from, list] of Object.entries(universeConnections)) {
+            const targets = Array.isArray(list) ? list : Object.values(list || {});
+            for (const to of targets) connections.push([from, String(to)]);
+        }
+    }
+    
+    const universeTransform = getUniverseTransform(canvas, systems);
+    const systemById = new Map(systems.map(system => [system.id.toLowerCase(), system]));
+    const visibleConnections = connections.filter(([from, to]) => systemById.has(from.toLowerCase()) && systemById.has(to.toLowerCase()));
+    
+    // Draw connections
+    const seenConnections = new Set();
+    for (const [from, to] of visibleConnections) {
+        const key = [from.toLowerCase(), to.toLowerCase()].sort().join('>');
+        if (seenConnections.has(key)) continue;
+        seenConnections.add(key);
+        const sys1 = systemById.get(from.toLowerCase());
+        const sys2 = systemById.get(to.toLowerCase());
+        if (!sys1 || !sys2) continue;
+        const p1 = universeToScreen(sys1, universeTransform);
+        const p2 = universeToScreen(sys2, universeTransform);
+        ctx.strokeStyle = 'rgba(38, 210, 255, 0.42)';
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.moveTo(p1.x, p1.y);
+        ctx.lineTo(p2.x, p2.y);
+        ctx.stroke();
+        ctx.strokeStyle = 'rgba(180, 255, 240, 0.78)';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(p1.x, p1.y);
+        ctx.lineTo(p2.x, p2.y);
+        ctx.stroke();
+    }
+    
+    // Draw system nodes
+    for (const sys of systems) {
+        const pos = universeToScreen(sys, universeTransform);
+        const sx = pos.x;
+        const sy = pos.y;
+        ctx.fillStyle = sys.color;
+        ctx.beginPath();
+        ctx.arc(sx, sy, sys.id.toLowerCase() === currentSystemId.toLowerCase() ? 8 : 5, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = '#888888';
+        ctx.font = '9px Courier New';
+        ctx.textAlign = 'center';
+        ctx.fillText(sys.name, sx, sy + 15);
+        ctx.fillStyle = '#444444';
+        ctx.font = '8px Courier New';
+        ctx.fillText(sys.id.toUpperCase(), sx, sy - 12);
+    }
+    
+    // Highlight current system
+    const currentSys = systems.find(s => s.id.toLowerCase() === currentSystemId.toLowerCase());
+    if (currentSys) {
+        const pos = universeToScreen(currentSys, universeTransform);
+        ctx.strokeStyle = '#00ff00';
+        ctx.lineWidth = 2;
+        ctx.setLineDash([3, 3]);
+        ctx.beginPath();
+        ctx.arc(pos.x, pos.y, 15, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.setLineDash([]);
+    }
+    
+    // Legend
+    ctx.fillStyle = '#666666';
+    ctx.font = '10px Courier New';
+    ctx.textAlign = 'left';
+    ctx.fillText('Legend:', 10, h - 60);
+    const legends = [
+        { color: '#00aaff', text: 'Liberty' },
+        { color: '#ff4400', text: 'Bretonia' },
+        { color: '#ffaa00', text: 'Rheinland' },
+        { color: '#ff00ff', text: 'Kusari' },
+        { color: '#44ff44', text: 'Independent' },
+        { color: '#aaaaaa', text: 'Pirate' }
+    ];
+    legends.forEach((legend, index) => {
+        ctx.fillStyle = legend.color;
+        ctx.beginPath();
+        ctx.arc(15, h - 40 + index * 15, 4, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = '#888888';
+        ctx.fillText(legend.text, 25, h - 36 + index * 15);
+    });
+    ctx.fillStyle = '#444444';
+    ctx.textAlign = 'right';
+    ctx.fillText('Wheel zoom / drag pan: ' + game.universeZoom.toFixed(1) + 'x', w - 10, h - 10);
 }
 
 function getUniverseTransform(canvas, systems) {
@@ -7946,7 +8197,35 @@ function stopUniverseDrag() {
 document.getElementById('universe-canvas')?.addEventListener('mouseup', stopUniverseDrag);
 document.getElementById('universe-canvas')?.addEventListener('mouseleave', stopUniverseDrag);
 
-document.getElementById('btn-close-universe')?.addEventListener('click', toggleUniverseView);
+// Universe canvas events for the map dialog
+document.getElementById('map-universe-canvas')?.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    const factor = e.deltaY < 0 ? 1.15 : 1 / 1.15;
+    game.universeZoom = clamp(game.universeZoom * factor, game.minUniverseZoom, game.maxUniverseZoom);
+    drawUniverseMapInMapDialog();
+});
+
+document.getElementById('map-universe-canvas')?.addEventListener('mousedown', (e) => {
+    game.universeDragging = true;
+    game.universeDragged = false;
+    game.universeDragStartX = e.clientX;
+    game.universeDragStartY = e.clientY;
+    game.universeDragOriginX = game.universePanX;
+    game.universeDragOriginY = game.universePanY;
+});
+
+document.getElementById('map-universe-canvas')?.addEventListener('mousemove', (e) => {
+    if (!game.universeDragging) return;
+    const dx = e.clientX - game.universeDragStartX;
+    const dy = e.clientY - game.universeDragStartY;
+    if (Math.abs(dx) + Math.abs(dy) > 3) game.universeDragged = true;
+    game.universePanX = game.universeDragOriginX + dx;
+    game.universePanY = game.universeDragOriginY + dy;
+    drawUniverseMapInMapDialog();
+});
+
+document.getElementById('map-universe-canvas')?.addEventListener('mouseup', stopUniverseDrag);
+document.getElementById('map-universe-canvas')?.addEventListener('mouseleave', stopUniverseDrag);
 
 document.getElementById('map-canvas')?.addEventListener('wheel', (e) => {
     e.preventDefault();
@@ -8056,7 +8335,12 @@ document.getElementById('map-canvas')?.addEventListener('click', (e) => {
 document.getElementById('btn-clear-waypoint')?.addEventListener('click', clearWaypoint);
 document.getElementById('btn-close-map')?.addEventListener('click', toggleMap);
 document.getElementById('btn-close-inventory')?.addEventListener('click', () => toggleInventoryPanel(false));
-document.getElementById('btn-close-universe')?.addEventListener('click', toggleUniverseView);
+document.getElementById('btn-close-universe')?.addEventListener('click', () => {
+    // Close the map dialog instead of the old universe overlay
+    game.showMap = false;
+    const overlay = document.getElementById('map-overlay');
+    if (overlay) overlay.classList.add('hidden');
+});
 // Command bar functions
 function setMode(mode) {
     if (mode === 'freeflight') {
