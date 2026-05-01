@@ -262,7 +262,7 @@ const FL_SHIPS = {
   },
   "asf5": {
     "id": "asf5",
-    "name": "asf5",
+    "name": "Fatality",
     "info": "",
     "idsName": "470775",
     "idsInfo": "470776",
@@ -305,7 +305,7 @@ const FL_SHIPS = {
   },
   "asf6": {
     "id": "asf6",
-    "name": "asf6",
+    "name": "Wizard",
     "info": "",
     "idsName": "470771",
     "idsInfo": "470772",
@@ -348,7 +348,7 @@ const FL_SHIPS = {
   },
   "asf7x": {
     "id": "asf7x",
-    "name": "asf7x",
+    "name": "Titus",
     "info": "",
     "idsName": "470783",
     "idsInfo": "481815",
@@ -391,7 +391,7 @@ const FL_SHIPS = {
   },
   "asf8x": {
     "id": "asf8x",
-    "name": "asf8x",
+    "name": "Royal",
     "info": "",
     "idsName": "470779",
     "idsInfo": "481817",
@@ -563,7 +563,7 @@ const FL_SHIPS = {
   },
   "bastard": {
     "id": "bastard",
-    "name": "bastard",
+    "name": "Bastard",
     "info": "",
     "idsName": "470787",
     "idsInfo": "470788",
@@ -735,7 +735,7 @@ const FL_SHIPS = {
   },
   "bident": {
     "id": "bident",
-    "name": "bident",
+    "name": "Bident",
     "info": "",
     "idsName": "470791",
     "idsInfo": "470792",
@@ -993,7 +993,7 @@ const FL_SHIPS = {
   },
   "btransport": {
     "id": "btransport",
-    "name": "btransport",
+    "name": "Swashbuckler",
     "info": "",
     "idsName": "470836",
     "idsInfo": "470837",
@@ -1165,7 +1165,7 @@ const FL_SHIPS = {
   },
   "busterh": {
     "id": "busterh",
-    "name": "busterh",
+    "name": "P-7 Razorback",
     "info": "",
     "idsName": "470555",
     "idsInfo": "470556",
@@ -1208,7 +1208,7 @@ const FL_SHIPS = {
   },
   "busterp": {
     "id": "busterp",
-    "name": "busterp",
+    "name": "Shamal",
     "info": "",
     "idsName": "470699",
     "idsInfo": "470700",
@@ -1251,7 +1251,7 @@ const FL_SHIPS = {
   },
   "busterr": {
     "id": "busterr",
-    "name": "busterr",
+    "name": "P-7 Marten",
     "info": "",
     "idsName": "470735",
     "idsInfo": "470736",
@@ -1294,7 +1294,7 @@ const FL_SHIPS = {
   },
   "busters": {
     "id": "busters",
-    "name": "busters",
+    "name": "P-7 Shote",
     "info": "",
     "idsName": "470559",
     "idsInfo": "470560",
@@ -1337,7 +1337,7 @@ const FL_SHIPS = {
   },
   "busterv": {
     "id": "busterv",
-    "name": "busterv",
+    "name": "P-7 Badger",
     "info": "",
     "idsName": "470563",
     "idsInfo": "470564",
@@ -1380,7 +1380,7 @@ const FL_SHIPS = {
   },
   "butcher": {
     "id": "butcher",
-    "name": "butcher",
+    "name": "Butcher",
     "info": "",
     "idsName": "470840",
     "idsInfo": "470841",
@@ -1423,7 +1423,7 @@ const FL_SHIPS = {
   },
   "buzzardp": {
     "id": "buzzardp",
-    "name": "buzzardp",
+    "name": "Scirocco",
     "info": "",
     "idsName": "470691",
     "idsInfo": "470692",
@@ -1466,7 +1466,7 @@ const FL_SHIPS = {
   },
   "buzzardr": {
     "id": "buzzardr",
-    "name": "buzzardr",
+    "name": "Charon",
     "info": "",
     "idsName": "470567",
     "idsInfo": "470568",
@@ -1509,7 +1509,7 @@ const FL_SHIPS = {
   },
   "buzzardv": {
     "id": "buzzardv",
-    "name": "buzzardv",
+    "name": "Persephone",
     "info": "",
     "idsName": "470571",
     "idsInfo": "470572",
@@ -1724,7 +1724,7 @@ const FL_SHIPS = {
   },
   "cancer": {
     "id": "cancer",
-    "name": "cancer",
+    "name": "Trailblazer",
     "info": "",
     "idsName": "470844",
     "idsInfo": "470845",
@@ -1810,7 +1810,7 @@ const FL_SHIPS = {
   },
   "cf1901": {
     "id": "cf1901",
-    "name": "cf1901",
+    "name": "Claw",
     "info": "",
     "idsName": "500449",
     "idsInfo": "500450",
@@ -1853,7 +1853,7 @@ const FL_SHIPS = {
   },
   "cf1902": {
     "id": "cf1902",
-    "name": "cf1902",
+    "name": "Flathead",
     "info": "",
     "idsName": "500453",
     "idsInfo": "500454",
@@ -1896,7 +1896,7 @@ const FL_SHIPS = {
   },
   "cf1903": {
     "id": "cf1903",
-    "name": "cf1903",
+    "name": "Foxhound",
     "info": "",
     "idsName": "500457",
     "idsInfo": "500458",
@@ -1939,7 +1939,7 @@ const FL_SHIPS = {
   },
   "cf1904": {
     "id": "cf1904",
-    "name": "cf1904",
+    "name": "Vigilant",
     "info": "",
     "idsName": "500461",
     "idsInfo": "500462",
@@ -1982,7 +1982,7 @@ const FL_SHIPS = {
   },
   "cf1905": {
     "id": "cf1905",
-    "name": "cf1905",
+    "name": "Seahorse",
     "info": "",
     "idsName": "500465",
     "idsInfo": "500466",
@@ -2025,7 +2025,7 @@ const FL_SHIPS = {
   },
   "cf1906": {
     "id": "cf1906",
-    "name": "cf1906",
+    "name": "Rapier",
     "info": "",
     "idsName": "500469",
     "idsInfo": "500470",
@@ -2068,7 +2068,7 @@ const FL_SHIPS = {
   },
   "cf1907": {
     "id": "cf1907",
-    "name": "cf1907",
+    "name": "Cayman",
     "info": "",
     "idsName": "500473",
     "idsInfo": "500474",
@@ -2111,7 +2111,7 @@ const FL_SHIPS = {
   },
   "cf1908": {
     "id": "cf1908",
-    "name": "cf1908",
+    "name": "Apophis",
     "info": "",
     "idsName": "500477",
     "idsInfo": "500478",
@@ -2154,7 +2154,7 @@ const FL_SHIPS = {
   },
   "cf1910": {
     "id": "cf1910",
-    "name": "cf1910",
+    "name": "Yggdrasil Battleship",
     "info": "",
     "idsName": "500818",
     "idsInfo": "500819",
@@ -2197,7 +2197,7 @@ const FL_SHIPS = {
   },
   "cf1911": {
     "id": "cf1911",
-    "name": "cf1911",
+    "name": "Inquisitor Dreadnought",
     "info": "",
     "idsName": "500822",
     "idsInfo": "500823",
@@ -2240,7 +2240,7 @@ const FL_SHIPS = {
   },
   "cf1912": {
     "id": "cf1912",
-    "name": "cf1912",
+    "name": "Celestis Dreadnought",
     "info": "",
     "idsName": "500826",
     "idsInfo": "500827",
@@ -2283,7 +2283,7 @@ const FL_SHIPS = {
   },
   "cf1913": {
     "id": "cf1913",
-    "name": "cf1913",
+    "name": "Navitas Battleship",
     "info": "",
     "idsName": "500830",
     "idsInfo": "500831",
@@ -2326,7 +2326,7 @@ const FL_SHIPS = {
   },
   "cf1914": {
     "id": "cf1914",
-    "name": "cf1914",
+    "name": "Maelstrom Battleship",
     "info": "",
     "idsName": "500834",
     "idsInfo": "500835",
@@ -2369,7 +2369,7 @@ const FL_SHIPS = {
   },
   "cf1915": {
     "id": "cf1915",
-    "name": "cf1915",
+    "name": "Thorax",
     "info": "",
     "idsName": "500856",
     "idsInfo": "500857",
@@ -2412,7 +2412,7 @@ const FL_SHIPS = {
   },
   "cf1916": {
     "id": "cf1916",
-    "name": "cf1916",
+    "name": "Catalyst",
     "info": "",
     "idsName": "500860",
     "idsInfo": "500861",
@@ -2455,7 +2455,7 @@ const FL_SHIPS = {
   },
   "cf1917": {
     "id": "cf1917",
-    "name": "cf1917",
+    "name": "Harbinger Dreadnought",
     "info": "",
     "idsName": "500840",
     "idsInfo": "500841",
@@ -2498,7 +2498,7 @@ const FL_SHIPS = {
   },
   "cf1918": {
     "id": "cf1918",
-    "name": "cf1918",
+    "name": "Retribution Battleship",
     "info": "",
     "idsName": "500844",
     "idsInfo": "500845",
@@ -2541,7 +2541,7 @@ const FL_SHIPS = {
   },
   "cf1919": {
     "id": "cf1919",
-    "name": "cf1919",
+    "name": "Manticore Dreadnought",
     "info": "",
     "idsName": "500848",
     "idsInfo": "500849",
@@ -2584,7 +2584,7 @@ const FL_SHIPS = {
   },
   "cf1920": {
     "id": "cf1920",
-    "name": "cf1920",
+    "name": "Iteron Battleship",
     "info": "",
     "idsName": "500852",
     "idsInfo": "500853",
@@ -2627,7 +2627,7 @@ const FL_SHIPS = {
   },
   "cf1921": {
     "id": "cf1921",
-    "name": "cf1921",
+    "name": "Nighthawk",
     "info": "",
     "idsName": "500864",
     "idsInfo": "500865",
@@ -2670,7 +2670,7 @@ const FL_SHIPS = {
   },
   "cf20ship01": {
     "id": "cf20ship01",
-    "name": "cf20ship01",
+    "name": "Borealis",
     "info": "",
     "idsName": "480472",
     "idsInfo": "480473",
@@ -2713,7 +2713,7 @@ const FL_SHIPS = {
   },
   "cf20ship02": {
     "id": "cf20ship02",
-    "name": "cf20ship02",
+    "name": "Equinox",
     "info": "",
     "idsName": "480476",
     "idsInfo": "480477",
@@ -2756,7 +2756,7 @@ const FL_SHIPS = {
   },
   "cf20ship03": {
     "id": "cf20ship03",
-    "name": "cf20ship03",
+    "name": "Quasar",
     "info": "",
     "idsName": "480480",
     "idsInfo": "480481",
@@ -2799,7 +2799,7 @@ const FL_SHIPS = {
   },
   "cf20ship04": {
     "id": "cf20ship04",
-    "name": "cf20ship04",
+    "name": "Luna Sunrise",
     "info": "",
     "idsName": "480484",
     "idsInfo": "480485",
@@ -2842,7 +2842,7 @@ const FL_SHIPS = {
   },
   "cf20ship05": {
     "id": "cf20ship05",
-    "name": "cf20ship05",
+    "name": "Maco",
     "info": "",
     "idsName": "480514",
     "idsInfo": "480515",
@@ -2885,7 +2885,7 @@ const FL_SHIPS = {
   },
   "cf_armored": {
     "id": "cf_armored",
-    "name": "cf_armored",
+    "name": "Armored Transport",
     "info": "",
     "idsName": "500052",
     "idsInfo": "500053",
@@ -2928,7 +2928,7 @@ const FL_SHIPS = {
   },
   "cf_br_destroyer": {
     "id": "cf_br_destroyer",
-    "name": "cf_br_destroyer",
+    "name": "Bretonia Destroyer",
     "info": "",
     "idsName": "500080",
     "idsInfo": "500081",
@@ -2971,7 +2971,7 @@ const FL_SHIPS = {
   },
   "cf_br_gunboat": {
     "id": "cf_br_gunboat",
-    "name": "cf_br_gunboat",
+    "name": "Bretonia Gunboat",
     "info": "",
     "idsName": "500076",
     "idsInfo": "500077",
@@ -3014,7 +3014,7 @@ const FL_SHIPS = {
   },
   "cf_ku_destroyer": {
     "id": "cf_ku_destroyer",
-    "name": "cf_ku_destroyer",
+    "name": "Kusari Destroyer",
     "info": "",
     "idsName": "500088",
     "idsInfo": "500089",
@@ -3057,7 +3057,7 @@ const FL_SHIPS = {
   },
   "cf_ku_gunboat": {
     "id": "cf_ku_gunboat",
-    "name": "cf_ku_gunboat",
+    "name": "Kusari Gunboat",
     "info": "",
     "idsName": "500084",
     "idsInfo": "500085",
@@ -3100,7 +3100,7 @@ const FL_SHIPS = {
   },
   "cf_large_transport": {
     "id": "cf_large_transport",
-    "name": "cf_large_transport",
+    "name": "Large Transport",
     "info": "",
     "idsName": "500060",
     "idsInfo": "500061",
@@ -3143,7 +3143,7 @@ const FL_SHIPS = {
   },
   "cf_li_cruiser": {
     "id": "cf_li_cruiser",
-    "name": "cf_li_cruiser",
+    "name": "Liberty Cruiser",
     "info": "",
     "idsName": "500072",
     "idsInfo": "500073",
@@ -3186,7 +3186,7 @@ const FL_SHIPS = {
   },
   "cf_li_gunboat": {
     "id": "cf_li_gunboat",
-    "name": "cf_li_gunboat",
+    "name": "Liberty Gunboat",
     "info": "",
     "idsName": "499984",
     "idsInfo": "499986",
@@ -3229,7 +3229,7 @@ const FL_SHIPS = {
   },
   "cf_lifter": {
     "id": "cf_lifter",
-    "name": "cf_lifter",
+    "name": "Heavy Lifter",
     "info": "",
     "idsName": "500068",
     "idsInfo": "500069",
@@ -3272,7 +3272,7 @@ const FL_SHIPS = {
   },
   "cf_liner": {
     "id": "cf_liner",
-    "name": "cf_liner",
+    "name": "Luxury Liner",
     "info": "",
     "idsName": "500100",
     "idsInfo": "499994",
@@ -3315,7 +3315,7 @@ const FL_SHIPS = {
   },
   "cf_or_destroyer": {
     "id": "cf_or_destroyer",
-    "name": "cf_or_destroyer",
+    "name": "Order Destroyer",
     "info": "",
     "idsName": "480504",
     "idsInfo": "480505",
@@ -3358,7 +3358,7 @@ const FL_SHIPS = {
   },
   "cf_prison": {
     "id": "cf_prison",
-    "name": "cf_prison",
+    "name": "Prison Ship",
     "info": "",
     "idsName": "499989",
     "idsInfo": "500307",
@@ -3401,7 +3401,7 @@ const FL_SHIPS = {
   },
   "cf_repair": {
     "id": "cf_repair",
-    "name": "cf_repair",
+    "name": "Repair Ship",
     "info": "",
     "idsName": "500064",
     "idsInfo": "500065",
@@ -3444,7 +3444,7 @@ const FL_SHIPS = {
   },
   "cf_rh_cruiser": {
     "id": "cf_rh_cruiser",
-    "name": "cf_rh_cruiser",
+    "name": "Rheinland Cruiser",
     "info": "",
     "idsName": "500096",
     "idsInfo": "500097",
@@ -3487,7 +3487,7 @@ const FL_SHIPS = {
   },
   "cf_rh_gunboat": {
     "id": "cf_rh_gunboat",
-    "name": "cf_rh_gunboat",
+    "name": "Rheinland Gunboat",
     "info": "",
     "idsName": "500092",
     "idsInfo": "500093",
@@ -3530,7 +3530,7 @@ const FL_SHIPS = {
   },
   "cf_transport": {
     "id": "cf_transport",
-    "name": "cf_transport",
+    "name": "Transport",
     "info": "",
     "idsName": "500056",
     "idsInfo": "500057",
@@ -3573,7 +3573,7 @@ const FL_SHIPS = {
   },
   "cfbomber1": {
     "id": "cfbomber1",
-    "name": "cfbomber1",
+    "name": "Mutineer",
     "info": "",
     "idsName": "500192",
     "idsInfo": "500193",
@@ -3616,7 +3616,7 @@ const FL_SHIPS = {
   },
   "cffighter1": {
     "id": "cffighter1",
-    "name": "cffighter1",
+    "name": "Pioneer",
     "info": "",
     "idsName": "500196",
     "idsInfo": "500197",
@@ -3659,7 +3659,7 @@ const FL_SHIPS = {
   },
   "cffighter2": {
     "id": "cffighter2",
-    "name": "cffighter2",
+    "name": "Horizon",
     "info": "",
     "idsName": "500200",
     "idsInfo": "500201",
@@ -3702,7 +3702,7 @@ const FL_SHIPS = {
   },
   "cffighter3": {
     "id": "cffighter3",
-    "name": "cffighter3",
+    "name": "Iguana",
     "info": "",
     "idsName": "500204",
     "idsInfo": "500205",
@@ -3745,7 +3745,7 @@ const FL_SHIPS = {
   },
   "cffreighter1": {
     "id": "cffreighter1",
-    "name": "cffreighter1",
+    "name": "Libertine Bomber",
     "info": "",
     "idsName": "500208",
     "idsInfo": "500209",
@@ -3831,7 +3831,7 @@ const FL_SHIPS = {
   },
   "cfrhnlndfreighter": {
     "id": "cfrhnlndfreighter",
-    "name": "cfrhnlndfreighter",
+    "name": "Peon Freighter",
     "info": "",
     "idsName": "500212",
     "idsInfo": "500213",
@@ -3874,7 +3874,7 @@ const FL_SHIPS = {
   },
   "chimera": {
     "id": "chimera",
-    "name": "chimera",
+    "name": "Chimera",
     "info": "",
     "idsName": "500020",
     "idsInfo": "500021",
@@ -3917,7 +3917,7 @@ const FL_SHIPS = {
   },
   "chimera2": {
     "id": "chimera2",
-    "name": "chimera2",
+    "name": "Shade",
     "info": "",
     "idsName": "470848",
     "idsInfo": "470849",
@@ -4089,7 +4089,7 @@ const FL_SHIPS = {
   },
   "cobra": {
     "id": "cobra",
-    "name": "cobra",
+    "name": "Cobra",
     "info": "",
     "idsName": "500008",
     "idsInfo": "500009",
@@ -4175,7 +4175,7 @@ const FL_SHIPS = {
   },
   "combatship": {
     "id": "combatship",
-    "name": "combatship",
+    "name": "Fury",
     "info": "",
     "idsName": "500220",
     "idsInfo": "500221",
@@ -4218,7 +4218,7 @@ const FL_SHIPS = {
   },
   "corsair": {
     "id": "corsair",
-    "name": "corsair",
+    "name": "Abraxas",
     "info": "",
     "idsName": "500040",
     "idsInfo": "500041",
@@ -4433,7 +4433,7 @@ const FL_SHIPS = {
   },
   "devastator": {
     "id": "devastator",
-    "name": "devastator",
+    "name": "Devastator",
     "info": "",
     "idsName": "500224",
     "idsInfo": "500225",
@@ -4476,7 +4476,7 @@ const FL_SHIPS = {
   },
   "devil": {
     "id": "devil",
-    "name": "devil",
+    "name": "Devil",
     "info": "",
     "idsName": "500228",
     "idsInfo": "500229",
@@ -4519,7 +4519,7 @@ const FL_SHIPS = {
   },
   "devilray": {
     "id": "devilray",
-    "name": "devilray",
+    "name": "Devilray",
     "info": "",
     "idsName": "500232",
     "idsInfo": "500233",
@@ -4562,7 +4562,7 @@ const FL_SHIPS = {
   },
   "discoverere": {
     "id": "discoverere",
-    "name": "discoverere",
+    "name": "Nike",
     "info": "",
     "idsName": "470619",
     "idsInfo": "470620",
@@ -4605,7 +4605,7 @@ const FL_SHIPS = {
   },
   "discovererh": {
     "id": "discovererh",
-    "name": "discovererh",
+    "name": "Thanatos",
     "info": "",
     "idsName": "470579",
     "idsInfo": "470580",
@@ -4648,7 +4648,7 @@ const FL_SHIPS = {
   },
   "discovererr": {
     "id": "discovererr",
-    "name": "discovererr",
+    "name": "Bellerophon",
     "info": "",
     "idsName": "470575",
     "idsInfo": "470576",
@@ -4691,7 +4691,7 @@ const FL_SHIPS = {
   },
   "discoverers": {
     "id": "discoverers",
-    "name": "discoverers",
+    "name": "Lakhesis",
     "info": "",
     "idsName": "470583",
     "idsInfo": "470584",
@@ -4734,7 +4734,7 @@ const FL_SHIPS = {
   },
   "dolphin": {
     "id": "dolphin",
-    "name": "dolphin",
+    "name": "Dolphin",
     "info": "",
     "idsName": "500236",
     "idsInfo": "500237",
@@ -4820,7 +4820,7 @@ const FL_SHIPS = {
   },
   "drizzt": {
     "id": "drizzt",
-    "name": "drizzt",
+    "name": "Drizzt",
     "info": "",
     "idsName": "500240",
     "idsInfo": "500241",
@@ -4949,7 +4949,7 @@ const FL_SHIPS = {
   },
   "eliminator": {
     "id": "eliminator",
-    "name": "eliminator",
+    "name": "Eliminator",
     "info": "",
     "idsName": "500244",
     "idsInfo": "500245",
@@ -5035,7 +5035,7 @@ const FL_SHIPS = {
   },
   "es_rgrk": {
     "id": "es_rgrk",
-    "name": "es_rgrk",
+    "name": "Ragnarok Gunboat",
     "info": "",
     "idsName": "471320",
     "idsInfo": "471321",
@@ -5078,7 +5078,7 @@ const FL_SHIPS = {
   },
   "evileye": {
     "id": "evileye",
-    "name": "evileye",
+    "name": "Werewolf",
     "info": "",
     "idsName": "470852",
     "idsInfo": "470853",
@@ -5121,7 +5121,7 @@ const FL_SHIPS = {
   },
   "exocet": {
     "id": "exocet",
-    "name": "exocet",
+    "name": "Exocet",
     "info": "",
     "idsName": "500028",
     "idsInfo": "500029",
@@ -5207,7 +5207,7 @@ const FL_SHIPS = {
   },
   "falconp": {
     "id": "falconp",
-    "name": "falconp",
+    "name": "Chinook",
     "info": "",
     "idsName": "470687",
     "idsInfo": "470688",
@@ -5250,7 +5250,7 @@ const FL_SHIPS = {
   },
   "falconr": {
     "id": "falconr",
-    "name": "falconr",
+    "name": "Goshawk",
     "info": "",
     "idsName": "470739",
     "idsInfo": "470740",
@@ -5293,7 +5293,7 @@ const FL_SHIPS = {
   },
   "falcons": {
     "id": "falcons",
-    "name": "falcons",
+    "name": "Harpy",
     "info": "",
     "idsName": "470587",
     "idsInfo": "470588",
@@ -5336,7 +5336,7 @@ const FL_SHIPS = {
   },
   "freedomx": {
     "id": "freedomx",
-    "name": "freedomx",
+    "name": "Freedom X-Interceptor",
     "info": "",
     "idsName": "460102",
     "idsInfo": "460103",
@@ -5379,7 +5379,7 @@ const FL_SHIPS = {
   },
   "frship_fighter1": {
     "id": "frship_fighter1",
-    "name": "frship_fighter1",
+    "name": "Éridan",
     "info": "",
     "idsName": "501828",
     "idsInfo": "501829",
@@ -5422,7 +5422,7 @@ const FL_SHIPS = {
   },
   "frship_fighter2": {
     "id": "frship_fighter2",
-    "name": "frship_fighter2",
+    "name": "Vulcain",
     "info": "",
     "idsName": "501832",
     "idsInfo": "501833",
@@ -5465,7 +5465,7 @@ const FL_SHIPS = {
   },
   "frship_fighter3": {
     "id": "frship_fighter3",
-    "name": "frship_fighter3",
+    "name": "Antarès",
     "info": "",
     "idsName": "501836",
     "idsInfo": "501837",
@@ -5809,7 +5809,7 @@ const FL_SHIPS = {
   },
   "ge_fighter8": {
     "id": "ge_fighter8",
-    "name": "ge_fighter8",
+    "name": "Black Eagle",
     "info": "Statistik\nGeschütz-/Turmsockel: 6/1\nPanzerung: 9900\nFrachtraum: 70\nMax. Batterien/Nanobots: 63/63\nOptimale Waffenklasse: 8\nMax. Waffenklasse: 10\nZusätzliche Ausrüstung: M, GM, RFU/T",
     "idsName": "470970",
     "idsInfo": "66539",
@@ -5852,7 +5852,7 @@ const FL_SHIPS = {
   },
   "geko": {
     "id": "geko",
-    "name": "geko",
+    "name": "Geko",
     "info": "",
     "idsName": "500016",
     "idsInfo": "500017",
@@ -5938,7 +5938,7 @@ const FL_SHIPS = {
   },
   "griffin": {
     "id": "griffin",
-    "name": "griffin",
+    "name": "Griffin",
     "info": "",
     "idsName": "470795",
     "idsInfo": "470796",
@@ -6153,7 +6153,7 @@ const FL_SHIPS = {
   },
   "harrierp": {
     "id": "harrierp",
-    "name": "harrierp",
+    "name": "Whirlwind",
     "info": "",
     "idsName": "470683",
     "idsInfo": "470684",
@@ -6196,7 +6196,7 @@ const FL_SHIPS = {
   },
   "harrierr": {
     "id": "harrierr",
-    "name": "harrierr",
+    "name": "Hellcat",
     "info": "",
     "idsName": "470623",
     "idsInfo": "470624",
@@ -6239,7 +6239,7 @@ const FL_SHIPS = {
   },
   "harrierv": {
     "id": "harrierv",
-    "name": "harrierv",
+    "name": "Wrath",
     "info": "",
     "idsName": "470627",
     "idsInfo": "470628",
@@ -6282,7 +6282,7 @@ const FL_SHIPS = {
   },
   "hermes": {
     "id": "hermes",
-    "name": "hermes",
+    "name": "Hermes",
     "info": "",
     "idsName": "500248",
     "idsInfo": "500249",
@@ -6497,7 +6497,7 @@ const FL_SHIPS = {
   },
   "jaguar": {
     "id": "jaguar",
-    "name": "jaguar",
+    "name": "X7A Fyrefly",
     "info": "",
     "idsName": "470631",
     "idsInfo": "470632",
@@ -7056,7 +7056,7 @@ const FL_SHIPS = {
   },
   "lightbringerbomber": {
     "id": "lightbringerbomber",
-    "name": "lightbringerbomber",
+    "name": "Lightbringer Bomber",
     "info": "",
     "idsName": "500216",
     "idsInfo": "500217",
@@ -7099,7 +7099,7 @@ const FL_SHIPS = {
   },
   "mambar": {
     "id": "mambar",
-    "name": "mambar",
+    "name": "Venom Mk I",
     "info": "",
     "idsName": "470635",
     "idsInfo": "470636",
@@ -7142,7 +7142,7 @@ const FL_SHIPS = {
   },
   "mambas": {
     "id": "mambas",
-    "name": "mambas",
+    "name": "Venom Mk II",
     "info": "",
     "idsName": "470639",
     "idsInfo": "470640",
@@ -7314,7 +7314,7 @@ const FL_SHIPS = {
   },
   "miragex": {
     "id": "miragex",
-    "name": "miragex",
+    "name": "Mirage-X",
     "info": "",
     "idsName": "500032",
     "idsInfo": "500033",
@@ -7357,7 +7357,7 @@ const FL_SHIPS = {
   },
   "murphy": {
     "id": "murphy",
-    "name": "murphy",
+    "name": "Murphy",
     "info": "",
     "idsName": "500252",
     "idsInfo": "500253",
@@ -7787,7 +7787,7 @@ const FL_SHIPS = {
   },
   "nexus": {
     "id": "nexus",
-    "name": "nexus",
+    "name": "Nexus",
     "info": "",
     "idsName": "500004",
     "idsInfo": "500005",
@@ -7830,7 +7830,7 @@ const FL_SHIPS = {
   },
   "nova": {
     "id": "nova",
-    "name": "nova",
+    "name": "Warthog",
     "info": "",
     "idsName": "470643",
     "idsInfo": "470644",
@@ -7873,7 +7873,7 @@ const FL_SHIPS = {
   },
   "novap": {
     "id": "novap",
-    "name": "novap",
+    "name": "Hurricane",
     "info": "",
     "idsName": "470675",
     "idsInfo": "470676",
@@ -7916,7 +7916,7 @@ const FL_SHIPS = {
   },
   "odin": {
     "id": "odin",
-    "name": "odin",
+    "name": "Bulldog",
     "info": "",
     "idsName": "470647",
     "idsInfo": "470648",
@@ -8088,7 +8088,7 @@ const FL_SHIPS = {
   },
   "periclese": {
     "id": "periclese",
-    "name": "periclese",
+    "name": "LCA Typhoon",
     "info": "",
     "idsName": "470743",
     "idsInfo": "470744",
@@ -8131,7 +8131,7 @@ const FL_SHIPS = {
   },
   "periclesp": {
     "id": "periclesp",
-    "name": "periclesp",
+    "name": "Tornado",
     "info": "",
     "idsName": "470679",
     "idsInfo": "470680",
@@ -8174,7 +8174,7 @@ const FL_SHIPS = {
   },
   "periclesr": {
     "id": "periclesr",
-    "name": "periclesr",
+    "name": "LCA Thunderstreak",
     "info": "",
     "idsName": "470651",
     "idsInfo": "470652",
@@ -8217,7 +8217,7 @@ const FL_SHIPS = {
   },
   "perseush": {
     "id": "perseush",
-    "name": "perseush",
+    "name": "Black Angel",
     "info": "",
     "idsName": "470655",
     "idsInfo": "470656",
@@ -8260,7 +8260,7 @@ const FL_SHIPS = {
   },
   "perseusp": {
     "id": "perseusp",
-    "name": "perseusp",
+    "name": "Firebolt",
     "info": "",
     "idsName": "470695",
     "idsInfo": "470696",
@@ -8303,7 +8303,7 @@ const FL_SHIPS = {
   },
   "perseusr": {
     "id": "perseusr",
-    "name": "perseusr",
+    "name": "Crusher ZX7",
     "info": "",
     "idsName": "470659",
     "idsInfo": "470660",
@@ -8346,7 +8346,7 @@ const FL_SHIPS = {
   },
   "perseuss": {
     "id": "perseuss",
-    "name": "perseuss",
+    "name": "Grinder ZX8",
     "info": "",
     "idsName": "470663",
     "idsInfo": "470664",
@@ -8389,7 +8389,7 @@ const FL_SHIPS = {
   },
   "perseusv": {
     "id": "perseusv",
-    "name": "perseusv",
+    "name": "Dissolver",
     "info": "",
     "idsName": "470667",
     "idsInfo": "470668",
@@ -8432,7 +8432,7 @@ const FL_SHIPS = {
   },
   "phantom": {
     "id": "phantom",
-    "name": "phantom",
+    "name": "Phantom",
     "info": "",
     "idsName": "500256",
     "idsInfo": "500257",
@@ -8647,7 +8647,7 @@ const FL_SHIPS = {
   },
   "pinkeagle": {
     "id": "pinkeagle",
-    "name": "pinkeagle",
+    "name": "Pink Eagle",
     "info": "Statistik\nGeschütz-/Turmsockel: 6/1\nPanzerung: 9900\nFrachtraum: 70\nMax. Batterien/Nanobots: 63/63\nOptimale Waffenklasse: 8\nMax. Waffenklasse: 10\nZusätzliche Ausrüstung: M, GM, RFU/T",
     "idsName": "470971",
     "idsInfo": "66539",
@@ -8776,7 +8776,7 @@ const FL_SHIPS = {
   },
   "raptor": {
     "id": "raptor",
-    "name": "raptor",
+    "name": "Raptor",
     "info": "",
     "idsName": "500012",
     "idsInfo": "500013",
@@ -8862,7 +8862,7 @@ const FL_SHIPS = {
   },
   "reaper": {
     "id": "reaper",
-    "name": "reaper",
+    "name": "Reaper",
     "info": "",
     "idsName": "500108",
     "idsInfo": "500109",
@@ -9249,7 +9249,7 @@ const FL_SHIPS = {
   },
   "scorpionh": {
     "id": "scorpionh",
-    "name": "scorpionh",
+    "name": "Lobo",
     "info": "",
     "idsName": "470723",
     "idsInfo": "470724",
@@ -9292,7 +9292,7 @@ const FL_SHIPS = {
   },
   "scorpionr": {
     "id": "scorpionr",
-    "name": "scorpionr",
+    "name": "Zorro",
     "info": "",
     "idsName": "470747",
     "idsInfo": "470748",
@@ -9335,7 +9335,7 @@ const FL_SHIPS = {
   },
   "scorpions": {
     "id": "scorpions",
-    "name": "scorpions",
+    "name": "Erebus",
     "info": "",
     "idsName": "470719",
     "idsInfo": "470720",
@@ -9378,7 +9378,7 @@ const FL_SHIPS = {
   },
   "scorpionv": {
     "id": "scorpionv",
-    "name": "scorpionv",
+    "name": "Terror",
     "info": "",
     "idsName": "470715",
     "idsInfo": "470716",
@@ -9593,7 +9593,7 @@ const FL_SHIPS = {
   },
   "sf18": {
     "id": "sf18",
-    "name": "sf18",
+    "name": "SF18 Arrow",
     "info": "",
     "idsName": "500036",
     "idsInfo": "500037",
@@ -9636,7 +9636,7 @@ const FL_SHIPS = {
   },
   "sh3": {
     "id": "sh3",
-    "name": "sh3",
+    "name": "Kestrel",
     "info": "",
     "idsName": "501209",
     "idsInfo": "501210",
@@ -9679,7 +9679,7 @@ const FL_SHIPS = {
   },
   "sh4": {
     "id": "sh4",
-    "name": "sh4",
+    "name": "Falchion",
     "info": "",
     "idsName": "501213",
     "idsInfo": "501214",
@@ -9722,7 +9722,7 @@ const FL_SHIPS = {
   },
   "shadowreaper": {
     "id": "shadowreaper",
-    "name": "shadowreaper",
+    "name": "Shadowreaper",
     "info": "",
     "idsName": "500260",
     "idsInfo": "500261",
@@ -9808,7 +9808,7 @@ const FL_SHIPS = {
   },
   "shroud": {
     "id": "shroud",
-    "name": "shroud",
+    "name": "Shroud",
     "info": "",
     "idsName": "471316",
     "idsInfo": "471317",
@@ -9980,7 +9980,7 @@ const FL_SHIPS = {
   },
   "stinger": {
     "id": "stinger",
-    "name": "stinger",
+    "name": "Stinger",
     "info": "",
     "idsName": "500264",
     "idsInfo": "500265",
@@ -10023,7 +10023,7 @@ const FL_SHIPS = {
   },
   "stormcrow": {
     "id": "stormcrow",
-    "name": "stormcrow",
+    "name": "Stormcrow",
     "info": "",
     "idsName": "470799",
     "idsInfo": "470800",
@@ -10152,7 +10152,7 @@ const FL_SHIPS = {
   },
   "thor": {
     "id": "thor",
-    "name": "thor",
+    "name": "Tigre",
     "info": "",
     "idsName": "470727",
     "idsInfo": "470728",
@@ -10195,7 +10195,7 @@ const FL_SHIPS = {
   },
   "thunder": {
     "id": "thunder",
-    "name": "thunder",
+    "name": "Thunder",
     "info": "",
     "idsName": "500268",
     "idsInfo": "500269",
@@ -10238,7 +10238,7 @@ const FL_SHIPS = {
   },
   "tiger": {
     "id": "tiger",
-    "name": "tiger",
+    "name": "Tiger",
     "info": "",
     "idsName": "470856",
     "idsInfo": "470857",
@@ -10281,7 +10281,7 @@ const FL_SHIPS = {
   },
   "trident": {
     "id": "trident",
-    "name": "trident",
+    "name": "Trident",
     "info": "",
     "idsName": "470803",
     "idsInfo": "470804",
@@ -10324,7 +10324,7 @@ const FL_SHIPS = {
   },
   "troopcarrier": {
     "id": "troopcarrier",
-    "name": "troopcarrier",
+    "name": "Troop Carrier",
     "info": "",
     "idsName": "500000",
     "idsInfo": "500001",
@@ -10367,7 +10367,7 @@ const FL_SHIPS = {
   },
   "vfighter": {
     "id": "vfighter",
-    "name": "vfighter",
+    "name": "V-Fighter",
     "info": "",
     "idsName": "500024",
     "idsInfo": "500025",
@@ -10582,7 +10582,7 @@ const FL_SHIPS = {
   },
   "xenong": {
     "id": "xenong",
-    "name": "xenong",
+    "name": "Ball Lightning",
     "info": "",
     "idsName": "470731",
     "idsInfo": "470732",
@@ -10625,7 +10625,7 @@ const FL_SHIPS = {
   },
   "xenono": {
     "id": "xenono",
-    "name": "xenono",
+    "name": "Cheetah",
     "info": "",
     "idsName": "470751",
     "idsInfo": "470752",
@@ -10668,7 +10668,7 @@ const FL_SHIPS = {
   },
   "zephyrp": {
     "id": "zephyrp",
-    "name": "zephyrp",
+    "name": "Cyclone",
     "info": "",
     "idsName": "470671",
     "idsInfo": "470672",
@@ -10711,7 +10711,7 @@ const FL_SHIPS = {
   },
   "zephyrr": {
     "id": "zephyrr",
-    "name": "zephyrr",
+    "name": "T-Rex",
     "info": "",
     "idsName": "470707",
     "idsInfo": "470708",
@@ -10754,7 +10754,7 @@ const FL_SHIPS = {
   },
   "zephyrs": {
     "id": "zephyrs",
-    "name": "zephyrs",
+    "name": "Rocketmaster",
     "info": "",
     "idsName": "470703",
     "idsInfo": "470704",
@@ -10797,7 +10797,7 @@ const FL_SHIPS = {
   },
   "zephyrv": {
     "id": "zephyrv",
-    "name": "zephyrv",
+    "name": "J-40 Quicksilver",
     "info": "",
     "idsName": "470711",
     "idsInfo": "470712",
@@ -10840,7 +10840,7 @@ const FL_SHIPS = {
   },
   "zx14": {
     "id": "zx14",
-    "name": "zx14",
+    "name": "ZX14 Protector",
     "info": "",
     "idsName": "500272",
     "idsInfo": "500273",
@@ -10924,6 +10924,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_kf_engine_01",
+      "name": "Triebwerk, Kusari-Jäger",
+      "idsName": "263693",
+      "idsInfo": "264693",
+      "info": "Triebwerk, Kusari-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 72000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "a9fx_package": {
@@ -10965,6 +10979,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_gf6_engine_01purple",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": ""
   },
@@ -11008,6 +11036,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_lfr_engine_01",
+      "name": "Triebwerk, Liberty-Frachter",
+      "idsName": "263689",
+      "idsInfo": "264689",
+      "info": "Triebwerk, Liberty-Frachter\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 39000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "angelfinal_package": {
@@ -11049,6 +11091,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_gf6_engine_01green",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": ""
   },
@@ -11092,6 +11148,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_lfr_engine_01",
+      "name": "Triebwerk, Liberty-Frachter",
+      "idsName": "263689",
+      "idsInfo": "264689",
+      "info": "Triebwerk, Liberty-Frachter\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 39000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "arcangel_package": {
@@ -11134,11 +11204,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01purple",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "asf1_package": {
     "id": "asf1_package",
-    "name": "asf6",
+    "name": "Wizard",
     "ship": "asf6",
     "hull": "asf1_hull",
     "price": 10500000,
@@ -11176,11 +11260,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "asf2_package": {
     "id": "asf2_package",
-    "name": "asf8x",
+    "name": "Royal",
     "ship": "asf8x",
     "hull": "asf2_hull",
     "price": 13500000,
@@ -11217,6 +11315,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": ""
   },
@@ -11260,6 +11372,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01white",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "azan_package": {
@@ -11301,6 +11427,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_gf6_engine_01",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": ""
   },
@@ -11344,11 +11484,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "bastard_package": {
     "id": "bastard_package",
-    "name": "bastard",
+    "name": "Bastard",
     "ship": "bastard",
     "hull": "bastard_hull",
     "price": 8150122,
@@ -11385,6 +11539,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": ""
   },
@@ -11428,6 +11596,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_be_engine_01",
+      "name": "Triebwerk, opt. Bretonia-Jäger",
+      "idsName": "263691",
+      "idsInfo": "264691",
+      "info": "Triebwerk, opt. Bretonia-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 54000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": "Statistik\nGeschütz-/Turmsockel: 6/0\nPanzerung: 2600\nFrachtraum: 35\nMax. Batterien/Nanobots: 20/20\nOptimale Waffenklasse: 3\nMax. Waffenklasse: 5\nZusätzliche Ausrüstung: M, GM, RFU/T"
   },
   "bex_package": {
@@ -11469,6 +11651,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_be_engine_01",
+      "name": "Triebwerk, opt. Bretonia-Jäger",
+      "idsName": "263691",
+      "idsInfo": "264691",
+      "info": "Triebwerk, opt. Bretonia-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 54000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": ""
   },
@@ -11512,6 +11708,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_bf_engine_01",
+      "name": "Triebwerk, Bretonia-Jäger",
+      "idsName": "263690",
+      "idsInfo": "264690",
+      "info": "Triebwerk, Bretonia-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 72000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": "Statistik\nGeschütz-/Turmsockel: 4/0\nPanzerung: 2100\nFrachtraum: 30\nMax. Batterien/Nanobots: 15/15\nOptimale Waffenklasse: 3\nMax. Waffenklasse: 5\nZusätzliche Ausrüstung: M, GM, RFU"
   },
   "bfr_package": {
@@ -11553,6 +11763,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_bfr_engine_01",
+      "name": "Triebw., Bretonia-Frachter",
+      "idsName": "263692",
+      "idsInfo": "264692",
+      "info": "Triebwerk, Bretonia-Frachter\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 39000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 3/5\nPanzerung: 2200\nFrachtraum: 125\nMax. Batterien/Nanobots: 15/15\nOptimale Waffenklasse: 2\nMax. Waffenklasse: 4\nZusätzliche Ausrüstung: M, GM"
   },
@@ -11596,6 +11820,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_bhe2_engine_01",
+      "name": "Triebwerk, sehr schwerer Jäger der Kopfgeldjäger",
+      "idsName": "263686",
+      "idsInfo": "264686",
+      "info": "Triebwerk, sehr schwerer Jäger der Kopfgeldjäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 50000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": "Statistik\nGeschütz-/Turmsockel: 6/1\nPanzerung: 7900\nFrachtraum: 70\nMax. Batterien/Nanobots: 49/49\nOptimale Waffenklasse: 7\nMax. Waffenklasse: 9\nZusätzliche Ausrüstung: M, GM, RFU/T"
   },
   "bhe_package": {
@@ -11637,6 +11875,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_bhe_engine_01",
+      "name": "Triebwerk, schwerer Jäger der Kopfgeldjäger",
+      "idsName": "263685",
+      "idsInfo": "264685",
+      "info": "Triebwerk, schwerer Jäger der Kopfgeldjäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 54000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 6/0\nPanzerung: 3600\nFrachtraum: 45\nMax. Batterien/Nanobots: 26/26\nOptimale Waffenklasse: 4\nMax. Waffenklasse: 6\nZusätzliche Ausrüstung: M, GM, RFU/T"
   },
@@ -11680,11 +11932,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_bhf_engine_01",
+      "name": "Triebwerk, Jäger der Kopfgeldjäger",
+      "idsName": "263684",
+      "idsInfo": "264684",
+      "info": "Triebwerk, Jäger der Kopfgeldjäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 72000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": "Statistik\nGeschütz-/Turmsockel: 4/0\nPanzerung: 1800\nFrachtraum: 35\nMax. Batterien/Nanobots: 15/15\nOptimale Waffenklasse: 2\nMax. Waffenklasse: 4\nZusätzliche Ausrüstung: M, GM, RFU"
   },
   "bident_package": {
     "id": "bident_package",
-    "name": "bident",
+    "name": "Bident",
     "ship": "bident",
     "hull": "bident_hull",
     "price": 91230,
@@ -11721,6 +11987,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_gf1_engine_01",
+      "name": "Triebwerk, Starflier",
+      "idsName": "263671",
+      "idsInfo": "264671",
+      "info": "Triebwerk, Starflier\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 72000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": ""
   },
@@ -11764,11 +12044,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01orange",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "btransport_package": {
     "id": "btransport_package",
-    "name": "btransport",
+    "name": "Swashbuckler",
     "ship": "btransport",
     "hull": "btransport_hull",
     "price": 162000,
@@ -11805,6 +12099,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_rfr_engine_01",
+      "name": "Triebwerk, Rh.-Frachter",
+      "idsName": "263698",
+      "idsInfo": "264698",
+      "info": "Triebwerk, Rheinland-Frachter\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 39000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": ""
   },
@@ -11848,6 +12156,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_kf_engine_01",
+      "name": "Triebwerk, Kusari-Jäger",
+      "idsName": "263693",
+      "idsInfo": "264693",
+      "info": "Triebwerk, Kusari-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 72000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "bullpupmk2_package": {
@@ -11889,6 +12211,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_bhe2_engine_01",
+      "name": "Triebwerk, sehr schwerer Jäger der Kopfgeldjäger",
+      "idsName": "263686",
+      "idsInfo": "264686",
+      "info": "Triebwerk, sehr schwerer Jäger der Kopfgeldjäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 50000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": ""
   },
@@ -11932,11 +12268,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_lfr_engine_01",
+      "name": "Triebwerk, Liberty-Frachter",
+      "idsName": "263689",
+      "idsInfo": "264689",
+      "info": "Triebwerk, Liberty-Frachter\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 39000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "busterh_package": {
     "id": "busterh_package",
-    "name": "busterh",
+    "name": "P-7 Razorback",
     "ship": "busterh",
     "hull": "busterh_hull",
     "price": 9500000,
@@ -11974,11 +12324,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "busterp_package": {
     "id": "busterp_package",
-    "name": "busterp",
+    "name": "Shamal",
     "ship": "busterp",
     "hull": "busterp_hull",
     "price": 8980000,
@@ -12016,11 +12380,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "busterr_package": {
     "id": "busterr_package",
-    "name": "busterr",
+    "name": "P-7 Marten",
     "ship": "busterr",
     "hull": "busterr_hull",
     "price": 2300000,
@@ -12058,11 +12436,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "busters_package": {
     "id": "busters_package",
-    "name": "busters",
+    "name": "P-7 Shote",
     "ship": "busters",
     "hull": "busters_hull",
     "price": 8200000,
@@ -12100,11 +12492,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "busterv_package": {
     "id": "busterv_package",
-    "name": "busterv",
+    "name": "P-7 Badger",
     "ship": "busterv",
     "hull": "busterv_hull",
     "price": 9900000,
@@ -12142,11 +12548,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "butcher_package": {
     "id": "butcher_package",
-    "name": "butcher",
+    "name": "Butcher",
     "ship": "butcher",
     "hull": "butcher_hull",
     "price": 9378556,
@@ -12184,11 +12604,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "buzzardp_package": {
     "id": "buzzardp_package",
-    "name": "buzzardp",
+    "name": "Scirocco",
     "ship": "buzzardp",
     "hull": "buzzardp_hull",
     "price": 9320015,
@@ -12226,11 +12660,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "buzzardr_package": {
     "id": "buzzardr_package",
-    "name": "buzzardr",
+    "name": "Charon",
     "ship": "buzzardr",
     "hull": "buzzardr_hull",
     "price": 9100000,
@@ -12268,11 +12716,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "buzzardv_package": {
     "id": "buzzardv_package",
-    "name": "buzzardv",
+    "name": "Persephone",
     "ship": "buzzardv",
     "hull": "buzzardv_hull",
     "price": 8900000,
@@ -12309,6 +12771,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": ""
   },
@@ -12352,6 +12828,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_bwe2_engine_01",
+      "name": "Triebwerk, sehr schwerer GW-Jäger",
+      "idsName": "263679",
+      "idsInfo": "264679",
+      "info": "Triebwerk, sehr schwerer GW-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 45000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": "Statistik\nGeschütz-/Turmsockel: 6/1\nPanzerung: 10800\nFrachtraum: 70\nMax. Batterien/Nanobots: 63/63\nOptimale Waffenklasse: 8\nMax. Waffenklasse: 10\nZusätzliche Ausrüstung: M, GM, RFU/T"
   },
   "bwe_package": {
@@ -12393,6 +12883,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_bwe_engine_01",
+      "name": "Triebwerk, schwerer GW-Jäger",
+      "idsName": "263678",
+      "idsInfo": "264678",
+      "info": "Triebwerk, schwerer GW-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 60000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 6/0\nPanzerung: 4900\nFrachtraum: 45\nMax. Batterien/Nanobots: 33/33\nOptimale Waffenklasse: 5\nMax. Waffenklasse: 7\nZusätzliche Ausrüstung: M, GM, RFU/T"
   },
@@ -12436,6 +12940,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_bwf_engine_01",
+      "name": "Triebwerk, GW-Jäger",
+      "idsName": "263677",
+      "idsInfo": "264677",
+      "info": "Triebwerk, Grenzweltjäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 72000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": "Statistik\nGeschütz-/Turmsockel: 4/1\nPanzerung: 1800\nFrachtraum: 35\nMax. Batterien/Nanobots: 15/15\nOptimale Waffenklasse: 2\nMax. Waffenklasse: 4\nZusätzliche Ausrüstung: M, GM, RFU"
   },
   "bwfr_package": {
@@ -12478,11 +12996,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_bwfr_engine_01",
+      "name": "Triebwerk, GW-Frachter",
+      "idsName": "263680",
+      "idsInfo": "264680",
+      "info": "Triebwerk, Grenzweltfrachter\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 38000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": "Statistik\nGeschütz-/Turmsockel: 3/5\nPanzerung: 3600\nFrachtraum: 275\nMax. Batterien/Nanobots: 23/23\nOptimale Waffenklasse: 4\nMax. Waffenklasse: 6\nZusätzliche Ausrüstung: M, GM"
   },
   "cancer_package": {
     "id": "cancer_package",
-    "name": "cancer",
+    "name": "Trailblazer",
     "ship": "cancer",
     "hull": "cancer_hull",
     "price": 412023,
@@ -12519,6 +13051,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_gf5_engine_01",
+      "name": "Triebwerk, schwerer Ziviljäger",
+      "idsName": "263675",
+      "idsInfo": "264675",
+      "info": "Triebwerk, schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 60000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": ""
   },
@@ -12562,11 +13108,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_oe_engine_01",
+      "name": "Triebwerk, Orden-Jäger",
+      "idsName": "263702",
+      "idsInfo": "264702",
+      "info": "Triebwerk, Orden-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 54000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "cf1901_package": {
     "id": "cf1901_package",
-    "name": "cf1901",
+    "name": "Claw",
     "ship": "cf1901",
     "hull": "cf1901_hull",
     "price": 8100122,
@@ -12604,11 +13164,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "cf1902_package": {
     "id": "cf1902_package",
-    "name": "cf1902",
+    "name": "Flathead",
     "ship": "cf1902",
     "hull": "cf1902_hull",
     "price": 8214231,
@@ -12646,11 +13220,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "cf1903_package": {
     "id": "cf1903_package",
-    "name": "cf1903",
+    "name": "Foxhound",
     "ship": "cf1903",
     "hull": "cf1903_hull",
     "price": 8534112,
@@ -12688,11 +13276,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "cf1904_package": {
     "id": "cf1904_package",
-    "name": "cf1904",
+    "name": "Vigilant",
     "ship": "cf1904",
     "hull": "cf1904_hull",
     "price": 9000000,
@@ -12730,11 +13332,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_oe_engine_01",
+      "name": "Triebwerk, Orden-Jäger",
+      "idsName": "263702",
+      "idsInfo": "264702",
+      "info": "Triebwerk, Orden-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 54000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "cf1905_package": {
     "id": "cf1905_package",
-    "name": "cf1905",
+    "name": "Seahorse",
     "ship": "cf1905",
     "hull": "cf1905_hull",
     "price": 8500000,
@@ -12772,11 +13388,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "cf1906_package": {
     "id": "cf1906_package",
-    "name": "cf1906",
+    "name": "Rapier",
     "ship": "cf1906",
     "hull": "cf1906_hull",
     "price": 8132321,
@@ -12814,11 +13444,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "cf1907_package": {
     "id": "cf1907_package",
-    "name": "cf1907",
+    "name": "Cayman",
     "ship": "cf1907",
     "hull": "cf1907_hull",
     "price": 8978556,
@@ -12856,11 +13500,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "cf1908_package": {
     "id": "cf1908_package",
-    "name": "cf1908",
+    "name": "Apophis",
     "ship": "cf1908",
     "hull": "cf1908_hull",
     "price": 9188768,
@@ -12898,11 +13556,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_lfr_engine_01",
+      "name": "Triebwerk, Liberty-Frachter",
+      "idsName": "263689",
+      "idsInfo": "264689",
+      "info": "Triebwerk, Liberty-Frachter\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 39000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "cf1910_package": {
     "id": "cf1910_package",
-    "name": "cf1910",
+    "name": "Yggdrasil Battleship",
     "ship": "cf1910",
     "hull": "cf1910_hull",
     "price": 105000000,
@@ -12940,11 +13612,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 1000.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "rgrk_engine2",
+      "name": "Triebw., Bretonia-Frachter",
+      "idsName": "263692",
+      "idsInfo": "264692",
+      "info": "Triebwerk, Bretonia-Frachter\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 82500.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 0.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "cf1911_package": {
     "id": "cf1911_package",
-    "name": "cf1911",
+    "name": "Inquisitor Dreadnought",
     "ship": "cf1911",
     "hull": "cf1911_hull",
     "price": 105000000,
@@ -12982,11 +13668,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 1000.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_lbd_engine_01cf2small",
+      "name": "Triebw., Liberty-Dreadnought",
+      "idsName": "263889",
+      "idsInfo": "264889",
+      "info": "Triebwerk, Liberty Dreadnought\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 96000.0,
+      "linearDrag": 1199.0,
+      "powerUsage": 10.0,
+      "reverseFraction": 0.1,
+      "cruiseChargeTime": 10.0,
+      "cruisePowerUsage": 200.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "cf1912_package": {
     "id": "cf1912_package",
-    "name": "cf1912",
+    "name": "Celestis Dreadnought",
     "ship": "cf1912",
     "hull": "cf1912_hull",
     "price": 105000000,
@@ -13024,11 +13724,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 1000.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_lbd_engine_01cfrh2",
+      "name": "Triebw., Liberty-Dreadnought",
+      "idsName": "263889",
+      "idsInfo": "264889",
+      "info": "Triebwerk, Liberty Dreadnought\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 96000.0,
+      "linearDrag": 1199.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.1,
+      "cruiseChargeTime": 10.0,
+      "cruisePowerUsage": 200.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "cf1913_package": {
     "id": "cf1913_package",
-    "name": "cf1913",
+    "name": "Navitas Battleship",
     "ship": "cf1913",
     "hull": "cf1913_hull",
     "price": 65000000,
@@ -13066,11 +13780,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 1000.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_lbd_engine_01cfku2",
+      "name": "Triebw., Liberty-Dreadnought",
+      "idsName": "263889",
+      "idsInfo": "264889",
+      "info": "Triebwerk, Liberty Dreadnought\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 96000.0,
+      "linearDrag": 1199.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.1,
+      "cruiseChargeTime": 10.0,
+      "cruisePowerUsage": 200.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "cf1914_package": {
     "id": "cf1914_package",
-    "name": "cf1914",
+    "name": "Maelstrom Battleship",
     "ship": "cf1914",
     "hull": "cf1914_hull",
     "price": 65000000,
@@ -13108,11 +13836,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 1000.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_lbd_engine_01cfku2",
+      "name": "Triebw., Liberty-Dreadnought",
+      "idsName": "263889",
+      "idsInfo": "264889",
+      "info": "Triebwerk, Liberty Dreadnought\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 96000.0,
+      "linearDrag": 1199.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.1,
+      "cruiseChargeTime": 10.0,
+      "cruisePowerUsage": 200.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "cf1915_package": {
     "id": "cf1915_package",
-    "name": "cf1915",
+    "name": "Thorax",
     "ship": "cf1915",
     "hull": "cf1915_hull",
     "price": 6134112,
@@ -13150,11 +13892,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "cf1916_package": {
     "id": "cf1916_package",
-    "name": "cf1916",
+    "name": "Catalyst",
     "ship": "cf1916",
     "hull": "cf1916_hull",
     "price": 8200000,
@@ -13192,11 +13948,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "cf1917_package": {
     "id": "cf1917_package",
-    "name": "cf1917",
+    "name": "Harbinger Dreadnought",
     "ship": "cf1917",
     "hull": "cf1917_hull",
     "price": 1050000,
@@ -13234,11 +14004,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 1000.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_lbd_engine_01cfbr2",
+      "name": "Triebw., Liberty-Dreadnought",
+      "idsName": "263889",
+      "idsInfo": "264889",
+      "info": "Triebwerk, Liberty Dreadnought\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 96000.0,
+      "linearDrag": 1199.0,
+      "powerUsage": 10.0,
+      "reverseFraction": 0.1,
+      "cruiseChargeTime": 10.0,
+      "cruisePowerUsage": 200.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "cf1918_package": {
     "id": "cf1918_package",
-    "name": "cf1918",
+    "name": "Retribution Battleship",
     "ship": "cf1918",
     "hull": "cf1918_hull",
     "price": 650000,
@@ -13276,11 +14060,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 1000.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_lbd_engine_01cfrh2",
+      "name": "Triebw., Liberty-Dreadnought",
+      "idsName": "263889",
+      "idsInfo": "264889",
+      "info": "Triebwerk, Liberty Dreadnought\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 96000.0,
+      "linearDrag": 1199.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.1,
+      "cruiseChargeTime": 10.0,
+      "cruisePowerUsage": 200.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "cf1919_package": {
     "id": "cf1919_package",
-    "name": "cf1919",
+    "name": "Manticore Dreadnought",
     "ship": "cf1919",
     "hull": "cf1919_hull",
     "price": 1050000,
@@ -13318,11 +14116,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 1000.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_lbd_engine_01cfku2",
+      "name": "Triebw., Liberty-Dreadnought",
+      "idsName": "263889",
+      "idsInfo": "264889",
+      "info": "Triebwerk, Liberty Dreadnought\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 96000.0,
+      "linearDrag": 1199.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.1,
+      "cruiseChargeTime": 10.0,
+      "cruisePowerUsage": 200.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "cf1920_package": {
     "id": "cf1920_package",
-    "name": "cf1920",
+    "name": "Iteron Battleship",
     "ship": "cf1920",
     "hull": "cf1920_hull",
     "price": 650000,
@@ -13360,11 +14172,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 1000.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_lbd_engine_01cf2",
+      "name": "Triebw., Liberty-Dreadnought",
+      "idsName": "263889",
+      "idsInfo": "264889",
+      "info": "Triebwerk, Liberty Dreadnought\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 96000.0,
+      "linearDrag": 1199.0,
+      "powerUsage": 10.0,
+      "reverseFraction": 0.1,
+      "cruiseChargeTime": 10.0,
+      "cruisePowerUsage": 200.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "cf1921_package": {
     "id": "cf1921_package",
-    "name": "cf1921",
+    "name": "Nighthawk",
     "ship": "cf1921",
     "hull": "cf1921_hull",
     "price": 8300122,
@@ -13402,11 +14228,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "cf20ship01_package": {
     "id": "cf20ship01_package",
-    "name": "cf20ship01",
+    "name": "Borealis",
     "ship": "cf20ship01",
     "hull": "cf20ship01_hull",
     "price": 8567857,
@@ -13444,11 +14284,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01purple",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "cf20ship02_package": {
     "id": "cf20ship02_package",
-    "name": "cf20ship02",
+    "name": "Equinox",
     "ship": "cf20ship02",
     "hull": "cf20ship02_hull",
     "price": 442021,
@@ -13486,11 +14340,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf5_engine_01",
+      "name": "Triebwerk, schwerer Ziviljäger",
+      "idsName": "263675",
+      "idsInfo": "264675",
+      "info": "Triebwerk, schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 60000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "cf20ship03_package": {
     "id": "cf20ship03_package",
-    "name": "cf20ship03",
+    "name": "Quasar",
     "ship": "cf20ship03",
     "hull": "cf20ship03_hull",
     "price": 8988551,
@@ -13528,11 +14396,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "cf20ship04_package": {
     "id": "cf20ship04_package",
-    "name": "cf20ship04",
+    "name": "Luna Sunrise",
     "ship": "cf20ship04",
     "hull": "cf20ship04_hull",
     "price": 7724712,
@@ -13570,11 +14452,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01white",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "cf20ship05_package": {
     "id": "cf20ship05_package",
-    "name": "cf20ship05",
+    "name": "Maco",
     "ship": "cf20ship05",
     "hull": "cf20ship05_hull",
     "price": 7524311,
@@ -13612,11 +14508,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf5_engine_01",
+      "name": "Triebwerk, schwerer Ziviljäger",
+      "idsName": "263675",
+      "idsInfo": "264675",
+      "info": "Triebwerk, schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 60000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "cf_armored_package": {
     "id": "cf_armored_package",
-    "name": "cf_armored",
+    "name": "Armored Transport",
     "ship": "cf_armored",
     "hull": "cf_armored_hull",
     "price": 18750000,
@@ -13654,11 +14564,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "cf_armored_engine",
+      "name": "Triebw., gepanzerter Transporter",
+      "idsName": "263885",
+      "idsInfo": "264885",
+      "info": "Triebwerk, gepanzerter Transporter\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "cf_br_destroyer_package": {
     "id": "cf_br_destroyer_package",
-    "name": "cf_br_destroyer",
+    "name": "Bretonia Destroyer",
     "ship": "cf_br_destroyer",
     "hull": "cf_br_destroyer_hull",
     "price": 32000000,
@@ -13696,11 +14620,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "cf_bd_engine",
+      "name": "Triebw., Bretonia-Zerstörer",
+      "idsName": "263890",
+      "idsInfo": "264890",
+      "info": "Triebwerk, Bretonia-Zerstörer\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 96000.0,
+      "linearDrag": 1199.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 7.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "cf_br_gunboat_package": {
     "id": "cf_br_gunboat_package",
-    "name": "cf_br_gunboat",
+    "name": "Bretonia Gunboat",
     "ship": "cf_br_gunboat",
     "hull": "cf_br_gunboat_hull",
     "price": 16000000,
@@ -13738,11 +14676,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "cf_bg_engine",
+      "name": "Triebw., Bretonia-Korvette",
+      "idsName": "263892",
+      "idsInfo": "264892",
+      "info": "Triebwerk, Bretonia-Korvette\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 60000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "cf_ku_destroyer_package": {
     "id": "cf_ku_destroyer_package",
-    "name": "cf_ku_destroyer",
+    "name": "Kusari Destroyer",
     "ship": "cf_ku_destroyer",
     "hull": "cf_ku_destroyer_hull",
     "price": 32000000,
@@ -13780,11 +14732,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "cf_kd_engine",
+      "name": "Triebw., Kusari-Zerstörer",
+      "idsName": "263894",
+      "idsInfo": "264894",
+      "info": "Triebwerk, Kusari-Zerstörer\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 96000.0,
+      "linearDrag": 1199.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 7.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "cf_ku_gunboat_package": {
     "id": "cf_ku_gunboat_package",
-    "name": "cf_ku_gunboat",
+    "name": "Kusari Gunboat",
     "ship": "cf_ku_gunboat",
     "hull": "cf_ku_gunboat_hull",
     "price": 16000000,
@@ -13822,11 +14788,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "cf_kg_engine",
+      "name": "Triebwerk, Kusari-Korvette",
+      "idsName": "263893",
+      "idsInfo": "264893",
+      "info": "Triebwerk, Kusari-Korvette\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 60000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "cf_large_transport_package": {
     "id": "cf_large_transport_package",
-    "name": "cf_large_transport",
+    "name": "Large Transport",
     "ship": "cf_large_transport",
     "hull": "cf_large_transport_hull",
     "price": 26250000,
@@ -13864,11 +14844,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "cf_large_transport_engine",
+      "name": "Transportertriebwerk",
+      "idsName": "263881",
+      "idsInfo": "264881",
+      "info": "Transportertriebwerk\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 45000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "cf_li_cruiser_package": {
     "id": "cf_li_cruiser_package",
-    "name": "cf_li_cruiser",
+    "name": "Liberty Cruiser",
     "ship": "cf_li_cruiser",
     "hull": "cf_li_cruiser_hull",
     "price": 32000000,
@@ -13906,11 +14900,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "cf_lc_engine",
+      "name": "Triebwerk, Liberty-Kreuzer",
+      "idsName": "263887",
+      "idsInfo": "264887",
+      "info": "Triebwerk, Liberty-Kreuzer\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 96000.0,
+      "linearDrag": 1199.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 7.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "cf_li_gunboat_package": {
     "id": "cf_li_gunboat_package",
-    "name": "cf_li_gunboat",
+    "name": "Liberty Gunboat",
     "ship": "cf_li_gunboat",
     "hull": "cf_li_gunboat_hull",
     "price": 16000000,
@@ -13948,11 +14956,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "cf_lg_engine",
+      "name": "Triebw., Bretonia-Korvette",
+      "idsName": "263892",
+      "idsInfo": "264892",
+      "info": "Triebwerk, Bretonia-Korvette\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 60000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "cf_lifter_package": {
     "id": "cf_lifter_package",
-    "name": "cf_lifter",
+    "name": "Heavy Lifter",
     "ship": "cf_lifter",
     "hull": "cf_lifter_hull",
     "price": 12000000,
@@ -13990,11 +15012,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "cf_bg_engine",
+      "name": "Triebw., Bretonia-Korvette",
+      "idsName": "263892",
+      "idsInfo": "264892",
+      "info": "Triebwerk, Bretonia-Korvette\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 60000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "cf_liner_package": {
     "id": "cf_liner_package",
-    "name": "cf_liner",
+    "name": "Luxury Liner",
     "ship": "cf_liner",
     "hull": "cf_liner_hull",
     "price": 35000000,
@@ -14032,11 +15068,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "cf_lnr_engine_01",
+      "name": "Triebwerk, Luxusliner",
+      "idsName": "263901",
+      "idsInfo": "264901",
+      "info": "Triebwerk, Luxusliner\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 96000.0,
+      "linearDrag": 1199.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "cf_or_destroyer_package": {
     "id": "cf_or_destroyer_package",
-    "name": "cf_or_destroyer",
+    "name": "Order Destroyer",
     "ship": "cf_or_destroyer",
     "hull": "cf_or_destroyer_hull",
     "price": 32000000,
@@ -14074,11 +15124,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "cf_lc_engine",
+      "name": "Triebwerk, Liberty-Kreuzer",
+      "idsName": "263887",
+      "idsInfo": "264887",
+      "info": "Triebwerk, Liberty-Kreuzer\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 96000.0,
+      "linearDrag": 1199.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 7.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "cf_prison_package": {
     "id": "cf_prison_package",
-    "name": "cf_prison",
+    "name": "Prison Ship",
     "ship": "cf_prison",
     "hull": "cf_prison_hull",
     "price": 37500000,
@@ -14116,11 +15180,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "cf_psn_engine_01",
+      "name": "Triebwerk, Gefängnisschiff",
+      "idsName": "263902",
+      "idsInfo": "264902",
+      "info": "Triebwerk, Gefängnisschiff\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 96000.0,
+      "linearDrag": 1199.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "cf_repair_package": {
     "id": "cf_repair_package",
-    "name": "cf_repair",
+    "name": "Repair Ship",
     "ship": "cf_repair",
     "hull": "cf_repair_hull",
     "price": 15000000,
@@ -14158,11 +15236,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "cf_repair_engine",
+      "name": "Triebw., gepanzerter Transporter",
+      "idsName": "263885",
+      "idsInfo": "264885",
+      "info": "Triebwerk, gepanzerter Transporter\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "cf_rh_cruiser_package": {
     "id": "cf_rh_cruiser_package",
-    "name": "cf_rh_cruiser",
+    "name": "Rheinland Cruiser",
     "ship": "cf_rh_cruiser",
     "hull": "cf_rh_cruiser_hull",
     "price": 32000000,
@@ -14200,11 +15292,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "cf_rc_engine",
+      "name": "Triebwerk, Rh.-Kreuzer",
+      "idsName": "263897",
+      "idsInfo": "264897",
+      "info": "Triebwerk, Rheinland-Kreuzer\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 96000.0,
+      "linearDrag": 1199.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 7.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "cf_rh_gunboat_package": {
     "id": "cf_rh_gunboat_package",
-    "name": "cf_rh_gunboat",
+    "name": "Rheinland Gunboat",
     "ship": "cf_rh_gunboat",
     "hull": "cf_rh_gunboat_hull",
     "price": 16000000,
@@ -14242,11 +15348,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "cf_rg_engine",
+      "name": "Triebwerk, Rh.-Korvette",
+      "idsName": "263896",
+      "idsInfo": "264896",
+      "info": "Triebwerk, Rheinland-Korvette\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 60000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "cf_transport_package": {
     "id": "cf_transport_package",
-    "name": "cf_transport",
+    "name": "Transport",
     "ship": "cf_transport",
     "hull": "cf_transport_hull",
     "price": 15000000,
@@ -14284,11 +15404,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "cf_transport_engine",
+      "name": "Transportertriebwerk",
+      "idsName": "263881",
+      "idsInfo": "264881",
+      "info": "Transportertriebwerk\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 45000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "cfbomber1_package": {
     "id": "cfbomber1_package",
-    "name": "cfbomber1",
+    "name": "Mutineer",
     "ship": "cfbomber1",
     "hull": "cfbomber1_hull",
     "price": 8783457,
@@ -14326,11 +15460,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01white",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "cffighter1_package": {
     "id": "cffighter1_package",
-    "name": "cffighter1",
+    "name": "Pioneer",
     "ship": "cffighter1",
     "hull": "cffighter1_hull",
     "price": 9083411,
@@ -14368,11 +15516,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01white",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "cffighter2_package": {
     "id": "cffighter2_package",
-    "name": "cffighter2",
+    "name": "Horizon",
     "ship": "cffighter2",
     "hull": "cffighter2_hull",
     "price": 9013459,
@@ -14410,11 +15572,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01white",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "cffighter3_package": {
     "id": "cffighter3_package",
-    "name": "cffighter3",
+    "name": "Iguana",
     "ship": "cffighter3",
     "hull": "cffighter3_hull",
     "price": 8877456,
@@ -14452,11 +15628,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01white",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "cffreighter1_package": {
     "id": "cffreighter1_package",
-    "name": "cffreighter1",
+    "name": "Libertine Bomber",
     "ship": "cffreighter1",
     "hull": "cffreighter1_hull",
     "price": 8354558,
@@ -14493,6 +15683,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_gf6_engine_01white",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": ""
   },
@@ -14536,11 +15740,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "cf_lc_engine",
+      "name": "Triebwerk, Liberty-Kreuzer",
+      "idsName": "263887",
+      "idsInfo": "264887",
+      "info": "Triebwerk, Liberty-Kreuzer\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 96000.0,
+      "linearDrag": 1199.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 7.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "cfrhnlndfreighter_package": {
     "id": "cfrhnlndfreighter_package",
-    "name": "cfrhnlndfreighter",
+    "name": "Peon Freighter",
     "ship": "cfrhnlndfreighter",
     "hull": "cfrhnlndfreighter_hull",
     "price": 7124789,
@@ -14578,11 +15796,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01white",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "chimera2_package": {
     "id": "chimera2_package",
-    "name": "chimera2",
+    "name": "Shade",
     "ship": "chimera2",
     "hull": "chimera2_hull",
     "price": 3858768,
@@ -14620,11 +15852,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_kf_engine_01",
+      "name": "Triebwerk, Kusari-Jäger",
+      "idsName": "263693",
+      "idsInfo": "264693",
+      "info": "Triebwerk, Kusari-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 72000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "chimera_package": {
     "id": "chimera_package",
-    "name": "chimera",
+    "name": "Chimera",
     "ship": "chimera",
     "hull": "chimera_hull",
     "price": 9067877,
@@ -14662,11 +15908,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01orange",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "cobra_package": {
     "id": "cobra_package",
-    "name": "cobra",
+    "name": "Cobra",
     "ship": "cobra",
     "hull": "cobra_hull",
     "price": 8766877,
@@ -14703,6 +15963,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_gf6_engine_01green",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": ""
   },
@@ -14746,6 +16020,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_coe2_engine_01",
+      "name": "Triebwerk, sehr schwerer Korsaren-Jäger",
+      "idsName": "263683",
+      "idsInfo": "264683",
+      "info": "Triebwerk, sehr schwerer Korsaren-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 42000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": "Statistik\nGeschütz-/Turmsockel: 6/1\nPanzerung: 12600\nFrachtraum: 70\nMax. Batterien/Nanobots: 71/71\nOptimale Waffenklasse: 8\nMax. Waffenklasse: 10\nZusätzliche Ausrüstung: M, GM, RFU/T"
   },
   "coe_package": {
@@ -14787,6 +16075,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_coe_engine_01",
+      "name": "Triebwerk, schwerer Korsaren-Jäger",
+      "idsName": "263682",
+      "idsInfo": "264682",
+      "info": "Triebwerk, schwerer Korsaren-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 54000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 6/0\nPanzerung: 9200\nFrachtraum: 45\nMax. Batterien/Nanobots: 55/55\nOptimale Waffenklasse: 7\nMax. Waffenklasse: 9\nZusätzliche Ausrüstung: M, GM, RFU/T"
   },
@@ -14830,6 +16132,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_cof_engine_01",
+      "name": "Triebwerk, Korsaren-Jäger",
+      "idsName": "263681",
+      "idsInfo": "264681",
+      "info": "Triebwerk, Korsaren-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 72000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": "Statistik\nGeschütz-/Turmsockel: 4/0\nPanzerung: 2400\nFrachtraum: 35\nMax. Batterien/Nanobots: 20/20\nOptimale Waffenklasse: 3\nMax. Waffenklasse: 5\nZusätzliche Ausrüstung: M, GM, RFU"
   },
   "colsabre_package": {
@@ -14872,11 +16188,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "combatship_package": {
     "id": "combatship_package",
-    "name": "combatship",
+    "name": "Fury",
     "ship": "combatship",
     "hull": "combatship_hull",
     "price": 9383454,
@@ -14914,11 +16244,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01orange",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "corsair_package": {
     "id": "corsair_package",
-    "name": "corsair",
+    "name": "Abraxas",
     "ship": "corsair",
     "hull": "corsair_hull",
     "price": 9567877,
@@ -14955,6 +16299,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_gf6_engine_01purple",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": ""
   },
@@ -14998,6 +16356,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "crusader_package": {
@@ -15040,11 +16412,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "csf1_package": {
     "id": "csf1_package",
-    "name": "asf5",
+    "name": "Fatality",
     "ship": "asf5",
     "hull": "csf1_hull",
     "price": 10500000,
@@ -15082,11 +16468,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "csf2_package": {
     "id": "csf2_package",
-    "name": "asf7x",
+    "name": "Titus",
     "ship": "asf7x",
     "hull": "csf2_hull",
     "price": 13500000,
@@ -15123,6 +16523,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": ""
   },
@@ -15166,6 +16580,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_csv_engine_01",
+      "name": "Triebwerk, GBF",
+      "idsName": "263899",
+      "idsInfo": "264899",
+      "info": "Triebwerk, GBF\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.1,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "dangel_package": {
@@ -15208,11 +16636,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01green",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "devastator_package": {
     "id": "devastator_package",
-    "name": "devastator",
+    "name": "Devastator",
     "ship": "devastator",
     "hull": "devastator_hull",
     "price": 8642122,
@@ -15250,11 +16692,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "devil_package": {
     "id": "devil_package",
-    "name": "devil",
+    "name": "Devil",
     "ship": "devil",
     "hull": "devil_hull",
     "price": 9083457,
@@ -15292,11 +16748,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "devilray_package": {
     "id": "devilray_package",
-    "name": "devilray",
+    "name": "Devilray",
     "ship": "devilray",
     "hull": "devilray_hull",
     "price": 1201220,
@@ -15334,11 +16804,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "discoverere_package": {
     "id": "discoverere_package",
-    "name": "discoverere",
+    "name": "Nike",
     "ship": "discoverere",
     "hull": "discoverere_hull",
     "price": 9100000,
@@ -15376,11 +16860,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "discovererh_package": {
     "id": "discovererh_package",
-    "name": "discovererh",
+    "name": "Thanatos",
     "ship": "discovererh",
     "hull": "discovererh_hull",
     "price": 8800000,
@@ -15418,11 +16916,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "discovererr_package": {
     "id": "discovererr_package",
-    "name": "discovererr",
+    "name": "Bellerophon",
     "ship": "discovererr",
     "hull": "discovererr_hull",
     "price": 8500000,
@@ -15460,11 +16972,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "discoverers_package": {
     "id": "discoverers_package",
-    "name": "discoverers",
+    "name": "Lakhesis",
     "ship": "discoverers",
     "hull": "discoverers_hull",
     "price": 9400000,
@@ -15502,11 +17028,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "dolphin_package": {
     "id": "dolphin_package",
-    "name": "dolphin",
+    "name": "Dolphin",
     "ship": "dolphin",
     "hull": "dolphin_hull",
     "price": 7224558,
@@ -15543,6 +17083,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_gf6_engine_01",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": ""
   },
@@ -15586,11 +17140,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_ke_engine_01",
+      "name": "Triebw., opt. Kusari-Jäger",
+      "idsName": "263694",
+      "idsInfo": "264694",
+      "info": "Triebwerk, opt. Kusari-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 54000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "drizzt_package": {
     "id": "drizzt_package",
-    "name": "drizzt",
+    "name": "Drizzt",
     "ship": "drizzt",
     "hull": "drizzt_hull",
     "price": 1320002,
@@ -15627,6 +17195,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_gf6_engine_01",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": ""
   },
@@ -15670,6 +17252,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_oe_engine_01",
+      "name": "Triebwerk, Orden-Jäger",
+      "idsName": "263702",
+      "idsInfo": "264702",
+      "info": "Triebwerk, Orden-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 54000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "elder_package": {
@@ -15712,11 +17308,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_bhe_engine_01",
+      "name": "Triebwerk, schwerer Jäger der Kopfgeldjäger",
+      "idsName": "263685",
+      "idsInfo": "264685",
+      "info": "Triebwerk, schwerer Jäger der Kopfgeldjäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 54000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "eliminator_package": {
     "id": "eliminator_package",
-    "name": "eliminator",
+    "name": "Eliminator",
     "ship": "eliminator",
     "hull": "eliminator_hull",
     "price": 9383959,
@@ -15753,6 +17363,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_gf6_engine_01green",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": ""
   },
@@ -15796,11 +17420,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_coe2_engine_01",
+      "name": "Triebwerk, sehr schwerer Korsaren-Jäger",
+      "idsName": "263683",
+      "idsInfo": "264683",
+      "info": "Triebwerk, sehr schwerer Korsaren-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 42000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "evileye_package": {
     "id": "evileye_package",
-    "name": "evileye",
+    "name": "Werewolf",
     "ship": "evileye",
     "hull": "evileye_hull",
     "price": 8011333,
@@ -15838,11 +17476,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "exocet_package": {
     "id": "exocet_package",
-    "name": "exocet",
+    "name": "Exocet",
     "ship": "exocet",
     "hull": "exocet_hull",
     "price": 5267877,
@@ -15879,6 +17531,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_gf6_engine_01orange",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": ""
   },
@@ -15922,11 +17588,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01white",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "falconp_package": {
     "id": "falconp_package",
-    "name": "falconp",
+    "name": "Chinook",
     "ship": "falconp",
     "hull": "falconp_hull",
     "price": 9300000,
@@ -15964,11 +17644,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "falconr_package": {
     "id": "falconr_package",
-    "name": "falconr",
+    "name": "Goshawk",
     "ship": "falconr",
     "hull": "falconr_hull",
     "price": 1200000,
@@ -16006,11 +17700,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "falcons_package": {
     "id": "falcons_package",
-    "name": "falcons",
+    "name": "Harpy",
     "ship": "falcons",
     "hull": "falcons_hull",
     "price": 8700000,
@@ -16048,11 +17756,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "freedomx_package": {
     "id": "freedomx_package",
-    "name": "freedomx",
+    "name": "Freedom X-Interceptor",
     "ship": "freedomx",
     "hull": "freedomx_hull",
     "price": 8200000,
@@ -16090,11 +17812,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01white",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "frfighter01_package": {
     "id": "frfighter01_package",
-    "name": "frship_fighter1",
+    "name": "Éridan",
     "ship": "frship_fighter1",
     "hull": "frfighter01_hull",
     "price": 9541230,
@@ -16132,11 +17868,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_fr_engine_02",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "frfighter02_package": {
     "id": "frfighter02_package",
-    "name": "frship_fighter2",
+    "name": "Vulcain",
     "ship": "frship_fighter2",
     "hull": "frfighter02_hull",
     "price": 9129240,
@@ -16174,11 +17924,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_fr_engine_02",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "frfighter03_package": {
     "id": "frfighter03_package",
-    "name": "frship_fighter3",
+    "name": "Antarès",
     "ship": "frship_fighter3",
     "hull": "frfighter03_hull",
     "price": 9328750,
@@ -16216,11 +17980,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_fr_engine_02",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "geko_package": {
     "id": "geko_package",
-    "name": "geko",
+    "name": "Geko",
     "ship": "geko",
     "hull": "geko_hull",
     "price": 8867874,
@@ -16257,6 +18035,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_gf6_engine_01green",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": ""
   },
@@ -16300,6 +18092,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf1_engine_01",
+      "name": "Triebwerk, Starflier",
+      "idsName": "263671",
+      "idsInfo": "264671",
+      "info": "Triebwerk, Starflier\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 72000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": "Statistik\nGeschütz-/Turmsockel: 3\nPanzerung: 1100\nFrachtraum: 20\nMax. Batterien/Nanobots: 10/10\nOptimale Waffenklasse: 1\nMax.Waffenklasse: 3\nZusätzliche Ausrüstung: M, GM"
   },
   "gf2_package": {
@@ -16341,6 +18147,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_gf2_engine_01",
+      "name": "Triebwerk, Startracker",
+      "idsName": "263672",
+      "idsInfo": "264672",
+      "info": "Triebwerk, Startracker\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 72000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 3/0\nPanzerung: 1800\nFrachtraum: 30\nMax. Batterien/Nanobots: 15/15\nOptimale Waffenklasse: 2\nMax. Waffenklasse: 4\nZusätzliche Ausrüstung: M, GM, RFU"
   },
@@ -16384,6 +18204,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf3_engine_01",
+      "name": "Triebwerk, Starblazer",
+      "idsName": "263673",
+      "idsInfo": "264673",
+      "info": "Triebwerk, Starblazer\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 66000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "gf4_package": {
@@ -16425,6 +18259,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_gf4_engine_01",
+      "name": "Triebwerk, Ziviljäger",
+      "idsName": "263674",
+      "idsInfo": "264674",
+      "info": "Triebwerk, Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 66000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 4/0\nPanzerung: 3300\nFrachtraum: 45\nMax. Batterien/Nanobots: 26/26\nOptimale Waffenklasse: 4\nMax. Waffenklasse: 6\nZusätzliche Ausrüstung: M, GM, RFU"
   },
@@ -16468,6 +18316,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf5_engine_01",
+      "name": "Triebwerk, schwerer Ziviljäger",
+      "idsName": "263675",
+      "idsInfo": "264675",
+      "info": "Triebwerk, schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 60000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": "Statistik\nGeschütz-/Turmsockel: 5/1\nPanzerung: 6200\nFrachtraum: 60\nMax. Batterien/Nanobots: 43/43\nOptimale Waffenklasse: 6\nMax. Waffenklasse: 8\nZusätzliche Ausrüstung: M, GM, RFU/T"
   },
   "gf6_package": {
@@ -16509,6 +18371,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_gf6_engine_01",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 6/1\nPanzerung: 9900\nFrachtraum: 70\nMax. Batterien/Nanobots: 63/63\nOptimale Waffenklasse: 8\nMax. Waffenklasse: 10\nZusätzliche Ausrüstung: M, GM, RFU/T"
   },
@@ -16552,11 +18428,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf3_engine_01",
+      "name": "Triebwerk, Starblazer",
+      "idsName": "263673",
+      "idsInfo": "264673",
+      "info": "Triebwerk, Starblazer\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 66000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "gf8_package": {
     "id": "gf8_package",
-    "name": "ge_fighter8",
+    "name": "Black Eagle",
     "ship": "ge_fighter8",
     "hull": "gf8_hull",
     "price": 505000,
@@ -16593,6 +18483,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_gf6_engine_01lightblue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 6/1\nPanzerung: 9900\nFrachtraum: 70\nMax. Batterien/Nanobots: 63/63\nOptimale Waffenklasse: 8\nMax. Waffenklasse: 10\nZusätzliche Ausrüstung: M, GM, RFU/T"
   },
@@ -16636,11 +18540,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "griffin_package": {
     "id": "griffin_package",
-    "name": "griffin",
+    "name": "Griffin",
     "ship": "griffin",
     "hull": "griffin_hull",
     "price": 8421122,
@@ -16677,6 +18595,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": ""
   },
@@ -16720,6 +18652,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_oe_engine_01",
+      "name": "Triebwerk, Orden-Jäger",
+      "idsName": "263702",
+      "idsInfo": "264702",
+      "info": "Triebwerk, Orden-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 54000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "gunstar_package": {
@@ -16761,6 +18707,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_re_engine_01",
+      "name": "Triebwerk, opt. Rh.-Jäger",
+      "idsName": "263697",
+      "idsInfo": "264697",
+      "info": "Triebwerk, opt. Rheinland-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 54000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": ""
   },
@@ -16804,6 +18764,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "haidar_package": {
@@ -16846,11 +18820,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "harrierp_package": {
     "id": "harrierp_package",
-    "name": "harrierp",
+    "name": "Whirlwind",
     "ship": "harrierp",
     "hull": "harrierp_hull",
     "price": 4700000,
@@ -16888,11 +18876,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "harrierr_package": {
     "id": "harrierr_package",
-    "name": "harrierr",
+    "name": "Hellcat",
     "ship": "harrierr",
     "hull": "harrierr_hull",
     "price": 8900000,
@@ -16930,11 +18932,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "harrierv_package": {
     "id": "harrierv_package",
-    "name": "harrierv",
+    "name": "Wrath",
     "ship": "harrierv",
     "hull": "harrierv_hull",
     "price": 9400000,
@@ -16972,11 +18988,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "hermes_package": {
     "id": "hermes_package",
-    "name": "hermes",
+    "name": "Hermes",
     "ship": "hermes",
     "hull": "hermes_hull",
     "price": 1183457,
@@ -17013,6 +19043,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_gf6_engine_01green",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": ""
   },
@@ -17056,6 +19100,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01purple",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "hydramk3_package": {
@@ -17097,6 +19155,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_be_engine_01",
+      "name": "Triebwerk, opt. Bretonia-Jäger",
+      "idsName": "263691",
+      "idsInfo": "264691",
+      "info": "Triebwerk, opt. Bretonia-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 54000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": ""
   },
@@ -17140,6 +19212,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf5_engine_01",
+      "name": "Triebwerk, schwerer Ziviljäger",
+      "idsName": "263675",
+      "idsInfo": "264675",
+      "info": "Triebwerk, schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 60000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "intruder_package": {
@@ -17182,11 +19268,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01lightblue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "jaguar_package": {
     "id": "jaguar_package",
-    "name": "jaguar",
+    "name": "X7A Fyrefly",
     "ship": "jaguar",
     "hull": "jaguar_hull",
     "price": 8600000,
@@ -17223,6 +19323,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": ""
   },
@@ -17266,6 +19380,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "karak_package": {
@@ -17307,6 +19435,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_gf6_engine_01",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": ""
   },
@@ -17350,6 +19492,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_ke2_engine_01",
+      "name": "Triebw., opt. Kusari-Jäger",
+      "idsName": "263694",
+      "idsInfo": "264694",
+      "info": "Triebwerk, opt. Kusari-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 54000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "ke_package": {
@@ -17391,6 +19547,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_ke_engine_01",
+      "name": "Triebw., opt. Kusari-Jäger",
+      "idsName": "263694",
+      "idsInfo": "264694",
+      "info": "Triebwerk, opt. Kusari-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 54000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 6/0\nPanzerung: 3600\nFrachtraum: 40\nMax. Batterien/Nanobots: 26/26\nOptimale Waffenklasse: 4\nMax. Waffenklasse: 6\nZusätzliche Ausrüstung: M, GM, RFU/T"
   },
@@ -17434,6 +19604,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_kf_engine_01",
+      "name": "Triebwerk, Kusari-Jäger",
+      "idsName": "263693",
+      "idsInfo": "264693",
+      "info": "Triebwerk, Kusari-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 72000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": "Statistik\nGeschütz-/Turmsockel: 4/0\nPanzerung: 2800\nFrachtraum: 35\nMax. Batterien/Nanobots: 23/23\nOptimale Waffenklasse: 4\nMax. Waffenklasse: 6\nZusätzliche Ausrüstung: M, GM, RFU"
   },
   "kfr_package": {
@@ -17475,6 +19659,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_kfr_engine_01",
+      "name": "Triebwerk, Kusari-Frachter",
+      "idsName": "263695",
+      "idsInfo": "264695",
+      "info": "Triebwerk, Kusari-Frachter\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 39000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 2/6\nPanzerung: 3600\nFrachtraum: 175\nMax. Batterien/Nanobots: 23/23\nOptimale Waffenklasse: 4\nMax. Waffenklasse: 6\nZusätzliche Ausrüstung: M, GM"
   },
@@ -17518,6 +19716,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "ktiger_package": {
@@ -17559,6 +19771,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_gf6_engine_01green",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": ""
   },
@@ -17602,6 +19828,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "le_package": {
@@ -17643,6 +19883,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_le_engine_01",
+      "name": "Triebwerk, opt. Liberty-Jäger",
+      "idsName": "263688",
+      "idsInfo": "264688",
+      "info": "Triebwerk, opt. Liberty-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 54000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 5/1\nPanzerung: 1600\nFrachtraum: 30\nMax. Batterien/Nanobots: 14/14\nOptimale Waffenklasse: 2\nMax. Waffenklasse: 4\nZusätzliche Ausrüstung: M, GM, RFU/T"
   },
@@ -17686,6 +19940,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_lf_engine_01",
+      "name": "Triebwerk, Liberty-Jäger",
+      "idsName": "263687",
+      "idsInfo": "264687",
+      "info": "Triebwerk, Liberty-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 72000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": "Statistik\nGeschütz-/Turmsockel: 4/0\nPanzerung: 1300\nFrachtraum: 25\nMax. Batterien/Nanobots: 12/12\nOptimale Waffenklasse: 2\nMax. Waffenklasse: 3\nZusätzliche Ausrüstung: M, GM, RFU"
   },
   "lfr_package": {
@@ -17728,11 +19996,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_lfr_engine_01",
+      "name": "Triebwerk, Liberty-Frachter",
+      "idsName": "263689",
+      "idsInfo": "264689",
+      "info": "Triebwerk, Liberty-Frachter\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 39000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": "Statistik\nWaffen-/Geschützturmsockel: 3/5\nPanzerung: 1600\nFrachtraum: 80\nMax. Batterien/Nanobots: 12/12\nOptimale Waffenklasse: 1\nMax. Waffenklasse: 3\nZusätzliche Ausrüstung: M, GM"
   },
   "lightbringerbomber_package": {
     "id": "lightbringerbomber_package",
-    "name": "lightbringerbomber",
+    "name": "Lightbringer Bomber",
     "ship": "lightbringerbomber",
     "hull": "lightbringerbomber_hull",
     "price": 6283857,
@@ -17770,11 +20052,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01white",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "mambar_package": {
     "id": "mambar_package",
-    "name": "mambar",
+    "name": "Venom Mk I",
     "ship": "mambar",
     "hull": "mambar_hull",
     "price": 8900000,
@@ -17812,11 +20108,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "mambas_package": {
     "id": "mambas_package",
-    "name": "mambas",
+    "name": "Venom Mk II",
     "ship": "mambas",
     "hull": "mambas_hull",
     "price": 9100000,
@@ -17853,6 +20163,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": ""
   },
@@ -17896,6 +20220,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_be_engine_01",
+      "name": "Triebwerk, opt. Bretonia-Jäger",
+      "idsName": "263691",
+      "idsInfo": "264691",
+      "info": "Triebwerk, opt. Bretonia-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 54000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "mayfly_package": {
@@ -17937,6 +20275,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_gf6_engine_01",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": ""
   },
@@ -17980,11 +20332,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "miragex_package": {
     "id": "miragex_package",
-    "name": "miragex",
+    "name": "Mirage-X",
     "ship": "miragex",
     "hull": "miragex_hull",
     "price": 9467877,
@@ -18022,11 +20388,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "murphy_package": {
     "id": "murphy_package",
-    "name": "murphy",
+    "name": "Murphy",
     "ship": "murphy",
     "hull": "murphy_hull",
     "price": 8983454,
@@ -18063,6 +20443,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_gf6_engine_01green",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": ""
   },
@@ -18106,6 +20500,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 1000.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_lbd_engine_01cfbr2",
+      "name": "Triebw., Liberty-Dreadnought",
+      "idsName": "263889",
+      "idsInfo": "264889",
+      "info": "Triebwerk, Liberty Dreadnought\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 96000.0,
+      "linearDrag": 1199.0,
+      "powerUsage": 10.0,
+      "reverseFraction": 0.1,
+      "cruiseChargeTime": 10.0,
+      "cruisePowerUsage": 200.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "my_ge_train_package": {
@@ -18147,6 +20555,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 1000.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_t_engine_01cf",
+      "name": "Transportertriebwerk",
+      "idsName": "263881",
+      "idsInfo": "264881",
+      "info": "Transportertriebwerk\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 240000.0,
+      "linearDrag": 3000.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.1,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": ""
   },
@@ -18190,6 +20612,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 1000.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_lbd_engine_01cfku2",
+      "name": "Triebw., Liberty-Dreadnought",
+      "idsName": "263889",
+      "idsInfo": "264889",
+      "info": "Triebwerk, Liberty Dreadnought\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 96000.0,
+      "linearDrag": 1199.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.1,
+      "cruiseChargeTime": 10.0,
+      "cruisePowerUsage": 200.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "my_li_dreadnought_package": {
@@ -18231,6 +20667,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 1000.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_lbd_engine_01cf2",
+      "name": "Triebw., Liberty-Dreadnought",
+      "idsName": "263889",
+      "idsInfo": "264889",
+      "info": "Triebwerk, Liberty Dreadnought\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 96000.0,
+      "linearDrag": 1199.0,
+      "powerUsage": 10.0,
+      "reverseFraction": 0.1,
+      "cruiseChargeTime": 10.0,
+      "cruisePowerUsage": 200.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": ""
   },
@@ -18274,6 +20724,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 1000.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_t_engine_01cf",
+      "name": "Transportertriebwerk",
+      "idsName": "263881",
+      "idsInfo": "264881",
+      "info": "Transportertriebwerk\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 240000.0,
+      "linearDrag": 3000.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.1,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "my_miner_package": {
@@ -18315,6 +20779,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 1000.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "rob_miner_engine2",
+      "name": "Triebw., Liberty-Dreadnought",
+      "idsName": "263889",
+      "idsInfo": "264889",
+      "info": "Triebwerk, Liberty Dreadnought\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 450000.0,
+      "linearDrag": 3000.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.1,
+      "cruiseChargeTime": 18000.0,
+      "cruisePowerUsage": 0.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": "Asteroidenabbaustationen sind bemannte oder automatisierte Schiffe, die in Asteroidenfeldern wertvolle Mineralien fördern."
   },
@@ -18358,6 +20836,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 1000.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_lbd_engine_01cf2",
+      "name": "Triebw., Liberty-Dreadnought",
+      "idsName": "263889",
+      "idsInfo": "264889",
+      "info": "Triebwerk, Liberty Dreadnought\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 96000.0,
+      "linearDrag": 1199.0,
+      "powerUsage": 10.0,
+      "reverseFraction": 0.1,
+      "cruiseChargeTime": 10.0,
+      "cruisePowerUsage": 200.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "my_rh_battleship_package": {
@@ -18399,6 +20891,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 1000.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_lbd_engine_01cfrh2",
+      "name": "Triebw., Liberty-Dreadnought",
+      "idsName": "263889",
+      "idsInfo": "264889",
+      "info": "Triebwerk, Liberty Dreadnought\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 96000.0,
+      "linearDrag": 1199.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.1,
+      "cruiseChargeTime": 10.0,
+      "cruisePowerUsage": 200.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": ""
   },
@@ -18442,11 +20948,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "nexus_package": {
     "id": "nexus_package",
-    "name": "nexus",
+    "name": "Nexus",
     "ship": "nexus",
     "hull": "nexus_hull",
     "price": 1123458,
@@ -18484,11 +21004,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf2_engine_01",
+      "name": "Triebwerk, Startracker",
+      "idsName": "263672",
+      "idsInfo": "264672",
+      "info": "Triebwerk, Startracker\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 72000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "nova_package": {
     "id": "nova_package",
-    "name": "nova",
+    "name": "Warthog",
     "ship": "nova",
     "hull": "nova_hull",
     "price": 8400000,
@@ -18526,11 +21060,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "novap_package": {
     "id": "novap_package",
-    "name": "novap",
+    "name": "Hurricane",
     "ship": "novap",
     "hull": "novap_hull",
     "price": 8800000,
@@ -18568,11 +21116,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "odin_package": {
     "id": "odin_package",
-    "name": "odin",
+    "name": "Bulldog",
     "ship": "odin",
     "hull": "odin_hull",
     "price": 8200000,
@@ -18609,6 +21171,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": ""
   },
@@ -18652,6 +21228,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_oe_engine_01",
+      "name": "Triebwerk, Orden-Jäger",
+      "idsName": "263702",
+      "idsInfo": "264702",
+      "info": "Triebwerk, Orden-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 54000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": "Statistik\nGeschütz-/Turmsockel: 6/1\nPanzerung: 4200\nFrachtraum: 70\nMax. Batterien/Nanobots: 29/29\nOptimale Waffenklasse: 5\nMax. Waffenklasse: 6\nZusätzliche Ausrüstung: M, GM, RFU/T"
   },
   "oe_package2": {
@@ -18693,6 +21283,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_oe_engine_01",
+      "name": "Triebwerk, Orden-Jäger",
+      "idsName": "263702",
+      "idsInfo": "264702",
+      "info": "Triebwerk, Orden-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 54000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": ""
   },
@@ -18736,6 +21340,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "pe_package": {
@@ -18778,11 +21396,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_pe_engine_01",
+      "name": "Triebw., opt. Hispania-Jäger",
+      "idsName": "263700",
+      "idsInfo": "264700",
+      "info": "Triebwerk, opt. Hispania-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 54000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": "Statistik\nGeschütz-/Turmsockel: 5/1\nPanzerung: 3600\nFrachtraum: 40\nMax. Batterien/Nanobots: 26/26\nOptimale Waffenklasse: 4\nMax. Waffenklasse: 6\nZusätzliche Ausrüstung: M, GM, RFU/T"
   },
   "periclese_package": {
     "id": "periclese_package",
-    "name": "periclese",
+    "name": "LCA Typhoon",
     "ship": "periclese",
     "hull": "periclese_hull",
     "price": 2300000,
@@ -18820,11 +21452,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "periclesp_package": {
     "id": "periclesp_package",
-    "name": "periclesp",
+    "name": "Tornado",
     "ship": "periclesp",
     "hull": "periclesp_hull",
     "price": 9500000,
@@ -18862,11 +21508,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "periclesr_package": {
     "id": "periclesr_package",
-    "name": "periclesr",
+    "name": "LCA Thunderstreak",
     "ship": "periclesr",
     "hull": "periclesr_hull",
     "price": 9600000,
@@ -18904,11 +21564,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "perseush_package": {
     "id": "perseush_package",
-    "name": "perseush",
+    "name": "Black Angel",
     "ship": "perseush",
     "hull": "perseush_hull",
     "price": 9700000,
@@ -18946,11 +21620,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "perseusp_package": {
     "id": "perseusp_package",
-    "name": "perseusp",
+    "name": "Firebolt",
     "ship": "perseusp",
     "hull": "perseusp_hull",
     "price": 8200000,
@@ -18988,11 +21676,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "perseusr_package": {
     "id": "perseusr_package",
-    "name": "perseusr",
+    "name": "Crusher ZX7",
     "ship": "perseusr",
     "hull": "perseusr_hull",
     "price": 8700000,
@@ -19030,11 +21732,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "perseuss_package": {
     "id": "perseuss_package",
-    "name": "perseuss",
+    "name": "Grinder ZX8",
     "ship": "perseuss",
     "hull": "perseuss_hull",
     "price": 8500000,
@@ -19072,11 +21788,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "perseusv_package": {
     "id": "perseusv_package",
-    "name": "perseusv",
+    "name": "Dissolver",
     "ship": "perseusv",
     "hull": "perseusv_hull",
     "price": 5300000,
@@ -19113,6 +21843,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": ""
   },
@@ -19156,6 +21900,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_pf_engine_01",
+      "name": "Triebwerk, Hispania-Jäger",
+      "idsName": "263699",
+      "idsInfo": "264699",
+      "info": "Triebwerk, Hispania-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 72000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": "Statistik\nGeschütz-/Turmsockel: 3/1\nPanzerung: 1900\nFrachtraum: 35\nMax. Batterien/Nanobots: 14/14\nOptimale Waffenklasse: 2\nMax. Waffenklasse: 4\nZusätzliche Ausrüstung: M, GM, RFU"
   },
   "pfr_package": {
@@ -19198,11 +21956,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_pfr_engine_01",
+      "name": "Triebwerk, Hispania-Frachter",
+      "idsName": "263701",
+      "idsInfo": "264701",
+      "info": "Triebwerk, Hispania-Frachter\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 39000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": "Statistik\nGeschütz-/Turmsockel: 4/4\nPanzerung: 2200\nFrachtraum: 90\nMax. Batterien/Nanobots: 15/15\nOptimale Waffenklasse: 2\nMax. Waffenklasse: 4\nZusätzliche Ausrüstung: M, GM"
   },
   "phantom_package": {
     "id": "phantom_package",
-    "name": "phantom",
+    "name": "Phantom",
     "ship": "phantom",
     "hull": "phantom_hull",
     "price": 8955447,
@@ -19239,6 +22011,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_gf6_engine_01green",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": ""
   },
@@ -19282,11 +22068,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "pinkeagle_package": {
     "id": "pinkeagle_package",
-    "name": "pinkeagle",
+    "name": "Pink Eagle",
     "ship": "pinkeagle",
     "hull": "pinkeagle_hull",
     "price": 505000,
@@ -19323,6 +22123,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_gf6_engine_01lightblue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 6/1\nPanzerung: 9900\nFrachtraum: 70\nMax. Batterien/Nanobots: 63/63\nOptimale Waffenklasse: 8\nMax. Waffenklasse: 10\nZusätzliche Ausrüstung: M, GM, RFU/T"
   },
@@ -19366,6 +22180,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "ragebringer_package": {
@@ -19408,11 +22236,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_coe2_engine_01",
+      "name": "Triebwerk, sehr schwerer Korsaren-Jäger",
+      "idsName": "263683",
+      "idsInfo": "264683",
+      "info": "Triebwerk, sehr schwerer Korsaren-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 42000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "raptor_package": {
     "id": "raptor_package",
-    "name": "raptor",
+    "name": "Raptor",
     "ship": "raptor",
     "hull": "raptor_hull",
     "price": 9167877,
@@ -19449,6 +22291,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_gf6_engine_01green",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": ""
   },
@@ -19492,6 +22348,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_oe_engine_01",
+      "name": "Triebwerk, Orden-Jäger",
+      "idsName": "263702",
+      "idsInfo": "264702",
+      "info": "Triebwerk, Orden-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 54000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "re_package": {
@@ -19534,11 +22404,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_re_engine_01",
+      "name": "Triebwerk, opt. Rh.-Jäger",
+      "idsName": "263697",
+      "idsInfo": "264697",
+      "info": "Triebwerk, opt. Rheinland-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 54000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": "Statistik\nGeschütz-/Turmsockel: 5/1\nPanzerung: 5800\nFrachtraum: 50\nMax. Batterien/Nanobots: 38/38\nOptimale Waffenklasse: 6\nMax. Waffenklasse: 8\nZusätzliche Ausrüstung: M, GM, RFU/T"
   },
   "reaper_package": {
     "id": "reaper_package",
-    "name": "reaper",
+    "name": "Reaper",
     "ship": "reaper",
     "hull": "reaper_hull",
     "price": 9183457,
@@ -19575,6 +22459,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_gf6_engine_01lightblue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": ""
   },
@@ -19618,6 +22516,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_oe_engine_01",
+      "name": "Triebwerk, Orden-Jäger",
+      "idsName": "263702",
+      "idsInfo": "264702",
+      "info": "Triebwerk, Orden-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 54000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "reliant_package": {
@@ -19659,6 +22571,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 1000.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_lbd_engine_01cfku2",
+      "name": "Triebw., Liberty-Dreadnought",
+      "idsName": "263889",
+      "idsInfo": "264889",
+      "info": "Triebwerk, Liberty Dreadnought\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 96000.0,
+      "linearDrag": 1199.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.1,
+      "cruiseChargeTime": 10.0,
+      "cruisePowerUsage": 200.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": ""
   },
@@ -19702,6 +22628,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_rf_engine_01",
+      "name": "Triebwerk, Rh.-Jäger",
+      "idsName": "263696",
+      "idsInfo": "264696",
+      "info": "Triebwerk, Rheinland-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 72000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": "Statistik\nGeschütz-/Turmsockel: 4/0\nPanzerung: 4500\nFrachtraum: 45\nMax. Batterien/Nanobots: 33/33\nOptimale Waffenklasse: 5\nMax. Waffenklasse: 7\nZusätzliche Ausrüstung: M, GM, RFU"
   },
   "rfr_package": {
@@ -19744,11 +22684,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_rfr_engine_01",
+      "name": "Triebwerk, Rh.-Frachter",
+      "idsName": "263698",
+      "idsInfo": "264698",
+      "info": "Triebwerk, Rheinland-Frachter\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 39000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": "Statistik\nWaffen-/Geschützturmsockel: 2/6\nPanzerung: 5800\nFrachtraum: 250\nMax. Batterien/Nanobots: 33/33\nOptimale Waffenklasse: 5\nMax. Waffenklasse: 7\nZusätzliche Ausrüstung: M, GM"
   },
   "rgrk_package": {
     "id": "rgrk_package",
-    "name": "es_rgrk",
+    "name": "Ragnarok Gunboat",
     "ship": "es_rgrk",
     "hull": "rgrk_hull",
     "price": 9999999,
@@ -19785,6 +22739,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 10000.0,
       "thrustChargeRate": 1000.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "rgrk_engine",
+      "name": "Triebw., Bretonia-Frachter",
+      "idsName": "263692",
+      "idsInfo": "264692",
+      "info": "Triebwerk, Bretonia-Frachter\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 92500.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 0.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": ""
   },
@@ -19828,6 +22796,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "salin_package": {
@@ -19869,6 +22851,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_gf6_engine_01",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": ""
   },
@@ -19912,11 +22908,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "scorpionh_package": {
     "id": "scorpionh_package",
-    "name": "scorpionh",
+    "name": "Lobo",
     "ship": "scorpionh",
     "hull": "scorpionh_hull",
     "price": 8600000,
@@ -19954,11 +22964,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "scorpionr_package": {
     "id": "scorpionr_package",
-    "name": "scorpionr",
+    "name": "Zorro",
     "ship": "scorpionr",
     "hull": "scorpionr_hull",
     "price": 2700000,
@@ -19996,11 +23020,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "scorpions_package": {
     "id": "scorpions_package",
-    "name": "scorpions",
+    "name": "Erebus",
     "ship": "scorpions",
     "hull": "scorpions_hull",
     "price": 8300000,
@@ -20038,11 +23076,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "scorpionv_package": {
     "id": "scorpionv_package",
-    "name": "scorpionv",
+    "name": "Terror",
     "ship": "scorpionv",
     "hull": "scorpionv_hull",
     "price": 8800000,
@@ -20079,6 +23131,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": ""
   },
@@ -20122,6 +23188,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_bhe2_engine_01",
+      "name": "Triebwerk, sehr schwerer Jäger der Kopfgeldjäger",
+      "idsName": "263686",
+      "idsInfo": "264686",
+      "info": "Triebwerk, sehr schwerer Jäger der Kopfgeldjäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 50000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "scouser_package": {
@@ -20163,6 +23243,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_coe2_engine_01",
+      "name": "Triebwerk, sehr schwerer Korsaren-Jäger",
+      "idsName": "263683",
+      "idsInfo": "264683",
+      "info": "Triebwerk, sehr schwerer Korsaren-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 42000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": ""
   },
@@ -20206,6 +23300,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_ke_engine_01",
+      "name": "Triebw., opt. Kusari-Jäger",
+      "idsName": "263694",
+      "idsInfo": "264694",
+      "info": "Triebwerk, opt. Kusari-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 54000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "serafina_package": {
@@ -20248,11 +23356,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_coe2_engine_01",
+      "name": "Triebwerk, sehr schwerer Korsaren-Jäger",
+      "idsName": "263683",
+      "idsInfo": "264683",
+      "info": "Triebwerk, sehr schwerer Korsaren-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 42000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "sf18_package": {
     "id": "sf18_package",
-    "name": "sf18",
+    "name": "SF18 Arrow",
     "ship": "sf18",
     "hull": "sf18_hull",
     "price": 8267877,
@@ -20290,11 +23412,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01purple",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "sh3_package": {
     "id": "sh3_package",
-    "name": "sh3",
+    "name": "Kestrel",
     "ship": "sh3",
     "hull": "sh3_hull",
     "price": 8475000,
@@ -20332,11 +23468,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "sh4_package": {
     "id": "sh4_package",
-    "name": "sh4",
+    "name": "Falchion",
     "ship": "sh4",
     "hull": "sh4_hull",
     "price": 9300000,
@@ -20374,11 +23524,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "shadowreaper_package": {
     "id": "shadowreaper_package",
-    "name": "shadowreaper",
+    "name": "Shadowreaper",
     "ship": "shadowreaper",
     "hull": "shadowreaper_hull",
     "price": 9345889,
@@ -20415,6 +23579,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": ""
   },
@@ -20458,11 +23636,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_coe_engine_01",
+      "name": "Triebwerk, schwerer Korsaren-Jäger",
+      "idsName": "263682",
+      "idsInfo": "264682",
+      "info": "Triebwerk, schwerer Korsaren-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 54000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "shroud_package": {
     "id": "shroud_package",
-    "name": "shroud",
+    "name": "Shroud",
     "ship": "shroud",
     "hull": "shroud_hull",
     "price": 8000000,
@@ -20499,6 +23691,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": ""
   },
@@ -20542,6 +23748,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01orange",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "sstar_package": {
@@ -20583,6 +23803,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_gf6_engine_01orange",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": ""
   },
@@ -20626,11 +23860,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf1_engine_01",
+      "name": "Triebwerk, Starflier",
+      "idsName": "263671",
+      "idsInfo": "264671",
+      "info": "Triebwerk, Starflier\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 72000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "stinger_package": {
     "id": "stinger_package",
-    "name": "stinger",
+    "name": "Stinger",
     "ship": "stinger",
     "hull": "stinger_hull",
     "price": 6878556,
@@ -20668,11 +23916,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "stormcrow_package": {
     "id": "stormcrow_package",
-    "name": "stormcrow",
+    "name": "Stormcrow",
     "ship": "stormcrow",
     "hull": "stormcrow_hull",
     "price": 8700000,
@@ -20709,6 +23971,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_gf6_engine_01white",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": ""
   },
@@ -20752,6 +24028,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01orange",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "tempest_package": {
@@ -20794,11 +24084,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "thor_package": {
     "id": "thor_package",
-    "name": "thor",
+    "name": "Tigre",
     "ship": "thor",
     "hull": "thor_hull",
     "price": 8300000,
@@ -20836,11 +24140,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "thunder_package": {
     "id": "thunder_package",
-    "name": "thunder",
+    "name": "Thunder",
     "ship": "thunder",
     "hull": "thunder_hull",
     "price": 8912223,
@@ -20878,11 +24196,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01purple",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "tiger_package": {
     "id": "tiger_package",
-    "name": "tiger",
+    "name": "Tiger",
     "ship": "tiger",
     "hull": "tiger_hull",
     "price": 1583457,
@@ -20920,11 +24252,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01green",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "trident_package": {
     "id": "trident_package",
-    "name": "trident",
+    "name": "Trident",
     "ship": "trident",
     "hull": "trident_hull",
     "price": 521333,
@@ -20962,11 +24308,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_be_engine_01",
+      "name": "Triebwerk, opt. Bretonia-Jäger",
+      "idsName": "263691",
+      "idsInfo": "264691",
+      "info": "Triebwerk, opt. Bretonia-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 54000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "troopcarrier_package": {
     "id": "troopcarrier_package",
-    "name": "troopcarrier",
+    "name": "Troop Carrier",
     "ship": "troopcarrier",
     "hull": "troopcarrier_hull",
     "price": 4123458,
@@ -21004,11 +24364,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_lfr_engine_01",
+      "name": "Triebwerk, Liberty-Frachter",
+      "idsName": "263689",
+      "idsInfo": "264689",
+      "info": "Triebwerk, Liberty-Frachter\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 39000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "vfighter_package": {
     "id": "vfighter_package",
-    "name": "vfighter",
+    "name": "V-Fighter",
     "ship": "vfighter",
     "hull": "vfighter_hull",
     "price": 3267877,
@@ -21045,6 +24419,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_gf6_engine_01orange",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": ""
   },
@@ -21088,6 +24476,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01green",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "warblade2_package": {
@@ -21129,6 +24531,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_gf6_engine_01green",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": ""
   },
@@ -21172,6 +24588,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01green",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "wolverine_package": {
@@ -21214,11 +24644,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "xenong_package": {
     "id": "xenong_package",
-    "name": "xenong",
+    "name": "Ball Lightning",
     "ship": "xenong",
     "hull": "xenong_hull",
     "price": 9700000,
@@ -21256,11 +24700,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "xenono_package": {
     "id": "xenono_package",
-    "name": "xenono",
+    "name": "Cheetah",
     "ship": "xenono",
     "hull": "xenono_hull",
     "price": 4900000,
@@ -21298,11 +24756,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "zephyrp_package": {
     "id": "zephyrp_package",
-    "name": "zephyrp",
+    "name": "Cyclone",
     "ship": "zephyrp",
     "hull": "zephyrp_hull",
     "price": 8900000,
@@ -21340,11 +24812,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "zephyrr_package": {
     "id": "zephyrr_package",
-    "name": "zephyrr",
+    "name": "T-Rex",
     "ship": "zephyrr",
     "hull": "zephyrr_hull",
     "price": 9000000,
@@ -21382,11 +24868,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "zephyrs_package": {
     "id": "zephyrs_package",
-    "name": "zephyrs",
+    "name": "Rocketmaster",
     "ship": "zephyrs",
     "hull": "zephyrs_hull",
     "price": 8100000,
@@ -21424,11 +24924,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "zephyrv_package": {
     "id": "zephyrv_package",
-    "name": "zephyrv",
+    "name": "J-40 Quicksilver",
     "ship": "zephyrv",
     "hull": "zephyrv_hull",
     "price": 2005000,
@@ -21466,11 +24980,25 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf6_engine_01blue",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": ""
   },
   "zx14_package": {
     "id": "zx14_package",
-    "name": "zx14",
+    "name": "ZX14 Protector",
     "ship": "zx14",
     "hull": "zx14_hull",
     "price": 8645778,
@@ -21507,6 +25035,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_gf6_engine_01purple",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 0.2,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": ""
   }

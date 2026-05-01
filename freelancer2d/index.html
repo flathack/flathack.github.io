@@ -11,6 +11,7 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
 #game-canvas { display: block; background: #000005; }
 #hud { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
 #hud-top { position: absolute; top: 10px; left: 10px; right: 10px; display: flex; justify-content: center; align-items: flex-start; pointer-events: none; }
+#missile-warning { position: absolute; top: 58px; left: 50%; transform: translateX(-50%); min-width: min(360px, calc(100vw - 32px)); padding: 8px 22px; z-index: 10; color: #ffd6d6; background: linear-gradient(180deg, rgba(128,12,24,0.92), rgba(44,4,10,0.88)); border: 1px solid #ff5656; box-shadow: 0 0 22px rgba(255,40,40,0.5), inset 0 0 18px rgba(255,120,120,0.18); clip-path: polygon(0 10px, 10px 0, calc(100% - 10px) 0, 100% 10px, 100% calc(100% - 10px), calc(100% - 10px) 100%, 10px 100%, 0 calc(100% - 10px)); text-align: center; font-size: 15px; font-weight: 700; text-transform: uppercase; text-shadow: 0 0 10px rgba(255,70,70,0.95); pointer-events: none; }
 :root {
     --hud-accent: #53b4ff;
     --hud-accent-strong: #0088ff;
@@ -24,6 +25,18 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
     --hud-highlight-bg: rgba(75,48,0,0.42);
 }
 #hud[data-theme="crossfire"] {
+    --hud-accent: #ff6b6b;
+    --hud-accent-strong: #ff3b3b;
+    --hud-accent-soft: #ffb0a7;
+    --hud-panel-top: rgba(104,22,22,0.9);
+    --hud-panel-bottom: rgba(34,6,10,0.88);
+    --hud-panel-shadow: rgba(255,59,59,0.28);
+    --hud-panel-inner: rgba(255,120,90,0.14);
+    --hud-highlight: #ffd166;
+    --hud-highlight-soft: #fff2c2;
+    --hud-highlight-bg: rgba(110,44,0,0.42);
+}
+body[data-theme="crossfire"] {
     --hud-accent: #ff6b6b;
     --hud-accent-strong: #ff3b3b;
     --hud-accent-soft: #ffb0a7;
@@ -88,6 +101,8 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
 .scanner-actions { pointer-events: auto; display: flex; justify-content: flex-end; margin-bottom: 6px; }
 .hud-action-btn { min-width: 118px; height: 28px; padding: 0 10px; background: rgba(0,34,58,0.82); border: 1px solid color-mix(in srgb, var(--hud-accent) 76%, transparent); color: var(--hud-accent-soft); cursor: pointer; font-family: 'Courier New', monospace; font-size: 11px; }
 .hud-action-btn:hover { border-color: var(--hud-highlight); color: var(--hud-highlight-soft); background: var(--hud-highlight-bg); }
+.hud-toggle-btn { min-width: 74px; height: 26px; padding: 0 8px; font-size: 10px; }
+.hud-toggle-btn.active { border-color: #66ff99 !important; color: #d8ffe4 !important; background: rgba(0,92,40,0.64) !important; }
 .loadout-consumables { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 7px; margin-top: 7px; }
 .consumable-box { border: 1px solid rgba(70,130,170,0.28); background: rgba(0,18,34,0.55); padding: 6px; color: #d8f7ff; font-size: 12px; }
 
@@ -231,6 +246,108 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
 .rumor-box { margin-top: 10px; padding: 10px; border: 1px solid #33566d; color: #dff7ff; background: rgba(0,12,24,0.72); }
 .equipment-panel { flex: 1 1 280px; min-width: 240px; }
 .equipment-panel h4 { margin: 0 0 8px; color: #ffaa00; font-size: 13px; }
+
+#hud, #map-overlay, #inventory-overlay, #universe-overlay, #landing-overlay, #reputation-overlay {
+    --ui-cut-panel: polygon(0 12px, 12px 0, calc(100% - 12px) 0, 100% 12px, 100% calc(100% - 12px), calc(100% - 12px) 100%, 12px 100%, 0 calc(100% - 12px));
+    --ui-cut-button: polygon(0 9px, 9px 0, 35% 0, 40% 7px, 60% 7px, 65% 0, calc(100% - 9px) 0, 100% 9px, 100% calc(100% - 9px), calc(100% - 9px) 100%, 65% 100%, 60% calc(100% - 7px), 40% calc(100% - 7px), 35% 100%, 9px 100%, 0 calc(100% - 9px));
+}
+
+#command-bar, #utility-bar, #music-player, #hud-left, .hud-panel, #info-panel,
+#map-overlay, #inventory-overlay, #universe-overlay, #landing-overlay, #reputation-overlay {
+    background: linear-gradient(180deg, var(--hud-panel-top), var(--hud-panel-bottom)) !important;
+    border: 1px solid color-mix(in srgb, var(--hud-accent) 72%, transparent) !important;
+    box-shadow: 0 0 22px var(--hud-panel-shadow), inset 0 0 22px var(--hud-panel-inner) !important;
+    clip-path: var(--ui-cut-panel);
+}
+
+#map-header, #inventory-header, #universe-overlay > div:first-child, #landing-header, #reputation-header,
+#landing-tabs, #map-tabs, #map-universe-sector-tabs, #universe-sector-tabs {
+    border-color: color-mix(in srgb, var(--hud-accent) 34%, transparent) !important;
+    background: rgba(2, 12, 28, 0.34);
+}
+
+#map-header h3, #inventory-header h3, #universe-overlay h2, #landing-title, #reputation-title,
+#info-panel h3, .controls h3 {
+    color: var(--hud-accent-soft) !important;
+    text-shadow: 0 0 10px color-mix(in srgb, var(--hud-accent-strong) 54%, transparent);
+}
+
+.cmd-btn, .hud-action-btn, .map-btn, .landing-tab, .bar-subtab, .trade-button, .speech-button,
+#music-toggle, #touch-joystick-toggle, #music-track-select, .trade-qty-input, .save-name-row input {
+    background: linear-gradient(180deg, rgba(24,34,92,0.82), rgba(6,13,48,0.78)) !important;
+    border: 1px solid color-mix(in srgb, var(--hud-accent) 74%, transparent) !important;
+    color: var(--hud-accent-soft) !important;
+    box-shadow: 0 0 14px color-mix(in srgb, var(--hud-accent-strong) 24%, transparent), inset 0 0 16px var(--hud-panel-inner) !important;
+}
+
+.cmd-btn, .hud-action-btn, .map-btn, .landing-tab, .bar-subtab, .trade-button, .speech-button,
+#music-toggle, #touch-joystick-toggle {
+    clip-path: var(--ui-cut-button);
+}
+
+.cmd-btn:hover, .hud-action-btn:hover, .map-btn:hover, .landing-tab:hover, .bar-subtab:hover,
+.trade-button:hover:not(:disabled), .speech-button:hover:not(:disabled),
+#music-toggle:hover, #touch-joystick-toggle:hover {
+    color: #ffffff !important;
+    border-color: var(--hud-accent-soft) !important;
+    background: linear-gradient(180deg, color-mix(in srgb, var(--hud-accent-strong) 42%, rgba(24,34,92,0.92)), color-mix(in srgb, var(--hud-panel-bottom) 82%, rgba(10,24,70,0.9))) !important;
+}
+
+.cmd-btn.active, .landing-tab.active, .bar-subtab.active, .mod-btn.active,
+.hud-row:hover, .hud-row.selected, .trade-table tr.selected, .mission-active {
+    border-color: var(--hud-highlight) !important;
+    color: var(--hud-highlight-soft) !important;
+    background: var(--hud-highlight-bg) !important;
+}
+
+.inventory-stat, .inventory-section, .inventory-row, .reputation-row, .trade-info-panel,
+.mission-row, .npc-row, .slot-row, .rumor-box, .consumable-box, .hud-row {
+    border-color: color-mix(in srgb, var(--hud-accent) 28%, transparent) !important;
+    background: rgba(4, 18, 38, 0.68) !important;
+}
+
+.inventory-stat strong, .inventory-section-title, .trade-info-title, .equipment-panel h4,
+.hud-kind, #music-label, #target-name {
+    color: var(--hud-highlight) !important;
+}
+
+.trade-table th, .trade-info-table th {
+    background: color-mix(in srgb, var(--hud-accent-strong) 22%, rgba(0, 18, 38, 0.92)) !important;
+    color: var(--hud-accent-soft) !important;
+}
+
+.trade-table td, .trade-info-table td, .inventory-row, .npc-row, .slot-row {
+    border-bottom-color: color-mix(in srgb, var(--hud-accent) 18%, transparent) !important;
+}
+
+.trade-commodity-link {
+    color: var(--hud-accent-soft) !important;
+}
+
+.trade-button:disabled, .speech-button:disabled {
+    background: rgba(18, 20, 24, 0.72) !important;
+    border-color: rgba(120, 130, 140, 0.38) !important;
+    color: #667f8f !important;
+    box-shadow: none !important;
+}
+
+#btn-close-map, #btn-close-inventory, #btn-close-universe {
+    border-color: #ff6666 !important;
+    color: #ffd0d0 !important;
+    background: linear-gradient(180deg, rgba(82,20,32,0.9), rgba(28,6,16,0.84)) !important;
+}
+
+body[data-theme="crossfire"] .mod-btn.active {
+    border-color: #ff7a6c !important;
+    color: #ffe0dc !important;
+    background: rgba(112, 24, 20, 0.74) !important;
+}
+
+@media (max-width: 720px) {
+    #map-overlay, #landing-overlay {
+        width: calc(100vw - 24px) !important;
+    }
+}
     </style>
 </head>
 <body>
@@ -238,6 +355,7 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
         <canvas id="game-canvas"></canvas>
         
         <div id="hud">
+            <div id="missile-warning" class="hidden">Rakete im Anflug!</div>
             <div id="hud-top">
                 <div id="music-player">
                     <span id="music-label">MUSIC</span>
@@ -328,6 +446,8 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
                         <div class="consumable-box"><span id="label-nanobots">Nanobots</span> <span id="nanobot-count">0</span></div>
                         <div class="consumable-box"><span id="label-shield-batteries">Shield Batteries</span> <span id="shield-battery-count">0</span></div>
                         <div class="consumable-box"><span id="label-missile-ammo">Missiles</span> <span id="missile-ammo-count">0</span></div>
+                        <div class="consumable-box"><span id="label-mines">Mines</span> <span id="mine-count">0</span></div>
+                        <div class="consumable-box"><span id="label-countermeasures">CM</span> <span id="countermeasure-count">0</span></div>
                     </div>
                 </div>
             </div>
@@ -389,11 +509,13 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
                 <p id="control-map">M - Toggle map</p>
                 <p id="control-nanobots">G / N - Use nanobot</p>
                 <p id="control-batteries">F / B - Use shield battery</p>
+                <p id="control-mines">E - Drop mine</p>
+                <p id="control-countermeasures">C - Drop countermeasure</p>
                 <p id="control-zoom">Mouse Wheel - Zoom</p>
             </div>
         </div>
         <div class="start-footer">
-            <span>Made by Aldenmar Odin - flathack - v0.6.2</span>
+            <span>Made by Aldenmar Odin - flathack - v0.6.3</span>
             <a class="start-home-link" href="https://flathack.github.io/" target="_blank" rel="noopener noreferrer">Startseite</a>
         </div>
     </div>
@@ -402,6 +524,7 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
         <div id="map-header">
             <h3 id="map-title">SYSTEM MAP - LI01 MANHATTAN</h3>
             <div id="map-controls">
+                <button class="map-btn" id="btn-waypoint-selection">WP AUS AUSWAHL</button>
                 <button class="map-btn" id="btn-clear-waypoint">Wegpunkt löschen</button>
                 <button class="map-btn" id="btn-close-map" style="background:#330000;border-color:#aa0000;color:#ff4444;">CLOSE</button>
             </div>
@@ -806,7 +929,9 @@ const VOICE_SOUND_PATHS = {
     dockDisallowed: { en: 'assets/audio/EN-dock-disallowed.mp3', de: 'assets/audio/DE-dock-disallowed.mp3' },
     dockDisallowedTooFar: { en: 'assets/audio/EN-dock-disallowed-toofar.mp3', de: 'assets/audio/DE-dock-disallowed-toofar.mp3' },
     launch: { en: 'assets/audio/EN-launch.mp3', de: 'assets/audio/DE-launch.mp3' },
-    shipPurchase: { en: 'assets/audio/EN-ship-purchase.mp3', de: 'assets/audio/DE-ship-purchase.mp3' }
+    shipPurchase: { en: 'assets/audio/EN-ship-purchase.mp3', de: 'assets/audio/DE-ship-purchase.mp3' },
+    atmosphere: { en: 'assets/audio/EN-atmosphere.mp3', de: 'assets/audio/DE-atmosphere.mp3' },
+    hullBreach: { en: 'assets/audio/EN-hull-breach.mp3', de: 'assets/audio/DE-hull-breach.mp3' }
 };
 const MUSIC_TRACKS = {
     space: [
@@ -835,14 +960,14 @@ const I18N = {
         shipDealerDockOnly: 'Schiffe koennen nur nach dem Andocken gekauft werden.', noShipsSold: 'Hier werden keine Schiffe verkauft.', atmosphereWarning: 'Atmosphaereneintritt', planetImpact: 'Planetare Kollision',
         startGame: 'SPIEL STARTEN', continueGame: 'WEITER', startNew: 'NEUES SPIEL', startDelete: 'SAVE LOESCHEN', saveNamePlaceholder: 'Name fuer neues Savegame', mainMenuLanguage: 'SPRACHE',
         startControls: 'Steuerung', controlRotate: 'Linke Maustaste halten - Schiff drehen', controlCursor: 'Linke Maustaste loslassen - Cursor-Modus', controlFire: 'Rechte Maustaste - Primärwaffen | Q - Raketen',
-        controlSelect: 'Objekt anklicken - Ziel auswählen', controlThrottleUp: 'W - Schub erhöhen', controlThrottleDown: 'S - Schub verringern / Reiseflug abbrechen', controlReverse: 'X - Rückwärtsschub', controlAfterburner: 'Tab - Nachbrenner halten',
-        controlDock: 'D - Schiff driftet nach rechts', controlApproach: 'A - Schiff driftet nach links', controlMap: 'M - Karte umschalten', controlNanobots: 'G / N - Nanobot benutzen', controlBatteries: 'F / B - Schildbatterie benutzen', controlZoom: 'Mausrad - Zoom',
+        controlSelect: 'Objekt anklicken - Ziel auswählen', controlThrottleUp: 'W - Schub erhöhen', controlThrottleDown: 'S - Schub verringern / Reiseflug abbrechen', controlReverse: 'X - Rückwärtsschub', controlAfterburner: 'Tab - Nachbrenner halten', controlMines: 'E - Mine abwerfen',
+        controlDock: 'D - Schiff driftet nach rechts', controlApproach: 'A - Schiff driftet nach links', controlMap: 'M - Karte umschalten', controlNanobots: 'G / N - Nanobot benutzen', controlBatteries: 'F / B - Schildbatterie benutzen', controlCountermeasures: 'C - Gegenmaßnahme abwerfen', controlZoom: 'Mausrad - Zoom',
         noSaveForMod: 'Kein Savegame fuer diesen Mod vorhanden', separateSaves: 'Vanilla DE, Vanilla EN und Crossfire haben getrennte Spielstaende',
         noSavedGameFound: 'Kein gespeicherter Spielstand gefunden.', savegameLabel: 'Spielstand', activeLabel: 'AKTIV', loadLabel: 'LADEN', unknownDate: 'unbekannt',
         maxSavesReached: 'Maximal 5 Savegames. Bitte zuerst einen Spielstand loeschen.', deleteSaveConfirm: 'Savegame "{name}" loeschen?', modDataMissing: '{mod}-Daten nicht gefunden. Starte mit Vanilla DE.',
         hudHull: 'HÜLLE', hudShield: 'SCHILD', hudEnergy: 'ENERGIE', loadoutTitle: 'WAFFEN', scannerTitle: 'SCANNER', labelNanobots: 'Nanobots', labelShieldBatteries: 'Schildbatterien',
-        ammoTab: 'Ammo', missileAmmo: 'Raketen', ammoFull: 'Raketenlager voll.', ammoMissing: 'Keine Raketen-Munition.', missileAmmoCount: 'Raketen: {count}/{max}',
-        selected: 'Ausgewählt', distance: 'Distanz', clearSelection: '[-] Ziel/WP', selectionCleared: 'Zielauswahl geloescht.', modeRotate: 'DREHMODUS', modeCruiseCharge: 'REISEFLUG LÄDT', modeCruise: 'REISEFLUG', modeAfterburner: 'NACHBRENNER',
+        ammoTab: 'Ammo', missileAmmo: 'Raketen', mines: 'Minen', countermeasures: 'Gegenmaßnahmen', countermeasureAmmoCount: 'Gegenmaßnahmen: {count}', countermeasureDropped: 'Gegenmaßnahme abgeworfen.', countermeasureAmmoEmpty: 'Keine Gegenmaßnahmen uebrig.', countermeasureDropperMissing: 'Kein Gegenmaßnahmen-Werfer montiert.', countermeasureDropLocked: 'Gegenmaßnahmen nicht beim Andocken, in Tradelanes oder Sprüngen nutzbar.', countermeasureAutoOn: 'AUTO AN', countermeasureAutoOff: 'AUTO AUS', missileIncoming: 'Rakete im Anflug!', mineAmmoCount: 'Minen: {count}/{max}', mineDropped: 'Mine abgeworfen.', mineAmmoEmpty: 'Keine Minen uebrig.', mineAmmoFull: 'Minenlager voll.', mineDropperMissing: 'Kein Minenwerfer montiert.', mineDropLocked: 'Minen nur bei Kampfgeschwindigkeit bis 80 m/s, nicht in Cruise, Tradelane oder Sprung.', ammoFull: 'Raketenlager voll.', ammoMissing: 'Keine Raketen-Munition.', missileAmmoCount: 'Raketen: {count}/{max}',
+        selected: 'Ausgewählt', distance: 'Distanz', clearSelection: '[-] Ziel/WP', selectionCleared: 'Zielauswahl geloescht.', waypointFromSelection: 'WP AUS AUSWAHL', noWaypointSelection: 'Kein geeignetes Objekt ausgewaehlt.', clearWaypoint: 'Wegpunkt loeschen', modeRotate: 'DREHMODUS', modeCruiseCharge: 'REISEFLUG LÄDT', modeCruise: 'REISEFLUG', modeAfterburner: 'NACHBRENNER',
         scannerNone: 'Keine Schiffe oder Stationen in Reichweite.', noWeaponSlots: 'Keine Waffen-Slots vorhanden.', emptyWeapon: 'Leer', noGunMounted: 'Keine Waffe montiert',
         scannerShip: 'Schiff', scannerPlanet: 'Planet', scannerJumpGate: 'Sprungtor', scannerJumpHole: 'Sprungloch', scannerTradeLane: 'Tradelane', scannerStation: 'Station', scannerWaypoint: 'Wegpunkt', scannerObject: 'Objekt', weaponSlot: 'Waffe',
         repChanged: 'Ruf geändert', repHostile: 'FEINDLICH', repFriendly: 'FREUNDLICH', repNeutral: 'NEUTRAL', noReputationData: 'Keine Rufdaten geladen.',
@@ -859,14 +984,14 @@ const I18N = {
         shipDealerDockOnly: 'Ships can only be bought while docked.', noShipsSold: 'No ships are sold here.', atmosphereWarning: 'Atmosphere entry', planetImpact: 'Planetary collision',
         startGame: 'START GAME', continueGame: 'CONTINUE', startNew: 'NEW GAME', startDelete: 'DELETE SAVE', saveNamePlaceholder: 'Name for new savegame', mainMenuLanguage: 'LANGUAGE',
         startControls: 'Controls', controlRotate: 'Left Mouse (hold) - Rotate ship', controlCursor: 'Left Mouse (release) - Cursor mode', controlFire: 'Right Mouse - Primary fire | Q - Missiles',
-        controlSelect: 'Click object - Select target', controlThrottleUp: 'W - Increase throttle', controlThrottleDown: 'S - Reduce throttle / cancel cruise', controlReverse: 'X - Reverse thrust', controlAfterburner: 'Tab - Hold afterburner',
-        controlDock: 'D - Drift ship right', controlApproach: 'A - Drift ship left', controlMap: 'M - Toggle map', controlNanobots: 'G / N - Use nanobot', controlBatteries: 'F / B - Use shield battery', controlZoom: 'Mouse Wheel - Zoom',
+        controlSelect: 'Click object - Select target', controlThrottleUp: 'W - Increase throttle', controlThrottleDown: 'S - Reduce throttle / cancel cruise', controlReverse: 'X - Reverse thrust', controlAfterburner: 'Tab - Hold afterburner', controlMines: 'E - Drop mine',
+        controlDock: 'D - Drift ship right', controlApproach: 'A - Drift ship left', controlMap: 'M - Toggle map', controlNanobots: 'G / N - Use nanobot', controlBatteries: 'F / B - Use shield battery', controlCountermeasures: 'C - Drop countermeasure', controlZoom: 'Mouse Wheel - Zoom',
         noSaveForMod: 'No savegame exists for this mod yet', separateSaves: 'Vanilla DE, Vanilla EN, and Crossfire use separate save slots',
         noSavedGameFound: 'No saved game found.', savegameLabel: 'Savegame', activeLabel: 'ACTIVE', loadLabel: 'LOAD', unknownDate: 'unknown',
         maxSavesReached: 'Maximum of 5 savegames. Delete one first.', deleteSaveConfirm: 'Delete savegame "{name}"?', modDataMissing: '{mod} data not found. Starting with Vanilla DE.',
         hudHull: 'HULL', hudShield: 'SHIELD', hudEnergy: 'ENERGY', loadoutTitle: 'WEAPONS', scannerTitle: 'SCANNER', labelNanobots: 'Nanobots', labelShieldBatteries: 'Shield Batteries',
-        ammoTab: 'Ammo', missileAmmo: 'Missiles', ammoFull: 'Missile bay full.', ammoMissing: 'No missile ammo.', missileAmmoCount: 'Missiles: {count}/{max}',
-        selected: 'Selected', distance: 'Distance', clearSelection: '[-] Clear', selectionCleared: 'Selection cleared.', modeRotate: 'ROTATE MODE', modeCruiseCharge: 'CRUISE CHARGE', modeCruise: 'CRUISE', modeAfterburner: 'AFTERBURNER',
+        ammoTab: 'Ammo', missileAmmo: 'Missiles', mines: 'Mines', countermeasures: 'Countermeasures', countermeasureAmmoCount: 'Countermeasures: {count}', countermeasureDropped: 'Countermeasure dropped.', countermeasureAmmoEmpty: 'No countermeasures left.', countermeasureDropperMissing: 'No countermeasure dropper mounted.', countermeasureDropLocked: 'Countermeasures cannot be used while docked, in trade lanes, or during jumps.', countermeasureAutoOn: 'AUTO ON', countermeasureAutoOff: 'AUTO OFF', missileIncoming: 'Incoming missile!', mineAmmoCount: 'Mines: {count}/{max}', mineDropped: 'Mine dropped.', mineAmmoEmpty: 'No mines left.', mineAmmoFull: 'Mine bay full.', mineDropperMissing: 'No mine dropper mounted.', mineDropLocked: 'Mines only at combat speed up to 80 m/s, not in cruise, trade lane, or jump.', ammoFull: 'Missile bay full.', ammoMissing: 'No missile ammo.', missileAmmoCount: 'Missiles: {count}/{max}',
+        selected: 'Selected', distance: 'Distance', clearSelection: '[-] Clear', selectionCleared: 'Selection cleared.', waypointFromSelection: 'WP FROM SELECTION', noWaypointSelection: 'No suitable object selected.', clearWaypoint: 'Clear waypoint', modeRotate: 'ROTATE MODE', modeCruiseCharge: 'CRUISE CHARGE', modeCruise: 'CRUISE', modeAfterburner: 'AFTERBURNER',
         scannerNone: 'No ships or stations in range.', noWeaponSlots: 'No weapon slots available.', emptyWeapon: 'Empty', noGunMounted: 'No weapon mounted',
         scannerShip: 'Ship', scannerPlanet: 'Planet', scannerJumpGate: 'Jump Gate', scannerJumpHole: 'Jump Hole', scannerTradeLane: 'Trade Lane', scannerStation: 'Station', scannerWaypoint: 'Waypoint', scannerObject: 'Object', weaponSlot: 'Weapon',
         repChanged: 'Reputation changed', repHostile: 'HOSTILE', repFriendly: 'FRIENDLY', repNeutral: 'NEUTRAL', noReputationData: 'No reputation data loaded.',
@@ -1025,6 +1150,8 @@ function equipmentMountType(item) {
     const id = String(item?.id || item?.equipmentId || '').toLowerCase();
     const name = String(item?.name || '').toLowerCase();
     const category = String(item?.category || '').toLowerCase();
+    if (category === 'mine' && item?.combinable) return 'mine ammo';
+    if (category === 'countermeasure' && item?.combinable) return 'countermeasure ammo';
     if (category === 'weapon') return 'weapon';
     if (category === 'turret') return 'turret';
     if (category === 'shield') return 'shield';
@@ -1279,8 +1406,30 @@ function currentPowerPlantItem() {
     };
 }
 
+function currentEngineItem() {
+    if (!game.player) return null;
+    const mountedEngine = getEquipment(game.player.mountedEquipment?.engine);
+    if (mountedEngine) return mountedEngine;
+    const packageEngine = currentShipPackage()?.engine || null;
+    const equipmentEngine = getEquipment(game.player.engineId);
+    if (equipmentEngine) return equipmentEngine;
+    if (!packageEngine && !game.player.engineId) return null;
+    return {
+        id: game.player.engineId || packageEngine?.id || 'ship_engine',
+        name: game.player.engineName || packageEngine?.name || 'Engine',
+        category: 'engine',
+        maxForce: packageEngine?.maxForce || 0,
+        linearDrag: packageEngine?.linearDrag || 0,
+        powerUsage: packageEngine?.powerUsage || 0,
+        reverseFraction: packageEngine?.reverseFraction || 1,
+        cruiseChargeTime: packageEngine?.cruiseChargeTime || CRUISE_CHARGE_SECONDS,
+        cruisePowerUsage: packageEngine?.cruisePowerUsage || 20
+    };
+}
+
 function mountedEquipmentItem(slot) {
     if (slot === 'powerplant') return currentPowerPlantItem();
+    if (slot === 'engine') return currentEngineItem();
     return getEquipment(game.player?.mountedEquipment?.[slot]);
 }
 
@@ -1366,6 +1515,167 @@ function missileDamageForItem(item, ammoItem = null) {
     return Math.max(180, ammoPrice * 7);
 }
 
+function isMineDropper(item) {
+    return String(item?.category || '').toLowerCase() === 'mine' && !item?.combinable && Boolean(item?.projectileArchetype);
+}
+
+function isMineAmmo(item) {
+    return String(item?.category || '').toLowerCase() === 'mine' && Boolean(item?.combinable);
+}
+
+function equippedMineDropperItem() {
+    const item = mountedEquipmentItem('mine');
+    return isMineDropper(item) ? item : null;
+}
+
+function mineAmmoItemId(item) {
+    if (!isMineDropper(item)) return '';
+    return String(item?.projectileArchetype || '').toLowerCase();
+}
+
+function mineAmmoInventoryEntries() {
+    return (game.player?.equipmentInventory || []).filter(entry => isMineAmmo(getEquipment(entry.id)));
+}
+
+function totalMineAmmoCount() {
+    return mineAmmoInventoryEntries().reduce((sum, entry) => sum + Math.max(0, Number(entry.quantity) || 0), 0);
+}
+
+function mineAmmoCount(itemOrAmmoId) {
+    const ammoId = typeof itemOrAmmoId === 'string' ? String(itemOrAmmoId || '').toLowerCase() : mineAmmoItemId(itemOrAmmoId);
+    if (!ammoId) return 0;
+    return Math.max(0, Number(findEquipmentItem(ammoId)?.quantity) || 0);
+}
+
+function consumeMineAmmo(item) {
+    const ammoId = mineAmmoItemId(item);
+    if (!ammoId) return false;
+    const inv = findEquipmentItem(ammoId);
+    if (!inv || (Number(inv.quantity) || 0) <= 0) return false;
+    inv.quantity = Math.max(0, (Number(inv.quantity) || 0) - 1);
+    game.player.equipmentInventory = (game.player.equipmentInventory || []).filter(entry => (Number(entry.quantity) || 0) > 0);
+    return true;
+}
+
+function mineStatsFromEquipment(item) {
+    const ammo = getEquipment(mineAmmoItemId(item));
+    const damage = Number(ammo?.explosionHullDamage || ammo?.hullDamage || ammo?.price || MINE_DAMAGE);
+    const topSpeed = Number(ammo?.topSpeed || item?.muzzleVelocity || MINE_SPEED) || MINE_SPEED;
+    const dropSpeed = Number(item?.muzzleVelocity || Math.min(topSpeed, MINE_SPEED)) || MINE_SPEED;
+    return {
+        name: item?.name || t('mines'),
+        cooldown: Math.max(0.1, Number(item?.refireDelay) || MINE_DROP_COOLDOWN),
+        speed: Math.max(1, dropSpeed),
+        damage: Math.max(1, damage),
+        lifetime: Math.max(0.5, Number(ammo?.projectileLifetime) || MINE_LIFETIME),
+        seekRange: Math.max(0, Number(ammo?.seekDist || ammo?.seekerRange || MINE_SEEK_RANGE)),
+        maxSpeed: Math.max(1, topSpeed),
+        acceleration: Math.max(0, Number(ammo?.acceleration) || 0),
+        detonationRadius: Math.max(4, Number(ammo?.detonationDist || 0), Number(ammo?.explosionRadius || 0)),
+        radius: Math.max(6, Math.min(18, Number(ammo?.explosionRadius || 12) * 0.75)),
+        turnRate: Math.max(0.3, Number(ammo?.maxAngularVelocity) || 0.85)
+    };
+}
+
+function isCountermeasureDropper(item) {
+    return String(item?.category || '').toLowerCase() === 'countermeasure' && !item?.combinable && Boolean(item?.projectileArchetype);
+}
+
+function isCountermeasureAmmo(item) {
+    return String(item?.category || '').toLowerCase() === 'countermeasure' && Boolean(item?.combinable);
+}
+
+function equippedCountermeasureDropperItem() {
+    const item = mountedEquipmentItem('countermeasure');
+    return isCountermeasureDropper(item) ? item : null;
+}
+
+function countermeasureAmmoItemId(item) {
+    if (!isCountermeasureDropper(item)) return '';
+    return String(item?.projectileArchetype || '').toLowerCase();
+}
+
+function countermeasureAmmoInventoryEntries() {
+    return (game.player?.equipmentInventory || []).filter(entry => isCountermeasureAmmo(getEquipment(entry.id)));
+}
+
+function totalCountermeasureAmmoCount() {
+    return countermeasureAmmoInventoryEntries().reduce((sum, entry) => sum + Math.max(0, Number(entry.quantity) || 0), 0);
+}
+
+function countermeasureAmmoCount(itemOrAmmoId) {
+    const ammoId = typeof itemOrAmmoId === 'string' ? String(itemOrAmmoId || '').toLowerCase() : countermeasureAmmoItemId(itemOrAmmoId);
+    if (!ammoId) return 0;
+    return Math.max(0, Number(findEquipmentItem(ammoId)?.quantity) || 0);
+}
+
+function consumeCountermeasureAmmo(item) {
+    const ammoId = countermeasureAmmoItemId(item);
+    if (!ammoId) return false;
+    const inv = findEquipmentItem(ammoId);
+    if (!inv || (Number(inv.quantity) || 0) <= 0) return false;
+    inv.quantity = Math.max(0, (Number(inv.quantity) || 0) - 1);
+    game.player.equipmentInventory = (game.player.equipmentInventory || []).filter(entry => (Number(entry.quantity) || 0) > 0);
+    return true;
+}
+
+function countermeasureStatsFromEquipment(item) {
+    const ammo = getEquipment(countermeasureAmmoItemId(item));
+    return {
+        name: ammo?.name || item?.name || t('countermeasures'),
+        cooldown: Math.max(0.1, Number(item?.refireDelay) || 0.25),
+        speed: Math.max(1, Number(item?.muzzleVelocity) || 10),
+        lifetime: Math.max(0.5, Number(ammo?.projectileLifetime || ammo?.lifetime) || COUNTERMEASURE_LIFETIME),
+        range: Math.max(100, Number(ammo?.countermeasureRange || ammo?.range) || COUNTERMEASURE_RANGE),
+        diversionChance: clamp((Number(ammo?.diversionPctg || ammo?.diversionPercent) || (COUNTERMEASURE_DIVERSION * 100)) / 100, 0, 1),
+        linearDrag: Math.max(0, Number(ammo?.linearDrag) || 0)
+    };
+}
+
+function countermeasureTargetById(id) {
+    if (!id) return null;
+    return game.projectiles.find(projectile => projectile.type === 'countermeasure' && projectile.id === id && projectile.lifetime > 0) || null;
+}
+
+function tryDivertMissileWithCountermeasure(missile, countermeasure) {
+    if (!missile || !countermeasure || missile.owner === 'player' || !missile.homing || missile.targetId !== 'player') return false;
+    const dx = countermeasure.x - missile.x;
+    const dz = countermeasure.z - missile.z;
+    if (Math.hypot(dx, dz) > (countermeasure.range || COUNTERMEASURE_RANGE)) return false;
+    missile.countermeasureChecks = missile.countermeasureChecks || {};
+    if (missile.countermeasureChecks[countermeasure.id]) return false;
+    missile.countermeasureChecks[countermeasure.id] = true;
+    if (Math.random() > (countermeasure.diversionChance ?? COUNTERMEASURE_DIVERSION)) return false;
+    missile.targetId = countermeasure.id;
+    missile.trailColor = missile.trailColor || 'rgba(255,180,60,0.55)';
+    return true;
+}
+
+function divertIncomingMissiles(countermeasure) {
+    let diverted = 0;
+    for (const projectile of game.projectiles) {
+        if (projectile === countermeasure) continue;
+        if (tryDivertMissileWithCountermeasure(projectile, countermeasure)) diverted += 1;
+    }
+    return diverted;
+}
+
+function isIncomingPlayerMissile(projectile) {
+    return Boolean(projectile
+        && projectile.owner !== 'player'
+        && projectile.homing
+        && projectile.targetId === 'player'
+        && projectile.lifetime > 0);
+}
+
+function incomingPlayerMissiles() {
+    return (game.projectiles || []).filter(isIncomingPlayerMissile);
+}
+
+function hasIncomingPlayerMissile() {
+    return incomingPlayerMissiles().length > 0;
+}
+
 function safeDomId(value) {
     return String(value || '').replace(/[^a-z0-9_-]/gi, '_');
 }
@@ -1391,12 +1701,46 @@ function addEquipmentInventoryCopy(itemId) {
     return true;
 }
 
+function ensureEquipmentInventoryCopy(itemId) {
+    const item = getEquipment(itemId);
+    if (!item || !game.player) return false;
+    let inv = findEquipmentItem(item.id);
+    if (!inv) {
+        inv = { id: item.id, name: item.name, quantity: 0, category: item.category };
+        game.player.equipmentInventory.push(inv);
+    }
+    inv.quantity = Math.max(1, Number(inv.quantity) || 0);
+    return true;
+}
+
+function ensureFixedShipEquipment() {
+    if (!game.player) return;
+    const shipPackage = currentShipPackage();
+    const fixed = [
+        ['powerplant', shipPackage?.powerplant?.id],
+        ['engine', shipPackage?.engine?.id]
+    ];
+    const fixedIds = new Set(fixed.map(([, itemId]) => String(itemId || '').toLowerCase()).filter(Boolean));
+    game.player.equipmentInventory = (game.player.equipmentInventory || []).filter(entry => {
+        const item = getEquipment(entry.id);
+        const category = String(item?.category || entry.category || '').toLowerCase();
+        if ((category === 'engine' || category === 'powerplant') && !fixedIds.has(String(entry.id || '').toLowerCase())) return false;
+        return true;
+    });
+    for (const [slot, itemId] of fixed) {
+        if (!itemId) continue;
+        game.player.mountedEquipment[slot] = itemId;
+        ensureEquipmentInventoryCopy(itemId);
+    }
+}
+
 function mountedEquipmentCount() {
     return Object.values(game.player?.mountedEquipment || {}).filter(Boolean).length;
 }
 
 function ensureStarterEquipmentForEmptyLoadout() {
-    if (!game.player || mountedEquipmentCount() > 0 || (game.player.equipmentInventory || []).length > 0) return;
+    ensureFixedShipEquipment();
+    if (!game.player || mountedEquipmentCount() > 2 || (game.player.equipmentInventory || []).some(item => !['engine', 'powerplant'].includes(String(getEquipment(item.id)?.category || item.category || '').toLowerCase()))) return;
     const defaults = STARTER_MOUNTED_EQUIPMENT[game.player.shipPackageId] || [];
     for (const entry of defaults) {
         if (!addEquipmentInventoryCopy(entry.id)) continue;
@@ -2208,7 +2552,8 @@ function updatePopulationNpcs(dt) {
 function applyLanguage() {
     const labels = [
         ['btn-freeflight', 'freeflight'], ['btn-approach', 'approach'], ['btn-dock', 'dock'], ['btn-cruise', 'cruise'], ['btn-map', 'map'],
-        ['btn-inventory', 'inventory'], ['btn-reputation', 'reputation'], ['btn-info', 'info'], ['btn-menu', 'menu'], ['btn-launch', 'launch'], ['btn-clear-selection', 'clearSelection']
+        ['btn-inventory', 'inventory'], ['btn-reputation', 'reputation'], ['btn-info', 'info'], ['btn-menu', 'menu'], ['btn-launch', 'launch'], ['btn-clear-selection', 'clearSelection'],
+        ['btn-waypoint-selection', 'waypointFromSelection'], ['btn-clear-waypoint', 'clearWaypoint']
     ];
     for (const [id, key] of labels) {
         const el = document.getElementById(id);
@@ -2240,13 +2585,19 @@ function applyLanguage() {
     if (nanobotLabel) nanobotLabel.textContent = t('labelNanobots');
     const batteryLabel = document.getElementById('label-shield-batteries');
     if (batteryLabel) batteryLabel.textContent = t('labelShieldBatteries');
+    const mineLabel = document.getElementById('label-mines');
+    if (mineLabel) mineLabel.textContent = t('mines');
+    const countermeasureLabel = document.getElementById('label-countermeasures');
+    if (countermeasureLabel) countermeasureLabel.textContent = t('countermeasures');
+    const missileWarning = document.getElementById('missile-warning');
+    if (missileWarning) missileWarning.textContent = t('missileIncoming');
     const controlsTitle = document.getElementById('controls-title');
     if (controlsTitle) controlsTitle.textContent = t('startControls');
     const startControls = [
         ['control-rotate', 'controlRotate'], ['control-cursor', 'controlCursor'], ['control-fire', 'controlFire'], ['control-select', 'controlSelect'],
         ['control-throttle-up', 'controlThrottleUp'], ['control-throttle-down', 'controlThrottleDown'], ['control-reverse', 'controlReverse'], ['control-afterburner', 'controlAfterburner'],
-        ['control-dock', 'controlDock'], ['control-approach', 'controlApproach'], ['control-map', 'controlMap'], ['control-nanobots', 'controlNanobots'],
-        ['control-batteries', 'controlBatteries'], ['control-zoom', 'controlZoom']
+        ['control-dock', 'controlDock'], ['control-approach', 'controlApproach'], ['control-map', 'controlMap'], ['control-nanobots', 'controlNanobots'], ['control-mines', 'controlMines'],
+        ['control-countermeasures', 'controlCountermeasures'], ['control-batteries', 'controlBatteries'], ['control-zoom', 'controlZoom']
     ];
     for (const [id, key] of startControls) {
         const el = document.getElementById(id);
@@ -2268,8 +2619,9 @@ function toggleLanguage() {
 
 function applyHudTheme() {
     const hud = document.getElementById('hud');
-    if (!hud) return;
-    hud.dataset.theme = game.activeModId === 'crossfire' ? 'crossfire' : 'default';
+    const theme = game.activeModId === 'crossfire' ? 'crossfire' : 'default';
+    if (hud) hud.dataset.theme = theme;
+    document.body.dataset.theme = theme;
 }
 
 // Load real LI01 data from Freelancer INI files
@@ -2304,6 +2656,15 @@ const CRUISE_SPEED = 300;
 const CROSSFIRE_CRUISE_SPEED = 450;
 const AFTERBURNER_SPEED = 200;
 const REVERSE_SPEED = -15;
+const MAX_MINE_AMMO = 50;
+const MINE_DROP_COOLDOWN = 0.8;
+const MINE_SPEED = 34;
+const MINE_LIFETIME = 36;
+const MINE_SEEK_RANGE = 5200;
+const MINE_DAMAGE = 420;
+const COUNTERMEASURE_LIFETIME = 3;
+const COUNTERMEASURE_RANGE = 1000;
+const COUNTERMEASURE_DIVERSION = 0.7;
 const CRUISE_CHARGE_SECONDS = 5;
 const NORMAL_FLIGHT_EXIT_SPEED = COMBAT_MAX_SPEED;
 const TRADE_LANE_ACCELERATION = 1250;
@@ -2315,6 +2676,7 @@ const MISSION_SPAWN_DISTANCE = 1700;
 const MISSION_ENEMY_MIN_COUNT = 3;
 const MISSION_ENEMY_MAX_COUNT = 7;
 const SOLAR_OBJECT_RENDER_SCALE = 0.18;
+const SOLAR_OBJECT_VISUAL_RENDER_SCALE = 0.82;
 const SOLAR_OBJECT_ICON_RADIUS_BOOST = 1.1;
 const SOLAR_OBJECT_MIN_SCREEN_RADIUS = 12;
 const SOLAR_OBJECT_FALLBACK_RADII = {
@@ -2347,8 +2709,16 @@ function solarObjectWorldRadius(value, archetype = '', fallback = 600) {
     return Math.max(1, solarObjectSourceRadius(value, archetype, fallback) * SOLAR_OBJECT_RENDER_SCALE);
 }
 
+function solarObjectVisualWorldRadius(value, archetype = '', fallback = 600) {
+    return Math.max(1, solarObjectSourceRadius(value, archetype, fallback) * SOLAR_OBJECT_VISUAL_RENDER_SCALE);
+}
+
 function solarObjectScreenRadius(worldRadius) {
     return Math.max(SOLAR_OBJECT_MIN_SCREEN_RADIUS, worldRadius * game.zoom * SOLAR_OBJECT_ICON_RADIUS_BOOST);
+}
+
+function solarObjectRawRadiusFromData(data, archetype = '', fallback = 600) {
+    return solarObjectSourceRadius(data?.solar_radius ?? data?.solarRadius ?? data?.radius, archetype || data?.archetype || data?.type, fallback);
 }
 
 function cruiseSpeedForMod(modId = game.activeModId) {
@@ -2503,6 +2873,17 @@ function setFreeSpaceWaypoint(x, z) {
     return setWaypointTarget({ x, z, name: 'Waypoint', type: 'Waypoint' }, 'Waypoint');
 }
 
+function createWaypointFromSelection() {
+    const target = game.selectedTarget;
+    if (!target || !Number.isFinite(target.x) || !Number.isFinite(target.z)) {
+        addLog(t('noWaypointSelection'), 'alert');
+        return null;
+    }
+    const waypoint = setWaypointTarget(target, target.name || scannerObjectKind(target));
+    if (waypoint === target || waypoint?.linkedTarget === target) game.selectedTarget = waypoint;
+    return waypoint;
+}
+
 function clearNavigationSelection() {
     game.selectedTarget = null;
     game.approachTarget = null;
@@ -2611,6 +2992,7 @@ async function loadActiveModData() {
         game.activeModId = 'vanilla';
         localStorage.setItem(ACTIVE_MOD_KEY, 'vanilla');
         game.modData = null;
+        applyHudTheme();
     }
 }
 
@@ -2755,6 +3137,8 @@ function createSaveGameState() {
             mountedEquipment: game.player.mountedEquipment,
             nanobots: game.player.nanobots,
             shieldBatteries: game.player.shieldBatteries,
+            mineAmmo: game.player.mineAmmo,
+            countermeasureAutoEnabled: game.player.countermeasureAutoEnabled,
             shipPackageId: game.player.shipPackageId,
             faction: game.player.faction,
             reputations: game.player.reputations
@@ -2828,6 +3212,8 @@ function restorePlayerFromSave(save) {
     ensureStarterEquipmentForEmptyLoadout();
     game.player.nanobots = Number.isFinite(savedPlayer.nanobots) ? savedPlayer.nanobots : game.player.nanobots;
     game.player.shieldBatteries = Number.isFinite(savedPlayer.shieldBatteries) ? savedPlayer.shieldBatteries : game.player.shieldBatteries;
+    game.player.mineAmmo = Number.isFinite(savedPlayer.mineAmmo) ? clamp(savedPlayer.mineAmmo, 0, game.player.maxMineAmmo || MAX_MINE_AMMO) : game.player.mineAmmo;
+    game.player.countermeasureAutoEnabled = typeof savedPlayer.countermeasureAutoEnabled === 'boolean' ? savedPlayer.countermeasureAutoEnabled : game.player.countermeasureAutoEnabled;
     game.player.faction = normalizeFactionId(savedPlayer.faction || game.player.faction || 'li_n_grp');
     game.player.reputations = savedPlayer.reputations && typeof savedPlayer.reputations === 'object' ? { ...savedPlayer.reputations } : null;
     if (!game.player.reputations) initializePlayerReputations(game.player.faction);
@@ -3104,6 +3490,8 @@ function applyShipPackage(packageId, logPurchase = false) {
     game.player.maxCargo = stats.holdSize || game.player.maxCargo;
     game.player.powerPlantId = shipPackage.powerplant?.id || '';
     game.player.powerPlantName = shipPackage.powerplant?.name || 'Powerplant';
+    game.player.engineId = shipPackage.engine?.id || '';
+    game.player.engineName = shipPackage.engine?.name || 'Engine';
     game.player.maxEnergy = Number.isFinite(stats.powerCapacity) ? stats.powerCapacity : game.player.maxEnergy;
     game.player.powerGen = Number.isFinite(stats.powerChargeRate) ? stats.powerChargeRate : game.player.powerGen;
     game.player.thrustCapacity = Number.isFinite(stats.thrustCapacity) ? stats.thrustCapacity : game.player.thrustCapacity;
@@ -3123,6 +3511,7 @@ function applyShipPackage(packageId, logPurchase = false) {
     game.player.shieldClassMax = game.player.weaponClassMax;
     game.player.shieldFamily = shipShieldFamily();
     game.player.radius = Math.max(18, Math.min(34, Math.sqrt(game.player.maxHull) * 0.28));
+    ensureFixedShipEquipment();
     ensureStarterEquipmentForEmptyLoadout();
     if (logPurchase) {
         addLog('Purchased ship: ' + shipPackage.name);
@@ -3265,11 +3654,46 @@ function inferPlanetBaseId(planet) {
     return '';
 }
 
+function zoneRadius(zone) {
+    return Math.max(1, Number(zone?.size_x || zone?.sizeX || zone?.size || 0));
+}
+
+function matchingPlanetDeathZone(planet, zones) {
+    const px = Number(planet?.x || 0);
+    const pz = Number(planet?.z || 0);
+    const rawRadius = Number(planet?.solar_radius || planet?.size || 1000);
+    const planetId = String(planet?.nickname || planet?.id || '').toLowerCase();
+    const candidates = (zones || []).filter(zone => {
+        const damage = Number(zone.damage || 0);
+        if (damage < 1000 || !Number.isFinite(zone.x) || !Number.isFinite(zone.z)) return false;
+        const radius = zoneRadius(zone);
+        const distance = Math.hypot(Number(zone.x || 0) - px, Number(zone.z || 0) - pz);
+        const id = String(zone.nickname || zone.zone || '').toLowerCase();
+        const namedForPlanet = planetId && id.includes(planetId) && id.includes('death');
+        return namedForPlanet || distance <= Math.max(1200, radius * 0.12, rawRadius * 0.12);
+    });
+    return candidates
+        .map(zone => ({ zone, distance: Math.hypot(Number(zone.x || 0) - px, Number(zone.z || 0) - pz) }))
+        .sort((a, b) => a.distance - b.distance)[0]?.zone || null;
+}
+
+function planetRadiusFromDeathZone(planet, zones) {
+    const deathZone = matchingPlanetDeathZone(planet, zones);
+    if (!deathZone) return Math.max(160, (planet.solar_radius || planet.size || 1000) * 0.38);
+    return Math.max(160, zoneRadius(deathZone) - 100);
+}
+
+function planetDeathZoneRadius(planet, zones) {
+    const deathZone = matchingPlanetDeathZone(planet, zones);
+    return deathZone ? zoneRadius(deathZone) : 0;
+}
+
 function buildSystemData(systemId) {
     const raw = getSystemRecord(systemId);
     const jumpgates = raw.jumpgates || [];
     const jumpholes = raw.jumpholes || [];
     const rawPlanets = raw.planets || [];
+    const rawZones = raw.zones || [];
     const suns = (raw.suns && raw.suns.length ? raw.suns : rawPlanets.filter(p => String(p.archetype || '').includes('sun')));
     const planets = rawPlanets.filter(p => !String(p.archetype || '').includes('sun'));
     return {
@@ -3287,22 +3711,26 @@ function buildSystemData(systemId) {
         info: s.info || '',
         type: s.archetype || 'sun'
     })),
-    planets: planets.map(p => ({
-        id: p.nickname,
-        name: displayName(p.name, p.nickname),
-        x: p.x,
-        z: p.z,
-        radius: Math.max(160, (p.solar_radius || p.size || 1000) * 0.38),
-        atmosphereRange: p.atmosphere_range || p.atmosphereRange || 0,
-        hasRing: !!(p.has_ring || p.hasRing),
-        info: p.info || '',
-        color: getPlanetColor(p.archetype),
-        faction: normalizeFactionId(p.faction || p.reputation || ''),
-        loadout: p.loadout || '',
-        base: p.base || inferPlanetBaseId(p),
-        dockWith: p.dock_with || p.dockWith || inferPlanetBaseId(p),
-        type: p.archetype || 'Planet'
-    })),
+    planets: planets.map(p => {
+        const deathZoneRadius = planetDeathZoneRadius(p, rawZones);
+        return {
+            id: p.nickname,
+            name: displayName(p.name, p.nickname),
+            x: p.x,
+            z: p.z,
+            radius: deathZoneRadius ? Math.max(160, deathZoneRadius - 100) : planetRadiusFromDeathZone(p, rawZones),
+            deathZoneRadius,
+            atmosphereRange: deathZoneRadius ? deathZoneRadius + 80 : (p.atmosphere_range || p.atmosphereRange || 0),
+            hasRing: !!(p.has_ring || p.hasRing),
+            info: p.info || '',
+            color: getPlanetColor(p.archetype),
+            faction: normalizeFactionId(p.faction || p.reputation || ''),
+            loadout: p.loadout || '',
+            base: p.base || inferPlanetBaseId(p),
+            dockWith: p.dock_with || p.dockWith || inferPlanetBaseId(p),
+            type: p.archetype || 'Planet'
+        };
+    }),
     stations: (raw.stations || []).map(s => ({
         id: s.nickname,
         name: displayName(s.name, s.nickname),
@@ -3434,7 +3862,93 @@ function planetPalette(archetype = '') {
     return ['#2f597d', '#6f9eb6', '#314f42', '#d8f4ff'];
 }
 
+const PLANET_TEXTURE_PATHS = {
+    planet_ice: 'data/planet_textures/planet_ice.png',
+    planet_mercury: 'data/planet_textures/planet_mercury.png',
+    planet_icemoon: 'data/planet_textures/planet_icemoon.png',
+    planet_ice_purple: 'data/planet_textures/planet_ice_purple.png',
+    planet_moonblu: 'data/planet_textures/planet_moonblu.png',
+    planet_gasblucld: 'data/planet_textures/planet_gasblucld.png',
+    planet_desert: 'data/planet_textures/planet_desert.png',
+    planet_earthgrncld_4000: 'data/planet_textures/planet_earthgrncld_4000.png',
+    planet_earthgrncld: 'data/planet_textures/planet_earthgrncld.png',
+    planet_watblucld: 'data/planet_textures/planet_watblucld.png',
+    planet_desored: 'data/planet_textures/planet_desored.png',
+    planet_crater: 'data/planet_textures/planet_crater.png',
+    planet_rckbrn: 'data/planet_textures/planet_rckbrn.png',
+    planet_earthgaia: 'data/planet_textures/planet_earthgaia.png',
+    planet_desorgrck: 'data/planet_textures/planet_desorgrck.png',
+    planet_moonred: 'data/planet_textures/planet_moonred.png',
+    planet_storm: 'data/planet_textures/planet_storm.png'
+};
+
+function planetTextureFamily(archetype = '') {
+    return String(archetype || '').toLowerCase().replace(/_\d+$/, '');
+}
+
+function planetTexturePath(archetype = '') {
+    const exact = String(archetype || '').toLowerCase();
+    if (PLANET_TEXTURE_PATHS[exact]) return PLANET_TEXTURE_PATHS[exact];
+    const family = planetTextureFamily(archetype);
+    if (PLANET_TEXTURE_PATHS[family]) return PLANET_TEXTURE_PATHS[family];
+    if (family.includes('custom')) {
+        const customChoices = [
+            PLANET_TEXTURE_PATHS.planet_crater,
+            PLANET_TEXTURE_PATHS.planet_desorgrck,
+            PLANET_TEXTURE_PATHS.planet_rckbrn,
+            PLANET_TEXTURE_PATHS.planet_ice_purple,
+            PLANET_TEXTURE_PATHS.planet_storm,
+            PLANET_TEXTURE_PATHS.planet_mercury
+        ];
+        const index = Math.abs(hashString(family)) % customChoices.length;
+        return customChoices[index];
+    }
+    if (family.includes('saturn') || family.includes('uranus') || family.includes('neptune')) return PLANET_TEXTURE_PATHS.planet_storm;
+    if (family.includes('neutron')) return PLANET_TEXTURE_PATHS.planet_crater;
+    if (family.includes('earthsnw') || family.includes('earthgrnice')) return PLANET_TEXTURE_PATHS.planet_icemoon;
+    if (family.includes('earthcity')) return PLANET_TEXTURE_PATHS.planet_earthgrncld;
+    if (family.includes('earthgrncld')) return PLANET_TEXTURE_PATHS.planet_earthgrncld;
+    if (family.includes('earthgaia')) return PLANET_TEXTURE_PATHS.planet_earthgaia;
+    if (family.includes('earth')) return PLANET_TEXTURE_PATHS.planet_earthgaia;
+    if (family.includes('watblu') || family.includes('watgrn') || family.includes('watdrk') || family.includes('icewat')) return PLANET_TEXTURE_PATHS.planet_watblucld;
+    if (family.includes('gasice')) return PLANET_TEXTURE_PATHS.planet_ice_purple;
+    if (family.includes('gasorg') || family.includes('gaspur')) return PLANET_TEXTURE_PATHS.planet_storm;
+    if (family.includes('gasgrn') || family.includes('gasblu')) return PLANET_TEXTURE_PATHS.planet_gasblucld;
+    if (family.includes('desorgrck')) return PLANET_TEXTURE_PATHS.planet_desorgrck;
+    if (family.includes('desored')) return PLANET_TEXTURE_PATHS.planet_desored;
+    if (family.includes('desormed') || family.includes('desorcld') || family.includes('rckdes')) return PLANET_TEXTURE_PATHS.planet_desorgrck;
+    if (family.includes('desert') || family.includes('des')) return PLANET_TEXTURE_PATHS.planet_desert;
+    if (family.includes('moonred')) return PLANET_TEXTURE_PATHS.planet_moonred;
+    if (family.includes('moonblu')) return PLANET_TEXTURE_PATHS.planet_moonblu;
+    if (family.includes('icemoon')) return PLANET_TEXTURE_PATHS.planet_icemoon;
+    if (family.includes('ice_purple')) return PLANET_TEXTURE_PATHS.planet_ice_purple;
+    if (family.includes('icemnt') || family.includes('icelnd')) return PLANET_TEXTURE_PATHS.planet_icemoon;
+    if (family.includes('ice')) return PLANET_TEXTURE_PATHS.planet_ice;
+    if (family.includes('mercury')) return PLANET_TEXTURE_PATHS.planet_mercury;
+    if (family.includes('crater')) return PLANET_TEXTURE_PATHS.planet_crater;
+    if (family.includes('rckmnt')) return PLANET_TEXTURE_PATHS.planet_crater;
+    if (family.includes('rckbrn')) return PLANET_TEXTURE_PATHS.planet_rckbrn;
+    if (family.includes('storm')) return PLANET_TEXTURE_PATHS.planet_storm;
+    return '';
+}
+
+function loadPlanetTextureImage(archetype = '') {
+    const path = planetTexturePath(archetype);
+    if (!path) return null;
+    const key = 'asset:' + path;
+    if (!game.planetTextures[key]) {
+        const image = new Image();
+        image.src = path;
+        image.onload = () => { if (game.running) render(); };
+        game.planetTextures[key] = image;
+    }
+    const image = game.planetTextures[key];
+    return image.complete && image.naturalWidth > 0 ? image : null;
+}
+
 function makePlanetTexture(planet) {
+    const asset = loadPlanetTextureImage(planet.type);
+    if (asset) return asset;
     const key = currentSystemId + ':' + planet.id + ':' + planet.type;
     if (game.planetTextures[key]) return game.planetTextures[key];
     const canvas = document.createElement('canvas');
@@ -3484,6 +3998,8 @@ function makePlanetTexture(planet) {
 }
 
 function planetAtmosphereRadius(planet) {
+    const deathZoneRadius = Number(planet.deathZoneRadius || 0);
+    if (deathZoneRadius > 0) return deathZoneRadius + 80;
     const iniRange = Number(planet.atmosphereRange || 0);
     if (iniRange > planet.radius) return Math.max(planet.radius * 1.18, iniRange * 0.72);
     return planet.radius * 1.55 + 260;
@@ -3614,12 +4130,18 @@ function renderDamageZones(ctx) {
 
 function checkPlanetAtmosphereHazards(dt) {
     if (!game.player || game.isDocked || game.player.destroyed) return;
+    let activeAtmospherePlanetId = '';
     for (const planet of systemData.planets) {
         const dx = game.player.x - planet.x;
         const dz = game.player.z - planet.z;
         const dist = Math.sqrt(dx * dx + dz * dz);
         const atmosphere = planetAtmosphereRadius(planet);
         if (dist > atmosphere) continue;
+        activeAtmospherePlanetId = planet.id || planet.name || '';
+        if (game.player.atmospherePlanetId !== activeAtmospherePlanetId) {
+            playVoice('atmosphere', 1);
+            game.player.atmospherePlanetId = activeAtmospherePlanetId;
+        }
         game.player.cancelCruise?.();
         game.player.afterburnerActive = false;
         game.player.reverseActive = false;
@@ -3642,6 +4164,7 @@ function checkPlanetAtmosphereHazards(dt) {
         }
         break;
     }
+    if (!activeAtmospherePlanetId) game.player.atmospherePlanetId = '';
 }
 
 function isPointInsideZone(zone, x, z) {
@@ -3667,7 +4190,7 @@ function isPointInsideExpandedZone(zone, x, z, margin = 0) {
 }
 
 function damagingZones() {
-    return (systemData.zones || []).filter(zone => Number(zone.damage || 0) > 0 && Number.isFinite(zone.x) && Number.isFinite(zone.z));
+    return (systemData.zones || []).filter(zone => Number(zone.damage || 0) >= 1000 && Number.isFinite(zone.x) && Number.isFinite(zone.z));
 }
 
 function segmentCrossesExpandedZone(zone, x1, z1, x2, z2, margin = 0) {
@@ -3680,7 +4203,48 @@ function segmentCrossesExpandedZone(zone, x1, z1, x2, z2, margin = 0) {
     return -1;
 }
 
+function circularDeathZoneRadius(zone) {
+    return Math.max(1, Number(zone.sizeX || zone.size || 1), Number(zone.sizeZ || zone.size || 1));
+}
+
+function segmentCircleIntersection(zone, x1, z1, x2, z2, radius) {
+    const dx = x2 - x1;
+    const dz = z2 - z1;
+    const fx = x1 - zone.x;
+    const fz = z1 - zone.z;
+    const a = dx * dx + dz * dz;
+    if (a <= 0) return null;
+    const b = 2 * (fx * dx + fz * dz);
+    const c = fx * fx + fz * fz - radius * radius;
+    const discriminant = b * b - 4 * a * c;
+    if (discriminant < 0) return null;
+    const root = Math.sqrt(discriminant);
+    const t1 = (-b - root) / (2 * a);
+    const t2 = (-b + root) / (2 * a);
+    const hits = [t1, t2].filter(t => t >= 0 && t <= 1).sort((left, right) => left - right);
+    if (!hits.length) return null;
+    return { enter: hits[0], exit: hits[hits.length - 1] };
+}
+
+function autopilotZoneSide(zone, x, z, targetX, targetZ, routeNormalX, routeNormalZ, avoidRadius) {
+    const routeCandidates = [1, -1].map(side => {
+        const angle = Math.atan2(z - zone.z, x - zone.x) + side * 0.72;
+        const point = {
+            x: zone.x + Math.cos(angle) * avoidRadius,
+            z: zone.z + Math.sin(angle) * avoidRadius,
+            side
+        };
+        const blocked = damagingZones().some(other => other !== zone && isPointInsideExpandedZone(other, point.x, point.z, 500));
+        const pathCost = Math.hypot(point.x - x, point.z - z) + Math.hypot(targetX - point.x, targetZ - point.z);
+        return { side, score: pathCost + (blocked ? 100000000 : 0) };
+    });
+    const centerSide = Math.sign((zone.x - x) * routeNormalX + (zone.z - z) * routeNormalZ);
+    routeCandidates.sort((a, b) => a.score - b.score || (a.side === -centerSide ? -1 : 1));
+    return routeCandidates[0]?.side || 1;
+}
+
 function getAutopilotDeathZoneAvoidance(x, z, targetX, targetZ, margin = 1400) {
+    const clearance = 500;
     const dx = targetX - x;
     const dz = targetZ - z;
     const routeLength = Math.hypot(dx, dz);
@@ -3691,27 +4255,34 @@ function getAutopilotDeathZoneAvoidance(x, z, targetX, targetZ, margin = 1400) {
     const nz = ux;
     let threat = null;
     for (const zone of damagingZones()) {
-        if (isPointInsideExpandedZone(zone, targetX, targetZ, margin * 0.35) && routeLength < margin * 1.6) continue;
-        const t = segmentCrossesExpandedZone(zone, x, z, targetX, targetZ, margin);
-        if (t >= 0 && (!threat || t < threat.t)) threat = { zone, t };
+        if (isPointInsideZone(zone, targetX, targetZ)) continue;
+        const hit = segmentCircleIntersection(zone, x, z, targetX, targetZ, circularDeathZoneRadius(zone));
+        if (hit && (!threat || hit.enter < threat.t)) threat = { zone, t: hit.enter };
     }
     if (!threat) return { x: 0, z: 0, magnitude: 0 };
 
     const zone = threat.zone;
-    const radius = Math.max(zone.sizeX || zone.size || 1, zone.sizeZ || zone.size || 1) + margin + 420;
-    const sideHint = Math.sign((zone.x - x) * nx + (zone.z - z) * nz) || 1;
-    const candidates = [sideHint, -sideHint].map(side => ({
-        x: zone.x + nx * radius * side,
-        z: zone.z + nz * radius * side,
-        side
-    }));
-    const scored = candidates.map(point => {
-        const blocked = damagingZones().some(other => isPointInsideExpandedZone(other, point.x, point.z, margin * 0.5));
-        const pathCost = Math.hypot(point.x - x, point.z - z) + Math.hypot(targetX - point.x, targetZ - point.z);
-        return { point, score: pathCost + (blocked ? 100000000 : 0) };
-    }).sort((a, b) => a.score - b.score);
-    const detour = scored[0]?.point;
-    if (!detour) return { x: 0, z: 0, magnitude: 0 };
+    const deathRadius = circularDeathZoneRadius(zone);
+    const avoidRadius = deathRadius + clearance;
+    const avoidHit = segmentCircleIntersection(zone, x, z, targetX, targetZ, avoidRadius);
+    if (!avoidHit) return { x: 0, z: 0, magnitude: 0 };
+
+    const currentRadius = Math.hypot(x - zone.x, z - zone.z);
+    const entry = {
+        x: x + dx * avoidHit.enter,
+        z: z + dz * avoidHit.enter
+    };
+    const distanceToEntry = Math.hypot(entry.x - x, entry.z - z);
+    let detour = entry;
+    if (currentRadius <= avoidRadius + 900 || distanceToEntry < 900) {
+        const side = autopilotZoneSide(zone, x, z, targetX, targetZ, nx, nz, avoidRadius);
+        const currentAngle = Math.atan2(z - zone.z, x - zone.x);
+        const stepAngle = clamp(Math.max(0.28, 1400 / avoidRadius), 0.28, 0.95);
+        detour = {
+            x: zone.x + Math.cos(currentAngle + side * stepAngle) * avoidRadius,
+            z: zone.z + Math.sin(currentAngle + side * stepAngle) * avoidRadius
+        };
+    }
     const vx = detour.x - x;
     const vz = detour.z - z;
     return { x: vx, z: vz, magnitude: Math.hypot(vx, vz), zone };
@@ -4072,8 +4643,13 @@ class PlayerShip {
         this.shieldBatteries = 3;
         this.maxShieldBatteries = 25;
         this.maxMissileAmmo = 50;
+        this.mineAmmo = MAX_MINE_AMMO;
+        this.maxMineAmmo = MAX_MINE_AMMO;
+        this.countermeasureAutoEnabled = true;
         this.primaryCooldown = 0;
         this.missileCooldown = 0;
+        this.mineCooldown = 0;
+        this.countermeasureCooldown = 0;
         this.radius = 20;
         this.inTradeLane = false; this.laneSpeed = 2500;
         this.laneRoute = null; this.laneIndex = 0; this.laneDirection = 1;
@@ -4294,6 +4870,11 @@ class PlayerShip {
         // Weapon cooldown
         if (this.primaryCooldown > 0) this.primaryCooldown -= dt;
         if (this.missileCooldown > 0) this.missileCooldown -= dt;
+        if (this.mineCooldown > 0) this.mineCooldown -= dt;
+        if (this.countermeasureCooldown > 0) this.countermeasureCooldown -= dt;
+        if (this.countermeasureAutoEnabled && this.countermeasureCooldown <= 0 && hasIncomingPlayerMissile()) {
+            this.dropCountermeasure({ automatic: true });
+        }
         
         // Fire (right mouse held)
         if (!this.inTradeLane && !this.cruiseActive && !this.cruiseCharging && this.fireHeld && this.primaryCooldown <= 0 && this.energy >= 5) {
@@ -4421,6 +5002,118 @@ class PlayerShip {
         updateHUD();
     }
 
+    canDropMine() {
+        return !game.isDocked
+            && !game.jumpTransition
+            && !this.inTradeLane
+            && !this.cruiseActive
+            && !this.cruiseCharging
+            && !this.afterburnerActive
+            && Math.abs(Number(this.speed) || 0) <= COMBAT_MAX_SPEED + 0.5
+            && this.mineCooldown <= 0;
+    }
+
+    dropMine() {
+        if (!this.canDropMine()) {
+            addLog(t('mineDropLocked'), 'alert');
+            return false;
+        }
+        const mineDropper = equippedMineDropperItem();
+        if (!mineDropper) {
+            addLog(t('mineDropperMissing'), 'alert');
+            return false;
+        }
+        if (mineAmmoCount(mineDropper) <= 0) {
+            addLog(t('mineAmmoEmpty'), 'alert');
+            return false;
+        }
+        const mine = mineStatsFromEquipment(mineDropper);
+        consumeMineAmmo(mineDropper);
+        this.mineCooldown = mine.cooldown;
+        const backAngle = this.rotation + Math.PI;
+        game.projectiles.push({
+            x: this.x + Math.cos(backAngle) * 42,
+            z: this.z + Math.sin(backAngle) * 42,
+            vx: Math.cos(backAngle) * mine.speed + Math.cos(this.rotation) * Math.min(Math.max(this.speed * 0.18, -12), 12),
+            vz: Math.sin(backAngle) * mine.speed + Math.sin(this.rotation) * Math.min(Math.max(this.speed * 0.18, -12), 12),
+            damage: mine.damage,
+            radius: mine.radius,
+            lifetime: mine.lifetime,
+            owner: 'player',
+            type: 'mine',
+            color: '#ff8844',
+            trailColor: 'rgba(255,120,30,0.28)',
+            homing: true,
+            targetId: '',
+            turnRate: mine.turnRate,
+            detonationRadius: mine.detonationRadius,
+            seekRange: mine.seekRange,
+            maxSpeed: mine.maxSpeed,
+            acceleration: mine.acceleration,
+            armedAfter: 0.25
+        });
+        addLog(t('mineDropped') + ' ' + mine.name);
+        playTone(180, 0.12, 'sawtooth', 0.34, 90);
+        saveGame();
+        updateHUD();
+        return true;
+    }
+
+    canDropCountermeasure() {
+        return !game.isDocked
+            && !game.jumpTransition
+            && !this.inTradeLane
+            && this.countermeasureCooldown <= 0;
+    }
+
+    dropCountermeasure(options = {}) {
+        const automatic = Boolean(options.automatic);
+        if (!this.canDropCountermeasure()) {
+            if (!automatic) addLog(t('countermeasureDropLocked'), 'alert');
+            return false;
+        }
+        const dropper = equippedCountermeasureDropperItem();
+        if (!dropper) {
+            if (!automatic) addLog(t('countermeasureDropperMissing'), 'alert');
+            return false;
+        }
+        if (countermeasureAmmoCount(dropper) <= 0) {
+            if (!automatic) addLog(t('countermeasureAmmoEmpty'), 'alert');
+            return false;
+        }
+        const cm = countermeasureStatsFromEquipment(dropper);
+        consumeCountermeasureAmmo(dropper);
+        this.countermeasureCooldown = cm.cooldown;
+        const backAngle = this.rotation + Math.PI;
+        const carrySpeed = Math.min(Math.max(Number(this.speed) || 0, -40), this.cruiseActive ? this.cruiseSpeed : 180);
+        const countermeasure = {
+            id: 'countermeasure_' + Math.round(performance.now() * 1000) + '_' + Math.floor(Math.random() * 10000),
+            x: this.x + Math.cos(backAngle) * 44,
+            z: this.z + Math.sin(backAngle) * 44,
+            vx: Math.cos(backAngle) * cm.speed + Math.cos(this.rotation) * carrySpeed * 0.24,
+            vz: Math.sin(backAngle) * cm.speed + Math.sin(this.rotation) * carrySpeed * 0.24,
+            damage: 0,
+            radius: 7,
+            lifetime: cm.lifetime,
+            owner: 'player',
+            type: 'countermeasure',
+            color: '#b7f6ff',
+            trailColor: 'rgba(150,230,255,0.34)',
+            homing: false,
+            targetId: '',
+            range: cm.range,
+            diversionChance: cm.diversionChance,
+            linearDrag: cm.linearDrag
+        };
+        game.projectiles.push(countermeasure);
+        const diverted = divertIncomingMissiles(countermeasure);
+        if (!automatic || diverted) addLog(t('countermeasureDropped') + (diverted ? ` ${diverted}` : ''));
+        playTone(640, 0.08, 'triangle', 0.22, 240);
+        if (!automatic) saveGame();
+        updateHUD();
+        return true;
+    }
+
     primaryWeapons() {
         return this.activeWeapons().filter(weapon => !weapon.requiresAmmo);
     }
@@ -4480,6 +5173,7 @@ class PlayerShip {
     }
     
     takeDamage(amount) {
+        const previousHull = this.hull;
         if (this.maxShield > 0 && this.shield > 0) {
             const sDamage = Math.min(this.shield, amount);
             this.shield -= sDamage;
@@ -4487,6 +5181,7 @@ class PlayerShip {
         }
         this.hull -= amount;
         if (amount > 4) playSound('hit', Math.min(1.4, amount / 16));
+        this.checkHullBreachVoice(previousHull);
         if (this.hull <= 0) {
             this.hull = 0;
             addLog('Ship destroyed!', 'alert');
@@ -4497,13 +5192,21 @@ class PlayerShip {
     takeHullDamage(amount, source = 'Hull damage') {
         const damage = Math.max(0, Number(amount) || 0);
         if (damage <= 0) return;
+        const previousHull = this.hull;
         this.hull -= damage;
         if (damage > 4) playSound('hit', Math.min(1.4, damage / 16));
+        this.checkHullBreachVoice(previousHull);
         if (this.hull <= 0) {
             this.hull = 0;
             addLog(source + ': ship destroyed!', 'alert');
             destroyPlayerShip();
         }
+    }
+
+    checkHullBreachVoice(previousHull) {
+        const maxHull = Math.max(1, Number(this.maxHull) || 1);
+        const threshold = maxHull * 0.2;
+        if (previousHull > threshold && this.hull > 0 && this.hull <= threshold) playVoice('hullBreach', 1);
     }
 
     useNanobot() {
@@ -4649,7 +5352,7 @@ class PlanetLocation {
         this.weaponCooldown = 0;
         this.nextWeaponIndex = 0;
         this.weaponRange = 3000;
-        this.radius = Math.max(180, Math.min(1200, (data.radius || 500) * 0.45));
+        this.radius = Math.max(180, Number(data.radius || 500));
         this.type = 'Planet';
     }
     update(dt) { updateStaticWeapons(this, dt); }
@@ -4671,18 +5374,20 @@ class Station {
         this.weaponCooldown = 0;
         this.nextWeaponIndex = 0;
         this.weaponRange = 2800;
-        this.sourceRadius = solarObjectSourceRadius(data.radius, this.type, 600);
-        this.radius = solarObjectWorldRadius(this.sourceRadius, this.type, 600);
+        this.archetype = data.archetype || this.type || '';
+        this.sourceRadius = solarObjectRawRadiusFromData(data, this.archetype, 600);
+        this.radius = solarObjectWorldRadius(this.sourceRadius, this.archetype, 600);
+        this.visualRadius = solarObjectVisualWorldRadius(this.sourceRadius, this.archetype, 600);
         this.rotation = flYawToCanvasRotation(this.rotateY || 0);
     }
     update(dt) { updateStaticWeapons(this, dt); }
     render(ctx) {
         const pos = worldToScreen(this.x, this.z);
-        const objectImage = getObjectImage(this.type);
+        const objectImage = getObjectImage(this.archetype || this.type);
         ctx.save();
         ctx.translate(pos.x, pos.y);
         
-        const size = solarObjectScreenRadius(this.radius);
+        const size = solarObjectScreenRadius(this.visualRadius || this.radius);
         
         ctx.rotate(this.rotation);
         if (objectImage) {
@@ -4727,7 +5432,7 @@ class Station {
     
     containsPoint(px, pz) {
         const dx = this.x - px, dz = this.z - pz;
-        return Math.sqrt(dx * dx + dz * dz) < Math.max(45, this.radius);
+        return Math.sqrt(dx * dx + dz * dz) < Math.max(45, this.visualRadius || this.radius);
     }
 }
 
@@ -4742,12 +5447,13 @@ class JumpGate {
         this.nextWeaponIndex = 0;
         this.weaponRange = 3000;
         const archetype = data.archetype || (data.kind === 'hole' ? 'jumphole' : 'jumpgate');
-        this.sourceRadius = solarObjectSourceRadius(data.radius, archetype, 600);
+        this.sourceRadius = solarObjectRawRadiusFromData(data, archetype, 600);
         this.radius = solarObjectWorldRadius(this.sourceRadius, archetype, 600);
         this.rotation = flYawToCanvasRotation(this.rotateY || 0);
         this.kind = data.kind || 'gate';
         this.type = data.type || (this.kind === 'hole' ? 'Jump Hole' : 'Jump Gate');
         this.archetype = archetype;
+        this.visualRadius = solarObjectVisualWorldRadius(this.sourceRadius, archetype, 600);
     }
     update(dt) {
         if (this.kind === 'hole') this.rotation += 0.02 * dt;
@@ -4756,7 +5462,7 @@ class JumpGate {
     render(ctx) {
         const pos = worldToScreen(this.x, this.z);
         const isHole = this.kind === 'hole';
-        const size = solarObjectScreenRadius(this.radius);
+        const size = solarObjectScreenRadius(this.visualRadius || this.radius);
         ctx.save();
         ctx.translate(pos.x, pos.y);
         ctx.rotate(isHole ? -this.rotation * 1.8 : this.rotation);
@@ -4797,15 +5503,17 @@ class JumpGate {
     
     containsPoint(px, pz) {
         const dx = this.x - px, dz = this.z - pz;
-        return Math.sqrt(dx * dx + dz * dz) < Math.max(60, this.radius);
+        return Math.sqrt(dx * dx + dz * dz) < Math.max(60, this.visualRadius || this.radius);
     }
 }
 
 // Trade Lane Ring
 class TradeLaneRing {
     constructor(x, z, index) {
+        let sourceData = {};
         if (typeof x === 'object') {
             const data = x;
+            sourceData = data;
             this.x = data.x;
             this.z = data.z;
             this.index = z || 0;
@@ -4834,8 +5542,9 @@ class TradeLaneRing {
         this.weaponCooldown = 0;
         this.nextWeaponIndex = 0;
         this.weaponRange = 2400;
-        this.sourceRadius = solarObjectSourceRadius(null, 'trade_lane_ring', 300);
+        this.sourceRadius = solarObjectRawRadiusFromData(sourceData, 'trade_lane_ring', 300);
         this.radius = solarObjectWorldRadius(this.sourceRadius, 'trade_lane_ring', 300);
+        this.visualRadius = solarObjectVisualWorldRadius(this.sourceRadius, 'trade_lane_ring', 300);
         this.rotation = Number.isFinite(this.visualRotation) ? this.visualRotation : flYawToCanvasRotation(this.rotateY || 0);
         this.type = 'trade_lane_ring';
     }
@@ -4843,7 +5552,7 @@ class TradeLaneRing {
     render(ctx) {
         const pos = worldToScreen(this.x, this.z);
         const objectImage = getObjectImage(this.type);
-        const size = solarObjectScreenRadius(this.radius) * 2.2;
+        const size = solarObjectScreenRadius(this.visualRadius || this.radius) * 2.2;
         const glowRadius = Math.max(16, size * 0.43);
         ctx.save();
         ctx.translate(pos.x, pos.y);
@@ -4882,7 +5591,7 @@ class TradeLaneRing {
     containsPoint(px, pz) {
         const dx = this.x - px;
         const dz = this.z - pz;
-        return Math.sqrt(dx * dx + dz * dz) < Math.max(120, this.radius);
+        return Math.sqrt(dx * dx + dz * dz) < Math.max(120, this.visualRadius || this.radius);
     }
 }
 
@@ -5786,7 +6495,7 @@ function setupMusicPlayer() {
 
 function combatMusicActive() {
     if (!game.running || game.isDocked || !game.player) return false;
-    if (game.projectiles.some(p => p.targetId === 'player')) return true;
+    if (hasIncomingPlayerMissile()) return true;
     return game.npcs.some(npc => {
         if (!npc || npc.hull <= 0) return false;
         const distance = Math.hypot(npc.x - game.player.x, npc.z - game.player.z);
@@ -6563,10 +7272,33 @@ function update(dt) {
     
     for (let i = game.projectiles.length - 1; i >= 0; i--) {
         const p = game.projectiles[i];
+        p.age = (p.age || 0) + dt;
+        if (p.type === 'mine') {
+            const currentTarget = p.targetId ? game.npcs.find(npc => npc.id === p.targetId && !npc.hidden && !npc.inTradeLane && npc.hull > 0) : null;
+            if (!currentTarget) {
+                let best = null;
+                for (const npc of game.npcs) {
+                    if (npc.hidden || npc.inTradeLane || npc.hull <= 0) continue;
+                    if (!factionsAreHostile(game.player?.faction || '', npc.faction)) continue;
+                    const distance = Math.hypot(npc.x - p.x, npc.z - p.z);
+                    if (distance <= (p.seekRange || MINE_SEEK_RANGE) && (!best || distance < best.distance)) best = { npc, distance };
+                }
+                p.targetId = best?.npc?.id || '';
+            }
+        }
+        if (p.type === 'countermeasure') {
+            divertIncomingMissiles(p);
+            const drag = Math.max(0, Number(p.linearDrag) || 0);
+            if (drag > 0) {
+                const dragFactor = Math.max(0, 1 - drag * dt);
+                p.vx *= dragFactor;
+                p.vz *= dragFactor;
+            }
+        }
         if (p.homing && p.targetId) {
             const target = p.targetId === 'player'
                 ? game.player
-                : game.npcs.find(npc => npc.id === p.targetId) || game.entities.find(entity => entity.id === p.targetId) || null;
+                : countermeasureTargetById(p.targetId) || game.npcs.find(npc => npc.id === p.targetId) || game.entities.find(entity => entity.id === p.targetId) || null;
             if (target && Number.isFinite(target.x) && Number.isFinite(target.z)) {
                 const dx = target.x - p.x;
                 const dz = target.z - p.z;
@@ -6579,10 +7311,11 @@ function update(dt) {
                     while (angleDiff < -Math.PI) angleDiff += Math.PI * 2;
                     const maxTurn = Math.max(0, Number(p.turnRate) || 0) * dt;
                     const nextAngle = currentAngle + Math.max(-maxTurn, Math.min(maxTurn, angleDiff));
-                    const speed = Math.max(1, Math.hypot(p.vx, p.vz));
+                    let speed = Math.max(1, Math.hypot(p.vx, p.vz));
+                    if (p.type === 'mine') speed = Math.min(Number(p.maxSpeed) || 74, speed + (Number(p.acceleration) || 0) * dt);
                     p.vx = Math.cos(nextAngle) * speed;
                     p.vz = Math.sin(nextAngle) * speed;
-                    if (distance <= Math.max(Number(p.radius) || 0, Number(p.detonationRadius) || 0)) p.lifetime = 0;
+                    if (distance <= Math.max(Number(p.radius) || 0, Number(p.detonationRadius) || 0) && (p.type !== 'mine' || p.age >= (p.armedAfter || 0))) p.lifetime = 0;
                 }
             }
         }
@@ -6591,21 +7324,36 @@ function update(dt) {
         p.lifetime -= dt;
 
         if ((p.owner || 'player') === 'npc') {
-            if (p.targetId === 'player' && Math.hypot(game.player.x - p.x, game.player.z - p.z) < game.player.radius + p.radius) {
+            const hitRadius = Math.max(Number(p.radius) || 0, Number(p.detonationRadius) || 0);
+            const armed = p.type !== 'mine' || p.age >= (p.armedAfter || 0);
+            if (armed && p.targetId === 'player' && Math.hypot(game.player.x - p.x, game.player.z - p.z) < game.player.radius + hitRadius) {
                 game.player.takeDamage(p.damage);
                 p.lifetime = 0;
             } else if (p.targetId && p.targetId !== 'player') {
+                const countermeasure = countermeasureTargetById(p.targetId);
+                if (countermeasure && Math.hypot(countermeasure.x - p.x, countermeasure.z - p.z) < countermeasure.radius + hitRadius) {
+                    countermeasure.lifetime = 0;
+                    p.lifetime = 0;
+                    continue;
+                }
                 const targetNpc = game.npcs.find(npc => npc.id === p.targetId);
-                if (targetNpc && Math.hypot(targetNpc.x - p.x, targetNpc.z - p.z) < targetNpc.radius + p.radius) {
+                if (armed && targetNpc && Math.hypot(targetNpc.x - p.x, targetNpc.z - p.z) < targetNpc.radius + hitRadius) {
                     damageNpc(targetNpc, p.damage, game.npcs.find(npc => npc.id === p.ownerId) || null);
                     p.lifetime = 0;
                 }
             }
         } else {
+            if (p.type === 'countermeasure') {
+                if (p.lifetime <= 0) game.projectiles.splice(i, 1);
+                continue;
+            }
+            const hitRadius = Math.max(Number(p.radius) || 0, Number(p.detonationRadius) || 0);
+            const armed = p.type !== 'mine' || p.age >= (p.armedAfter || 0);
             for (const npc of game.npcs) {
                 if (npc.hidden || npc.inTradeLane) continue;
+                if (p.type === 'mine' && !factionsAreHostile(game.player?.faction || '', npc.faction)) continue;
                 const dx = npc.x - p.x, dz = npc.z - p.z;
-                if (Math.sqrt(dx * dx + dz * dz) < npc.radius + p.radius) {
+                if (armed && Math.sqrt(dx * dx + dz * dz) < npc.radius + hitRadius) {
                     damageNpc(npc, p.damage, game.player);
                     p.lifetime = 0;
                     break;
@@ -6761,24 +7509,45 @@ function updateLoadoutPanel() {
     if (!list || !game.player) return;
     const weaponSlots = getWeaponSlotKeys();
     const mountedWeapons = weaponSlots.map(slot => ({ slot, item: mountedEquipmentItem(slot) }));
+    const countermeasureDropper = equippedCountermeasureDropperItem();
     const mountedCount = mountedWeapons.filter(entry => entry.item).length;
     const weaponCount = document.getElementById('weapon-count');
     if (weaponCount) weaponCount.textContent = mountedCount + '/' + weaponSlots.length;
-    list.innerHTML = mountedWeapons.length ? mountedWeapons.map(entry => {
+    const rows = mountedWeapons.map(entry => {
         const item = entry.item;
         const damage = item ? Math.round(Number(item.hullDamage || 0) + Number(item.energyDamage || 0)) : 0;
         const label = item ? escapeHtml(item.name || item.id) : escapeHtml(t('emptyWeapon'));
         const meta = item ? `${escapeHtml(item.category || 'weapon')} ${damage ? '| ' + damage + ' dmg' : ''}` : escapeHtml(t('noGunMounted'));
         return `<div class="hud-row"><span class="hud-kind">✦</span><span>${label}<br><span style="color:#7299aa;">${meta}</span></span><span class="hud-distance">${escapeHtml(equipmentSlotLabel(entry.slot))}</span></div>`;
-    }).join('') : `<div class="hud-row-muted">${escapeHtml(t('noWeaponSlots'))}</div>`;
+    });
+    if (countermeasureDropper) {
+        const autoEnabled = game.player.countermeasureAutoEnabled !== false;
+        rows.push(`<div class="hud-row"><span class="hud-kind">CM</span><span>${escapeHtml(countermeasureDropper.name || t('countermeasures'))}<br><span style="color:#7299aa;">${escapeHtml(t('countermeasures'))} ${totalCountermeasureAmmoCount()}</span></span><button type="button" class="hud-action-btn hud-toggle-btn${autoEnabled ? ' active' : ''}" onclick="toggleCountermeasureAuto()">${escapeHtml(autoEnabled ? t('countermeasureAutoOn') : t('countermeasureAutoOff'))}</button></div>`);
+    }
+    list.innerHTML = rows.length ? rows.join('') : `<div class="hud-row-muted">${escapeHtml(t('noWeaponSlots'))}</div>`;
     const nanobots = document.getElementById('nanobot-count');
     const batteries = document.getElementById('shield-battery-count');
     const missileAmmo = document.getElementById('missile-ammo-count');
     const missileAmmoLabel = document.getElementById('label-missile-ammo');
+    const mines = document.getElementById('mine-count');
+    const mineLabel = document.getElementById('label-mines');
+    const countermeasures = document.getElementById('countermeasure-count');
+    const countermeasureLabel = document.getElementById('label-countermeasures');
     if (nanobots) nanobots.textContent = `${game.player.nanobots}/${game.player.maxNanobots}`;
     if (batteries) batteries.textContent = `${game.player.shieldBatteries}/${game.player.maxShieldBatteries}`;
     if (missileAmmo) missileAmmo.textContent = `${totalMissileAmmoCount()}/${game.player.maxMissileAmmo}`;
     if (missileAmmoLabel) missileAmmoLabel.textContent = t('missileAmmo');
+    if (mines) mines.textContent = `${totalMineAmmoCount()}/${game.player.maxMineAmmo}`;
+    if (mineLabel) mineLabel.textContent = t('mines');
+    if (countermeasures) countermeasures.textContent = `${totalCountermeasureAmmoCount()}`;
+    if (countermeasureLabel) countermeasureLabel.textContent = t('countermeasures');
+}
+
+function toggleCountermeasureAuto() {
+    if (!game.player) return;
+    game.player.countermeasureAutoEnabled = game.player.countermeasureAutoEnabled === false;
+    saveGame();
+    updateLoadoutPanel();
 }
 
 function isSpeedSliderLocked() {
@@ -6851,6 +7620,7 @@ function updateHUD() {
     updateCommandModeButtons();
     updateScannerPanel();
     updateLoadoutPanel();
+    updateMissileWarning();
     if (!document.getElementById('inventory-overlay')?.classList.contains('hidden')) renderInventoryPanel();
     
     // Mode indicator
@@ -6991,6 +7761,43 @@ function render() {
     // Projectiles
     for (const p of game.projectiles) {
         const pos = worldToScreen(p.x, p.z);
+        if (p.type === 'mine') {
+            const pulse = (Math.sin((p.age || 0) * 8) + 1) * 0.5;
+            ctx.save();
+            ctx.globalCompositeOperation = 'lighter';
+            ctx.strokeStyle = 'rgba(255,110,35,0.62)';
+            ctx.fillStyle = p.color || '#ff8844';
+            ctx.lineWidth = Math.max(1, game.zoom * 2);
+            ctx.beginPath();
+            ctx.arc(pos.x, pos.y, Math.max(4, (p.radius + pulse * 4) * game.zoom), 0, Math.PI * 2);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.arc(pos.x, pos.y, Math.max(2, p.radius * 0.45 * game.zoom), 0, Math.PI * 2);
+            ctx.fill();
+            ctx.restore();
+            continue;
+        }
+        if (p.type === 'countermeasure') {
+            const pulse = (Math.sin((p.age || 0) * 16) + 1) * 0.5;
+            ctx.save();
+            ctx.globalCompositeOperation = 'lighter';
+            ctx.strokeStyle = 'rgba(170,245,255,0.54)';
+            ctx.fillStyle = p.color || '#b7f6ff';
+            ctx.lineWidth = Math.max(1, game.zoom * 1.6);
+            ctx.beginPath();
+            ctx.arc(pos.x, pos.y, Math.max(3, (p.radius + pulse * 3) * game.zoom), 0, Math.PI * 2);
+            ctx.stroke();
+            ctx.globalAlpha = 0.42;
+            ctx.beginPath();
+            ctx.arc(pos.x, pos.y, Math.max(8, Math.min(30, (p.range || COUNTERMEASURE_RANGE) * 0.018 * game.zoom)), 0, Math.PI * 2);
+            ctx.stroke();
+            ctx.globalAlpha = 0.95;
+            ctx.beginPath();
+            ctx.arc(pos.x, pos.y, Math.max(2, p.radius * 0.42 * game.zoom), 0, Math.PI * 2);
+            ctx.fill();
+            ctx.restore();
+            continue;
+        }
         const tail = worldToScreen(p.x - p.vx * 0.035, p.z - p.vz * 0.035);
         ctx.strokeStyle = p.trailColor || 'rgba(255,255,0,0.55)';
         ctx.lineWidth = Math.max(1, p.radius * game.zoom * 1.4);
@@ -7205,39 +8012,38 @@ function setupInput() {
     
     canvas.addEventListener('contextmenu', e => e.preventDefault());
     
+    const findCanvasTargetAtWorld = (world) => {
+        for (const npc of game.npcs) {
+            const dx = npc.x - world.x;
+            const dz = npc.z - world.y;
+            if (Math.hypot(dx, dz) <= Math.max(22, npc.radius + 12)) return npc;
+        }
+        for (const entity of game.entities) {
+            if (entity.containsPoint && entity.containsPoint(world.x, world.y)) return entity;
+        }
+        return null;
+    };
+
     // Click on canvas to select target
     canvas.addEventListener('click', (e) => {
         ensureAudio();
         if (!game.mouseDown && !game.running) return;
         
         const world = screenToWorld(e.clientX, e.clientY);
-
-        for (const npc of game.npcs) {
-            const dx = npc.x - world.x;
-            const dz = npc.z - world.y;
-            if (Math.hypot(dx, dz) <= Math.max(22, npc.radius + 12)) {
-                game.selectedTarget = npc;
-                addLog('Selected: ' + (npc.name || npc.id));
-                playSound('select', 0.7);
-                updateHUD();
-                return;
-            }
-        }
-        
-        // Check entities
-        for (const entity of game.entities) {
-            if (entity.containsPoint && entity.containsPoint(world.x, world.y)) {
-                game.selectedTarget = entity;
-                addLog('Selected: ' + entity.name);
-                playSound('select', 0.7);
-                updateHUD();
-                return;
-            }
-        }
-        
-        // Deselect
-        game.selectedTarget = null;
+        const target = findCanvasTargetAtWorld(world);
+        if (!target) return;
+        game.selectedTarget = target;
+        addLog('Selected: ' + (target.name || target.id || scannerObjectKind(target)));
+        playSound('select', 0.7);
         updateHUD();
+    });
+
+    canvas.addEventListener('dblclick', (e) => {
+        ensureAudio();
+        if (!game.running) return;
+        const world = screenToWorld(e.clientX, e.clientY);
+        if (findCanvasTargetAtWorld(world)) return;
+        clearNavigationSelection();
     });
     
     window.addEventListener('keydown', (e) => {
@@ -7306,6 +8112,12 @@ function setupInput() {
             case 'KeyQ':
                 game.player.fireMissiles();
                 break;
+            case 'KeyE':
+                game.player.dropMine();
+                break;
+            case 'KeyC':
+                game.player.dropCountermeasure();
+                break;
             case 'Tab':
                 e.preventDefault();
                 if (canUseAfterburner()) {
@@ -7348,7 +8160,7 @@ function setupInput() {
         updateSpeedControl();
     });
 
-    addLog('W/S: throttle | A/D: drift left/right | Q: missiles | M: map');
+    addLog('W/S: throttle | A/D: drift left/right | Q: missiles | E: mine | C: countermeasure | M: map');
     
     // Continuous fire while right mouse held
     setInterval(() => {
@@ -7574,7 +8386,8 @@ function drawMapCanvas() {
         const pos = systemMapToScreen(station.x, station.z, mapTransform);
         const ex = pos.x;
         const ey = pos.y;
-        const mapRadius = Math.max(2, solarObjectWorldRadius(station.radius, station.type, 600) * mapTransform.scaleX);
+        const archetype = station.archetype || station.type || '';
+        const mapRadius = Math.max(2, solarObjectVisualWorldRadius(solarObjectRawRadiusFromData(station, archetype, 600), archetype, 600) * mapTransform.scaleX);
         ctx.fillStyle = '#00aaff';
         ctx.beginPath();
         ctx.arc(ex, ey, mapRadius, 0, Math.PI * 2);
@@ -7591,7 +8404,7 @@ function drawMapCanvas() {
         
         ctx.fillStyle = '#00aaff';
         ctx.font = '8px Courier New';
-        ctx.fillText(station.name, ex, ey + 18);
+        ctx.fillText(station.name, ex, ey + mapRadius + 12);
     }
     
     // Jump Gates and Holes
@@ -7599,7 +8412,8 @@ function drawMapCanvas() {
         const pos = systemMapToScreen(gate.x, gate.z, mapTransform);
         const ex = pos.x;
         const ey = pos.y;
-        const mapRadius = Math.max(3, solarObjectWorldRadius(gate.radius, gate.archetype || (gate.kind === 'hole' ? 'jumphole' : 'jumpgate'), 600) * mapTransform.scaleX);
+        const archetype = gate.archetype || (gate.kind === 'hole' ? 'jumphole' : 'jumpgate');
+        const mapRadius = Math.max(3, solarObjectVisualWorldRadius(solarObjectRawRadiusFromData(gate, archetype, 600), archetype, 600) * mapTransform.scaleX);
         ctx.strokeStyle = gate.kind === 'hole' ? '#33ddff' : '#8844ff';
         ctx.lineWidth = 2;
         ctx.beginPath();
@@ -7616,7 +8430,7 @@ function drawMapCanvas() {
         }
 
         ctx.fillStyle = gate.kind === 'hole' ? '#66eaff' : '#aa66ff';
-        ctx.fillText(gate.name, ex, ey + 20);
+        ctx.fillText(gate.name, ex, ey + mapRadius + 12);
     }
 
     const mapPlayerPos = game.player ? systemMapToScreen(game.player.x, game.player.z, mapTransform) : null;
@@ -8333,6 +9147,7 @@ document.getElementById('map-canvas')?.addEventListener('click', (e) => {
 });
 
 document.getElementById('btn-clear-waypoint')?.addEventListener('click', clearWaypoint);
+document.getElementById('btn-waypoint-selection')?.addEventListener('click', createWaypointFromSelection);
 document.getElementById('btn-close-map')?.addEventListener('click', toggleMap);
 document.getElementById('btn-close-inventory')?.addEventListener('click', () => toggleInventoryPanel(false));
 document.getElementById('btn-close-universe')?.addEventListener('click', () => {
@@ -8399,6 +9214,7 @@ function renderInventoryPanel() {
     html += `<div class="inventory-stat"><strong>${escapeHtml(t('labelNanobots'))}</strong>${p.nanobots}/${p.maxNanobots}</div>`;
     html += `<div class="inventory-stat"><strong>${escapeHtml(t('labelShieldBatteries'))}</strong>${p.shieldBatteries}/${p.maxShieldBatteries}</div>`;
     html += `<div class="inventory-stat"><strong>${escapeHtml(t('missileAmmo'))}</strong>${totalMissileAmmoCount()}/${p.maxMissileAmmo}</div>`;
+    html += `<div class="inventory-stat"><strong>${escapeHtml(t('countermeasures'))}</strong>${totalCountermeasureAmmoCount()}</div>`;
     html += '</div>';
 
     html += `<div class="inventory-section"><div class="inventory-section-title">${escapeHtml(t('cargo'))}</div>`;
@@ -8614,6 +9430,18 @@ function equipmentSlot(itemOrCategory) {
     return firstAvailableSlot(itemOrCategory);
 }
 
+function updateMissileWarning() {
+    const warning = document.getElementById('missile-warning');
+    if (!warning) return;
+    warning.textContent = t('missileIncoming');
+    warning.classList.toggle('hidden', !hasIncomingPlayerMissile());
+}
+
+function isFixedEquipmentItem(item) {
+    const mountType = equipmentMountType(item);
+    return mountType === 'powerplant' || mountType === 'engine';
+}
+
 function applyMountedEquipmentEffects() {
     if (!game.player) return;
     game.player.firePower = Math.max(1, game.player.baseFirePower || game.player.firePower || 1);
@@ -8811,7 +9639,7 @@ function renderEquipmentDealer() {
     const inventory = game.player.equipmentInventory || [];
     const repairCost = shipRepairCost();
     const dealerTab = game.equipmentDealerTab || 'equipment';
-    let html = `<div style="display:flex;justify-content:space-between;margin-bottom:10px;color:#b9efff;gap:12px;flex-wrap:wrap;"><span>${t('credits')}: ${game.player.credits.toLocaleString()} CR</span><span>Ship: ${escapeHtml(game.player.shipName || 'Unknown')}</span><span>Hull: ${Math.round(game.player.hull).toLocaleString()}/${Math.round(game.player.maxHull).toLocaleString()}</span><span>Shield: ${game.player.maxShield > 0 ? `${Math.round(game.player.shield).toLocaleString()}/${Math.round(game.player.maxShield).toLocaleString()}` : 'none'}</span><span>Power: ${Math.round(game.player.maxEnergy).toLocaleString()} / +${Math.round(game.player.powerGen).toLocaleString()}/s</span><span>Thrust: ${Math.round(game.player.thrustEnergy || 0).toLocaleString()}/${Math.round(game.player.thrustCapacity || 0).toLocaleString()} / +${Math.round(game.player.thrustChargeRate || 0).toLocaleString()}/s</span><span>Nanobots: ${game.player.nanobots}/${game.player.maxNanobots}</span><span>Shield Batteries: ${game.player.shieldBatteries}/${game.player.maxShieldBatteries}</span><span>${tf('missileAmmoCount', { count: totalMissileAmmoCount(), max: game.player.maxMissileAmmo })}</span></div>`;
+    let html = `<div style="display:flex;justify-content:space-between;margin-bottom:10px;color:#b9efff;gap:12px;flex-wrap:wrap;"><span>${t('credits')}: ${game.player.credits.toLocaleString()} CR</span><span>Ship: ${escapeHtml(game.player.shipName || 'Unknown')}</span><span>Hull: ${Math.round(game.player.hull).toLocaleString()}/${Math.round(game.player.maxHull).toLocaleString()}</span><span>Shield: ${game.player.maxShield > 0 ? `${Math.round(game.player.shield).toLocaleString()}/${Math.round(game.player.maxShield).toLocaleString()}` : 'none'}</span><span>Power: ${Math.round(game.player.maxEnergy).toLocaleString()} / +${Math.round(game.player.powerGen).toLocaleString()}/s</span><span>Thrust: ${Math.round(game.player.thrustEnergy || 0).toLocaleString()}/${Math.round(game.player.thrustCapacity || 0).toLocaleString()} / +${Math.round(game.player.thrustChargeRate || 0).toLocaleString()}/s</span><span>Nanobots: ${game.player.nanobots}/${game.player.maxNanobots}</span><span>Shield Batteries: ${game.player.shieldBatteries}/${game.player.maxShieldBatteries}</span><span>${tf('missileAmmoCount', { count: totalMissileAmmoCount(), max: game.player.maxMissileAmmo })}</span><span>${tf('mineAmmoCount', { count: totalMineAmmoCount(), max: game.player.maxMineAmmo })}</span><span>${tf('countermeasureAmmoCount', { count: totalCountermeasureAmmoCount() })}</span></div>`;
     html += `<div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px;padding:8px;border:1px solid #24445c;background:#07141f;"><span style="color:#b9efff;">Ship repair: ${repairCost > 0 ? repairCost.toLocaleString() + ' CR' : 'no damage'}</span><button class="trade-button" onclick="repairPlayerShip()" ${repairCost > 0 && game.player.credits >= repairCost ? '' : 'disabled'}>REPAIR</button></div>`;
     if (!market.length) {
         html += `<div style="color:#ffaa00;">${t('noEquipment')}</div>`;
@@ -8824,20 +9652,23 @@ function renderEquipmentDealer() {
     for (const slot of slots) {
         const item = mountedEquipmentItem(slot);
         const itemMeta = item ? `${equipmentMountType(item)} class ${equipmentClass(item)}` : '';
-        const lockedSlot = slot === 'powerplant';
+        const lockedSlot = slot === 'powerplant' || slot === 'engine';
         html += `<div class="slot-row"><div><strong>${escapeHtml(equipmentSlotLabel(slot))}</strong><br><span style="color:${item ? '#b9efff' : '#667f8f'};">${item ? escapeHtml(item.name) : 'Empty'}</span>${item ? `<br><span style="color:#88a;">${escapeHtml(itemMeta)}${lockedSlot ? ' | fixed' : ''}</span>` : ''}</div><button class="trade-button" onclick="unmountEquipment('${slot}')" ${item && !lockedSlot ? '' : 'disabled'}>Unmount</button></div>`;
     }
     html += '</div><div class="equipment-panel"><h4>Inventory</h4>';
-    const availableInventory = inventory.map(inv => ({ ...inv, availableQuantity: availableEquipmentQuantity(inv.id) })).filter(inv => inv.availableQuantity > 0);
+    const availableInventory = inventory.map(inv => {
+        const item = getEquipment(inv.id);
+        return { ...inv, availableQuantity: isFixedEquipmentItem(item) ? Math.max(1, Number(inv.quantity) || 0) : availableEquipmentQuantity(inv.id) };
+    }).filter(inv => inv.availableQuantity > 0);
     if (availableInventory.length) {
         for (const inv of availableInventory) {
             const sellPrice = equipmentSellPrice(inv.id);
             const inventoryItem = getEquipment(inv.id);
             const compatibility = equipmentCompatibility(inventoryItem);
-            const isPowerplant = equipmentMountType(inventoryItem) === 'powerplant';
-            const canMount = !inventoryItem?.combinable && compatibility.ok && !isPowerplant;
+            const isFixed = isFixedEquipmentItem(inventoryItem);
+            const canMount = !inventoryItem?.combinable && compatibility.ok && !isFixed;
             const meta = `${equipmentMountType(inventoryItem)} class ${equipmentClass(inventoryItem)} x${inv.availableQuantity} | ${sellPrice.toLocaleString()} CR`;
-            html += `<div class="slot-row"><div>${escapeHtml(inv.name)}<br><span style="color:#88a;">${escapeHtml(meta)}${isPowerplant ? ' | fixed' : ''}</span>${compatibility.ok ? '' : `<br><span style="color:#ff7777;">${escapeHtml(compatibility.reason)}</span>`}</div><div style="display:flex;gap:6px;justify-content:flex-end;flex-wrap:wrap;"><button class="trade-button" onclick="mountEquipment('${inv.id}')" ${canMount ? '' : 'disabled'}>Mount</button><button class="trade-button" onclick="sellEquipment('${inv.id}')" ${sellPrice > 0 && !isPowerplant ? '' : 'disabled'}>${t('sell')}</button></div></div>`;
+            html += `<div class="slot-row"><div>${escapeHtml(inv.name)}<br><span style="color:#88a;">${escapeHtml(meta)}${isFixed ? ' | fixed' : ''}</span>${compatibility.ok ? '' : `<br><span style="color:#ff7777;">${escapeHtml(compatibility.reason)}</span>`}</div><div style="display:flex;gap:6px;justify-content:flex-end;flex-wrap:wrap;"><button class="trade-button" onclick="mountEquipment('${inv.id}')" ${canMount ? '' : 'disabled'}>Mount</button><button class="trade-button" onclick="sellEquipment('${inv.id}')" ${sellPrice > 0 && !isFixed ? '' : 'disabled'}>${t('sell')}</button></div></div>`;
         }
     } else {
         html += '<div style="color:#667f8f;">No equipment in inventory.</div>';
@@ -8846,11 +9677,11 @@ function renderEquipmentDealer() {
     const marketEntries = dealerTab === 'ammo'
         ? market.filter(entry => {
             const item = getEquipment(entry.id);
-            return item && String(item.category || '').toLowerCase() === 'missile' && item.combinable;
+            return item && ((String(item.category || '').toLowerCase() === 'missile' && item.combinable) || isMineAmmo(item) || isCountermeasureAmmo(item));
         })
         : market.filter(entry => {
             const item = getEquipment(entry.id);
-            return item && !(String(item.category || '').toLowerCase() === 'missile' && item.combinable);
+            return item && !(String(item.category || '').toLowerCase() === 'missile' && item.combinable) && !isMineAmmo(item) && !isCountermeasureAmmo(item);
         });
     html += '<table class="trade-table"><tr><th>Item</th><th>Type</th><th>Class</th><th>Power</th><th>Damage</th><th>Price</th><th>Stock</th><th>Owned</th><th></th></tr>';
     for (const entry of marketEntries.slice(0, 120)) {
@@ -8861,7 +9692,9 @@ function renderEquipmentDealer() {
         const needsShipCompatibility = !item.combinable && categorySlotKeys(item.category).length > 0;
         const compatibility = needsShipCompatibility ? equipmentCompatibility(item) : { ok: true, reason: '' };
         const canBuy = entry.forSale && game.player.credits >= entry.price && compatibility.ok;
-        const damageLabel = isMissileLauncher(item)
+        const damageLabel = isMineDropper(item)
+            ? `${Math.round(mineStatsFromEquipment(item).damage)}`
+            : isMissileLauncher(item)
             ? `${Math.round(missileDamageForItem(item, getEquipment(missileAmmoItemId(item))))}`
             : (item.hullDamage || item.energyDamage ? `${Math.round(Number(item.hullDamage || 0))}/${Math.round(Number(item.energyDamage || 0))}` : '-');
         const powerLabel = item.category === 'thruster'
@@ -8925,6 +9758,10 @@ function buyEquipment(itemId) {
         addLog(t('ammoFull'), 'alert');
         return;
     }
+    if (isMineAmmo(item) && totalMineAmmoCount() >= game.player.maxMineAmmo) {
+        addLog(t('mineAmmoFull'), 'alert');
+        return;
+    }
     game.player.credits -= marketEntry.price;
     if (item.category === 'nanobot') game.player.nanobots = Math.min(game.player.maxNanobots, game.player.nanobots + 1);
     else if (item.category === 'shield_battery') game.player.shieldBatteries = Math.min(game.player.maxShieldBatteries, game.player.shieldBatteries + 1);
@@ -8945,8 +9782,8 @@ function buyEquipment(itemId) {
 function sellEquipment(itemId) {
     const inv = findEquipmentItem(itemId);
     if (!inv || availableEquipmentQuantity(itemId) <= 0) return;
-    if (equipmentMountType(getEquipment(itemId)) === 'powerplant') {
-        addLog('Powerplants are fixed equipment and cannot be sold.', 'alert');
+    if (isFixedEquipmentItem(getEquipment(itemId))) {
+        addLog('Fixed ship equipment cannot be sold.', 'alert');
         return;
     }
     const sellPrice = equipmentSellPrice(itemId);
@@ -8965,8 +9802,8 @@ function mountEquipment(itemId) {
     const inv = findEquipmentItem(itemId);
     const slot = equipmentSlot(item);
     if (!item || !inv || inv.quantity <= 0 || !slot) return;
-    if (equipmentMountType(item) === 'powerplant') {
-        addLog('Powerplants are fixed equipment and cannot be mounted manually.', 'alert');
+    if (isFixedEquipmentItem(item)) {
+        addLog('Fixed ship equipment cannot be mounted manually.', 'alert');
         return;
     }
     const compatibility = equipmentCompatibility(item, slot);
@@ -8990,8 +9827,8 @@ function mountEquipment(itemId) {
 
 function unmountEquipment(slot) {
     if (!game.player?.mountedEquipment?.[slot]) return;
-    if (slot === 'powerplant') {
-        addLog('Powerplants are fixed equipment and cannot be unmounted.', 'alert');
+    if (slot === 'powerplant' || slot === 'engine') {
+        addLog('Fixed ship equipment cannot be unmounted.', 'alert');
         return;
     }
     const item = getEquipment(game.player.mountedEquipment[slot]);

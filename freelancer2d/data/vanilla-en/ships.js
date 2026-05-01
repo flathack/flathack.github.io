@@ -13,32 +13,32 @@ const FL_SHIPS = {
     "mass": 150,
     "holdSize": 45,
     "hitPts": 3600,
-    "linearDrag": 1.0,
+    "linearDrag": 1,
     "steeringTorque": [
-      55000.0,
-      55000.0,
-      230000.0
+      55000,
+      55000,
+      230000
     ],
     "angularDrag": [
-      41000.0,
-      41000.0,
-      141000.0
+      41000,
+      41000,
+      141000
     ],
     "rotationInertia": [
-      8400.0,
-      8400.0,
-      8400.0
+      8400,
+      8400,
+      8400
     ],
-    "nudgeForce": 30000.0,
-    "strafeForce": 20000.0,
-    "maxBankAngle": 20.0,
+    "nudgeForce": 30000,
+    "strafeForce": 20000,
+    "maxBankAngle": 20,
     "handling": {
       "turnRate": 1.49,
       "agility": 1.11,
       "acceleration": 1.48,
       "brakeRate": 3.84,
       "strafePower": 1.03,
-      "linearDrag": 1.0,
+      "linearDrag": 1,
       "bankFactor": 0.57
     },
     "turnRate": 1.49,
@@ -57,32 +57,32 @@ const FL_SHIPS = {
     "mass": 150,
     "holdSize": 70,
     "hitPts": 7900,
-    "linearDrag": 1.0,
+    "linearDrag": 1,
     "steeringTorque": [
-      55000.0,
-      55000.0,
-      143000.0
+      55000,
+      55000,
+      143000
     ],
     "angularDrag": [
-      41000.0,
-      41000.0,
-      141000.0
+      41000,
+      41000,
+      141000
     ],
     "rotationInertia": [
-      8400.0,
-      8400.0,
-      8400.0
+      8400,
+      8400,
+      8400
     ],
-    "nudgeForce": 30000.0,
-    "strafeForce": 20000.0,
-    "maxBankAngle": 30.0,
+    "nudgeForce": 30000,
+    "strafeForce": 20000,
+    "maxBankAngle": 30,
     "handling": {
       "turnRate": 1.11,
       "agility": 0.81,
       "acceleration": 1.48,
       "brakeRate": 4.96,
       "strafePower": 1.03,
-      "linearDrag": 1.0,
+      "linearDrag": 1,
       "bankFactor": 0.86
     },
     "turnRate": 1.11,
@@ -101,33 +101,33 @@ const FL_SHIPS = {
     "mass": 100,
     "holdSize": 35,
     "hitPts": 1800,
-    "linearDrag": 1.0,
+    "linearDrag": 1,
     "steeringTorque": [
-      18000.0,
-      18000.0,
-      58000.0
+      18000,
+      18000,
+      58000
     ],
     "angularDrag": [
-      15000.0,
-      15000.0,
-      35000.0
+      15000,
+      15000,
+      35000
     ],
     "rotationInertia": [
-      2800.0,
-      2800.0,
-      1000.0
+      2800,
+      2800,
+      1000
     ],
-    "nudgeForce": 30000.0,
-    "strafeForce": 20000.0,
-    "maxBankAngle": 35.0,
+    "nudgeForce": 30000,
+    "strafeForce": 20000,
+    "maxBankAngle": 35,
     "handling": {
       "turnRate": 2.15,
       "agility": 1.62,
       "acceleration": 2.22,
       "brakeRate": 3.81,
       "strafePower": 1.54,
-      "linearDrag": 1.0,
-      "bankFactor": 1.0
+      "linearDrag": 1,
+      "bankFactor": 1
     },
     "turnRate": 2.15,
     "firePower": 4,
@@ -145,32 +145,32 @@ const FL_SHIPS = {
     "mass": 150,
     "holdSize": 35,
     "hitPts": 2600,
-    "linearDrag": 1.0,
+    "linearDrag": 1,
     "steeringTorque": [
-      43000.0,
-      43000.0,
-      230000.0
+      43000,
+      43000,
+      230000
     ],
     "angularDrag": [
-      41000.0,
-      41000.0,
-      141000.0
+      41000,
+      41000,
+      141000
     ],
     "rotationInertia": [
-      8400.0,
-      8400.0,
-      8400.0
+      8400,
+      8400,
+      8400
     ],
-    "nudgeForce": 30000.0,
-    "strafeForce": 20000.0,
-    "maxBankAngle": 30.0,
+    "nudgeForce": 30000,
+    "strafeForce": 20000,
+    "maxBankAngle": 30,
     "handling": {
       "turnRate": 1.49,
       "agility": 1.04,
       "acceleration": 1.48,
       "brakeRate": 3.84,
       "strafePower": 1.03,
-      "linearDrag": 1.0,
+      "linearDrag": 1,
       "bankFactor": 0.86
     },
     "turnRate": 1.49,
@@ -189,33 +189,33 @@ const FL_SHIPS = {
     "mass": 100,
     "holdSize": 30,
     "hitPts": 2100,
-    "linearDrag": 1.0,
+    "linearDrag": 1,
     "steeringTorque": [
-      18000.0,
-      18000.0,
-      58000.0
+      18000,
+      18000,
+      58000
     ],
     "angularDrag": [
-      15000.0,
-      15000.0,
-      35000.0
+      15000,
+      15000,
+      35000
     ],
     "rotationInertia": [
-      2800.0,
-      2800.0,
-      1000.0
+      2800,
+      2800,
+      1000
     ],
-    "nudgeForce": 30000.0,
-    "strafeForce": 20000.0,
-    "maxBankAngle": 35.0,
+    "nudgeForce": 30000,
+    "strafeForce": 20000,
+    "maxBankAngle": 35,
     "handling": {
       "turnRate": 2.15,
       "agility": 1.62,
       "acceleration": 2.22,
       "brakeRate": 3.81,
       "strafePower": 1.54,
-      "linearDrag": 1.0,
-      "bankFactor": 1.0
+      "linearDrag": 1,
+      "bankFactor": 1
     },
     "turnRate": 2.15,
     "firePower": 5,
@@ -233,32 +233,32 @@ const FL_SHIPS = {
     "mass": 300,
     "holdSize": 125,
     "hitPts": 2200,
-    "linearDrag": 1.0,
+    "linearDrag": 1,
     "steeringTorque": [
-      54000.0,
-      54000.0,
-      104000.0
+      54000,
+      54000,
+      104000
     ],
     "angularDrag": [
-      60000.0,
-      60000.0,
-      60000.0
+      60000,
+      60000,
+      60000
     ],
     "rotationInertia": [
-      16800.0,
-      16800.0,
-      16800.0
+      16800,
+      16800,
+      16800
     ],
-    "nudgeForce": 30000.0,
-    "strafeForce": 20000.0,
-    "maxBankAngle": 15.0,
+    "nudgeForce": 30000,
+    "strafeForce": 20000,
+    "maxBankAngle": 15,
     "handling": {
       "turnRate": 1.02,
       "agility": 0.64,
       "acceleration": 0.85,
       "brakeRate": 3.73,
       "strafePower": 0.55,
-      "linearDrag": 1.0,
+      "linearDrag": 1,
       "bankFactor": 0.45
     },
     "turnRate": 1.02,
@@ -277,32 +277,32 @@ const FL_SHIPS = {
     "mass": 150,
     "holdSize": 45,
     "hitPts": 4900,
-    "linearDrag": 1.0,
+    "linearDrag": 1,
     "steeringTorque": [
-      43000.0,
-      43000.0,
-      230000.0
+      43000,
+      43000,
+      230000
     ],
     "angularDrag": [
-      41000.0,
-      41000.0,
-      141000.0
+      41000,
+      41000,
+      141000
     ],
     "rotationInertia": [
-      8400.0,
-      8400.0,
-      8400.0
+      8400,
+      8400,
+      8400
     ],
-    "nudgeForce": 30000.0,
-    "strafeForce": 20000.0,
-    "maxBankAngle": 30.0,
+    "nudgeForce": 30000,
+    "strafeForce": 20000,
+    "maxBankAngle": 30,
     "handling": {
       "turnRate": 1.49,
       "agility": 1.04,
       "acceleration": 1.48,
       "brakeRate": 3.84,
       "strafePower": 1.03,
-      "linearDrag": 1.0,
+      "linearDrag": 1,
       "bankFactor": 0.86
     },
     "turnRate": 1.49,
@@ -321,32 +321,32 @@ const FL_SHIPS = {
     "mass": 75,
     "holdSize": 70,
     "hitPts": 10800,
-    "linearDrag": 1.0,
+    "linearDrag": 1,
     "steeringTorque": [
-      43000.0,
-      43000.0,
-      63000.0
+      43000,
+      43000,
+      63000
     ],
     "angularDrag": [
-      41000.0,
-      41000.0,
-      41000.0
+      41000,
+      41000,
+      41000
     ],
     "rotationInertia": [
-      8400.0,
-      8400.0,
-      2400.0
+      8400,
+      8400,
+      2400
     ],
-    "nudgeForce": 30000.0,
-    "strafeForce": 20000.0,
-    "maxBankAngle": 30.0,
+    "nudgeForce": 30000,
+    "strafeForce": 20000,
+    "maxBankAngle": 30,
     "handling": {
       "turnRate": 1.97,
       "agility": 1.47,
       "acceleration": 2.96,
       "brakeRate": 3.95,
       "strafePower": 2.05,
-      "linearDrag": 1.0,
+      "linearDrag": 1,
       "bankFactor": 0.86
     },
     "turnRate": 1.97,
@@ -365,33 +365,33 @@ const FL_SHIPS = {
     "mass": 100,
     "holdSize": 35,
     "hitPts": 1800,
-    "linearDrag": 1.0,
+    "linearDrag": 1,
     "steeringTorque": [
-      18000.0,
-      18000.0,
-      58000.0
+      18000,
+      18000,
+      58000
     ],
     "angularDrag": [
-      15000.0,
-      15000.0,
-      35000.0
+      15000,
+      15000,
+      35000
     ],
     "rotationInertia": [
-      2800.0,
-      2800.0,
-      1000.0
+      2800,
+      2800,
+      1000
     ],
-    "nudgeForce": 30000.0,
-    "strafeForce": 20000.0,
-    "maxBankAngle": 35.0,
+    "nudgeForce": 30000,
+    "strafeForce": 20000,
+    "maxBankAngle": 35,
     "handling": {
       "turnRate": 2.15,
       "agility": 1.62,
       "acceleration": 2.22,
       "brakeRate": 3.81,
       "strafePower": 1.54,
-      "linearDrag": 1.0,
-      "bankFactor": 1.0
+      "linearDrag": 1,
+      "bankFactor": 1
     },
     "turnRate": 2.15,
     "firePower": 4,
@@ -409,32 +409,32 @@ const FL_SHIPS = {
     "mass": 300,
     "holdSize": 275,
     "hitPts": 3600,
-    "linearDrag": 1.0,
+    "linearDrag": 1,
     "steeringTorque": [
-      54000.0,
-      54000.0,
-      54000.0
+      54000,
+      54000,
+      54000
     ],
     "angularDrag": [
-      60000.0,
-      60000.0,
-      60000.0
+      60000,
+      60000,
+      60000
     ],
     "rotationInertia": [
-      16800.0,
-      16800.0,
-      16800.0
+      16800,
+      16800,
+      16800
     ],
-    "nudgeForce": 30000.0,
-    "strafeForce": 20000.0,
-    "maxBankAngle": 15.0,
+    "nudgeForce": 30000,
+    "strafeForce": 20000,
+    "maxBankAngle": 15,
     "handling": {
       "turnRate": 0.75,
       "agility": 0.45,
       "acceleration": 0.85,
       "brakeRate": 5.33,
       "strafePower": 0.55,
-      "linearDrag": 1.0,
+      "linearDrag": 1,
       "bankFactor": 0.45
     },
     "turnRate": 0.75,
@@ -453,32 +453,32 @@ const FL_SHIPS = {
     "mass": 150,
     "holdSize": 45,
     "hitPts": 9200,
-    "linearDrag": 1.0,
+    "linearDrag": 1,
     "steeringTorque": [
-      43000.0,
-      43000.0,
-      230000.0
+      43000,
+      43000,
+      230000
     ],
     "angularDrag": [
-      41000.0,
-      41000.0,
-      141000.0
+      41000,
+      41000,
+      141000
     ],
     "rotationInertia": [
-      8400.0,
-      8400.0,
-      8400.0
+      8400,
+      8400,
+      8400
     ],
-    "nudgeForce": 30000.0,
-    "strafeForce": 20000.0,
-    "maxBankAngle": 30.0,
+    "nudgeForce": 30000,
+    "strafeForce": 20000,
+    "maxBankAngle": 30,
     "handling": {
       "turnRate": 1.49,
       "agility": 1.04,
       "acceleration": 1.48,
       "brakeRate": 3.84,
       "strafePower": 1.03,
-      "linearDrag": 1.0,
+      "linearDrag": 1,
       "bankFactor": 0.86
     },
     "turnRate": 1.49,
@@ -497,32 +497,32 @@ const FL_SHIPS = {
     "mass": 150,
     "holdSize": 70,
     "hitPts": 12600,
-    "linearDrag": 1.0,
+    "linearDrag": 1,
     "steeringTorque": [
-      43000.0,
-      43000.0,
-      143000.0
+      43000,
+      43000,
+      143000
     ],
     "angularDrag": [
-      41000.0,
-      41000.0,
-      141000.0
+      41000,
+      41000,
+      141000
     ],
     "rotationInertia": [
-      8400.0,
-      8400.0,
-      8400.0
+      8400,
+      8400,
+      8400
     ],
-    "nudgeForce": 30000.0,
-    "strafeForce": 20000.0,
-    "maxBankAngle": 30.0,
+    "nudgeForce": 30000,
+    "strafeForce": 20000,
+    "maxBankAngle": 30,
     "handling": {
       "turnRate": 1.11,
       "agility": 0.74,
       "acceleration": 1.48,
       "brakeRate": 4.96,
       "strafePower": 1.03,
-      "linearDrag": 1.0,
+      "linearDrag": 1,
       "bankFactor": 0.86
     },
     "turnRate": 1.11,
@@ -541,33 +541,33 @@ const FL_SHIPS = {
     "mass": 50,
     "holdSize": 35,
     "hitPts": 2400,
-    "linearDrag": 1.0,
+    "linearDrag": 1,
     "steeringTorque": [
-      18000.0,
-      18000.0,
-      58000.0
+      18000,
+      18000,
+      58000
     ],
     "angularDrag": [
-      15000.0,
-      15000.0,
-      35000.0
+      15000,
+      15000,
+      35000
     ],
     "rotationInertia": [
-      2800.0,
-      2800.0,
-      1000.0
+      2800,
+      2800,
+      1000
     ],
-    "nudgeForce": 30000.0,
-    "strafeForce": 20000.0,
-    "maxBankAngle": 35.0,
+    "nudgeForce": 30000,
+    "strafeForce": 20000,
+    "maxBankAngle": 35,
     "handling": {
       "turnRate": 2.57,
       "agility": 2.07,
       "acceleration": 4.2,
       "brakeRate": 3.81,
       "strafePower": 3.08,
-      "linearDrag": 1.0,
-      "bankFactor": 1.0
+      "linearDrag": 1,
+      "bankFactor": 1
     },
     "turnRate": 2.57,
     "firePower": 5,
@@ -585,33 +585,33 @@ const FL_SHIPS = {
     "mass": 100,
     "holdSize": 20,
     "hitPts": 1100,
-    "linearDrag": 1.0,
+    "linearDrag": 1,
     "steeringTorque": [
-      25000.0,
-      25000.0,
-      58000.0
+      25000,
+      25000,
+      58000
     ],
     "angularDrag": [
-      15000.0,
-      15000.0,
-      35000.0
+      15000,
+      15000,
+      35000
     ],
     "rotationInertia": [
-      3800.0,
-      3800.0,
-      1000.0
+      3800,
+      3800,
+      1000
     ],
-    "nudgeForce": 30000.0,
-    "strafeForce": 20000.0,
-    "maxBankAngle": 35.0,
+    "nudgeForce": 30000,
+    "strafeForce": 20000,
+    "maxBankAngle": 35,
     "handling": {
       "turnRate": 2.15,
       "agility": 1.78,
       "acceleration": 2.22,
       "brakeRate": 3.81,
       "strafePower": 1.54,
-      "linearDrag": 1.0,
-      "bankFactor": 1.0
+      "linearDrag": 1,
+      "bankFactor": 1
     },
     "turnRate": 2.15,
     "firePower": 3,
@@ -629,33 +629,33 @@ const FL_SHIPS = {
     "mass": 100,
     "holdSize": 30,
     "hitPts": 1800,
-    "linearDrag": 1.0,
+    "linearDrag": 1,
     "steeringTorque": [
-      15800.0,
-      15800.0,
-      58000.0
+      15800,
+      15800,
+      58000
     ],
     "angularDrag": [
-      15000.0,
-      15000.0,
-      35000.0
+      15000,
+      15000,
+      35000
     ],
     "rotationInertia": [
-      2800.0,
-      2800.0,
-      1000.0
+      2800,
+      2800,
+      1000
     ],
-    "nudgeForce": 30000.0,
-    "strafeForce": 20000.0,
-    "maxBankAngle": 35.0,
+    "nudgeForce": 30000,
+    "strafeForce": 20000,
+    "maxBankAngle": 35,
     "handling": {
       "turnRate": 2.15,
       "agility": 1.57,
       "acceleration": 2.22,
       "brakeRate": 3.81,
       "strafePower": 1.54,
-      "linearDrag": 1.0,
-      "bankFactor": 1.0
+      "linearDrag": 1,
+      "bankFactor": 1
     },
     "turnRate": 2.15,
     "firePower": 4,
@@ -673,33 +673,33 @@ const FL_SHIPS = {
     "mass": 100,
     "holdSize": 45,
     "hitPts": 3300,
-    "linearDrag": 1.0,
+    "linearDrag": 1,
     "steeringTorque": [
-      18000.0,
-      18000.0,
-      58000.0
+      18000,
+      18000,
+      58000
     ],
     "angularDrag": [
-      15000.0,
-      15000.0,
-      35000.0
+      15000,
+      15000,
+      35000
     ],
     "rotationInertia": [
-      2800.0,
-      2800.0,
-      1000.0
+      2800,
+      2800,
+      1000
     ],
-    "nudgeForce": 30000.0,
-    "strafeForce": 20000.0,
-    "maxBankAngle": 35.0,
+    "nudgeForce": 30000,
+    "strafeForce": 20000,
+    "maxBankAngle": 35,
     "handling": {
       "turnRate": 2.15,
       "agility": 1.62,
       "acceleration": 2.22,
       "brakeRate": 3.81,
       "strafePower": 1.54,
-      "linearDrag": 1.0,
-      "bankFactor": 1.0
+      "linearDrag": 1,
+      "bankFactor": 1
     },
     "turnRate": 2.15,
     "firePower": 6,
@@ -717,32 +717,32 @@ const FL_SHIPS = {
     "mass": 150,
     "holdSize": 60,
     "hitPts": 6200,
-    "linearDrag": 1.0,
+    "linearDrag": 1,
     "steeringTorque": [
-      55000.0,
-      55000.0,
-      48000.0
+      55000,
+      55000,
+      48000
     ],
     "angularDrag": [
-      41000.0,
-      41000.0,
-      35000.0
+      41000,
+      41000,
+      35000
     ],
     "rotationInertia": [
-      8400.0,
-      8400.0,
-      1000.0
+      8400,
+      8400,
+      1000
     ],
-    "nudgeForce": 30000.0,
-    "strafeForce": 20000.0,
-    "maxBankAngle": 30.0,
+    "nudgeForce": 30000,
+    "strafeForce": 20000,
+    "maxBankAngle": 30,
     "handling": {
       "turnRate": 1.72,
       "agility": 1.27,
       "acceleration": 1.48,
       "brakeRate": 4.19,
       "strafePower": 1.03,
-      "linearDrag": 1.0,
+      "linearDrag": 1,
       "bankFactor": 0.86
     },
     "turnRate": 1.72,
@@ -761,32 +761,32 @@ const FL_SHIPS = {
     "mass": 150,
     "holdSize": 70,
     "hitPts": 9900,
-    "linearDrag": 1.0,
+    "linearDrag": 1,
     "steeringTorque": [
-      55000.0,
-      55000.0,
-      48000.0
+      55000,
+      55000,
+      48000
     ],
     "angularDrag": [
-      41000.0,
-      41000.0,
-      35000.0
+      41000,
+      41000,
+      35000
     ],
     "rotationInertia": [
-      8400.0,
-      8400.0,
-      1000.0
+      8400,
+      8400,
+      1000
     ],
-    "nudgeForce": 30000.0,
-    "strafeForce": 20000.0,
-    "maxBankAngle": 30.0,
+    "nudgeForce": 30000,
+    "strafeForce": 20000,
+    "maxBankAngle": 30,
     "handling": {
       "turnRate": 1.72,
       "agility": 1.27,
       "acceleration": 1.48,
       "brakeRate": 4.19,
       "strafePower": 1.03,
-      "linearDrag": 1.0,
+      "linearDrag": 1,
       "bankFactor": 0.86
     },
     "turnRate": 1.72,
@@ -805,32 +805,32 @@ const FL_SHIPS = {
     "mass": 150,
     "holdSize": 40,
     "hitPts": 3600,
-    "linearDrag": 1.0,
+    "linearDrag": 1,
     "steeringTorque": [
-      43000.0,
-      43000.0,
-      230000.0
+      43000,
+      43000,
+      230000
     ],
     "angularDrag": [
-      41000.0,
-      41000.0,
-      141000.0
+      41000,
+      41000,
+      141000
     ],
     "rotationInertia": [
-      8400.0,
-      8400.0,
-      8400.0
+      8400,
+      8400,
+      8400
     ],
-    "nudgeForce": 30000.0,
-    "strafeForce": 20000.0,
-    "maxBankAngle": 30.0,
+    "nudgeForce": 30000,
+    "strafeForce": 20000,
+    "maxBankAngle": 30,
     "handling": {
       "turnRate": 1.49,
       "agility": 1.04,
       "acceleration": 1.48,
       "brakeRate": 3.84,
       "strafePower": 1.03,
-      "linearDrag": 1.0,
+      "linearDrag": 1,
       "bankFactor": 0.86
     },
     "turnRate": 1.49,
@@ -849,33 +849,33 @@ const FL_SHIPS = {
     "mass": 100,
     "holdSize": 35,
     "hitPts": 2800,
-    "linearDrag": 1.0,
+    "linearDrag": 1,
     "steeringTorque": [
-      25000.0,
-      25000.0,
-      58000.0
+      25000,
+      25000,
+      58000
     ],
     "angularDrag": [
-      15000.0,
-      15000.0,
-      35000.0
+      15000,
+      15000,
+      35000
     ],
     "rotationInertia": [
-      3800.0,
-      3800.0,
-      1000.0
+      3800,
+      3800,
+      1000
     ],
-    "nudgeForce": 30000.0,
-    "strafeForce": 20000.0,
-    "maxBankAngle": 35.0,
+    "nudgeForce": 30000,
+    "strafeForce": 20000,
+    "maxBankAngle": 35,
     "handling": {
       "turnRate": 2.15,
       "agility": 1.78,
       "acceleration": 2.22,
       "brakeRate": 3.81,
       "strafePower": 1.54,
-      "linearDrag": 1.0,
-      "bankFactor": 1.0
+      "linearDrag": 1,
+      "bankFactor": 1
     },
     "turnRate": 2.15,
     "firePower": 6,
@@ -893,32 +893,32 @@ const FL_SHIPS = {
     "mass": 300,
     "holdSize": 175,
     "hitPts": 3600,
-    "linearDrag": 1.0,
+    "linearDrag": 1,
     "steeringTorque": [
-      54000.0,
-      54000.0,
-      104000.0
+      54000,
+      54000,
+      104000
     ],
     "angularDrag": [
-      60000.0,
-      60000.0,
-      60000.0
+      60000,
+      60000,
+      60000
     ],
     "rotationInertia": [
-      16800.0,
-      16800.0,
-      16800.0
+      16800,
+      16800,
+      16800
     ],
-    "nudgeForce": 30000.0,
-    "strafeForce": 20000.0,
-    "maxBankAngle": 15.0,
+    "nudgeForce": 30000,
+    "strafeForce": 20000,
+    "maxBankAngle": 15,
     "handling": {
       "turnRate": 1.02,
       "agility": 0.64,
       "acceleration": 0.85,
       "brakeRate": 3.73,
       "strafePower": 0.55,
-      "linearDrag": 1.0,
+      "linearDrag": 1,
       "bankFactor": 0.45
     },
     "turnRate": 1.02,
@@ -937,32 +937,32 @@ const FL_SHIPS = {
     "mass": 150,
     "holdSize": 30,
     "hitPts": 1600,
-    "linearDrag": 1.0,
+    "linearDrag": 1,
     "steeringTorque": [
-      50000.0,
-      50000.0,
-      230000.0
+      50000,
+      50000,
+      230000
     ],
     "angularDrag": [
-      40000.0,
-      40000.0,
-      141000.0
+      40000,
+      40000,
+      141000
     ],
     "rotationInertia": [
-      8400.0,
-      8400.0,
-      8400.0
+      8400,
+      8400,
+      8400
     ],
-    "nudgeForce": 30000.0,
-    "strafeForce": 20000.0,
-    "maxBankAngle": 30.0,
+    "nudgeForce": 30000,
+    "strafeForce": 20000,
+    "maxBankAngle": 30,
     "handling": {
       "turnRate": 1.49,
       "agility": 1.09,
       "acceleration": 1.48,
       "brakeRate": 3.84,
       "strafePower": 1.03,
-      "linearDrag": 1.0,
+      "linearDrag": 1,
       "bankFactor": 0.86
     },
     "turnRate": 1.49,
@@ -981,33 +981,33 @@ const FL_SHIPS = {
     "mass": 100,
     "holdSize": 25,
     "hitPts": 1300,
-    "linearDrag": 1.0,
+    "linearDrag": 1,
     "steeringTorque": [
-      24000.0,
-      24000.0,
-      58000.0
+      24000,
+      24000,
+      58000
     ],
     "angularDrag": [
-      15000.0,
-      15000.0,
-      35000.0
+      15000,
+      15000,
+      35000
     ],
     "rotationInertia": [
-      2800.0,
-      2800.0,
-      1000.0
+      2800,
+      2800,
+      1000
     ],
-    "nudgeForce": 30000.0,
-    "strafeForce": 20000.0,
-    "maxBankAngle": 35.0,
+    "nudgeForce": 30000,
+    "strafeForce": 20000,
+    "maxBankAngle": 35,
     "handling": {
       "turnRate": 2.15,
       "agility": 1.76,
       "acceleration": 2.22,
       "brakeRate": 3.81,
       "strafePower": 1.54,
-      "linearDrag": 1.0,
-      "bankFactor": 1.0
+      "linearDrag": 1,
+      "bankFactor": 1
     },
     "turnRate": 2.15,
     "firePower": 3,
@@ -1025,32 +1025,32 @@ const FL_SHIPS = {
     "mass": 300,
     "holdSize": 80,
     "hitPts": 1600,
-    "linearDrag": 1.0,
+    "linearDrag": 1,
     "steeringTorque": [
-      54000.0,
-      54000.0,
-      104000.0
+      54000,
+      54000,
+      104000
     ],
     "angularDrag": [
-      60000.0,
-      60000.0,
-      60000.0
+      60000,
+      60000,
+      60000
     ],
     "rotationInertia": [
-      16800.0,
-      16800.0,
-      16800.0
+      16800,
+      16800,
+      16800
     ],
-    "nudgeForce": 30000.0,
-    "strafeForce": 20000.0,
-    "maxBankAngle": 15.0,
+    "nudgeForce": 30000,
+    "strafeForce": 20000,
+    "maxBankAngle": 15,
     "handling": {
       "turnRate": 1.02,
       "agility": 0.64,
       "acceleration": 0.85,
       "brakeRate": 3.73,
       "strafePower": 0.55,
-      "linearDrag": 1.0,
+      "linearDrag": 1,
       "bankFactor": 0.45
     },
     "turnRate": 1.02,
@@ -1069,32 +1069,32 @@ const FL_SHIPS = {
     "mass": 150,
     "holdSize": 70,
     "hitPts": 4200,
-    "linearDrag": 1.0,
+    "linearDrag": 1,
     "steeringTorque": [
-      43000.0,
-      43000.0,
-      230000.0
+      43000,
+      43000,
+      230000
     ],
     "angularDrag": [
-      41000.0,
-      41000.0,
-      141000.0
+      41000,
+      41000,
+      141000
     ],
     "rotationInertia": [
-      8400.0,
-      8400.0,
-      8400.0
+      8400,
+      8400,
+      8400
     ],
-    "nudgeForce": 30000.0,
-    "strafeForce": 20000.0,
-    "maxBankAngle": 30.0,
+    "nudgeForce": 30000,
+    "strafeForce": 20000,
+    "maxBankAngle": 30,
     "handling": {
       "turnRate": 1.49,
       "agility": 1.04,
       "acceleration": 1.48,
       "brakeRate": 3.84,
       "strafePower": 1.03,
-      "linearDrag": 1.0,
+      "linearDrag": 1,
       "bankFactor": 0.86
     },
     "turnRate": 1.49,
@@ -1113,32 +1113,32 @@ const FL_SHIPS = {
     "mass": 150,
     "holdSize": 40,
     "hitPts": 3600,
-    "linearDrag": 1.0,
+    "linearDrag": 1,
     "steeringTorque": [
-      43000.0,
-      43000.0,
-      230000.0
+      43000,
+      43000,
+      230000
     ],
     "angularDrag": [
-      41000.0,
-      41000.0,
-      141000.0
+      41000,
+      41000,
+      141000
     ],
     "rotationInertia": [
-      8400.0,
-      8400.0,
-      8400.0
+      8400,
+      8400,
+      8400
     ],
-    "nudgeForce": 30000.0,
-    "strafeForce": 20000.0,
-    "maxBankAngle": 20.0,
+    "nudgeForce": 30000,
+    "strafeForce": 20000,
+    "maxBankAngle": 20,
     "handling": {
       "turnRate": 1.49,
       "agility": 1.04,
       "acceleration": 1.48,
       "brakeRate": 3.84,
       "strafePower": 1.03,
-      "linearDrag": 1.0,
+      "linearDrag": 1,
       "bankFactor": 0.57
     },
     "turnRate": 1.49,
@@ -1157,32 +1157,32 @@ const FL_SHIPS = {
     "mass": 100,
     "holdSize": 35,
     "hitPts": 1900,
-    "linearDrag": 1.0,
+    "linearDrag": 1,
     "steeringTorque": [
-      18000.0,
-      18000.0,
-      58000.0
+      18000,
+      18000,
+      58000
     ],
     "angularDrag": [
-      15000.0,
-      15000.0,
-      35000.0
+      15000,
+      15000,
+      35000
     ],
     "rotationInertia": [
-      2800.0,
-      2800.0,
-      1000.0
+      2800,
+      2800,
+      1000
     ],
-    "nudgeForce": 30000.0,
-    "strafeForce": 20000.0,
-    "maxBankAngle": 25.0,
+    "nudgeForce": 30000,
+    "strafeForce": 20000,
+    "maxBankAngle": 25,
     "handling": {
       "turnRate": 2.15,
       "agility": 1.62,
       "acceleration": 2.22,
       "brakeRate": 3.81,
       "strafePower": 1.54,
-      "linearDrag": 1.0,
+      "linearDrag": 1,
       "bankFactor": 0.71
     },
     "turnRate": 2.15,
@@ -1201,32 +1201,32 @@ const FL_SHIPS = {
     "mass": 300,
     "holdSize": 90,
     "hitPts": 2200,
-    "linearDrag": 1.0,
+    "linearDrag": 1,
     "steeringTorque": [
-      54000.0,
-      54000.0,
-      104000.0
+      54000,
+      54000,
+      104000
     ],
     "angularDrag": [
-      60000.0,
-      60000.0,
-      60000.0
+      60000,
+      60000,
+      60000
     ],
     "rotationInertia": [
-      16800.0,
-      16800.0,
-      16800.0
+      16800,
+      16800,
+      16800
     ],
-    "nudgeForce": 30000.0,
-    "strafeForce": 20000.0,
-    "maxBankAngle": 15.0,
+    "nudgeForce": 30000,
+    "strafeForce": 20000,
+    "maxBankAngle": 15,
     "handling": {
       "turnRate": 1.02,
       "agility": 0.64,
       "acceleration": 0.85,
       "brakeRate": 3.73,
       "strafePower": 0.55,
-      "linearDrag": 1.0,
+      "linearDrag": 1,
       "bankFactor": 0.45
     },
     "turnRate": 1.02,
@@ -1245,32 +1245,32 @@ const FL_SHIPS = {
     "mass": 150,
     "holdSize": 50,
     "hitPts": 5800,
-    "linearDrag": 1.0,
+    "linearDrag": 1,
     "steeringTorque": [
-      43000.0,
-      43000.0,
-      230000.0
+      43000,
+      43000,
+      230000
     ],
     "angularDrag": [
-      41000.0,
-      41000.0,
-      141000.0
+      41000,
+      41000,
+      141000
     ],
     "rotationInertia": [
-      8400.0,
-      8400.0,
-      8400.0
+      8400,
+      8400,
+      8400
     ],
-    "nudgeForce": 30000.0,
-    "strafeForce": 20000.0,
-    "maxBankAngle": 30.0,
+    "nudgeForce": 30000,
+    "strafeForce": 20000,
+    "maxBankAngle": 30,
     "handling": {
       "turnRate": 1.49,
       "agility": 1.04,
       "acceleration": 1.48,
       "brakeRate": 3.84,
       "strafePower": 1.03,
-      "linearDrag": 1.0,
+      "linearDrag": 1,
       "bankFactor": 0.86
     },
     "turnRate": 1.49,
@@ -1289,33 +1289,33 @@ const FL_SHIPS = {
     "mass": 100,
     "holdSize": 45,
     "hitPts": 4500,
-    "linearDrag": 1.0,
+    "linearDrag": 1,
     "steeringTorque": [
-      18000.0,
-      18000.0,
-      58000.0
+      18000,
+      18000,
+      58000
     ],
     "angularDrag": [
-      15000.0,
-      15000.0,
-      35000.0
+      15000,
+      15000,
+      35000
     ],
     "rotationInertia": [
-      2800.0,
-      2800.0,
-      1000.0
+      2800,
+      2800,
+      1000
     ],
-    "nudgeForce": 30000.0,
-    "strafeForce": 20000.0,
-    "maxBankAngle": 35.0,
+    "nudgeForce": 30000,
+    "strafeForce": 20000,
+    "maxBankAngle": 35,
     "handling": {
       "turnRate": 2.15,
       "agility": 1.62,
       "acceleration": 2.22,
       "brakeRate": 3.81,
       "strafePower": 1.54,
-      "linearDrag": 1.0,
-      "bankFactor": 1.0
+      "linearDrag": 1,
+      "bankFactor": 1
     },
     "turnRate": 2.15,
     "firePower": 7,
@@ -1333,32 +1333,32 @@ const FL_SHIPS = {
     "mass": 300,
     "holdSize": 250,
     "hitPts": 5800,
-    "linearDrag": 1.0,
+    "linearDrag": 1,
     "steeringTorque": [
-      24000.0,
-      24000.0,
-      104000.0
+      24000,
+      24000,
+      104000
     ],
     "angularDrag": [
-      60000.0,
-      60000.0,
-      60000.0
+      60000,
+      60000,
+      60000
     ],
     "rotationInertia": [
-      16800.0,
-      16800.0,
-      16800.0
+      16800,
+      16800,
+      16800
     ],
-    "nudgeForce": 30000.0,
-    "strafeForce": 20000.0,
-    "maxBankAngle": 15.0,
+    "nudgeForce": 30000,
+    "strafeForce": 20000,
+    "maxBankAngle": 15,
     "handling": {
       "turnRate": 1.02,
       "agility": 0.57,
       "acceleration": 0.85,
       "brakeRate": 3.73,
       "strafePower": 0.55,
-      "linearDrag": 1.0,
+      "linearDrag": 1,
       "bankFactor": 0.45
     },
     "turnRate": 1.02,
@@ -1386,16 +1386,16 @@ const FL_SHIP_PACKAGES = {
       "acceleration": 1.48,
       "brakeRate": 3.84,
       "strafePower": 1.03,
-      "linearDrag": 1.0,
+      "linearDrag": 1,
       "bankFactor": 0.86,
       "holdSize": 35,
       "firePower": 5,
       "mass": 150,
       "shipClass": 1,
-      "powerCapacity": 2500.0,
-      "powerChargeRate": 248.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0
+      "powerCapacity": 2500,
+      "powerChargeRate": 248,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100
     },
     "powerplant": {
       "id": "br_elite_power01",
@@ -1403,13 +1403,27 @@ const FL_SHIP_PACKAGES = {
       "idsName": "263724",
       "idsInfo": "264724",
       "info": "Bretonia Heavy Fighter Powerplant\nEnergy Capacity: 2500\nRegeneration Rate / sec: 248",
-      "capacity": 2500.0,
-      "chargeRate": 248.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0,
+      "capacity": 2500,
+      "chargeRate": 248,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100,
       "sourceFile": "misc_equip.ini"
     },
-    "info": "Stats\nGun/Turret Mounts: 6/0\nArmor: 2600\nCargo Space: 35\nMax Batteries/NanoBots: 20/20\nOptimal Weapon Class: 3\nMax. Weapon Class: 5\nAdditional Equipment: M, CM, CD/T"
+    "info": "Stats\nGun/Turret Mounts: 6/0\nArmor: 2600\nCargo Space: 35\nMax Batteries/NanoBots: 20/20\nOptimal Weapon Class: 3\nMax. Weapon Class: 5\nAdditional Equipment: M, CM, CD/T",
+    "engine": {
+      "id": "ge_be_engine_01",
+      "name": "Triebwerk, opt. Bretonia-Jäger",
+      "idsName": "263691",
+      "idsInfo": "264691",
+      "info": "Triebwerk, opt. Bretonia-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000,
+      "linearDrag": 599,
+      "powerUsage": 0,
+      "reverseFraction": 1,
+      "cruiseChargeTime": 5,
+      "cruisePowerUsage": 20,
+      "sourceFile": "engine_equip.ini"
+    }
   },
   "bf_package": {
     "id": "bf_package",
@@ -1428,16 +1442,16 @@ const FL_SHIP_PACKAGES = {
       "acceleration": 2.22,
       "brakeRate": 3.81,
       "strafePower": 1.54,
-      "linearDrag": 1.0,
-      "bankFactor": 1.0,
+      "linearDrag": 1,
+      "bankFactor": 1,
       "holdSize": 30,
       "firePower": 5,
       "mass": 100,
       "shipClass": 0,
-      "powerCapacity": 2100.0,
-      "powerChargeRate": 213.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0
+      "powerCapacity": 2100,
+      "powerChargeRate": 213,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100
     },
     "powerplant": {
       "id": "br_fighter_power01",
@@ -1445,13 +1459,27 @@ const FL_SHIP_PACKAGES = {
       "idsName": "263723",
       "idsInfo": "264723",
       "info": "Bretonia Light Fighter Powerplant\nEnergy Capacity: 2100\nRegeneration Rate / sec: 213",
-      "capacity": 2100.0,
-      "chargeRate": 213.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0,
+      "capacity": 2100,
+      "chargeRate": 213,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100,
       "sourceFile": "misc_equip.ini"
     },
-    "info": "Stats\nGun/Turret Mounts: 4/0\nArmor: 2100\nCargo Space: 30\nMax Batteries/Nanobots: 15/15\nOptimal Weapon Class: 3\nMax. Weapon Class: 5\nAdditional Equipment: M, CM, CD"
+    "info": "Stats\nGun/Turret Mounts: 4/0\nArmor: 2100\nCargo Space: 30\nMax Batteries/Nanobots: 15/15\nOptimal Weapon Class: 3\nMax. Weapon Class: 5\nAdditional Equipment: M, CM, CD",
+    "engine": {
+      "id": "ge_bf_engine_01",
+      "name": "Triebwerk, Bretonia-Jäger",
+      "idsName": "263690",
+      "idsInfo": "264690",
+      "info": "Triebwerk, Bretonia-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000,
+      "linearDrag": 599,
+      "powerUsage": 0,
+      "reverseFraction": 1,
+      "cruiseChargeTime": 5,
+      "cruisePowerUsage": 20,
+      "sourceFile": "engine_equip.ini"
+    }
   },
   "bfr_package": {
     "id": "bfr_package",
@@ -1470,16 +1498,16 @@ const FL_SHIP_PACKAGES = {
       "acceleration": 0.85,
       "brakeRate": 3.73,
       "strafePower": 0.55,
-      "linearDrag": 1.0,
+      "linearDrag": 1,
       "bankFactor": 0.45,
       "holdSize": 125,
       "firePower": 4,
       "mass": 300,
       "shipClass": 2,
-      "powerCapacity": 1800.0,
-      "powerChargeRate": 183.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0
+      "powerCapacity": 1800,
+      "powerChargeRate": 183,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100
     },
     "powerplant": {
       "id": "br_freighter_power01",
@@ -1487,13 +1515,27 @@ const FL_SHIP_PACKAGES = {
       "idsName": "263725",
       "idsInfo": "264725",
       "info": "Bretonia Freighter Powerplant\nEnergy Capacity: 1800\nRegeneration Rate / sec: 183",
-      "capacity": 1800.0,
-      "chargeRate": 183.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0,
+      "capacity": 1800,
+      "chargeRate": 183,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100,
       "sourceFile": "misc_equip.ini"
     },
-    "info": "Stats\nGun/Turret Mounts: 3/5\nArmor: 2200\nCargo Space: 125\nMax Batteries/NanoBot: 15/15\nOptimal Weapon Class: 2\nMax. Weapon Class: 4\nAdditional Equipment: M, CM"
+    "info": "Stats\nGun/Turret Mounts: 3/5\nArmor: 2200\nCargo Space: 125\nMax Batteries/NanoBot: 15/15\nOptimal Weapon Class: 2\nMax. Weapon Class: 4\nAdditional Equipment: M, CM",
+    "engine": {
+      "id": "ge_bfr_engine_01",
+      "name": "Triebw., Bretonia-Frachter",
+      "idsName": "263692",
+      "idsInfo": "264692",
+      "info": "Triebwerk, Bretonia-Frachter\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000,
+      "linearDrag": 599,
+      "powerUsage": 0,
+      "reverseFraction": 1,
+      "cruiseChargeTime": 5,
+      "cruisePowerUsage": 20,
+      "sourceFile": "engine_equip.ini"
+    }
   },
   "bhe2_package": {
     "id": "bhe2_package",
@@ -1512,16 +1554,16 @@ const FL_SHIP_PACKAGES = {
       "acceleration": 1.48,
       "brakeRate": 4.96,
       "strafePower": 1.03,
-      "linearDrag": 1.0,
+      "linearDrag": 1,
       "bankFactor": 0.86,
       "holdSize": 70,
       "firePower": 9,
       "mass": 150,
       "shipClass": 3,
-      "powerCapacity": 7400.0,
-      "powerChargeRate": 750.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0
+      "powerCapacity": 7400,
+      "powerChargeRate": 750,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100
     },
     "powerplant": {
       "id": "bh_elite2_power01",
@@ -1529,13 +1571,27 @@ const FL_SHIP_PACKAGES = {
       "idsName": "263719",
       "idsInfo": "264719",
       "info": "Bounty Hunter Heavy Fighter Powerplant\nEnergy Capacity: 7400\nRegeneration Rate / sec: 750",
-      "capacity": 7400.0,
-      "chargeRate": 750.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0,
+      "capacity": 7400,
+      "chargeRate": 750,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100,
       "sourceFile": "misc_equip.ini"
     },
-    "info": "Stats\nGun/Turret Mounts: 6/1\nArmor: 7900\nCargo Space: 70\nMax Batteries/NanoBots: 49/49\nOptimal Weapon Class: 7\nMax. Weapon Class: 9\nAdditional Equipment: M, CM, CD/T"
+    "info": "Stats\nGun/Turret Mounts: 6/1\nArmor: 7900\nCargo Space: 70\nMax Batteries/NanoBots: 49/49\nOptimal Weapon Class: 7\nMax. Weapon Class: 9\nAdditional Equipment: M, CM, CD/T",
+    "engine": {
+      "id": "ge_bhe2_engine_01",
+      "name": "Triebwerk, sehr schwerer Jäger der Kopfgeldjäger",
+      "idsName": "263686",
+      "idsInfo": "264686",
+      "info": "Triebwerk, sehr schwerer Jäger der Kopfgeldjäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000,
+      "linearDrag": 599,
+      "powerUsage": 0,
+      "reverseFraction": 1,
+      "cruiseChargeTime": 5,
+      "cruisePowerUsage": 20,
+      "sourceFile": "engine_equip.ini"
+    }
   },
   "bhe_package": {
     "id": "bhe_package",
@@ -1554,16 +1610,16 @@ const FL_SHIP_PACKAGES = {
       "acceleration": 1.48,
       "brakeRate": 3.84,
       "strafePower": 1.03,
-      "linearDrag": 1.0,
+      "linearDrag": 1,
       "bankFactor": 0.57,
       "holdSize": 45,
       "firePower": 6,
       "mass": 150,
       "shipClass": 1,
-      "powerCapacity": 3400.0,
-      "powerChargeRate": 345.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0
+      "powerCapacity": 3400,
+      "powerChargeRate": 345,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100
     },
     "powerplant": {
       "id": "bh_elite_power01",
@@ -1571,13 +1627,27 @@ const FL_SHIP_PACKAGES = {
       "idsName": "263718",
       "idsInfo": "264718",
       "info": "Bounty Hunter Heavy Fighter Powerplant\nEnergy Capacity: 3400\nRegeneration Rate / sec: 345",
-      "capacity": 3400.0,
-      "chargeRate": 345.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0,
+      "capacity": 3400,
+      "chargeRate": 345,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100,
       "sourceFile": "misc_equip.ini"
     },
-    "info": "Stats\nGun/Turret Mounts: 6/0\nArmor: 3600\nCargo Space: 45\nMax Batteries/Nanobots: 26/26\nOptimal Weapon Class: 4\nMax. Weapon Class: 6\nAdditional Equipment: M, CM, CD/T"
+    "info": "Stats\nGun/Turret Mounts: 6/0\nArmor: 3600\nCargo Space: 45\nMax Batteries/Nanobots: 26/26\nOptimal Weapon Class: 4\nMax. Weapon Class: 6\nAdditional Equipment: M, CM, CD/T",
+    "engine": {
+      "id": "ge_bhe_engine_01",
+      "name": "Triebwerk, schwerer Jäger der Kopfgeldjäger",
+      "idsName": "263685",
+      "idsInfo": "264685",
+      "info": "Triebwerk, schwerer Jäger der Kopfgeldjäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000,
+      "linearDrag": 599,
+      "powerUsage": 0,
+      "reverseFraction": 1,
+      "cruiseChargeTime": 5,
+      "cruisePowerUsage": 20,
+      "sourceFile": "engine_equip.ini"
+    }
   },
   "bhf_package": {
     "id": "bhf_package",
@@ -1596,16 +1666,16 @@ const FL_SHIP_PACKAGES = {
       "acceleration": 2.22,
       "brakeRate": 3.81,
       "strafePower": 1.54,
-      "linearDrag": 1.0,
-      "bankFactor": 1.0,
+      "linearDrag": 1,
+      "bankFactor": 1,
       "holdSize": 35,
       "firePower": 4,
       "mass": 100,
       "shipClass": 0,
-      "powerCapacity": 1800.0,
-      "powerChargeRate": 183.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0
+      "powerCapacity": 1800,
+      "powerChargeRate": 183,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100
     },
     "powerplant": {
       "id": "bh_fighter_power01",
@@ -1613,13 +1683,27 @@ const FL_SHIP_PACKAGES = {
       "idsName": "263717",
       "idsInfo": "264717",
       "info": "Bounty Hunter Light Fighter Powerplant\nEnergy Capacity: 1800\nRegeneration Rate / sec: 183",
-      "capacity": 1800.0,
-      "chargeRate": 183.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0,
+      "capacity": 1800,
+      "chargeRate": 183,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100,
       "sourceFile": "misc_equip.ini"
     },
-    "info": "Stats\nGun/Turret Mounts: 4/0\nArmor: 1800\nCargo Space: 35\nMax Batteries/NanoBots: 15/15\nOptimal Weapon Class: 2\nMax. Weapon Class: 4\nAdditional Equipment: M, CM, CD"
+    "info": "Stats\nGun/Turret Mounts: 4/0\nArmor: 1800\nCargo Space: 35\nMax Batteries/NanoBots: 15/15\nOptimal Weapon Class: 2\nMax. Weapon Class: 4\nAdditional Equipment: M, CM, CD",
+    "engine": {
+      "id": "ge_bhf_engine_01",
+      "name": "Triebwerk, Jäger der Kopfgeldjäger",
+      "idsName": "263684",
+      "idsInfo": "264684",
+      "info": "Triebwerk, Jäger der Kopfgeldjäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000,
+      "linearDrag": 599,
+      "powerUsage": 0,
+      "reverseFraction": 1,
+      "cruiseChargeTime": 5,
+      "cruisePowerUsage": 20,
+      "sourceFile": "engine_equip.ini"
+    }
   },
   "bwe2_package": {
     "id": "bwe2_package",
@@ -1638,16 +1722,16 @@ const FL_SHIP_PACKAGES = {
       "acceleration": 2.96,
       "brakeRate": 3.95,
       "strafePower": 2.05,
-      "linearDrag": 1.0,
+      "linearDrag": 1,
       "bankFactor": 0.86,
       "holdSize": 70,
       "firePower": 10,
       "mass": 75,
       "shipClass": 3,
-      "powerCapacity": 10400.0,
-      "powerChargeRate": 1040.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0
+      "powerCapacity": 10400,
+      "powerChargeRate": 1040,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100
     },
     "powerplant": {
       "id": "bw_elite2_power01",
@@ -1655,13 +1739,27 @@ const FL_SHIP_PACKAGES = {
       "idsName": "263712",
       "idsInfo": "264712",
       "info": "Borderworld Heavy Fighter Powerplant\nEnergy Capacity: 10400\nRegeneration Rate / sec: 1040",
-      "capacity": 10400.0,
-      "chargeRate": 1040.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0,
+      "capacity": 10400,
+      "chargeRate": 1040,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100,
       "sourceFile": "misc_equip.ini"
     },
-    "info": "Stats\nGun/Turret Mounts: 6/1\nArmor: 10800\nCargo Space: 70\nMax Batteries/NanoBots: 63/63\nOptimal Weapon Class: 8\nMax. Weapon Class: 10\nAdditional Equipment: M, CM, CD/T"
+    "info": "Stats\nGun/Turret Mounts: 6/1\nArmor: 10800\nCargo Space: 70\nMax Batteries/NanoBots: 63/63\nOptimal Weapon Class: 8\nMax. Weapon Class: 10\nAdditional Equipment: M, CM, CD/T",
+    "engine": {
+      "id": "ge_bwe2_engine_01",
+      "name": "Triebwerk, sehr schwerer GW-Jäger",
+      "idsName": "263679",
+      "idsInfo": "264679",
+      "info": "Triebwerk, sehr schwerer GW-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000,
+      "linearDrag": 599,
+      "powerUsage": 0,
+      "reverseFraction": 1,
+      "cruiseChargeTime": 5,
+      "cruisePowerUsage": 20,
+      "sourceFile": "engine_equip.ini"
+    }
   },
   "bwe_package": {
     "id": "bwe_package",
@@ -1680,16 +1778,16 @@ const FL_SHIP_PACKAGES = {
       "acceleration": 1.48,
       "brakeRate": 3.84,
       "strafePower": 1.03,
-      "linearDrag": 1.0,
+      "linearDrag": 1,
       "bankFactor": 0.86,
       "holdSize": 45,
       "firePower": 7,
       "mass": 150,
       "shipClass": 1,
-      "powerCapacity": 4700.0,
-      "powerChargeRate": 465.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0
+      "powerCapacity": 4700,
+      "powerChargeRate": 465,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100
     },
     "powerplant": {
       "id": "bw_elite_power01",
@@ -1697,13 +1795,27 @@ const FL_SHIP_PACKAGES = {
       "idsName": "263711",
       "idsInfo": "264711",
       "info": "Borderworld Heavy Fighter Powerplant\nEnergy Capacity: 4700\nRegeneration Rate / sec: 465",
-      "capacity": 4700.0,
-      "chargeRate": 465.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0,
+      "capacity": 4700,
+      "chargeRate": 465,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100,
       "sourceFile": "misc_equip.ini"
     },
-    "info": "Stats\nGun/Turret Mounts: 6/0\nArmor: 4900\nCargo Space: 45\nMax Batteries/NanoBots: 33/33\nOptimal Weapon Class: 5\nMax. Weapon Class: 7\nAdditional Equipment: M, CM, CD/T"
+    "info": "Stats\nGun/Turret Mounts: 6/0\nArmor: 4900\nCargo Space: 45\nMax Batteries/NanoBots: 33/33\nOptimal Weapon Class: 5\nMax. Weapon Class: 7\nAdditional Equipment: M, CM, CD/T",
+    "engine": {
+      "id": "ge_bwe_engine_01",
+      "name": "Triebwerk, schwerer GW-Jäger",
+      "idsName": "263678",
+      "idsInfo": "264678",
+      "info": "Triebwerk, schwerer GW-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000,
+      "linearDrag": 599,
+      "powerUsage": 0,
+      "reverseFraction": 1,
+      "cruiseChargeTime": 5,
+      "cruisePowerUsage": 20,
+      "sourceFile": "engine_equip.ini"
+    }
   },
   "bwf_package": {
     "id": "bwf_package",
@@ -1722,16 +1834,16 @@ const FL_SHIP_PACKAGES = {
       "acceleration": 2.22,
       "brakeRate": 3.81,
       "strafePower": 1.54,
-      "linearDrag": 1.0,
-      "bankFactor": 1.0,
+      "linearDrag": 1,
+      "bankFactor": 1,
       "holdSize": 35,
       "firePower": 4,
       "mass": 100,
       "shipClass": 0,
-      "powerCapacity": 1800.0,
-      "powerChargeRate": 183.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0
+      "powerCapacity": 1800,
+      "powerChargeRate": 183,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100
     },
     "powerplant": {
       "id": "bw_fighter_power01",
@@ -1739,13 +1851,27 @@ const FL_SHIP_PACKAGES = {
       "idsName": "263710",
       "idsInfo": "264710",
       "info": "Borderworld Light Fighter Powerplant\nEnergy Capacity: 1800\nRegeneration Rate / sec: 183",
-      "capacity": 1800.0,
-      "chargeRate": 183.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0,
+      "capacity": 1800,
+      "chargeRate": 183,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100,
       "sourceFile": "misc_equip.ini"
     },
-    "info": "Stats\nGun/Turret Mounts: 4/1\nArmor: 1800\nCargo Space: 35\nMax Batteries/NanoBots: 15/15\nOptimal Weapon Class: 2\nMax. Weapon Class: 4\nAdditional Equipment: M, CM, CD"
+    "info": "Stats\nGun/Turret Mounts: 4/1\nArmor: 1800\nCargo Space: 35\nMax Batteries/NanoBots: 15/15\nOptimal Weapon Class: 2\nMax. Weapon Class: 4\nAdditional Equipment: M, CM, CD",
+    "engine": {
+      "id": "ge_bwf_engine_01",
+      "name": "Triebwerk, GW-Jäger",
+      "idsName": "263677",
+      "idsInfo": "264677",
+      "info": "Triebwerk, Grenzweltjäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000,
+      "linearDrag": 599,
+      "powerUsage": 0,
+      "reverseFraction": 1,
+      "cruiseChargeTime": 5,
+      "cruisePowerUsage": 20,
+      "sourceFile": "engine_equip.ini"
+    }
   },
   "bwfr_package": {
     "id": "bwfr_package",
@@ -1764,16 +1890,16 @@ const FL_SHIP_PACKAGES = {
       "acceleration": 0.85,
       "brakeRate": 5.33,
       "strafePower": 0.55,
-      "linearDrag": 1.0,
+      "linearDrag": 1,
       "bankFactor": 0.45,
       "holdSize": 275,
       "firePower": 6,
       "mass": 300,
       "shipClass": 2,
-      "powerCapacity": 2900.0,
-      "powerChargeRate": 290.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0
+      "powerCapacity": 2900,
+      "powerChargeRate": 290,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100
     },
     "powerplant": {
       "id": "bw_freighter_power01",
@@ -1781,13 +1907,27 @@ const FL_SHIP_PACKAGES = {
       "idsName": "263713",
       "idsInfo": "264713",
       "info": "Borderworld Freighter Powerplant\nEnergy Capacity: 2900\nRegeneration Rate / sec: 290",
-      "capacity": 2900.0,
-      "chargeRate": 290.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0,
+      "capacity": 2900,
+      "chargeRate": 290,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100,
       "sourceFile": "misc_equip.ini"
     },
-    "info": "Stats\nGun/Turret Mounts: 3/5\nArmor: 3600\nCargo Space: 275\nMax Batteries/NanoBots: 23/23\nOptimal Weapon Class: 4\nMax. Weapon Class: 6\nAdditional Equipment: M, CM"
+    "info": "Stats\nGun/Turret Mounts: 3/5\nArmor: 3600\nCargo Space: 275\nMax Batteries/NanoBots: 23/23\nOptimal Weapon Class: 4\nMax. Weapon Class: 6\nAdditional Equipment: M, CM",
+    "engine": {
+      "id": "ge_bwfr_engine_01",
+      "name": "Triebwerk, GW-Frachter",
+      "idsName": "263680",
+      "idsInfo": "264680",
+      "info": "Triebwerk, Grenzweltfrachter\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000,
+      "linearDrag": 599,
+      "powerUsage": 0,
+      "reverseFraction": 1,
+      "cruiseChargeTime": 5,
+      "cruisePowerUsage": 20,
+      "sourceFile": "engine_equip.ini"
+    }
   },
   "coe2_package": {
     "id": "coe2_package",
@@ -1806,16 +1946,16 @@ const FL_SHIP_PACKAGES = {
       "acceleration": 1.48,
       "brakeRate": 4.96,
       "strafePower": 1.03,
-      "linearDrag": 1.0,
+      "linearDrag": 1,
       "bankFactor": 0.86,
       "holdSize": 70,
       "firePower": 10,
       "mass": 150,
       "shipClass": 3,
-      "powerCapacity": 11900.0,
-      "powerChargeRate": 1190.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0
+      "powerCapacity": 11900,
+      "powerChargeRate": 1190,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100
     },
     "powerplant": {
       "id": "co_elite2_power01",
@@ -1823,13 +1963,27 @@ const FL_SHIP_PACKAGES = {
       "idsName": "263716",
       "idsInfo": "264716",
       "info": "Corsair Heavy Fighter Powerplant\nEnergy Capacity: 11900\nRegeneration Rate / sec: 1190",
-      "capacity": 11900.0,
-      "chargeRate": 1190.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0,
+      "capacity": 11900,
+      "chargeRate": 1190,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100,
       "sourceFile": "misc_equip.ini"
     },
-    "info": "Stats\nGun/Turret Mounts: 6/1\nArmor: 12600\nCargo Space: 70\nMax Batteries/NanoBots: 71/71\nOptimal Weapon Class: 8\nMax. Weapon Class: 10\nAdditional Equipment: M, CM, CD/T"
+    "info": "Stats\nGun/Turret Mounts: 6/1\nArmor: 12600\nCargo Space: 70\nMax Batteries/NanoBots: 71/71\nOptimal Weapon Class: 8\nMax. Weapon Class: 10\nAdditional Equipment: M, CM, CD/T",
+    "engine": {
+      "id": "ge_coe2_engine_01",
+      "name": "Triebwerk, sehr schwerer Korsaren-Jäger",
+      "idsName": "263683",
+      "idsInfo": "264683",
+      "info": "Triebwerk, sehr schwerer Korsaren-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000,
+      "linearDrag": 599,
+      "powerUsage": 0,
+      "reverseFraction": 1,
+      "cruiseChargeTime": 5,
+      "cruisePowerUsage": 20,
+      "sourceFile": "engine_equip.ini"
+    }
   },
   "coe_package": {
     "id": "coe_package",
@@ -1848,16 +2002,16 @@ const FL_SHIP_PACKAGES = {
       "acceleration": 1.48,
       "brakeRate": 3.84,
       "strafePower": 1.03,
-      "linearDrag": 1.0,
+      "linearDrag": 1,
       "bankFactor": 0.86,
       "holdSize": 45,
       "firePower": 9,
       "mass": 150,
       "shipClass": 1,
-      "powerCapacity": 8900.0,
-      "powerChargeRate": 890.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0
+      "powerCapacity": 8900,
+      "powerChargeRate": 890,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100
     },
     "powerplant": {
       "id": "co_elite_power01",
@@ -1865,13 +2019,27 @@ const FL_SHIP_PACKAGES = {
       "idsName": "263715",
       "idsInfo": "264715",
       "info": "Corsair Heavy Fighter Powerplant\nEnergy Capacity: 8900\nRegeneration Rate / sec: 890",
-      "capacity": 8900.0,
-      "chargeRate": 890.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0,
+      "capacity": 8900,
+      "chargeRate": 890,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100,
       "sourceFile": "misc_equip.ini"
     },
-    "info": "Stats\nGun/Turret Mounts: 6/0\nArmor: 9200\nCargo Space: 45\nMax Batteries/NanoBots: 55/55\nOptimal Weapon Class: 7\nMax. Weapon Class: 9\nAdditional Equipment: M, CM, CD/T"
+    "info": "Stats\nGun/Turret Mounts: 6/0\nArmor: 9200\nCargo Space: 45\nMax Batteries/NanoBots: 55/55\nOptimal Weapon Class: 7\nMax. Weapon Class: 9\nAdditional Equipment: M, CM, CD/T",
+    "engine": {
+      "id": "ge_coe_engine_01",
+      "name": "Triebwerk, schwerer Korsaren-Jäger",
+      "idsName": "263682",
+      "idsInfo": "264682",
+      "info": "Triebwerk, schwerer Korsaren-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000,
+      "linearDrag": 599,
+      "powerUsage": 0,
+      "reverseFraction": 1,
+      "cruiseChargeTime": 5,
+      "cruisePowerUsage": 20,
+      "sourceFile": "engine_equip.ini"
+    }
   },
   "cof_package": {
     "id": "cof_package",
@@ -1890,16 +2058,16 @@ const FL_SHIP_PACKAGES = {
       "acceleration": 4.2,
       "brakeRate": 3.81,
       "strafePower": 3.08,
-      "linearDrag": 1.0,
-      "bankFactor": 1.0,
+      "linearDrag": 1,
+      "bankFactor": 1,
       "holdSize": 35,
       "firePower": 5,
       "mass": 50,
       "shipClass": 0,
-      "powerCapacity": 2500.0,
-      "powerChargeRate": 248.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0
+      "powerCapacity": 2500,
+      "powerChargeRate": 248,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100
     },
     "powerplant": {
       "id": "co_fighter_power01",
@@ -1907,13 +2075,27 @@ const FL_SHIP_PACKAGES = {
       "idsName": "263714",
       "idsInfo": "264714",
       "info": "Corsair Light Fighter Powerplant\nEnergy Capacity: 2500\nRegeneration Rate / sec: 248",
-      "capacity": 2500.0,
-      "chargeRate": 248.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0,
+      "capacity": 2500,
+      "chargeRate": 248,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100,
       "sourceFile": "misc_equip.ini"
     },
-    "info": "Stats\nGun/Turret Mounts: 4/0\nArmor: 2400\nCargo Space: 35\nMax Batteries/NanoBots: 20/20\nOptimal Weapon Class: 3\nMax. Weapon Class: 5\nAdditional Equipment: M, CM, CD"
+    "info": "Stats\nGun/Turret Mounts: 4/0\nArmor: 2400\nCargo Space: 35\nMax Batteries/NanoBots: 20/20\nOptimal Weapon Class: 3\nMax. Weapon Class: 5\nAdditional Equipment: M, CM, CD",
+    "engine": {
+      "id": "ge_cof_engine_01",
+      "name": "Triebwerk, Korsaren-Jäger",
+      "idsName": "263681",
+      "idsInfo": "264681",
+      "info": "Triebwerk, Korsaren-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000,
+      "linearDrag": 599,
+      "powerUsage": 0,
+      "reverseFraction": 1,
+      "cruiseChargeTime": 5,
+      "cruisePowerUsage": 20,
+      "sourceFile": "engine_equip.ini"
+    }
   },
   "gf1_package": {
     "id": "gf1_package",
@@ -1932,16 +2114,16 @@ const FL_SHIP_PACKAGES = {
       "acceleration": 2.22,
       "brakeRate": 3.81,
       "strafePower": 1.54,
-      "linearDrag": 1.0,
-      "bankFactor": 1.0,
+      "linearDrag": 1,
+      "bankFactor": 1,
       "holdSize": 20,
       "firePower": 3,
       "mass": 100,
       "shipClass": 0,
-      "powerCapacity": 1000.0,
-      "powerChargeRate": 95.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0
+      "powerCapacity": 1000,
+      "powerChargeRate": 95,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100
     },
     "powerplant": {
       "id": "ge_fighter_power01",
@@ -1949,13 +2131,27 @@ const FL_SHIP_PACKAGES = {
       "idsName": "263705",
       "idsInfo": "264705",
       "info": "Starflier Power Plant\nEnergy Capacity: 1000\nRegeneration Rate / sec: 95",
-      "capacity": 1000.0,
-      "chargeRate": 95.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0,
+      "capacity": 1000,
+      "chargeRate": 95,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100,
       "sourceFile": "misc_equip.ini"
     },
-    "info": "Stats\nGun/Turret Mounts: 3\nArmor: 1100\nCargo Space: 20\nMax Batteries/NanoBots: 10/10\nOptimal Weapon Class: 1\nMax. Weapon Class: 3\nAdditional Equipment: M, CM"
+    "info": "Stats\nGun/Turret Mounts: 3\nArmor: 1100\nCargo Space: 20\nMax Batteries/NanoBots: 10/10\nOptimal Weapon Class: 1\nMax. Weapon Class: 3\nAdditional Equipment: M, CM",
+    "engine": {
+      "id": "ge_gf1_engine_01",
+      "name": "Triebwerk, Starflier",
+      "idsName": "263671",
+      "idsInfo": "264671",
+      "info": "Triebwerk, Starflier\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000,
+      "linearDrag": 599,
+      "powerUsage": 0,
+      "reverseFraction": 1,
+      "cruiseChargeTime": 5,
+      "cruisePowerUsage": 20,
+      "sourceFile": "engine_equip.ini"
+    }
   },
   "gf2_package": {
     "id": "gf2_package",
@@ -1974,16 +2170,16 @@ const FL_SHIP_PACKAGES = {
       "acceleration": 2.22,
       "brakeRate": 3.81,
       "strafePower": 1.54,
-      "linearDrag": 1.0,
-      "bankFactor": 1.0,
+      "linearDrag": 1,
+      "bankFactor": 1,
       "holdSize": 30,
       "firePower": 4,
       "mass": 100,
       "shipClass": 0,
-      "powerCapacity": 1800.0,
-      "powerChargeRate": 183.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0
+      "powerCapacity": 1800,
+      "powerChargeRate": 183,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100
     },
     "powerplant": {
       "id": "ge_fighter2_power01",
@@ -1991,13 +2187,27 @@ const FL_SHIP_PACKAGES = {
       "idsName": "263706",
       "idsInfo": "264706",
       "info": "Starblazer Power Plant\nEnergy Capacity: 1800\nRegeneration Rate / sec: 183",
-      "capacity": 1800.0,
-      "chargeRate": 183.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0,
+      "capacity": 1800,
+      "chargeRate": 183,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100,
       "sourceFile": "misc_equip.ini"
     },
-    "info": "Stats\nGun/Turret Mounts: 3/0\nArmor: 1800\nCargo Space: 30\nMax Batteries/NanoBots: 15/15\nOptimal Weapon Class: 2\nMax. Weapon Class: 4\nAdditional Equipment: M, CM, CD"
+    "info": "Stats\nGun/Turret Mounts: 3/0\nArmor: 1800\nCargo Space: 30\nMax Batteries/NanoBots: 15/15\nOptimal Weapon Class: 2\nMax. Weapon Class: 4\nAdditional Equipment: M, CM, CD",
+    "engine": {
+      "id": "ge_gf2_engine_01",
+      "name": "Triebwerk, Startracker",
+      "idsName": "263672",
+      "idsInfo": "264672",
+      "info": "Triebwerk, Startracker\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000,
+      "linearDrag": 599,
+      "powerUsage": 0,
+      "reverseFraction": 1,
+      "cruiseChargeTime": 5,
+      "cruisePowerUsage": 20,
+      "sourceFile": "engine_equip.ini"
+    }
   },
   "gf4_package": {
     "id": "gf4_package",
@@ -2016,16 +2226,16 @@ const FL_SHIP_PACKAGES = {
       "acceleration": 2.22,
       "brakeRate": 3.81,
       "strafePower": 1.54,
-      "linearDrag": 1.0,
-      "bankFactor": 1.0,
+      "linearDrag": 1,
+      "bankFactor": 1,
       "holdSize": 45,
       "firePower": 6,
       "mass": 100,
       "shipClass": 0,
-      "powerCapacity": 3400.0,
-      "powerChargeRate": 345.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0
+      "powerCapacity": 3400,
+      "powerChargeRate": 345,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100
     },
     "powerplant": {
       "id": "ge_fighter4_power01",
@@ -2033,13 +2243,27 @@ const FL_SHIP_PACKAGES = {
       "idsName": "263707",
       "idsInfo": "264707",
       "info": "Civilian Light Fighter Powerplant\nEnergy Capacity: 3400\nRegeneration Rate / sec: 345",
-      "capacity": 3400.0,
-      "chargeRate": 345.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0,
+      "capacity": 3400,
+      "chargeRate": 345,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100,
       "sourceFile": "misc_equip.ini"
     },
-    "info": "Stats\nGun/Turret Mounts: 4/0\nArmor: 3300\nCargo Space: 45\nMax Batteries/NanoBots: 26/26\nOptimal Weapon Class: 4\nMax. Weapon Class: 6\nAdditional Equipment: M, CM, CD"
+    "info": "Stats\nGun/Turret Mounts: 4/0\nArmor: 3300\nCargo Space: 45\nMax Batteries/NanoBots: 26/26\nOptimal Weapon Class: 4\nMax. Weapon Class: 6\nAdditional Equipment: M, CM, CD",
+    "engine": {
+      "id": "ge_gf4_engine_01",
+      "name": "Triebwerk, Ziviljäger",
+      "idsName": "263674",
+      "idsInfo": "264674",
+      "info": "Triebwerk, Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000,
+      "linearDrag": 599,
+      "powerUsage": 0,
+      "reverseFraction": 1,
+      "cruiseChargeTime": 5,
+      "cruisePowerUsage": 20,
+      "sourceFile": "engine_equip.ini"
+    }
   },
   "gf5_package": {
     "id": "gf5_package",
@@ -2058,16 +2282,16 @@ const FL_SHIP_PACKAGES = {
       "acceleration": 1.48,
       "brakeRate": 4.19,
       "strafePower": 1.03,
-      "linearDrag": 1.0,
+      "linearDrag": 1,
       "bankFactor": 0.86,
       "holdSize": 60,
       "firePower": 8,
       "mass": 150,
       "shipClass": 1,
-      "powerCapacity": 6400.0,
-      "powerChargeRate": 645.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0
+      "powerCapacity": 6400,
+      "powerChargeRate": 645,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100
     },
     "powerplant": {
       "id": "ge_fighter5_power01",
@@ -2075,13 +2299,27 @@ const FL_SHIP_PACKAGES = {
       "idsName": "263708",
       "idsInfo": "264708",
       "info": "Civilian Heavy Fighter Powerplant\nEnergy Capacity: 6400\nRegeneration Rate / sec: 645",
-      "capacity": 6400.0,
-      "chargeRate": 645.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0,
+      "capacity": 6400,
+      "chargeRate": 645,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100,
       "sourceFile": "misc_equip.ini"
     },
-    "info": "Stats\nGun/Turrets Mounts: 5/1\nArmor: 6200\nCargo Space: 60\nMax Batteries/NanoBots: 43/43\nOptimal Weapon Class: 6\nMax. Weapon Class: 8\nAdditional Equipment: M, CM, CD/T"
+    "info": "Stats\nGun/Turrets Mounts: 5/1\nArmor: 6200\nCargo Space: 60\nMax Batteries/NanoBots: 43/43\nOptimal Weapon Class: 6\nMax. Weapon Class: 8\nAdditional Equipment: M, CM, CD/T",
+    "engine": {
+      "id": "ge_gf5_engine_01",
+      "name": "Triebwerk, schwerer Ziviljäger",
+      "idsName": "263675",
+      "idsInfo": "264675",
+      "info": "Triebwerk, schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000,
+      "linearDrag": 599,
+      "powerUsage": 0,
+      "reverseFraction": 1,
+      "cruiseChargeTime": 5,
+      "cruisePowerUsage": 20,
+      "sourceFile": "engine_equip.ini"
+    }
   },
   "gf6_package": {
     "id": "gf6_package",
@@ -2100,16 +2338,16 @@ const FL_SHIP_PACKAGES = {
       "acceleration": 1.48,
       "brakeRate": 4.19,
       "strafePower": 1.03,
-      "linearDrag": 1.0,
+      "linearDrag": 1,
       "bankFactor": 0.86,
       "holdSize": 70,
       "firePower": 10,
       "mass": 150,
       "shipClass": 3,
-      "powerCapacity": 10400.0,
-      "powerChargeRate": 1040.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0
+      "powerCapacity": 10400,
+      "powerChargeRate": 1040,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100
     },
     "powerplant": {
       "id": "ge_fighter6_power01",
@@ -2117,13 +2355,27 @@ const FL_SHIP_PACKAGES = {
       "idsName": "263709",
       "idsInfo": "264709",
       "info": "Civilian Very Heavy Fighter Powerplant\nEnergy Capacity: 10400\nRegeneration Rate / sec: 1040",
-      "capacity": 10400.0,
-      "chargeRate": 1040.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0,
+      "capacity": 10400,
+      "chargeRate": 1040,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100,
       "sourceFile": "misc_equip.ini"
     },
-    "info": "Stats\nGun/Turret Mounts: 6/1\nArmor: 9900\nCargo Space: 70\nMax Batteries/NanoBots: 63/63\nOptimal Weapon Class: 8\nMax. Weapon Class: 10\nAdditional Equipment: M, CM, CD/T"
+    "info": "Stats\nGun/Turret Mounts: 6/1\nArmor: 9900\nCargo Space: 70\nMax Batteries/NanoBots: 63/63\nOptimal Weapon Class: 8\nMax. Weapon Class: 10\nAdditional Equipment: M, CM, CD/T",
+    "engine": {
+      "id": "ge_gf6_engine_01",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000,
+      "linearDrag": 599,
+      "powerUsage": 0,
+      "reverseFraction": 1,
+      "cruiseChargeTime": 5,
+      "cruisePowerUsage": 20,
+      "sourceFile": "engine_equip.ini"
+    }
   },
   "ke_package": {
     "id": "ke_package",
@@ -2142,16 +2394,16 @@ const FL_SHIP_PACKAGES = {
       "acceleration": 1.48,
       "brakeRate": 3.84,
       "strafePower": 1.03,
-      "linearDrag": 1.0,
+      "linearDrag": 1,
       "bankFactor": 0.86,
       "holdSize": 40,
       "firePower": 6,
       "mass": 150,
       "shipClass": 1,
-      "powerCapacity": 3400.0,
-      "powerChargeRate": 345.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0
+      "powerCapacity": 3400,
+      "powerChargeRate": 345,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100
     },
     "powerplant": {
       "id": "ku_elite_power01",
@@ -2159,13 +2411,27 @@ const FL_SHIP_PACKAGES = {
       "idsName": "263727",
       "idsInfo": "264727",
       "info": "Kusari Heavy Fighter Powerplant\nEnergy Capacity: 3400\nRegeneration Rate / sec: 345",
-      "capacity": 3400.0,
-      "chargeRate": 345.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0,
+      "capacity": 3400,
+      "chargeRate": 345,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100,
       "sourceFile": "misc_equip.ini"
     },
-    "info": "Stats\nGun/Turret Mounts: 6/0\nArmor: 3600\nCargo Space: 40\nMax Batteries/NanoBots: 26/26\nOptimal Weapon Class: 4\nMax. Weapon Class: 6\nAdditional Equipment: M, CM, CD/T"
+    "info": "Stats\nGun/Turret Mounts: 6/0\nArmor: 3600\nCargo Space: 40\nMax Batteries/NanoBots: 26/26\nOptimal Weapon Class: 4\nMax. Weapon Class: 6\nAdditional Equipment: M, CM, CD/T",
+    "engine": {
+      "id": "ge_ke_engine_01",
+      "name": "Triebw., opt. Kusari-Jäger",
+      "idsName": "263694",
+      "idsInfo": "264694",
+      "info": "Triebwerk, opt. Kusari-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000,
+      "linearDrag": 599,
+      "powerUsage": 0,
+      "reverseFraction": 1,
+      "cruiseChargeTime": 5,
+      "cruisePowerUsage": 20,
+      "sourceFile": "engine_equip.ini"
+    }
   },
   "kf_package": {
     "id": "kf_package",
@@ -2184,16 +2450,16 @@ const FL_SHIP_PACKAGES = {
       "acceleration": 2.22,
       "brakeRate": 3.81,
       "strafePower": 1.54,
-      "linearDrag": 1.0,
-      "bankFactor": 1.0,
+      "linearDrag": 1,
+      "bankFactor": 1,
       "holdSize": 35,
       "firePower": 6,
       "mass": 100,
       "shipClass": 0,
-      "powerCapacity": 2900.0,
-      "powerChargeRate": 290.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0
+      "powerCapacity": 2900,
+      "powerChargeRate": 290,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100
     },
     "powerplant": {
       "id": "ku_fighter_power01",
@@ -2201,13 +2467,27 @@ const FL_SHIP_PACKAGES = {
       "idsName": "263726",
       "idsInfo": "264726",
       "info": "Kusari Light Fighter Powerplant\nEnergy Capacity: 2900\nRegeneration Rate / sec: 290",
-      "capacity": 2900.0,
-      "chargeRate": 290.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0,
+      "capacity": 2900,
+      "chargeRate": 290,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100,
       "sourceFile": "misc_equip.ini"
     },
-    "info": "Stats\nGun/Turret Mounts: 4/0\nArmor: 2800\nCargo Space: 35\nMax Batteries/NanoBots: 23/23\nOptimal Weapon Class: 4\nMax. Weapon Class: 6\nAdditional Equipment: M, CM, CD"
+    "info": "Stats\nGun/Turret Mounts: 4/0\nArmor: 2800\nCargo Space: 35\nMax Batteries/NanoBots: 23/23\nOptimal Weapon Class: 4\nMax. Weapon Class: 6\nAdditional Equipment: M, CM, CD",
+    "engine": {
+      "id": "ge_kf_engine_01",
+      "name": "Triebwerk, Kusari-Jäger",
+      "idsName": "263693",
+      "idsInfo": "264693",
+      "info": "Triebwerk, Kusari-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000,
+      "linearDrag": 599,
+      "powerUsage": 0,
+      "reverseFraction": 1,
+      "cruiseChargeTime": 5,
+      "cruisePowerUsage": 20,
+      "sourceFile": "engine_equip.ini"
+    }
   },
   "kfr_package": {
     "id": "kfr_package",
@@ -2226,16 +2506,16 @@ const FL_SHIP_PACKAGES = {
       "acceleration": 0.85,
       "brakeRate": 3.73,
       "strafePower": 0.55,
-      "linearDrag": 1.0,
+      "linearDrag": 1,
       "bankFactor": 0.45,
       "holdSize": 175,
       "firePower": 6,
       "mass": 300,
       "shipClass": 2,
-      "powerCapacity": 2700.0,
-      "powerChargeRate": 265.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0
+      "powerCapacity": 2700,
+      "powerChargeRate": 265,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100
     },
     "powerplant": {
       "id": "ku_freighter_power01",
@@ -2243,13 +2523,27 @@ const FL_SHIP_PACKAGES = {
       "idsName": "263728",
       "idsInfo": "264728",
       "info": "Kusari Freighter Powerplant\nEnergy Capacity: 2700\nRegeneration Rate / sec: 265",
-      "capacity": 2700.0,
-      "chargeRate": 265.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0,
+      "capacity": 2700,
+      "chargeRate": 265,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100,
       "sourceFile": "misc_equip.ini"
     },
-    "info": "Stats\nGun/Turret Mounts: 2/6\nArmor: 3600\nCargo Space: 175\nMax Batteries/Nanobots: 23/23\nOptimal Weapon Class: 4\nMax. Weapon Class: 6\nAdditional Equipment: M, CM"
+    "info": "Stats\nGun/Turret Mounts: 2/6\nArmor: 3600\nCargo Space: 175\nMax Batteries/Nanobots: 23/23\nOptimal Weapon Class: 4\nMax. Weapon Class: 6\nAdditional Equipment: M, CM",
+    "engine": {
+      "id": "ge_kfr_engine_01",
+      "name": "Triebwerk, Kusari-Frachter",
+      "idsName": "263695",
+      "idsInfo": "264695",
+      "info": "Triebwerk, Kusari-Frachter\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000,
+      "linearDrag": 599,
+      "powerUsage": 0,
+      "reverseFraction": 1,
+      "cruiseChargeTime": 5,
+      "cruisePowerUsage": 20,
+      "sourceFile": "engine_equip.ini"
+    }
   },
   "le_package": {
     "id": "le_package",
@@ -2268,16 +2562,16 @@ const FL_SHIP_PACKAGES = {
       "acceleration": 1.48,
       "brakeRate": 3.84,
       "strafePower": 1.03,
-      "linearDrag": 1.0,
+      "linearDrag": 1,
       "bankFactor": 0.86,
       "holdSize": 30,
       "firePower": 4,
       "mass": 150,
       "shipClass": 1,
-      "powerCapacity": 1500.0,
-      "powerChargeRate": 157.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0
+      "powerCapacity": 1500,
+      "powerChargeRate": 157,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100
     },
     "powerplant": {
       "id": "li_elite_power01",
@@ -2285,13 +2579,27 @@ const FL_SHIP_PACKAGES = {
       "idsName": "263721",
       "idsInfo": "264721",
       "info": "Liberty Heavy Fighter Powerplant\nEnergy Capacity: 1500\nRegeneration Rate / sec: 157",
-      "capacity": 1500.0,
-      "chargeRate": 157.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0,
+      "capacity": 1500,
+      "chargeRate": 157,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100,
       "sourceFile": "misc_equip.ini"
     },
-    "info": "Stats\nGun/Turret Mounts: 5/1\nArmor: 1600\nCargo Space: 30\nMax Batteries/NanoBots: 14/14\nOptimal Weapon Class: 2\nMax. Weapon Class: 4\nAdditional Equipment: M, CM, CD/T"
+    "info": "Stats\nGun/Turret Mounts: 5/1\nArmor: 1600\nCargo Space: 30\nMax Batteries/NanoBots: 14/14\nOptimal Weapon Class: 2\nMax. Weapon Class: 4\nAdditional Equipment: M, CM, CD/T",
+    "engine": {
+      "id": "ge_le_engine_01",
+      "name": "Triebwerk, opt. Liberty-Jäger",
+      "idsName": "263688",
+      "idsInfo": "264688",
+      "info": "Triebwerk, opt. Liberty-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000,
+      "linearDrag": 599,
+      "powerUsage": 0,
+      "reverseFraction": 1,
+      "cruiseChargeTime": 5,
+      "cruisePowerUsage": 20,
+      "sourceFile": "engine_equip.ini"
+    }
   },
   "lf_package": {
     "id": "lf_package",
@@ -2310,16 +2618,16 @@ const FL_SHIP_PACKAGES = {
       "acceleration": 2.22,
       "brakeRate": 3.81,
       "strafePower": 1.54,
-      "linearDrag": 1.0,
-      "bankFactor": 1.0,
+      "linearDrag": 1,
+      "bankFactor": 1,
       "holdSize": 25,
       "firePower": 3,
       "mass": 100,
       "shipClass": 0,
-      "powerCapacity": 1300.0,
-      "powerChargeRate": 126.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0
+      "powerCapacity": 1300,
+      "powerChargeRate": 126,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100
     },
     "powerplant": {
       "id": "li_fighter_power01",
@@ -2327,13 +2635,27 @@ const FL_SHIP_PACKAGES = {
       "idsName": "263720",
       "idsInfo": "264720",
       "info": "Liberty Light Fighter Powerplant\nEnergy Capacity: 1300\nRegeneration Rate / sec: 126",
-      "capacity": 1300.0,
-      "chargeRate": 126.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0,
+      "capacity": 1300,
+      "chargeRate": 126,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100,
       "sourceFile": "misc_equip.ini"
     },
-    "info": "Stats\nGun/Turret Mounts: 4/0\nArmor: 1300\nCargo Space: 25\nMax Batteries/NanoBots: 12/12\nOptimal Weapon Class: 2\nMax. Weapon Class: 3\nAdditional Equipment: M, CM, CD"
+    "info": "Stats\nGun/Turret Mounts: 4/0\nArmor: 1300\nCargo Space: 25\nMax Batteries/NanoBots: 12/12\nOptimal Weapon Class: 2\nMax. Weapon Class: 3\nAdditional Equipment: M, CM, CD",
+    "engine": {
+      "id": "ge_lf_engine_01",
+      "name": "Triebwerk, Liberty-Jäger",
+      "idsName": "263687",
+      "idsInfo": "264687",
+      "info": "Triebwerk, Liberty-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000,
+      "linearDrag": 599,
+      "powerUsage": 0,
+      "reverseFraction": 1,
+      "cruiseChargeTime": 5,
+      "cruisePowerUsage": 20,
+      "sourceFile": "engine_equip.ini"
+    }
   },
   "lfr_package": {
     "id": "lfr_package",
@@ -2352,16 +2674,16 @@ const FL_SHIP_PACKAGES = {
       "acceleration": 0.85,
       "brakeRate": 3.73,
       "strafePower": 0.55,
-      "linearDrag": 1.0,
+      "linearDrag": 1,
       "bankFactor": 0.45,
       "holdSize": 80,
       "firePower": 3,
       "mass": 300,
       "shipClass": 2,
-      "powerCapacity": 1300.0,
-      "powerChargeRate": 126.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0
+      "powerCapacity": 1300,
+      "powerChargeRate": 126,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100
     },
     "powerplant": {
       "id": "li_freighter_power01",
@@ -2369,13 +2691,27 @@ const FL_SHIP_PACKAGES = {
       "idsName": "263722",
       "idsInfo": "264722",
       "info": "Liberty Freighter Powerplant\nEnergy Capacity: 1300\nRegeneration Rate / sec: 126",
-      "capacity": 1300.0,
-      "chargeRate": 126.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0,
+      "capacity": 1300,
+      "chargeRate": 126,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100,
       "sourceFile": "misc_equip.ini"
     },
-    "info": "Stats\nGun Mounts: 3/5\nArmor: 1600\nCargo Space: 80\nMax Batteries/NanoBots: 12/12\nOptimal Weapon Class: 1\nMax. Weapon Class: 3\nAdditional Equipment: M, CM"
+    "info": "Stats\nGun Mounts: 3/5\nArmor: 1600\nCargo Space: 80\nMax Batteries/NanoBots: 12/12\nOptimal Weapon Class: 1\nMax. Weapon Class: 3\nAdditional Equipment: M, CM",
+    "engine": {
+      "id": "ge_lfr_engine_01",
+      "name": "Triebwerk, Liberty-Frachter",
+      "idsName": "263689",
+      "idsInfo": "264689",
+      "info": "Triebwerk, Liberty-Frachter\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000,
+      "linearDrag": 599,
+      "powerUsage": 0,
+      "reverseFraction": 1,
+      "cruiseChargeTime": 5,
+      "cruisePowerUsage": 20,
+      "sourceFile": "engine_equip.ini"
+    }
   },
   "oe_package": {
     "id": "oe_package",
@@ -2394,16 +2730,16 @@ const FL_SHIP_PACKAGES = {
       "acceleration": 1.48,
       "brakeRate": 3.84,
       "strafePower": 1.03,
-      "linearDrag": 1.0,
+      "linearDrag": 1,
       "bankFactor": 0.86,
       "holdSize": 70,
       "firePower": 6,
       "mass": 150,
       "shipClass": 3,
-      "powerCapacity": 4000.0,
-      "powerChargeRate": 395.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0
+      "powerCapacity": 4000,
+      "powerChargeRate": 395,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100
     },
     "powerplant": {
       "id": "or_elite_power01",
@@ -2411,13 +2747,27 @@ const FL_SHIP_PACKAGES = {
       "idsName": "263735",
       "idsInfo": "264735",
       "info": "Order Heavy Fighter Powerplant\nEnergy Capacity: 4000\nRegeneration Rate / sec: 395",
-      "capacity": 4000.0,
-      "chargeRate": 395.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0,
+      "capacity": 4000,
+      "chargeRate": 395,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100,
       "sourceFile": "misc_equip.ini"
     },
-    "info": "Stats\nGun/Turret Mounts: 6/1\nArmor: 4200\nCargo Space: 70\nMax Batteries/NanoBots: 29/29\nOptimal Weapon Class: 5\nMax. Weapon Class: 6\nAdditional Equipment: M, CM, CD/T"
+    "info": "Stats\nGun/Turret Mounts: 6/1\nArmor: 4200\nCargo Space: 70\nMax Batteries/NanoBots: 29/29\nOptimal Weapon Class: 5\nMax. Weapon Class: 6\nAdditional Equipment: M, CM, CD/T",
+    "engine": {
+      "id": "ge_oe_engine_01",
+      "name": "Triebwerk, Orden-Jäger",
+      "idsName": "263702",
+      "idsInfo": "264702",
+      "info": "Triebwerk, Orden-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000,
+      "linearDrag": 599,
+      "powerUsage": 0,
+      "reverseFraction": 1,
+      "cruiseChargeTime": 5,
+      "cruisePowerUsage": 20,
+      "sourceFile": "engine_equip.ini"
+    }
   },
   "pe_package": {
     "id": "pe_package",
@@ -2436,16 +2786,16 @@ const FL_SHIP_PACKAGES = {
       "acceleration": 1.48,
       "brakeRate": 3.84,
       "strafePower": 1.03,
-      "linearDrag": 1.0,
+      "linearDrag": 1,
       "bankFactor": 0.57,
       "holdSize": 40,
       "firePower": 6,
       "mass": 150,
       "shipClass": 1,
-      "powerCapacity": 3400.0,
-      "powerChargeRate": 345.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0
+      "powerCapacity": 3400,
+      "powerChargeRate": 345,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100
     },
     "powerplant": {
       "id": "pi_elite_power01",
@@ -2453,13 +2803,27 @@ const FL_SHIP_PACKAGES = {
       "idsName": "263733",
       "idsInfo": "264733",
       "info": "Pirate Heavy Fighter Powerplant\nEnergy Capacity: 3400\nRegeneration Rate / sec: 345",
-      "capacity": 3400.0,
-      "chargeRate": 345.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0,
+      "capacity": 3400,
+      "chargeRate": 345,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100,
       "sourceFile": "misc_equip.ini"
     },
-    "info": "Stats\nGun/Turret Mounts: 5/1\nArmor: 3600\nCargo Space: 40\nMax Batteries/NanoBots: 26/26\nOptimal Weapon Class: 4\nMax. Weapon Class: 6\nAdditional Equipment: M, CM, CD/T"
+    "info": "Stats\nGun/Turret Mounts: 5/1\nArmor: 3600\nCargo Space: 40\nMax Batteries/NanoBots: 26/26\nOptimal Weapon Class: 4\nMax. Weapon Class: 6\nAdditional Equipment: M, CM, CD/T",
+    "engine": {
+      "id": "ge_pe_engine_01",
+      "name": "Triebw., opt. Hispania-Jäger",
+      "idsName": "263700",
+      "idsInfo": "264700",
+      "info": "Triebwerk, opt. Hispania-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000,
+      "linearDrag": 599,
+      "powerUsage": 0,
+      "reverseFraction": 1,
+      "cruiseChargeTime": 5,
+      "cruisePowerUsage": 20,
+      "sourceFile": "engine_equip.ini"
+    }
   },
   "pf_package": {
     "id": "pf_package",
@@ -2478,16 +2842,16 @@ const FL_SHIP_PACKAGES = {
       "acceleration": 2.22,
       "brakeRate": 3.81,
       "strafePower": 1.54,
-      "linearDrag": 1.0,
+      "linearDrag": 1,
       "bankFactor": 0.71,
       "holdSize": 35,
       "firePower": 4,
       "mass": 100,
       "shipClass": 0,
-      "powerCapacity": 1500.0,
-      "powerChargeRate": 157.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0
+      "powerCapacity": 1500,
+      "powerChargeRate": 157,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100
     },
     "powerplant": {
       "id": "pi_fighter_power01",
@@ -2495,13 +2859,27 @@ const FL_SHIP_PACKAGES = {
       "idsName": "263732",
       "idsInfo": "264732",
       "info": "Pirate Light Fighter Powerplant\nEnergy Capacity: 1500\nRegeneration Rate / sec: 157",
-      "capacity": 1500.0,
-      "chargeRate": 157.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0,
+      "capacity": 1500,
+      "chargeRate": 157,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100,
       "sourceFile": "misc_equip.ini"
     },
-    "info": "Stats\nGun/Turret Mounts: 3/1\nArmor: 1900\nCargo Space: 35\nMax Batteries/NanoBots: 14/14\nOptimal Weapon Class: 2\nMax. Weapon Class: 4\nAdditional Equipment: M, CM, CD"
+    "info": "Stats\nGun/Turret Mounts: 3/1\nArmor: 1900\nCargo Space: 35\nMax Batteries/NanoBots: 14/14\nOptimal Weapon Class: 2\nMax. Weapon Class: 4\nAdditional Equipment: M, CM, CD",
+    "engine": {
+      "id": "ge_pf_engine_01",
+      "name": "Triebwerk, Hispania-Jäger",
+      "idsName": "263699",
+      "idsInfo": "264699",
+      "info": "Triebwerk, Hispania-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000,
+      "linearDrag": 599,
+      "powerUsage": 0,
+      "reverseFraction": 1,
+      "cruiseChargeTime": 5,
+      "cruisePowerUsage": 20,
+      "sourceFile": "engine_equip.ini"
+    }
   },
   "pfr_package": {
     "id": "pfr_package",
@@ -2520,16 +2898,16 @@ const FL_SHIP_PACKAGES = {
       "acceleration": 0.85,
       "brakeRate": 3.73,
       "strafePower": 0.55,
-      "linearDrag": 1.0,
+      "linearDrag": 1,
       "bankFactor": 0.45,
       "holdSize": 90,
       "firePower": 4,
       "mass": 300,
       "shipClass": 2,
-      "powerCapacity": 1800.0,
-      "powerChargeRate": 183.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0
+      "powerCapacity": 1800,
+      "powerChargeRate": 183,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100
     },
     "powerplant": {
       "id": "pi_freighter_power01",
@@ -2537,13 +2915,27 @@ const FL_SHIP_PACKAGES = {
       "idsName": "263734",
       "idsInfo": "264734",
       "info": "Pirate Freighter Powerplant\nEnergy Capacity: 1800\nRegeneration Rate / sec: 183",
-      "capacity": 1800.0,
-      "chargeRate": 183.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0,
+      "capacity": 1800,
+      "chargeRate": 183,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100,
       "sourceFile": "misc_equip.ini"
     },
-    "info": "Stats\nGun/Turret Mounts: 4/4\nArmor: 2200\nCargo Space: 90\nMax Batteries/NanoBots: 15/15\nOptimal Weapon Class: 2\nMax. Weapon Class: 4\nAdditional Equipment: M, CM"
+    "info": "Stats\nGun/Turret Mounts: 4/4\nArmor: 2200\nCargo Space: 90\nMax Batteries/NanoBots: 15/15\nOptimal Weapon Class: 2\nMax. Weapon Class: 4\nAdditional Equipment: M, CM",
+    "engine": {
+      "id": "ge_pfr_engine_01",
+      "name": "Triebwerk, Hispania-Frachter",
+      "idsName": "263701",
+      "idsInfo": "264701",
+      "info": "Triebwerk, Hispania-Frachter\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000,
+      "linearDrag": 599,
+      "powerUsage": 0,
+      "reverseFraction": 1,
+      "cruiseChargeTime": 5,
+      "cruisePowerUsage": 20,
+      "sourceFile": "engine_equip.ini"
+    }
   },
   "re_package": {
     "id": "re_package",
@@ -2562,16 +2954,16 @@ const FL_SHIP_PACKAGES = {
       "acceleration": 1.48,
       "brakeRate": 3.84,
       "strafePower": 1.03,
-      "linearDrag": 1.0,
+      "linearDrag": 1,
       "bankFactor": 0.86,
       "holdSize": 50,
       "firePower": 8,
       "mass": 150,
       "shipClass": 1,
-      "powerCapacity": 5400.0,
-      "powerChargeRate": 545.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0
+      "powerCapacity": 5400,
+      "powerChargeRate": 545,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100
     },
     "powerplant": {
       "id": "rh_elite_power01",
@@ -2579,13 +2971,27 @@ const FL_SHIP_PACKAGES = {
       "idsName": "263730",
       "idsInfo": "264730",
       "info": "Rheinland Heavy Fighter Powerplant\nEnergy Capacity: 5400\nRegeneration Rate / sec: 545",
-      "capacity": 5400.0,
-      "chargeRate": 545.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0,
+      "capacity": 5400,
+      "chargeRate": 545,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100,
       "sourceFile": "misc_equip.ini"
     },
-    "info": "Stats\nGun/Turret Mounts: 5/1\nArmor: 5800\nCargo Space: 50\nMax Batteries/NanoBots: 38/38\nOptimal Weapon Class: 6\nMax. Weapon Class: 8\nAdditional Equipment: M, CM, CD/T"
+    "info": "Stats\nGun/Turret Mounts: 5/1\nArmor: 5800\nCargo Space: 50\nMax Batteries/NanoBots: 38/38\nOptimal Weapon Class: 6\nMax. Weapon Class: 8\nAdditional Equipment: M, CM, CD/T",
+    "engine": {
+      "id": "ge_re_engine_01",
+      "name": "Triebwerk, opt. Rh.-Jäger",
+      "idsName": "263697",
+      "idsInfo": "264697",
+      "info": "Triebwerk, opt. Rheinland-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000,
+      "linearDrag": 599,
+      "powerUsage": 0,
+      "reverseFraction": 1,
+      "cruiseChargeTime": 5,
+      "cruisePowerUsage": 20,
+      "sourceFile": "engine_equip.ini"
+    }
   },
   "rf_package": {
     "id": "rf_package",
@@ -2604,16 +3010,16 @@ const FL_SHIP_PACKAGES = {
       "acceleration": 2.22,
       "brakeRate": 3.81,
       "strafePower": 1.54,
-      "linearDrag": 1.0,
-      "bankFactor": 1.0,
+      "linearDrag": 1,
+      "bankFactor": 1,
       "holdSize": 45,
       "firePower": 7,
       "mass": 100,
       "shipClass": 0,
-      "powerCapacity": 4700.0,
-      "powerChargeRate": 465.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0
+      "powerCapacity": 4700,
+      "powerChargeRate": 465,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100
     },
     "powerplant": {
       "id": "rh_fighter_power01",
@@ -2621,13 +3027,27 @@ const FL_SHIP_PACKAGES = {
       "idsName": "263729",
       "idsInfo": "264729",
       "info": "Rheinland Light Fighter Powerplant\nEnergy Capacity: 4700\nRegeneration Rate / sec: 465",
-      "capacity": 4700.0,
-      "chargeRate": 465.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0,
+      "capacity": 4700,
+      "chargeRate": 465,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100,
       "sourceFile": "misc_equip.ini"
     },
-    "info": "Stats\nGun/Turret Mounts: 4/0\nArmor: 4500\nCargo Space: 45\nMax Batteries/NanoBots: 33/33\nOptimal Weapon Class: 5\nMax. Weapon Class: 7\nAdditional Equipment: M, CM, CD"
+    "info": "Stats\nGun/Turret Mounts: 4/0\nArmor: 4500\nCargo Space: 45\nMax Batteries/NanoBots: 33/33\nOptimal Weapon Class: 5\nMax. Weapon Class: 7\nAdditional Equipment: M, CM, CD",
+    "engine": {
+      "id": "ge_rf_engine_01",
+      "name": "Triebwerk, Rh.-Jäger",
+      "idsName": "263696",
+      "idsInfo": "264696",
+      "info": "Triebwerk, Rheinland-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000,
+      "linearDrag": 599,
+      "powerUsage": 0,
+      "reverseFraction": 1,
+      "cruiseChargeTime": 5,
+      "cruisePowerUsage": 20,
+      "sourceFile": "engine_equip.ini"
+    }
   },
   "rfr_package": {
     "id": "rfr_package",
@@ -2646,16 +3066,16 @@ const FL_SHIP_PACKAGES = {
       "acceleration": 0.85,
       "brakeRate": 3.73,
       "strafePower": 0.55,
-      "linearDrag": 1.0,
+      "linearDrag": 1,
       "bankFactor": 0.45,
       "holdSize": 250,
       "firePower": 7,
       "mass": 300,
       "shipClass": 2,
-      "powerCapacity": 4700.0,
-      "powerChargeRate": 465.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0
+      "powerCapacity": 4700,
+      "powerChargeRate": 465,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100
     },
     "powerplant": {
       "id": "rh_freighter_power01",
@@ -2663,13 +3083,27 @@ const FL_SHIP_PACKAGES = {
       "idsName": "263731",
       "idsInfo": "264731",
       "info": "Rheinland Freighter Powerplant\nEnergy Capacity: 4700\nRegeneration Rate / sec: 465",
-      "capacity": 4700.0,
-      "chargeRate": 465.0,
-      "thrustCapacity": 1000.0,
-      "thrustChargeRate": 100.0,
+      "capacity": 4700,
+      "chargeRate": 465,
+      "thrustCapacity": 1000,
+      "thrustChargeRate": 100,
       "sourceFile": "misc_equip.ini"
     },
-    "info": "Stats\nGun Mounts: 2/6\nArmor: 5800\nCargo Space: 250\nMax Batteries/NanoBots: 33/33\nOptimal Weapon Class: 5\nMax. Weapon Class: 7\nAdditional Equipment: M, CM"
+    "info": "Stats\nGun Mounts: 2/6\nArmor: 5800\nCargo Space: 250\nMax Batteries/NanoBots: 33/33\nOptimal Weapon Class: 5\nMax. Weapon Class: 7\nAdditional Equipment: M, CM",
+    "engine": {
+      "id": "ge_rfr_engine_01",
+      "name": "Triebwerk, Rh.-Frachter",
+      "idsName": "263698",
+      "idsInfo": "264698",
+      "info": "Triebwerk, Rheinland-Frachter\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000,
+      "linearDrag": 599,
+      "powerUsage": 0,
+      "reverseFraction": 1,
+      "cruiseChargeTime": 5,
+      "cruisePowerUsage": 20,
+      "sourceFile": "engine_equip.ini"
+    }
   }
 };
 

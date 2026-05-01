@@ -27,6 +27,7 @@ def title_from_nickname(nickname: str) -> str:
 
 def classify_equipment(nickname: str, category: str, equipment_id: str) -> str:
     value = f"{nickname} {category} {equipment_id}".lower()
+    is_mine_dropper = category in {"mine", "minedropper"} or bool(re.match(r"^mine\d+_mark\d+(?:_ammo)?$", nickname.lower()))
     if category == "power":
         return "powerplant"
     if "battery" in value:
@@ -37,8 +38,6 @@ def classify_equipment(nickname: str, category: str, equipment_id: str) -> str:
         return "shield"
     if "thruster" in value:
         return "thruster"
-    if "mine" in value:
-        return "mine"
     if "cm_" in value or "counter" in value:
         return "countermeasure"
     if "missile" in value or "rocket" in value or "torpedo" in value or "disruptor" in value:
@@ -47,9 +46,35 @@ def classify_equipment(nickname: str, category: str, equipment_id: str) -> str:
         return "turret"
     if "gun" in value:
         return "weapon"
+    if is_mine_dropper:
+        return "mine"
     if "ammo" in value:
         return "ammo"
     return category or "equipment"
+
+
+def is_mine_dropper_item(item: dict) -> bool:
+    return (
+        str(item.get("category", "")).lower() == "mine"
+        and not bool(item.get("combinable"))
+        and bool(str(item.get("projectileArchetype", "")).strip())
+    )
+
+
+def mine_dropper_display_name(name: str) -> str:
+    text = fl_text(name).strip()
+    lowered = text.lower()
+    if "dropper" in lowered or "werfer" in lowered:
+        return text
+    if text.endswith("-Mine"):
+        return text[:-5] + "-Minen-Werfer"
+    if text.endswith("-Mines"):
+        return text[:-6] + "-Minen-Werfer"
+    if text.endswith(" Mine"):
+        return text + " Dropper"
+    if text.endswith(" Mines"):
+        return text[:-1] + " Dropper"
+    return text + " Dropper"
 
 
 def to_float(value: str, default: float = 0.0) -> float:
@@ -118,14 +143,36 @@ def enrich_from_equipment_files(equipment: dict[str, dict]) -> dict[str, dict]:
         if ini_path.name.lower() in {"goods.ini", "market_misc.ini", "market_commodities.ini", "market_ships.ini"}:
             continue
         sections = parse_ini_sections(ini_path)
+        explosions: dict[str, dict] = {}
+        motors: dict[str, dict] = {}
+        for section, props in sections:
+            nickname = first(props, "nickname").lower()
+            if not nickname:
+                continue
+            if section.lower() == "explosion":
+                explosions[nickname] = {
+                    "explosionRadius": to_float(first(props, "radius"), 0),
+                    "explosionHullDamage": to_float(first(props, "hull_damage"), 0),
+                    "explosionEnergyDamage": to_float(first(props, "energy_damage"), 0),
+                    "explosionImpulse": to_float(first(props, "impulse"), 0),
+                }
+            elif section.lower() == "motor":
+                motors[nickname] = {
+                    "motorLifetime": to_float(first(props, "lifetime"), 0),
+                    "motorAccel": to_float(first(props, "accel"), 0),
+                    "motorDelay": to_float(first(props, "delay"), 0),
+                }
         munitions: dict[str, dict] = {}
         for section, props in sections:
-            if section.lower() != "munition":
+            section_name = section.lower()
+            if section_name not in {"munition", "mine", "countermeasure"}:
                 continue
             nickname = first(props, "nickname").lower()
             if not nickname:
                 continue
-            munitions[nickname] = {
+            explosion_arch = first(props, "explosion_arch").lower()
+            motor = first(props, "motor").lower()
+            munition = {
                 "hullDamage": to_float(first(props, "hull_damage"), 0),
                 "energyDamage": to_float(first(props, "energy_damage"), 0),
                 "weaponType": first(props, "weapon_type"),
@@ -133,7 +180,25 @@ def enrich_from_equipment_files(equipment: dict[str, dict]) -> dict[str, dict]:
                 "requiresAmmo": first(props, "requires_ammo", "false").lower() == "true",
                 "munitionHitEffect": first(props, "munition_hit_effect"),
                 "constEffect": first(props, "const_effect"),
+                "explosionArchetype": explosion_arch,
+                "detonationDist": to_float(first(props, "detonation_dist"), 0),
+                "seeker": first(props, "seeker"),
+                "seekerRange": to_float(first(props, "seeker_range"), 0),
+                "seekerFovDeg": to_float(first(props, "seeker_fov_deg"), 0),
+                "maxAngularVelocity": to_float(first(props, "max_angular_velocity"), 0),
+                "ownerSafeTime": to_float(first(props, "owner_safe_time"), 0),
+                "seekDist": to_float(first(props, "seek_dist"), 0),
+                "topSpeed": to_float(first(props, "top_speed"), 0),
+                "acceleration": to_float(first(props, "acceleration"), 0),
+                "linearDrag": to_float(first(props, "linear_drag"), 0),
+                "motor": motor,
+                **explosions.get(explosion_arch, {}),
+                **motors.get(motor, {}),
             }
+            if section_name == "countermeasure":
+                munition["countermeasureRange"] = to_float(first(props, "range"), 0)
+                munition["diversionPctg"] = to_float(first(props, "diversion_pctg"), 0)
+            munitions[nickname] = munition
         for section, props in sections:
             if section.lower() == "good":
                 continue
@@ -176,9 +241,16 @@ def enrich_from_equipment_files(equipment: dict[str, dict]) -> dict[str, dict]:
             item["shieldType"] = first(props, "shield_type", item.get("shieldType", ""))
             item["thrustCapacity"] = to_float(first(props, "thrust_capacity"), item.get("thrustCapacity", 0))
             item["thrustChargeRate"] = to_float(first(props, "thrust_charge_rate"), item.get("thrustChargeRate", 0))
-            munition = munitions.get(str(item.get("projectileArchetype", "")).lower())
+            item["maxForce"] = to_float(first(props, "max_force"), item.get("maxForce", 0))
+            item["linearDrag"] = to_float(first(props, "linear_drag"), item.get("linearDrag", 0))
+            item["reverseFraction"] = to_float(first(props, "reverse_fraction"), item.get("reverseFraction", 0))
+            item["cruiseChargeTime"] = to_float(first(props, "cruise_charge_time"), item.get("cruiseChargeTime", 0))
+            item["cruisePowerUsage"] = to_float(first(props, "cruise_power_usage"), item.get("cruisePowerUsage", 0))
+            munition = munitions.get(str(item.get("projectileArchetype", "")).lower()) or munitions.get(nickname)
             if munition:
                 item.update(munition)
+            if is_mine_dropper_item(item):
+                item["name"] = mine_dropper_display_name(item.get("name", title_from_nickname(nickname)))
             item["sourceFile"] = ini_path.name
             equipment[item["id"]] = item
     return equipment

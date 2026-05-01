@@ -1378,6 +1378,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_be_engine_01",
+      "name": "Triebwerk, opt. Bretonia-Jäger",
+      "idsName": "263691",
+      "idsInfo": "264691",
+      "info": "Triebwerk, opt. Bretonia-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 1.0,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": "Statistik\nGeschütz-/Turmsockel: 6/0\nPanzerung: 2600\nFrachtraum: 35\nMax. Batterien/Nanobots: 20/20\nOptimale Waffenklasse: 3\nMax. Waffenklasse: 5\nZusätzliche Ausrüstung: M, GM, RFU/T"
   },
   "bf_package": {
@@ -1419,6 +1433,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_bf_engine_01",
+      "name": "Triebwerk, Bretonia-Jäger",
+      "idsName": "263690",
+      "idsInfo": "264690",
+      "info": "Triebwerk, Bretonia-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 1.0,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 4/0\nPanzerung: 2100\nFrachtraum: 30\nMax. Batterien/Nanobots: 15/15\nOptimale Waffenklasse: 3\nMax. Waffenklasse: 5\nZusätzliche Ausrüstung: M, GM, RFU"
   },
@@ -1462,6 +1490,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_bfr_engine_01",
+      "name": "Triebw., Bretonia-Frachter",
+      "idsName": "263692",
+      "idsInfo": "264692",
+      "info": "Triebwerk, Bretonia-Frachter\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 1.0,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": "Statistik\nGeschütz-/Turmsockel: 3/5\nPanzerung: 2200\nFrachtraum: 125\nMax. Batterien/Nanobots: 15/15\nOptimale Waffenklasse: 2\nMax. Waffenklasse: 4\nZusätzliche Ausrüstung: M, GM"
   },
   "bhe2_package": {
@@ -1503,6 +1545,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_bhe2_engine_01",
+      "name": "Triebwerk, sehr schwerer Jäger der Kopfgeldjäger",
+      "idsName": "263686",
+      "idsInfo": "264686",
+      "info": "Triebwerk, sehr schwerer Jäger der Kopfgeldjäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 1.0,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 6/1\nPanzerung: 7900\nFrachtraum: 70\nMax. Batterien/Nanobots: 49/49\nOptimale Waffenklasse: 7\nMax. Waffenklasse: 9\nZusätzliche Ausrüstung: M, GM, RFU/T"
   },
@@ -1546,6 +1602,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_bhe_engine_01",
+      "name": "Triebwerk, schwerer Jäger der Kopfgeldjäger",
+      "idsName": "263685",
+      "idsInfo": "264685",
+      "info": "Triebwerk, schwerer Jäger der Kopfgeldjäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 1.0,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": "Statistik\nGeschütz-/Turmsockel: 6/0\nPanzerung: 3600\nFrachtraum: 45\nMax. Batterien/Nanobots: 26/26\nOptimale Waffenklasse: 4\nMax. Waffenklasse: 6\nZusätzliche Ausrüstung: M, GM, RFU/T"
   },
   "bhf_package": {
@@ -1587,6 +1657,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_bhf_engine_01",
+      "name": "Triebwerk, Jäger der Kopfgeldjäger",
+      "idsName": "263684",
+      "idsInfo": "264684",
+      "info": "Triebwerk, Jäger der Kopfgeldjäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 1.0,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 4/0\nPanzerung: 1800\nFrachtraum: 35\nMax. Batterien/Nanobots: 15/15\nOptimale Waffenklasse: 2\nMax. Waffenklasse: 4\nZusätzliche Ausrüstung: M, GM, RFU"
   },
@@ -1630,6 +1714,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_bwe2_engine_01",
+      "name": "Triebwerk, sehr schwerer GW-Jäger",
+      "idsName": "263679",
+      "idsInfo": "264679",
+      "info": "Triebwerk, sehr schwerer GW-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 1.0,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": "Statistik\nGeschütz-/Turmsockel: 6/1\nPanzerung: 10800\nFrachtraum: 70\nMax. Batterien/Nanobots: 63/63\nOptimale Waffenklasse: 8\nMax. Waffenklasse: 10\nZusätzliche Ausrüstung: M, GM, RFU/T"
   },
   "bwe_package": {
@@ -1671,6 +1769,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_bwe_engine_01",
+      "name": "Triebwerk, schwerer GW-Jäger",
+      "idsName": "263678",
+      "idsInfo": "264678",
+      "info": "Triebwerk, schwerer GW-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 1.0,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 6/0\nPanzerung: 4900\nFrachtraum: 45\nMax. Batterien/Nanobots: 33/33\nOptimale Waffenklasse: 5\nMax. Waffenklasse: 7\nZusätzliche Ausrüstung: M, GM, RFU/T"
   },
@@ -1714,6 +1826,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_bwf_engine_01",
+      "name": "Triebwerk, GW-Jäger",
+      "idsName": "263677",
+      "idsInfo": "264677",
+      "info": "Triebwerk, Grenzweltjäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 1.0,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": "Statistik\nGeschütz-/Turmsockel: 4/1\nPanzerung: 1800\nFrachtraum: 35\nMax. Batterien/Nanobots: 15/15\nOptimale Waffenklasse: 2\nMax. Waffenklasse: 4\nZusätzliche Ausrüstung: M, GM, RFU"
   },
   "bwfr_package": {
@@ -1755,6 +1881,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_bwfr_engine_01",
+      "name": "Triebwerk, GW-Frachter",
+      "idsName": "263680",
+      "idsInfo": "264680",
+      "info": "Triebwerk, Grenzweltfrachter\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 1.0,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 3/5\nPanzerung: 3600\nFrachtraum: 275\nMax. Batterien/Nanobots: 23/23\nOptimale Waffenklasse: 4\nMax. Waffenklasse: 6\nZusätzliche Ausrüstung: M, GM"
   },
@@ -1798,6 +1938,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_coe2_engine_01",
+      "name": "Triebwerk, sehr schwerer Korsaren-Jäger",
+      "idsName": "263683",
+      "idsInfo": "264683",
+      "info": "Triebwerk, sehr schwerer Korsaren-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 1.0,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": "Statistik\nGeschütz-/Turmsockel: 6/1\nPanzerung: 12600\nFrachtraum: 70\nMax. Batterien/Nanobots: 71/71\nOptimale Waffenklasse: 8\nMax. Waffenklasse: 10\nZusätzliche Ausrüstung: M, GM, RFU/T"
   },
   "coe_package": {
@@ -1839,6 +1993,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_coe_engine_01",
+      "name": "Triebwerk, schwerer Korsaren-Jäger",
+      "idsName": "263682",
+      "idsInfo": "264682",
+      "info": "Triebwerk, schwerer Korsaren-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 1.0,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 6/0\nPanzerung: 9200\nFrachtraum: 45\nMax. Batterien/Nanobots: 55/55\nOptimale Waffenklasse: 7\nMax. Waffenklasse: 9\nZusätzliche Ausrüstung: M, GM, RFU/T"
   },
@@ -1882,6 +2050,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_cof_engine_01",
+      "name": "Triebwerk, Korsaren-Jäger",
+      "idsName": "263681",
+      "idsInfo": "264681",
+      "info": "Triebwerk, Korsaren-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 1.0,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": "Statistik\nGeschütz-/Turmsockel: 4/0\nPanzerung: 2400\nFrachtraum: 35\nMax. Batterien/Nanobots: 20/20\nOptimale Waffenklasse: 3\nMax. Waffenklasse: 5\nZusätzliche Ausrüstung: M, GM, RFU"
   },
   "gf1_package": {
@@ -1923,6 +2105,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_gf1_engine_01",
+      "name": "Triebwerk, Starflier",
+      "idsName": "263671",
+      "idsInfo": "264671",
+      "info": "Triebwerk, Starflier\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 1.0,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 3\nPanzerung: 1100\nFrachtraum: 20\nMax. Batterien/Nanobots: 10/10\nOptimale Waffenklasse: 1\nMax.Waffenklasse: 3\nZusätzliche Ausrüstung: M, GM"
   },
@@ -1966,6 +2162,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf2_engine_01",
+      "name": "Triebwerk, Startracker",
+      "idsName": "263672",
+      "idsInfo": "264672",
+      "info": "Triebwerk, Startracker\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 1.0,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": "Statistik\nGeschütz-/Turmsockel: 3/0\nPanzerung: 1800\nFrachtraum: 30\nMax. Batterien/Nanobots: 15/15\nOptimale Waffenklasse: 2\nMax. Waffenklasse: 4\nZusätzliche Ausrüstung: M, GM, RFU"
   },
   "gf4_package": {
@@ -2007,6 +2217,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_gf4_engine_01",
+      "name": "Triebwerk, Ziviljäger",
+      "idsName": "263674",
+      "idsInfo": "264674",
+      "info": "Triebwerk, Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 1.0,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 4/0\nPanzerung: 3300\nFrachtraum: 45\nMax. Batterien/Nanobots: 26/26\nOptimale Waffenklasse: 4\nMax. Waffenklasse: 6\nZusätzliche Ausrüstung: M, GM, RFU"
   },
@@ -2050,6 +2274,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_gf5_engine_01",
+      "name": "Triebwerk, schwerer Ziviljäger",
+      "idsName": "263675",
+      "idsInfo": "264675",
+      "info": "Triebwerk, schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 1.0,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": "Statistik\nGeschütz-/Turmsockel: 5/1\nPanzerung: 6200\nFrachtraum: 60\nMax. Batterien/Nanobots: 43/43\nOptimale Waffenklasse: 6\nMax. Waffenklasse: 8\nZusätzliche Ausrüstung: M, GM, RFU/T"
   },
   "gf6_package": {
@@ -2091,6 +2329,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_gf6_engine_01",
+      "name": "Triebwerk, sehr schwerer Ziviljäger",
+      "idsName": "263676",
+      "idsInfo": "264676",
+      "info": "Triebwerk, sehr schwerer Ziviljäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 1.0,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 6/1\nPanzerung: 9900\nFrachtraum: 70\nMax. Batterien/Nanobots: 63/63\nOptimale Waffenklasse: 8\nMax. Waffenklasse: 10\nZusätzliche Ausrüstung: M, GM, RFU/T"
   },
@@ -2134,6 +2386,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_ke_engine_01",
+      "name": "Triebw., opt. Kusari-Jäger",
+      "idsName": "263694",
+      "idsInfo": "264694",
+      "info": "Triebwerk, opt. Kusari-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 1.0,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": "Statistik\nGeschütz-/Turmsockel: 6/0\nPanzerung: 3600\nFrachtraum: 40\nMax. Batterien/Nanobots: 26/26\nOptimale Waffenklasse: 4\nMax. Waffenklasse: 6\nZusätzliche Ausrüstung: M, GM, RFU/T"
   },
   "kf_package": {
@@ -2175,6 +2441,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_kf_engine_01",
+      "name": "Triebwerk, Kusari-Jäger",
+      "idsName": "263693",
+      "idsInfo": "264693",
+      "info": "Triebwerk, Kusari-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 1.0,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 4/0\nPanzerung: 2800\nFrachtraum: 35\nMax. Batterien/Nanobots: 23/23\nOptimale Waffenklasse: 4\nMax. Waffenklasse: 6\nZusätzliche Ausrüstung: M, GM, RFU"
   },
@@ -2218,6 +2498,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_kfr_engine_01",
+      "name": "Triebwerk, Kusari-Frachter",
+      "idsName": "263695",
+      "idsInfo": "264695",
+      "info": "Triebwerk, Kusari-Frachter\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 1.0,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": "Statistik\nGeschütz-/Turmsockel: 2/6\nPanzerung: 3600\nFrachtraum: 175\nMax. Batterien/Nanobots: 23/23\nOptimale Waffenklasse: 4\nMax. Waffenklasse: 6\nZusätzliche Ausrüstung: M, GM"
   },
   "le_package": {
@@ -2259,6 +2553,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_le_engine_01",
+      "name": "Triebwerk, opt. Liberty-Jäger",
+      "idsName": "263688",
+      "idsInfo": "264688",
+      "info": "Triebwerk, opt. Liberty-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 1.0,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 5/1\nPanzerung: 1600\nFrachtraum: 30\nMax. Batterien/Nanobots: 14/14\nOptimale Waffenklasse: 2\nMax. Waffenklasse: 4\nZusätzliche Ausrüstung: M, GM, RFU/T"
   },
@@ -2302,6 +2610,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_lf_engine_01",
+      "name": "Triebwerk, Liberty-Jäger",
+      "idsName": "263687",
+      "idsInfo": "264687",
+      "info": "Triebwerk, Liberty-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 1.0,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": "Statistik\nGeschütz-/Turmsockel: 4/0\nPanzerung: 1300\nFrachtraum: 25\nMax. Batterien/Nanobots: 12/12\nOptimale Waffenklasse: 2\nMax. Waffenklasse: 3\nZusätzliche Ausrüstung: M, GM, RFU"
   },
   "lfr_package": {
@@ -2343,6 +2665,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_lfr_engine_01",
+      "name": "Triebwerk, Liberty-Frachter",
+      "idsName": "263689",
+      "idsInfo": "264689",
+      "info": "Triebwerk, Liberty-Frachter\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 1.0,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": "Statistik\nWaffen-/Geschützturmsockel: 3/5\nPanzerung: 1600\nFrachtraum: 80\nMax. Batterien/Nanobots: 12/12\nOptimale Waffenklasse: 1\nMax. Waffenklasse: 3\nZusätzliche Ausrüstung: M, GM"
   },
@@ -2386,6 +2722,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_oe_engine_01",
+      "name": "Triebwerk, Orden-Jäger",
+      "idsName": "263702",
+      "idsInfo": "264702",
+      "info": "Triebwerk, Orden-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 1.0,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": "Statistik\nGeschütz-/Turmsockel: 6/1\nPanzerung: 4200\nFrachtraum: 70\nMax. Batterien/Nanobots: 29/29\nOptimale Waffenklasse: 5\nMax. Waffenklasse: 6\nZusätzliche Ausrüstung: M, GM, RFU/T"
   },
   "pe_package": {
@@ -2427,6 +2777,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_pe_engine_01",
+      "name": "Triebw., opt. Hispania-Jäger",
+      "idsName": "263700",
+      "idsInfo": "264700",
+      "info": "Triebwerk, opt. Hispania-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 1.0,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 5/1\nPanzerung: 3600\nFrachtraum: 40\nMax. Batterien/Nanobots: 26/26\nOptimale Waffenklasse: 4\nMax. Waffenklasse: 6\nZusätzliche Ausrüstung: M, GM, RFU/T"
   },
@@ -2470,6 +2834,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_pf_engine_01",
+      "name": "Triebwerk, Hispania-Jäger",
+      "idsName": "263699",
+      "idsInfo": "264699",
+      "info": "Triebwerk, Hispania-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 1.0,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": "Statistik\nGeschütz-/Turmsockel: 3/1\nPanzerung: 1900\nFrachtraum: 35\nMax. Batterien/Nanobots: 14/14\nOptimale Waffenklasse: 2\nMax. Waffenklasse: 4\nZusätzliche Ausrüstung: M, GM, RFU"
   },
   "pfr_package": {
@@ -2511,6 +2889,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_pfr_engine_01",
+      "name": "Triebwerk, Hispania-Frachter",
+      "idsName": "263701",
+      "idsInfo": "264701",
+      "info": "Triebwerk, Hispania-Frachter\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 1.0,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": "Statistik\nGeschütz-/Turmsockel: 4/4\nPanzerung: 2200\nFrachtraum: 90\nMax. Batterien/Nanobots: 15/15\nOptimale Waffenklasse: 2\nMax. Waffenklasse: 4\nZusätzliche Ausrüstung: M, GM"
   },
@@ -2554,6 +2946,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_re_engine_01",
+      "name": "Triebwerk, opt. Rh.-Jäger",
+      "idsName": "263697",
+      "idsInfo": "264697",
+      "info": "Triebwerk, opt. Rheinland-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 1.0,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": "Statistik\nGeschütz-/Turmsockel: 5/1\nPanzerung: 5800\nFrachtraum: 50\nMax. Batterien/Nanobots: 38/38\nOptimale Waffenklasse: 6\nMax. Waffenklasse: 8\nZusätzliche Ausrüstung: M, GM, RFU/T"
   },
   "rf_package": {
@@ -2596,6 +3002,20 @@ const FL_SHIP_PACKAGES = {
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
     },
+    "engine": {
+      "id": "ge_rf_engine_01",
+      "name": "Triebwerk, Rh.-Jäger",
+      "idsName": "263696",
+      "idsInfo": "264696",
+      "info": "Triebwerk, Rheinland-Jäger\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 1.0,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
+    },
     "info": "Statistik\nGeschütz-/Turmsockel: 4/0\nPanzerung: 4500\nFrachtraum: 45\nMax. Batterien/Nanobots: 33/33\nOptimale Waffenklasse: 5\nMax. Waffenklasse: 7\nZusätzliche Ausrüstung: M, GM, RFU"
   },
   "rfr_package": {
@@ -2637,6 +3057,20 @@ const FL_SHIP_PACKAGES = {
       "thrustCapacity": 1000.0,
       "thrustChargeRate": 100.0,
       "sourceFile": "misc_equip.ini"
+    },
+    "engine": {
+      "id": "ge_rfr_engine_01",
+      "name": "Triebwerk, Rh.-Frachter",
+      "idsName": "263698",
+      "idsInfo": "264698",
+      "info": "Triebwerk, Rheinland-Frachter\nHöchstgeschwindigkeit (theoretisch): 0\nEnergieverlust / s: 0",
+      "maxForce": 48000.0,
+      "linearDrag": 599.0,
+      "powerUsage": 0.0,
+      "reverseFraction": 1.0,
+      "cruiseChargeTime": 5.0,
+      "cruisePowerUsage": 20.0,
+      "sourceFile": "engine_equip.ini"
     },
     "info": "Statistik\nWaffen-/Geschützturmsockel: 2/6\nPanzerung: 5800\nFrachtraum: 250\nMax. Batterien/Nanobots: 33/33\nOptimale Waffenklasse: 5\nMax. Waffenklasse: 7\nZusätzliche Ausrüstung: M, GM"
   }
