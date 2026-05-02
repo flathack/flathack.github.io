@@ -173,6 +173,165 @@ def load_solar_arch() -> dict:
         }
     return solar
 
+def resolve_data_file(path_value: str) -> Path:
+    normalized = str(path_value or '').strip().replace('\\', '/')
+    if not normalized:
+        return Path()
+    candidate = Path(normalized)
+    if candidate.is_absolute():
+        return candidate
+    return FL_DATA / normalized
+
+def split_ini_list(value: str) -> list[str]:
+    return [part.strip() for part in str(value or '').split(',') if part.strip()]
+
+def unique_preserve_order(values: list[str], lower: bool = False, limit: int = 0) -> list[str]:
+    result = []
+    seen = set()
+    for value in values:
+        cleaned = str(value or '').strip()
+        if not cleaned:
+            continue
+        key = cleaned.lower()
+        if key in seen:
+            continue
+        seen.add(key)
+        result.append(key if lower else cleaned)
+        if limit and len(result) >= limit:
+            break
+    return result
+
+def analyze_asteroid_field_file(file_path: str) -> dict:
+    """Read a solar/asteroids field file and classify debris/mine/mineable fields."""
+    path = resolve_data_file(file_path)
+    if not path.exists():
+        return {
+            'fieldFileExists': False,
+            'fieldKind': 'asteroid',
+            'hazardKind': '',
+            'fieldFlags': [],
+            'texturePanelFiles': [],
+            'cubeObjects': [],
+            'cubeRoles': [],
+            'billboardShapes': [],
+            'dynamicAsteroids': [],
+            'lootCommodities': [],
+        }
+
+    flags: list[str] = []
+    texture_files: list[str] = []
+    cube_objects: list[str] = []
+    cube_roles: list[str] = []
+    billboard_shapes: list[str] = []
+    dynamic_asteroids: list[str] = []
+    loot_commodities: list[str] = []
+    band_shapes: list[str] = []
+    exclusion_zone_ids: list[str] = []
+    density_hint = ''
+    cube_size = 0.0
+    fill_dist = 0.0
+
+    for section_name, props in parse_ini_file_with_duplicates(path):
+        section_lower = section_name.lower()
+        if section_lower == 'texturepanels':
+            texture_files.extend(get_all_props(props, 'file'))
+        elif section_lower == 'field':
+            cube_size = parse_float(get_prop(props, 'cube_size', '0'), cube_size)
+            fill_dist = parse_float(get_prop(props, 'fill_dist', '0'), fill_dist)
+        elif section_lower == 'properties':
+            flags.extend(get_all_props(props, 'flag'))
+        elif section_lower == 'cube':
+            for value in get_all_props(props, 'asteroid'):
+                parts = split_ini_list(value)
+                if not parts:
+                    continue
+                cube_objects.append(parts[0])
+                if len(parts) >= 4:
+                    cube_roles.append(parts[-1])
+        elif section_lower == 'asteroidbillboards':
+            billboard_shapes.extend(get_all_props(props, 'shape'))
+        elif section_lower == 'dynamicasteroids':
+            dynamic_asteroids.extend(get_all_props(props, 'asteroid'))
+        elif section_lower == 'lootablezone':
+            for value in get_all_props(props, 'lootcrate_contents'):
+                parts = split_ini_list(value)
+                if parts:
+                    loot_commodities.append(parts[0])
+        elif section_lower == 'band':
+            band_shapes.extend(get_all_props(props, 'shape'))
+        elif section_lower == 'exclusion zones':
+            exclusion_zone_ids.extend(get_all_props(props, 'exclusion'))
+
+    normalized_flags = unique_preserve_order(flags, lower=True)
+    normalized_textures = unique_preserve_order(texture_files, lower=False, limit=8)
+    normalized_cube_objects = unique_preserve_order(cube_objects, lower=False, limit=24)
+    normalized_cube_roles = unique_preserve_order(cube_roles, lower=True)
+    normalized_billboards = unique_preserve_order(billboard_shapes, lower=False, limit=12)
+    normalized_dynamic = unique_preserve_order(dynamic_asteroids, lower=False, limit=12)
+    normalized_loot = unique_preserve_order(loot_commodities, lower=False, limit=12)
+    normalized_bands = unique_preserve_order(band_shapes, lower=False, limit=8)
+    normalized_exclusions = unique_preserve_order(exclusion_zone_ids, lower=False)
+
+    lower_text = ' '.join(
+        [file_path, *normalized_flags, *normalized_textures, *normalized_cube_objects, *normalized_cube_roles, *normalized_billboards, *normalized_dynamic, *normalized_bands]
+    ).lower()
+
+    explosive_mines = (
+        'mine_danger_objects' in normalized_flags
+        or 'mine' in normalized_cube_roles
+        or ('mine_shapes.ini' in lower_text and ('mine_' in lower_text or ' mine' in lower_text))
+    )
+    debris = (
+        'debris_objects' in normalized_flags
+        or 'debris_shapes.ini' in lower_text
+        or any(obj.lower().startswith('debris_') or obj.lower().startswith('dasteroid_debris') for obj in normalized_cube_objects + normalized_dynamic)
+    )
+    mineable = (
+        any('mineable' in obj.lower() or 'minedout' in obj.lower() for obj in normalized_cube_objects + normalized_dynamic)
+        or bool(normalized_loot)
+    )
+
+    for flag in normalized_flags:
+        if 'density_high' in flag:
+            density_hint = 'high'
+            break
+        if 'density_medium' in flag:
+            density_hint = 'medium'
+        elif 'density_low' in flag and not density_hint:
+            density_hint = 'low'
+
+    if explosive_mines:
+        field_kind = 'minefield'
+        hazard_kind = 'explosive_mines'
+    elif debris:
+        field_kind = 'debris'
+        hazard_kind = 'collision_debris'
+    elif mineable:
+        field_kind = 'mineable_asteroid'
+        hazard_kind = ''
+    else:
+        field_kind = 'asteroid'
+        hazard_kind = ''
+
+    return {
+        'fieldFileExists': True,
+        'fieldKind': field_kind,
+        'hazardKind': hazard_kind,
+        'fieldFlags': normalized_flags,
+        'texturePanelFiles': normalized_textures,
+        'cubeObjects': normalized_cube_objects,
+        'cubeRoles': normalized_cube_roles,
+        'billboardShapes': normalized_billboards,
+        'dynamicAsteroids': normalized_dynamic,
+        'lootCommodities': normalized_loot,
+        'bandShapes': normalized_bands,
+        'exclusionZoneIds': normalized_exclusions,
+        'exclusionZones': [],
+        'densityHint': density_hint,
+        'cubeSize': cube_size,
+        'fillDist': fill_dist,
+    }
+
 def solar_info(archetype: str) -> dict:
     return SOLAR_ARCH.get(str(archetype or '').lower(), {})
 
@@ -745,8 +904,17 @@ def extract_system_data(system_name: str) -> dict:
                 'shape': zone_data.get('shape', 'ELLIPSOID'),
                 'rotate_y': zone_data.get('rotate_y', 0),
                 'file': file_path,
-                'zone': zone_ref
+                'zone': zone_ref,
+                'zone_music': zone_data.get('music', ''),
+                'zone_damage': zone_data.get('damage', 0),
+                'zone_visit': zone_data.get('visit', '0')
             }
+            field.update(analyze_asteroid_field_file(file_path))
+            field['exclusionZones'] = [
+                dict(zone_map[exclusion_id])
+                for exclusion_id in field.get('exclusionZoneIds', [])
+                if exclusion_id in zone_map
+            ]
             result['asteroidfields'].append(field)
             continue
         

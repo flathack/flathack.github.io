@@ -26,7 +26,7 @@
     },
     {
       "nickname": "Li01_03_Base",
-      "name": "Battleship Missouri",
+      "name": "Schlachtschiff Missouri",
       "strid_name": "196768",
       "ids_info": "",
       "info": "",
@@ -38,7 +38,7 @@
     },
     {
       "nickname": "Li01_04_Base",
-      "name": "Benford Station",
+      "name": "Station Benford",
       "strid_name": "196769",
       "ids_info": "",
       "info": "",
@@ -50,7 +50,7 @@
     },
     {
       "nickname": "Li01_05_Base",
-      "name": "Ithaca Research Station",
+      "name": "Forschungsstation Ithaca",
       "strid_name": "196770",
       "ids_info": "",
       "info": "",
@@ -62,7 +62,7 @@
     },
     {
       "nickname": "Li01_06_Base",
-      "name": "Trenton Outpost",
+      "name": "Außenposten Trenton",
       "strid_name": "196771",
       "ids_info": "",
       "info": "",
@@ -74,7 +74,7 @@
     },
     {
       "nickname": "Li01_07_Base",
-      "name": "Norfolk Shipyard",
+      "name": "Norfolk-Werft",
       "strid_name": "196772",
       "ids_info": "",
       "info": "",
@@ -86,7 +86,7 @@
     },
     {
       "nickname": "Li01_08_Base",
-      "name": "Newark Station",
+      "name": "Station Newark",
       "strid_name": "196773",
       "ids_info": "",
       "info": "",
@@ -98,7 +98,7 @@
     },
     {
       "nickname": "Li01_09_Base",
-      "name": "West Point Military Academy",
+      "name": "Militärakademie West Point",
       "strid_name": "196774",
       "ids_info": "",
       "info": "",
@@ -110,7 +110,7 @@
     },
     {
       "nickname": "Li01_10_Base",
-      "name": "Detroit Munitions",
+      "name": "Detroiter Munitionswerke",
       "strid_name": "196775",
       "ids_info": "",
       "info": "",
@@ -134,7 +134,7 @@
     },
     {
       "nickname": "Li01_12_Base",
-      "name": "Buffalo Base",
+      "name": "Basis Buffalo",
       "strid_name": "196777",
       "ids_info": "",
       "info": "",
@@ -146,7 +146,7 @@
     },
     {
       "nickname": "Li01_13_Base",
-      "name": "Rochester Base",
+      "name": "Basis Rochester",
       "strid_name": "196778",
       "ids_info": "",
       "info": "",
@@ -158,7 +158,7 @@
     },
     {
       "nickname": "Li01_14_Base",
-      "name": "Baltimore Shipyard",
+      "name": "Baltimore-Werft",
       "strid_name": "196779",
       "ids_info": "",
       "info": "",
@@ -170,7 +170,7 @@
     },
     {
       "nickname": "Li01_15_Base",
-      "name": "Battleship Osiris",
+      "name": "Schlachtschiff Osiris",
       "strid_name": "197409",
       "ids_info": "",
       "info": "",
@@ -206,7 +206,7 @@
     },
     {
       "nickname": "Li02_03_Base",
-      "name": "Battleship Yukon",
+      "name": "Schlachtschiff Yukon",
       "strid_name": "196783",
       "ids_info": "",
       "info": "",
@@ -218,7 +218,7 @@
     },
     {
       "nickname": "Li02_04_Base",
-      "name": "Willard Research Station",
+      "name": "Forschungsstation Willard",
       "strid_name": "196784",
       "ids_info": "",
       "info": "",
@@ -230,7 +230,7 @@
     },
     {
       "nickname": "Li02_05_Base",
-      "name": "San Diego Border Station",
+      "name": "Grenzstation San Diego",
       "strid_name": "196785",
       "ids_info": "",
       "info": "",
@@ -242,7 +242,7 @@
     },
     {
       "nickname": "Li02_06_Base",
-      "name": "Alcatraz Depot",
+      "name": "Alcatraz-Depot",
       "strid_name": "196786",
       "ids_info": "",
       "info": "",
@@ -266,7 +266,7 @@
     },
     {
       "nickname": "Li03_02_Base",
-      "name": "Battleship Rio Grande",
+      "name": "Schlachtschiff Rio Grande",
       "strid_name": "196788",
       "ids_info": "",
       "info": "",
@@ -278,7 +278,7 @@
     },
     {
       "nickname": "Li03_03_Base",
-      "name": "Ouray Base",
+      "name": "Basis Ouray",
       "strid_name": "196789",
       "ids_info": "",
       "info": "",
@@ -290,7 +290,7 @@
     },
     {
       "nickname": "Li03_04_Base",
-      "name": "Pueblo Station",
+      "name": "Station Pueblo",
       "strid_name": "196790",
       "ids_info": "",
       "info": "",
@@ -326,7 +326,7 @@
     },
     {
       "nickname": "Li04_03_Base",
-      "name": "Battleship Mississippi",
+      "name": "Schlachtschiff Mississippi",
       "strid_name": "196795",
       "ids_info": "",
       "info": "",
@@ -338,7 +338,7 @@
     },
     {
       "nickname": "Li04_04_Base",
-      "name": "Beaumont Base",
+      "name": "Basis Beaumont",
       "strid_name": "196796",
       "ids_info": "",
       "info": "",
@@ -362,7 +362,7 @@
     },
     {
       "nickname": "Li04_06_Base",
-      "name": "Battleship Osiris",
+      "name": "Schlachtschiff Osiris",
       "strid_name": "197409",
       "ids_info": "",
       "info": "",
@@ -374,7 +374,7 @@
     },
     {
       "nickname": "Li05_01_Base",
-      "name": "Prison Station Mitchell",
+      "name": "Gefängnisstation Mitchell",
       "strid_name": "196799",
       "ids_info": "",
       "info": "",
@@ -398,7 +398,7 @@
     },
     {
       "nickname": "Br01_02_Base",
-      "name": "Southampton Shipyard",
+      "name": "Southampton-Werft",
       "strid_name": "196659",
       "ids_info": "",
       "info": "",
@@ -410,7 +410,7 @@
     },
     {
       "nickname": "Br01_03_Base",
-      "name": "Battleship Suffolk",
+      "name": "Schlachtschiff Suffolk",
       "strid_name": "196660",
       "ids_info": "",
       "info": "",
@@ -422,7 +422,7 @@
     },
     {
       "nickname": "Br01_04_Base",
-      "name": "Waterloo Station",
+      "name": "Station Waterloo",
       "strid_name": "196661",
       "ids_info": "",
       "info": "",
@@ -434,7 +434,7 @@
     },
     {
       "nickname": "Br01_05_Base",
-      "name": "Canterbury Station",
+      "name": "Station Canterbury",
       "strid_name": "196662",
       "ids_info": "",
       "info": "",
@@ -446,7 +446,7 @@
     },
     {
       "nickname": "Br01_06_Base",
-      "name": "Thames Outpost",
+      "name": "Außenposten Thames",
       "strid_name": "196663",
       "ids_info": "",
       "info": "",
@@ -458,7 +458,7 @@
     },
     {
       "nickname": "Br01_07_Base",
-      "name": "Kensington Shipping Platform",
+      "name": "Versandplattform Kensington",
       "strid_name": "196664",
       "ids_info": "",
       "info": "",
@@ -470,7 +470,7 @@
     },
     {
       "nickname": "Br01_08_Base",
-      "name": "Trafalgar Base",
+      "name": "Basis Trafalgar",
       "strid_name": "196665",
       "ids_info": "",
       "info": "",
@@ -494,7 +494,7 @@
     },
     {
       "nickname": "Br02_02_Base",
-      "name": "Birmingham Station",
+      "name": "Station Birmingham",
       "strid_name": "196667",
       "ids_info": "",
       "info": "",
@@ -506,7 +506,7 @@
     },
     {
       "nickname": "Br02_03_Base",
-      "name": "Sheffield Station",
+      "name": "Station Sheffield",
       "strid_name": "196668",
       "ids_info": "",
       "info": "",
@@ -518,7 +518,7 @@
     },
     {
       "nickname": "Br02_04_Base",
-      "name": "Liverpool Border Station",
+      "name": "Grenzstation Liverpool",
       "strid_name": "196669",
       "ids_info": "",
       "info": "",
@@ -530,7 +530,7 @@
     },
     {
       "nickname": "Br02_05_Base",
-      "name": "Kingston Border Station",
+      "name": "Grenzstation Kingston",
       "strid_name": "196670",
       "ids_info": "",
       "info": "",
@@ -554,7 +554,7 @@
     },
     {
       "nickname": "Br03_02_Base",
-      "name": "Cambridge Research Station",
+      "name": "Forschungsstation Cambridge",
       "strid_name": "196672",
       "ids_info": "",
       "info": "",
@@ -566,7 +566,7 @@
     },
     {
       "nickname": "Br03_03_Base",
-      "name": "Battleship Norfolk",
+      "name": "Schlachtschiff Norfolk",
       "strid_name": "196673",
       "ids_info": "",
       "info": "",
@@ -578,7 +578,7 @@
     },
     {
       "nickname": "Br03_04_Base",
-      "name": "Cardiff Mining Facility",
+      "name": "Bergbaustation Cardiff",
       "strid_name": "196674",
       "ids_info": "",
       "info": "",
@@ -602,7 +602,7 @@
     },
     {
       "nickname": "Br04_02_Base",
-      "name": "Stokes Mining Station",
+      "name": "Bergbaustation Stokes",
       "strid_name": "196676",
       "ids_info": "",
       "info": "",
@@ -614,7 +614,7 @@
     },
     {
       "nickname": "Br04_03_Base",
-      "name": "Battleship York",
+      "name": "Schlachtschiff York",
       "strid_name": "196677",
       "ids_info": "",
       "info": "",
@@ -626,7 +626,7 @@
     },
     {
       "nickname": "Br04_04_Base",
-      "name": "Glasgow Outpost",
+      "name": "Außenposten Glasgow",
       "strid_name": "196678",
       "ids_info": "",
       "info": "",
@@ -650,7 +650,7 @@
     },
     {
       "nickname": "Br04_06_Base",
-      "name": "Durham Border Station",
+      "name": "Grenzstation Durham",
       "strid_name": "196680",
       "ids_info": "",
       "info": "",
@@ -662,7 +662,7 @@
     },
     {
       "nickname": "Br05_01_Base",
-      "name": "Battleship Hood",
+      "name": "Schlachtschiff Hood",
       "strid_name": "196681",
       "ids_info": "",
       "info": "",
@@ -674,7 +674,7 @@
     },
     {
       "nickname": "Br05_02_Base",
-      "name": "Mining Station Glorious",
+      "name": "Bergbaustation Glorious",
       "strid_name": "196682",
       "ids_info": "",
       "info": "",
@@ -686,7 +686,7 @@
     },
     {
       "nickname": "Br05_03_Base",
-      "name": "Graves Station",
+      "name": "Station Graves",
       "strid_name": "196683",
       "ids_info": "",
       "info": "",
@@ -698,7 +698,7 @@
     },
     {
       "nickname": "Br05_04_Base",
-      "name": "Battleship Essex",
+      "name": "Schlachtschiff Essex",
       "strid_name": "196684",
       "ids_info": "",
       "info": "",
@@ -710,7 +710,7 @@
     },
     {
       "nickname": "Br05_05_Base",
-      "name": "Arranmore Base",
+      "name": "Basis Arranmore",
       "strid_name": "196685",
       "ids_info": "",
       "info": "",
@@ -722,7 +722,7 @@
     },
     {
       "nickname": "Br06_01_Base",
-      "name": "Luxury Liner Shetland",
+      "name": "Luxusliner Shetland",
       "strid_name": "196686",
       "ids_info": "",
       "info": "",
@@ -734,7 +734,7 @@
     },
     {
       "nickname": "Br06_02_Base",
-      "name": "Aberdeen Border Station",
+      "name": "Grenzstation Aberdeen",
       "strid_name": "196687",
       "ids_info": "",
       "info": "",
@@ -746,7 +746,7 @@
     },
     {
       "nickname": "Br06_03_Base",
-      "name": "Islay Base",
+      "name": "Basis Islay",
       "strid_name": "196688",
       "ids_info": "",
       "info": "",
@@ -758,7 +758,7 @@
     },
     {
       "nickname": "Br06_04_Base",
-      "name": "Perth Station",
+      "name": "Station Perth",
       "strid_name": "196689",
       "ids_info": "",
       "info": "",
@@ -770,7 +770,7 @@
     },
     {
       "nickname": "Ku01_01_Base",
-      "name": "Planet New Tokyo",
+      "name": "Planet Neu-Tokio",
       "strid_name": "196735",
       "ids_info": "",
       "info": "",
@@ -782,7 +782,7 @@
     },
     {
       "nickname": "Ku01_02_Base",
-      "name": "Narita Outpost",
+      "name": "Außenposten Narita",
       "strid_name": "196736",
       "ids_info": "",
       "info": "",
@@ -794,7 +794,7 @@
     },
     {
       "nickname": "Ku01_03_Base",
-      "name": "Yokohama Shipyard",
+      "name": "Yokohama-Werft",
       "strid_name": "196737",
       "ids_info": "",
       "info": "",
@@ -806,7 +806,7 @@
     },
     {
       "nickname": "Ku01_04_Base",
-      "name": "Roppongi Station",
+      "name": "Station Roppongi",
       "strid_name": "196738",
       "ids_info": "",
       "info": "",
@@ -818,7 +818,7 @@
     },
     {
       "nickname": "Ku01_05_Base",
-      "name": "Shinagawa Station",
+      "name": "Station Shinagawa",
       "strid_name": "196739",
       "ids_info": "",
       "info": "",
@@ -830,7 +830,7 @@
     },
     {
       "nickname": "Ku01_06_Base",
-      "name": "Shinjuku Station",
+      "name": "Station Shinjuku",
       "strid_name": "196740",
       "ids_info": "",
       "info": "",
@@ -842,7 +842,7 @@
     },
     {
       "nickname": "Ku01_07_Base",
-      "name": "Kabukicho Depot",
+      "name": "Kabukicho-Depot",
       "strid_name": "196741",
       "ids_info": "",
       "info": "",
@@ -854,7 +854,7 @@
     },
     {
       "nickname": "Ku02_01_Base",
-      "name": "Fuchu Prison",
+      "name": "Gefängnis von Fuchu",
       "strid_name": "196743",
       "ids_info": "",
       "info": "",
@@ -866,7 +866,7 @@
     },
     {
       "nickname": "Ku02_02_Base",
-      "name": "Battleship Myoko",
+      "name": "Schlachtschiff Myoko",
       "strid_name": "196744",
       "ids_info": "",
       "info": "",
@@ -878,7 +878,7 @@
     },
     {
       "nickname": "Ku02_03_Base",
-      "name": "Deshima Station",
+      "name": "Station Deshima",
       "strid_name": "196745",
       "ids_info": "",
       "info": "",
@@ -902,7 +902,7 @@
     },
     {
       "nickname": "Ku02_05_Base",
-      "name": "Ohashi Border Station",
+      "name": "Grenzstation Ohashi",
       "strid_name": "196747",
       "ids_info": "",
       "info": "",
@@ -926,7 +926,7 @@
     },
     {
       "nickname": "Ku03_02_Base",
-      "name": "Tsushima Depot",
+      "name": "Tsushima-Depot",
       "strid_name": "196749",
       "ids_info": "",
       "info": "",
@@ -938,7 +938,7 @@
     },
     {
       "nickname": "Ku03_03_Base",
-      "name": "Battleship Nagumo",
+      "name": "Schlachtschiff Nagumo",
       "strid_name": "196750",
       "ids_info": "",
       "info": "",
@@ -950,7 +950,7 @@
     },
     {
       "nickname": "Ku03_04_Base",
-      "name": "Nansei Research Complex",
+      "name": "Forschungszentrum Nansei",
       "strid_name": "196751",
       "ids_info": "",
       "info": "",
@@ -962,7 +962,7 @@
     },
     {
       "nickname": "Ku03_05_Base",
-      "name": "Kagoshima Depot",
+      "name": "Kagoshima-Depot",
       "strid_name": "196752",
       "ids_info": "",
       "info": "",
@@ -986,7 +986,7 @@
     },
     {
       "nickname": "Ku04_02_Base",
-      "name": "Osaka Storage Facility",
+      "name": "Lager Osaka",
       "strid_name": "196754",
       "ids_info": "",
       "info": "",
@@ -998,7 +998,7 @@
     },
     {
       "nickname": "Ku04_03_Base",
-      "name": "Yukawa Shipyard",
+      "name": "Yukawa-Werft",
       "strid_name": "196755",
       "ids_info": "",
       "info": "",
@@ -1010,7 +1010,7 @@
     },
     {
       "nickname": "Ku04_04_Base",
-      "name": "Kansai Research Station",
+      "name": "Forschungsstation Kansai",
       "strid_name": "196756",
       "ids_info": "",
       "info": "",
@@ -1022,7 +1022,7 @@
     },
     {
       "nickname": "Ku04_05_Base",
-      "name": "Aomori Station",
+      "name": "Station Aomori",
       "strid_name": "196757",
       "ids_info": "",
       "info": "",
@@ -1034,7 +1034,7 @@
     },
     {
       "nickname": "Ku04_06_Base",
-      "name": "Akita Border Station",
+      "name": "Grenzstation Akita",
       "strid_name": "196758",
       "ids_info": "",
       "info": "",
@@ -1046,7 +1046,7 @@
     },
     {
       "nickname": "Ku05_01_Base",
-      "name": "Battleship Matsumoto",
+      "name": "Schlachtschiff Matsumoto",
       "strid_name": "196759",
       "ids_info": "",
       "info": "",
@@ -1058,7 +1058,7 @@
     },
     {
       "nickname": "Ku05_02_Base",
-      "name": "Ainu Depot",
+      "name": "Ainu-Depot",
       "strid_name": "196760",
       "ids_info": "",
       "info": "",
@@ -1070,7 +1070,7 @@
     },
     {
       "nickname": "Ku05_03_Base",
-      "name": "Chugoku Gate Construction Site",
+      "name": "Baustelle Chugoku-Tor",
       "strid_name": "196761",
       "ids_info": "",
       "info": "",
@@ -1082,7 +1082,7 @@
     },
     {
       "nickname": "Ku05_04_Base",
-      "name": "Sapporo Station",
+      "name": "Station Sapporo",
       "strid_name": "196762",
       "ids_info": "",
       "info": "",
@@ -1094,7 +1094,7 @@
     },
     {
       "nickname": "Ku06_01_Base",
-      "name": "Kyoto Base",
+      "name": "Basis Kyoto",
       "strid_name": "196763",
       "ids_info": "",
       "info": "",
@@ -1106,7 +1106,7 @@
     },
     {
       "nickname": "Ku07_01_Base",
-      "name": "Ryuku Base",
+      "name": "Basis Ryuku",
       "strid_name": "196764",
       "ids_info": "",
       "info": "",
@@ -1118,7 +1118,7 @@
     },
     {
       "nickname": "Ku07_02_Base",
-      "name": "Tekagi's Base",
+      "name": "Tekagis Basis",
       "strid_name": "196765",
       "ids_info": "",
       "info": "",
@@ -1130,7 +1130,7 @@
     },
     {
       "nickname": "Rh01_01_Base",
-      "name": "Planet New Berlin",
+      "name": "Planet Neu-Berlin",
       "strid_name": "196802",
       "ids_info": "",
       "info": "",
@@ -1142,7 +1142,7 @@
     },
     {
       "nickname": "Rh01_02_Base",
-      "name": "Oder Shipyard",
+      "name": "Oder-Werft",
       "strid_name": "196803",
       "ids_info": "",
       "info": "",
@@ -1154,7 +1154,7 @@
     },
     {
       "nickname": "Rh01_03_Base",
-      "name": "The Ring",
+      "name": "Der Ring",
       "strid_name": "196804",
       "ids_info": "",
       "info": "",
@@ -1166,7 +1166,7 @@
     },
     {
       "nickname": "Rh01_04_Base",
-      "name": "Bonn Station",
+      "name": "Station Bonn",
       "strid_name": "196805",
       "ids_info": "",
       "info": "",
@@ -1178,7 +1178,7 @@
     },
     {
       "nickname": "Rh01_05_Base",
-      "name": "Dortmund Station",
+      "name": "Station Dortmund",
       "strid_name": "196806",
       "ids_info": "",
       "info": "",
@@ -1190,7 +1190,7 @@
     },
     {
       "nickname": "Rh01_06_Base",
-      "name": "Essen Station",
+      "name": "Station Essen",
       "strid_name": "196807",
       "ids_info": "",
       "info": "",
@@ -1202,7 +1202,7 @@
     },
     {
       "nickname": "Rh01_07_Base",
-      "name": "Brandenburg Border Station",
+      "name": "Grenzstation Brandenburg",
       "strid_name": "196808",
       "ids_info": "",
       "info": "",
@@ -1214,7 +1214,7 @@
     },
     {
       "nickname": "Rh01_08_Base",
-      "name": "Kreuzberg Depot",
+      "name": "Kreuzberg-Depot",
       "strid_name": "196809",
       "ids_info": "",
       "info": "",
@@ -1238,7 +1238,7 @@
     },
     {
       "nickname": "Rh02_02_Base",
-      "name": "Battleship Westfalen",
+      "name": "Schlachtschiff Westfalen",
       "strid_name": "196813",
       "ids_info": "",
       "info": "",
@@ -1250,7 +1250,7 @@
     },
     {
       "nickname": "Rh02_03_Base",
-      "name": "Vierlande Prison",
+      "name": "Vierlandegefängnis",
       "strid_name": "196814",
       "ids_info": "",
       "info": "",
@@ -1262,7 +1262,7 @@
     },
     {
       "nickname": "Rh02_04_Base",
-      "name": "Alster Shipyard",
+      "name": "Alster-Werft",
       "strid_name": "196815",
       "ids_info": "",
       "info": "",
@@ -1274,7 +1274,7 @@
     },
     {
       "nickname": "Rh02_05_Base",
-      "name": "Altona Station",
+      "name": "Station Altona",
       "strid_name": "196816",
       "ids_info": "",
       "info": "",
@@ -1286,7 +1286,7 @@
     },
     {
       "nickname": "Rh02_06_Base",
-      "name": "Lübeck Border Station",
+      "name": "Grenzstation Lübeck",
       "strid_name": "196817",
       "ids_info": "",
       "info": "",
@@ -1298,7 +1298,7 @@
     },
     {
       "nickname": "Rh02_07_Base",
-      "name": "Battleship Osiris",
+      "name": "Schlachtschiff Osiris",
       "strid_name": "197409",
       "ids_info": "",
       "info": "",
@@ -1322,7 +1322,7 @@
     },
     {
       "nickname": "Rh03_02_Base",
-      "name": "Planet Baden Baden",
+      "name": "Planet Baden-Baden",
       "strid_name": "196819",
       "ids_info": "",
       "info": "",
@@ -1334,7 +1334,7 @@
     },
     {
       "nickname": "Rh03_03_Base",
-      "name": "Freiburg Station",
+      "name": "Station Freiburg",
       "strid_name": "196820",
       "ids_info": "",
       "info": "",
@@ -1346,7 +1346,7 @@
     },
     {
       "nickname": "Rh03_04_Base",
-      "name": "Ulm Border Station",
+      "name": "Grenzstation Ulm",
       "strid_name": "196821",
       "ids_info": "",
       "info": "",
@@ -1358,7 +1358,7 @@
     },
     {
       "nickname": "Rh03_05_Base",
-      "name": "Konstanz Border Station",
+      "name": "Grenzstation Konstanz",
       "strid_name": "196822",
       "ids_info": "",
       "info": "",
@@ -1370,7 +1370,7 @@
     },
     {
       "nickname": "Rh03_06_Base",
-      "name": "Darmstadt Depot",
+      "name": "Darmstadt-Depot",
       "strid_name": "196823",
       "ids_info": "",
       "info": "",
@@ -1394,7 +1394,7 @@
     },
     {
       "nickname": "Rh04_02_Base",
-      "name": "Mainz Storage Facility",
+      "name": "Lager Mainz",
       "strid_name": "196825",
       "ids_info": "",
       "info": "",
@@ -1406,7 +1406,7 @@
     },
     {
       "nickname": "Rh04_03_Base",
-      "name": "Mannheim Station",
+      "name": "Station Mannheim",
       "strid_name": "196826",
       "ids_info": "",
       "info": "",
@@ -1418,7 +1418,7 @@
     },
     {
       "nickname": "Rh04_04_Base",
-      "name": "Fulda Border Station",
+      "name": "Grenzstation Fulda",
       "strid_name": "196827",
       "ids_info": "",
       "info": "",
@@ -1430,7 +1430,7 @@
     },
     {
       "nickname": "Rh04_05_Base",
-      "name": "Bruchsal Base",
+      "name": "Basis Bruchsal",
       "strid_name": "196828",
       "ids_info": "",
       "info": "",
@@ -1442,7 +1442,7 @@
     },
     {
       "nickname": "Rh05_01_Base",
-      "name": "Leipzig Station",
+      "name": "Station Leipzig",
       "strid_name": "196830",
       "ids_info": "",
       "info": "",
@@ -1454,7 +1454,7 @@
     },
     {
       "nickname": "Rh05_02_Base",
-      "name": "Bautzen Station",
+      "name": "Station Bautzen",
       "strid_name": "196831",
       "ids_info": "",
       "info": "",
@@ -1466,7 +1466,7 @@
     },
     {
       "nickname": "Rh05_03_Base",
-      "name": "Pirna Border Station",
+      "name": "Grenzstation Pirna",
       "strid_name": "196832",
       "ids_info": "",
       "info": "",
@@ -1478,7 +1478,7 @@
     },
     {
       "nickname": "Rh05_04_Base",
-      "name": "Vogtland Base",
+      "name": "Basis Vogtland",
       "strid_name": "196833",
       "ids_info": "",
       "info": "",
@@ -1490,7 +1490,7 @@
     },
     {
       "nickname": "Iw01_01_Base",
-      "name": "Pacifica Base",
+      "name": "Basis Pacifica",
       "strid_name": "196723",
       "ids_info": "",
       "info": "",
@@ -1502,7 +1502,7 @@
     },
     {
       "nickname": "Iw01_02_Base",
-      "name": "Freeport 2",
+      "name": "Freihafen 2",
       "strid_name": "196724",
       "ids_info": "",
       "info": "",
@@ -1514,7 +1514,7 @@
     },
     {
       "nickname": "Iw02_01_Base",
-      "name": "Barrow Base",
+      "name": "Basis Barrow",
       "strid_name": "196725",
       "ids_info": "",
       "info": "",
@@ -1526,7 +1526,7 @@
     },
     {
       "nickname": "Iw02_02_Base",
-      "name": "Dawson Base",
+      "name": "Basis Dawson",
       "strid_name": "196726",
       "ids_info": "",
       "info": "",
@@ -1538,7 +1538,7 @@
     },
     {
       "nickname": "Iw02_03_Base",
-      "name": "Battleship Osiris",
+      "name": "Schlachtschiff Osiris",
       "strid_name": "197409",
       "ids_info": "",
       "info": "",
@@ -1550,7 +1550,7 @@
     },
     {
       "nickname": "Iw03_01_Base",
-      "name": "Freeport 4",
+      "name": "Freihafen 4",
       "strid_name": "196727",
       "ids_info": "",
       "info": "",
@@ -1562,7 +1562,7 @@
     },
     {
       "nickname": "Iw03_02_Base",
-      "name": "Mactan Base",
+      "name": "Basis Mactan",
       "strid_name": "196728",
       "ids_info": "",
       "info": "",
@@ -1574,7 +1574,7 @@
     },
     {
       "nickname": "Iw04_01_Base",
-      "name": "Planet Curacao",
+      "name": "Planet Curaçao",
       "strid_name": "196729",
       "ids_info": "",
       "info": "",
@@ -1586,7 +1586,7 @@
     },
     {
       "nickname": "Iw04_02_Base",
-      "name": "Montezuma Base",
+      "name": "Basis Montezuma",
       "strid_name": "196730",
       "ids_info": "",
       "info": "",
@@ -1598,7 +1598,7 @@
     },
     {
       "nickname": "Iw05_01_Base",
-      "name": "Ames Research Station",
+      "name": "Forschungsstation Ames",
       "strid_name": "196731",
       "ids_info": "",
       "info": "",
@@ -1610,7 +1610,7 @@
     },
     {
       "nickname": "Iw05_02_Base",
-      "name": "Nome Base",
+      "name": "Basis Nome",
       "strid_name": "196732",
       "ids_info": "",
       "info": "",
@@ -1622,7 +1622,7 @@
     },
     {
       "nickname": "Iw06_01_Base",
-      "name": "Leiden Base",
+      "name": "Basis Leiden",
       "strid_name": "196733",
       "ids_info": "",
       "info": "",
@@ -1634,7 +1634,7 @@
     },
     {
       "nickname": "Iw06_02_Base",
-      "name": "Padua Base",
+      "name": "Basis Padua",
       "strid_name": "196734",
       "ids_info": "",
       "info": "",
@@ -1658,7 +1658,7 @@
     },
     {
       "nickname": "Bw01_02_Base",
-      "name": "Freeport 1",
+      "name": "Freihafen 1",
       "strid_name": "196691",
       "ids_info": "",
       "info": "",
@@ -1670,7 +1670,7 @@
     },
     {
       "nickname": "Bw01_03_Base",
-      "name": "Rugen Station",
+      "name": "Station Rügen",
       "strid_name": "196692",
       "ids_info": "",
       "info": "",
@@ -1682,7 +1682,7 @@
     },
     {
       "nickname": "Bw01_04_Base",
-      "name": "Douglas Station",
+      "name": "Station Douglas",
       "strid_name": "196693",
       "ids_info": "",
       "info": "",
@@ -1694,7 +1694,7 @@
     },
     {
       "nickname": "Bw01_05_Base",
-      "name": "Baxter Research Station",
+      "name": "Forschungsstation Baxter",
       "strid_name": "196694",
       "ids_info": "",
       "info": "",
@@ -1706,7 +1706,7 @@
     },
     {
       "nickname": "Bw02_01_Base",
-      "name": "Cadiz Base",
+      "name": "Basis Cadiz",
       "strid_name": "196695",
       "ids_info": "",
       "info": "",
@@ -1718,7 +1718,7 @@
     },
     {
       "nickname": "Bw02_02_Base",
-      "name": "Ronneburg Base",
+      "name": "Basis Ronneburg",
       "strid_name": "196696",
       "ids_info": "",
       "info": "",
@@ -1730,7 +1730,7 @@
     },
     {
       "nickname": "Bw03_01_Base",
-      "name": "Freistadt Base",
+      "name": "Basis Freistadt",
       "strid_name": "196697",
       "ids_info": "",
       "info": "",
@@ -1742,7 +1742,7 @@
     },
     {
       "nickname": "Bw03_02_Base",
-      "name": "Briesen Mining Facility",
+      "name": "Bergbaustation Erlangen",
       "strid_name": "196698",
       "ids_info": "",
       "info": "",
@@ -1754,7 +1754,7 @@
     },
     {
       "nickname": "Bw03_03_Base",
-      "name": "Elbich Mining Facility",
+      "name": "Bergbaustation Wismar",
       "strid_name": "196699",
       "ids_info": "",
       "info": "",
@@ -1766,7 +1766,7 @@
     },
     {
       "nickname": "Bw04_01_Base",
-      "name": "Solarius Station",
+      "name": "Station Solarius",
       "strid_name": "196700",
       "ids_info": "",
       "info": "",
@@ -1778,7 +1778,7 @@
     },
     {
       "nickname": "Bw04_02_Base",
-      "name": "Freital Base",
+      "name": "Basis Freital",
       "strid_name": "196701",
       "ids_info": "",
       "info": "",
@@ -1790,7 +1790,7 @@
     },
     {
       "nickname": "Bw05_01_Base",
-      "name": "Gas Miner Naha",
+      "name": "Gasabbaustation Naha",
       "strid_name": "196702",
       "ids_info": "",
       "info": "",
@@ -1802,7 +1802,7 @@
     },
     {
       "nickname": "Bw05_02_Base",
-      "name": "Helgoland Station",
+      "name": "Station Helgoland",
       "strid_name": "196703",
       "ids_info": "",
       "info": "",
@@ -1814,7 +1814,7 @@
     },
     {
       "nickname": "Bw05_03_Base",
-      "name": "Yanagi Depot",
+      "name": "Yanagi-Depot",
       "strid_name": "196704",
       "ids_info": "",
       "info": "",
@@ -1826,7 +1826,7 @@
     },
     {
       "nickname": "Bw06_01_Base",
-      "name": "Planet Kurile",
+      "name": "Planet Kurilen",
       "strid_name": "196705",
       "ids_info": "",
       "info": "",
@@ -1838,7 +1838,7 @@
     },
     {
       "nickname": "Bw06_02_Base",
-      "name": "Atka Research Station",
+      "name": "Forschungsstation Atka",
       "strid_name": "196706",
       "ids_info": "",
       "info": "",
@@ -1850,7 +1850,7 @@
     },
     {
       "nickname": "Bw07_01_Base",
-      "name": "Luxury Liner Hawaii",
+      "name": "Luxusliner Hawaii",
       "strid_name": "196707",
       "ids_info": "",
       "info": "",
@@ -1862,7 +1862,7 @@
     },
     {
       "nickname": "Bw07_02_Base",
-      "name": "Gas Miner Ogashawa",
+      "name": "Gasabbaustation Ogashawa",
       "strid_name": "196708",
       "ids_info": "",
       "info": "",
@@ -1874,7 +1874,7 @@
     },
     {
       "nickname": "Bw08_01_Base",
-      "name": "Cali Base",
+      "name": "Basis Cali",
       "strid_name": "196709",
       "ids_info": "",
       "info": "",
@@ -1886,7 +1886,7 @@
     },
     {
       "nickname": "Bw08_02_Base",
-      "name": "Tau-31 Gate Construction Site",
+      "name": "Baustelle Tau-31-Tor",
       "strid_name": "196710",
       "ids_info": "",
       "info": "",
@@ -1898,7 +1898,7 @@
     },
     {
       "nickname": "Bw08_03_Base",
-      "name": "Java Station",
+      "name": "Station Java",
       "strid_name": "196711",
       "ids_info": "",
       "info": "",
@@ -1910,7 +1910,7 @@
     },
     {
       "nickname": "Bw09_01_Base",
-      "name": "Nago Station",
+      "name": "Station Nago",
       "strid_name": "196712",
       "ids_info": "",
       "info": "",
@@ -1922,7 +1922,7 @@
     },
     {
       "nickname": "Bw09_02_Base",
-      "name": "Shinkaku Station",
+      "name": "Station Shinkaku",
       "strid_name": "196713",
       "ids_info": "",
       "info": "",
@@ -1934,7 +1934,7 @@
     },
     {
       "nickname": "Bw09_03_Base",
-      "name": "Freeport 6",
+      "name": "Freihafen 6",
       "strid_name": "196714",
       "ids_info": "",
       "info": "",
@@ -1958,7 +1958,7 @@
     },
     {
       "nickname": "Bw10_02_Base",
-      "name": "Holman Outpost",
+      "name": "Außenposten Holman",
       "strid_name": "196716",
       "ids_info": "",
       "info": "",
@@ -1970,7 +1970,7 @@
     },
     {
       "nickname": "Ew01_01_Base",
-      "name": "Freeport 10",
+      "name": "Freihafen 10",
       "strid_name": "196717",
       "ids_info": "",
       "info": "",
@@ -1982,7 +1982,7 @@
     },
     {
       "nickname": "Ew01_02_Base",
-      "name": "Falkland Base",
+      "name": "Basis Falkland",
       "strid_name": "196718",
       "ids_info": "",
       "info": "",
@@ -1994,7 +1994,7 @@
     },
     {
       "nickname": "Ew02_01_Base",
-      "name": "Ruiz Base",
+      "name": "Basis Ruiz",
       "strid_name": "196719",
       "ids_info": "",
       "info": "",
@@ -2006,7 +2006,7 @@
     },
     {
       "nickname": "Ew03_01_Base",
-      "name": "Leon Base",
+      "name": "Basis Leon",
       "strid_name": "196720",
       "ids_info": "",
       "info": "",
@@ -2018,7 +2018,7 @@
     },
     {
       "nickname": "Ew03_02_Base",
-      "name": "Freeport 5",
+      "name": "Freihafen 5",
       "strid_name": "196721",
       "ids_info": "",
       "info": "",
@@ -2030,7 +2030,7 @@
     },
     {
       "nickname": "Ew04_01_Base",
-      "name": "Freeport 9",
+      "name": "Freihafen 9",
       "strid_name": "196722",
       "ids_info": "",
       "info": "",
@@ -2054,7 +2054,7 @@
     },
     {
       "nickname": "Hi02_01_Base",
-      "name": "Planet Crete",
+      "name": "Planet Kreta",
       "strid_name": "196838",
       "ids_info": "",
       "info": "",
@@ -2066,7 +2066,7 @@
     },
     {
       "nickname": "Hi02_02_Base",
-      "name": "Tripoli Shipyard",
+      "name": "Tripoli-Werft",
       "strid_name": "196839",
       "ids_info": "",
       "info": "",
@@ -2090,7 +2090,7 @@
     },
     {
       "nickname": "St01_02_Base",
-      "name": "Battleship Osiris",
+      "name": "Schlachtschiff Osiris",
       "strid_name": "197409",
       "ids_info": "",
       "info": "",
@@ -2102,7 +2102,7 @@
     },
     {
       "nickname": "St02_01_Base",
-      "name": "Battleship Osiris",
+      "name": "Schlachtschiff Osiris",
       "strid_name": "197409",
       "ids_info": "",
       "info": "",
@@ -2114,7 +2114,7 @@
     },
     {
       "nickname": "St03b_01_Base",
-      "name": "Battleship Osiris",
+      "name": "Schlachtschiff Osiris",
       "strid_name": "197409",
       "ids_info": "",
       "info": "",
@@ -2381,7 +2381,7 @@
       "name": "New York",
       "strid_name": "196609",
       "ids_info": "66106",
-      "info": "LIBERTY\nSettled Planets\nManhattan\nPittsburgh\nBases\nFt. Bush\nNewark Station\nTrenton Outpost\nDetroit Munitions\nWest Point Academy\nNorfolk Shipyard\nBaltimore Shipyard\nBattleship\nMissouri\nCorporations\nAgeira Technologies\nInterspace Commerce\nUniversal Shipping\nDeep Space Engineering\nLiberty Police, Inc.\nCriminals\nLiberty Rogues\nOutcasts\nXenos\nJunkers\nProduces\nBoron\nSide Arms\nLuxury Consumer Goods\nToxic Waste",
+      "info": "LIBERTY\nBesiedelte Planeten\nManhattan\nPittsburgh\nStützpunkte\nFt. Bush\nStation Newark\nAußenposten Trenton\nDetroiter Munitionswerke\nAkademie West Point\nNorfolk-Werft\nBaltimore-Werft\nSchlachtschiff\nMissouri\nUnternehmen\nAgeira Technologies\nInterspace Commerce\nUniversal Shipping\nDeep Space Engineering\nLiberty Police, Inc.\nKriminelle\nLiberty Rogues\nAusgestoßene\nXenos\nSchrotties\nErzeugnisse\nBor\nSeitenwaffen\nLuxusgüter\nGiftmüll",
       "x": 7.0,
       "z": 8.0,
       "file": "Systems\\Li01\\Li01.ini",
@@ -2393,7 +2393,7 @@
       "name": "California",
       "strid_name": "196610",
       "ids_info": "66084",
-      "info": "LIBERTY\nSettled Planets\nLos Angeles\nCalifornia Minor\nBases\nbattleship\nYukon\nSan Diego Border Station\nCorporations\nSynth Foods\nAgeira Technologies\nPlanetform, Inc.\nCriminals\nLiberty Rogues\nOutcasts\nLane Hackers\nProduces\nFood\nOptical Chips\nOxygen",
+      "info": "LIBERTY\nBesiedelte Planeten\nLos Angeles\nCalifornia Minor\nStützpunkte\nSchlachtschiff\nYukon\nGrenzstation San Diego\nUnternehmen\nSynth Foods\nAgeira Technologies\nPlanetform, Inc.\nKriminelle\nLiberty Rogues\nAusgestoßene\nWegelagerer\nErzeugnisse\nLebensmittel\nOptische Chips\nSauerstoff",
       "x": 6.0,
       "z": 9.0,
       "file": "systems\\Li02\\Li02.ini",
@@ -2405,7 +2405,7 @@
       "name": "Colorado",
       "strid_name": "196611",
       "ids_info": "66087",
-      "info": "LIBERTY\nSettled Planets\nDenver\nBases\nPueblo Station\nBattleship\nRio Grande\nCorporations\nAgeira Technologies\nCryer Pharmaceuticals\nCriminals\nXenos\nLiberty Rogues\nProduces\nPharmaceuticals\nSuperconductors\nSuper Alloys\nTrade Lane Parts\nTerraforming Gases\nToxic Waste",
+      "info": "LIBERTY\nBesiedelte Planeten\nDenver\nStützpunkte\nStation Pueblo\nSchlachtschiff\nRio Grande\nUnternehmen\nAgeira Technologies\nCryer Pharmaceuticals\nKriminelle\nXenos\nLiberty Rogues\nErzeugnisse\nPharmazeutika\nSupraleiter\nSuperlegierungen\nBauteile für Handelsrouten\nTerraforming-Gase\nGiftmüll",
       "x": 7.0,
       "z": 7.0,
       "file": "systems\\Li03\\Li03.ini",
@@ -2417,7 +2417,7 @@
       "name": "Texas",
       "strid_name": "196612",
       "ids_info": "66126",
-      "info": "LIBERTY\nSettled Planets\nHouston\nBases\nLPI\nHuntsville\nLPI\nSugarland\nBattleship\nMississippi\nCorporations\nLiberty Police, Inc.\nBounty Hunters Guild\nDeep Space Engineering\nCriminals\nXenos\nLiberty Rogues\nOutcasts\nJunkers\nProduces\nFertilizers\nConsumer Goods\nBasic Alloys\nToxic Waste",
+      "info": "LIBERTY\nBesiedelte Planeten\nHouston\nStützpunkte\nLPI\nHuntsville\nLPI\nSugarland\nSchlachtschiff\nMississippi\nUnternehmen\nLiberty Police, Inc.\nGilde der Kopfgeldjäger\nDeep Space Engineering\nKriminelle\nXenos\nLiberty Rogues\nAusgestoßene\nSchrotties\nErzeugnisse\nDünger\nKonsumgüter\nGrundlegierungen\nGiftmüll",
       "x": 8.0,
       "z": 9.0,
       "file": "systems\\Li04\\Li04.ini",
@@ -2429,7 +2429,7 @@
       "name": "Alaska",
       "strid_name": "196613",
       "ids_info": "66082",
-      "info": "LIBERTY\nSettled Planets\nCLASSIFIED\nBases\nCLASSIFIED\nCorporations\nCLASSIFIED\nCriminals\nCLASSIFIED\nProduces\nCLASSIFIED",
+      "info": "LIBERTY\nBesiedelte Planeten\nGEHEIM\nStützpunkte\nGEHEIM\nUnternehmen\nGEHEIM\nKriminelle\nGEHEIM\nErzeugnisse\nGEHEIM",
       "x": 9.0,
       "z": 7.0,
       "file": "systems\\Li05\\Li05.ini",
@@ -2441,7 +2441,7 @@
       "name": "New London",
       "strid_name": "196614",
       "ids_info": "66104",
-      "info": "BRETONIA\nSettled Planets\nNew London\nBases\nCanterbury Station\nWaterloo Station\nKensington Station\nSouthampton Shipyard\nBattleship\nSuffolk\nThames Outpost\nCorporations\nBretonia Mining and Manufacturing\nPlanetform, Inc.\nGateway Shipping\nInterspace Commerce\nCriminals\nCorsairs\nMollys\nOutcasts\nGaians\nJunkers\nProduces\nOxygen\nWater",
+      "info": "BRETONIA\nBesiedelte Planeten\nNew London\nStützpunkte\nStation Canterbury\nStation Waterloo\nStation Kensington\nSouthampton-Werft\nSchlachtschiff\nSuffolk\nAußenposten Thames\nUnternehmen\nBretonia Mining and Metals\nPlanetform, Inc.\nGateway Shipping\nInterspace Commerce\nKriminelle\nKorsaren\nMollys\nAusgestoßene\nGaianer\nSchrotties\nErzeugnisse\nSauerstoff\nWasser",
       "x": 2.0,
       "z": 11.0,
       "file": "systems\\Br01\\Br01.ini",
@@ -2453,7 +2453,7 @@
       "name": "Manchester",
       "strid_name": "196615",
       "ids_info": "66102",
-      "info": "BRETONIA\nSettled Planets\nNone\nBases\nBirmingham Station\nSheffield Station\nBPA\nNewgate\nBorder Station Liverpool\nBorder Station Kingston\nCorporations\nBretonia Mining and Manufacturing\nBounty Hunters Guild\nCriminals\nMollys\nGaians\nLane Hackers\nOutcasts\nProduces\nPolymers\nHydrocarbons\nTerraforming Gases\nOxygen\nWater",
+      "info": "BRETONIA\nBesiedelte Planeten\nKeine\nStützpunkte\nStation Birmingham\nStation Sheffield\nBPA\nNewgate\nGrenzstation Liverpool\nGrenzstation Kingston\nUnternehmen\nBretonia Mining and Metals\nGilde der Kopfgeldjäger\nKriminelle\nMollys\nGaianer\nWegelagerer\nAusgestoßene\nErzeugnisse\nPolymere\nKohlenwasserstoffe\nTerraforming-Gase\nSauerstoff\nWasser",
       "x": 4.0,
       "z": 10.0,
       "file": "systems\\Br02\\Br02.ini",
@@ -2465,7 +2465,7 @@
       "name": "Cambridge",
       "strid_name": "196616",
       "ids_info": "66085",
-      "info": "BRETONIA\nSettled Planets\nCambridge\nBases\nCambridge Research Station\nCardiff Mining Facility\nBattleship\nNorfolk\nCorporations\nCryer Pharmaceuticals\nIndependent Mining Guild\nCriminals\nCorsairs\nProduces\nFood\nLuxury Food\nPharmaceuticals\nBeryllium",
+      "info": "BRETONIA\nBesiedelte Planeten\nCambridge\nStützpunkte\nForschungsstation Cambridge\nBergbaustation Cardiff\nSchlachtschiff\nNorfolk\nUnternehmen\nCryer Pharmaceuticals\nKnappschaft der unabhängigen Bergleute\nKriminelle\nKorsaren\nErzeugnisse\nLebensmittel\nLuxuslebensmittel\nPharmazeutika\nBeryllium",
       "x": 3.0,
       "z": 12.0,
       "file": "systems\\Br03\\Br03.ini",
@@ -2477,7 +2477,7 @@
       "name": "Leeds",
       "strid_name": "196617",
       "ids_info": "66100",
-      "info": "BRETONIA\nSettled Planets\nLeeds\nBases\nLD-14\nStokes Mining Station\nGlasgow Outpost\nBattleship\nYork\nBorder Station Durham\nCorporations\nBowex\nBretonia Mining and Manufacturing\nCriminals\nMollys\nGaians\nOutcasts\nProduces\nMOX\nMining Machinery\nConstruction Machinery\nSide Arms\nHull Panels\nBasic Alloys\nSuper Alloys\nTerraforming Gases\nToxic Waste\nNiobium",
+      "info": "BRETONIA\nBesiedelte Planeten\nLeeds\nStützpunkte\nLD-14\nBergbaustation Stokes\nAußenposten Glasgow\nSchlachtschiff\nYork\nGrenzstation Durham\nUnternehmen\nBowex\nBretonia Mining and Metals\nKriminelle\nMollys\nGaianer\nAusgestoßene\nErzeugnisse\nMOX\nBergbaumaschinen\nBaumaschinen\nSeitenwaffen\nRumpfplatten\nGrundlegierungen\nSuperlegierungen\nTerraforming-Gase\nGiftmüll\nNiob",
       "x": 2.0,
       "z": 9.0,
       "file": "systems\\Br04\\Br04.ini",
@@ -2489,7 +2489,7 @@
       "name": "Dublin",
       "strid_name": "196618",
       "ids_info": "66090",
-      "info": "BRETONIA\nSettled Planets\nNone\nBases\nGraves Station\nBattleship\nHood\nBattleship\nEssex\nCorporations\nBretonia Mining and Manufacturing\nIndependent Mining Guild\nCriminals\nMollys\nProduces\nGold",
+      "info": "BRETONIA\nBesiedelte Planeten\nKeine\nStützpunkte\nStation Graves\nSchlachtschiff\nHood\nSchlachtschiff\nEssex\nUnternehmen\nBretonia Mining and Metals\nKnappschaft der unabhängigen Bergleute\nKriminelle\nMollys\nErzeugnisse\nGold",
       "x": 1.0,
       "z": 13.0,
       "file": "systems\\Br05\\Br05.ini",
@@ -2501,7 +2501,7 @@
       "name": "Edinburgh",
       "strid_name": "196619",
       "ids_info": "66091",
-      "info": "BRETONIA\nSettled Planets\nGaia (limited access)\nBases\nPerth Station\nluxury liner\nShetland\nCorporations\nOrbital Spa and Cruise Lines\nPlanetform, Inc.\nCriminals\nGaians\nOutcasts\nProduces\nWater\nOxygen",
+      "info": "BRETONIA\nBesiedelte Planeten\nGaia (begrenzter Zutritt)\nStützpunkte\nStation Perth\nLuxusliner\nShetland\nUnternehmen\nOrbital Kuren und Kreuzfahrten\nPlanetform, Inc.\nKriminelle\nGaianer\nAusgestoßene\nErzeugnisse\nWasser\nSauerstoff",
       "x": 0.0,
       "z": 10.0,
       "file": "systems\\Br06\\Br06.ini",
@@ -2510,10 +2510,10 @@
     },
     {
       "nickname": "Ku01",
-      "name": "New Tokyo",
+      "name": "Neu-Tokio",
       "strid_name": "196626",
       "ids_info": "66105",
-      "info": "KUSARI\nSettled Planets\nNew Tokyo\nBases\nShinjuku Station\nShinagawa Station\nRoppongi Station\nNarita Outpost\nYokohama Shipyard\nCorporations\nSamura Industries\nKishiro Technologies\nInterspace Commerce\nCriminals\nHogosha\nBlood Dragons\nGolden Chrysanthemum\nProduces\nOptical Chips\nOxygen\nWater\nToxic Waste",
+      "info": "KUSARI\nBesiedelte Planeten\nNeu-Tokio\nStützpunkte\nStation Shinjuku\nStation Shinagawa\nStation Roppongi\nAußenposten Narita\nYokohama-Werft\nUnternehmen\nSamura Industries\nKishiro Technologies\nInterspace Commerce\nKriminelle\nHogosha\nBlutdrachen\nGoldene Chrysantheme\nErzeugnisse\nOptische Chips\nSauerstoff\nWasser\nGiftmüll",
       "x": 7.0,
       "z": 4.0,
       "file": "systems\\Ku01\\Ku01.ini",
@@ -2525,7 +2525,7 @@
       "name": "Shikoku",
       "strid_name": "196627",
       "ids_info": "66117",
-      "info": "KUSARI\nSettled Planets\nJunyo\nBases\nDeshima Station\nFuchu Prison\nBattleship\nMyoko\nOhashi Border Station\nCorporations\nSamura Industries\nKishiro Technologies\nBounty Hunters Guild\nSynth Foods\nCriminals\nBlood Dragons\nGolden Chrysanthemums\nProduces\nFood\nLuxury Food\nConsumer Goods\nHydrocarbons",
+      "info": "KUSARI\nBesiedelte Planeten\nJunyo\nStützpunkte\nStation Deshima\nGefängnis von Fuchu\nSchlachtschiff\nMyoko\nGrenzstation Ohashi\nUnternehmen\nSamura Industries\nKishiro Technologies\nGilde der Kopfgeldjäger\nSynth Foods\nKriminelle\nBlutdrachen\nGoldenen Chrysanthemen\nErzeugnisse\nLebensmittel\nLuxuslebensmittel\nKonsumgüter\nKohlenwasserstoffe",
       "x": 7.0,
       "z": 5.0,
       "file": "systems\\Ku02\\Ku02.ini",
@@ -2537,7 +2537,7 @@
       "name": "Kyushu",
       "strid_name": "196628",
       "ids_info": "66099",
-      "info": "KUSARI\nSettled Planets\nKyushu\nBases\nTsushima Depot\nNansei Research Complex\nBattleship\nNagumo\nCorporations\nSamura Industries\nCriminals\nBlood Dragons\nGolden Chrysanthemum\nFarmers Alliance\nProduces\nFood\nPolymers",
+      "info": "KUSARI\nBesiedelte Planeten\nKyushu\nStützpunkte\nDepot Tsushima\nForschungszentrum Nansei\nSchlachtschiff\nNagumo\nUnternehmen\nSamura Industries\nKriminelle\nBlutdrachen\nGoldene Chrysantheme\nBauernallianz\nErzeugnisse\nLebensmittel\nPolymere",
       "x": 6.0,
       "z": 4.0,
       "file": "systems\\Ku03\\Ku03.ini",
@@ -2549,7 +2549,7 @@
       "name": "Honshu",
       "strid_name": "196629",
       "ids_info": "66096",
-      "info": "KUSARI\nSettled Planets\nHonshu\nBases\nAomori Station\nOsaka Storage Facility\nKansai Research Station\nYukawa Shipyard\nAkita Border Station\nCorporations\nKishiro Technologies\nSamura Industries\nGas Miner’s Guild\nCriminals\nBlood Dragons\nFarmers Alliance\nCorsairs\nOutcasts\nProduces\nEngine Components\nConstruction Machinery\nOptronics\nH-Fuel",
+      "info": "KUSARI\nBesiedelte Planeten\nHonshu\nStützpunkte\nStation Aomori\nLager Osaka\nForschungsstation Kansai\nYukawa-Werft\nGrenzstation Akita\nUnternehmen\nKishiro Technologies\nSamura Industries\nKnappschaft der Gasschürfer\nKriminelle\nBlutdrachen\nBauernallianz\nKorsaren\nAusgestoßene\nErzeugnisse\nTriebwerkteile\nBaumaschinen\nOptronik\nH-Treibstoff",
       "x": 8.0,
       "z": 4.0,
       "file": "systems\\Ku04\\Ku04.ini",
@@ -2561,7 +2561,7 @@
       "name": "Hokkaido",
       "strid_name": "196630",
       "ids_info": "66095",
-      "info": "KUSARI\nSettled Planets\nNone\nBases\nSapporo Station\nChugoku Gate construction site\nBattleship\nMatsumoto\nCorporations\nSamura Industries\nDeep Space Engineering\nCriminals\nBlood Dragons\nGolden Chrysanthemum\nProduces\nH-Fuel",
+      "info": "KUSARI\nBesiedelte Planeten\nKeine\nStützpunkte\nStation Sapporo\nBaustelle Chugoku-Tor\nSchlachtschiff\nMatsumoto\nUnternehmen\nSamura Industries\nDeep Space Engineering\nKriminelle\nBlutdrachen\nGoldene Chrysantheme\nErzeugnisse\nH-Treibstoff",
       "x": 7.0,
       "z": 3.0,
       "file": "systems\\Ku05\\Ku05.ini",
@@ -2573,7 +2573,7 @@
       "name": "Chugoku",
       "strid_name": "196631",
       "ids_info": "66086",
-      "info": "KUSARI\nSettled Planets\nNone\nBases\nNone\nCorporations\nNone\nCriminals\nUnknown\nProduces\nNothing",
+      "info": "KUSARI\nBesiedelte Planeten\nKeine\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nUnbekannt\nErzeugnisse\nNichts",
       "x": 7.0,
       "z": 2.0,
       "file": "systems\\Ku06\\Ku06.ini",
@@ -2585,7 +2585,7 @@
       "name": "Tohoku",
       "strid_name": "196632",
       "ids_info": "66127",
-      "info": "KUSARI\nSettled Planets\nNone\nBases\nHeaven's Gate\nCorporations\nNone\nProduces\nNothing\nCriminals\nBlood Dragons",
+      "info": "KUSARI\nBesiedelte Planeten\nKeine\nStützpunkte\nHimmelstor\nUnternehmen\nKeine\nErzeugnisse\nNichts\nKriminelle\nBlutdrachen",
       "x": 9.0,
       "z": 2.0,
       "file": "systems\\Ku07\\Ku07.ini",
@@ -2594,10 +2594,10 @@
     },
     {
       "nickname": "Rh01",
-      "name": "New Berlin",
+      "name": "Neu-Berlin",
       "strid_name": "196620",
       "ids_info": "66103",
-      "info": "RHEINLAND\nSettled Planets\nNew Berlin\nBases\nThe Ring\nDortmund Station\nEssen Station\nBonn Station\nOder Shipyards\nBrandenburg Border Station\nCorporations\nDaumann Construction\nKruger Minerals\nALG Waste Disposal\nRepublican Shipping\nInterspace Commerce\nCriminals\nRed Hessians\nBundschuh\nUnioners\nLWB\nJunkers\nProduces\nMOX\nConsumer Goods\nEngine Components\nConstruction Machinery\nMining Machinery\nBasic Alloys\nHigh-Temperature Alloys\nToxic Waste\nOxygen\nWater\nShip Hull Panels",
+      "info": "RHEINLAND\nBesiedelte Planeten\nNeu-Berlin\nStützpunkte\nDer Ring\nStation Dortmund\nStation Essen\nStation Bonn\nOder-Werft\nGrenzstation Brandenburg\nUnternehmen\nDaumann Hoch- und Tiefbau\nKrüger Mineralien\nALG Abfallentsorgung\nRepublikanische Großspedition\nInterspace Commerce\nKriminelle\nRote Hessen\nBundschuh\nUnionisten\nLWB\nSchrotties\nErzeugnisse\nMOX\nKonsumgüter\nTriebwerkteile\nBaumaschinen\nBergbaumaschinen\nGrundlegierungen\nHochtemperaturlegierungen\nGiftmüll\nSauerstoff\nWasser\nSchiffsrumpfplatten",
       "x": 11.0,
       "z": 11.0,
       "file": "systems\\Rh01\\Rh01.ini",
@@ -2609,7 +2609,7 @@
       "name": "Hamburg",
       "strid_name": "196621",
       "ids_info": "66094",
-      "info": "RHEINLAND\nSettled Planets\nHamburg\nBases\nAltona Station\nAlster Shipyard\nVierlande Prison\nBattleship\nWestfalen\nLubeck Border Station\nCorporations\nRepublican Shipping\nCriminals\nRed Hessians\nUnioners\nBundschuh\nJunkers\nProduces\nOxygen\nWater\nToxic Waste",
+      "info": "RHEINLAND\nBesiedelte Planeten\nHamburg\nStützpunkte\nStation Altona\nAlster-Werft\nVierlandegefängnis\nSchlachtschiff\nWestfalen\nGrenzstation Lübeck\nUnternehmen\nRepublikanische Großspedition\nKriminelle\nRote Hessen\nUnionisten\nBundschuh\nSchrotties\nErzeugnisse\nSauerstoff\nWasser\nGiftmüll",
       "x": 10.0,
       "z": 10.0,
       "file": "systems\\Rh02\\Rh02.ini",
@@ -2621,7 +2621,7 @@
       "name": "Stuttgart",
       "strid_name": "196622",
       "ids_info": "66121",
-      "info": "RHEINLAND\nSettled Planets\nStuttgart\nBaden-Baden\nBases\nFreiburg Station\nUlm Border Station\nKonstanz Border Station\nCorporations\nSynth Foods\nOrbital Spa and Cruise Lines\nRepublican Shipping\nCriminals\nRed Hessians\nLWB\nProduces\nFood\nLuxury food",
+      "info": "RHEINLAND\nBesiedelte Planeten\nStuttgart\nBaden-Baden\nStützpunkte\nStation Freiburg\nGrenzstation Ulm\nGrenzstation Konstanz\nUnternehmen\nSynth Foods\nOrbital Kuren und Kreuzfahrten\nRepublikanische Großspedition\nKriminelle\nRote Hessen\nLWB\nErzeugnisse\nLebensmittel\nLuxuslebensmittel",
       "x": 10.0,
       "z": 11.0,
       "file": "systems\\Rh03\\Rh03.ini",
@@ -2633,7 +2633,7 @@
       "name": "Frankfurt",
       "strid_name": "196623",
       "ids_info": "66092",
-      "info": "RHEINLAND\nSettled Planets\nHolstein\nBases\nMannheim Station\nMainz Storage Facility\nFulda Border Station\nCorporations\nDaumann Construction\nKruger Minerals\nRepublican Shipping\nCriminals\nBundschuh\nUnioners\nRed Hessians\nJunkers\nProduces\nBoron\nH-Fuel",
+      "info": "RHEINLAND\nBesiedelte Planeten\nHolstein\nStützpunkte\nStation Mannheim\nLager Mainz\nGrenzstation Fulda\nUnternehmen\nDaumann Hoch- und Tiefbau\nKrüger Mineralien\nRepublikanische Großspedition\nKriminelle\nBundschuh\nUnionisten\nRote Hessen\nSchrotties\nErzeugnisse\nBor\nH-Treibstoff",
       "x": 12.0,
       "z": 10.0,
       "file": "systems\\Rh04\\Rh04.ini",
@@ -2645,7 +2645,7 @@
       "name": "Dresden",
       "strid_name": "196624",
       "ids_info": "66089",
-      "info": "RHEINLAND\nSettled Planets\nNone\nBases\nLeipzig Station\nBautzen Station\nPirna Border Station\nCorporations\nDaumann Construction\nKruger Minerals\nCriminals\nRed Hessians\nProduces\nCopper\nHigh-Temperature Alloys\nDiamonds\nCobalt",
+      "info": "RHEINLAND\nBesiedelte Planeten\nKeine\nStützpunkte\nStation Leipzig\nStation Bautzen\nGrenzstation Pirna\nUnternehmen\nDaumann Hoch- und Tiefbau\nKrüger Mineralien\nKriminelle\nRote Hessen\nErzeugnisse\nKupfer\nHochtemperaturlegierungen\nDiamanten\nKobalt",
       "x": 11.0,
       "z": 12.0,
       "file": "systems\\Rh05\\Rh05.ini",
@@ -2657,7 +2657,7 @@
       "name": "Bering",
       "strid_name": "196643",
       "ids_info": "66083",
-      "info": "INDEPENDENT\nSettled Planets\nNone\nBases\nFreeport 2\nCorporations\nNone\nCriminals\nUnioners\nXenos\nRogues\nProduces\nFood",
+      "info": "UNABHÄNGIG\nBesiedelte Planeten\nKeine\nStützpunkte\nFreihafen 2\nUnternehmen\nKeine\nKriminelle\nUnionisten\nXenos\nRogues\nErzeugnisse\nLebensmittel",
       "x": 9.0,
       "z": 9.0,
       "file": "systems\\Iw01\\Iw01.ini",
@@ -2669,7 +2669,7 @@
       "name": "Hudson",
       "strid_name": "196644",
       "ids_info": "66097",
-      "info": "INDEPENDENT\nSettled Planets\nNone\nBases\nNone\nCorporations\nNone\nCriminals\nXenos\nLiberty Rogues\nUnioners\nProduces\nNothing",
+      "info": "UNABHÄNGIG\nBesiedelte Planeten\nKeine\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nXenos\nLiberty Rogues\nUnionisten\nErzeugnisse\nNichts",
       "x": 9.0,
       "z": 10.0,
       "file": "systems\\Iw02\\Iw02.ini",
@@ -2681,7 +2681,7 @@
       "name": "Magellan",
       "strid_name": "196645",
       "ids_info": "66101",
-      "info": "INDEPENDENT\nSettled Planets\nNone\nBases\nFreeport 4\nCorporations\nIndependent Mining Guild\nCriminals\nLane Hackers\nLiberty Rogues\nOutcasts\nProduces\nWater\nOxygen",
+      "info": "UNABHÄNGIG\nBesiedelte Planeten\nKeine\nStützpunkte\nFreihafen 4\nUnternehmen\nKnappschaft der unabhängigen Bergleute\nKriminelle\nWegelagerer\nLiberty Rogues\nAusgestoßene\nErzeugnisse\nWasser\nSauerstoff",
       "x": 5.0,
       "z": 10.0,
       "file": "systems\\Iw03\\Iw03.ini",
@@ -2693,7 +2693,7 @@
       "name": "Cortez",
       "strid_name": "196646",
       "ids_info": "66088",
-      "info": "INDEPENDENT\nSettled Planets\nCuracao\nBases\nNone\nCorporations\nOrbital Spa and Cruise Lines\nCriminals\nLiberty Rogues\nOutcasts\nLane Hackers\nProduces\nWater\nOxygen",
+      "info": "UNABHÄNGIG\nBesiedelte Planeten\nCuraçao\nStützpunkte\nKeine\nUnternehmen\nOrbital Kuren und Kreuzfahrten\nKriminelle\nLiberty Rogues\nAusgestoßene\nWegelagerer\nErzeugnisse\nWasser\nSauerstoff",
       "x": 5.0,
       "z": 9.0,
       "file": "systems\\Iw04\\Iw04.ini",
@@ -2705,7 +2705,7 @@
       "name": "Kepler",
       "strid_name": "196647",
       "ids_info": "66098",
-      "info": "INDEPENDENT\nSettled Planets\nNone\nBases\nAmes Research Station\nCorporations\nDeep Space Engineering\nCriminals\nXenos\nLane Hackers\nProduces\nNothing",
+      "info": "UNABHÄNGIG\nBesiedelte Planeten\nKeine\nStützpunkte\nForschungsstation Ames\nUnternehmen\nDeep Space Engineering\nKriminelle\nXenos\nWegelagerer\nErzeugnisse\nNichts",
       "x": 6.0,
       "z": 6.0,
       "file": "systems\\Iw05\\Iw05.ini",
@@ -2717,7 +2717,7 @@
       "name": "Galileo",
       "strid_name": "196648",
       "ids_info": "66093",
-      "info": "INDEPENDENT\nSettled Planets\nNone\nBases\nNone\nCorporations\nNone\nCriminals\nLane Hackers\nLiberty Rogues\nProduces\nNothing",
+      "info": "UNABHÄNGIG\nBesiedelte Planeten\nKeine\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nWegelagerer\nLiberty Rogues\nErzeugnisse\nNichts",
       "x": 8.0,
       "z": 6.0,
       "file": "systems\\Iw06\\Iw06.ini",
@@ -2729,7 +2729,7 @@
       "name": "Omega-3",
       "strid_name": "196633",
       "ids_info": "66108",
-      "info": "BORDER WORLDS\nSettled Planets\nSprague (limited access)\nBases\nFreeport 1\nRugen Station\nDouglas Station\nCorporations\nDaumann Construction\nBretonia Mining and Manufacturing\nPlanetform, Inc.\nCriminals\nRed Hessians\nCorsairs\nProduces\nFood\nPolymers\nHydrocarbons\nOxygen\nWater",
+      "info": "GRENZWELTEN\nBesiedelte Planeten\nSprague (begrenzter Zutritt)\nStützpunkte\nFreihafen 1\nStation Rügen\nStation Douglas\nUnternehmen\nDaumann Hoch- und Tiefbau\nBretonia Mining and Metals\nPlanetform, Inc.\nKriminelle\nRote Hessen\nKorsaren\nErzeugnisse\nLebensmittel\nPolymere\nKohlenwasserstoffe\nSauerstoff\nWasser",
       "x": 5.0,
       "z": 12.0,
       "file": "systems\\Bw01\\Bw01.ini",
@@ -2741,7 +2741,7 @@
       "name": "Omega-5",
       "strid_name": "196634",
       "ids_info": "66110",
-      "info": "BORDER WORLDS\nSettled Planets\nNone\nBases\nNone\nCorporations\nNone\nCriminals\nCorsairs\nRed Hessians\nProduces\nNothing",
+      "info": "GRENZWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nKorsaren\nRote Hessen\nErzeugnisse\nNichts",
       "x": 5.0,
       "z": 14.0,
       "file": "systems\\Bw02\\Bw02.ini",
@@ -2753,7 +2753,7 @@
       "name": "Omega-7",
       "strid_name": "196635",
       "ids_info": "66111",
-      "info": "BORDER WORLDS\nSettled Planets\nNone\nBases\nFriestadt Outpost\nElbich Mining Facility\nBriesen Mining Facility\nCorporations\nDaumann Construction\nKruger Minerals\nIndependent Mining Guild\nCriminals\nRed Hessians\nCorsairs\nProduces\nCopper\nCobalt\nSilver",
+      "info": "GRENZWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nAußenposten Friestadt\nBergbaustation Wismar\nBergbaustation Erlangen\nUnternehmen\nDaumann Hoch- und Tiefbau\nKrüger Mineralien\nKnappschaft der unabhängigen Bergleute\nKriminelle\nRote Hessen\nKorsaren\nErzeugnisse\nKupfer\nKobalt\nSilber",
       "x": 7.0,
       "z": 12.0,
       "file": "systems\\Bw03\\Bw03.ini",
@@ -2765,7 +2765,7 @@
       "name": "Omega-11",
       "strid_name": "196636",
       "ids_info": "66107",
-      "info": "BORDER WORLDS\nSettled Planets\nNone\nBases\nSolarius Station\nCorporations\nDaumann Construction\nCriminals\nRed Hessians\nCorsairs\nProduces\nDiamonds",
+      "info": "GRENZWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nStation Solarius\nUnternehmen\nDaumann Hoch- und Tiefbau\nKriminelle\nRote Hessen\nKorsaren\nErzeugnisse\nDiamanten",
       "x": 8.0,
       "z": 13.0,
       "file": "systems\\Bw04\\Bw04.ini",
@@ -2777,7 +2777,7 @@
       "name": "Sigma-13",
       "strid_name": "196637",
       "ids_info": "66118",
-      "info": "BORDER WORLDS\nSettled Planets\nNone\nBases\nGas Miner\nNaha\nHelgoland Station\nCorporations\nGas Mining Guild\nALG Waste Disposal\nCriminals\nCorsairs\nOutcasts\nJunkers\nProduces\nH-fuel\nScrap metal",
+      "info": "GRENZWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nGasabbaustation\nNaha\nStation Helgoland\nUnternehmen\nKnappschaft der Gasschürfer\nALG Abfallentsorgung\nKriminelle\nKorsaren\nAusgestoßene\nSchrotties\nErzeugnisse\nH-Treibstoff\nSchrott",
       "x": 11.0,
       "z": 6.0,
       "file": "systems\\Bw05\\Bw05.ini",
@@ -2789,7 +2789,7 @@
       "name": "Sigma-17",
       "strid_name": "196638",
       "ids_info": "66119",
-      "info": "BORDER WORLDS\nSettled Planets\nKurile\nBases\nAtka Research Center\nCorporations\nSamura Industries\nCryer Pharmaceuticals\nCriminals\nCorsairs\nOutcasts\nProduces\nAlien organisms",
+      "info": "GRENZWELTEN\nBesiedelte Planeten\nKurilen\nStützpunkte\nForschungsstation Atka\nUnternehmen\nSamura Industries\nCryer Pharmaceuticals\nKriminelle\nKorsaren\nAusgestoßene\nErzeugnisse\nXeno-Organismen",
       "x": 12.0,
       "z": 6.0,
       "file": "systems\\Bw06\\Bw06.ini",
@@ -2801,7 +2801,7 @@
       "name": "Sigma-19",
       "strid_name": "196639",
       "ids_info": "66120",
-      "info": "BORDER WORLDS\nSettled Planets\nNone\nBases\nLuxury Liner\nHawaii\nGas Miner\nOgashawa\nCorporations\nOrbital Spa and Cruise Lines\nGas Mining Guild\nKishiro Technologies\nCriminals\nOutcasts\nCorsairs\nProduces\nH-fuel",
+      "info": "GRENZWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nLuxusliner\nHawaii\nGasabbaustation\nOgashawa\nUnternehmen\nOrbital Kuren und Kreuzfahrten\nKnappschaft der Gasschürfer\nKishiro Technologies\nKriminelle\nAusgestoßene\nKorsaren\nErzeugnisse\nH-Treibstoff",
       "x": 11.0,
       "z": 4.0,
       "file": "systems\\Bw07\\Bw07.ini",
@@ -2813,7 +2813,7 @@
       "name": "Tau-23",
       "strid_name": "196640",
       "ids_info": "66122",
-      "info": "BORDER WORLDS\nSettled Planets\nNone\nBases\nJava Station\nTau-31 Jump Gate\nCorporations\nBretonia Mining and Manufacturing\nIndependent Mining Guild\nDeep Space Engineering\nCriminals\nOutcasts\nProduces\nBeryllium\nNiobium",
+      "info": "GRENZWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nStation Java\nTau 31-Sprungtor\nUnternehmen\nBretonia Mining and Metals\nKnappschaft der unabhängigen Bergleute\nDeep Space Engineering\nKriminelle\nAusgestoßene\nErzeugnisse\nBeryllium\nNiob",
       "x": 2.0,
       "z": 5.0,
       "file": "systems\\Bw08\\Bw08.ini",
@@ -2825,7 +2825,7 @@
       "name": "Tau-29",
       "strid_name": "196641",
       "ids_info": "66123",
-      "info": "BORDER WORLDS\nSettled Planets\nNone\nBases\nNago Station\nShinkaku Station\nFreeport 6\nCorporations\nKishiro Technologies\nSamura Industries\nCriminals\nOutcasts\nProduces\nPolymers\nHydrocarbons\nFertilizers\nFood\nTerraforming Gases\nOxygen\nWater",
+      "info": "GRENZWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nStation Nago\nStation Shinkaku\nFreihafen 6\nUnternehmen\nKishiro Technologies\nSamura Industries\nKriminelle\nAusgestoßene\nErzeugnisse\nPolymere\nKohlenwasserstoffe\nDünger\nLebensmittel\nTerraforming-Gase\nSauerstoff\nWasser",
       "x": 3.0,
       "z": 6.0,
       "file": "systems\\Bw09\\Bw09.ini",
@@ -2837,7 +2837,7 @@
       "name": "Tau-31",
       "strid_name": "196642",
       "ids_info": "66124",
-      "info": "BORDER WORLDS\nSettled Planets\nHarris\nBases\nHolman Outpost\nCorporations\nPlanetform, Inc.\nIndependent Mining Guild\nCriminals\nOutcasts\nGaians\nProduces\nOxygen\nWater",
+      "info": "GRENZWELTEN\nBesiedelte Planeten\nHarris\nStützpunkte\nAußenposten Holman\nUnternehmen\nPlanetform, Inc.\nKnappschaft der unabhängigen Bergleute\nKriminelle\nAusgestoßene\nGaianer\nErzeugnisse\nSauerstoff\nWasser",
       "x": 2.0,
       "z": 7.0,
       "file": "systems\\Bw10\\Bw10.ini",
@@ -2849,7 +2849,7 @@
       "name": "Tau-37",
       "strid_name": "196649",
       "ids_info": "66125",
-      "info": "EDGE WORLDS\nSettled Planets\nNone\nBases\nFreeport 10\nFalkland Base\nCorporations\nIndependent Mining Guild\nCriminals\nOutcasts\nProduces\nNiobium\nWater\nFood",
+      "info": "RANDWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nFreihafen 10\nStützpunkt Falkland\nUnternehmen\nKnappschaft der unabhängigen Bergleute\nKriminelle\nAusgestoßene\nErzeugnisse\nNiob\nWasser\nLebensmittel",
       "x": 4.0,
       "z": 1.0,
       "file": "systems\\Ew01\\Ew01.ini",
@@ -2858,10 +2858,10 @@
     },
     {
       "nickname": "Ew02",
-      "name": "Omicron Beta",
+      "name": "Omikron Beta",
       "strid_name": "196650",
       "ids_info": "66113",
-      "info": "EDGE WORLDS\nSettled Planets\nNone\nBases\nNone\nCorporations\nNone\nCriminals\nOutcasts\nProduces\nAlien Organisms",
+      "info": "RANDWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nAusgestoßene\nErzeugnisse\nXeno-Organismen",
       "x": 10.0,
       "z": 1.0,
       "file": "systems\\Ew02\\Ew02.ini",
@@ -2873,7 +2873,7 @@
       "name": "Omega-41",
       "strid_name": "196651",
       "ids_info": "66109",
-      "info": "EDGE WORLDS\nSettled Planets\nNone\nBases\nFreeport 5\nCorporations\nNone\nCriminals\nCorsairs\nRed Hessians\nProduces\nNothing",
+      "info": "RANDWELTEN\nBesiedelte Planeten\nKeine\nStützpunkte\nFreihafen 5\nUnternehmen\nKeine\nKriminelle\nKorsaren\nRote Hessen\nErzeugnisse\nNichts",
       "x": 10.0,
       "z": 14.0,
       "file": "systems\\Ew03\\Ew03.ini",
@@ -2882,10 +2882,10 @@
     },
     {
       "nickname": "Ew04",
-      "name": "Omicron Theta",
+      "name": "Omikron Theta",
       "strid_name": "196652",
       "ids_info": "66116",
-      "info": "EDGE WORLDS\nSettled Planets\nPygar (limited access)\nBases\nFreeport 9\nCorporations\nNone\nCriminals\nCorsairs\nProduces\nFood\nAlien Artifacts\nAlien Organisms",
+      "info": "RANDWELTEN\nBesiedelte Planeten\nPygar (begrenzter Zutritt)\nStützpunkte\nFreihafen 9\nUnternehmen\nKeine\nKriminelle\nKorsaren\nErzeugnisse\nLebensmittel\nXeno-Artefakte\nXeno-Organismen",
       "x": 15.0,
       "z": 12.0,
       "file": "systems\\Ew04\\Ew04.ini",
@@ -2894,10 +2894,10 @@
     },
     {
       "nickname": "Hi01",
-      "name": "Omicron Alpha",
+      "name": "Omikron Alpha",
       "strid_name": "196653",
       "ids_info": "66112",
-      "info": "OUTCASTS\nSettled Planets\nMalta\nBases\nNone\nCorporations\nNone\nCriminals\nOutcasts\nProduces\nOxygen\nWater\nFood\nCardamine",
+      "info": "AUSGESTOSSENE\nBesiedelte Planeten\nMalta\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nAusgestoßene\nErzeugnisse\nSauerstoff\nWasser\nLebensmittel\nSchaumkraut",
       "x": 8.0,
       "z": 0.0,
       "file": "systems\\Hi01\\Hi01.ini",
@@ -2906,10 +2906,10 @@
     },
     {
       "nickname": "Hi02",
-      "name": "Omicron Gamma",
+      "name": "Omikron Gamma",
       "strid_name": "196654",
       "ids_info": "66114",
-      "info": "CORSAIRS\nSettled Planets\nCrete\nBases\nTripoli Shipyard\nCorporations\nNone\nCriminals\nCorsairs\nProduces\nOxygen\nWater\nArtifacts",
+      "info": "KORSAREN\nBesiedelte Planeten\nKreta\nStützpunkte\nTripoli-Werft\nUnternehmen\nKeine\nKriminelle\nKorsaren\nErzeugnisse\nSauerstoff\nWasser\nArtefakte",
       "x": 13.0,
       "z": 14.0,
       "file": "systems\\Hi02\\Hi02.ini",
@@ -2918,10 +2918,10 @@
     },
     {
       "nickname": "St01",
-      "name": "Omicron Minor",
+      "name": "Omikron Minor",
       "strid_name": "196655",
       "ids_info": "66115",
-      "info": "NOMAD\nSettled Planets\n???\nBases\nNone\nCorporations\nNone\nCriminals\nUnknown\nProduces\nNothing",
+      "info": "NOMADEN\nBesiedelte Planeten\n???\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nUnbekannt\nErzeugnisse\nNichts",
       "x": 14.0,
       "z": 5.0,
       "file": "systems\\St01\\St01.ini",
@@ -2930,10 +2930,10 @@
     },
     {
       "nickname": "St02",
-      "name": "Omicron Beta",
+      "name": "Omikron Beta",
       "strid_name": "196656",
       "ids_info": "66115",
-      "info": "NOMAD\nSettled Planets\n???\nBases\nNone\nCorporations\nNone\nCriminals\nUnknown\nProduces\nNothing",
+      "info": "NOMADEN\nBesiedelte Planeten\n???\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nUnbekannt\nErzeugnisse\nNichts",
       "x": 13.0,
       "z": 4.0,
       "file": "systems\\St02\\St02.ini",
@@ -2942,10 +2942,10 @@
     },
     {
       "nickname": "St03",
-      "name": "Omicron Major",
+      "name": "Omikron Major",
       "strid_name": "196657",
       "ids_info": "66115",
-      "info": "NOMAD\nSettled Planets\n???\nBases\nNone\nCorporations\nNone\nCriminals\nUnknown\nProduces\nNothing",
+      "info": "NOMADEN\nBesiedelte Planeten\n???\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nUnbekannt\nErzeugnisse\nNichts",
       "x": 14.0,
       "z": 3.0,
       "file": "systems\\St03\\St03.ini",
@@ -2954,10 +2954,10 @@
     },
     {
       "nickname": "St03b",
-      "name": "Omicron Major",
+      "name": "Omikron Major",
       "strid_name": "196657",
       "ids_info": "66115",
-      "info": "NOMAD\nSettled Planets\n???\nBases\nNone\nCorporations\nNone\nCriminals\nUnknown\nProduces\nNothing",
+      "info": "NOMADEN\nBesiedelte Planeten\n???\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nUnbekannt\nErzeugnisse\nNichts",
       "x": 15.0,
       "z": 3.0,
       "file": "systems\\St03b\\St03b.ini",
@@ -2966,10 +2966,10 @@
     },
     {
       "nickname": "St02c",
-      "name": "Omicron Major",
+      "name": "Omikron Major",
       "strid_name": "196657",
       "ids_info": "66115",
-      "info": "NOMAD\nSettled Planets\n???\nBases\nNone\nCorporations\nNone\nCriminals\nUnknown\nProduces\nNothing",
+      "info": "NOMADEN\nBesiedelte Planeten\n???\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nUnbekannt\nErzeugnisse\nNichts",
       "x": 13.0,
       "z": 1.0,
       "file": "systems\\St02c\\St02c.ini",
@@ -2978,10 +2978,10 @@
     },
     {
       "nickname": "Ew05",
-      "name": "Unknown",
+      "name": "Unbekannt",
       "strid_name": "261788",
       "ids_info": "66115",
-      "info": "NOMAD\nSettled Planets\n???\nBases\nNone\nCorporations\nNone\nCriminals\nUnknown\nProduces\nNothing",
+      "info": "NOMADEN\nBesiedelte Planeten\n???\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nUnbekannt\nErzeugnisse\nNichts",
       "x": 15.0,
       "z": 0.0,
       "file": "systems\\Ew05\\Ew05.ini",
@@ -2990,10 +2990,10 @@
     },
     {
       "nickname": "Ew06",
-      "name": "Unknown",
+      "name": "Unbekannt",
       "strid_name": "261788",
       "ids_info": "66115",
-      "info": "NOMAD\nSettled Planets\n???\nBases\nNone\nCorporations\nNone\nCriminals\nUnknown\nProduces\nNothing",
+      "info": "NOMADEN\nBesiedelte Planeten\n???\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nUnbekannt\nErzeugnisse\nNichts",
       "x": 15.0,
       "z": 9.0,
       "file": "systems\\Ew06\\Ew06.ini",
@@ -3002,10 +3002,10 @@
     },
     {
       "nickname": "FP7_system",
-      "name": "Omicron Major",
+      "name": "Omikron Major",
       "strid_name": "196657",
       "ids_info": "66115",
-      "info": "NOMAD\nSettled Planets\n???\nBases\nNone\nCorporations\nNone\nCriminals\nUnknown\nProduces\nNothing",
+      "info": "NOMADEN\nBesiedelte Planeten\n???\nStützpunkte\nKeine\nUnternehmen\nKeine\nKriminelle\nUnbekannt\nErzeugnisse\nNichts",
       "x": 15.0,
       "z": 6.0,
       "file": "systems\\FP7\\FP7_system.ini",
@@ -3029,6 +3029,7 @@
     "BR03": [
       "Br01",
       "Bw01",
+      "Bw02",
       "Br04"
     ],
     "BR04": [
@@ -3045,7 +3046,8 @@
       "Br04"
     ],
     "BR06": [
-      "Br04"
+      "Br04",
+      "Bw10"
     ],
     "BW01": [
       "Bw03",
@@ -3075,16 +3077,21 @@
     "BW05": [
       "Rh04",
       "Ku04",
+      "Bw06",
+      "Bw07",
       "Ku06",
       "Rh01"
     ],
     "BW06": [
+      "Ew04",
       "Bw07",
       "Bw05"
     ],
     "BW07": [
       "Ku04",
-      "Bw06"
+      "Bw06",
+      "Ew02",
+      "Bw05"
     ],
     "BW08": [
       "Ku03",
@@ -3100,7 +3107,12 @@
     "BW10": [
       "Br04",
       "Bw09",
-      "Bw08"
+      "Bw08",
+      "Br06"
+    ],
+    "EW01": [
+      "Bw08",
+      "Hi01"
     ],
     "EW02": [
       "Hi01",
@@ -3115,7 +3127,8 @@
     "EW04": [
       "Hi02",
       "Bw06",
-      "Ew03"
+      "Ew03",
+      "Hi01"
     ],
     "EW05": [
       "Hi01"
@@ -3125,11 +3138,14 @@
     ],
     "HI01": [
       "Ew01",
-      "Ew02"
+      "Ew02",
+      "Ew04",
+      "Ew05"
     ],
     "HI02": [
       "Ew03",
-      "Ew04"
+      "Ew04",
+      "Ew06"
     ],
     "INTRO": [
       "Li02",
@@ -3151,11 +3167,14 @@
     "IW03": [
       "Br02",
       "Li02",
-      "Li01"
+      "Iw04",
+      "Li01",
+      "Br04"
     ],
     "IW04": [
       "Br02",
-      "Li02"
+      "Li02",
+      "Iw03"
     ],
     "IW05": [
       "Ku02",
@@ -3176,21 +3195,32 @@
     "KU02": [
       "Ku01",
       "Iw06",
-      "Iw05"
+      "Iw05",
+      "Ku03"
     ],
     "KU03": [
       "Ku01",
-      "Bw09"
+      "Bw09",
+      "Bw08",
+      "Ku05",
+      "Ku02"
     ],
     "KU04": [
       "Ku01",
       "Bw07",
-      "Bw05"
+      "Bw05",
+      "Ku06"
     ],
     "KU05": [
-      "Ku01"
+      "Ku01",
+      "Ku03",
+      "Ku06",
+      "Ku07"
     ],
     "KU06": [
+      "Ku05",
+      "Ku07",
+      "Ku04",
       "Bw05"
     ],
     "KU07": [
@@ -3202,8 +3232,7 @@
       "Li03",
       "Li04",
       "Li05",
-      "Iw03",
-      "Li01"
+      "Iw03"
     ],
     "LI02": [
       "Li01",
@@ -3257,10 +3286,15 @@
       "Rh04"
     ],
     "ST01": [
-      "St02"
+      "St02",
+      "St03"
     ],
     "ST02": [
       "St01"
+    ],
+    "ST03": [
+      "St01"
     ]
-  }
+  },
+  "sectors": []
 }

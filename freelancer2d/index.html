@@ -151,6 +151,9 @@ body[data-theme="crossfire"] {
 .save-slot.empty { color: #667f8f; cursor: default; }
 .save-name-row { display: flex; gap: 8px; flex-wrap: wrap; }
 .save-name-row input { flex: 1 1 220px; min-width: 0; padding: 10px 12px; background: rgba(0,0,0,0.55); border: 1px solid #33566d; color: #dff7ff; font-family: 'Courier New', monospace; }
+.save-name-row input:disabled { opacity: 0.62; color: #7fa7bd; cursor: not-allowed; }
+.save-name-row button { min-height: 38px !important; padding: 0 14px !important; font-size: 12px !important; clip-path: none !important; }
+#btn-save-name { border-color: #33cc88 !important; color: #b7ffe2 !important; }
 .mod-select { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-bottom: 10px; }
 .mod-btn { padding: 9px 12px !important; font-size: 13px !important; }
 .mod-btn.active { border-color: #ffaa00 !important; color: #fff1c7 !important; background: rgba(65,45,0,0.62) !important; }
@@ -492,6 +495,8 @@ body[data-theme="crossfire"] .mod-btn.active {
                 <div id="save-slot-list" class="save-slot-list"></div>
                 <div class="save-name-row">
                     <input id="save-name-input" maxlength="32" placeholder="Name for new savegame" value="Pilot">
+                    <button id="btn-edit-save-name" class="hidden">EDIT</button>
+                    <button id="btn-save-name" class="hidden">SAVE</button>
                 </div>
             </div>
             <div class="controls">
@@ -515,7 +520,7 @@ body[data-theme="crossfire"] .mod-btn.active {
             </div>
         </div>
         <div class="start-footer">
-            <span>Made by Aldenmar Odin - flathack - v0.6.3</span>
+            <span>Made by Aldenmar Odin - flathack - v0.6.4</span>
             <a class="start-home-link" href="https://flathack.github.io/" target="_blank" rel="noopener noreferrer">Startseite</a>
         </div>
     </div>
@@ -841,6 +846,7 @@ const game = {
     stars: [],
     approachTarget: null,
     dockTarget: null,
+    dockLandingTarget: null,
     dockApproachVoicePlayed: false,
     commandMode: 'freeflight',
     obstacles: [],
@@ -855,6 +861,8 @@ const game = {
     modData: null,
     activeSaveSlotId: '',
     saveSlotName: 'Pilot',
+    saveNameEditing: false,
+    suppressAutoSave: false,
     lastSavedAt: 0,
     lastAutoSaveAt: 0,
     autoSaveInterval: 5000,
@@ -958,7 +966,7 @@ const I18N = {
         landedAt: 'Gelandet auf', noCommodityMarket: 'Dieser Ort hat keinen Commodity-Markt.', noEquipment: 'Equipment-Handel ist noch nicht implementiert.', barText: 'Piloten, Gerüchte und Jobangebote folgen später.',
         buy: 'KAUFEN', sell: 'VERKAUFEN', owned: 'BESITZ', credits: 'Credits', cargo: 'Laderaum', price: 'Preis', stock: 'Bestand', commodity: 'Ware', quantity: 'Menge', tradeInfo: 'Trade-Informationen', tradeInfoHint: 'Ware anklicken, um Verkaufsziele zu sehen.', sellAt: 'Verkaufen bei', jumps: 'Spruenge', profit: 'Profit', noSellTargets: 'Keine Verkaufsziele fuer diese Ware gefunden.', unreachable: 'nicht erreichbar',
         shipDealerDockOnly: 'Schiffe koennen nur nach dem Andocken gekauft werden.', noShipsSold: 'Hier werden keine Schiffe verkauft.', atmosphereWarning: 'Atmosphaereneintritt', planetImpact: 'Planetare Kollision',
-        startGame: 'SPIEL STARTEN', continueGame: 'WEITER', startNew: 'NEUES SPIEL', startDelete: 'SAVE LOESCHEN', saveNamePlaceholder: 'Name fuer neues Savegame', mainMenuLanguage: 'SPRACHE',
+        startGame: 'SPIEL STARTEN', continueGame: 'WEITER', startNew: 'NEUES SPIEL', startDelete: 'SAVE LOESCHEN', saveNamePlaceholder: 'Name fuer neues Savegame', mainMenuLanguage: 'SPRACHE', editSaveName: 'EDIT', saveSaveName: 'SAVE',
         startControls: 'Steuerung', controlRotate: 'Linke Maustaste halten - Schiff drehen', controlCursor: 'Linke Maustaste loslassen - Cursor-Modus', controlFire: 'Rechte Maustaste - Primärwaffen | Q - Raketen',
         controlSelect: 'Objekt anklicken - Ziel auswählen', controlThrottleUp: 'W - Schub erhöhen', controlThrottleDown: 'S - Schub verringern / Reiseflug abbrechen', controlReverse: 'X - Rückwärtsschub', controlAfterburner: 'Tab - Nachbrenner halten', controlMines: 'E - Mine abwerfen',
         controlDock: 'D - Schiff driftet nach rechts', controlApproach: 'A - Schiff driftet nach links', controlMap: 'M - Karte umschalten', controlNanobots: 'G / N - Nanobot benutzen', controlBatteries: 'F / B - Schildbatterie benutzen', controlCountermeasures: 'C - Gegenmaßnahme abwerfen', controlZoom: 'Mausrad - Zoom',
@@ -982,7 +990,7 @@ const I18N = {
         landedAt: 'Landed at', noCommodityMarket: 'This location has no commodity market.', noEquipment: 'Equipment trading is not implemented yet.', barText: 'Pilots, rumors, and job offers will arrive later.',
         buy: 'BUY', sell: 'SELL', owned: 'OWNED', credits: 'Credits', cargo: 'Cargo', price: 'Price', stock: 'Stock', commodity: 'Commodity', quantity: 'Qty', tradeInfo: 'Trade Information', tradeInfoHint: 'Click a commodity to see sell destinations.', sellAt: 'Sell at', jumps: 'Jumps', profit: 'Profit', noSellTargets: 'No sell destinations found for this commodity.', unreachable: 'unreachable',
         shipDealerDockOnly: 'Ships can only be bought while docked.', noShipsSold: 'No ships are sold here.', atmosphereWarning: 'Atmosphere entry', planetImpact: 'Planetary collision',
-        startGame: 'START GAME', continueGame: 'CONTINUE', startNew: 'NEW GAME', startDelete: 'DELETE SAVE', saveNamePlaceholder: 'Name for new savegame', mainMenuLanguage: 'LANGUAGE',
+        startGame: 'START GAME', continueGame: 'CONTINUE', startNew: 'NEW GAME', startDelete: 'DELETE SAVE', saveNamePlaceholder: 'Name for new savegame', mainMenuLanguage: 'LANGUAGE', editSaveName: 'EDIT', saveSaveName: 'SAVE',
         startControls: 'Controls', controlRotate: 'Left Mouse (hold) - Rotate ship', controlCursor: 'Left Mouse (release) - Cursor mode', controlFire: 'Right Mouse - Primary fire | Q - Missiles',
         controlSelect: 'Click object - Select target', controlThrottleUp: 'W - Increase throttle', controlThrottleDown: 'S - Reduce throttle / cancel cruise', controlReverse: 'X - Reverse thrust', controlAfterburner: 'Tab - Hold afterburner', controlMines: 'E - Drop mine',
         controlDock: 'D - Drift ship right', controlApproach: 'A - Drift ship left', controlMap: 'M - Toggle map', controlNanobots: 'G / N - Use nanobot', controlBatteries: 'F / B - Use shield battery', controlCountermeasures: 'C - Drop countermeasure', controlZoom: 'Mouse Wheel - Zoom',
@@ -1480,7 +1488,7 @@ function missileAmmoItemId(item) {
 function missileAmmoInventoryEntries() {
     return (game.player?.equipmentInventory || []).filter(entry => {
         const item = getEquipment(entry.id);
-        return item && String(item.category || '').toLowerCase() === 'missile' && item.combinable;
+        return item && String(item.category || '').toLowerCase() === 'missile' && item.combinable && ammoFitsAnyMountedLauncher(item);
     });
 }
 
@@ -1534,7 +1542,10 @@ function mineAmmoItemId(item) {
 }
 
 function mineAmmoInventoryEntries() {
-    return (game.player?.equipmentInventory || []).filter(entry => isMineAmmo(getEquipment(entry.id)));
+    return (game.player?.equipmentInventory || []).filter(entry => {
+        const item = getEquipment(entry.id);
+        return isMineAmmo(item) && ammoFitsAnyMountedLauncher(item);
+    });
 }
 
 function totalMineAmmoCount() {
@@ -1596,7 +1607,10 @@ function countermeasureAmmoItemId(item) {
 }
 
 function countermeasureAmmoInventoryEntries() {
-    return (game.player?.equipmentInventory || []).filter(entry => isCountermeasureAmmo(getEquipment(entry.id)));
+    return (game.player?.equipmentInventory || []).filter(entry => {
+        const item = getEquipment(entry.id);
+        return isCountermeasureAmmo(item) && ammoFitsAnyMountedLauncher(item);
+    });
 }
 
 function totalCountermeasureAmmoCount() {
@@ -1630,6 +1644,35 @@ function countermeasureStatsFromEquipment(item) {
         diversionChance: clamp((Number(ammo?.diversionPctg || ammo?.diversionPercent) || (COUNTERMEASURE_DIVERSION * 100)) / 100, 0, 1),
         linearDrag: Math.max(0, Number(ammo?.linearDrag) || 0)
     };
+}
+
+function launcherAmmoItemId(item) {
+    if (isMissileLauncher(item)) return missileAmmoItemId(item);
+    if (isMineDropper(item)) return mineAmmoItemId(item);
+    if (isCountermeasureDropper(item)) return countermeasureAmmoItemId(item);
+    return '';
+}
+
+function ammoFitsLauncher(ammo, launcher) {
+    const ammoId = String(ammo?.id || ammo?.equipmentId || '').toLowerCase();
+    const launcherAmmoId = launcherAmmoItemId(launcher);
+    return Boolean(ammoId && launcherAmmoId && ammoId === launcherAmmoId);
+}
+
+function ammoFitsAnyMountedLauncher(ammo) {
+    if (!ammo || !ammo.combinable) return false;
+    return Object.values(game.player?.mountedEquipment || {}).some(itemId => ammoFitsLauncher(ammo, getEquipment(itemId)));
+}
+
+function isAmmoItem(item) {
+    return Boolean(item?.combinable && (isMineAmmo(item) || isCountermeasureAmmo(item) || String(item?.category || '').toLowerCase() === 'missile'));
+}
+
+function ammoCompatibilityReason(item) {
+    if (!isAmmoItem(item) || ammoFitsAnyMountedLauncher(item)) return '';
+    if (isMineAmmo(item)) return 'No matching mine dropper mounted.';
+    if (isCountermeasureAmmo(item)) return 'No matching countermeasure dropper mounted.';
+    return 'No matching missile launcher mounted.';
 }
 
 function countermeasureTargetById(id) {
@@ -1701,16 +1744,14 @@ function addEquipmentInventoryCopy(itemId) {
     return true;
 }
 
-function ensureEquipmentInventoryCopy(itemId) {
-    const item = getEquipment(itemId);
-    if (!item || !game.player) return false;
-    let inv = findEquipmentItem(item.id);
-    if (!inv) {
-        inv = { id: item.id, name: item.name, quantity: 0, category: item.category };
-        game.player.equipmentInventory.push(inv);
-    }
-    inv.quantity = Math.max(1, Number(inv.quantity) || 0);
-    return true;
+function isFixedEquipmentInventoryEntry(entry) {
+    const item = getEquipment(entry?.id);
+    const category = String(item?.category || entry?.category || '').toLowerCase();
+    return category === 'engine' || category === 'powerplant';
+}
+
+function cleanEquipmentInventory(entries = game.player?.equipmentInventory || []) {
+    return (entries || []).filter(entry => !isFixedEquipmentInventoryEntry(entry));
 }
 
 function ensureFixedShipEquipment() {
@@ -1720,17 +1761,10 @@ function ensureFixedShipEquipment() {
         ['powerplant', shipPackage?.powerplant?.id],
         ['engine', shipPackage?.engine?.id]
     ];
-    const fixedIds = new Set(fixed.map(([, itemId]) => String(itemId || '').toLowerCase()).filter(Boolean));
-    game.player.equipmentInventory = (game.player.equipmentInventory || []).filter(entry => {
-        const item = getEquipment(entry.id);
-        const category = String(item?.category || entry.category || '').toLowerCase();
-        if ((category === 'engine' || category === 'powerplant') && !fixedIds.has(String(entry.id || '').toLowerCase())) return false;
-        return true;
-    });
+    game.player.equipmentInventory = cleanEquipmentInventory(game.player.equipmentInventory || []);
     for (const [slot, itemId] of fixed) {
         if (!itemId) continue;
         game.player.mountedEquipment[slot] = itemId;
-        ensureEquipmentInventoryCopy(itemId);
     }
 }
 
@@ -2571,6 +2605,10 @@ function applyLanguage() {
     if (deleteButton) deleteButton.textContent = t('startDelete');
     const saveNameInput = document.getElementById('save-name-input');
     if (saveNameInput) saveNameInput.placeholder = t('saveNamePlaceholder');
+    const editSaveNameButton = document.getElementById('btn-edit-save-name');
+    if (editSaveNameButton) editSaveNameButton.textContent = t('editSaveName');
+    const saveNameButton = document.getElementById('btn-save-name');
+    if (saveNameButton) saveNameButton.textContent = t('saveSaveName');
     const hullLabel = document.getElementById('label-hull');
     if (hullLabel) hullLabel.textContent = t('hudHull');
     const shieldLabel = document.getElementById('label-shield');
@@ -2821,6 +2859,7 @@ function startTradeLaneFromRing(ring) {
     game.player.tradeLaneCooldownUntil = 0;
     game.approachTarget = null;
     game.dockTarget = null;
+    game.dockLandingTarget = null;
     const next = ring.laneRings[start.targetIndex];
     if (next) game.player.rotation = Math.atan2(next.z - ring.z, next.x - ring.x);
     addLog('Entered trade lane at ring ' + (ring.index + 1) + ' of ' + ring.laneRings.length);
@@ -2888,6 +2927,7 @@ function clearNavigationSelection() {
     game.selectedTarget = null;
     game.approachTarget = null;
     game.dockTarget = null;
+    game.dockLandingTarget = null;
     addLog(t('selectionCleared'));
     playSound('select', 0.45);
     updateHUD();
@@ -3062,10 +3102,18 @@ function setActiveSaveSlot(slotId) {
     const slots = readSaveSlots();
     const slot = slots.find(item => item.id === slotId);
     if (!slot) return;
+    if (slot.id === game.activeSaveSlotId) {
+        updateSaveHint(slot.save);
+        return;
+    }
+    if (game.hasStarted || game.saveLoaded) saveGame();
     game.activeSaveSlotId = slot.id;
     game.saveSlotName = slot.name || 'Pilot';
     localStorage.setItem(activeSaveStorageKey(), slot.id);
+    if (game.activeModId === 'vanilla') localStorage.setItem(ACTIVE_SAVE_SLOT_KEY, slot.id);
+    game.suppressAutoSave = true;
     updateSaveHint(slot.save);
+    window.location.reload();
 }
 
 function selectedSaveName() {
@@ -3074,16 +3122,50 @@ function selectedSaveName() {
     return raw || 'Pilot ' + new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 }
 
+function startSaveNameEdit() {
+    const slots = readSaveSlots();
+    const slot = slots.find(item => item.id === game.activeSaveSlotId);
+    if (!slot) return;
+    game.saveNameEditing = true;
+    const input = document.getElementById('save-name-input');
+    if (input) {
+        input.disabled = false;
+        input.value = slot.name || 'Pilot';
+        input.focus();
+        input.select();
+    }
+    updateSaveHint(slot.save);
+}
+
+function commitSaveNameEdit() {
+    const slots = readSaveSlots();
+    const index = slots.findIndex(item => item.id === game.activeSaveSlotId);
+    if (index < 0) return;
+    const input = document.getElementById('save-name-input');
+    const nextName = (input?.value || '').trim() || slots[index].name || 'Pilot';
+    slots[index] = {
+        ...slots[index],
+        name: nextName,
+        save: slots[index].save ? { ...slots[index].save, name: nextName } : slots[index].save
+    };
+    writeSaveSlots(slots);
+    game.saveSlotName = nextName;
+    game.saveNameEditing = false;
+    updateSaveHint(slots[index].save);
+}
+
 function createNewSaveSlot() {
     const slots = readSaveSlots();
     if (slots.length >= MAX_SAVE_SLOTS) {
         alert(t('maxSavesReached'));
         return false;
     }
+    if (game.hasStarted || game.saveLoaded) saveGame();
     const slotId = 'slot_' + Date.now().toString(36);
     game.activeSaveSlotId = slotId;
     game.saveSlotName = selectedSaveName();
     localStorage.setItem(activeSaveStorageKey(), slotId);
+    game.suppressAutoSave = true;
     sessionStorage.setItem('freelancer2d.forceNewGame', '1');
     return true;
 }
@@ -3133,7 +3215,7 @@ function createSaveGameState() {
             thrustEnergy: game.player.thrustEnergy,
             credits: game.player.credits,
             cargo: game.player.cargo,
-            equipmentInventory: game.player.equipmentInventory,
+            equipmentInventory: cleanEquipmentInventory(game.player.equipmentInventory),
             mountedEquipment: game.player.mountedEquipment,
             nanobots: game.player.nanobots,
             shieldBatteries: game.player.shieldBatteries,
@@ -3147,6 +3229,7 @@ function createSaveGameState() {
 }
 
 function saveGame(showMessage = false) {
+    if (game.suppressAutoSave) return;
     if (!game.hasStarted && !game.saveLoaded) return;
     const state = createSaveGameState();
     if (!state) return;
@@ -3207,7 +3290,7 @@ function restorePlayerFromSave(save) {
     game.player.thrustEnergy = Math.max(0, Math.min(game.player.thrustCapacity, Number.isFinite(savedPlayer.thrustEnergy) ? savedPlayer.thrustEnergy : game.player.thrustCapacity));
     game.player.credits = Number.isFinite(savedPlayer.credits) ? savedPlayer.credits : game.player.credits;
     game.player.cargo = Array.isArray(savedPlayer.cargo) ? savedPlayer.cargo : [];
-    game.player.equipmentInventory = Array.isArray(savedPlayer.equipmentInventory) ? savedPlayer.equipmentInventory : [];
+    game.player.equipmentInventory = cleanEquipmentInventory(Array.isArray(savedPlayer.equipmentInventory) ? savedPlayer.equipmentInventory : []);
     game.player.mountedEquipment = savedPlayer.mountedEquipment && typeof savedPlayer.mountedEquipment === 'object' ? savedPlayer.mountedEquipment : {};
     ensureStarterEquipmentForEmptyLoadout();
     game.player.nanobots = Number.isFinite(savedPlayer.nanobots) ? savedPlayer.nanobots : game.player.nanobots;
@@ -3258,6 +3341,8 @@ function updateSaveHint(save = readSavedGame()) {
     const deleteButton = document.getElementById('btn-delete-save');
     const slotList = document.getElementById('save-slot-list');
     const nameInput = document.getElementById('save-name-input');
+    const editNameButton = document.getElementById('btn-edit-save-name');
+    const saveNameButton = document.getElementById('btn-save-name');
     const slots = readSaveSlots();
     if (!game.activeSaveSlotId) game.activeSaveSlotId = getActiveSaveSlotId(slots);
     const activeSlot = slots.find(slot => slot.id === game.activeSaveSlotId);
@@ -3270,7 +3355,12 @@ function updateSaveHint(save = readSavedGame()) {
             return `<div class="save-slot${activeClass}" onclick="setActiveSaveSlot('${slot.id}')"><div><div class="save-slot-title">${escapeHtml(slot.name || 'Pilot')}</div><div class="save-slot-meta">${escapeHtml(slot.currentSystemId || slot.save?.currentSystemId || 'Li01')} - ${escapeHtml(savedLabel)}</div></div><span>${slot.id === game.activeSaveSlotId ? t('activeLabel') : t('loadLabel')}</span></div>`;
         }).join('') : `<div class="save-slot empty"><div><div class="save-slot-title">${escapeHtml(t('noSaveForMod'))}</div><div class="save-slot-meta">${escapeHtml(t('separateSaves'))}</div></div></div>`;
     }
-    if (nameInput && activeSlot && document.activeElement !== nameInput) nameInput.value = activeSlot.name || 'Pilot';
+    if (nameInput) {
+        if (activeSlot && document.activeElement !== nameInput) nameInput.value = activeSlot.name || 'Pilot';
+        nameInput.disabled = Boolean(activeSlot && !game.saveNameEditing);
+    }
+    if (editNameButton) editNameButton.classList.toggle('hidden', !activeSlot || game.saveNameEditing);
+    if (saveNameButton) saveNameButton.classList.toggle('hidden', !activeSlot || !game.saveNameEditing);
     if (!hint || !startButton || !newButton || !deleteButton) return;
     if (!save) {
         hint.textContent = activeModConfig().name + ': ' + t('noSavedGameFound');
@@ -3290,6 +3380,7 @@ function updateSaveHint(save = readSavedGame()) {
 function returnToFreeflight(message = '', options = {}) {
     game.approachTarget = null;
     game.dockTarget = null;
+    game.dockLandingTarget = null;
     game.approachArrivalLogged = false;
     game.dockApproachVoicePlayed = false;
     game.commandMode = 'freeflight';
@@ -3558,27 +3649,32 @@ function startDocking(target) {
         }
         return false;
     }
-    if (game.player && Math.hypot((target.x || 0) - game.player.x, (target.z || 0) - game.player.z) > 10000) {
+    const docking = resolveDockingTargets(target);
+    const flightTarget = docking.flightTarget;
+    const landingTarget = docking.landingTarget;
+    if (game.player && Math.hypot((flightTarget.x || 0) - game.player.x, (flightTarget.z || 0) - game.player.z) > 10000) {
         playVoice('dockDisallowedTooFar', 1);
         addLog('Docking denied - target is more than 10 km away', 'alert');
         return false;
     }
-    if (!canPlayerDockWithTarget(target)) {
+    if (!canPlayerDockWithTarget(landingTarget) || !canPlayerDockWithTarget(flightTarget)) {
         playVoice('dockDisallowed', 1);
-        addLog(tf('dockingDeniedHostile', { faction: factionDisplayName(targetFaction(target)) }), 'alert');
+        addLog(tf('dockingDeniedHostile', { faction: factionDisplayName(targetFaction(landingTarget)) }), 'alert');
         return false;
     }
-    game.approachTarget = target;
-    game.dockTarget = target;
+    game.approachTarget = flightTarget;
+    game.dockTarget = flightTarget;
+    game.dockLandingTarget = landingTarget;
     game.approachArrivalLogged = false;
     game.dockApproachVoicePlayed = false;
     game.commandMode = 'dock';
     updateCommandModeButtons();
     startAutopilotCruise();
     updateSpeedControl();
-    const destination = target.dest ? ' -> ' + target.dest.toUpperCase() : '';
-    addLog((target instanceof TradeLaneRing ? 'Docking with trade lane: ' : 'Docking at: ') + target.name + destination);
-    playSound('dock', target instanceof TradeLaneRing ? 0.8 : 0.65);
+    const destination = flightTarget.dest ? ' -> ' + flightTarget.dest.toUpperCase() : '';
+    const ringHint = flightTarget !== landingTarget ? ' via ' + flightTarget.name : '';
+    addLog((flightTarget instanceof TradeLaneRing ? 'Docking with trade lane: ' : 'Docking at: ') + landingTarget.name + ringHint + destination);
+    playSound('dock', flightTarget instanceof TradeLaneRing ? 0.8 : 0.65);
     return true;
 }
 
@@ -3601,6 +3697,7 @@ function startJumpTransition(target) {
     };
     game.dockTarget = null;
     game.approachTarget = null;
+    game.dockLandingTarget = null;
     game.player.cancelCruise?.();
     game.player.afterburnerActive = false;
     game.player.reverseActive = false;
@@ -3686,6 +3783,46 @@ function planetRadiusFromDeathZone(planet, zones) {
 function planetDeathZoneRadius(planet, zones) {
     const deathZone = matchingPlanetDeathZone(planet, zones);
     return deathZone ? zoneRadius(deathZone) : 0;
+}
+
+function normalizeAsteroidFieldData(field) {
+    const fieldKind = String(field.fieldKind || field.field_kind || 'asteroid').toLowerCase();
+    const hazardKind = String(field.hazardKind || field.hazard_kind || '').toLowerCase();
+    return {
+        ...field,
+        id: field.nickname || field.zone || field.id || 'asteroid_field',
+        name: field.name || field.nickname || field.zone || 'Asteroid Field',
+        x: Number(field.x || 0),
+        y: Number(field.y || 0),
+        z: Number(field.z || 0),
+        size: Number(field.size || 2000),
+        sizeX: Number(field.size_x || field.sizeX || field.size || 2000),
+        sizeY: Number(field.size_y || field.sizeY || field.size || 2000),
+        sizeZ: Number(field.size_z || field.sizeZ || field.size || 2000),
+        shape: field.shape || 'ELLIPSOID',
+        rotateY: Number(field.rotate_y || field.rotateY || 0),
+        fieldKind,
+        hazardKind,
+        fieldFlags: Array.isArray(field.fieldFlags) ? field.fieldFlags : [],
+        texturePanelFiles: Array.isArray(field.texturePanelFiles) ? field.texturePanelFiles : [],
+        cubeObjects: Array.isArray(field.cubeObjects) ? field.cubeObjects : [],
+        cubeRoles: Array.isArray(field.cubeRoles) ? field.cubeRoles : [],
+        billboardShapes: Array.isArray(field.billboardShapes) ? field.billboardShapes : [],
+        dynamicAsteroids: Array.isArray(field.dynamicAsteroids) ? field.dynamicAsteroids : [],
+        exclusionZoneIds: Array.isArray(field.exclusionZoneIds) ? field.exclusionZoneIds : [],
+        exclusionZones: (field.exclusionZones || []).map(z => ({
+            id: z.nickname || z.zone,
+            name: z.name || z.nickname || z.zone,
+            x: Number(z.x || 0),
+            z: Number(z.z || 0),
+            size: Number(z.size || 1000),
+            sizeX: Number(z.size_x || z.sizeX || z.size || 1000),
+            sizeZ: Number(z.size_z || z.sizeZ || z.size || 1000),
+            shape: z.shape || 'ELLIPSOID',
+            rotateY: Number(z.rotate_y || z.rotateY || 0)
+        })),
+        densityHint: field.densityHint || field.density_hint || ''
+    };
 }
 
 function buildSystemData(systemId) {
@@ -3781,7 +3918,7 @@ function buildSystemData(systemId) {
         }))
     ],
     tradeLanes: raw.tradeLanes || raw.tradelanes || [],
-    asteroidfields: raw.asteroidfields || [],
+    asteroidfields: (raw.asteroidfields || []).map(normalizeAsteroidFieldData),
     nebulae: raw.nebulae || [],
     missionZones: (raw.missionZones || []).map(z => ({
         id: z.nickname || z.zone,
@@ -4172,8 +4309,12 @@ function isPointInsideZone(zone, x, z) {
     const local = rotatePoint(x - zone.x, z - zone.z, rotation);
     const radiusX = Math.max(1, zone.sizeX || zone.size || 1);
     const radiusZ = Math.max(1, zone.sizeZ || zone.size || 1);
-    if (String(zone.shape || '').toUpperCase() === 'SPHERE') {
+    const shape = String(zone.shape || '').toUpperCase();
+    if (shape === 'SPHERE') {
         return Math.sqrt(local.x * local.x + local.z * local.z) <= Math.max(radiusX, radiusZ);
+    }
+    if (shape === 'BOX') {
+        return Math.abs(local.x) <= radiusX && Math.abs(local.z) <= radiusZ;
     }
     return (local.x * local.x) / (radiusX * radiusX) + (local.z * local.z) / (radiusZ * radiusZ) <= 1;
 }
@@ -4183,14 +4324,96 @@ function isPointInsideExpandedZone(zone, x, z, margin = 0) {
     const local = rotatePoint(x - zone.x, z - zone.z, rotation);
     const radiusX = Math.max(1, zone.sizeX || zone.size || 1) + margin;
     const radiusZ = Math.max(1, zone.sizeZ || zone.size || 1) + margin;
-    if (String(zone.shape || '').toUpperCase() === 'SPHERE') {
+    const shape = String(zone.shape || '').toUpperCase();
+    if (shape === 'SPHERE') {
         return Math.sqrt(local.x * local.x + local.z * local.z) <= Math.max(radiusX, radiusZ);
+    }
+    if (shape === 'BOX') {
+        return Math.abs(local.x) <= radiusX && Math.abs(local.z) <= radiusZ;
     }
     return (local.x * local.x) / (radiusX * radiusX) + (local.z * local.z) / (radiusZ * radiusZ) <= 1;
 }
 
+function isPointInsideZoneExclusion(zone, x, z, margin = 0) {
+    return (zone.exclusionZones || []).some(exclusion => isPointInsideExpandedZone(exclusion, x, z, margin));
+}
+
+function isPointInsideActiveZone(zone, x, z, margin = 0) {
+    if (!isPointInsideExpandedZone(zone, x, z, margin)) return false;
+    return !isPointInsideZoneExclusion(zone, x, z, 0);
+}
+
 function damagingZones() {
-    return (systemData.zones || []).filter(zone => Number(zone.damage || 0) >= 1000 && Number.isFinite(zone.x) && Number.isFinite(zone.z));
+    const zones = (systemData.zones || []).filter(zone => Number(zone.damage || 0) >= 1000 && Number.isFinite(zone.x) && Number.isFinite(zone.z));
+    const minefields = (systemData.asteroidfields || [])
+        .filter(field => field.hazardKind === 'explosive_mines' && Number.isFinite(field.x) && Number.isFinite(field.z))
+        .map(field => ({
+            ...field,
+            id: field.id || field.nickname || field.zone,
+            name: field.name || field.id || field.zone || 'Minefield',
+            damage: Math.max(1000, Number(field.zone_damage || field.zoneDamage || 0)),
+            size: field.size || 2000,
+            sizeX: field.sizeX || field.size_x || field.size || 2000,
+            sizeZ: field.sizeZ || field.size_z || field.size || 2000,
+            rotateY: field.rotateY || field.rotate_y || 0,
+            exclusionZones: field.exclusionZones || [],
+            isMinefieldHazard: true
+        }));
+    return [...zones, ...minefields];
+}
+
+function autopilotHazardZones() {
+    const hazards = damagingZones().map(zone => ({
+        ...zone,
+        hazardKind: zone.hazardKind || 'death_zone',
+        blockRadius: circularDeathZoneRadius(zone),
+        orbitRadius: circularDeathZoneRadius(zone) + 500
+    }));
+    for (const planet of systemData.planets || []) {
+        const deathRadius = Number(planet.deathZoneRadius || 0);
+        const atmosphereRadius = planetAtmosphereRadius(planet);
+        const blockRadius = Math.max(deathRadius, atmosphereRadius);
+        if (blockRadius <= 0) continue;
+        const duplicate = hazards.find(zone => Math.hypot(zone.x - planet.x, zone.z - planet.z) <= Math.max(1000, blockRadius * 0.08));
+        if (duplicate) {
+            duplicate.blockRadius = Math.max(duplicate.blockRadius || 0, blockRadius);
+            duplicate.orbitRadius = Math.max(duplicate.orbitRadius || 0, blockRadius + 500);
+            duplicate.atmosphereRadius = Math.max(Number(duplicate.atmosphereRadius || 0), atmosphereRadius);
+            duplicate.name = duplicate.name || planet.name;
+            duplicate.hazardKind = 'planet_hazard';
+            continue;
+        }
+        hazards.push({
+            id: planet.id + '_autopilot_hazard',
+            name: planet.name,
+            x: planet.x,
+            z: planet.z,
+            size: blockRadius,
+            sizeX: blockRadius,
+            sizeZ: blockRadius,
+            shape: 'SPHERE',
+            rotateY: 0,
+            damage: 1000,
+            blockRadius,
+            deathRadius,
+            atmosphereRadius,
+            orbitRadius: blockRadius + 500,
+            hazardKind: 'planet_hazard'
+        });
+    }
+    return hazards;
+}
+
+function segmentCrossesActiveZone(zone, x1, z1, x2, z2, margin = 0) {
+    const distance = Math.hypot(x2 - x1, z2 - z1);
+    const steps = clamp(Math.ceil(distance / 1000), 10, 96);
+    for (let i = 0; i <= steps; i++) {
+        const t = i / steps;
+        const x = x1 + (x2 - x1) * t;
+        const z = z1 + (z2 - z1) * t;
+        if (isPointInsideActiveZone(zone, x, z, margin)) return t;
+    }
+    return -1;
 }
 
 function segmentCrossesExpandedZone(zone, x1, z1, x2, z2, margin = 0) {
@@ -4234,13 +4457,23 @@ function autopilotZoneSide(zone, x, z, targetX, targetZ, routeNormalX, routeNorm
             z: zone.z + Math.sin(angle) * avoidRadius,
             side
         };
-        const blocked = damagingZones().some(other => other !== zone && isPointInsideExpandedZone(other, point.x, point.z, 500));
+        const blocked = autopilotHazardZones().some(other => (other.id || other.name) !== (zone.id || zone.name) && Math.hypot(point.x - other.x, point.z - other.z) <= (other.blockRadius || circularDeathZoneRadius(other)) + 500);
         const pathCost = Math.hypot(point.x - x, point.z - z) + Math.hypot(targetX - point.x, targetZ - point.z);
         return { side, score: pathCost + (blocked ? 100000000 : 0) };
     });
     const centerSide = Math.sign((zone.x - x) * routeNormalX + (zone.z - z) * routeNormalZ);
     routeCandidates.sort((a, b) => a.score - b.score || (a.side === -centerSide ? -1 : 1));
     return routeCandidates[0]?.side || 1;
+}
+
+function segmentCrossesAutopilotHazard(zone, x1, z1, x2, z2, margin = 0) {
+    if (zone.isMinefieldHazard) return segmentCrossesActiveZone(zone, x1, z1, x2, z2, margin);
+    return segmentCircleIntersection(zone, x1, z1, x2, z2, (zone.blockRadius || circularDeathZoneRadius(zone)) + margin)?.enter ?? -1;
+}
+
+function pointInsideAutopilotHazard(zone, x, z, margin = 0) {
+    if (zone.isMinefieldHazard) return isPointInsideActiveZone(zone, x, z, margin);
+    return Math.hypot(x - zone.x, z - zone.z) <= (zone.blockRadius || circularDeathZoneRadius(zone)) + margin;
 }
 
 function getAutopilotDeathZoneAvoidance(x, z, targetX, targetZ, margin = 1400) {
@@ -4254,34 +4487,42 @@ function getAutopilotDeathZoneAvoidance(x, z, targetX, targetZ, margin = 1400) {
     const nx = -uz;
     const nz = ux;
     let threat = null;
-    for (const zone of damagingZones()) {
-        if (isPointInsideZone(zone, targetX, targetZ)) continue;
-        const hit = segmentCircleIntersection(zone, x, z, targetX, targetZ, circularDeathZoneRadius(zone));
-        if (hit && (!threat || hit.enter < threat.t)) threat = { zone, t: hit.enter };
+    for (const zone of autopilotHazardZones()) {
+        if (pointInsideAutopilotHazard(zone, targetX, targetZ)) continue;
+        const activeHit = segmentCrossesAutopilotHazard(zone, x, z, targetX, targetZ, 0);
+        if (activeHit >= 0 && (!threat || activeHit < threat.t)) threat = { zone, t: activeHit };
     }
     if (!threat) return { x: 0, z: 0, magnitude: 0 };
 
     const zone = threat.zone;
-    const deathRadius = circularDeathZoneRadius(zone);
-    const avoidRadius = deathRadius + clearance;
+    const blockRadius = Math.max(zone.blockRadius || 0, circularDeathZoneRadius(zone));
+    const avoidRadius = Math.max(zone.orbitRadius || 0, blockRadius + clearance);
     const avoidHit = segmentCircleIntersection(zone, x, z, targetX, targetZ, avoidRadius);
-    if (!avoidHit) return { x: 0, z: 0, magnitude: 0 };
+    if (!avoidHit && Math.hypot(x - zone.x, z - zone.z) > avoidRadius + 1200) return { x: 0, z: 0, magnitude: 0 };
 
     const currentRadius = Math.hypot(x - zone.x, z - zone.z);
     const entry = {
-        x: x + dx * avoidHit.enter,
-        z: z + dz * avoidHit.enter
+        x: avoidHit ? x + dx * avoidHit.enter : zone.x + ((x - zone.x) / Math.max(1, currentRadius)) * avoidRadius,
+        z: avoidHit ? z + dz * avoidHit.enter : zone.z + ((z - zone.z) / Math.max(1, currentRadius)) * avoidRadius
     };
     const distanceToEntry = Math.hypot(entry.x - x, entry.z - z);
     let detour = entry;
-    if (currentRadius <= avoidRadius + 900 || distanceToEntry < 900) {
+    if (currentRadius <= avoidRadius + 1200 || distanceToEntry < 1100) {
         const side = autopilotZoneSide(zone, x, z, targetX, targetZ, nx, nz, avoidRadius);
         const currentAngle = Math.atan2(z - zone.z, x - zone.x);
-        const stepAngle = clamp(Math.max(0.28, 1400 / avoidRadius), 0.28, 0.95);
+        const stepAngle = clamp(Math.max(0.22, 1800 / avoidRadius), 0.22, 0.72);
         detour = {
             x: zone.x + Math.cos(currentAngle + side * stepAngle) * avoidRadius,
             z: zone.z + Math.sin(currentAngle + side * stepAngle) * avoidRadius
         };
+        const radiusError = Math.abs(currentRadius - avoidRadius);
+        if (radiusError > 650) {
+            const radialAngle = Math.atan2(z - zone.z, x - zone.x);
+            detour = {
+                x: zone.x + Math.cos(radialAngle + side * stepAngle * 0.45) * avoidRadius,
+                z: zone.z + Math.sin(radialAngle + side * stepAngle * 0.45) * avoidRadius
+            };
+        }
     }
     const vx = detour.x - x;
     const vz = detour.z - z;
@@ -4290,6 +4531,20 @@ function getAutopilotDeathZoneAvoidance(x, z, targetX, targetZ, margin = 1400) {
 
 function checkZoneHazards(dt) {
     if (!game.player || game.isDocked || game.player.destroyed) return;
+    for (const field of systemData.asteroidfields || []) {
+        if (field.hazardKind !== 'explosive_mines' || !isPointInsideActiveZone(field, game.player.x, game.player.z)) continue;
+        game.player.cancelCruise?.();
+        game.player.afterburnerActive = false;
+        game.player.reverseActive = false;
+        updateCruiseButton();
+        game.player.takeHullDamage(260 * dt, 'Minefield damage');
+        game.player.speed *= 0.82;
+        if (!game.player.lastMinefieldWarning || performance.now() - game.player.lastMinefieldWarning > 1200) {
+            addLog('Minefield hazard: ' + (field.name || field.id || 'minefield'), 'alert');
+            game.player.lastMinefieldWarning = performance.now();
+        }
+        break;
+    }
     for (const zone of systemData.zones || []) {
         const damage = Number(zone.damage || 0);
         if (damage <= 0 || !isPointInsideZone(zone, game.player.x, game.player.z)) continue;
@@ -4370,6 +4625,18 @@ function findDockingRingForPlanet(planet) {
         .sort((a, b) => a.distance - b.distance)[0]?.ring || null;
 }
 
+function resolveDockingTargets(target) {
+    if (isPlanetDockTarget(target)) {
+        const dockingRing = findDockingRingForPlanet(target);
+        if (dockingRing) return { flightTarget: dockingRing, landingTarget: target };
+    }
+    if (isDockingRingTarget(target)) {
+        const planet = findPlanetForBase(getBaseId(target));
+        if (planet) return { flightTarget: target, landingTarget: planet };
+    }
+    return { flightTarget: target, landingTarget: target };
+}
+
 function launchPointFromDockTarget(target) {
     if (!target) return null;
     const baseId = getBaseId(target);
@@ -4444,6 +4711,7 @@ function respawnAtLastLanding() {
     game.selectedTarget = target;
     game.approachTarget = null;
     game.dockTarget = null;
+    game.dockLandingTarget = null;
     game.running = true;
     addLog('Respawn at last landing: ' + target.name, 'alert');
     openLandingWindow(target);
@@ -4456,7 +4724,13 @@ function getCurrentSystemKey() {
 
 function createFieldObstacles(field, kind) {
     const rng = seededRandom(hashString(currentSystemId + ':' + field.id + ':' + kind));
-    const count = kind === 'asteroid' ? Math.min(340, Math.max(52, Math.floor(field.size / 185))) : Math.min(46, Math.max(10, Math.floor(field.size / 1100)));
+    const count = kind === 'mine'
+        ? Math.min(520, Math.max(90, Math.floor(field.size / 120)))
+        : kind === 'debris'
+            ? Math.min(360, Math.max(70, Math.floor(field.size / 165)))
+            : kind === 'asteroid'
+                ? Math.min(340, Math.max(52, Math.floor(field.size / 185)))
+                : Math.min(46, Math.max(10, Math.floor(field.size / 1100)));
     const radiusX = Math.max(800, (field.sizeX || field.size || 2000) * 0.75);
     const radiusZ = Math.max(800, (field.sizeZ || field.size || 2000) * 0.75);
     const fieldRotation = flYawToCanvasRotation(field.rotateY || 0);
@@ -4467,21 +4741,34 @@ function createFieldObstacles(field, kind) {
         const localX = Math.cos(angle) * dist * radiusX;
         const localZ = Math.sin(angle) * dist * radiusZ;
         const rotated = rotatePoint(localX, localZ, fieldRotation);
-        const radius = kind === 'asteroid' ? 55 + rng() * 190 : 120 + rng() * 420;
+        const worldX = field.x + rotated.x;
+        const worldZ = field.z + rotated.z;
+        if (isPointInsideZoneExclusion(field, worldX, worldZ)) {
+            i--;
+            continue;
+        }
+        const radius = kind === 'mine'
+            ? 32 + rng() * 56
+            : kind === 'debris'
+                ? 65 + rng() * 260
+                : kind === 'asteroid'
+                    ? 55 + rng() * 190
+                    : 120 + rng() * 420;
         obstacles.push({
             id: field.id + '_obstacle_' + i,
             fieldId: field.id,
             kind,
             localX,
             localZ,
-            x: field.x + rotated.x,
-            z: field.z + rotated.z,
+            x: worldX,
+            z: worldZ,
             radius,
             rotation: rng() * Math.PI * 2,
-            spinSpeed: kind === 'asteroid' ? (rng() - 0.5) * 0.18 : 0,
+            spinSpeed: kind === 'mine' ? 0 : (kind === 'nebula' ? 0 : (rng() - 0.5) * 0.18),
             driftPhase: rng() * Math.PI * 2,
-            driftSpeed: kind === 'asteroid' ? 0.045 + rng() * 0.075 : 0,
-            driftRadius: kind === 'asteroid' ? 18 + rng() * 70 : 0
+            driftSpeed: kind === 'asteroid' || kind === 'debris' ? 0.045 + rng() * 0.075 : 0,
+            driftRadius: kind === 'asteroid' || kind === 'debris' ? 18 + rng() * 70 : 0,
+            damage: kind === 'mine' ? 2000000 : (kind === 'debris' ? 14 : 8)
         });
     }
     return obstacles;
@@ -4547,6 +4834,7 @@ function loadSystem(systemId, arrivalObjectId = null) {
     game.selectedTarget = null;
     game.approachTarget = null;
     game.dockTarget = null;
+    game.dockLandingTarget = null;
     game.loot = [];
     game.missionOffers = {};
     game.npcs = previousSystemId === currentSystemId ? game.npcs.filter(npc => !npc.missionId) : [];
@@ -5139,8 +5427,8 @@ class PlayerShip {
     }
 
     resolveObstacleCollisions(oldX, oldZ) {
-        if (this.inTradeLane) return;
         for (const obstacle of game.obstacles) {
+            if (this.inTradeLane && obstacle.kind !== 'mine') continue;
             const dx = this.x - obstacle.x;
             const dz = this.z - obstacle.z;
             const dist = Math.sqrt(dx * dx + dz * dz);
@@ -5157,8 +5445,10 @@ class PlayerShip {
                 this.speed *= 0.25;
                 this.throttle = Math.min(this.throttle, 0.25);
                 if (!this.lastObstacleHit || performance.now() - this.lastObstacleHit > 1200) {
-                    this.takeDamage(obstacle.kind === 'asteroid' ? 8 : 3);
-                    addLog('Obstacle impact: ' + (obstacle.kind === 'asteroid' ? 'asteroid' : 'nebula debris'), 'alert');
+                    const impactDamage = obstacle.kind === 'mine' ? Number(obstacle.damage || 2000000) : (obstacle.kind === 'debris' ? 14 : (obstacle.kind === 'asteroid' ? 8 : 3));
+                    this.takeDamage(impactDamage);
+                    const label = obstacle.kind === 'mine' ? 'explosive mine' : (obstacle.kind === 'debris' ? 'debris' : (obstacle.kind === 'asteroid' ? 'asteroid' : 'nebula debris'));
+                    addLog('Obstacle impact: ' + label, 'alert');
                     this.lastObstacleHit = performance.now();
                 }
                 if (this.inTradeLane) {
@@ -5607,7 +5897,16 @@ class AsteroidField {
         this.sizeZ = data.size_z || data.sizeZ || this.size;
         this.shape = data.shape || 'ELLIPSOID';
         this.rotation = flYawToCanvasRotation(data.rotate_y || data.rotateY || 0);
-        this.obstacles = createFieldObstacles(this, 'asteroid');
+        this.fieldKind = String(data.fieldKind || data.field_kind || 'asteroid').toLowerCase();
+        this.hazardKind = String(data.hazardKind || data.hazard_kind || '').toLowerCase();
+        this.densityHint = data.densityHint || data.density_hint || '';
+        this.exclusionZones = data.exclusionZones || [];
+        this.obstacleKind = this.hazardKind === 'explosive_mines'
+            ? 'mine'
+            : this.fieldKind === 'debris'
+                ? 'debris'
+                : 'asteroid';
+        this.obstacles = createFieldObstacles(this, this.obstacleKind);
     }
     update(dt) {
         for (const obstacle of this.obstacles) {
@@ -5622,8 +5921,8 @@ class AsteroidField {
     }
     render(ctx) {
         const pos = worldToScreen(this.x, this.z);
-        const screenRadiusX = this.sizeX * 0.8 * game.zoom;
-        const screenRadiusZ = this.sizeZ * 0.8 * game.zoom;
+        const screenRadiusX = this.sizeX * game.zoom;
+        const screenRadiusZ = this.sizeZ * game.zoom;
         const screenSize = Math.max(screenRadiusX, screenRadiusZ);
         
         // Only render if visible
@@ -5632,9 +5931,10 @@ class AsteroidField {
         ctx.save();
         ctx.translate(pos.x, pos.y);
         
-        // Debris/cloud appearance
-        ctx.fillStyle = 'rgba(100, 90, 70, 0.3)';
-        ctx.strokeStyle = 'rgba(120, 110, 80, 0.4)';
+        const isMinefield = this.hazardKind === 'explosive_mines';
+        const isDebris = this.fieldKind === 'debris';
+        ctx.fillStyle = isMinefield ? 'rgba(160, 30, 20, 0.28)' : isDebris ? 'rgba(95, 105, 108, 0.28)' : 'rgba(100, 90, 70, 0.3)';
+        ctx.strokeStyle = isMinefield ? 'rgba(255, 70, 40, 0.5)' : isDebris ? 'rgba(170, 185, 185, 0.35)' : 'rgba(120, 110, 80, 0.4)';
         ctx.lineWidth = 1;
         
         for (const obstacle of this.obstacles) {
@@ -5644,17 +5944,41 @@ class AsteroidField {
             ctx.save();
             ctx.translate(px, pz);
             ctx.rotate(obstacle.rotation + this.rotation);
-            ctx.beginPath();
-            ctx.moveTo(pSize, 0);
-            for (let j = 1; j < 7; j++) {
-                const angle = (j / 7) * Math.PI * 2;
-                const rough = j % 2 === 0 ? 0.72 : 1;
-                ctx.lineTo(Math.cos(angle) * pSize * rough, Math.sin(angle) * pSize * rough);
+            if (obstacle.kind === 'mine') {
+                const glow = pSize * 2.9;
+                const gradient = ctx.createRadialGradient(0, 0, pSize * 0.3, 0, 0, glow);
+                gradient.addColorStop(0, 'rgba(255,210,90,0.55)');
+                gradient.addColorStop(0.32, 'rgba(255,50,20,0.24)');
+                gradient.addColorStop(1, 'rgba(255,0,0,0)');
+                ctx.fillStyle = gradient;
+                ctx.beginPath();
+                ctx.arc(0, 0, glow, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.strokeStyle = 'rgba(255,80,40,0.85)';
+                ctx.lineWidth = Math.max(1, game.zoom * 2);
+                ctx.beginPath();
+                ctx.arc(0, 0, pSize, 0, Math.PI * 2);
+                ctx.stroke();
+                ctx.beginPath();
+                for (let j = 0; j < 8; j++) {
+                    const angle = (j / 8) * Math.PI * 2;
+                    ctx.moveTo(Math.cos(angle) * pSize * 0.45, Math.sin(angle) * pSize * 0.45);
+                    ctx.lineTo(Math.cos(angle) * pSize * 1.45, Math.sin(angle) * pSize * 1.45);
+                }
+                ctx.stroke();
+            } else {
+                ctx.beginPath();
+                ctx.moveTo(pSize, 0);
+                for (let j = 1; j < (isDebris ? 5 : 7); j++) {
+                    const angle = (j / (isDebris ? 5 : 7)) * Math.PI * 2;
+                    const rough = j % 2 === 0 ? (isDebris ? 0.45 : 0.72) : 1;
+                    ctx.lineTo(Math.cos(angle) * pSize * rough, Math.sin(angle) * pSize * rough);
+                }
+                ctx.closePath();
+                ctx.fill();
+                ctx.strokeStyle = isDebris ? 'rgba(210,225,220,0.32)' : 'rgba(210,190,150,0.35)';
+                ctx.stroke();
             }
-            ctx.closePath();
-            ctx.fill();
-            ctx.strokeStyle = 'rgba(210,190,150,0.35)';
-            ctx.stroke();
             ctx.restore();
         }
         
@@ -5667,15 +5991,33 @@ class AsteroidField {
         } else {
             ctx.ellipse(0, 0, screenRadiusX, screenRadiusZ, 0, 0, Math.PI * 2);
         }
-        ctx.strokeStyle = 'rgba(150, 130, 100, 0.15)';
+        ctx.strokeStyle = isMinefield ? 'rgba(255,70,40,0.32)' : isDebris ? 'rgba(150,170,175,0.18)' : 'rgba(150, 130, 100, 0.15)';
         ctx.stroke();
         ctx.restore();
+
+        for (const exclusion of this.exclusionZones || []) {
+            const ex = worldToScreen(exclusion.x, exclusion.z);
+            ctx.save();
+            ctx.translate(ex.x - pos.x, ex.y - pos.y);
+            ctx.rotate(flYawToCanvasRotation(exclusion.rotateY || 0));
+            const exRx = Math.max(1, (exclusion.sizeX || exclusion.size || 1) * game.zoom);
+            const exRz = Math.max(1, (exclusion.sizeZ || exclusion.size || 1) * game.zoom);
+            ctx.strokeStyle = isMinefield ? 'rgba(120,255,210,0.42)' : 'rgba(150,230,255,0.22)';
+            ctx.lineWidth = Math.max(1, game.zoom * 2);
+            ctx.setLineDash([10, 7]);
+            ctx.beginPath();
+            if (String(exclusion.shape || '').toUpperCase() === 'BOX') ctx.rect(-exRx, -exRz, exRx * 2, exRz * 2);
+            else ctx.ellipse(0, 0, exRx, exRz, 0, 0, Math.PI * 2);
+            ctx.stroke();
+            ctx.setLineDash([]);
+            ctx.restore();
+        }
         
         ctx.restore();
         
         // Label
         if (screenSize > 50) {
-            ctx.fillStyle = 'rgba(150, 130, 100, 0.5)';
+            ctx.fillStyle = isMinefield ? 'rgba(255,100,70,0.72)' : isDebris ? 'rgba(170,190,190,0.58)' : 'rgba(150, 130, 100, 0.5)';
             ctx.font = '9px Courier New';
             ctx.textAlign = 'center';
             ctx.fillText(this.name, pos.x, pos.y + screenSize * 0.8 + 12);
@@ -7228,8 +7570,10 @@ function update(dt) {
         const dz = game.dockTarget.z - game.player.z;
         if (Math.sqrt(dx * dx + dz * dz) < 180) {
             const target = game.dockTarget;
+            const landingTarget = game.dockLandingTarget || target;
             game.dockTarget = null;
             game.approachTarget = null;
+            game.dockLandingTarget = null;
             game.player.cancelCruise?.();
             game.player.afterburnerActive = false;
             game.player.reverseActive = false;
@@ -7241,6 +7585,7 @@ function update(dt) {
                 playVoice('dockDisallowed', 1);
                 game.dockTarget = null;
                 game.approachTarget = null;
+                game.dockLandingTarget = null;
                 return;
             }
             if (target instanceof TradeLaneRing) {
@@ -7248,7 +7593,7 @@ function update(dt) {
             } else if (target instanceof JumpGate) {
                 startJumpTransition(target);
             } else {
-                openLandingWindow(target);
+                openLandingWindow(landingTarget);
             }
         }
     }
@@ -7433,6 +7778,7 @@ function startApproachFromScanner(target) {
     game.selectedTarget = target;
     game.approachTarget = target;
     game.dockTarget = null;
+    game.dockLandingTarget = null;
     game.approachArrivalLogged = false;
     game.commandMode = 'approach';
     updateCommandModeButtons();
@@ -8362,20 +8708,39 @@ function drawMapCanvas() {
         const pos = systemMapToScreen(field.x, field.z, mapTransform);
         const ex = pos.x;
         const ey = pos.y;
-        const rx = Math.max(8, (field.size_x || field.size || 0) * 0.8 * mapTransform.scaleX);
-        const rz = Math.max(8, (field.size_z || field.size || 0) * 0.8 * mapTransform.scaleY);
-        ctx.fillStyle = 'rgba(130,110,70,0.12)';
-        ctx.strokeStyle = 'rgba(180,150,90,0.25)';
+        const rx = Math.max(8, (field.sizeX || field.size_x || field.size || 0) * mapTransform.scaleX);
+        const rz = Math.max(8, (field.sizeZ || field.size_z || field.size || 0) * mapTransform.scaleY);
+        const isMinefield = field.hazardKind === 'explosive_mines';
+        const isDebris = field.fieldKind === 'debris';
+        ctx.fillStyle = isMinefield ? 'rgba(255,45,20,0.12)' : (isDebris ? 'rgba(150,165,165,0.10)' : 'rgba(130,110,70,0.12)');
+        ctx.strokeStyle = isMinefield ? 'rgba(255,70,45,0.42)' : (isDebris ? 'rgba(175,195,195,0.25)' : 'rgba(180,150,90,0.25)');
         ctx.beginPath();
         ctx.ellipse(ex, ey, rx, rz, flYawToCanvasRotation(field.rotate_y || field.rotateY || 0), 0, Math.PI * 2);
         ctx.fill();
         ctx.stroke();
+        for (const exclusion of field.exclusionZones || []) {
+            const exclusionPos = systemMapToScreen(exclusion.x, exclusion.z, mapTransform);
+            const exRx = Math.max(3, (exclusion.sizeX || exclusion.size || 0) * mapTransform.scaleX);
+            const exRz = Math.max(3, (exclusion.sizeZ || exclusion.size || 0) * mapTransform.scaleY);
+            ctx.save();
+            ctx.translate(exclusionPos.x, exclusionPos.y);
+            ctx.rotate(flYawToCanvasRotation(exclusion.rotateY || 0));
+            ctx.strokeStyle = isMinefield ? 'rgba(120,255,210,0.58)' : 'rgba(150,230,255,0.32)';
+            ctx.lineWidth = 1;
+            ctx.setLineDash([6, 4]);
+            ctx.beginPath();
+            if (String(exclusion.shape || '').toUpperCase() === 'BOX') ctx.rect(-exRx, -exRz, exRx * 2, exRz * 2);
+            else ctx.ellipse(0, 0, exRx, exRz, 0, 0, Math.PI * 2);
+            ctx.stroke();
+            ctx.setLineDash([]);
+            ctx.restore();
+        }
     }
     for (const obstacle of game.obstacles) {
         const pos = systemMapToScreen(obstacle.x, obstacle.z, mapTransform);
         const ex = pos.x;
         const ey = pos.y;
-        ctx.fillStyle = obstacle.kind === 'asteroid' ? '#aa8855' : '#66ddee';
+        ctx.fillStyle = obstacle.kind === 'mine' ? '#ff5038' : (obstacle.kind === 'debris' ? '#aab8b8' : (obstacle.kind === 'asteroid' ? '#aa8855' : '#66ddee'));
         ctx.beginPath();
         ctx.arc(ex, ey, Math.max(2, obstacle.radius * mapTransform.scaleX), 0, Math.PI * 2);
         ctx.fill();
@@ -9174,6 +9539,7 @@ function setMode(mode) {
             playVoice('goingTo', 1);
             game.approachTarget = game.selectedTarget;
             game.dockTarget = null;
+            game.dockLandingTarget = null;
             game.approachArrivalLogged = false;
             game.commandMode = 'approach';
             updateCommandModeButtons();
@@ -9245,7 +9611,7 @@ function renderInventoryPanel() {
     html += '</div>';
 
     html += `<div class="inventory-section"><div class="inventory-section-title">Equipment Inventory</div>`;
-    const inventory = (p.equipmentInventory || []).filter(item => (Number(item.quantity) || 0) > 0);
+    const inventory = cleanEquipmentInventory(p.equipmentInventory || []).filter(item => (Number(item.quantity) || 0) > 0);
     if (inventory.length) {
         for (const item of inventory) {
             const equipment = getEquipment(item.id);
@@ -9636,7 +10002,7 @@ function renderEquipmentDealer() {
     const content = document.getElementById('landing-content');
     if (!content) return;
     const market = getEquipmentMarket();
-    const inventory = game.player.equipmentInventory || [];
+    const inventory = cleanEquipmentInventory(game.player.equipmentInventory || []);
     const repairCost = shipRepairCost();
     const dealerTab = game.equipmentDealerTab || 'equipment';
     let html = `<div style="display:flex;justify-content:space-between;margin-bottom:10px;color:#b9efff;gap:12px;flex-wrap:wrap;"><span>${t('credits')}: ${game.player.credits.toLocaleString()} CR</span><span>Ship: ${escapeHtml(game.player.shipName || 'Unknown')}</span><span>Hull: ${Math.round(game.player.hull).toLocaleString()}/${Math.round(game.player.maxHull).toLocaleString()}</span><span>Shield: ${game.player.maxShield > 0 ? `${Math.round(game.player.shield).toLocaleString()}/${Math.round(game.player.maxShield).toLocaleString()}` : 'none'}</span><span>Power: ${Math.round(game.player.maxEnergy).toLocaleString()} / +${Math.round(game.player.powerGen).toLocaleString()}/s</span><span>Thrust: ${Math.round(game.player.thrustEnergy || 0).toLocaleString()}/${Math.round(game.player.thrustCapacity || 0).toLocaleString()} / +${Math.round(game.player.thrustChargeRate || 0).toLocaleString()}/s</span><span>Nanobots: ${game.player.nanobots}/${game.player.maxNanobots}</span><span>Shield Batteries: ${game.player.shieldBatteries}/${game.player.maxShieldBatteries}</span><span>${tf('missileAmmoCount', { count: totalMissileAmmoCount(), max: game.player.maxMissileAmmo })}</span><span>${tf('mineAmmoCount', { count: totalMineAmmoCount(), max: game.player.maxMineAmmo })}</span><span>${tf('countermeasureAmmoCount', { count: totalCountermeasureAmmoCount() })}</span></div>`;
@@ -9658,17 +10024,16 @@ function renderEquipmentDealer() {
     html += '</div><div class="equipment-panel"><h4>Inventory</h4>';
     const availableInventory = inventory.map(inv => {
         const item = getEquipment(inv.id);
-        return { ...inv, availableQuantity: isFixedEquipmentItem(item) ? Math.max(1, Number(inv.quantity) || 0) : availableEquipmentQuantity(inv.id) };
+        return { ...inv, availableQuantity: availableEquipmentQuantity(inv.id) };
     }).filter(inv => inv.availableQuantity > 0);
     if (availableInventory.length) {
         for (const inv of availableInventory) {
             const sellPrice = equipmentSellPrice(inv.id);
             const inventoryItem = getEquipment(inv.id);
             const compatibility = equipmentCompatibility(inventoryItem);
-            const isFixed = isFixedEquipmentItem(inventoryItem);
-            const canMount = !inventoryItem?.combinable && compatibility.ok && !isFixed;
+            const canMount = !inventoryItem?.combinable && compatibility.ok;
             const meta = `${equipmentMountType(inventoryItem)} class ${equipmentClass(inventoryItem)} x${inv.availableQuantity} | ${sellPrice.toLocaleString()} CR`;
-            html += `<div class="slot-row"><div>${escapeHtml(inv.name)}<br><span style="color:#88a;">${escapeHtml(meta)}${isFixed ? ' | fixed' : ''}</span>${compatibility.ok ? '' : `<br><span style="color:#ff7777;">${escapeHtml(compatibility.reason)}</span>`}</div><div style="display:flex;gap:6px;justify-content:flex-end;flex-wrap:wrap;"><button class="trade-button" onclick="mountEquipment('${inv.id}')" ${canMount ? '' : 'disabled'}>Mount</button><button class="trade-button" onclick="sellEquipment('${inv.id}')" ${sellPrice > 0 && !isFixed ? '' : 'disabled'}>${t('sell')}</button></div></div>`;
+            html += `<div class="slot-row"><div>${escapeHtml(inv.name)}<br><span style="color:#88a;">${escapeHtml(meta)}</span>${compatibility.ok ? '' : `<br><span style="color:#ff7777;">${escapeHtml(compatibility.reason)}</span>`}</div><div style="display:flex;gap:6px;justify-content:flex-end;flex-wrap:wrap;"><button class="trade-button" onclick="mountEquipment('${inv.id}')" ${canMount ? '' : 'disabled'}>Mount</button><button class="trade-button" onclick="sellEquipment('${inv.id}')" ${sellPrice > 0 ? '' : 'disabled'}>${t('sell')}</button></div></div>`;
         }
     } else {
         html += '<div style="color:#667f8f;">No equipment in inventory.</div>';
@@ -9681,7 +10046,7 @@ function renderEquipmentDealer() {
         })
         : market.filter(entry => {
             const item = getEquipment(entry.id);
-            return item && !(String(item.category || '').toLowerCase() === 'missile' && item.combinable) && !isMineAmmo(item) && !isCountermeasureAmmo(item);
+            return item && !isFixedEquipmentItem(item) && !(String(item.category || '').toLowerCase() === 'missile' && item.combinable) && !isMineAmmo(item) && !isCountermeasureAmmo(item);
         });
     html += '<table class="trade-table"><tr><th>Item</th><th>Type</th><th>Class</th><th>Power</th><th>Damage</th><th>Price</th><th>Stock</th><th>Owned</th><th></th></tr>';
     for (const entry of marketEntries.slice(0, 120)) {
@@ -9691,7 +10056,8 @@ function renderEquipmentDealer() {
         const owned = inv ? availableEquipmentQuantity(item.id) : 0;
         const needsShipCompatibility = !item.combinable && categorySlotKeys(item.category).length > 0;
         const compatibility = needsShipCompatibility ? equipmentCompatibility(item) : { ok: true, reason: '' };
-        const canBuy = entry.forSale && game.player.credits >= entry.price && compatibility.ok;
+        const ammoReason = ammoCompatibilityReason(item);
+        const canBuy = entry.forSale && game.player.credits >= entry.price && compatibility.ok && !ammoReason;
         const damageLabel = isMineDropper(item)
             ? `${Math.round(mineStatsFromEquipment(item).damage)}`
             : isMissileLauncher(item)
@@ -9701,11 +10067,12 @@ function renderEquipmentDealer() {
             ? `${Math.round(thrusterPowerUsage(item)).toLocaleString()}/s thrust`
             : (item.powerUsage ? Number(item.powerUsage).toFixed(1) : (item.capacity ? `${Math.round(item.capacity).toLocaleString()} / +${Math.round(item.chargeRate || 0).toLocaleString()}` : '-'));
         const typeLabel = equipmentMountType(item);
-        const muted = !compatibility.ok;
+        const muted = !compatibility.ok || Boolean(ammoReason);
         const rowStyle = muted ? ' style="opacity:0.48;color:#778899;"' : '';
         const mutedCellStyle = muted ? ' style="color:#778899;"' : '';
-        const reasonHtml = muted ? `<br><span style="color:#ff7777;font-size:11px;">${escapeHtml(compatibility.reason)}</span>` : '';
-        const titleAttr = muted ? ` title="${escapeHtml(compatibility.reason)}"` : '';
+        const reasonText = compatibility.reason || ammoReason;
+        const reasonHtml = muted ? `<br><span style="color:#ff7777;font-size:11px;">${escapeHtml(reasonText)}</span>` : '';
+        const titleAttr = muted ? ` title="${escapeHtml(reasonText)}"` : '';
         html += `<tr${rowStyle}${titleAttr}><td style="color:${muted ? '#778899' : '#00ff00'};">${escapeHtml(item.name)}${reasonHtml}</td><td${mutedCellStyle}>${escapeHtml(typeLabel)}</td><td${mutedCellStyle}>${equipmentClass(item)}</td><td${mutedCellStyle}>${escapeHtml(powerLabel)}</td><td${mutedCellStyle}>${escapeHtml(damageLabel)}</td><td style="color:${muted ? '#777' : '#ffaa00'};">${entry.price.toLocaleString()} CR</td><td${mutedCellStyle}>${entry.forSale ? `${entry.stockMin}-${entry.stockMax}` : '-'}</td><td${mutedCellStyle}>${owned}</td><td><button class="trade-button" onclick="buyEquipment('${item.id}')" ${canBuy ? '' : 'disabled'}>${t('buy')}</button></td></tr>`;
     }
     html += '</table>';
@@ -9746,6 +10113,15 @@ function buyEquipment(itemId) {
     const marketEntry = getEquipmentMarket().find(entry => entry.id === itemId);
     const item = getEquipment(itemId);
     if (!marketEntry || !item || !marketEntry.forSale || game.player.credits < marketEntry.price) return;
+    if (isFixedEquipmentItem(item)) {
+        addLog('Engine and powerplant are fixed ship equipment.', 'alert');
+        return;
+    }
+    const ammoReason = ammoCompatibilityReason(item);
+    if (ammoReason) {
+        addLog(ammoReason, 'alert');
+        return;
+    }
     const needsShipCompatibility = !item.combinable && categorySlotKeys(item.category).length > 0;
     if (needsShipCompatibility) {
         const compatibility = equipmentCompatibility(item);
@@ -10114,8 +10490,10 @@ async function init() {
         if (!activeSlot) return;
         if (confirm(tf('deleteSaveConfirm', { name: activeSlot.name || 'Pilot' }))) clearSavedGame(activeSlot.id);
     });
-    document.getElementById('save-name-input')?.addEventListener('change', (event) => {
-        game.saveSlotName = event.target.value.trim() || game.saveSlotName || 'Pilot';
+    document.getElementById('btn-edit-save-name')?.addEventListener('click', startSaveNameEdit);
+    document.getElementById('btn-save-name')?.addEventListener('click', commitSaveNameEdit);
+    document.getElementById('save-name-input')?.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' && game.saveNameEditing) commitSaveNameEdit();
     });
     window.addEventListener('beforeunload', () => saveGame());
 }
