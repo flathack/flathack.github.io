@@ -59,13 +59,22 @@
     var projectiles = [];
     var sparks = [];
     var images = {};
-    var nextNomadRaid = 8;
-    var raidCooldown = 0;
     var shipTarget = (function () {
       var stored = null;
-      try { stored = localStorage.getItem("flathack-bg-ship-count"); } catch(e) {}
-      var parsed = parseInt(stored || "12", 10);
-      return Number.isFinite(parsed) ? Math.max(0, Math.min(36, parsed)) : 12;
+      var version = null;
+      try {
+        version = localStorage.getItem("flathack-bg-ship-count-version");
+        stored = localStorage.getItem("flathack-bg-ship-count");
+      } catch(e) {}
+      if (version !== "2") {
+        stored = "8";
+        try {
+          localStorage.setItem("flathack-bg-ship-count", stored);
+          localStorage.setItem("flathack-bg-ship-count-version", "2");
+        } catch(e) {}
+      }
+      var parsed = parseInt(stored || "8", 10);
+      return Number.isFinite(parsed) ? Math.max(0, Math.min(36, parsed)) : 8;
     })();
 
     var assets = {
@@ -73,11 +82,7 @@
       policeAlt: prefix + "freelancer2d/data/ship_icons/li_fighter.png",
       rogue: prefix + "freelancer2d/data/ship_icons/ge_fighter.png",
       rogueAlt: prefix + "freelancer2d/data/ship_icons/rh_fighter.png",
-      humanCapital: prefix + "freelancer2d/data/ship_icons/li_cruiser.png",
-      nomadBattle: prefix + "freelancer2d/data/ship_icons/no_hd_battleship.png",
-      nomadGunboat: prefix + "freelancer2d/data/ship_icons/no_hd_gunboat.png",
-      nomadFighter: prefix + "freelancer2d/data/ship_icons/no_hd_fighter.png",
-      nomadHeavy: prefix + "freelancer2d/data/ship_icons/no_hd_gunboat.png"
+      humanCapital: prefix + "freelancer2d/data/ship_icons/li_cruiser.png"
     };
 
     Object.keys(assets).forEach(function (key) {
@@ -103,7 +108,6 @@
     function spawnShip(faction, edge) {
       var police = faction === "police";
       var rogue = faction === "rogue";
-      var nomad = faction === "nomad";
       var humanFleet = faction === "humanFleet";
       var side = edge == null ? Math.floor(Math.random() * 4) : edge;
       var x = rand(width * 0.1, width * 0.9);
@@ -117,22 +121,18 @@
       if (side === 1) angle = Math.PI + rand(-0.28, 0.28);
       if (side === 2) angle = Math.PI / 2 + rand(-0.28, 0.28);
       if (side === 3) angle = -Math.PI / 2 + rand(-0.28, 0.28);
-      var capital = faction === "nomadCapital" || faction === "humanCapital";
+      var capital = faction === "humanCapital";
       return {
         faction: faction,
-        side: faction === "rogue" || faction === "nomad" || faction === "nomadCapital" ? "hostile" : "human",
+        side: faction === "rogue" ? "hostile" : "human",
         sprite: capital
-          ? (faction === "nomadCapital" ? "nomadBattle" : "humanCapital")
-          : nomad
-            ? (Math.random() > 0.72 ? "nomadHeavy" : "nomadFighter")
-            : police || humanFleet
+          ? "humanCapital"
+          : police || humanFleet
               ? (Math.random() > 0.55 ? "police" : "policeAlt")
               : (Math.random() > 0.55 ? "rogue" : "rogueAlt"),
         name: capital
-          ? (faction === "nomadCapital" ? "NOMAD BATTLESHIP" : "LIBERTY CRUISER")
-          : nomad
-            ? "NO-" + Math.floor(rand(1000, 9999))
-            : police || humanFleet
+          ? "LIBERTY CRUISER"
+          : police || humanFleet
               ? "LPI-" + Math.floor(rand(100, 999))
               : "LR-" + Math.floor(rand(1000, 9999)),
         x: x,
@@ -141,13 +141,13 @@
         vy: Math.sin(angle) * (capital ? rand(10, 18) : rand(18, 42)),
         rotation: angle,
         target: null,
-        hull: capital ? (faction === "nomadCapital" ? 720 : 520) : nomad ? 120 : police || humanFleet ? 130 : 95,
-        maxHull: capital ? (faction === "nomadCapital" ? 720 : 520) : nomad ? 120 : police || humanFleet ? 130 : 95,
+        hull: capital ? 520 : police || humanFleet ? 130 : 95,
+        maxHull: capital ? 520 : police || humanFleet ? 130 : 95,
         fireCooldown: rand(0.2, 1.6),
         turnRate: capital ? 0.8 : police || humanFleet ? 2.4 : 3.0,
-        speed: capital ? rand(18, 28) : nomad ? rand(68, 92) : police || humanFleet ? rand(46, 66) : rand(54, 78),
-        radius: capital ? (faction === "nomadCapital" ? 42 : 36) : police || humanFleet ? 18 : 15,
-        fleet: faction === "nomad" || faction === "nomadCapital" || faction === "humanFleet" || faction === "humanCapital",
+        speed: capital ? rand(18, 28) : police || humanFleet ? rand(46, 66) : rand(54, 78),
+        radius: capital ? 36 : police || humanFleet ? 18 : 15,
+        fleet: faction === "humanFleet" || faction === "humanCapital",
         respawnTimer: 0
       };
     }
@@ -190,12 +190,6 @@
         var dx = other.x - ship.x;
         var dy = other.y - ship.y;
         var dist = dx * dx + dy * dy;
-        if ((ship.faction === "nomad" || ship.faction === "nomadCapital") && (other.faction === "humanFleet" || other.faction === "humanCapital")) {
-          dist *= 0.55;
-        }
-        if ((ship.faction === "humanFleet" || ship.faction === "humanCapital") && (other.faction === "nomad" || other.faction === "nomadCapital")) {
-          dist *= 0.55;
-        }
         if (dist < bestDist) {
           bestDist = dist;
           best = other;
@@ -244,11 +238,11 @@
         var dy = ship.target.y - ship.y;
         var dist = Math.hypot(dx, dy);
         var aimDiff = Math.abs(normalize(Math.atan2(dy, dx) - ship.rotation));
-        var range = ship.faction === "nomadCapital" || ship.faction === "humanCapital" ? 780 : 520;
-        var arc = ship.faction === "nomadCapital" || ship.faction === "humanCapital" ? 0.75 : 0.45;
+        var range = ship.faction === "humanCapital" ? 780 : 520;
+        var arc = ship.faction === "humanCapital" ? 0.75 : 0.45;
         if (dist < range && aimDiff < arc) {
           fire(ship, ship.target);
-          ship.fireCooldown = ship.faction === "nomadCapital" || ship.faction === "humanCapital" ? rand(0.18, 0.42) : rand(0.45, 1.15);
+          ship.fireCooldown = ship.faction === "humanCapital" ? rand(0.18, 0.42) : rand(0.45, 1.15);
         } else {
           ship.fireCooldown = 0.18;
         }
@@ -257,8 +251,7 @@
 
     function fire(ship, target) {
       var angle = Math.atan2(target.y - ship.y, target.x - ship.x);
-      var isNomad = ship.faction === "nomad" || ship.faction === "nomadCapital";
-      var isCapital = ship.faction === "nomadCapital" || ship.faction === "humanCapital";
+      var isCapital = ship.faction === "humanCapital";
       var speed = isCapital ? 460 : ship.side === "human" ? 420 : 370;
       projectiles.push({
         owner: ship,
@@ -268,8 +261,8 @@
         vx: Math.cos(angle) * speed + ship.vx * 0.2,
         vy: Math.sin(angle) * speed + ship.vy * 0.2,
         life: isCapital ? 1.55 : 1.15,
-        damage: isCapital ? 32 : isNomad ? 18 : ship.side === "human" ? 16 : 13,
-        color: isNomad ? "rgba(100, 245, 255, 0.95)" : ship.side === "human" ? "rgba(105, 210, 255, 0.95)" : "rgba(255, 88, 88, 0.95)"
+        damage: isCapital ? 32 : ship.side === "human" ? 16 : 13,
+        color: ship.side === "human" ? "rgba(105, 210, 255, 0.95)" : "rgba(255, 88, 88, 0.95)"
       });
     }
 
@@ -308,11 +301,11 @@
       ctx.save();
       ctx.translate(ship.x, ship.y);
       ctx.rotate(ship.rotation + Math.PI / 2);
-      ctx.globalAlpha = ship.faction === "nomadCapital" ? 0.78 : 0.72;
+      ctx.globalAlpha = 0.72;
       if (img && img.complete) {
-        var size = ship.faction === "nomadCapital" ? 78 : ship.faction === "humanCapital" ? 64 : ship.faction === "nomad" ? 30 : ship.side === "human" ? 30 : 27;
-        ctx.shadowColor = ship.faction === "nomad" || ship.faction === "nomadCapital" ? "rgba(100, 245, 255, 0.58)" : ship.side === "human" ? "rgba(92, 190, 255, 0.55)" : "rgba(255, 75, 75, 0.5)";
-        ctx.shadowBlur = ship.faction === "nomadCapital" ? 18 : 8;
+        var size = ship.faction === "humanCapital" ? 64 : ship.side === "human" ? 30 : 27;
+        ctx.shadowColor = ship.side === "human" ? "rgba(92, 190, 255, 0.55)" : "rgba(255, 75, 75, 0.5)";
+        ctx.shadowBlur = 8;
         ctx.drawImage(img, -size / 2, -size / 2, size, size);
       } else {
         ctx.fillStyle = ship.side === "human" ? "#58c4ff" : "#ff5656";
@@ -327,48 +320,11 @@
       ctx.restore();
     }
 
-    function triggerNomadRaid() {
-      var nomadEdge = Math.random() > 0.5 ? 0 : 1;
-      var humanEdge = nomadEdge === 0 ? 1 : 0;
-      var centerY = rand(height * 0.25, height * 0.75);
-
-      var flagship = spawnShip("nomadCapital", nomadEdge);
-      flagship.y = centerY;
-      ships.push(flagship);
-
-      var fighterCount = width < 720 ? 8 : 15;
-      for (var i = 0; i < fighterCount; i++) {
-        var fighter = spawnShip("nomad", nomadEdge);
-        fighter.y = centerY + rand(-130, 130);
-        fighter.x += rand(-80, 80);
-        ships.push(fighter);
-      }
-
-      var cruiser = spawnShip("humanCapital", humanEdge);
-      cruiser.y = centerY + rand(-80, 80);
-      ships.push(cruiser);
-
-      var responseCount = width < 720 ? 5 : 9;
-      for (var j = 0; j < responseCount; j++) {
-        var defender = spawnShip("humanFleet", humanEdge);
-        defender.y = centerY + rand(-150, 150);
-        defender.x += rand(-80, 80);
-        ships.push(defender);
-      }
-      raidCooldown = 14;
-      nextNomadRaid = rand(32, 58);
-    }
-
     function drawFrame(now) {
       var dt = Math.min(0.033, (now - last) / 1000);
       last = now;
       ctx.clearRect(0, 0, width, height);
 
-      nextNomadRaid -= dt;
-      raidCooldown = Math.max(0, raidCooldown - dt);
-      if (nextNomadRaid <= 0 && raidCooldown <= 0 && ships.length < 42) {
-        triggerNomadRaid();
-      }
       rebalanceShips();
 
       ships.forEach(function (ship) { updateShip(ship, dt); });
@@ -400,12 +356,22 @@
     }
 
     window.addEventListener("resize", resize);
+    window.addEventListener("flathack-bg-ship-count-change", function (event) {
+      if (!event.detail) return;
+      setShipTarget(event.detail.count);
+    });
+
+    function setShipTarget(value) {
+      shipTarget = Math.max(0, Math.min(36, parseInt(value, 10) || 0));
+      try {
+        localStorage.setItem("flathack-bg-ship-count", String(shipTarget));
+        localStorage.setItem("flathack-bg-ship-count-version", "2");
+      } catch(e) {}
+      rebalanceShips();
+    }
+
     window.flathackCombatBackground = {
-      setShipTarget: function (value) {
-        shipTarget = Math.max(0, Math.min(36, parseInt(value, 10) || 0));
-        try { localStorage.setItem("flathack-bg-ship-count", String(shipTarget)); } catch(e) {}
-        rebalanceShips();
-      },
+      setShipTarget: setShipTarget,
       getShipTarget: function () {
         return shipTarget;
       }
@@ -769,7 +735,7 @@
     '<button data-lang="en"' + (currentLang === "en" ? ' class="active"' : '') + '>EN</button>';
   var savedShipCount = window.flathackCombatBackground && window.flathackCombatBackground.getShipTarget
     ? window.flathackCombatBackground.getShipTarget()
-    : 12;
+    : 8;
 
   // ── Build the complete capsule structure ──
   var capsule = document.createElement("div");
@@ -823,6 +789,7 @@
       if (window.flathackCombatBackground && window.flathackCombatBackground.setShipTarget) {
         window.flathackCombatBackground.setShipTarget(shipCountInput.value);
       }
+      window.dispatchEvent(new CustomEvent("flathack-bg-ship-count-change", { detail: { count: shipCountInput.value } }));
     });
   }
 
