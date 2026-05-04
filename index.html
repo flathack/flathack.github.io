@@ -193,6 +193,54 @@
       background: radial-gradient(circle, rgba(88, 196, 255, 0.1), transparent 68%);
       pointer-events: none;
     }
+    .f2d-banner {
+      min-height: 260px;
+      padding: 0;
+      border-color: rgba(52, 211, 153, 0.35);
+      background: linear-gradient(135deg, rgba(6, 31, 42, 0.95), rgba(4, 14, 26, 0.96));
+    }
+    .f2d-banner .tr-banner-inner {
+      min-height: 260px;
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1.1fr);
+      gap: 0;
+      align-items: stretch;
+    }
+    .f2d-banner .tr-banner-text {
+      align-self: center;
+      padding: 36px 42px;
+    }
+    .f2d-banner .tr-banner-cta {
+      margin-top: 18px;
+      background: linear-gradient(135deg, var(--success), #06b6d4);
+    }
+    .freelancer2d-preview {
+      position: relative;
+      min-height: 260px;
+      overflow: hidden;
+      border-left: 1px solid var(--panel-border);
+      background: #030611;
+    }
+    .freelancer2d-preview canvas {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 260px;
+    }
+    .freelancer2d-overlay {
+      position: absolute;
+      left: 14px;
+      right: 14px;
+      bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      pointer-events: none;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+      color: rgba(185, 239, 255, 0.86);
+      text-shadow: 0 0 12px rgba(0, 136, 255, 0.9);
+    }
     .hp-card-header {
       display: flex;
       align-items: center;
@@ -342,6 +390,16 @@
     /* ── Responsive ── */
     @media (max-width: 960px) {
       .hp-project-grid { grid-template-columns: 1fr; }
+      .f2d-banner .tr-banner-inner { grid-template-columns: 1fr; }
+      .f2d-banner .tr-banner-text {
+        padding: 32px 28px 20px;
+        text-align: center;
+      }
+      .freelancer2d-preview {
+        min-height: 220px;
+        border-left: 0;
+        border-top: 1px solid var(--panel-border);
+      }
       .hp-bottom-grid { grid-template-columns: 1fr; }
       .tr-banner-inner { flex-direction: column; text-align: center; }
       .tr-banner-cta { align-self: center; }
@@ -363,6 +421,25 @@
     </header>
 
     <main>
+      <!-- ══════ FREELANCER 2D BANNER ══════ -->
+      <a class="tr-banner f2d-banner" href="freelancer2d/index.html">
+        <div class="tr-banner-inner">
+          <div class="tr-banner-text">
+            <span class="tr-banner-badge" style="background: rgba(52, 211, 153, 0.15); border-color: rgba(52, 211, 153, 0.3); color: var(--success);"><span class="pulse-dot" style="background: var(--success); box-shadow: 0 0 8px var(--success);"></span> <span data-i18n="badge_playable">Spiel-Prototyp</span></span>
+            <h2>Freelancer 2D</h2>
+            <p data-i18n="f2d_desc">Browser-Spiel-Prototyp im Freelancer-Stil: 2D-Flug, NPC-Verkehr, Handel, Fraktionen, Stationen, Gates und HUD direkt im Canvas.</p>
+            <span class="tr-banner-cta"><span data-i18n="f2d_play">Spiel oeffnen</span> <span class="arrow">→</span></span>
+          </div>
+          <div class="freelancer2d-preview" aria-label="Freelancer 2D live scene preview">
+            <canvas id="freelancer2d-tile" width="640" height="300"></canvas>
+            <div class="freelancer2d-overlay">
+              <span>SIGMA SECTOR</span>
+              <span>NPC TRAFFIC LIVE</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
       <!-- ══════ TRADE ROUTE BANNER ══════ -->
       <a class="tr-banner" href="docs/trade-routes.html">
         <div class="tr-banner-inner">
@@ -558,6 +635,7 @@
     const I18N = {
       de: {
         badge_online: 'Online-Tool',
+        badge_playable: 'Spiel-Prototyp',
         banner_trade: 'Trade Route Calculator',
         banner_trade_desc: 'Finde die profitabelsten Handelsrouten in Freelancer — für Hamburg City, Crossfire und weitere Mods. Direkt im Browser.',
         cta_start: 'Jetzt starten',
@@ -592,10 +670,14 @@
         tag_100lang: '100 Sprachen',
         launcher_status: 'Produktiv nutzbar, Mod-Verwaltung komplett',
         launcher_desc: 'Startprogramm fuer Freelancer-Mods. Ermoeglicht das einfache Starten und Verwalten von Mod-Installationen.',
+        f2d_status: 'NPC-Verkehr, Handel und Patrouillen-Simulation',
+        f2d_desc: 'Browser-Spiel-Prototyp im Freelancer-Stil: 2D-Flug, NPC-Verkehr, Handel, Fraktionen, Stationen, Gates und HUD direkt im Canvas.',
+        f2d_play: 'Spiel oeffnen',
         project_page: 'Projektseite',
       },
       en: {
         badge_online: 'Online Tool',
+        badge_playable: 'Playable Prototype',
         banner_trade: 'Trade Route Calculator',
         banner_trade_desc: 'Find the most profitable trade routes in Freelancer — for Hamburg City, Crossfire, and more mods. Right in your browser.',
         cta_start: 'Get started',
@@ -630,6 +712,9 @@
         tag_100lang: '100 Languages',
         launcher_status: 'Production-ready, mod management complete',
         launcher_desc: 'Launcher for Freelancer mods. Makes it easy to start and manage mod installations.',
+        f2d_status: 'NPC traffic, trading and patrol simulation',
+        f2d_desc: 'Browser game prototype in the style of Freelancer: 2D flight, NPC traffic, trading, factions, stations, gates, and HUD directly in canvas.',
+        f2d_play: 'Open game',
         project_page: 'Project page',
       }
     };
@@ -654,5 +739,6 @@
   </script>
   <script src="assets/js/nav.js"></script>
   <script src="assets/js/home.js"></script>
+  <script src="assets/js/home-freelancer2d-tile.js"></script>
 </body>
 </html>
