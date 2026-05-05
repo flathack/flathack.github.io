@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-label="Radiation hazard">
+  <defs>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2.4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <radialGradient id="core" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#f7fff7"/>
+      <stop offset="0.42" stop-color="#ffdf55"/>
+      <stop offset="1" stop-color="#ff8f00"/>
+    </radialGradient>
+    <linearGradient id="rim" x1="16" y1="12" x2="80" y2="84">
+      <stop offset="0" stop-color="#7fffff"/>
+      <stop offset="0.48" stop-color="#ffd457"/>
+      <stop offset="1" stop-color="#ff7d22"/>
+    </linearGradient>
+  </defs>
+  <path d="M48 5 91 48 48 91 5 48Z" fill="none" stroke="url(#rim)" stroke-width="4" opacity=".88" filter="url(#glow)"/>
+  <circle cx="48" cy="48" r="8" fill="url(#core)" filter="url(#glow)"/>
+  <g filter="url(#glow)">
+    <path d="M48 16a32 32 0 0 1 18.1 5.6L55.7 39.7A11.5 11.5 0 0 0 48 37Z" fill="#ffe46b"/>
+    <path d="M75.7 64A32 32 0 0 1 47 80.1l.1-20.8a11.5 11.5 0 0 0 8.3-4.4Z" fill="#47f0ff"/>
+    <path d="M20.2 64.1A32 32 0 0 1 29.9 21.6l10.4 18.1a11.5 11.5 0 0 0-1.7 15.1Z" fill="#ffb02a"/>
+  </g>
+  <circle cx="48" cy="48" r="20" fill="none" stroke="#05131d" stroke-width="6" opacity=".82"/>
+  <circle cx="48" cy="48" r="31.5" fill="none" stroke="#8bf8ff" stroke-width="1.7" opacity=".45"/>
+</svg>

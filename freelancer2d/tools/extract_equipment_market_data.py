@@ -246,6 +246,12 @@ def enrich_from_equipment_files(equipment: dict[str, dict]) -> dict[str, dict]:
             item["reverseFraction"] = to_float(first(props, "reverse_fraction"), item.get("reverseFraction", 0))
             item["cruiseChargeTime"] = to_float(first(props, "cruise_charge_time"), item.get("cruiseChargeTime", 0))
             item["cruisePowerUsage"] = to_float(first(props, "cruise_power_usage"), item.get("cruisePowerUsage", 0))
+            if category == "scanner":
+                item["scannerRange"] = to_float(first(props, "range"), item.get("scannerRange", 0))
+                item["cargoScanRange"] = to_float(first(props, "cargo_scan_range"), item.get("cargoScanRange", 0))
+            if category == "tractor":
+                item["tractorRange"] = to_float(first(props, "max_length"), item.get("tractorRange", 0))
+                item["tractorReachSpeed"] = to_float(first(props, "reach_speed"), item.get("tractorReachSpeed", 0))
             munition = munitions.get(str(item.get("projectileArchetype", "")).lower()) or munitions.get(nickname)
             if munition:
                 item.update(munition)

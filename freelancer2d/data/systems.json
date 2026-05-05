@@ -6678,7 +6678,9 @@
         "dynamicAsteroids": [
           "dasteroid_debris_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_scrap_metal"
+        ],
         "bandShapes": [
           "debris_belt_04"
         ],
@@ -6812,6 +6814,11 @@
       }
     ],
     "nebulae": [],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_noband.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_br01_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_br01.cmp"
+    },
     "zones": [
       {
         "nickname": "Zone_Br01_Southampton_toxic_001",
@@ -17293,7 +17300,7 @@
         "zone_damage": 0.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "ice_objects",
@@ -17322,7 +17329,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_hydrocarbons"
+        ],
         "bandShapes": [
           "asteroid_icebelt_04"
         ],
@@ -17432,7 +17441,7 @@
         "zone_damage": 0.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "ice_objects",
@@ -17460,7 +17469,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_water"
+        ],
         "bandShapes": [
           "asteroid_icebelt_04"
         ],
@@ -17670,7 +17681,7 @@
         "zone_damage": 0.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "ice_objects",
@@ -17697,7 +17708,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_water"
+        ],
         "bandShapes": [
           "asteroid_icebelt_04"
         ],
@@ -17821,6 +17834,11 @@
       }
     ],
     "nebulae": [],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_basic.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_br02_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_br02.cmp"
+    },
     "zones": [
       {
         "nickname": "Zone_Br02_sun_death",
@@ -26163,7 +26181,7 @@
         "zone_damage": 0.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "rock_objects",
@@ -26193,7 +26211,9 @@
         "dynamicAsteroids": [
           "DAsteroid_beryllium"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_beryllium"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [],
         "exclusionZones": [],
@@ -26295,7 +26315,7 @@
         "zone_damage": 0.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "ice_objects",
@@ -26318,7 +26338,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_crystal_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_water"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [
           "Zone_Br03_to_Bw01",
@@ -26486,7 +26508,7 @@
         "zone_damage": 0.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "ice_objects",
@@ -26509,7 +26531,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_crystal_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_water"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [
           "Zone_Br03_to_Bw02_hole",
@@ -26592,6 +26616,11 @@
         "zone": "Zone_Br03_Grasmere_ice_cloud"
       }
     ],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_basic.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_br03_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_br03.cmp"
+    },
     "zones": [
       {
         "nickname": "Zone_Br03_Ross_death",
@@ -32862,7 +32891,9 @@
         "dynamicAsteroids": [
           "DAsteroid_niobium"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_niobium"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [
           "Zone_Br04_stokes_mine_exclusion_002",
@@ -33396,6 +33427,11 @@
         "zone": "Zone_Br04_East_Leeds_smog_cloud"
       }
     ],
+    "background": {
+      "basic_stars": "",
+      "complex_stars": "",
+      "nebulae": "solar\\starsphere\\starsphere_Br04.cmp"
+    },
     "zones": [
       {
         "nickname": "Zone_Br04_LD14_radioactive",
@@ -39555,7 +39591,9 @@
         "dynamicAsteroids": [
           "DAsteroid_gold"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_gold"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [
           "Zone_Br05_GSM_access_lane",
@@ -39651,7 +39689,9 @@
         "dynamicAsteroids": [
           "DAsteroid_mineable_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_gold"
+        ],
         "bandShapes": [
           "asteroid_belt_04"
         ],
@@ -39748,7 +39788,9 @@
         "dynamicAsteroids": [
           "DAsteroid_gold"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_gold"
+        ],
         "bandShapes": [
           "asteroid_belt_04"
         ],
@@ -39838,7 +39880,7 @@
         "zone_damage": 0.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "rock_objects",
@@ -39863,7 +39905,9 @@
         "dynamicAsteroids": [
           "DAsteroid_gold"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_gold"
+        ],
         "bandShapes": [
           "asteroid_belt_04"
         ],
@@ -40300,7 +40344,9 @@
         "dynamicAsteroids": [
           "DAsteroid_gold"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_gold"
+        ],
         "bandShapes": [
           "asteroid_belt_04"
         ],
@@ -40334,6 +40380,11 @@
       }
     ],
     "nebulae": [],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_caps.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_br05_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_br05.cmp"
+    },
     "zones": [
       {
         "nickname": "Zone_Br05_sun_death",
@@ -44332,7 +44383,7 @@
         "zone_damage": 0.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "ice_objects",
@@ -44355,7 +44406,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_water"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [
           "Zone_Br06_to_Bw10_hole_exclusion"
@@ -44403,7 +44456,7 @@
         "zone_damage": 0.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "ice_objects",
@@ -44431,7 +44484,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_water"
+        ],
         "bandShapes": [
           "asteroid_icebelt_04"
         ],
@@ -44481,7 +44536,7 @@
         "zone_damage": 0.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "ice_objects",
@@ -44504,7 +44559,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_water"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [
           "Zone_Br06_to_Br04_hole_exclusion",
@@ -44587,6 +44644,11 @@
         "zone": "Zone_Br06_Arran_ice_cloud"
       }
     ],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_basic.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_br06_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_br06.cmp"
+    },
     "zones": [
       {
         "nickname": "Zone_Br06_sun1_death",
@@ -48184,7 +48246,7 @@
         "zone_damage": 0.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "ice_objects",
@@ -48210,7 +48272,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_water"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [
           "Zone_Bw01_Tradelane_3",
@@ -48338,7 +48402,7 @@
         "zone_damage": 0.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "ice_objects",
@@ -48366,7 +48430,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_water"
+        ],
         "bandShapes": [
           "asteroid_icebelt_04"
         ],
@@ -48456,7 +48522,7 @@
         "zone_damage": 0.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "ice_objects",
@@ -48485,7 +48551,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_crystal_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_water"
+        ],
         "bandShapes": [
           "asteroid_icebelt_04"
         ],
@@ -48595,7 +48663,7 @@
         "zone_damage": 0.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "ice_objects",
@@ -48623,7 +48691,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_hydrocarbons"
+        ],
         "bandShapes": [
           "asteroid_icebelt_04"
         ],
@@ -48713,7 +48783,7 @@
         "zone_damage": 0.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "ice_objects",
@@ -48741,7 +48811,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_hydrocarbons"
+        ],
         "bandShapes": [
           "asteroid_icebelt_04"
         ],
@@ -48791,6 +48863,11 @@
         "zone": "Zone_Bw01_Graham_ice_cloud"
       }
     ],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_noband.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_bw01_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_bw01.cmp"
+    },
     "zones": [
       {
         "nickname": "Zone_Bw01_Sprague_death",
@@ -53512,6 +53589,11 @@
       }
     ],
     "nebulae": [],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_noband.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_bw02_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_bw02.cmp"
+    },
     "zones": [],
     "missionZones": [
       {
@@ -56844,7 +56926,11 @@
         "dynamicAsteroids": [
           "DAsteroid_mineable_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_copper",
+          "commodity_silver",
+          "commodity_cobalt"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [
           "Zone_Bw03_path_img1_1"
@@ -56916,7 +57002,9 @@
         "dynamicAsteroids": [
           "DAsteroid_mineable_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_silver"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [],
         "exclusionZones": [],
@@ -56966,7 +57054,10 @@
         "dynamicAsteroids": [
           "DAsteroid_mineable_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_copper",
+          "commodity_cobalt"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [],
         "exclusionZones": [],
@@ -57056,7 +57147,9 @@
         "dynamicAsteroids": [
           "DAsteroid_mineable_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_copper"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [],
         "exclusionZones": [],
@@ -57125,6 +57218,11 @@
         "zone": "Zone_Bw03_Walker_nebula"
       }
     ],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_caps.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_bw03_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_bw03.cmp"
+    },
     "zones": [],
     "missionZones": [
       {
@@ -60964,7 +61062,7 @@
         "zone_damage": 0.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "lava_objects",
@@ -60989,7 +61087,9 @@
         "dynamicAsteroids": [
           "DAsteroid_lava02"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_diamonds"
+        ],
         "bandShapes": [
           "asteroid_belt_04"
         ],
@@ -61459,6 +61559,11 @@
       }
     ],
     "nebulae": [],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_crow_walker.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_bw04_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_bw04.cmp"
+    },
     "zones": [
       {
         "nickname": "Zone_Bw04_NordostRiemen",
@@ -65897,7 +66002,9 @@
         "dynamicAsteroids": [
           "dasteroid_debris_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_scrap_metal"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [
           "Zone_Bw05_03_exclusion"
@@ -66093,7 +66200,9 @@
         "dynamicAsteroids": [
           "dasteroid_debris_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_scrap_metal"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [
           "Zone_Bw05_02_exclusion",
@@ -66181,6 +66290,11 @@
         "zone": "Zone_Bw05_Crow_nebula"
       }
     ],
+    "background": {
+      "basic_stars": "",
+      "complex_stars": "",
+      "nebulae": "solar\\starsphere\\starsphere_bw05.cmp"
+    },
     "zones": [
       {
         "nickname": "Zone_Bw05_yanagi_debris_field",
@@ -70109,6 +70223,11 @@
         "zone": "Zone_Bw06_Kunashir_cloud"
       }
     ],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_caps.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_bw06_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_bw06.cmp"
+    },
     "zones": [
       {
         "nickname": "Zone_Bw06_Kunashir_cloud",
@@ -72965,6 +73084,11 @@
         "zone": "Zone_Bw07_Hiryu_cloud"
       }
     ],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_caps.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_bw07_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_bw07.cmp"
+    },
     "zones": [
       {
         "nickname": "Zone_Bw07_Donryu_cloud",
@@ -77651,7 +77775,9 @@
         "dynamicAsteroids": [
           "DAsteroid_rock_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_niobium"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [
           "Zone_Bw08_path_img2_1",
@@ -77765,7 +77891,9 @@
         "dynamicAsteroids": [
           "DAsteroid_rock_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_niobium"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [
           "Zone_Bw08_path_img2_1",
@@ -77879,7 +78007,9 @@
         "dynamicAsteroids": [
           "DAsteroid_rock_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_niobium"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [
           "Zone_Bw08_path_img2_1",
@@ -77967,7 +78097,7 @@
         "zone_damage": 0.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "rock_objects",
@@ -77996,7 +78126,9 @@
         "dynamicAsteroids": [
           "DAsteroid_beryllium"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_beryllium"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [
           "Zone_Bw08_tradelane_construct"
@@ -78028,6 +78160,11 @@
       }
     ],
     "nebulae": [],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_caps.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_bw08_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_bw08.cmp"
+    },
     "zones": [
       {
         "nickname": "Zone_Bw08_asteroid_field",
@@ -81443,7 +81580,7 @@
         "zone_damage": 0.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "ice_objects",
@@ -81469,7 +81606,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_oxygen"
+        ],
         "bandShapes": [
           "asteroid_icebelt_04"
         ],
@@ -81540,7 +81679,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_oxygen"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [],
         "exclusionZones": [],
@@ -81587,7 +81728,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_oxygen"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [],
         "exclusionZones": [],
@@ -81634,7 +81777,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_oxygen"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [],
         "exclusionZones": [],
@@ -81660,7 +81805,7 @@
         "zone_damage": 0.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "ice_objects",
@@ -81689,7 +81834,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_hydrocarbons"
+        ],
         "bandShapes": [
           "asteroid_icebelt_04"
         ],
@@ -81879,7 +82026,7 @@
         "zone_damage": 0.0,
         "zone_visit": "32",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "ice_objects",
@@ -81907,7 +82054,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_water"
+        ],
         "bandShapes": [
           "asteroid_icebelt_04"
         ],
@@ -81997,7 +82146,7 @@
         "zone_damage": 0.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "ice_objects",
@@ -82025,7 +82174,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_crystal_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_water"
+        ],
         "bandShapes": [
           "asteroid_icebelt_04"
         ],
@@ -82119,6 +82270,11 @@
       }
     ],
     "nebulae": [],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_noband.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_bw09_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_bw09.cmp"
+    },
     "zones": [
       {
         "nickname": "Zone_Bw09_death_sun",
@@ -86253,7 +86409,7 @@
         "zone_damage": 0.0,
         "zone_visit": "32",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "ice_objects",
@@ -86281,7 +86437,10 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_crystal_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_water",
+          "commodity_oxygen"
+        ],
         "bandShapes": [
           "asteroid_icebelt_04"
         ],
@@ -86775,6 +86934,11 @@
       }
     ],
     "nebulae": [],
+    "background": {
+      "basic_stars": "",
+      "complex_stars": "",
+      "nebulae": "solar\\starsphere\\starsphere_Bw10.cmp"
+    },
     "zones": [
       {
         "nickname": "Zone_Bw10_death_sun",
@@ -90006,7 +90170,9 @@
         "dynamicAsteroids": [
           "DAsteroid_mineable_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_niobium"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [
           "Zone_Ew01_to_Bw08_hole",
@@ -90154,7 +90320,7 @@
         "zone_damage": 0.0,
         "zone_visit": "0",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "ice_objects",
@@ -90177,7 +90343,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_crystal_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_water"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [
           "Zone_Ew01_to_Hi01_hole"
@@ -90225,7 +90393,7 @@
         "zone_damage": 0.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "ice_objects",
@@ -90249,7 +90417,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_crystal_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_water"
+        ],
         "bandShapes": [
           "asteroid_icebelt_04"
         ],
@@ -90314,6 +90484,11 @@
         "zone": "Zone_Ew01_Bermejo_cloud"
       }
     ],
+    "background": {
+      "basic_stars": "",
+      "complex_stars": "",
+      "nebulae": "solar\\starsphere\\starsphere_Ew01.cmp"
+    },
     "zones": [
       {
         "nickname": "Zone_Ew01_sun_death",
@@ -92379,7 +92554,7 @@
         "zone_damage": 5.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "nomad_objects",
@@ -92403,7 +92578,9 @@
         "dynamicAsteroids": [
           "DAsteroid_nomad_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_alien_organisms"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [
           "Zone_Ew02_to_Hi01_hole",
@@ -92572,6 +92749,11 @@
         "zone": "Zone_Ew02_edge_nebula"
       }
     ],
+    "background": {
+      "basic_stars": "",
+      "complex_stars": "",
+      "nebulae": "solar\\starsphere\\starsphere_ew02.cmp"
+    },
     "zones": [
       {
         "nickname": "Zone_Ew02_edge_nebula",
@@ -93949,6 +94131,11 @@
       }
     ],
     "nebulae": [],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_crow_walker.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_ew03_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_ew03.cmp"
+    },
     "zones": [
       {
         "nickname": "Zone_Ew03_sun_exclusion",
@@ -96647,7 +96834,7 @@
         "zone_damage": 5.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "nomad_objects",
@@ -96669,7 +96856,9 @@
         "dynamicAsteroids": [
           "DAsteroid_nomad_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_alien_organisms"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [
           "Zone_Ew04_to_Bw06_hole",
@@ -96737,7 +96926,7 @@
         "zone_damage": 10.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "nomad_objects",
@@ -96763,7 +96952,9 @@
         "dynamicAsteroids": [
           "DAsteroid_nomad_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_alien_organisms"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [
           "Zone_Ew04_Vespus_exclusion",
@@ -96871,7 +97062,7 @@
         "zone_damage": 7.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "nomad_objects",
@@ -96895,7 +97086,9 @@
         "dynamicAsteroids": [
           "DAsteroid_nomad_small2"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_alien_artifacts"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [
           "Zone_Ew04_to_Hi02_hole"
@@ -97050,6 +97243,11 @@
         "zone": "Zone_Ew04_Napo_nebula"
       }
     ],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_caps.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_ew04_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_ew04.cmp"
+    },
     "zones": [
       {
         "nickname": "Zone_Ew04_Napo_nebula",
@@ -98476,6 +98674,11 @@
     "tradelanes": [],
     "asteroidfields": [],
     "nebulae": [],
+    "background": {
+      "basic_stars": "",
+      "complex_stars": "",
+      "nebulae": "solar\\starsphere\\starsphere_ew05.cmp"
+    },
     "zones": [
       {
         "nickname": "Zone_Ew05_sun_death",
@@ -98814,6 +99017,11 @@
       }
     ],
     "nebulae": [],
+    "background": {
+      "basic_stars": "",
+      "complex_stars": "",
+      "nebulae": "solar\\starsphere\\starsphere_ew06.cmp"
+    },
     "zones": [
       {
         "nickname": "Zone_Ew06_sun_death",
@@ -98945,6 +99153,7 @@
     "tradelanes": [],
     "asteroidfields": [],
     "nebulae": [],
+    "background": {},
     "zones": [],
     "missionZones": [],
     "populationZones": []
@@ -99333,7 +99542,9 @@
         "dynamicAsteroids": [
           "dasteroid_debris_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_scrap_metal"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [],
         "exclusionZones": [],
@@ -99359,6 +99570,11 @@
         "zone": "Zone_Hi01_Siniestre_nube"
       }
     ],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_caps.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_hi01_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_hi01.cmp"
+    },
     "zones": [
       {
         "nickname": "Zone_Hi01_Siniestre_nube",
@@ -100910,7 +101126,7 @@
         "zone_damage": 0.0,
         "zone_visit": "0",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "nomad_objects",
@@ -100934,7 +101150,9 @@
         "dynamicAsteroids": [
           "DAsteroid_nomad_small2"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_alien_artifacts"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [
           "Zone_Hi02_to_Ew04_hole",
@@ -101200,7 +101418,9 @@
         "dynamicAsteroids": [
           "dasteroid_debris_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_scrap_metal"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [
           "Zone_Hi02_02_exclusion"
@@ -101263,6 +101483,11 @@
         "zone": "Zone_Hi02_Gredos_nube"
       }
     ],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_caps.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_hi02_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_hi02.cmp"
+    },
     "zones": [
       {
         "nickname": "Zone_Hi02_Malvada_nube",
@@ -105955,7 +106180,9 @@
         "dynamicAsteroids": [
           "dasteroid_debris_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_scrap_metal"
+        ],
         "bandShapes": [
           "debris_belt_04"
         ],
@@ -106275,7 +106502,9 @@
           "debris_tri"
         ],
         "dynamicAsteroids": [],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_scrap_metal"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [],
         "exclusionZones": [],
@@ -106330,7 +106559,9 @@
         "dynamicAsteroids": [
           "dasteroid_debris_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_scrap_metal"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [],
         "exclusionZones": [],
@@ -106434,7 +106665,9 @@
         "dynamicAsteroids": [
           "dasteroid_debris_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_scrap_metal"
+        ],
         "bandShapes": [
           "debris_belt_04"
         ],
@@ -106536,7 +106769,9 @@
         "dynamicAsteroids": [
           "dasteroid_debris_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_scrap_metal"
+        ],
         "bandShapes": [
           "debris_belt_04"
         ],
@@ -106963,6 +107198,11 @@
         "zone": "Zone_Li01_Badlands_Nebula"
       }
     ],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_basic.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_li01_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_li01.cmp"
+    },
     "zones": [
       {
         "nickname": "Zone_Li01_Manhattan_death",
@@ -119636,6 +119876,11 @@
       }
     ],
     "nebulae": [],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_noband.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_iw01_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_iw01.cmp"
+    },
     "zones": [
       {
         "nickname": "ZONE_Iw01_sun_death",
@@ -123124,6 +123369,11 @@
       }
     ],
     "nebulae": [],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_basic.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_iw02_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_iw02.cmp"
+    },
     "zones": [
       {
         "nickname": "ZONE_Iw02_Atka_death",
@@ -126153,7 +126403,7 @@
         "zone_damage": 0.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "ice_objects",
@@ -126181,7 +126431,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_water"
+        ],
         "bandShapes": [
           "asteroid_icebelt_04"
         ],
@@ -126311,7 +126563,7 @@
         "zone_damage": 0.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "ice_objects",
@@ -126337,7 +126589,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_water"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [
           "Zone_Iw03_to_Br02",
@@ -126685,6 +126939,11 @@
         "zone": "Zone_Iw03_Barrier_ice_cloud"
       }
     ],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_noband.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_iw03_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_iw03.cmp"
+    },
     "zones": [],
     "missionZones": [
       {
@@ -129600,7 +129859,7 @@
         "zone_damage": 0.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "ice_objects",
@@ -129629,7 +129888,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_crystal_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_water"
+        ],
         "bandShapes": [
           "asteroid_icebelt_04"
         ],
@@ -129739,7 +130000,7 @@
         "zone_damage": 0.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "ice_objects",
@@ -129766,7 +130027,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_water"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [
           "Zone_Iw04_to_Br02",
@@ -129894,7 +130157,7 @@
         "zone_damage": 0.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "ice_objects",
@@ -129915,7 +130178,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_crystal_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_water"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [
           "Zone_Iw04_to_Li02",
@@ -130018,6 +130283,11 @@
         "zone": "Zone_Iw04_Roatan_cloud"
       }
     ],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_noband.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_iw04_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_iw04.cmp"
+    },
     "zones": [
       {
         "nickname": "Zone_Iw04_sun_death",
@@ -133387,6 +133657,11 @@
         "zone": "Zone_Iw05_Matsuo_cloud"
       }
     ],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_crow.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_iw05_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_iw05.cmp"
+    },
     "zones": [
       {
         "nickname": "Zone_Iw05_Denko_cloud",
@@ -136565,6 +136840,11 @@
         "zone": "Zone_Iw06_Raiden_cloud"
       }
     ],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_crow.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_iw06_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_iw06.cmp"
+    },
     "zones": [
       {
         "nickname": "Zone_Iw06_Reppu_cloud",
@@ -141842,6 +142122,11 @@
       }
     ],
     "nebulae": [],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_crow_walker.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_ku01_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_ku01.cmp"
+    },
     "zones": [
       {
         "nickname": "Zone_Ku01_moon_death",
@@ -149488,6 +149773,11 @@
         "zone": "Zone_Ku02_Keiun_cloud"
       }
     ],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_crow_walker.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_ku02_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_ku02.cmp"
+    },
     "zones": [
       {
         "nickname": "Zone_Ku02_sun_death",
@@ -155615,6 +155905,11 @@
         "zone": "Zone_Ku03_Seiran_cloud"
       }
     ],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_crow_walker.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_ku03_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_ku03.cmp"
+    },
     "zones": [
       {
         "nickname": "Zone_Ku03_sun1_death",
@@ -161497,6 +161792,11 @@
         "zone": "Zone_Ku04_Chuyu_cloud"
       }
     ],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_crow.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_ku04_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_ku04.cmp"
+    },
     "zones": [
       {
         "nickname": "Zone_Ku04_sun_death",
@@ -168453,6 +168753,11 @@
         "zone": "Zone_Ku05_Unyo_cloud"
       }
     ],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_caps.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_ku05_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_ku05.cmp"
+    },
     "zones": [
       {
         "nickname": "Zone_Ku05_Kyofu_gap",
@@ -171921,6 +172226,11 @@
         "zone": "Zone_Ku06_Okamura_cloud"
       }
     ],
+    "background": {
+      "basic_stars": "",
+      "complex_stars": "",
+      "nebulae": "solar\\starsphere\\starsphere_Ku06.cmp"
+    },
     "zones": [],
     "missionZones": [
       {
@@ -172890,6 +173200,11 @@
         "zone": "Zone_Ku07_Nampo_cloud"
       }
     ],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_caps.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_ku07_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_ku07.cmp"
+    },
     "zones": [
       {
         "nickname": "Zone_Ku07_sun_death",
@@ -175146,7 +175461,9 @@
         "dynamicAsteroids": [
           "dasteroid_debris_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_scrap_metal"
+        ],
         "bandShapes": [
           "debris_belt_04"
         ],
@@ -175485,7 +175802,9 @@
           "debris_tri"
         ],
         "dynamicAsteroids": [],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_scrap_metal"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [],
         "exclusionZones": [],
@@ -175540,7 +175859,9 @@
         "dynamicAsteroids": [
           "dasteroid_debris_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_scrap_metal"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [],
         "exclusionZones": [],
@@ -175683,7 +176004,9 @@
         "dynamicAsteroids": [
           "dasteroid_debris_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_scrap_metal"
+        ],
         "bandShapes": [
           "debris_belt_04"
         ],
@@ -175842,7 +176165,9 @@
         "dynamicAsteroids": [
           "dasteroid_debris_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_scrap_metal"
+        ],
         "bandShapes": [
           "debris_belt_04"
         ],
@@ -176368,6 +176693,11 @@
         "zone": "Zone_Li01_Badlands_Nebula"
       }
     ],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_basic.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_li01_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_li01.cmp"
+    },
     "zones": [
       {
         "nickname": "Zone_Li01_Manhattan_death",
@@ -191199,7 +191529,7 @@
         "zone_damage": 0.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "object_density_low",
@@ -191225,7 +191555,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_crystal_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_water"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [
           "Zone_Li02_to_Iw04_hole",
@@ -191429,7 +191761,7 @@
         "zone_damage": 0.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "object_density_medium",
@@ -191456,7 +191788,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_water"
+        ],
         "bandShapes": [
           "asteroid_icebelt_04"
         ],
@@ -191566,7 +191900,7 @@
         "zone_damage": 0.0,
         "zone_visit": "36",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "object_density_medium",
@@ -191592,7 +191926,9 @@
         "dynamicAsteroids": [
           "DAsteroid_ice_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_water"
+        ],
         "bandShapes": [
           "asteroid_icebelt_04"
         ],
@@ -191704,6 +192040,11 @@
         "zone": "Zone_Li02_Tahoe_ice_crystal_cloud"
       }
     ],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_basic.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_li02_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_li02.cmp"
+    },
     "zones": [
       {
         "nickname": "zone_Li02_sun_death",
@@ -200595,7 +200936,9 @@
         "dynamicAsteroids": [
           "DAsteroid_mineable_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_silver"
+        ],
         "bandShapes": [
           "asteroid_belt_04"
         ],
@@ -201151,7 +201494,9 @@
         "dynamicAsteroids": [
           "DAsteroid_mineable_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_copper"
+        ],
         "bandShapes": [
           "asteroid_belt_04"
         ],
@@ -201457,6 +201802,11 @@
       }
     ],
     "nebulae": [],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_crow.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_li03_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_li03.cmp"
+    },
     "zones": [
       {
         "nickname": "Zone_Li03_Denver_death",
@@ -209538,7 +209888,9 @@
         "dynamicAsteroids": [
           "dasteroid_debris_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_scrap_metal"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [],
         "exclusionZones": [],
@@ -209591,7 +209943,9 @@
         "dynamicAsteroids": [
           "dasteroid_debris_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_scrap_metal"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [],
         "exclusionZones": [],
@@ -209642,7 +209996,9 @@
         "dynamicAsteroids": [
           "dasteroid_debris_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_scrap_metal"
+        ],
         "bandShapes": [
           "debris_belt_04"
         ],
@@ -209799,7 +210155,9 @@
         "dynamicAsteroids": [
           "dasteroid_debris_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_scrap_metal"
+        ],
         "bandShapes": [
           "debris_belt_04"
         ],
@@ -209876,7 +210234,9 @@
         "dynamicAsteroids": [
           "dasteroid_debris_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_scrap_metal"
+        ],
         "bandShapes": [
           "debris_belt_04"
         ],
@@ -209977,7 +210337,9 @@
         "dynamicAsteroids": [
           "dasteroid_debris_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_scrap_metal"
+        ],
         "bandShapes": [
           "debris_belt_04"
         ],
@@ -210020,6 +210382,11 @@
         "zone": "Zone_Li04_Grande_Negra"
       }
     ],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_walker.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_li04_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_li04.cmp"
+    },
     "zones": [
       {
         "nickname": "Zone_Li04_Chisos_death",
@@ -219415,6 +219782,11 @@
         "zone": "Zone_Li05_nebula"
       }
     ],
+    "background": {
+      "basic_stars": "",
+      "complex_stars": "",
+      "nebulae": "solar\\starsphere\\starsphere_li05.cmp"
+    },
     "zones": [],
     "missionZones": [],
     "populationZones": [],
@@ -219433,6 +219805,7 @@
     "tradelanes": [],
     "asteroidfields": [],
     "nebulae": [],
+    "background": {},
     "zones": [],
     "missionZones": [],
     "populationZones": []
@@ -222595,7 +222968,9 @@
         "dynamicAsteroids": [
           "dasteroid_debris_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_scrap_metal"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [
           "Zone_Rh01_08_exclusion"
@@ -222901,6 +223276,11 @@
       }
     ],
     "nebulae": [],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_walker.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_rh01_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_rh01.cmp"
+    },
     "zones": [
       {
         "nickname": "Zone_Rh01_Ruhr_radioactive_001",
@@ -231652,6 +232032,11 @@
       }
     ],
     "nebulae": [],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_crow_walker.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_rh02_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_rh02.cmp"
+    },
     "zones": [
       {
         "nickname": "Zone_Rh02_sun_death",
@@ -237884,6 +238269,11 @@
         "zone": "Zone_Rh03_Ostneckarwolke"
       }
     ],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_crow_walker.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_rh03_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_rh03.cmp"
+    },
     "zones": [
       {
         "nickname": "Zone_Rh03_sun_death",
@@ -242970,6 +243360,11 @@
         "zone": "Zone_Rh04_Geheimniswolke_nebula"
       }
     ],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_crow_walker.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_rh04_stars.cmp",
+      "nebulae": "solar\\starsphere\\starsphere_rh04.cmp"
+    },
     "zones": [
       {
         "nickname": "Zone_Rh04_nomad_shipyard_exclusion",
@@ -246856,7 +247251,7 @@
         "zone_damage": 0.0,
         "zone_visit": "0",
         "fieldFileExists": true,
-        "fieldKind": "asteroid",
+        "fieldKind": "mineable_asteroid",
         "hazardKind": "",
         "fieldFlags": [
           "lava_objects",
@@ -246880,7 +247275,9 @@
         "dynamicAsteroids": [
           "DAsteroid_lava02"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_diamonds"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [
           "Zone_Rh05_to_Rh04_hole"
@@ -247260,7 +247657,10 @@
         "dynamicAsteroids": [
           "dasteroid_mineable_small1"
         ],
-        "lootCommodities": [],
+        "lootCommodities": [
+          "commodity_cobalt",
+          "commodity_copper"
+        ],
         "bandShapes": [],
         "exclusionZoneIds": [
           "Zone_Rh05_Tradelane_3",
@@ -247358,6 +247758,11 @@
         "zone": "Zone_Rh05_Schwefelwolke"
       }
     ],
+    "background": {
+      "basic_stars": "solar\\starsphere\\starsphere_stars_caps.cmp",
+      "complex_stars": "solar\\starsphere\\starsphere_rh05_stars.3db",
+      "nebulae": "solar\\starsphere\\starsphere_rh05.cmp"
+    },
     "zones": [
       {
         "nickname": "Zone_Rh05_sun_death",
@@ -251163,6 +251568,11 @@
         "zone": "Zone_St01_edge_nebula"
       }
     ],
+    "background": {
+      "basic_stars": "",
+      "complex_stars": "",
+      "nebulae": "solar\\starsphere\\starsphere_st01.cmp"
+    },
     "zones": [
       {
         "nickname": "Zone_St01_order_planet_death",
@@ -251367,6 +251777,11 @@
         "zone": "Zone_St02_lair_nebula"
       }
     ],
+    "background": {
+      "basic_stars": "",
+      "complex_stars": "",
+      "nebulae": "solar\\starsphere\\starsphere_st02.cmp"
+    },
     "zones": [],
     "missionZones": [],
     "populationZones": [],
@@ -251401,6 +251816,7 @@
         "zone": "Zone_St02c_radiation"
       }
     ],
+    "background": {},
     "zones": [
       {
         "nickname": "Zone_St02c_radiation",
@@ -251515,6 +251931,11 @@
         "zone": "St03_dyson_nebula_zone"
       }
     ],
+    "background": {
+      "basic_stars": "",
+      "complex_stars": "",
+      "nebulae": "solar\\starsphere\\starsphere_st03.cmp"
+    },
     "zones": [
       {
         "nickname": "Zone_St03_planet_death",
@@ -251740,6 +252161,11 @@
       }
     ],
     "nebulae": [],
+    "background": {
+      "basic_stars": "",
+      "complex_stars": "",
+      "nebulae": "solar\\starsphere\\starsphere_St03b.cmp"
+    },
     "zones": [
       {
         "nickname": "Zone_St03b_sun_death",

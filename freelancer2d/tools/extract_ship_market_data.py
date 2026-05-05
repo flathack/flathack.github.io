@@ -194,6 +194,41 @@ def extract_shiparch() -> dict[str, dict]:
     return ships
 
 
+def populate_ship_model_bounds(ships: dict[str, dict]) -> None:
+    sys.path.insert(0, str(FLATLAS_ROOT))
+    try:
+        from fl_editor.native_scene_loader import load_native_scene_data
+    except Exception as exc:
+        print(f"Warning: FLAtlas model bounds unavailable: {exc}")
+        return
+
+    for ship in ships.values():
+        model_path = Path(ship.get("modelPath", ""))
+        if not model_path.exists():
+            continue
+        try:
+            result = load_native_scene_data(model_path)
+            bounds = getattr(result.scene_data, "bounds", None) if result.scene_data else None
+        except Exception:
+            bounds = None
+        if not bounds:
+            continue
+        min_xyz = [round(float(value), 4) for value in bounds.min_xyz]
+        max_xyz = [round(float(value), 4) for value in bounds.max_xyz]
+        width = max(abs(min_xyz[0]), abs(max_xyz[0])) * 2.0
+        height = max(abs(min_xyz[1]), abs(max_xyz[1])) * 2.0
+        length = max(abs(min_xyz[2]), abs(max_xyz[2])) * 2.0
+        radius = float(bounds.radius or 0.0)
+        ship["modelBounds"] = {
+            "min": min_xyz,
+            "max": max_xyz,
+            "radius": round(radius, 4),
+            "width": round(width, 4),
+            "height": round(height, 4),
+            "length": round(length, 4),
+        }
+
+
 def extract_goods() -> tuple[dict[str, dict], dict[str, dict]]:
     hulls: dict[str, dict] = {}
     packages: dict[str, dict] = {}
@@ -377,6 +412,7 @@ def render_icons(ships: dict[str, dict], package_ids: set[str], packages: dict[s
 def build_payload() -> dict:
     load_resources()
     ships = extract_shiparch()
+    populate_ship_model_bounds(ships)
     hulls, packages = extract_goods()
     powerplants = load_powerplants()
     engines = load_engines()
@@ -426,6 +462,7 @@ def build_payload() -> dict:
                 "firePower": ship["firePower"],
                 "mass": ship["mass"],
                 "shipClass": ship.get("shipClass", 0),
+                "modelBounds": ship.get("modelBounds", {}),
                 "powerCapacity": round(powerplant["capacity"], 2) if powerplant else 1000,
                 "powerChargeRate": round(powerplant["chargeRate"], 2) if powerplant else 100,
                 "thrustCapacity": round(powerplant["thrustCapacity"], 2) if powerplant else 1000,
@@ -443,7 +480,7 @@ def build_payload() -> dict:
     market_payload = {base: packages for base, packages in market_payload.items() if packages}
 
     return {
-        "ships": {ship_id: ship for ship_id, ship in sorted(ships.items()) if any(p["ship"] == ship_id for p in package_payload.values())},
+        "ships": {ship_id: ship for ship_id, ship in sorted(ships.items())},
         "packages": package_payload,
         "markets": market_payload,
     }

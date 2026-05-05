@@ -253,6 +253,8 @@ def analyze_asteroid_field_file(file_path: str) -> dict:
         elif section_lower == 'dynamicasteroids':
             dynamic_asteroids.extend(get_all_props(props, 'asteroid'))
         elif section_lower == 'lootablezone':
+            loot_commodities.extend(get_all_props(props, 'asteroid_loot_commodity'))
+            loot_commodities.extend(get_all_props(props, 'dynamic_loot_commodity'))
             for value in get_all_props(props, 'lootcrate_contents'):
                 parts = split_ini_list(value)
                 if parts:
@@ -753,6 +755,7 @@ def extract_system_data(system_name: str) -> dict:
         'tradelanes': [],
         'asteroidfields': [],
         'nebulae': [],
+        'background': {},
         'zones': [],
         'missionZones': [],
         'populationZones': []
@@ -853,6 +856,14 @@ def extract_system_data(system_name: str) -> dict:
         section_lower = section_name.lower()
         
         if section_lower == 'archetype':
+            continue
+
+        if section_lower == 'background':
+            result['background'] = {
+                'basic_stars': get_prop(props, 'basic_stars', ''),
+                'complex_stars': get_prop(props, 'complex_stars', ''),
+                'nebulae': get_prop(props, 'nebulae', '')
+            }
             continue
         
         if section_lower == 'object':
@@ -1286,6 +1297,7 @@ def main():
             'populationZones': sys_data.get('populationZones', []),
             'asteroidfields': sys_data.get('asteroidfields', []),
             'tradelanes': tradelanes,  # Note: spelled tradelanes in output
+            'background': sys_data.get('background', {}),
             'nebulae': sys_data.get('nebulae', [])
         }
     

@@ -12,6 +12,9 @@ body { background: #000; overflow: hidden; font-family: 'Courier New', monospace
 #hud { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
 #hud-top { position: absolute; top: 10px; left: 10px; right: 10px; display: flex; justify-content: center; align-items: flex-start; pointer-events: none; }
 #missile-warning { position: absolute; top: 58px; left: 50%; transform: translateX(-50%); min-width: min(360px, calc(100vw - 32px)); padding: 8px 22px; z-index: 10; color: #ffd6d6; background: linear-gradient(180deg, rgba(128,12,24,0.92), rgba(44,4,10,0.88)); border: 1px solid #ff5656; box-shadow: 0 0 22px rgba(255,40,40,0.5), inset 0 0 18px rgba(255,120,120,0.18); clip-path: polygon(0 10px, 10px 0, calc(100% - 10px) 0, 100% 10px, 100% calc(100% - 10px), calc(100% - 10px) 100%, 10px 100%, 0 calc(100% - 10px)); text-align: center; font-size: 15px; font-weight: 700; text-transform: uppercase; text-shadow: 0 0 10px rgba(255,70,70,0.95); pointer-events: none; }
+#radiation-warning { position: absolute; top: 54px; left: 14px; z-index: 12; width: 76px; height: 76px; display: flex; align-items: center; justify-content: center; pointer-events: none; animation: radiationBlink 0.75s steps(2, end) infinite; }
+#radiation-warning img { width: 72px; height: 72px; object-fit: contain; filter: drop-shadow(0 0 10px rgba(255,224,92,0.9)) drop-shadow(0 0 12px rgba(70,220,255,0.55)); }
+@keyframes radiationBlink { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.28; transform: scale(0.94); } }
 :root {
     --hud-accent: #53b4ff;
     --hud-accent-strong: #0088ff;
@@ -61,7 +64,19 @@ body[data-theme="crossfire"] {
 .cmd-btn:hover { background: rgba(0,100,150,0.8); }
 .cmd-btn.active { background: rgba(0,150,50,0.8); border-color: #00ff00; color: #00ff00; }
 .cmd-btn.cruise-active { background: rgba(0,92,190,0.92); border-color: #6bd4ff; color: #d8f7ff; box-shadow: 0 0 14px rgba(0,136,255,0.5); }
+#btn-cruise.active, #btn-cruise.cruise-active { background: rgba(0,150,50,0.8); border-color: #00ff88; color: #d8fff2; box-shadow: 0 0 16px rgba(0,255,130,0.55), inset 0 0 10px rgba(160,255,220,0.16); }
+#btn-cruise.active .cmd-icon, #btn-cruise.cruise-active .cmd-icon { filter: drop-shadow(0 0 7px rgba(120,255,210,0.95)); }
 .cmd-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+#command-bar .cmd-btn { min-width: 42px; width: 42px; height: 30px; padding: 0; display: inline-flex; align-items: center; justify-content: center; position: relative; }
+.cmd-icon { width: 22px; height: 18px; position: relative; display: inline-block; color: currentColor; }
+.icon-freeflight::before { content: ''; position: absolute; left: 4px; top: 2px; width: 0; height: 0; border-top: 7px solid transparent; border-bottom: 7px solid transparent; border-left: 15px solid currentColor; filter: drop-shadow(0 0 4px currentColor); }
+.icon-freeflight::after { content: ''; position: absolute; left: 1px; top: 7px; width: 10px; height: 3px; background: currentColor; opacity: 0.45; }
+.icon-approach::before { content: ''; position: absolute; inset: 3px; border: 2px solid currentColor; border-radius: 50%; box-shadow: 0 0 6px currentColor; }
+.icon-approach::after { content: ''; position: absolute; left: 10px; top: 0; width: 2px; height: 18px; background: currentColor; box-shadow: -8px 9px 0 -0.5px currentColor, 8px 9px 0 -0.5px currentColor; opacity: 0.8; }
+.icon-dock::before { content: ''; position: absolute; left: 2px; top: 2px; width: 15px; height: 14px; border: 2px solid currentColor; border-right: 0; box-shadow: 0 0 5px currentColor; }
+.icon-dock::after { content: ''; position: absolute; right: 1px; top: 5px; width: 0; height: 0; border-top: 4px solid transparent; border-bottom: 4px solid transparent; border-left: 9px solid currentColor; }
+.icon-cruise::before { content: ''; position: absolute; left: 1px; top: 8px; width: 20px; height: 2px; background: currentColor; box-shadow: 0 -6px 0 -0.5px currentColor, 0 6px 0 -0.5px currentColor; filter: drop-shadow(0 0 5px currentColor); }
+.icon-cruise::after { content: ''; position: absolute; right: 0; top: 4px; width: 0; height: 0; border-top: 5px solid transparent; border-bottom: 5px solid transparent; border-left: 8px solid currentColor; }
 #info-panel { width: 280px; background: rgba(0,15,30,0.9); border: 1px solid #006688; padding: 10px; display: none; }
 #info-panel h3 { color: #00aaff; font-size: 14px; margin-bottom: 10px; border-bottom: 1px solid #333; padding-bottom: 5px; }
 .info-row { display: flex; justify-content: space-between; margin-bottom: 5px; font-size: 11px; }
@@ -134,6 +149,11 @@ body[data-theme="crossfire"] {
 .start-meta-bar { display: flex; justify-content: flex-start; gap: 10px; margin: 0 0 18px; }
 #start-screen button { min-height: 58px; padding: 0 32px; position: relative; background: linear-gradient(180deg, rgba(24,34,92,0.86), rgba(6,13,48,0.82)); border: 1px solid #73cfff; color: #b9efff; cursor: pointer; font-family: 'Courier New', monospace; font-size: 26px; text-transform: uppercase; box-shadow: 0 0 16px rgba(0,180,255,0.38), inset 0 0 18px rgba(110,150,255,0.24); clip-path: polygon(0 14px, 14px 0, 35% 0, 40% 10px, 60% 10px, 65% 0, calc(100% - 14px) 0, 100% 14px, 100% calc(100% - 14px), calc(100% - 14px) 100%, 65% 100%, 60% calc(100% - 10px), 40% calc(100% - 10px), 35% 100%, 14px 100%, 0 calc(100% - 14px)); }
 #start-screen button:hover { color: #ffffff; border-color: #19d7ff; background: linear-gradient(180deg, rgba(36,56,130,0.96), rgba(10,24,70,0.9)); box-shadow: 0 0 24px rgba(0,210,255,0.56), inset 0 0 24px rgba(125,190,255,0.34); }
+#death-overlay { position: absolute; inset: 0; z-index: 980; display: grid; place-items: center; pointer-events: auto; background: radial-gradient(circle at 50% 46%, rgba(120,20,20,0.2), rgba(0,0,0,0.72) 58%, rgba(0,0,0,0.9)); color: #dff7ff; text-align: center; }
+.death-panel { min-width: min(420px, calc(100vw - 48px)); padding: 28px 32px; background: linear-gradient(180deg, rgba(20,7,14,0.88), rgba(2,8,22,0.9)); border: 1px solid rgba(255,90,70,0.78); box-shadow: 0 0 34px rgba(255,60,40,0.34), inset 0 0 28px rgba(255,120,80,0.12); }
+#death-message { margin: 0 0 22px; color: #ffd8d0; font-size: 32px; text-transform: uppercase; text-shadow: 0 0 14px rgba(255,70,40,0.92); }
+#btn-death-restart { min-height: 44px; padding: 0 24px; background: linear-gradient(180deg, rgba(82,20,32,0.92), rgba(28,6,16,0.86)); border: 1px solid #ff7466; color: #ffe4dc; cursor: pointer; font-family: 'Courier New', monospace; font-size: 18px; text-transform: uppercase; box-shadow: 0 0 18px rgba(255,90,70,0.28), inset 0 0 14px rgba(255,160,120,0.12); }
+#btn-death-restart:hover { border-color: #ffd0c8; color: #ffffff; box-shadow: 0 0 24px rgba(255,110,90,0.48), inset 0 0 18px rgba(255,190,150,0.18); }
 #btn-new-game { border-color: #19d7ff; color: #8ee8ff; }
 #btn-delete-save { border-color: #aa3333; color: #ff9999; background: linear-gradient(180deg, rgba(82,20,32,0.9), rgba(28,6,16,0.84)); }
 #btn-delete-save:hover { border-color: #ff6666; color: #ffd0d0; background: linear-gradient(180deg, rgba(120,28,42,0.95), rgba(52,8,20,0.9)); }
@@ -168,7 +188,7 @@ body[data-theme="crossfire"] {
     .controls { grid-template-columns: 1fr; }
     .start-footer { position: relative; right: auto; bottom: auto; z-index: 2; margin: 14px 24px 18px; justify-content: flex-start; flex-wrap: wrap; }
 }
-#map-overlay { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 700px; height: 500px; background: rgba(0,10,20,0.95); border: 2px solid #00aaff; z-index: 2000; }
+#map-overlay { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: min(1120px, calc(100vw - 32px)); height: min(760px, calc(100vh - 32px)); background: rgba(0,10,20,0.95); border: 2px solid #00aaff; z-index: 2000; display: flex; flex-direction: column; overflow: hidden; }
 #map-header { padding: 10px; border-bottom: 1px solid #333; display: flex; justify-content: space-between; align-items: center; }
 #map-header h3 { color: #00aaff; margin: 0; }
 #map-controls { display: flex; gap: 10px; }
@@ -192,6 +212,7 @@ body[data-theme="crossfire"] {
     .inventory-row { grid-template-columns: minmax(0, 1fr) auto; }
     .inventory-row .inventory-meta { grid-column: 1 / -1; }
 }
+#map-canvas, #map-universe-canvas { flex: 1 1 auto; width: 100%; min-height: 0; display: block; }
 #map-canvas, #universe-canvas { cursor: grab; }
 #map-canvas:active, #universe-canvas:active { cursor: grabbing; }
 #log-area { position: absolute; top: 250px; left: 10px; width: 320px; max-height: 180px; background: rgba(0,0,0,0.85); border: 1px solid #333; overflow-y: auto; padding: 5px; font-size: 11px; display: none; }
@@ -359,6 +380,7 @@ body[data-theme="crossfire"] .mod-btn.active {
         
         <div id="hud">
             <div id="missile-warning" class="hidden">Rakete im Anflug!</div>
+            <div id="radiation-warning" class="hidden" title="Radiation damage" aria-label="Radiation damage"><img src="assets/radioactive-hazard-icon.svg" alt=""></div>
             <div id="hud-top">
                 <div id="music-player">
                     <span id="music-label">MUSIC</span>
@@ -367,10 +389,10 @@ body[data-theme="crossfire"] .mod-btn.active {
                     <button id="music-toggle" title="Stop or resume music">STOP</button>
                 </div>
                 <div id="command-bar">
-                    <button class="cmd-btn" id="btn-freeflight" onclick="setMode('freeflight')">FREEFLIGHT</button>
-                    <button class="cmd-btn" id="btn-approach" onclick="setMode('approach')">ANFLIEGEN</button>
-                    <button class="cmd-btn" id="btn-dock" onclick="setMode('dock')">ANDOCKEN</button>
-                    <button class="cmd-btn" id="btn-cruise" onclick="toggleCruiseFlight()">REISEFLUG</button>
+                    <button class="cmd-btn command-icon-btn" id="btn-freeflight" onclick="setMode('freeflight')" title="Freiflug" aria-label="Freiflug"><span class="cmd-icon icon-freeflight" aria-hidden="true"></span></button>
+                    <button class="cmd-btn command-icon-btn" id="btn-approach" onclick="setMode('approach')" title="Anfliegen" aria-label="Anfliegen"><span class="cmd-icon icon-approach" aria-hidden="true"></span></button>
+                    <button class="cmd-btn command-icon-btn" id="btn-dock" onclick="setMode('dock')" title="Andocken" aria-label="Andocken"><span class="cmd-icon icon-dock" aria-hidden="true"></span></button>
+                    <button class="cmd-btn command-icon-btn" id="btn-cruise" onclick="toggleCruiseFlight()" title="Reiseflug" aria-label="Reiseflug"><span class="cmd-icon icon-cruise" aria-hidden="true"></span></button>
                 </div>
                 <div id="utility-bar">
                     <button class="cmd-btn" id="btn-inventory" onclick="showInventory()">INVENTAR</button>
@@ -458,10 +480,12 @@ body[data-theme="crossfire"] .mod-btn.active {
             <div id="hud-bottom">
                 <div class="scanner-actions">
                     <button class="hud-action-btn" id="btn-clear-selection" onclick="clearNavigationSelection()">[-] CLEAR</button>
+                    <button class="hud-action-btn" id="btn-scan-target" onclick="scanSelectedTarget()">SCAN</button>
                 </div>
                 <div id="scanner-panel" class="hud-panel">
                     <div class="hud-panel-title"><span id="scanner-title">SCANNER</span><span id="scanner-range">12 km</span></div>
                     <div id="scanner-list" class="hud-list"></div>
+                    <div id="scan-result" class="hud-row-muted"></div>
                 </div>
             </div>
             
@@ -470,6 +494,12 @@ body[data-theme="crossfire"] .mod-btn.active {
             <div id="touch-joystick" class="hidden" aria-label="Touch joystick">
                 <div id="touch-joystick-base"></div>
                 <div id="touch-joystick-knob"></div>
+            </div>
+        </div>
+        <div id="death-overlay" class="hidden">
+            <div class="death-panel">
+                <h2 id="death-message">You are dead!</h2>
+                <button id="btn-death-restart" onclick="restartAfterDeath()">Restart</button>
             </div>
         </div>
     </div>
@@ -520,7 +550,7 @@ body[data-theme="crossfire"] .mod-btn.active {
             </div>
         </div>
         <div class="start-footer">
-            <span>Made by Aldenmar Odin - flathack - v0.6.4</span>
+            <span>Made by Aldenmar Odin - flathack - v0.6.6</span>
             <a class="start-home-link" href="https://flathack.github.io/" target="_blank" rel="noopener noreferrer">Startseite</a>
         </div>
     </div>
@@ -538,9 +568,9 @@ body[data-theme="crossfire"] .mod-btn.active {
             <button class="map-btn map-tab active" data-maptab="system" onclick="switchMapTab('system')" title="Systemkarte">⏺</button>
             <button class="map-btn map-tab" data-maptab="universe" onclick="switchMapTab('universe')" title="Universum">✦</button>
         </div>
-        <canvas id="map-canvas" width="700" height="430"></canvas>
+        <canvas id="map-canvas" width="1120" height="650"></canvas>
         <div id="map-universe-sector-tabs" style="display:none;gap:6px;padding:6px 10px;border-bottom:1px solid #1d2b1d;flex-wrap:wrap;"></div>
-        <canvas id="map-universe-canvas" width="700" height="430" style="display:none;"></canvas>
+        <canvas id="map-universe-canvas" width="1120" height="650" style="display:none;"></canvas>
     </div>
 
     <div id="inventory-overlay" class="hidden">
@@ -833,7 +863,8 @@ const FALLBACK_GAME_SYSTEMS = {
 const game = {
     canvas: null, ctx: null, width: 0, height: 0,
     running: false, lastTime: 0, gameTime: 0,
-    player: null, entities: [], npcs: [], npcFleets: [], projectiles: [], loot: [],
+    loopErrorCount: 0,
+    player: null, entities: [], npcs: [], npcFleets: [], projectiles: [], loot: [], effects: [],
     isDocked: false, showMap: false, showCursor: false,
     hasStarted: false,
     mouseX: 0, mouseY: 0, mouseDown: false, rightMouseDown: false,
@@ -851,6 +882,10 @@ const game = {
     commandMode: 'freeflight',
     obstacles: [],
     jumpTransition: null,
+    jumpHoleCapture: null,
+    jumpHoleCaptureCooldownUntil: 0,
+    playerDeathPending: false,
+    playerDeathTimer: null,
     shipImages: {},
     objectImages: {},
     systemWallpapers: {},
@@ -926,6 +961,7 @@ const SAVE_VERSION = 1;
 const MAX_SAVE_SLOTS = 5;
 const GAME_TITLE = 'Freelancer 2D - a 2d adventure';
 const JUSTICE_FIRE_SOUND_PATH = 'assets/audio/justice-fire.wav';
+const UNIVERSE_BACKGROUND_IMAGE_PATH = 'assets/universe-nebula-background.png';
 const MUSIC_VOLUME = 0.315;
 const MUSIC_CROSSFADE_MS = 1400;
 const VOICE_SOUND_PATHS = {
@@ -939,6 +975,8 @@ const VOICE_SOUND_PATHS = {
     launch: { en: 'assets/audio/EN-launch.mp3', de: 'assets/audio/DE-launch.mp3' },
     shipPurchase: { en: 'assets/audio/EN-ship-purchase.mp3', de: 'assets/audio/DE-ship-purchase.mp3' },
     atmosphere: { en: 'assets/audio/EN-atmosphere.mp3', de: 'assets/audio/DE-atmosphere.mp3' },
+    radioDamage: { en: 'assets/audio/EN-radio-damage.mp3', de: 'assets/audio/DE-radio-damage.mp3' },
+    repairComplete: { en: 'assets/audio/EN-repair-complete.mp3', de: 'assets/audio/DE-repair-complete.mp3' },
     hullBreach: { en: 'assets/audio/EN-hull-breach.mp3', de: 'assets/audio/DE-hull-breach.mp3' }
 };
 const MUSIC_TRACKS = {
@@ -976,13 +1014,14 @@ const I18N = {
         hudHull: 'HÜLLE', hudShield: 'SCHILD', hudEnergy: 'ENERGIE', loadoutTitle: 'WAFFEN', scannerTitle: 'SCANNER', labelNanobots: 'Nanobots', labelShieldBatteries: 'Schildbatterien',
         ammoTab: 'Ammo', missileAmmo: 'Raketen', mines: 'Minen', countermeasures: 'Gegenmaßnahmen', countermeasureAmmoCount: 'Gegenmaßnahmen: {count}', countermeasureDropped: 'Gegenmaßnahme abgeworfen.', countermeasureAmmoEmpty: 'Keine Gegenmaßnahmen uebrig.', countermeasureDropperMissing: 'Kein Gegenmaßnahmen-Werfer montiert.', countermeasureDropLocked: 'Gegenmaßnahmen nicht beim Andocken, in Tradelanes oder Sprüngen nutzbar.', countermeasureAutoOn: 'AUTO AN', countermeasureAutoOff: 'AUTO AUS', missileIncoming: 'Rakete im Anflug!', mineAmmoCount: 'Minen: {count}/{max}', mineDropped: 'Mine abgeworfen.', mineAmmoEmpty: 'Keine Minen uebrig.', mineAmmoFull: 'Minenlager voll.', mineDropperMissing: 'Kein Minenwerfer montiert.', mineDropLocked: 'Minen nur bei Kampfgeschwindigkeit bis 80 m/s, nicht in Cruise, Tradelane oder Sprung.', ammoFull: 'Raketenlager voll.', ammoMissing: 'Keine Raketen-Munition.', missileAmmoCount: 'Raketen: {count}/{max}',
         selected: 'Ausgewählt', distance: 'Distanz', clearSelection: '[-] Ziel/WP', selectionCleared: 'Zielauswahl geloescht.', waypointFromSelection: 'WP AUS AUSWAHL', noWaypointSelection: 'Kein geeignetes Objekt ausgewaehlt.', clearWaypoint: 'Wegpunkt loeschen', modeRotate: 'DREHMODUS', modeCruiseCharge: 'REISEFLUG LÄDT', modeCruise: 'REISEFLUG', modeAfterburner: 'NACHBRENNER',
-        scannerNone: 'Keine Schiffe oder Stationen in Reichweite.', noWeaponSlots: 'Keine Waffen-Slots vorhanden.', emptyWeapon: 'Leer', noGunMounted: 'Keine Waffe montiert',
+        scannerNone: 'Keine Schiffe oder Stationen in Reichweite.', scanNoTarget: 'Kein NPC-Ziel ausgewählt.', scanOutOfRange: 'Ziel außerhalb der Scannerreichweite.', scanResultTitle: 'Scan-Ergebnis', noWeaponSlots: 'Keine Waffen-Slots vorhanden.', emptyWeapon: 'Leer', noGunMounted: 'Keine Waffe montiert',
         scannerShip: 'Schiff', scannerPlanet: 'Planet', scannerJumpGate: 'Sprungtor', scannerJumpHole: 'Sprungloch', scannerTradeLane: 'Tradelane', scannerStation: 'Station', scannerWaypoint: 'Wegpunkt', scannerObject: 'Objekt', weaponSlot: 'Waffe',
         repChanged: 'Ruf geändert', repHostile: 'FEINDLICH', repFriendly: 'FREUNDLICH', repNeutral: 'NEUTRAL', noReputationData: 'Keine Rufdaten geladen.',
         missionEliminate: 'Eliminiere feindliche Kontakte in {zone}.', missionWaypointLocked: 'Mission aktiv: Wegpunkt bleibt auf dem Missionsziel.', missionFreeWaypointsLocked: 'Mission aktiv: Freie Wegpunkte sind gesperrt.',
         saveStored: 'Spielstand gespeichert', saveStoreFailed: 'Spielstand konnte nicht gespeichert werden', cruiseDisabled: 'Reiseflug deaktiviert', cruiseCharging: 'Reiseflug lädt: {seconds} Sekunden', cruiseEnabled: 'Reiseflug aktiviert',
         dockingDeniedHostile: 'Andocken verweigert: {faction} ist feindlich.', noShieldInstalled: 'Kein Schild installiert.', missionContactHostile: 'Mission contact: {count} feindliche Schiffe erfasst.',
-        noBarNpcs: 'Keine NPCs in dieser Bar.', noDestroyMission: 'Keine destroy_vignette-Missionen in diesem System gefunden.', gameLoaded: 'Spielstand geladen: {system}, pilot!', welcomePilot: 'Willkommen in {system}, Pilot!'
+        noBarNpcs: 'Keine NPCs in dieser Bar.', noDestroyMission: 'Keine destroy_vignette-Missionen in diesem System gefunden.', gameLoaded: 'Spielstand geladen: {system}, pilot!', welcomePilot: 'Willkommen in {system}, Pilot!',
+        playerDead: 'Du bist tot!', restart: 'Neustart'
     },
     en: {
         freeflight: 'FREEFLIGHT', approach: 'APPROACH', dock: 'DOCK', cruise: 'CRUISE', menu: 'MENU', map: 'MAP', inventory: 'INVENTORY', reputation: 'REP', info: 'INFO', shipShop: 'SHIP DEALER', universe: 'UNIVERSE',
@@ -1000,13 +1039,14 @@ const I18N = {
         hudHull: 'HULL', hudShield: 'SHIELD', hudEnergy: 'ENERGY', loadoutTitle: 'WEAPONS', scannerTitle: 'SCANNER', labelNanobots: 'Nanobots', labelShieldBatteries: 'Shield Batteries',
         ammoTab: 'Ammo', missileAmmo: 'Missiles', mines: 'Mines', countermeasures: 'Countermeasures', countermeasureAmmoCount: 'Countermeasures: {count}', countermeasureDropped: 'Countermeasure dropped.', countermeasureAmmoEmpty: 'No countermeasures left.', countermeasureDropperMissing: 'No countermeasure dropper mounted.', countermeasureDropLocked: 'Countermeasures cannot be used while docked, in trade lanes, or during jumps.', countermeasureAutoOn: 'AUTO ON', countermeasureAutoOff: 'AUTO OFF', missileIncoming: 'Incoming missile!', mineAmmoCount: 'Mines: {count}/{max}', mineDropped: 'Mine dropped.', mineAmmoEmpty: 'No mines left.', mineAmmoFull: 'Mine bay full.', mineDropperMissing: 'No mine dropper mounted.', mineDropLocked: 'Mines only at combat speed up to 80 m/s, not in cruise, trade lane, or jump.', ammoFull: 'Missile bay full.', ammoMissing: 'No missile ammo.', missileAmmoCount: 'Missiles: {count}/{max}',
         selected: 'Selected', distance: 'Distance', clearSelection: '[-] Clear', selectionCleared: 'Selection cleared.', waypointFromSelection: 'WP FROM SELECTION', noWaypointSelection: 'No suitable object selected.', clearWaypoint: 'Clear waypoint', modeRotate: 'ROTATE MODE', modeCruiseCharge: 'CRUISE CHARGE', modeCruise: 'CRUISE', modeAfterburner: 'AFTERBURNER',
-        scannerNone: 'No ships or stations in range.', noWeaponSlots: 'No weapon slots available.', emptyWeapon: 'Empty', noGunMounted: 'No weapon mounted',
+        scannerNone: 'No ships or stations in range.', scanNoTarget: 'No NPC target selected.', scanOutOfRange: 'Target outside scanner range.', scanResultTitle: 'Scan Result', noWeaponSlots: 'No weapon slots available.', emptyWeapon: 'Empty', noGunMounted: 'No weapon mounted',
         scannerShip: 'Ship', scannerPlanet: 'Planet', scannerJumpGate: 'Jump Gate', scannerJumpHole: 'Jump Hole', scannerTradeLane: 'Trade Lane', scannerStation: 'Station', scannerWaypoint: 'Waypoint', scannerObject: 'Object', weaponSlot: 'Weapon',
         repChanged: 'Reputation changed', repHostile: 'HOSTILE', repFriendly: 'FRIENDLY', repNeutral: 'NEUTRAL', noReputationData: 'No reputation data loaded.',
         missionEliminate: 'Eliminate hostile contacts in {zone}.', missionWaypointLocked: 'Mission active: waypoint remains on the mission target.', missionFreeWaypointsLocked: 'Mission active: free waypoints are locked.',
         saveStored: 'Game saved', saveStoreFailed: 'Could not save game', cruiseDisabled: 'Cruise disabled', cruiseCharging: 'Cruise charging: {seconds} seconds', cruiseEnabled: 'Cruise enabled',
         dockingDeniedHostile: 'Docking denied: {faction} is hostile.', noShieldInstalled: 'No shield installed.', missionContactHostile: 'Mission contact: {count} hostile ships detected.',
-        noBarNpcs: 'No NPCs in this bar.', noDestroyMission: 'No destroy_vignette missions found in this system.', gameLoaded: 'Savegame loaded: {system}, pilot!', welcomePilot: 'Welcome to {system}, pilot!'
+        noBarNpcs: 'No NPCs in this bar.', noDestroyMission: 'No destroy_vignette missions found in this system.', gameLoaded: 'Savegame loaded: {system}, pilot!', welcomePilot: 'Welcome to {system}, pilot!',
+        playerDead: 'You are dead!', restart: 'Restart'
     }
 };
 
@@ -1166,6 +1206,8 @@ function equipmentMountType(item) {
     if (category === 'thruster') return 'thruster';
     if (category === 'engine') return 'engine';
     if (category === 'powerplant') return 'powerplant';
+    if (category === 'scanner') return 'scanner';
+    if (category === 'tractor') return 'tractor';
     if (category === 'mine') return 'mine';
     if (category === 'countermeasure') return 'countermeasure';
     if (category === 'missile') {
@@ -1209,6 +1251,8 @@ function slotSpec(slot) {
     if (slot === 'thruster') return { type: 'thruster', accepts: ['thruster'] };
     if (slot === 'engine') return { type: 'engine', accepts: ['engine'] };
     if (slot === 'powerplant') return { type: 'powerplant', accepts: ['powerplant'] };
+    if (slot === 'scanner') return { type: 'scanner', accepts: ['scanner'] };
+    if (slot === 'tractor') return { type: 'tractor', accepts: ['tractor'] };
     if (slot === 'mine') return { type: 'mine', accepts: ['mine'] };
     if (slot === 'countermeasure') return { type: 'countermeasure', accepts: ['countermeasure'] };
     return { type: slot, accepts: [slot] };
@@ -1371,6 +1415,8 @@ function categorySlotKeys(category) {
     if (normalized === 'thruster') return ['thruster'];
     if (normalized === 'engine') return ['engine'];
     if (normalized === 'powerplant') return ['powerplant'];
+    if (normalized === 'scanner') return ['scanner'];
+    if (normalized === 'tractor') return ['tractor'];
     if (normalized === 'mine') return ['mine'];
     if (normalized === 'countermeasure') return ['countermeasure'];
     return [];
@@ -1392,6 +1438,8 @@ function equipmentSlotLabel(slot) {
         const labels = { lf: 'Light Fighter', hf: 'Heavy Fighter', fr: 'Freighter' };
         return `Shield (Class ${spec.maxClass}, ${labels[spec.shieldFamily] || spec.shieldFamily})`;
     }
+    if (slot === 'scanner') return 'Scanner';
+    if (slot === 'tractor') return 'Tractor Beam';
     return slot.charAt(0).toUpperCase() + slot.slice(1);
 }
 
@@ -1439,6 +1487,50 @@ function mountedEquipmentItem(slot) {
     if (slot === 'powerplant') return currentPowerPlantItem();
     if (slot === 'engine') return currentEngineItem();
     return getEquipment(game.player?.mountedEquipment?.[slot]);
+}
+
+function equipmentRangeFromInfo(item, fallback = 0) {
+    const text = String(item?.info || '');
+    const match = text.match(/(?:Reichweite|Range)\s*:\s*([\d.,]+)/i);
+    if (!match) return fallback;
+    const value = Number(String(match[1]).replace(/\./g, '').replace(',', '.'));
+    return Number.isFinite(value) && value > 0 ? value : fallback;
+}
+
+function scannerRangeForItem(item) {
+    const id = String(item?.id || '').toLowerCase();
+    const explicit = Number(item?.scannerRange || item?.range || 0);
+    if (Number.isFinite(explicit) && explicit > 0) return explicit;
+    const parsed = equipmentRangeFromInfo(item, 0);
+    if (parsed > 0) return parsed;
+    if (id.includes('scanner_05')) return 50000;
+    if (id.includes('scanner_04')) return 25000;
+    if (id.includes('scanner_03')) return 10000;
+    if (id.includes('scanner_02')) return 5000;
+    return 2500;
+}
+
+function tractorRangeForItem(item) {
+    const id = String(item?.id || '').toLowerCase();
+    const explicit = Number(item?.tractorRange || item?.maxLength || 0);
+    if (Number.isFinite(explicit) && explicit > 0) return explicit;
+    const parsed = equipmentRangeFromInfo(item, 0);
+    if (parsed > 0) return parsed;
+    if (id.includes('tractor_03')) return 5000;
+    if (id.includes('tractor_02')) return 3000;
+    return 1500;
+}
+
+function equippedScannerItem() {
+    return mountedEquipmentItem('scanner') || getEquipment('ge_s_scanner_01');
+}
+
+function equippedTractorItem() {
+    return mountedEquipmentItem('tractor') || getEquipment('ge_s_tractor_01');
+}
+
+function playerScannerRange() {
+    return scannerRangeForItem(equippedScannerItem());
 }
 
 function mountedThrusterItem() {
@@ -1747,7 +1839,11 @@ function addEquipmentInventoryCopy(itemId) {
 function isFixedEquipmentInventoryEntry(entry) {
     const item = getEquipment(entry?.id);
     const category = String(item?.category || entry?.category || '').toLowerCase();
-    return category === 'engine' || category === 'powerplant';
+    return category === 'engine' || category === 'powerplant' || category === 'tractor' || (!isCrossfireActive() && category === 'scanner');
+}
+
+function isFixedEquipmentSlot(slot) {
+    return slot === 'powerplant' || slot === 'engine' || slot === 'tractor' || (!isCrossfireActive() && slot === 'scanner');
 }
 
 function cleanEquipmentInventory(entries = game.player?.equipmentInventory || []) {
@@ -1759,7 +1855,9 @@ function ensureFixedShipEquipment() {
     const shipPackage = currentShipPackage();
     const fixed = [
         ['powerplant', shipPackage?.powerplant?.id],
-        ['engine', shipPackage?.engine?.id]
+        ['engine', shipPackage?.engine?.id],
+        ['scanner', game.player.mountedEquipment?.scanner || 'ge_s_scanner_01'],
+        ['tractor', game.player.mountedEquipment?.tractor || 'ge_s_tractor_01']
     ];
     game.player.equipmentInventory = cleanEquipmentInventory(game.player.equipmentInventory || []);
     for (const [slot, itemId] of fixed) {
@@ -1772,9 +1870,20 @@ function mountedEquipmentCount() {
     return Object.values(game.player?.mountedEquipment || {}).filter(Boolean).length;
 }
 
+function hasPlayerStarterEquipment() {
+    if (!game.player) return false;
+    const mounted = game.player.mountedEquipment || {};
+    const fixedSlots = new Set(['engine', 'powerplant', 'scanner', 'tractor']);
+    if (Object.entries(mounted).some(([slot, itemId]) => itemId && !fixedSlots.has(slot))) return true;
+    return (game.player.equipmentInventory || []).some(item => {
+        const category = String(getEquipment(item.id)?.category || item.category || '').toLowerCase();
+        return !['engine', 'powerplant', 'scanner', 'tractor'].includes(category);
+    });
+}
+
 function ensureStarterEquipmentForEmptyLoadout() {
     ensureFixedShipEquipment();
-    if (!game.player || mountedEquipmentCount() > 2 || (game.player.equipmentInventory || []).some(item => !['engine', 'powerplant'].includes(String(getEquipment(item.id)?.category || item.category || '').toLowerCase()))) return;
+    if (!game.player || hasPlayerStarterEquipment()) return;
     const defaults = STARTER_MOUNTED_EQUIPMENT[game.player.shipPackageId] || [];
     for (const entry of defaults) {
         if (!addEquipmentInventoryCopy(entry.id)) continue;
@@ -1877,7 +1986,7 @@ function addLootDrop(x, z, kind = 'random') {
 }
 
 function collectLoot(loot) {
-    if (!game.player || !loot) return;
+    if (!game.player || !loot) return false;
     if (loot.type === 'equipment') {
         if (addEquipmentInventoryCopy(loot.id)) addLog('Loot: ' + loot.name);
     } else if (loot.type === 'nanobot') {
@@ -1886,9 +1995,12 @@ function collectLoot(loot) {
     } else if (loot.type === 'shieldBattery') {
         game.player.shieldBatteries = Math.min(game.player.maxShieldBatteries, game.player.shieldBatteries + 1);
         addLog('Loot: Shield Battery');
+    } else if (loot.type === 'commodity') {
+        if (!addCommodityCargo(loot.commodityId, loot.quantity || 1, 'Loot')) return false;
     }
     playSound('buy', 0.45);
     saveGame();
+    return true;
 }
 
 function weaponColorPartsForItem(item) {
@@ -2029,14 +2141,87 @@ function defaultNpcShipIcon(type, factionId = '') {
     return type === 'trader' ? 'data/ship_icons/ge_fighter.png' : 'data/ship_icons/li_fighter.png';
 }
 
+function npcShipIconAlias(shipId = '', shipRecord = null) {
+    const id = String(shipId || shipRecord?.id || '').toLowerCase();
+    const type = String(shipRecord?.type || '').toUpperCase();
+    if (id.startsWith('rtcprop_')) {
+        const rtc = id.replace(/^rtcprop_/, '');
+        if (rtc.includes('armored_transport')) return 'data/ship_icons/cf_armored.png';
+        if (rtc.includes('large_transport')) return 'data/ship_icons/cf_large_transport.png';
+        if (rtc.includes('transport')) return 'data/ship_icons/cf_transport.png';
+        if (rtc.includes('luxury_liner')) return 'data/ship_icons/ge_linercf.png';
+        if (rtc.includes('lifter')) return 'data/ship_icons/cf_lifter.png';
+        if (rtc.includes('mining')) return 'data/ship_icons/my_miner_ship.png';
+        if (rtc.includes('prison')) return 'data/ship_icons/cf_prison.png';
+        if (rtc.includes('repair')) return 'data/ship_icons/cf_repair.png';
+        if (rtc.includes('csv')) return 'data/ship_icons/ge_csv.png';
+        if (rtc.includes('juni_elite')) return 'data/ship_icons/li_elite2.png';
+        const prefixMap = {
+            b: 'br',
+            bw: 'bw',
+            civ: 'co',
+            k: 'ku',
+            l: 'li',
+            p: 'pi',
+            r: 'rh'
+        };
+        const parts = rtc.split('_');
+        const house = prefixMap[parts[0]] || '';
+        const role = parts.slice(1).join('_');
+        if (house && role) {
+            if (house === 'co' && role === 'freighter') return 'data/ship_icons/cffreighter1.png';
+            const roleMap = {
+                battleship: house === 'br' ? 'cf_br_destroyer' : house === 'ku' ? 'cf_ku_destroyer' : house === 'rh' ? 'cf_rh_cruiser' : house === 'li' ? 'cf_li_cruiser' : `${house}_battleship`,
+                dreadnought: 'li_dreadnought',
+                destroyer: house === 'br' ? 'cf_br_destroyer' : house === 'ku' ? 'cf_ku_destroyer' : `${house}_destroyer`,
+                cruiser: house === 'li' ? 'cf_li_cruiser' : house === 'rh' ? 'cf_rh_cruiser' : `${house}_cruiser`,
+                gunboat: house === 'br' ? 'cf_br_gunboat' : house === 'ku' ? 'cf_ku_gunboat' : house === 'li' ? 'cf_li_gunboat' : house === 'rh' ? 'cf_rh_gunboat' : `${house}_gunboat`,
+                dragon: 'ku_dragon',
+                elite_akira: 'pi_elite',
+                elite: `${house}_elite`,
+                fighter: `${house}_fighter`,
+                freighter: `${house}_freighter`
+            };
+            if (roleMap[role]) return `data/ship_icons/${roleMap[role]}.png`;
+        }
+    }
+    if (id.includes('large_train') || id.includes('ge_large_train')) return 'data/ship_icons/ge_large_train.png';
+    if (id.includes('large_transport')) return 'data/ship_icons/cf_large_transport.png';
+    if (id.includes('armored_transport') || id.includes('ge_armored_nobay')) return 'data/ship_icons/cf_armored.png';
+    if (id.includes('ge_train') || id.includes('freight_train')) return 'data/ship_icons/ge_train.png';
+    if (id.includes('liner')) return 'data/ship_icons/ge_linercf.png';
+    if (id.includes('lifter')) return 'data/ship_icons/cf_lifter.png';
+    if (id.includes('miner') || id.includes('mining')) return 'data/ship_icons/my_miner_ship.png';
+    if (id.includes('prison')) return 'data/ship_icons/cf_prison.png';
+    if (id.includes('repair')) return 'data/ship_icons/cf_repair.png';
+    if (id.includes('osiris')) return 'data/ship_icons/or_osiris.png';
+    if (id.includes('dreadnought')) return 'data/ship_icons/cf_li_cruiser.png';
+    if (id.includes('battleship') && id.startsWith('br_')) return 'data/ship_icons/cf_br_destroyer.png';
+    if (id.includes('battleship') && id.startsWith('ku_')) return 'data/ship_icons/cf_ku_destroyer.png';
+    if (id.includes('battleship') && id.startsWith('rh_')) return 'data/ship_icons/cf_rh_cruiser.png';
+    if (id.includes('cruiser') && id.startsWith('li_')) return 'data/ship_icons/cf_li_cruiser.png';
+    if (id.includes('cruiser') && id.startsWith('rh_')) return 'data/ship_icons/cf_rh_cruiser.png';
+    if (id.includes('destroyer') && id.startsWith('br_')) return 'data/ship_icons/cf_br_destroyer.png';
+    if (id.includes('destroyer') && id.startsWith('ku_')) return 'data/ship_icons/cf_ku_destroyer.png';
+    if (id.includes('gunboat') && id.startsWith('br_')) return 'data/ship_icons/cf_br_gunboat.png';
+    if (id.includes('gunboat') && id.startsWith('ku_')) return 'data/ship_icons/cf_ku_gunboat.png';
+    if (id.includes('gunboat') && id.startsWith('rh_')) return 'data/ship_icons/cf_rh_gunboat.png';
+    if (id.includes('gunboat') && id.startsWith('li_')) return 'data/ship_icons/cf_li_gunboat.png';
+    if (id.includes('transport') || type === 'TRANSPORT') return 'data/ship_icons/cf_transport.png';
+    return '';
+}
+
 function resolveNpcShipVisual(npcShip, ship, type, factionId = '') {
     const archetypeId = String(npcShip?.ship || npcShip?.archetype || '').toLowerCase();
     const shipRecord = ship || shipsData()[archetypeId] || null;
     const derivedIcon = shipRecord?.id ? `data/ship_icons/${String(shipRecord.id).toLowerCase()}.png` : (archetypeId ? `data/ship_icons/${archetypeId}.png` : '');
+    const aliasIcon = npcShipIconAlias(archetypeId || shipRecord?.id, shipRecord);
     return {
         shipId: shipRecord?.id || archetypeId,
         shipName: shipRecord?.name || npcShip?.ship || '',
-        shipIcon: shipRecord?.icon || derivedIcon || defaultNpcShipIcon(type, factionId)
+        shipIcon: aliasIcon || shipRecord?.icon || derivedIcon || defaultNpcShipIcon(type, factionId),
+        shipIconFallback: aliasIcon || defaultNpcShipIcon(type, factionId),
+        shipRecord
     };
 }
 
@@ -2247,6 +2432,7 @@ function startNpcTradeLane(npc, ring, exitRing = null) {
     npc.x = ring.x;
     npc.z = ring.z;
     npc.inTradeLane = true;
+    npc.cruiseActive = false;
     npc.tradeLaneRoute = route;
     npc.tradeLaneIndex = ring.index + direction;
     npc.tradeLaneExitIndex = exitIndex;
@@ -2262,6 +2448,7 @@ function updateNpcTradeLane(npc, dt) {
     if (!target) {
         npc.inTradeLane = false;
         npc.tradeLaneRoute = null;
+        npc.cruiseActive = false;
         npc.speed = Math.min(npc.speed || 0, npc.maxSpeed || COMBAT_MAX_SPEED);
         return false;
     }
@@ -2276,6 +2463,7 @@ function updateNpcTradeLane(npc, dt) {
         if (npc.tradeLaneIndex === npc.tradeLaneExitIndex) {
             npc.inTradeLane = false;
             npc.tradeLaneRoute = null;
+            npc.cruiseActive = false;
             npc.tradeLaneIndex = 0;
             npc.speed = Math.min(npc.speed || 0, npc.maxSpeed || COMBAT_MAX_SPEED);
             npc.tradeWaypointIndex = (npc.tradeWaypointIndex || 0) + 1;
@@ -2290,6 +2478,27 @@ function updateNpcTradeLane(npc, dt) {
     return true;
 }
 
+function setNpcCruise(npc, active) {
+    if (!npc) return;
+    npc.cruiseActive = Boolean(active) && !npc.hidden && !npc.inTradeLane;
+}
+
+function updateNpcCruiseForDistance(npc, distance, options = {}) {
+    if (!npc) return;
+    if (npc.hidden || npc.inTradeLane || options.combat || options.disabled) {
+        setNpcCruise(npc, false);
+        return;
+    }
+    const enterDistance = Number(options.enterDistance) || NPC_CRUISE_ENTER_DISTANCE;
+    const exitDistance = Number(options.exitDistance) || NPC_CRUISE_EXIT_DISTANCE;
+    if (npc.cruiseActive) {
+        setNpcCruise(npc, distance > exitDistance);
+    } else {
+        setNpcCruise(npc, distance > enterDistance);
+    }
+    if (npc.cruiseActive) npc.throttle = Math.max(npc.throttle || 0, 0.95);
+}
+
 function placeEscortNearLeader(escort, leader, index = 0) {
     if (!escort || !leader) return;
     const side = index % 2 === 0 ? -1 : 1;
@@ -2300,6 +2509,7 @@ function placeEscortNearLeader(escort, leader, index = 0) {
     escort.rotation = leader.rotation;
     escort.speed = leader.speed;
     escort.throttle = leader.throttle;
+    escort.cruiseActive = Boolean(leader.cruiseActive);
 }
 
 function convoyMembersForLeader(leader) {
@@ -2585,7 +2795,7 @@ function updatePopulationNpcs(dt) {
 
 function applyLanguage() {
     const labels = [
-        ['btn-freeflight', 'freeflight'], ['btn-approach', 'approach'], ['btn-dock', 'dock'], ['btn-cruise', 'cruise'], ['btn-map', 'map'],
+        ['btn-map', 'map'],
         ['btn-inventory', 'inventory'], ['btn-reputation', 'reputation'], ['btn-info', 'info'], ['btn-menu', 'menu'], ['btn-launch', 'launch'], ['btn-clear-selection', 'clearSelection'],
         ['btn-waypoint-selection', 'waypointFromSelection'], ['btn-clear-waypoint', 'clearWaypoint']
     ];
@@ -2593,6 +2803,7 @@ function applyLanguage() {
         const el = document.getElementById(id);
         if (el) el.textContent = t(key);
     }
+    updateCommandIconLabels();
     const languageButton = document.getElementById('btn-language');
     if (languageButton) languageButton.textContent = game.language.toUpperCase();
     const mainMenuLanguageButton = document.getElementById('btn-language-menu');
@@ -2692,6 +2903,8 @@ function degToRad(value) {
 const COMBAT_MAX_SPEED = 80;
 const CRUISE_SPEED = 300;
 const CROSSFIRE_CRUISE_SPEED = 450;
+const NPC_CRUISE_ENTER_DISTANCE = 4200;
+const NPC_CRUISE_EXIT_DISTANCE = 1350;
 const AFTERBURNER_SPEED = 200;
 const REVERSE_SPEED = -15;
 const MAX_MINE_AMMO = 50;
@@ -2710,6 +2923,8 @@ const TRADE_LANE_DECELERATION = 1850;
 const TRADE_LANE_BRAKE_DISTANCE = 5200;
 const JUMP_TRANSITION_TOTAL_DURATION = 8;
 const JUMP_TRANSITION_PHASE_DURATION = JUMP_TRANSITION_TOTAL_DURATION / 2;
+const JUMP_HOLE_CAPTURE_DISTANCE = 520;
+const JUMP_HOLE_PULL_DURATION = 1.45;
 const MISSION_SPAWN_DISTANCE = 1700;
 const MISSION_ENEMY_MIN_COUNT = 3;
 const MISSION_ENEMY_MAX_COUNT = 7;
@@ -2953,7 +3168,35 @@ function getShipPackage(packageId) {
     return shipPackagesData()[String(packageId).toLowerCase()] || null;
 }
 
-function getShipImage(iconPath) {
+function shipRecordForId(shipId) {
+    return shipsData()[String(shipId || '').toLowerCase()] || null;
+}
+
+function shipModelBounds(source) {
+    if (!source) return null;
+    return source.modelBounds || source.stats?.modelBounds || null;
+}
+
+function shipVisualWorldRadius(source, options = {}) {
+    const bounds = shipModelBounds(source);
+    const radius = Number(bounds?.radius || 0);
+    const width = Number(bounds?.width || 0);
+    const length = Number(bounds?.length || 0);
+    if (radius > 0 || width > 0 || length > 0) {
+        const topRadius = Math.max(radius, width * 0.5, length * 0.5);
+        return clamp(topRadius * 3.05, 14, 130);
+    }
+    const id = String(source?.id || source?.ship || source?.shipId || options.shipId || '').toLowerCase();
+    const type = String(source?.type || options.type || '').toUpperCase();
+    const mass = Number(source?.mass || source?.stats?.mass || 0);
+    const hitPts = Number(source?.hitPts || source?.stats?.hull || 0);
+    if (id.includes('large_train') || id.includes('ge_train')) return 92;
+    if (id.includes('transport') || type === 'TRANSPORT') return 64;
+    if (type === 'FREIGHTER' || mass >= 250) return 42;
+    return clamp(Math.sqrt(Math.max(hitPts, 900)) * 0.34, 18, 34);
+}
+
+function getShipImage(iconPath, fallbackPath = 'data/ship_icons/_fallback.png') {
     if (!iconPath) return null;
     if (!game.shipImages[iconPath]) {
         const img = new Image();
@@ -2962,7 +3205,7 @@ function getShipImage(iconPath) {
         game.shipImages[iconPath] = img;
     }
     const image = game.shipImages[iconPath];
-    if (image.dataset.failed === '1') return getShipImage('data/ship_icons/_fallback.png');
+    if (image.dataset.failed === '1') return fallbackPath && fallbackPath !== iconPath ? getShipImage(fallbackPath, '') : null;
     return image.complete && image.naturalWidth > 0 ? image : null;
 }
 
@@ -2986,6 +3229,10 @@ function getObjectImage(archetype) {
 function normalizeModId(modId) {
     const id = String(modId || '').toLowerCase();
     return MODS.some(mod => mod.id === id) ? id : 'vanilla';
+}
+
+function isCrossfireActive() {
+    return normalizeModId(game.activeModId || localStorage.getItem(ACTIVE_MOD_KEY)) === 'crossfire';
 }
 
 function activeModConfig() {
@@ -3231,6 +3478,7 @@ function createSaveGameState() {
 function saveGame(showMessage = false) {
     if (game.suppressAutoSave) return;
     if (!game.hasStarted && !game.saveLoaded) return;
+    if (game.player?.destroyed || game.playerDeathPending) return;
     const state = createSaveGameState();
     if (!state) return;
     try {
@@ -3408,6 +3656,21 @@ function updateCommandModeButtons() {
     document.getElementById('btn-' + mode)?.classList.add('active');
 }
 
+function updateCommandIconLabels() {
+    const labels = {
+        'btn-freeflight': t('freeflight'),
+        'btn-approach': t('approach'),
+        'btn-dock': t('dock'),
+        'btn-cruise': t('cruise')
+    };
+    for (const [id, label] of Object.entries(labels)) {
+        const button = document.getElementById(id);
+        if (!button) continue;
+        button.title = label;
+        button.setAttribute('aria-label', label);
+    }
+}
+
 function isManualSteeringActive() {
     return game.mouseDown || game.joystickActive;
 }
@@ -3504,9 +3767,14 @@ function updateTouchJoystickFromPointer(e) {
 function updateCruiseButton() {
     const button = document.getElementById('btn-cruise');
     if (!button || !game.player) return;
-    button.classList.toggle('cruise-active', game.player.cruiseActive || game.player.cruiseCharging);
+    const isCruising = game.player.cruiseActive || game.player.cruiseCharging;
+    button.classList.toggle('cruise-active', isCruising);
+    button.classList.toggle('active', isCruising);
     const label = t('cruise');
-    button.textContent = game.player.cruiseCharging ? label + ' ' + Math.ceil(Math.max(0, CRUISE_CHARGE_SECONDS - game.player.cruiseCharge)) : label;
+    const remaining = Math.ceil(Math.max(0, CRUISE_CHARGE_SECONDS - game.player.cruiseCharge));
+    const title = game.player.cruiseCharging ? `${label} ${remaining}s` : label;
+    button.title = title;
+    button.setAttribute('aria-label', title);
 }
 
 function toggleCruiseFlight() {
@@ -3538,6 +3806,9 @@ function startAutopilotCruise() {
 
 function returnToMainMenu() {
     saveGame();
+    clearTimeout(game.playerDeathTimer);
+    game.playerDeathTimer = null;
+    game.playerDeathPending = false;
     game.running = false;
     game.mouseDown = false;
     game.rightMouseDown = false;
@@ -3550,6 +3821,7 @@ function returnToMainMenu() {
     document.getElementById('landing-overlay')?.classList.add('hidden');
     document.getElementById('map-overlay')?.classList.add('hidden');
     document.getElementById('universe-overlay')?.classList.add('hidden');
+    document.getElementById('death-overlay')?.classList.add('hidden');
     document.getElementById('start-screen')?.classList.remove('hidden');
     updateSaveHint(readSavedGame());
 }
@@ -3601,7 +3873,7 @@ function applyShipPackage(packageId, logPurchase = false) {
     game.player.weaponClassMax = parseMaxEquipmentClass(shipPackage, parseMaxEquipmentClass(shipRecord, game.player.firePower || 1));
     game.player.shieldClassMax = game.player.weaponClassMax;
     game.player.shieldFamily = shipShieldFamily();
-    game.player.radius = Math.max(18, Math.min(34, Math.sqrt(game.player.maxHull) * 0.28));
+    game.player.radius = shipVisualWorldRadius(shipRecord || shipPackage, { shipId: shipPackage.ship, type: shipPackage.type });
     ensureFixedShipEquipment();
     ensureStarterEquipmentForEmptyLoadout();
     if (logPurchase) {
@@ -3684,17 +3956,24 @@ function startJumpTransition(target) {
         return false;
     }
     const angle = Math.atan2(target.z - game.player.z, target.x - game.player.x);
+    const isHole = target instanceof JumpGate && target.kind === 'hole';
     game.jumpTransition = {
         phase: 'out',
         timer: 0,
         elapsed: 0,
+        startedAt: performance.now(),
         duration: JUMP_TRANSITION_PHASE_DURATION,
         totalDuration: JUMP_TRANSITION_TOTAL_DURATION,
+        mode: isHole ? 'hole' : 'gate',
         angle,
+        originX: target.x,
+        originZ: target.z,
+        depthScale: 1,
         targetSystem: jumpTargetSystem(target),
         targetObject: target.destObject,
         gateName: target.name
     };
+    game.jumpHoleCapture = null;
     game.dockTarget = null;
     game.approachTarget = null;
     game.dockLandingTarget = null;
@@ -3709,6 +3988,75 @@ function startJumpTransition(target) {
     addLog('Jumping through ' + target.name + (sameSystemJump ? ' to another point in ' : ' to ') + jumpTargetSystem(target));
     playSound('jump', 1.2);
     return true;
+}
+
+function startJumpHoleCapture(hole) {
+    if (!hole || game.jumpTransition || game.jumpHoleCapture || !hasJumpDestination(hole)) return false;
+    game.jumpHoleCapture = {
+        target: hole,
+        timer: 0,
+        duration: JUMP_HOLE_PULL_DURATION,
+        startX: game.player.x,
+        startZ: game.player.z,
+        startRotation: game.player.rotation
+    };
+    game.selectedTarget = hole;
+    game.approachTarget = null;
+    game.dockTarget = null;
+    game.dockLandingTarget = null;
+    game.commandMode = 'dock';
+    game.player.cancelCruise?.();
+    game.player.afterburnerActive = false;
+    game.player.reverseActive = false;
+    game.player.throttle = 0;
+    game.player.speed = 0;
+    updateCommandModeButtons();
+    updateCruiseButton();
+    updateSpeedControl();
+    addLog('Sprungloch-Sog erfasst: ' + hole.name);
+    playSound('select', 1.1);
+    return true;
+}
+
+function updateJumpHoleCapture(dt) {
+    const capture = game.jumpHoleCapture;
+    if (!capture || !game.player) return false;
+    const target = capture.target;
+    if (!target || !hasJumpDestination(target)) {
+        game.jumpHoleCapture = null;
+        return false;
+    }
+    capture.timer += dt;
+    const progress = clamp(capture.timer / capture.duration, 0, 1);
+    const pull = smoothStep(progress);
+    const wobble = Math.sin(progress * Math.PI * 4) * (1 - pull) * 18;
+    const angle = Math.atan2(target.z - capture.startZ, target.x - capture.startX);
+    game.player.x = capture.startX + (target.x - capture.startX) * pull + Math.cos(angle + Math.PI / 2) * wobble;
+    game.player.z = capture.startZ + (target.z - capture.startZ) * pull + Math.sin(angle + Math.PI / 2) * wobble;
+    game.player.rotation = angle;
+    game.player.speed = 0;
+    game.player.throttle = 0;
+    if (progress >= 1) {
+        game.player.x = target.x;
+        game.player.z = target.z;
+        game.jumpHoleCapture = null;
+        startJumpTransition(target);
+    }
+    return true;
+}
+
+function updateAutomaticJumpHoleCapture() {
+    if (!game.player || game.jumpTransition || game.jumpHoleCapture || game.isDocked || game.player.inTradeLane) return;
+    if (performance.now() < (game.jumpHoleCaptureCooldownUntil || 0)) return;
+    const holes = game.entities.filter(entity => entity instanceof JumpGate && entity.kind === 'hole' && hasJumpDestination(entity));
+    for (const hole of holes) {
+        const distance = Math.hypot(hole.x - game.player.x, hole.z - game.player.z);
+        const captureDistance = Math.max(JUMP_HOLE_CAPTURE_DISTANCE, (hole.visualRadius || hole.radius || 0) * 1.45);
+        if (distance <= captureDistance) {
+            startJumpHoleCapture(hole);
+            return;
+        }
+    }
 }
 
 let currentSystemId = 'Li01';
@@ -3809,6 +4157,7 @@ function normalizeAsteroidFieldData(field) {
         cubeRoles: Array.isArray(field.cubeRoles) ? field.cubeRoles : [],
         billboardShapes: Array.isArray(field.billboardShapes) ? field.billboardShapes : [],
         dynamicAsteroids: Array.isArray(field.dynamicAsteroids) ? field.dynamicAsteroids : [],
+        lootCommodities: Array.isArray(field.lootCommodities) ? field.lootCommodities : [],
         exclusionZoneIds: Array.isArray(field.exclusionZoneIds) ? field.exclusionZoneIds : [],
         exclusionZones: (field.exclusionZones || []).map(z => ({
             id: z.nickname || z.zone,
@@ -3919,6 +4268,7 @@ function buildSystemData(systemId) {
     ],
     tradeLanes: raw.tradeLanes || raw.tradelanes || [],
     asteroidfields: (raw.asteroidfields || []).map(normalizeAsteroidFieldData),
+    background: raw.background || {},
     nebulae: raw.nebulae || [],
     missionZones: (raw.missionZones || []).map(z => ({
         id: z.nickname || z.zone,
@@ -4265,6 +4615,15 @@ function renderDamageZones(ctx) {
     }
 }
 
+function updateRadiationWarning(active) {
+    const warning = document.getElementById('radiation-warning');
+    if (!warning) return;
+    const label = game.language === 'de' ? 'Strahlungsschaden' : 'Radiation damage';
+    warning.title = label;
+    warning.setAttribute('aria-label', label);
+    warning.classList.toggle('hidden', !active);
+}
+
 function checkPlanetAtmosphereHazards(dt) {
     if (!game.player || game.isDocked || game.player.destroyed) return;
     let activeAtmospherePlanetId = '';
@@ -4307,9 +4666,10 @@ function checkPlanetAtmosphereHazards(dt) {
 function isPointInsideZone(zone, x, z) {
     const rotation = -flYawToCanvasRotation(zone.rotateY || 0);
     const local = rotatePoint(x - zone.x, z - zone.z, rotation);
-    const radiusX = Math.max(1, zone.sizeX || zone.size || 1);
-    const radiusZ = Math.max(1, zone.sizeZ || zone.size || 1);
     const shape = String(zone.shape || '').toUpperCase();
+    const boxScale = shape === 'BOX' ? 0.5 : 1;
+    const radiusX = Math.max(1, (zone.sizeX || zone.size || 1) * boxScale);
+    const radiusZ = Math.max(1, (zone.sizeZ || zone.size || 1) * boxScale);
     if (shape === 'SPHERE') {
         return Math.sqrt(local.x * local.x + local.z * local.z) <= Math.max(radiusX, radiusZ);
     }
@@ -4322,9 +4682,10 @@ function isPointInsideZone(zone, x, z) {
 function isPointInsideExpandedZone(zone, x, z, margin = 0) {
     const rotation = -flYawToCanvasRotation(zone.rotateY || 0);
     const local = rotatePoint(x - zone.x, z - zone.z, rotation);
-    const radiusX = Math.max(1, zone.sizeX || zone.size || 1) + margin;
-    const radiusZ = Math.max(1, zone.sizeZ || zone.size || 1) + margin;
     const shape = String(zone.shape || '').toUpperCase();
+    const boxScale = shape === 'BOX' ? 0.5 : 1;
+    const radiusX = Math.max(1, (zone.sizeX || zone.size || 1) * boxScale) + margin;
+    const radiusZ = Math.max(1, (zone.sizeZ || zone.size || 1) * boxScale) + margin;
     if (shape === 'SPHERE') {
         return Math.sqrt(local.x * local.x + local.z * local.z) <= Math.max(radiusX, radiusZ);
     }
@@ -4530,7 +4891,12 @@ function getAutopilotDeathZoneAvoidance(x, z, targetX, targetZ, margin = 1400) {
 }
 
 function checkZoneHazards(dt) {
-    if (!game.player || game.isDocked || game.player.destroyed) return;
+    if (!game.player || game.isDocked || game.player.destroyed) {
+        updateRadiationWarning(false);
+        if (game.player) game.player.zoneDamageVoicePlayed = false;
+        return;
+    }
+    let activeZoneDamage = false;
     for (const field of systemData.asteroidfields || []) {
         if (field.hazardKind !== 'explosive_mines' || !isPointInsideActiveZone(field, game.player.x, game.player.z)) continue;
         game.player.cancelCruise?.();
@@ -4554,23 +4920,116 @@ function checkZoneHazards(dt) {
             game.player.reverseActive = false;
             updateCruiseButton();
         }
-        game.player.takeHullDamage(damage * dt, 'Radiation damage');
+        const damagePerSecond = damage / 60;
+        game.player.takeHullDamage(damagePerSecond * dt, 'Radiation damage');
+        activeZoneDamage = true;
         if (zone.dragModifier && zone.dragModifier !== 1) game.player.speed *= Math.max(0.25, Math.min(1, zone.dragModifier));
-        if (!game.player.lastZoneDamageWarning || performance.now() - game.player.lastZoneDamageWarning > 1200) {
-            addLog('Zone damage: ' + (zone.name || zone.id) + ' (' + damage + '/s)', 'alert');
-            game.player.lastZoneDamageWarning = performance.now();
+        if (!game.player.zoneDamageVoicePlayed) {
+            playVoice('radioDamage', 1);
+            game.player.zoneDamageVoicePlayed = true;
         }
         break;
     }
+    updateRadiationWarning(activeZoneDamage);
+    if (!activeZoneDamage) game.player.zoneDamageVoicePlayed = false;
+}
+
+function addShieldHitEffect(target, hitX = null, hitZ = null, strength = 1) {
+    if (!target || (Number(target.maxShield) || 0) <= 0) return;
+    const angle = Number.isFinite(hitX) && Number.isFinite(hitZ) ? Math.atan2(hitZ - target.z, hitX - target.x) : target.rotation || 0;
+    game.effects.push({
+        type: 'shield-hit',
+        target,
+        angle,
+        age: 0,
+        life: 0.34,
+        radius: Math.max(28, (Number(target.radius) || 20) + 10),
+        strength: clamp(Number(strength) || 1, 0.5, 2.4)
+    });
+}
+
+function createExplosion(x, z, radius = 40, options = {}) {
+    const size = Math.max(28, Number(radius) || 40);
+    const count = Math.round(clamp(size * 0.42, 18, 90));
+    const particles = [];
+    for (let i = 0; i < count; i++) {
+        const angle = Math.random() * Math.PI * 2;
+        const speed = (60 + Math.random() * 260) * (0.65 + size / 140);
+        const life = 0.45 + Math.random() * 0.95 + Math.min(0.55, size / 240);
+        particles.push({
+            x: x + Math.cos(angle) * Math.random() * size * 0.22,
+            z: z + Math.sin(angle) * Math.random() * size * 0.22,
+            vx: Math.cos(angle) * speed,
+            vz: Math.sin(angle) * speed,
+            size: 5 + Math.random() * Math.max(8, size * 0.16),
+            life,
+            age: 0,
+            color: Math.random() < 0.28 ? 'rgba(140,220,255,' : (Math.random() < 0.62 ? 'rgba(255,196,80,' : 'rgba(255,76,36,')
+        });
+    }
+    game.effects.push({
+        type: 'explosion',
+        x, z,
+        age: 0,
+        life: Math.max(1.0, 1.15 + size / 150),
+        radius: size,
+        flash: options.flash !== false,
+        particles
+    });
+    playSound('explosion', Math.min(1.6, 0.55 + size / 120));
+}
+
+function updateEffects(dt) {
+    for (let i = game.effects.length - 1; i >= 0; i--) {
+        const effect = game.effects[i];
+        effect.age = (effect.age || 0) + dt;
+        if (effect.type === 'explosion') {
+            for (const particle of effect.particles || []) {
+                particle.age += dt;
+                particle.x += particle.vx * dt;
+                particle.z += particle.vz * dt;
+                particle.vx *= Math.max(0, 1 - dt * 0.72);
+                particle.vz *= Math.max(0, 1 - dt * 0.72);
+            }
+        }
+        if (effect.age >= effect.life) game.effects.splice(i, 1);
+    }
+}
+
+function showDeathOverlay() {
+    const overlay = document.getElementById('death-overlay');
+    if (!overlay) return;
+    const message = document.getElementById('death-message');
+    const button = document.getElementById('btn-death-restart');
+    if (message) message.textContent = t('playerDead');
+    if (button) button.textContent = t('restart');
+    overlay.classList.remove('hidden');
 }
 
 function destroyPlayerShip() {
     if (!game.player || game.player.destroyed) return;
     game.player.destroyed = true;
+    game.player.hull = 0;
     game.player.throttle = 0;
     game.player.speed = 0;
+    game.player.cruiseActive = false;
+    game.player.cruiseCharging = false;
+    game.player.afterburnerActive = false;
     game.player.inTradeLane = false;
     game.player.laneRoute = null;
+    game.playerDeathPending = true;
+    createExplosion(game.player.x, game.player.z, Math.max(55, game.player.radius * 2.8), { flash: true });
+    clearTimeout(game.playerDeathTimer);
+    game.playerDeathTimer = setTimeout(showDeathOverlay, 2000);
+    updateCruiseButton();
+}
+
+function restartAfterDeath() {
+    clearTimeout(game.playerDeathTimer);
+    game.playerDeathTimer = null;
+    game.playerDeathPending = false;
+    document.getElementById('death-overlay')?.classList.add('hidden');
+    game.effects = [];
     respawnAtLastLanding();
 }
 
@@ -4725,14 +5184,18 @@ function getCurrentSystemKey() {
 function createFieldObstacles(field, kind) {
     const rng = seededRandom(hashString(currentSystemId + ':' + field.id + ':' + kind));
     const count = kind === 'mine'
-        ? Math.min(520, Math.max(90, Math.floor(field.size / 120)))
+        ? Math.min(1040, Math.max(180, Math.floor(field.size / 60)))
         : kind === 'debris'
-            ? Math.min(360, Math.max(70, Math.floor(field.size / 165)))
+            ? Math.min(720, Math.max(140, Math.floor(field.size / 82)))
             : kind === 'asteroid'
-                ? Math.min(340, Math.max(52, Math.floor(field.size / 185)))
+                ? Math.min(680, Math.max(104, Math.floor(field.size / 92)))
                 : Math.min(46, Math.max(10, Math.floor(field.size / 1100)));
-    const radiusX = Math.max(800, (field.sizeX || field.size || 2000) * 0.75);
-    const radiusZ = Math.max(800, (field.sizeZ || field.size || 2000) * 0.75);
+    const fieldKind = String(field.fieldKind || '').toLowerCase();
+    const hasDynamicAsteroids = Array.isArray(field.dynamicAsteroids) && field.dynamicAsteroids.length > 0;
+    const hasLoot = Array.isArray(field.lootCommodities) && field.lootCommodities.length > 0;
+    const smallChance = kind === 'asteroid' ? (hasDynamicAsteroids || hasLoot || fieldKind.includes('mineable') ? 0.26 : 0.15) : (kind === 'debris' ? 0.12 : 0);
+    const radiusX = Math.max(800, field.sizeX || field.size || 2000);
+    const radiusZ = Math.max(800, field.sizeZ || field.size || 2000);
     const fieldRotation = flYawToCanvasRotation(field.rotateY || 0);
     const obstacles = [];
     for (let i = 0; i < count; i++) {
@@ -4747,22 +5210,44 @@ function createFieldObstacles(field, kind) {
             i--;
             continue;
         }
-        const radius = kind === 'mine'
+        const roll = rng();
+        const isSmall = kind !== 'mine' && roll < smallChance;
+        const radius = isSmall
+            ? 14 + rng() * 28
+            : kind === 'mine'
             ? 32 + rng() * 56
             : kind === 'debris'
                 ? 65 + rng() * 260
                 : kind === 'asteroid'
                     ? 55 + rng() * 190
                     : 120 + rng() * 420;
+        const depthRoll = rng();
+        const depthLayer = kind === 'mine' || isSmall
+            ? 0
+            : depthRoll < 0.58
+                ? 0
+                : (depthRoll < 0.79 ? -1 : 1);
+        const collidable = kind === 'mine' || (!isSmall && depthLayer === 0);
+        const destructible = (kind === 'asteroid' || kind === 'debris') && (isSmall || fieldKind.includes('mineable') || hasDynamicAsteroids || hasLoot);
         obstacles.push({
             id: field.id + '_obstacle_' + i,
             fieldId: field.id,
             kind,
+            field,
             localX,
             localZ,
             x: worldX,
             z: worldZ,
             radius,
+            visualRadius: radius * (depthLayer === 1 ? 1.18 : depthLayer === -1 ? 0.82 : 1),
+            depthLayer,
+            collidable,
+            destructible,
+            hull: destructible ? Math.max(8, Math.round(radius * (isSmall ? 1.4 : 2.8))) : Infinity,
+            maxHull: destructible ? Math.max(8, Math.round(radius * (isSmall ? 1.4 : 2.8))) : Infinity,
+            lootChance: hasLoot ? (isSmall ? 0.72 : 0.38) : (fieldKind.includes('mineable') ? 0.22 : 0.04),
+            lootQuantity: isSmall ? 1 : 1 + Math.floor(rng() * 2),
+            small: isSmall,
             rotation: rng() * Math.PI * 2,
             spinSpeed: kind === 'mine' ? 0 : (kind === 'nebula' ? 0 : (rng() - 0.5) * 0.18),
             driftPhase: rng() * Math.PI * 2,
@@ -4817,8 +5302,11 @@ function jumpArrivalPose(arrival, fallbackAngle) {
     const angle = arrival instanceof JumpGate || arrival?.kind
         ? flYawToCanvasRotation(arrival.rotateY || 0)
         : fallbackAngle;
+    const isJumpHole = arrival instanceof JumpGate && arrival.kind === 'hole' || arrival?.kind === 'hole';
     const distance = arrival instanceof JumpGate || arrival?.kind
-        ? Math.max(650, Math.min(1600, (arrival.radius || 600) + 260))
+        ? (isJumpHole
+            ? Math.max(1800, (arrival.visualRadius || arrival.radius || 600) * 2.2)
+            : Math.max(650, Math.min(1600, (arrival.radius || 600) + 260)))
         : 200;
     return {
         x: (arrival?.x || 0) + Math.cos(angle) * distance,
@@ -4856,6 +5344,7 @@ function loadSystem(systemId, arrivalObjectId = null) {
         game.player.laneRoute = null;
         game.player.laneDirection = 1;
         game.player.tradeLaneCooldownUntil = performance.now() + 1800;
+        game.jumpHoleCaptureCooldownUntil = performance.now() + 3200;
         setNormalFlightSpeed(game.player);
     }
     returnToFreeflight('', { preserveMotion: true });
@@ -4872,6 +5361,7 @@ function getAvoidanceVector(x, z, lookAhead = 1500) {
     let ax = 0;
     let az = 0;
     for (const obstacle of game.obstacles) {
+        if (obstacle.collidable === false) continue;
         const dx = x - obstacle.x;
         const dz = z - obstacle.z;
         const dist = Math.sqrt(dx * dx + dz * dz);
@@ -5428,6 +5918,7 @@ class PlayerShip {
 
     resolveObstacleCollisions(oldX, oldZ) {
         for (const obstacle of game.obstacles) {
+            if (obstacle.collidable === false) continue;
             if (this.inTradeLane && obstacle.kind !== 'mine') continue;
             const dx = this.x - obstacle.x;
             const dz = this.z - obstacle.z;
@@ -5462,13 +5953,16 @@ class PlayerShip {
         }
     }
     
-    takeDamage(amount) {
+    takeDamage(amount, hitX = null, hitZ = null) {
         const previousHull = this.hull;
+        let shieldDamage = 0;
         if (this.maxShield > 0 && this.shield > 0) {
             const sDamage = Math.min(this.shield, amount);
             this.shield -= sDamage;
             amount -= sDamage;
+            shieldDamage = sDamage;
         }
+        if (shieldDamage > 0) addShieldHitEffect(this, hitX, hitZ, Math.max(0.7, shieldDamage / 18));
         this.hull -= amount;
         if (amount > 4) playSound('hit', Math.min(1.4, amount / 16));
         this.checkHullBreachVoice(previousHull);
@@ -5536,7 +6030,9 @@ class PlayerShip {
         ctx.save();
         ctx.translate(pos.x, pos.y);
         ctx.rotate(this.rotation);
-        const visualScale = Math.max(0.2, Math.min(3.2, game.zoom));
+        const depthScale = game.jumpTransition?.mode === 'hole' ? Math.max(0.035, Number(game.jumpTransition.depthScale) || 1) : 1;
+        if (game.jumpTransition?.mode === 'hole') ctx.globalAlpha = Math.max(0.05, Number(game.jumpTransition.depthAlpha ?? 1));
+        const visualScale = Math.max(0.2, Math.min(3.2, game.zoom)) * depthScale;
         
         // Shield (blue glow) - always visible
         if (this.maxShield > 0 && this.shield > 0) {
@@ -5548,12 +6044,37 @@ class PlayerShip {
         }
         
         const shipImage = getShipImage(this.shipIcon);
+        const shipDrawSize = this.radius * 2.8 * visualScale;
+        if (this.cruiseActive) {
+            const trailLength = shipDrawSize * 5;
+            const flicker = 0.86 + Math.sin(game.gameTime * 42) * 0.08;
+            ctx.save();
+            ctx.globalCompositeOperation = 'lighter';
+            const trail = ctx.createLinearGradient(-shipDrawSize * 0.42, 0, -shipDrawSize * 0.42 - trailLength, 0);
+            trail.addColorStop(0, 'rgba(235,255,255,0.92)');
+            trail.addColorStop(0.18, 'rgba(80,205,255,0.62)');
+            trail.addColorStop(0.72, 'rgba(40,120,255,0.20)');
+            trail.addColorStop(1, 'rgba(0,60,190,0)');
+            ctx.strokeStyle = trail;
+            ctx.lineWidth = Math.max(2, shipDrawSize * 0.12) * flicker;
+            ctx.beginPath();
+            ctx.moveTo(-shipDrawSize * 0.48, 0);
+            ctx.lineTo(-shipDrawSize * 0.48 - trailLength, 0);
+            ctx.stroke();
+            ctx.strokeStyle = 'rgba(190,245,255,0.36)';
+            ctx.lineWidth = Math.max(1, shipDrawSize * 0.035);
+            ctx.beginPath();
+            ctx.moveTo(-shipDrawSize * 0.42, -shipDrawSize * 0.16);
+            ctx.lineTo(-shipDrawSize * 0.42 - trailLength * 0.72, -shipDrawSize * 0.48);
+            ctx.moveTo(-shipDrawSize * 0.42, shipDrawSize * 0.16);
+            ctx.lineTo(-shipDrawSize * 0.42 - trailLength * 0.72, shipDrawSize * 0.48);
+            ctx.stroke();
+            ctx.restore();
+        }
         if (shipImage) {
-            const baseSize = Math.max(42, Math.min(76, this.radius * 2.8));
-            const size = baseSize * visualScale;
             ctx.save();
             ctx.rotate(Math.PI / 2);
-            ctx.drawImage(shipImage, -size / 2, -size / 2, size, size);
+            ctx.drawImage(shipImage, -shipDrawSize / 2, -shipDrawSize / 2, shipDrawSize, shipDrawSize);
             ctx.restore();
         } else {
             // Ship body fallback while PNG assets are still loading.
@@ -5622,6 +6143,29 @@ class PlayerShip {
         }
         
         ctx.restore();
+
+        if (this.cruiseCharging) {
+            const chargeRatio = clamp(this.cruiseCharge / CRUISE_CHARGE_SECONDS, 0, 1);
+            const width = Math.max(58, Math.min(116, this.radius * 5.4 * Math.max(0.7, Math.min(1.4, game.zoom))));
+            const height = 7;
+            const y = pos.y - Math.max(38, shipDrawSize * 0.58);
+            ctx.save();
+            ctx.fillStyle = 'rgba(0, 12, 26, 0.88)';
+            ctx.strokeStyle = 'rgba(100, 210, 255, 0.86)';
+            ctx.lineWidth = 1;
+            ctx.fillRect(pos.x - width / 2, y, width, height);
+            ctx.strokeRect(pos.x - width / 2, y, width, height);
+            const fill = ctx.createLinearGradient(pos.x - width / 2, y, pos.x + width / 2, y);
+            fill.addColorStop(0, '#38b8ff');
+            fill.addColorStop(1, '#d8ffff');
+            ctx.fillStyle = fill;
+            ctx.fillRect(pos.x - width / 2 + 1, y + 1, Math.max(0, (width - 2) * chargeRatio), height - 2);
+            ctx.fillStyle = '#bff8ff';
+            ctx.font = '9px Courier New';
+            ctx.textAlign = 'center';
+            ctx.fillText(Math.ceil(Math.max(0, CRUISE_CHARGE_SECONDS - this.cruiseCharge)) + 's', pos.x, y - 3);
+            ctx.restore();
+        }
         
         // Approach indicator
         if (game.approachTarget) {
@@ -5727,6 +6271,89 @@ class Station {
 }
 
 // Jump Gate
+function renderJumpHoleVortex(ctx, size, rotation, seed = 0) {
+    const now = performance.now() * 0.001;
+    const t = now + (seed % 997) * 0.013;
+    const pulse = (Math.sin(t * 2.7) + 1) * 0.5;
+    const shimmer = (Math.sin(t * 5.1 + seed) + 1) * 0.5;
+    const outer = size * (1.42 + pulse * 0.12);
+    const core = size * (0.23 + pulse * 0.035);
+
+    ctx.save();
+    ctx.globalCompositeOperation = 'lighter';
+
+    const halo = ctx.createRadialGradient(0, 0, core * 0.2, 0, 0, outer);
+    halo.addColorStop(0, `rgba(230,255,255,${0.58 + shimmer * 0.18})`);
+    halo.addColorStop(0.18, `rgba(60,235,255,${0.34 + pulse * 0.16})`);
+    halo.addColorStop(0.48, `rgba(40,100,255,${0.15 + pulse * 0.08})`);
+    halo.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = halo;
+    ctx.beginPath();
+    ctx.arc(0, 0, outer, 0, Math.PI * 2);
+    ctx.fill();
+
+    for (let i = 0; i < 7; i++) {
+        const ringT = i / 7;
+        const ringPulse = (pulse + ringT) % 1;
+        ctx.save();
+        ctx.rotate(rotation * (1.2 + i * 0.18) + i * Math.PI / 7);
+        ctx.strokeStyle = `rgba(${70 + i * 12},${210 + i * 5},255,${0.18 + (1 - ringT) * 0.2})`;
+        ctx.lineWidth = Math.max(1, size * (0.012 + ringPulse * 0.01));
+        ctx.beginPath();
+        ctx.ellipse(0, 0, size * (0.58 + ringT * 0.52 + pulse * 0.06), size * (0.21 + ringT * 0.24), 0, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.restore();
+    }
+
+    for (let arm = 0; arm < 4; arm++) {
+        ctx.beginPath();
+        for (let step = 0; step <= 56; step++) {
+            const u = step / 56;
+            const radius = core * 0.72 + u * size * 1.18;
+            const angle = arm * Math.PI / 2 + u * 4.8 - t * 1.35;
+            const x = Math.cos(angle) * radius;
+            const y = Math.sin(angle) * radius * (0.48 + u * 0.22);
+            if (step === 0) ctx.moveTo(x, y);
+            else ctx.lineTo(x, y);
+        }
+        ctx.strokeStyle = `rgba(${120 + arm * 24},240,255,${0.18 + pulse * 0.14})`;
+        ctx.lineWidth = Math.max(1.2, size * 0.026);
+        ctx.stroke();
+    }
+
+    for (let i = 0; i < 18; i++) {
+        const local = (i * 97 + seed) % 360;
+        const drift = (t * (0.16 + (i % 5) * 0.025) + i * 0.11) % 1;
+        const angle = (local / 360) * Math.PI * 2 + drift * Math.PI * 2;
+        const radius = size * (0.42 + ((i * 37 + seed) % 100) / 100 * 0.9);
+        const x = Math.cos(angle) * radius;
+        const y = Math.sin(angle) * radius * 0.58;
+        const alpha = 0.1 + (1 - drift) * 0.28;
+        ctx.fillStyle = `rgba(190,255,255,${alpha})`;
+        ctx.beginPath();
+        ctx.arc(x, y, Math.max(1, size * (0.012 + (i % 3) * 0.004)), 0, Math.PI * 2);
+        ctx.fill();
+    }
+
+    ctx.globalCompositeOperation = 'source-over';
+    const well = ctx.createRadialGradient(0, 0, core * 0.12, 0, 0, core * 1.42);
+    well.addColorStop(0, `rgba(245,255,255,${0.92})`);
+    well.addColorStop(0.18, `rgba(58,240,255,${0.62 + pulse * 0.18})`);
+    well.addColorStop(0.42, 'rgba(16,24,78,0.92)');
+    well.addColorStop(1, 'rgba(0,0,8,0)');
+    ctx.fillStyle = well;
+    ctx.beginPath();
+    ctx.arc(0, 0, core * 1.5, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.strokeStyle = `rgba(185,255,255,${0.76 + pulse * 0.18})`;
+    ctx.lineWidth = Math.max(1.5, size * 0.035);
+    ctx.beginPath();
+    ctx.arc(0, 0, size * (0.64 + pulse * 0.035), 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.restore();
+}
+
 class JumpGate {
     constructor(data) {
         Object.assign(this, data);
@@ -5744,9 +6371,10 @@ class JumpGate {
         this.type = data.type || (this.kind === 'hole' ? 'Jump Hole' : 'Jump Gate');
         this.archetype = archetype;
         this.visualRadius = solarObjectVisualWorldRadius(this.sourceRadius, archetype, 600);
+        this.animationSeed = hashString('jump-hole:' + (this.id || this.nickname || this.name || '') + ':' + this.x + ':' + this.z);
     }
     update(dt) {
-        if (this.kind === 'hole') this.rotation += 0.02 * dt;
+        if (this.kind === 'hole') this.rotation += 0.72 * dt;
         updateStaticWeapons(this, dt);
     }
     render(ctx) {
@@ -5755,23 +6383,20 @@ class JumpGate {
         const size = solarObjectScreenRadius(this.visualRadius || this.radius);
         ctx.save();
         ctx.translate(pos.x, pos.y);
-        ctx.rotate(isHole ? -this.rotation * 1.8 : this.rotation);
-        ctx.strokeStyle = isHole ? '#33ddff' : '#8844ff';
-        ctx.lineWidth = 4;
-        ctx.beginPath();
-        ctx.arc(0, 0, size, 0, Math.PI * 2);
-        ctx.stroke();
-        const gradient = ctx.createRadialGradient(0, 0, size * 0.3, 0, 0, size);
-        gradient.addColorStop(0, isHole ? 'rgba(50,220,255,0.35)' : 'rgba(100,50,255,0.3)');
-        gradient.addColorStop(1, 'transparent');
-        ctx.fillStyle = gradient;
-        ctx.fill();
         if (isHole) {
-            ctx.strokeStyle = 'rgba(80,240,255,0.55)';
-            ctx.lineWidth = 2;
+            renderJumpHoleVortex(ctx, size, this.rotation, this.animationSeed);
+        } else {
+            ctx.rotate(this.rotation);
+            ctx.strokeStyle = '#8844ff';
+            ctx.lineWidth = 4;
             ctx.beginPath();
-            ctx.ellipse(0, 0, size * 0.72, size * 0.36, Math.PI / 5, 0, Math.PI * 2);
+            ctx.arc(0, 0, size, 0, Math.PI * 2);
             ctx.stroke();
+            const gradient = ctx.createRadialGradient(0, 0, size * 0.3, 0, 0, size);
+            gradient.addColorStop(0, 'rgba(100,50,255,0.3)');
+            gradient.addColorStop(1, 'transparent');
+            ctx.fillStyle = gradient;
+            ctx.fill();
         }
         ctx.restore();
         
@@ -5938,9 +6563,15 @@ class AsteroidField {
         ctx.lineWidth = 1;
         
         for (const obstacle of this.obstacles) {
+            if (obstacle.depthLayer === 1) continue;
             const px = (obstacle.x - this.x) * game.zoom;
             const pz = (obstacle.z - this.z) * game.zoom;
-            const pSize = Math.max(2, obstacle.radius * game.zoom);
+            const pSize = Math.max(obstacle.small ? 1.4 : 2, (obstacle.visualRadius || obstacle.radius) * game.zoom);
+            const distanceToPlayer = game.player ? Math.hypot(game.player.x - obstacle.x, game.player.z - obstacle.z) : Infinity;
+            const nonColliding = obstacle.collidable === false;
+            const overheadFade = obstacle.depthLayer === 1 && distanceToPlayer < (game.player?.radius || 20) + obstacle.radius * 1.8;
+            const baseAlpha = nonColliding ? (obstacle.depthLayer === 1 ? 0.56 : 0.38) : 1;
+            ctx.globalAlpha = overheadFade ? Math.max(0.14, baseAlpha * 0.28) : baseAlpha;
             ctx.save();
             ctx.translate(px, pz);
             ctx.rotate(obstacle.rotation + this.rotation);
@@ -5967,19 +6598,25 @@ class AsteroidField {
                 }
                 ctx.stroke();
             } else {
+                const gray = nonColliding;
                 ctx.beginPath();
                 ctx.moveTo(pSize, 0);
-                for (let j = 1; j < (isDebris ? 5 : 7); j++) {
-                    const angle = (j / (isDebris ? 5 : 7)) * Math.PI * 2;
-                    const rough = j % 2 === 0 ? (isDebris ? 0.45 : 0.72) : 1;
+                const points = obstacle.small ? 5 : (isDebris ? 5 : 7);
+                for (let j = 1; j < points; j++) {
+                    const angle = (j / points) * Math.PI * 2;
+                    const rough = j % 2 === 0 ? (isDebris ? 0.45 : 0.72) : (obstacle.small ? 0.84 : 1);
                     ctx.lineTo(Math.cos(angle) * pSize * rough, Math.sin(angle) * pSize * rough);
                 }
                 ctx.closePath();
+                ctx.fillStyle = gray
+                    ? (obstacle.depthLayer === 1 ? 'rgba(150,158,164,0.72)' : 'rgba(100,108,114,0.55)')
+                    : (isDebris ? 'rgba(95,105,108,0.72)' : 'rgba(116,94,62,0.82)');
                 ctx.fill();
-                ctx.strokeStyle = isDebris ? 'rgba(210,225,220,0.32)' : 'rgba(210,190,150,0.35)';
+                ctx.strokeStyle = gray ? 'rgba(190,205,210,0.24)' : (isDebris ? 'rgba(210,225,220,0.32)' : 'rgba(210,190,150,0.35)');
                 ctx.stroke();
             }
             ctx.restore();
+            ctx.globalAlpha = 1;
         }
         
         // Zone boundary
@@ -6000,13 +6637,15 @@ class AsteroidField {
             ctx.save();
             ctx.translate(ex.x - pos.x, ex.y - pos.y);
             ctx.rotate(flYawToCanvasRotation(exclusion.rotateY || 0));
-            const exRx = Math.max(1, (exclusion.sizeX || exclusion.size || 1) * game.zoom);
-            const exRz = Math.max(1, (exclusion.sizeZ || exclusion.size || 1) * game.zoom);
+            const isBoxExclusion = String(exclusion.shape || '').toUpperCase() === 'BOX';
+            const exScale = isBoxExclusion ? 0.5 : 1;
+            const exRx = Math.max(1, (exclusion.sizeX || exclusion.size || 1) * exScale * game.zoom);
+            const exRz = Math.max(1, (exclusion.sizeZ || exclusion.size || 1) * exScale * game.zoom);
             ctx.strokeStyle = isMinefield ? 'rgba(120,255,210,0.42)' : 'rgba(150,230,255,0.22)';
             ctx.lineWidth = Math.max(1, game.zoom * 2);
             ctx.setLineDash([10, 7]);
             ctx.beginPath();
-            if (String(exclusion.shape || '').toUpperCase() === 'BOX') ctx.rect(-exRx, -exRz, exRx * 2, exRz * 2);
+            if (isBoxExclusion) ctx.rect(-exRx, -exRz, exRx * 2, exRz * 2);
             else ctx.ellipse(0, 0, exRx, exRz, 0, 0, Math.PI * 2);
             ctx.stroke();
             ctx.setLineDash([]);
@@ -6022,6 +6661,35 @@ class AsteroidField {
             ctx.textAlign = 'center';
             ctx.fillText(this.name, pos.x, pos.y + screenSize * 0.8 + 12);
         }
+    }
+}
+
+function renderForegroundAsteroids(ctx) {
+    if (!game.player) return;
+    const foreground = (game.obstacles || []).filter(obstacle => obstacle.depthLayer === 1);
+    for (const obstacle of foreground) {
+        const pos = worldToScreen(obstacle.x, obstacle.z);
+        const pSize = Math.max(obstacle.small ? 1.4 : 2, (obstacle.visualRadius || obstacle.radius) * game.zoom);
+        const distanceToPlayer = Math.hypot(game.player.x - obstacle.x, game.player.z - obstacle.z);
+        const nearPlayer = distanceToPlayer < game.player.radius + obstacle.radius * 1.8;
+        ctx.save();
+        ctx.translate(pos.x, pos.y);
+        ctx.rotate((obstacle.rotation || 0) + game.gameTime * (obstacle.spinSpeed || 0));
+        ctx.globalAlpha = nearPlayer ? 0.18 : 0.46;
+        ctx.fillStyle = 'rgba(150,158,164,0.72)';
+        ctx.strokeStyle = 'rgba(205,220,224,0.22)';
+        ctx.beginPath();
+        const points = obstacle.small ? 5 : 7;
+        ctx.moveTo(pSize, 0);
+        for (let j = 1; j < points; j++) {
+            const angle = (j / points) * Math.PI * 2;
+            const rough = j % 2 === 0 ? 0.72 : 1;
+            ctx.lineTo(Math.cos(angle) * pSize * rough, Math.sin(angle) * pSize * rough);
+        }
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+        ctx.restore();
     }
 }
 
@@ -6126,7 +6794,8 @@ function createNPC(type, options = {}) {
         encounter: options.encounter || '',
         shield: shieldValue, maxShield: shieldValue,
         maxSpeed: options.maxSpeed || (type === 'trader' ? 85 + Math.random() * 18 : 110 + difficulty * 18 + Math.random() * 35),
-        turnRate: Math.max(0.65, Math.min(2.9, Number(handling.turnRate) || (type === 'trader' ? 1.15 : 2.0))), radius: Math.max(16, Math.min(type === 'trader' ? 54 : 28, Math.sqrt(Number(ship?.hitPts || 900) * transportScale) * 0.34)),
+        turnRate: Math.max(0.65, Math.min(2.9, Number(handling.turnRate) || (type === 'trader' ? 1.15 : 2.0))),
+        radius: shipVisualWorldRadius(shipVisual.shipRecord || ship, { shipId: shipVisual.shipId, type }),
         color: colors[type], stateTimer: 0,
         shieldRotation: 0,
         missionId: options.missionId || '',
@@ -6136,6 +6805,9 @@ function createNPC(type, options = {}) {
         shipId: shipVisual.shipId,
         shipName: shipVisual.shipName,
         shipIcon: shipVisual.shipIcon,
+        shipIconFallback: shipVisual.shipIconFallback,
+        cruiseActive: false,
+        cruiseSpeed: Math.max(220, Math.min(cruiseSpeedForMod() * (type === 'trader' ? 0.86 : 0.76), 390)),
         loadoutId: npcShip?.loadout || '',
         shieldName: shieldItem?.name || '',
         weapons: details.weaponStats.length ? details.weaponStats : [weaponStatsFromEquipment(getEquipment('li_gun01_mark01'), difficulty)],
@@ -6176,6 +6848,65 @@ function completeMission(mission) {
     game.activeMission = null;
     saveGame();
     updateHUD();
+}
+
+function addCommodityCargo(commodityId, quantity = 1, sourceName = 'Loot') {
+    if (!game.player) return false;
+    const id = String(commodityId || '').toLowerCase();
+    const commodity = getCommodity(id);
+    const amount = Math.max(1, Math.floor(Number(quantity) || 1));
+    const cargoSpace = Math.max(0, game.player.maxCargo - cargoUnits());
+    if (!commodity || cargoSpace <= 0) return false;
+    const added = Math.min(amount, cargoSpace);
+    let cargoItem = findCargoItem(id);
+    if (!cargoItem) {
+        cargoItem = { id, name: commodity.name || id, quantity: 0, avgPrice: commodityBasePrice(id) };
+        game.player.cargo.push(cargoItem);
+    }
+    cargoItem.quantity += added;
+    addLog(`${sourceName}: ${commodity.name || id} +${added}`);
+    return true;
+}
+
+function addAsteroidLootDrop(x, z, field, quantity = 1) {
+    const commodities = (field?.lootCommodities || []).filter(Boolean);
+    const commodityId = commodities.length ? commodities[Math.floor(Math.random() * commodities.length)] : '';
+    if (!commodityId || !getCommodity(commodityId)) {
+        addLootDrop(x, z, 'random');
+        return;
+    }
+    const commodity = getCommodity(commodityId);
+    game.loot.push({
+        id: 'loot-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 7),
+        x, z,
+        radius: 20,
+        age: 0,
+        type: 'commodity',
+        commodityId: String(commodityId).toLowerCase(),
+        quantity: Math.max(1, Math.floor(Number(quantity) || 1)),
+        name: commodity?.name || commodityId,
+        color: '#d8b46a'
+    });
+}
+
+function destroyFieldObstacle(obstacle, attacker = null) {
+    if (!obstacle) return;
+    createExplosion(obstacle.x, obstacle.z, Math.max(18, obstacle.radius * 1.15), { flash: obstacle.small !== true });
+    const field = obstacle.field || game.entities.find(entity => entity instanceof AsteroidField && entity.id === obstacle.fieldId);
+    if (field?.obstacles) field.obstacles = field.obstacles.filter(item => item !== obstacle);
+    game.obstacles = game.obstacles.filter(item => item !== obstacle);
+    if (attacker === game.player && obstacle.destructible && Math.random() < (Number(obstacle.lootChance) || 0)) {
+        addAsteroidLootDrop(obstacle.x, obstacle.z, field || obstacle.field, obstacle.lootQuantity || 1);
+    }
+}
+
+function damageFieldObstacle(obstacle, amount, attacker = null, hitX = null, hitZ = null) {
+    if (!obstacle || !obstacle.destructible || obstacle.hull === Infinity) return false;
+    obstacle.hull -= Math.max(0, Number(amount) || 0);
+    addShieldHitEffect({ ...obstacle, maxShield: 1, shield: 1, hull: 1, hidden: false }, hitX, hitZ, 0.7);
+    if (obstacle.hull > 0) return false;
+    destroyFieldObstacle(obstacle, attacker);
+    return true;
 }
 
 function updateMissionState() {
@@ -6337,6 +7068,7 @@ function updateNpcEscort(npc) {
         npc.tradeDockTimer = leader.tradeDockTimer || 4;
         npc.speed = 0;
         npc.throttle = 0;
+        npc.cruiseActive = false;
         return true;
     }
     if (!leader) {
@@ -6367,6 +7099,14 @@ function updateNpcEscort(npc) {
     npc.targetAngle = Math.atan2(lz - npc.z, lx - npc.x);
     const distance = Math.hypot(lx - npc.x, lz - npc.z);
     npc.throttle = clamp(distance / (fleet?.state === 'forming' ? 260 : 450), 0.2, leader.inTradeLane ? 1 : 0.95);
+    if (leader.cruiseActive && distance > 650) {
+        setNpcCruise(npc, true);
+        npc.throttle = 1;
+    } else {
+        updateNpcCruiseForDistance(npc, distance, {
+            disabled: !leader.cruiseActive && distance < NPC_CRUISE_ENTER_DISTANCE
+        });
+    }
     if (distance > 3600) {
         npc.x = lx + (Math.random() - 0.5) * 80;
         npc.z = lz + (Math.random() - 0.5) * 80;
@@ -6385,6 +7125,7 @@ function updateNpcFleetLeader(npc, dt) {
         if (point) {
             npc.targetAngle = Math.atan2(point.z - npc.z, point.x - npc.x);
             npc.throttle = clamp(Math.hypot(point.x - npc.x, point.z - npc.z) / 420, 0.15, 0.65);
+            updateNpcCruiseForDistance(npc, Math.hypot(point.x - npc.x, point.z - npc.z), { disabled: true });
         }
         return true;
     }
@@ -6403,6 +7144,7 @@ function updateNpcSecurityPatrol(npc, dt) {
     const distance = Math.hypot(dx, dz);
     npc.targetAngle = Math.atan2(dz, dx);
     npc.throttle = distance < 900 ? 0.38 : 0.72;
+    updateNpcCruiseForDistance(npc, distance, { enterDistance: 5600, exitDistance: 1600 });
     if (distance < 420) {
         npc.patrolIndex = (npc.patrolIndex + 1) % route.length;
         fleet.patrolIndex = npc.patrolIndex;
@@ -6418,6 +7160,7 @@ function updateNpcTraderRoute(npc, dt) {
         npc.tradeDockTimer = Math.max(0, (npc.tradeDockTimer || 0) - dt);
         if (npc.tradeDockTimer > 0) return true;
         npc.hidden = false;
+        npc.cruiseActive = false;
         const origin = npc.tradeDestination || npc.tradeOrigin;
         const destination = randomNpcTradeDestination(origin, { irregular: npc.irregularTraffic });
         const angle = destination ? Math.atan2(destination.z - origin.z, destination.x - origin.x) : Math.random() * Math.PI * 2;
@@ -6456,6 +7199,10 @@ function updateNpcTraderRoute(npc, dt) {
     const distance = Math.hypot(dx, dz);
     npc.targetAngle = Math.atan2(dz, dx);
     npc.throttle = waypoint.type === 'dock' && distance < 900 ? 0.45 : 0.82;
+    updateNpcCruiseForDistance(npc, distance, {
+        enterDistance: waypoint.type === 'dock' ? 5200 : 3600,
+        exitDistance: waypoint.type === 'dock' ? 1800 : 1150
+    });
     if (waypoint.type === 'tradelane' && distance < 260) {
         startNpcTradeLane(npc, target, waypoint.exit);
         return true;
@@ -6466,6 +7213,7 @@ function updateNpcTraderRoute(npc, dt) {
         npc.tradeOrigin = target;
         npc.speed = 0;
         npc.throttle = 0;
+        npc.cruiseActive = false;
         if (fleet) {
             fleet.state = 'docked';
             fleetMembers(fleet).forEach(member => {
@@ -6474,6 +7222,7 @@ function updateNpcTraderRoute(npc, dt) {
                     member.tradeDockTimer = npc.tradeDockTimer;
                     member.speed = 0;
                     member.throttle = 0;
+                    member.cruiseActive = false;
                 }
             });
         }
@@ -6482,18 +7231,21 @@ function updateNpcTraderRoute(npc, dt) {
     return true;
 }
 
-function damageNpc(npc, amount, attacker = null) {
+function damageNpc(npc, amount, attacker = null, hitX = null, hitZ = null) {
     if (!npc || npc.hull <= 0 || npc.hidden || npc.inTradeLane) return false;
     if (attacker === game.player) npc.hostileToPlayer = true;
     let damage = Number(amount) || 0;
+    let shieldDamage = 0;
     if (npc.shield > 0) {
-        const shieldDamage = Math.min(npc.shield, damage * 0.6);
+        shieldDamage = Math.min(npc.shield, damage * 0.6);
         npc.shield -= shieldDamage;
         damage -= shieldDamage;
+        addShieldHitEffect(npc, hitX, hitZ, Math.max(0.7, shieldDamage / 18));
     }
     npc.hull -= damage;
     if (npc.hull > 0) return false;
     addLog(npc.name + ' destroyed!');
+    createExplosion(npc.x, npc.z, Math.max(42, (Number(npc.radius) || 22) * 2.2), { flash: true });
     if (npc.missionId) addLootDrop(npc.x, npc.z);
     if (attacker === game.player) applyReputationForKill(npc.faction);
     game.npcs = game.npcs.filter(item => item !== npc);
@@ -6502,6 +7254,7 @@ function damageNpc(npc, amount, attacker = null) {
 
 function updateNPC(npc, dt) {
     if (npc.hidden) {
+        npc.cruiseActive = false;
         updateNpcTraderRoute(npc, dt);
         return;
     }
@@ -6516,6 +7269,7 @@ function updateNPC(npc, dt) {
         const dz = combatTarget.z - npc.z;
         npc.targetAngle = Math.atan2(dz, dx);
         npc.throttle = 0.8;
+        setNpcCruise(npc, false);
         fireNPCWeapon(npc, combatTarget);
     } else if (updateNpcFleetLeader(npc, dt)) {
         // Fleet leader is gathering/re-forming the group.
@@ -6529,6 +7283,7 @@ function updateNPC(npc, dt) {
         if (npc.stateTimer > 4) {
             npc.targetAngle = Math.random() * Math.PI * 2;
             npc.throttle = 0.2 + Math.random() * 0.3;
+            setNpcCruise(npc, false);
             npc.stateTimer = 0;
         }
     }
@@ -6539,7 +7294,9 @@ function updateNPC(npc, dt) {
     if (Math.abs(angleDiff) > 0.01) npc.rotation += Math.sign(angleDiff) * Math.min(Math.abs(angleDiff), npc.turnRate * dt);
     
     if (!npc.inTradeLane) {
-        npc.speed += (npc.throttle * npc.maxSpeed - npc.speed) * 0.02;
+        const targetSpeed = npc.cruiseActive ? (npc.cruiseSpeed || cruiseSpeedForMod() * 0.8) : npc.throttle * npc.maxSpeed;
+        const response = Math.min(1, dt * (npc.cruiseActive ? 1.15 : 0.75));
+        npc.speed += (targetSpeed - npc.speed) * response;
         npc.x += Math.cos(npc.rotation) * npc.speed * dt;
         npc.z += Math.sin(npc.rotation) * npc.speed * dt;
     }
@@ -6595,6 +7352,105 @@ function renderNpcFactionLabel(ctx, npc, screenPos, visualScale) {
     ctx.restore();
 }
 
+function drawCruiseTrail(ctx, shipDrawSize, intensity = 1) {
+    const trailLength = shipDrawSize * 5;
+    const flicker = (0.86 + Math.sin(game.gameTime * 42) * 0.08) * intensity;
+    ctx.save();
+    ctx.globalCompositeOperation = 'lighter';
+    const trail = ctx.createLinearGradient(-shipDrawSize * 0.42, 0, -shipDrawSize * 0.42 - trailLength, 0);
+    trail.addColorStop(0, `rgba(235,255,255,${0.82 * intensity})`);
+    trail.addColorStop(0.18, `rgba(80,205,255,${0.58 * intensity})`);
+    trail.addColorStop(0.72, `rgba(40,120,255,${0.18 * intensity})`);
+    trail.addColorStop(1, 'rgba(0,60,190,0)');
+    ctx.strokeStyle = trail;
+    ctx.lineWidth = Math.max(2, shipDrawSize * 0.12) * flicker;
+    ctx.beginPath();
+    ctx.moveTo(-shipDrawSize * 0.48, 0);
+    ctx.lineTo(-shipDrawSize * 0.48 - trailLength, 0);
+    ctx.stroke();
+    ctx.strokeStyle = `rgba(190,245,255,${0.32 * intensity})`;
+    ctx.lineWidth = Math.max(1, shipDrawSize * 0.035);
+    ctx.beginPath();
+    ctx.moveTo(-shipDrawSize * 0.42, -shipDrawSize * 0.16);
+    ctx.lineTo(-shipDrawSize * 0.42 - trailLength * 0.72, -shipDrawSize * 0.48);
+    ctx.moveTo(-shipDrawSize * 0.42, shipDrawSize * 0.16);
+    ctx.lineTo(-shipDrawSize * 0.42 - trailLength * 0.72, shipDrawSize * 0.48);
+    ctx.stroke();
+    ctx.restore();
+}
+
+function renderEffects(ctx) {
+    for (const effect of game.effects || []) {
+        const ratio = clamp((effect.age || 0) / Math.max(0.001, effect.life || 1), 0, 1);
+        if (effect.type === 'shield-hit') {
+            const target = effect.target;
+            if (!target || target.destroyed || target.hull <= 0 || target.hidden) continue;
+            const pos = worldToScreen(target.x, target.z);
+            const visualScale = Math.max(0.35, Math.min(2.8, game.zoom));
+            const radius = effect.radius * visualScale * (1 + ratio * 0.18);
+            const alpha = (1 - ratio) * 0.72 * (effect.strength || 1);
+            ctx.save();
+            ctx.translate(pos.x, pos.y);
+            ctx.rotate(effect.angle || 0);
+            ctx.globalCompositeOperation = 'lighter';
+            const glow = ctx.createRadialGradient(0, 0, radius * 0.45, 0, 0, radius * 1.08);
+            glow.addColorStop(0, `rgba(160,235,255,${alpha * 0.12})`);
+            glow.addColorStop(0.72, `rgba(70,170,255,${alpha * 0.18})`);
+            glow.addColorStop(1, 'rgba(0,0,0,0)');
+            ctx.fillStyle = glow;
+            ctx.beginPath();
+            ctx.arc(0, 0, radius * 1.1, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.strokeStyle = `rgba(180,245,255,${alpha})`;
+            ctx.lineWidth = Math.max(1.2, 3.2 * visualScale * (1 - ratio * 0.35));
+            ctx.beginPath();
+            ctx.arc(0, 0, radius, -0.92, 0.92);
+            ctx.stroke();
+            ctx.strokeStyle = `rgba(75,170,255,${alpha * 0.55})`;
+            ctx.lineWidth = Math.max(1, 1.7 * visualScale);
+            ctx.beginPath();
+            ctx.arc(0, 0, radius * 0.82, -0.68, 0.68);
+            ctx.stroke();
+            ctx.restore();
+            continue;
+        }
+        if (effect.type === 'explosion') {
+            const pos = worldToScreen(effect.x, effect.z);
+            const visualScale = Math.max(0.22, Math.min(2.8, game.zoom));
+            const radius = effect.radius * visualScale;
+            ctx.save();
+            ctx.globalCompositeOperation = 'lighter';
+            if (effect.flash && ratio < 0.45) {
+                const flashAlpha = (1 - ratio / 0.45) * 0.78;
+                const flash = ctx.createRadialGradient(pos.x, pos.y, radius * 0.08, pos.x, pos.y, radius * (1.4 + ratio * 1.8));
+                flash.addColorStop(0, `rgba(255,255,245,${flashAlpha})`);
+                flash.addColorStop(0.28, `rgba(255,185,70,${flashAlpha * 0.5})`);
+                flash.addColorStop(1, 'rgba(0,0,0,0)');
+                ctx.fillStyle = flash;
+                ctx.beginPath();
+                ctx.arc(pos.x, pos.y, radius * (1.5 + ratio * 1.9), 0, Math.PI * 2);
+                ctx.fill();
+            }
+            for (const particle of effect.particles || []) {
+                const pr = clamp(particle.age / Math.max(0.001, particle.life), 0, 1);
+                if (pr >= 1) continue;
+                const ppos = worldToScreen(particle.x, particle.z);
+                const alpha = (1 - pr) * 0.88;
+                ctx.fillStyle = `${particle.color}${alpha})`;
+                ctx.beginPath();
+                ctx.arc(ppos.x, ppos.y, Math.max(1.5, particle.size * visualScale * (1 - pr * 0.45)), 0, Math.PI * 2);
+                ctx.fill();
+            }
+            ctx.strokeStyle = `rgba(255,210,110,${Math.max(0, 0.34 * (1 - ratio))})`;
+            ctx.lineWidth = Math.max(1, radius * 0.04);
+            ctx.beginPath();
+            ctx.arc(pos.x, pos.y, radius * (0.8 + ratio * 2.6), 0, Math.PI * 2);
+            ctx.stroke();
+            ctx.restore();
+        }
+    }
+}
+
 function renderNPC(ctx, npc) {
     if (npc.hidden) return;
     const pos = worldToScreen(npc.x, npc.z);
@@ -6618,9 +7474,10 @@ function renderNPC(ctx, npc) {
         ctx.restore();
     }
 
-    const shipImage = getShipImage(npc.shipIcon);
+    const shipImage = getShipImage(npc.shipIcon, npc.shipIconFallback || 'data/ship_icons/_fallback.png');
+    const size = Math.max(28, npc.radius * 2.7) * visualScale;
+    if (npc.cruiseActive) drawCruiseTrail(ctx, size, 0.75);
     if (shipImage) {
-        const size = Math.max(34, Math.min(70, npc.radius * 2.7)) * visualScale;
         ctx.save();
         ctx.rotate(Math.PI / 2);
         ctx.drawImage(shipImage, -size / 2, -size / 2, size, size);
@@ -7016,6 +7873,7 @@ function playSound(name, intensity = 1) {
             }
             break;
         case 'hit': playNoise(0.13, volume * 1.3); playTone(110, 0.1, 'sawtooth', volume, 70); break;
+        case 'explosion': playNoise(0.38, volume * 2.0); playTone(72, 0.34, 'sawtooth', volume * 1.5, 38); break;
         case 'buy': playTone(660, 0.08, 'triangle', volume, 990); playTone(990, 0.08, 'triangle', volume * 0.8, 1320); break;
         default: playTone(440, 0.08, 'sine', volume); break;
     }
@@ -7317,17 +8175,75 @@ function getSystemBackdropPalette(systemId) {
     return { base: [185, 206, 142], accent: [230, 148, 200], star: 185 };
 }
 
+function currentSystemStarsphereKey(systemId = currentSystemId) {
+    const raw = getSystemRecord(systemId);
+    return String(raw?.background?.nebulae || raw?.background?.complex_stars || raw?.background?.basic_stars || systemId || '').toLowerCase();
+}
+
+function getStarsphereBackdropPalette(systemId) {
+    const key = currentSystemStarsphereKey(systemId);
+    const fallback = getSystemBackdropPalette(systemId);
+    const variants = [
+        [/li01/, { base: [214, 226, 205], accent: [188, 204, 232], star: 210, dust: 202 }],
+        [/li02/, { base: [206, 220, 238], accent: [184, 198, 218], star: 214, dust: 220 }],
+        [/li03/, { base: [222, 210, 190], accent: [198, 226, 210], star: 205, dust: 36 }],
+        [/li04/, { base: [206, 230, 186], accent: [184, 216, 238], star: 198, dust: 154 }],
+        [/li05/, { base: [196, 218, 235], accent: [266, 196, 226], star: 215, dust: 242 }],
+        [/br01/, { base: [218, 34, 198], accent: [212, 184, 228], star: 44, dust: 32 }],
+        [/br02/, { base: [224, 210, 196], accent: [198, 36, 220], star: 38, dust: 24 }],
+        [/br03/, { base: [206, 226, 238], accent: [188, 198, 218], star: 208, dust: 218 }],
+        [/br04/, { base: [222, 42, 22], accent: [340, 206, 28], star: 46, dust: 12 }],
+        [/br05/, { base: [214, 190, 160], accent: [32, 210, 198], star: 34, dust: 28 }],
+        [/br06/, { base: [196, 216, 228], accent: [276, 198, 218], star: 205, dust: 258 }],
+        [/ku01/, { base: [210, 222, 190], accent: [326, 190, 238], star: 205, dust: 318 }],
+        [/ku02/, { base: [202, 216, 236], accent: [190, 328, 222], star: 208, dust: 196 }],
+        [/ku03/, { base: [188, 206, 230], accent: [300, 196, 214], star: 198, dust: 286 }],
+        [/ku04/, { base: [218, 196, 176], accent: [332, 204, 226], star: 34, dust: 16 }],
+        [/ku05/, { base: [232, 204, 172], accent: [28, 338, 198], star: 42, dust: 26 }],
+        [/rh01/, { base: [34, 48, 22], accent: [196, 32, 182], star: 42, dust: 48 }],
+        [/rh02/, { base: [44, 36, 26], accent: [22, 190, 210], star: 38, dust: 34 }],
+        [/rh03/, { base: [28, 46, 62], accent: [188, 38, 206], star: 52, dust: 184 }],
+        [/rh04/, { base: [38, 34, 24], accent: [180, 206, 30], star: 46, dust: 58 }],
+        [/rh05/, { base: [32, 28, 20], accent: [16, 190, 206], star: 36, dust: 20 }],
+        [/bw06/, { base: [166, 184, 214], accent: [118, 222, 178], star: 178, dust: 132 }],
+        [/bw07/, { base: [182, 196, 222], accent: [130, 236, 196], star: 184, dust: 144 }],
+        [/bw08/, { base: [168, 198, 228], accent: [258, 186, 214], star: 190, dust: 238 }],
+        [/bw09/, { base: [178, 192, 214], accent: [286, 204, 226], star: 184, dust: 270 }],
+        [/ew03/, { base: [176, 206, 236], accent: [292, 184, 214], star: 190, dust: 286 }],
+        [/ew04/, { base: [196, 214, 232], accent: [132, 228, 188], star: 198, dust: 148 }],
+        [/hi01/, { base: [184, 208, 238], accent: [296, 190, 218], star: 200, dust: 288 }],
+        [/hi02/, { base: [166, 188, 220], accent: [18, 204, 224], star: 192, dust: 22 }],
+        [/st03b/, { base: [246, 216, 178], accent: [286, 204, 232], star: 230, dust: 24 }]
+    ];
+    const match = variants.find(([pattern]) => pattern.test(key));
+    if (match) return match[1];
+    if (key.includes('li')) return { base: [214, 225, 202], accent: [192, 206, 230], star: 210, dust: 204 };
+    if (key.includes('br')) return { base: [218, 30, 196], accent: [212, 180, 222], star: 44, dust: 28 };
+    if (key.includes('ku')) return { base: [210, 222, 190], accent: [328, 190, 238], star: 205, dust: 318 };
+    if (key.includes('rh')) return { base: [34, 48, 22], accent: [196, 32, 182], star: 42, dust: 46 };
+    if (key.includes('bw') || key.includes('ew')) return { base: [170, 190, 215], accent: [128, 228, 184], star: 178, dust: 150 };
+    if (key.includes('hi')) return { base: [176, 206, 236], accent: [292, 184, 214], star: 190, dust: 286 };
+    if (key.includes('st')) return { base: [245, 216, 178], accent: [286, 204, 232], star: 230, dust: 24 };
+    return fallback;
+}
+
 function makeRegionSystemWallpaper(systemId) {
-    const key = String(systemId || 'Li01') + ':region';
+    const starsphereKey = currentSystemStarsphereKey(systemId);
+    const key = String(systemId || 'Li01') + ':region:' + starsphereKey;
     if (game.systemWallpapers[key]) return game.systemWallpapers[key];
     const canvas = document.createElement('canvas');
     canvas.width = 1600;
     canvas.height = 900;
     const ctx = canvas.getContext('2d');
-    const rng = seededRandom(hashString('region-wallpaper:' + key));
-    const palette = getSystemBackdropPalette(systemId);
+    const rng = seededRandom(hashString('starsphere-wallpaper:' + key));
+    const palette = getStarsphereBackdropPalette(systemId);
+    const character = seededRandom(hashString('starsphere-character:' + starsphereKey));
     const hues = palette.base.map(hue => (hue + Math.floor(rng() * 24 - 12) + 360) % 360);
     const accent = palette.accent.map(hue => (hue + Math.floor(rng() * 30 - 15) + 360) % 360);
+    const nebulaCount = 4 + Math.floor(character() * 7);
+    const starCount = 300 + Math.floor(character() * 520);
+    const dustBands = 1 + Math.floor(character() * 4);
+    const nebulaBoost = 0.7 + character() * 0.95;
 
     const base = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
     base.addColorStop(0, `hsl(${hues[0]}, 58%, 6%)`);
@@ -7337,23 +8253,39 @@ function makeRegionSystemWallpaper(systemId) {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     ctx.globalCompositeOperation = 'screen';
-    for (let i = 0; i < 7; i++) {
+    for (let i = 0; i < nebulaCount; i++) {
         const x = rng() * canvas.width;
         const y = rng() * canvas.height;
-        const radius = 260 + rng() * 560;
+        const radius = 210 + rng() * 660;
         const hue = (i % 2 === 0 ? hues : accent)[i % 3];
         const nebula = ctx.createRadialGradient(x, y, 0, x, y, radius);
-        nebula.addColorStop(0, `hsla(${hue}, 88%, 58%, ${0.12 + rng() * 0.18})`);
-        nebula.addColorStop(0.35, `hsla(${(hue + 24) % 360}, 72%, 42%, ${0.05 + rng() * 0.08})`);
+        nebula.addColorStop(0, `hsla(${hue}, 88%, 58%, ${(0.09 + rng() * 0.2) * nebulaBoost})`);
+        nebula.addColorStop(0.35, `hsla(${(hue + 24) % 360}, 72%, 42%, ${(0.04 + rng() * 0.1) * nebulaBoost})`);
         nebula.addColorStop(1, 'rgba(0,0,0,0)');
         ctx.fillStyle = nebula;
         ctx.beginPath();
-        ctx.arc(x, y, radius, 0, Math.PI * 2);
+        ctx.ellipse(x, y, radius * (0.75 + rng() * 0.9), radius * (0.32 + rng() * 0.58), rng() * Math.PI, 0, Math.PI * 2);
         ctx.fill();
     }
 
+    ctx.globalCompositeOperation = 'screen';
+    for (let i = 0; i < dustBands; i++) {
+        const y = canvas.height * (0.15 + rng() * 0.7);
+        const band = ctx.createLinearGradient(0, y - 120, canvas.width, y + 120);
+        const hue = (palette.dust || accent[i % accent.length] || hues[0] || 200);
+        band.addColorStop(0, 'rgba(0,0,0,0)');
+        band.addColorStop(0.5, `hsla(${hue}, 70%, 36%, ${0.035 + rng() * 0.07})`);
+        band.addColorStop(1, 'rgba(0,0,0,0)');
+        ctx.save();
+        ctx.translate(canvas.width / 2, canvas.height / 2);
+        ctx.rotate((rng() - 0.5) * 0.85);
+        ctx.fillStyle = band;
+        ctx.fillRect(-canvas.width, y - canvas.height / 2 - 180, canvas.width * 2, 360);
+        ctx.restore();
+    }
+
     ctx.globalCompositeOperation = 'source-over';
-    for (let i = 0; i < 520; i++) {
+    for (let i = 0; i < starCount; i++) {
         const x = rng() * canvas.width;
         const y = rng() * canvas.height;
         const size = rng() < 0.94 ? 0.5 + rng() * 1.4 : 1.8 + rng() * 2.8;
@@ -7383,30 +8315,54 @@ function renderSystemWallpaper() {
 function updateJumpTransition(dt) {
     const transition = game.jumpTransition;
     if (!transition) return false;
+    if (transition.startedAt && performance.now() - transition.startedAt > (transition.totalDuration + 2.5) * 1000) {
+        game.jumpTransition = null;
+        game.jumpHoleCapture = null;
+        game.jumpHoleCaptureCooldownUntil = performance.now() + 3200;
+        setNormalFlightSpeed(game.player);
+        return false;
+    }
     transition.timer += dt;
     transition.elapsed = (transition.elapsed || 0) + dt;
     game.player.rotation = transition.angle;
 
     if (transition.phase === 'out') {
         const progress = Math.min(1, transition.timer / transition.duration);
-        const speed = 2600 + smoothStep(progress) * 11000;
-        game.player.x += Math.cos(transition.angle) * speed * dt;
-        game.player.z += Math.sin(transition.angle) * speed * dt;
+        if (transition.mode === 'hole') {
+            const depth = smoothStep(progress);
+            game.player.x = transition.originX;
+            game.player.z = transition.originZ;
+            transition.depthScale = Math.max(0.045, 1 - depth * 0.955);
+            transition.depthAlpha = Math.max(0, 1 - depth * 1.08);
+        } else {
+            const speed = 2600 + smoothStep(progress) * 11000;
+            game.player.x += Math.cos(transition.angle) * speed * dt;
+            game.player.z += Math.sin(transition.angle) * speed * dt;
+        }
         if (progress >= 1) {
             loadSystem(transition.targetSystem, transition.targetObject);
             game.jumpTransition = {
                 ...transition,
                 phase: 'in',
                 timer: 0,
-                duration: JUMP_TRANSITION_PHASE_DURATION
+                duration: transition.mode === 'hole' ? 2.2 : JUMP_TRANSITION_PHASE_DURATION,
+                depthScale: transition.mode === 'hole' ? 0.045 : 1,
+                depthAlpha: 1
             };
         }
         return true;
     }
 
     const progress = Math.min(1, transition.timer / transition.duration);
+    if (transition.mode === 'hole') {
+        const depth = smoothStep(progress);
+        transition.depthScale = 0.045 + depth * 0.955;
+        transition.depthAlpha = depth;
+    }
     if (progress >= 1) {
         game.jumpTransition = null;
+        game.jumpHoleCapture = null;
+        if (transition.mode === 'hole') game.jumpHoleCaptureCooldownUntil = performance.now() + 3200;
         setNormalFlightSpeed(game.player);
     }
     return true;
@@ -7428,6 +8384,45 @@ function renderJumpTunnel() {
     ctx.save();
     ctx.globalCompositeOperation = 'lighter';
     ctx.translate(cx, cy);
+    if (transition.mode === 'hole') {
+        const dir = transition.phase === 'out' ? 1 : -1;
+        const depth = transition.phase === 'out' ? smoothStep(progress) : 1 - smoothStep(progress);
+        for (let i = 0; i < 52; i++) {
+            const lane = i / 52;
+            const angle = lane * Math.PI * 2 + (i % 7) * 0.19 + now * 0.45 * dir;
+            const phase = ((lane + now * (0.58 + (i % 9) * 0.022) * dir + totalProgress) % 1 + 1) % 1;
+            const start = 28 + phase * Math.max(game.width, game.height) * 0.16;
+            const end = start + 70 + depth * 760 + (i % 11) * 18;
+            const flatten = 0.62 + Math.sin(now + i) * 0.08;
+            const alpha = (0.05 + depth * 0.34) * (1 - phase * 0.52);
+            ctx.strokeStyle = `rgba(${120 + i % 5 * 18},${210 + i % 4 * 12},255,${alpha})`;
+            ctx.lineWidth = 1 + depth * 4 + (i % 3);
+            ctx.beginPath();
+            ctx.moveTo(Math.cos(angle) * start, Math.sin(angle) * start * flatten);
+            ctx.lineTo(Math.cos(angle) * end, Math.sin(angle) * end * flatten);
+            ctx.stroke();
+        }
+        for (let ring = 0; ring < 10; ring++) {
+            const ringT = ((ring / 10 + now * 0.0011 * dir + depth * 0.8) % 1 + 1) % 1;
+            const radius = 70 + ringT * Math.max(game.width, game.height) * 0.72;
+            const alpha = (1 - ringT) * (0.08 + depth * 0.24);
+            ctx.strokeStyle = `rgba(165,245,255,${alpha})`;
+            ctx.lineWidth = 1 + (1 - ringT) * 5;
+            ctx.beginPath();
+            ctx.ellipse(0, 0, radius, radius * (0.34 + ringT * 0.08), now * 0.25, 0, Math.PI * 2);
+            ctx.stroke();
+        }
+        const core = ctx.createRadialGradient(0, 0, 16, 0, 0, Math.max(game.width, game.height) * (0.18 + depth * 0.36));
+        core.addColorStop(0, `rgba(245,255,255,${0.32 + depth * 0.48})`);
+        core.addColorStop(0.24, `rgba(70,235,255,${0.16 + depth * 0.24})`);
+        core.addColorStop(1, 'rgba(0,0,0,0)');
+        ctx.fillStyle = core;
+        ctx.beginPath();
+        ctx.arc(0, 0, Math.max(game.width, game.height), 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+        return;
+    }
     ctx.rotate(transition.angle);
     for (let ring = 0; ring < 18; ring++) {
         const ringT = (ring / 18 + now * 0.00045 + totalProgress * 0.9) % 1;
@@ -7557,13 +8552,25 @@ function update(dt) {
     if (!game.running || game.isDocked) return;
     game.gameTime += dt;
     if (game.gameTime >= 1800) game.gameTime = 0;
+    updateEffects(dt);
 
     if (updateJumpTransition(dt)) {
         updateHUD();
         return;
     }
+
+    if (updateJumpHoleCapture(dt)) {
+        updateHUD();
+        return;
+    }
+
+    if (game.player?.destroyed) {
+        updateHUD();
+        return;
+    }
     
     game.player.update(dt);
+    updateAutomaticJumpHoleCapture();
 
     if (game.dockTarget) {
         const dx = game.dockTarget.x - game.player.x;
@@ -7608,8 +8615,7 @@ function update(dt) {
         const loot = game.loot[i];
         loot.age += dt;
         if (Math.hypot(loot.x - game.player.x, loot.z - game.player.z) < loot.radius + game.player.radius + 18) {
-            collectLoot(loot);
-            game.loot.splice(i, 1);
+            if (collectLoot(loot) !== false) game.loot.splice(i, 1);
         } else if (loot.age > 180) {
             game.loot.splice(i, 1);
         }
@@ -7668,11 +8674,31 @@ function update(dt) {
         p.z += p.vz * dt;
         p.lifetime -= dt;
 
+        if (p.type !== 'countermeasure') {
+            const projectileHitRadius = Math.max(Number(p.radius) || 0, Number(p.detonationRadius) || 0);
+            const projectileArmed = p.type !== 'mine' || p.age >= (p.armedAfter || 0);
+            if (projectileArmed) {
+                for (const obstacle of [...game.obstacles]) {
+                    if (!obstacle.destructible) continue;
+                    const hitRadius = Math.max(3, projectileHitRadius) + Math.max(6, obstacle.radius);
+                    if (Math.hypot(obstacle.x - p.x, obstacle.z - p.z) <= hitRadius) {
+                        damageFieldObstacle(obstacle, p.damage || 1, (p.owner || 'player') === 'player' ? game.player : null, p.x, p.z);
+                        p.lifetime = 0;
+                        break;
+                    }
+                }
+            }
+        }
+        if (p.lifetime <= 0) {
+            game.projectiles.splice(i, 1);
+            continue;
+        }
+
         if ((p.owner || 'player') === 'npc') {
             const hitRadius = Math.max(Number(p.radius) || 0, Number(p.detonationRadius) || 0);
             const armed = p.type !== 'mine' || p.age >= (p.armedAfter || 0);
             if (armed && p.targetId === 'player' && Math.hypot(game.player.x - p.x, game.player.z - p.z) < game.player.radius + hitRadius) {
-                game.player.takeDamage(p.damage);
+                game.player.takeDamage(p.damage, p.x, p.z);
                 p.lifetime = 0;
             } else if (p.targetId && p.targetId !== 'player') {
                 const countermeasure = countermeasureTargetById(p.targetId);
@@ -7683,7 +8709,7 @@ function update(dt) {
                 }
                 const targetNpc = game.npcs.find(npc => npc.id === p.targetId);
                 if (armed && targetNpc && Math.hypot(targetNpc.x - p.x, targetNpc.z - p.z) < targetNpc.radius + hitRadius) {
-                    damageNpc(targetNpc, p.damage, game.npcs.find(npc => npc.id === p.ownerId) || null);
+                    damageNpc(targetNpc, p.damage, game.npcs.find(npc => npc.id === p.ownerId) || null, p.x, p.z);
                     p.lifetime = 0;
                 }
             }
@@ -7699,7 +8725,7 @@ function update(dt) {
                 if (p.type === 'mine' && !factionsAreHostile(game.player?.faction || '', npc.faction)) continue;
                 const dx = npc.x - p.x, dz = npc.z - p.z;
                 if (armed && Math.sqrt(dx * dx + dz * dz) < npc.radius + hitRadius) {
-                    damageNpc(npc, p.damage, game.player);
+                    damageNpc(npc, p.damage, game.player, p.x, p.z);
                     p.lifetime = 0;
                     break;
                 }
@@ -7718,7 +8744,7 @@ function update(dt) {
     }
 }
 
-const SCANNER_RANGE = 12000;
+const DEFAULT_SCANNER_RANGE = 2500;
 
 function scannerObjectKind(target) {
     if (!target) return t('scannerObject');
@@ -7747,6 +8773,7 @@ function scannerTargetKey(target) {
 
 function scannerTargets() {
     if (!game.player) return [];
+    const scannerRange = playerScannerRange() || DEFAULT_SCANNER_RANGE;
     const candidates = [];
     if (game.waypoint && game.waypoint.systemId === currentSystemId) candidates.push({ target: game.waypoint, alwaysVisible: true });
     for (const npc of game.npcs || []) {
@@ -7762,9 +8789,80 @@ function scannerTargets() {
         const target = entry.target;
         const distance = Math.hypot((target.x || 0) - game.player.x, (target.z || 0) - game.player.z);
         return { target, distance, kind: scannerObjectKind(target), alwaysVisible: entry.alwaysVisible };
-    }).filter(entry => Number.isFinite(entry.distance) && (entry.alwaysVisible || entry.distance <= SCANNER_RANGE))
+    }).filter(entry => Number.isFinite(entry.distance) && (entry.alwaysVisible || entry.distance <= scannerRange))
       .sort((a, b) => Number(b.alwaysVisible) - Number(a.alwaysVisible) || a.distance - b.distance)
       .slice(0, 14);
+}
+
+function npcScanWeaponLines(npc) {
+    const directWeapons = (npc?.weapons || []).filter(Boolean);
+    if (directWeapons.length) {
+        return directWeapons.map(weapon => {
+            const name = weapon.name || weapon.id || 'Weapon';
+            const hull = Number(weapon.hullDamage || weapon.damage || 0);
+            const energy = Number(weapon.energyDamage || 0);
+            const damage = hull || energy ? ` (${Math.round(hull)}/${Math.round(energy)})` : '';
+            return `${name}${damage}`;
+        });
+    }
+    const loadout = npcLoadoutsData()[String(npc?.loadoutId || '').toLowerCase()] || null;
+    return (loadout?.weapons || []).map(entry => {
+        const item = getEquipment(entry.id);
+        const stats = item ? weaponStatsFromEquipment(item, npc?.difficulty || 3) : null;
+        const name = item?.name || entry.id || 'Weapon';
+        const damage = stats ? ` (${Math.round(stats.hullDamage || 0)}/${Math.round(stats.energyDamage || 0)})` : '';
+        return `${name}${damage}`;
+    }).filter(Boolean);
+}
+
+function npcScanEquipmentLines(npc) {
+    const loadout = npcLoadoutsData()[String(npc?.loadoutId || '').toLowerCase()] || null;
+    const lines = [];
+    const loadoutShield = (loadout?.shields || [])[0];
+    const shieldName = npc?.shieldName || (loadoutShield ? (getEquipment(loadoutShield.id || loadoutShield)?.name || loadoutShield.id || loadoutShield) : '');
+    if (shieldName) lines.push(`Shield: ${shieldName}`);
+    for (const group of [loadout?.thrusters, loadout?.scanners, loadout?.tractors, loadout?.equipment]) {
+        for (const entry of group || []) {
+            const item = getEquipment(entry.id || entry);
+            lines.push(item?.name || entry.id || entry);
+        }
+    }
+    return lines;
+}
+
+function setScanResult(message, alert = false) {
+    const result = document.getElementById('scan-result');
+    if (!result) return;
+    result.style.color = alert ? '#ff9966' : '#9edfff';
+    result.innerHTML = message;
+}
+
+function scanSelectedTarget() {
+    const target = game.selectedTarget;
+    if (!target || !game.npcs?.includes(target)) {
+        setScanResult(escapeHtml(t('scanNoTarget')), true);
+        playSound('ui', 0.35);
+        return;
+    }
+    const distance = game.player ? Math.hypot((target.x || 0) - game.player.x, (target.z || 0) - game.player.z) : Infinity;
+    const scannerRange = playerScannerRange() || DEFAULT_SCANNER_RANGE;
+    if (!Number.isFinite(distance) || distance > scannerRange) {
+        setScanResult(`${escapeHtml(t('scanOutOfRange'))} (${formatDistance(distance)} / ${formatDistance(scannerRange)})`, true);
+        playSound('ui', 0.35);
+        return;
+    }
+    const weapons = npcScanWeaponLines(target);
+    const equipment = npcScanEquipmentLines(target);
+    const shipId = target.shipId || target.npcShipId || '';
+    const shipRecord = shipsData()[String(shipId).toLowerCase()] || null;
+    const shipLabel = target.shipName || shipRecord?.name || shipId || 'Unknown';
+    const faction = factionDisplayName(target.faction || target.reputation || '');
+    const hull = `${Math.round(Number(target.hull) || 0)}/${Math.max(1, Math.round(Number(target.maxHull) || 0))}`;
+    const shield = `${Math.round(Number(target.shield) || 0)}/${Math.max(0, Math.round(Number(target.maxShield) || 0))}`;
+    const weaponHtml = weapons.length ? weapons.slice(0, 8).map(line => `<div>${escapeHtml(line)}</div>`).join('') : `<div style="color:#667f8f;">${escapeHtml(t('noGunMounted'))}</div>`;
+    const equipmentHtml = equipment.length ? equipment.slice(0, 8).map(line => `<div>${escapeHtml(line)}</div>`).join('') : '<div style="color:#667f8f;">-</div>';
+    setScanResult(`<div style="border:1px solid #1f5f80;background:rgba(4,14,23,0.74);padding:7px;margin-top:6px;line-height:1.35;"><strong style="color:#00ff99;">${escapeHtml(t('scanResultTitle'))}</strong><br><span style="color:#b9efff;">${escapeHtml(target.name || target.callsign || 'NPC')}</span><br><span style="color:#88a;">Ship:</span> ${escapeHtml(shipLabel)}<br><span style="color:#88a;">Faction:</span> ${escapeHtml(faction)}<br><span style="color:#88a;">Hull:</span> ${escapeHtml(hull)} | <span style="color:#88a;">Shield:</span> ${escapeHtml(shield)}<br><span style="color:#88a;">Weapons:</span>${weaponHtml}<span style="color:#88a;">Equipment:</span>${equipmentHtml}</div>`);
+    playSound('select', 0.55);
 }
 
 function findScannerTargetByKey(key) {
@@ -7828,8 +8926,10 @@ function bindScannerPanelEvents() {
 function updateScannerPanel() {
     const list = document.getElementById('scanner-list');
     const range = document.getElementById('scanner-range');
+    const scanButton = document.getElementById('btn-scan-target');
     if (!list) return;
-    if (range) range.textContent = formatDistance(SCANNER_RANGE);
+    if (range) range.textContent = formatDistance(playerScannerRange() || DEFAULT_SCANNER_RANGE);
+    if (scanButton) scanButton.disabled = !(game.selectedTarget && game.npcs?.includes(game.selectedTarget));
     const entries = scannerTargets();
     if (!entries.length) {
         list.innerHTML = `<div class="hud-row-muted">${escapeHtml(t('scannerNone'))}</div>`;
@@ -8157,12 +9257,16 @@ function render() {
         ctx.fill();
     }
     
+    if (game.jumpTransition?.mode === 'hole') renderJumpTunnel();
+
     // Player
-    game.player.render(ctx);
+    if (!game.player.destroyed) game.player.render(ctx);
+    renderForegroundAsteroids(ctx);
+    renderEffects(ctx);
 
     renderWaypointLine(ctx);
 
-    renderJumpTunnel();
+    if (game.jumpTransition?.mode !== 'hole') renderJumpTunnel();
     renderTradeLaneWarpBubble();
     renderApproachEdgeMarker(ctx);
     
@@ -8265,8 +9369,20 @@ function gameLoop(currentTime) {
     const dt = Math.min((currentTime - game.lastTime) / 1000, 0.1);
     game.lastTime = currentTime;
     game.frameCount = (game.frameCount || 0) + 1;
-    update(dt);
-    render();
+    try {
+        update(dt);
+        render();
+    } catch (error) {
+        game.loopErrorCount = (game.loopErrorCount || 0) + 1;
+        console.error('Game loop error:', error);
+        if (game.jumpTransition) {
+            game.jumpTransition = null;
+            game.jumpHoleCapture = null;
+            game.jumpHoleCaptureCooldownUntil = performance.now() + 3200;
+            if (game.player) setNormalFlightSpeed(game.player);
+        }
+        if (game.loopErrorCount <= 3) addLog('Runtime error recovered - continuing flight.', 'alert');
+    }
     requestAnimationFrame(gameLoop);
 }
 
@@ -8580,9 +9696,11 @@ function toggleMap() {
 function getSystemMapTransform(canvas) {
     const w = canvas.width;
     const h = canvas.height;
+    const scale = (Math.min(w, h) / 200000) * game.mapZoom;
     return {
-        scaleX: (w / 200000) * game.mapZoom,
-        scaleY: (h / 200000) * game.mapZoom,
+        scaleX: scale,
+        scaleY: scale,
+        scale,
         offsetX: w / 2 + game.mapPanX,
         offsetY: h / 2 + game.mapPanY
     };
@@ -8594,6 +9712,116 @@ function systemMapToScreen(x, z, transform) {
 
 function screenToSystemMap(x, y, transform) {
     return { x: (x - transform.offsetX) / transform.scaleX, z: (y - transform.offsetY) / transform.scaleY };
+}
+
+function clampSystemMapPan(canvas) {
+    if (!canvas) return;
+    const halfExtent = 100000;
+    const transform = getSystemMapTransform(canvas);
+    const gridHalfX = halfExtent * transform.scaleX;
+    const gridHalfY = halfExtent * transform.scaleY;
+    const maxPanX = Math.max(0, Math.abs(gridHalfX - canvas.width / 2));
+    const maxPanY = Math.max(0, Math.abs(gridHalfY - canvas.height / 2));
+    game.mapPanX = clamp(Number(game.mapPanX) || 0, -maxPanX, maxPanX);
+    game.mapPanY = clamp(Number(game.mapPanY) || 0, -maxPanY, maxPanY);
+}
+
+function drawSystemMapGrid(ctx, canvas, transform) {
+    const halfExtent = 100000;
+    const divisions = 8;
+    const cell = (halfExtent * 2) / divisions;
+    const topLeft = systemMapToScreen(-halfExtent, -halfExtent, transform);
+    const bottomRight = systemMapToScreen(halfExtent, halfExtent, transform);
+    ctx.save();
+    ctx.strokeStyle = 'rgba(0,70,110,0.42)';
+    ctx.lineWidth = 1;
+    ctx.strokeRect(topLeft.x, topLeft.y, bottomRight.x - topLeft.x, bottomRight.y - topLeft.y);
+    ctx.strokeStyle = 'rgba(0,70,110,0.28)';
+    for (let i = 1; i < divisions; i++) {
+        const coord = -halfExtent + cell * i;
+        const v1 = systemMapToScreen(coord, -halfExtent, transform);
+        const v2 = systemMapToScreen(coord, halfExtent, transform);
+        const h1 = systemMapToScreen(-halfExtent, coord, transform);
+        const h2 = systemMapToScreen(halfExtent, coord, transform);
+        ctx.beginPath();
+        ctx.moveTo(v1.x, v1.y);
+        ctx.lineTo(v2.x, v2.y);
+        ctx.moveTo(h1.x, h1.y);
+        ctx.lineTo(h2.x, h2.y);
+        ctx.stroke();
+    }
+    ctx.fillStyle = 'rgba(130,190,225,0.64)';
+    ctx.font = '10px Courier New';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    for (let i = 0; i < divisions; i++) {
+        const center = -halfExtent + cell * (i + 0.5);
+        const xLabel = systemMapToScreen(center, halfExtent, transform);
+        const yLabel = systemMapToScreen(-halfExtent, center, transform);
+        ctx.fillText('ABCDEFGH'[i], xLabel.x, xLabel.y + 14);
+        ctx.fillText(String(i + 1), yLabel.x - 14, yLabel.y);
+    }
+    ctx.restore();
+}
+
+function mapZoneScreenGeometry(zone, transform) {
+    const shape = String(zone?.shape || 'ELLIPSOID').toUpperCase();
+    const sx = Number(zone?.sizeX ?? zone?.size_x ?? zone?.size ?? 0);
+    const sy = Number(zone?.sizeY ?? zone?.size_y ?? sx);
+    const sz = Number(zone?.sizeZ ?? zone?.size_z ?? sx);
+    if (shape === 'BOX') {
+        return { shape, rx: Math.max(1, sx * transform.scale * 0.5), rz: Math.max(1, sz * transform.scale * 0.5) };
+    }
+    if (shape === 'SPHERE') {
+        const radius = Math.max(1, sx);
+        return { shape, rx: radius * transform.scale, rz: radius * transform.scale };
+    }
+    if (shape === 'CYLINDER') {
+        const radius = Math.max(1, sx);
+        const projectedLength = Math.max(0, sy || sz || radius);
+        const flat = projectedLength > radius * 2.5 && sz > radius * 1.2;
+        return {
+            shape,
+            rx: (flat ? Math.max(radius, projectedLength * 0.5) : radius) * transform.scale,
+            rz: (flat ? radius : Math.max(radius, sz || radius)) * transform.scale
+        };
+    }
+    return { shape, rx: Math.max(1, sx * transform.scale), rz: Math.max(1, sz * transform.scale) };
+}
+
+function drawMapZoneShape(ctx, zone, transform, options = {}) {
+    const pos = systemMapToScreen(zone.x, zone.z, transform);
+    const geometry = mapZoneScreenGeometry(zone, transform);
+    const rx = Math.max(options.minRadius || 0, geometry.rx);
+    const rz = Math.max(options.minRadius || 0, geometry.rz);
+    ctx.save();
+    ctx.translate(pos.x, pos.y);
+    ctx.rotate(flYawToCanvasRotation(zone.rotate_y || zone.rotateY || 0));
+    ctx.beginPath();
+    if (geometry.shape === 'BOX') ctx.rect(-rx, -rz, rx * 2, rz * 2);
+    else ctx.ellipse(0, 0, rx, rz, 0, 0, Math.PI * 2);
+    if (options.fill !== false) ctx.fill();
+    ctx.stroke();
+    ctx.restore();
+}
+
+function systemMapExclusionZones() {
+    const zones = [];
+    const seen = new Set();
+    for (const field of [...(systemData.asteroidfields || []), ...(systemData.nebulae || [])]) {
+        for (const exclusion of field.exclusionZones || []) {
+            const key = [
+                exclusion.id || exclusion.nickname || exclusion.name || '',
+                Math.round(Number(exclusion.x || 0)),
+                Math.round(Number(exclusion.z || 0)),
+                String(exclusion.shape || '').toUpperCase()
+            ].join(':');
+            if (seen.has(key)) continue;
+            seen.add(key);
+            zones.push(exclusion);
+        }
+    }
+    return zones;
 }
 
 function isSelectedMapObject(object, entity = null) {
@@ -8611,33 +9839,36 @@ function drawMapCanvas() {
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
     const w = canvas.width, h = canvas.height;
+    clampSystemMapPan(canvas);
     const mapTransform = getSystemMapTransform(canvas);
     
     ctx.fillStyle = '#000810';
     ctx.fillRect(0, 0, w, h);
     
-    // Grid
-    ctx.strokeStyle = 'rgba(0,50,80,0.3)';
-    ctx.lineWidth = 1;
-    for (let i = 0; i <= 10; i++) {
-        ctx.beginPath();
-        ctx.moveTo(i * w/10, 0);
-        ctx.lineTo(i * w/10, h);
-        ctx.moveTo(0, i * h/10);
-        ctx.lineTo(w, i * h/10);
-        ctx.stroke();
-    }
+    drawSystemMapGrid(ctx, canvas, mapTransform);
     
-    // Sun
-    const sunPos = systemMapToScreen(0, 0, mapTransform);
-    ctx.fillStyle = '#ffff44';
-    ctx.beginPath();
-    ctx.arc(sunPos.x, sunPos.y, 20, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.fillStyle = '#aaaa44';
+    // Suns
     ctx.font = '10px Courier New';
     ctx.textAlign = 'center';
-    ctx.fillText('SUN', sunPos.x, sunPos.y + 35);
+    for (const sun of systemData.suns || []) {
+        if (!Number.isFinite(Number(sun.x)) || !Number.isFinite(Number(sun.z))) continue;
+        const sunPos = systemMapToScreen(Number(sun.x), Number(sun.z), mapTransform);
+        const mapRadius = Math.max(7, Math.min(24, (Number(sun.radius) || 240) * mapTransform.scale * 2.2));
+        const glow = ctx.createRadialGradient(sunPos.x, sunPos.y, 0, sunPos.x, sunPos.y, mapRadius * 2.4);
+        glow.addColorStop(0, 'rgba(255,255,210,0.95)');
+        glow.addColorStop(0.38, 'rgba(255,205,70,0.56)');
+        glow.addColorStop(1, 'rgba(255,120,20,0)');
+        ctx.fillStyle = glow;
+        ctx.beginPath();
+        ctx.arc(sunPos.x, sunPos.y, mapRadius * 2.4, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = '#ffff66';
+        ctx.beginPath();
+        ctx.arc(sunPos.x, sunPos.y, mapRadius, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = '#d8c66a';
+        ctx.fillText(sun.name || 'Sun', sunPos.x, sunPos.y + mapRadius + 13);
+    }
     
     // Planets
     for (const planet of systemData.planets) {
@@ -8692,57 +9923,33 @@ function drawMapCanvas() {
 
     // Nebulae and asteroid fields with hazard obstacles
     for (const nebula of systemData.nebulae) {
-        const pos = systemMapToScreen(nebula.x, nebula.z, mapTransform);
-        const ex = pos.x;
-        const ey = pos.y;
-        const rx = Math.max(8, (nebula.size_x || nebula.size || 0) * mapTransform.scaleX);
-        const rz = Math.max(8, (nebula.size_z || nebula.size || 0) * mapTransform.scaleY);
         ctx.fillStyle = 'rgba(80,120,220,0.12)';
         ctx.strokeStyle = 'rgba(120,180,255,0.25)';
-        ctx.beginPath();
-        ctx.ellipse(ex, ey, rx, rz, flYawToCanvasRotation(nebula.rotate_y || nebula.rotateY || 0), 0, Math.PI * 2);
-        ctx.fill();
-        ctx.stroke();
+        drawMapZoneShape(ctx, nebula, mapTransform, { minRadius: 8 });
     }
     for (const field of systemData.asteroidfields) {
-        const pos = systemMapToScreen(field.x, field.z, mapTransform);
-        const ex = pos.x;
-        const ey = pos.y;
-        const rx = Math.max(8, (field.sizeX || field.size_x || field.size || 0) * mapTransform.scaleX);
-        const rz = Math.max(8, (field.sizeZ || field.size_z || field.size || 0) * mapTransform.scaleY);
         const isMinefield = field.hazardKind === 'explosive_mines';
         const isDebris = field.fieldKind === 'debris';
         ctx.fillStyle = isMinefield ? 'rgba(255,45,20,0.12)' : (isDebris ? 'rgba(150,165,165,0.10)' : 'rgba(130,110,70,0.12)');
         ctx.strokeStyle = isMinefield ? 'rgba(255,70,45,0.42)' : (isDebris ? 'rgba(175,195,195,0.25)' : 'rgba(180,150,90,0.25)');
-        ctx.beginPath();
-        ctx.ellipse(ex, ey, rx, rz, flYawToCanvasRotation(field.rotate_y || field.rotateY || 0), 0, Math.PI * 2);
-        ctx.fill();
-        ctx.stroke();
-        for (const exclusion of field.exclusionZones || []) {
-            const exclusionPos = systemMapToScreen(exclusion.x, exclusion.z, mapTransform);
-            const exRx = Math.max(3, (exclusion.sizeX || exclusion.size || 0) * mapTransform.scaleX);
-            const exRz = Math.max(3, (exclusion.sizeZ || exclusion.size || 0) * mapTransform.scaleY);
-            ctx.save();
-            ctx.translate(exclusionPos.x, exclusionPos.y);
-            ctx.rotate(flYawToCanvasRotation(exclusion.rotateY || 0));
-            ctx.strokeStyle = isMinefield ? 'rgba(120,255,210,0.58)' : 'rgba(150,230,255,0.32)';
-            ctx.lineWidth = 1;
-            ctx.setLineDash([6, 4]);
-            ctx.beginPath();
-            if (String(exclusion.shape || '').toUpperCase() === 'BOX') ctx.rect(-exRx, -exRz, exRx * 2, exRz * 2);
-            else ctx.ellipse(0, 0, exRx, exRz, 0, 0, Math.PI * 2);
-            ctx.stroke();
-            ctx.setLineDash([]);
-            ctx.restore();
-        }
+        drawMapZoneShape(ctx, field, mapTransform, { minRadius: 8 });
+    }
+    for (const exclusion of systemMapExclusionZones()) {
+        const isBox = String(exclusion.shape || '').toUpperCase() === 'BOX';
+        ctx.fillStyle = isBox ? 'rgba(0,18,22,0.18)' : 'rgba(0,18,22,0.08)';
+        ctx.strokeStyle = isBox ? 'rgba(125,255,220,0.78)' : 'rgba(150,230,255,0.34)';
+        ctx.lineWidth = isBox ? 1.5 : 1;
+        ctx.setLineDash(isBox ? [8, 4] : [6, 4]);
+        drawMapZoneShape(ctx, exclusion, mapTransform, { minRadius: 3, fill: isBox });
+        ctx.setLineDash([]);
     }
     for (const obstacle of game.obstacles) {
         const pos = systemMapToScreen(obstacle.x, obstacle.z, mapTransform);
         const ex = pos.x;
         const ey = pos.y;
-        ctx.fillStyle = obstacle.kind === 'mine' ? '#ff5038' : (obstacle.kind === 'debris' ? '#aab8b8' : (obstacle.kind === 'asteroid' ? '#aa8855' : '#66ddee'));
+        ctx.fillStyle = obstacle.collidable === false ? '#7f8b90' : (obstacle.kind === 'mine' ? '#ff5038' : (obstacle.kind === 'debris' ? '#aab8b8' : (obstacle.kind === 'asteroid' ? '#aa8855' : '#66ddee')));
         ctx.beginPath();
-        ctx.arc(ex, ey, Math.max(2, obstacle.radius * mapTransform.scaleX), 0, Math.PI * 2);
+        ctx.arc(ex, ey, Math.max(obstacle.small ? 1 : 2, (obstacle.visualRadius || obstacle.radius) * mapTransform.scale), 0, Math.PI * 2);
         ctx.fill();
     }
     
@@ -8752,7 +9959,7 @@ function drawMapCanvas() {
         const ex = pos.x;
         const ey = pos.y;
         const archetype = station.archetype || station.type || '';
-        const mapRadius = Math.max(2, solarObjectVisualWorldRadius(solarObjectRawRadiusFromData(station, archetype, 600), archetype, 600) * mapTransform.scaleX);
+        const mapRadius = Math.max(2, solarObjectVisualWorldRadius(solarObjectRawRadiusFromData(station, archetype, 600), archetype, 600) * mapTransform.scale);
         ctx.fillStyle = '#00aaff';
         ctx.beginPath();
         ctx.arc(ex, ey, mapRadius, 0, Math.PI * 2);
@@ -8778,7 +9985,7 @@ function drawMapCanvas() {
         const ex = pos.x;
         const ey = pos.y;
         const archetype = gate.archetype || (gate.kind === 'hole' ? 'jumphole' : 'jumpgate');
-        const mapRadius = Math.max(3, solarObjectVisualWorldRadius(solarObjectRawRadiusFromData(gate, archetype, 600), archetype, 600) * mapTransform.scaleX);
+        const mapRadius = Math.max(3, solarObjectVisualWorldRadius(solarObjectRawRadiusFromData(gate, archetype, 600), archetype, 600) * mapTransform.scale);
         ctx.strokeStyle = gate.kind === 'hole' ? '#33ddff' : '#8844ff';
         ctx.lineWidth = 2;
         ctx.beginPath();
@@ -8871,26 +10078,82 @@ function toggleUniverseView() {
     }
 }
 
+let universeBackgroundImage = null;
+let universeBackgroundImageRequested = false;
+
+function getUniverseBackgroundImage() {
+    if (!universeBackgroundImage && !universeBackgroundImageRequested && typeof Image !== 'undefined') {
+        universeBackgroundImageRequested = true;
+        universeBackgroundImage = new Image();
+        universeBackgroundImage.onload = () => {
+            drawUniverseMapInMapDialog();
+            drawUniverseMap();
+        };
+        universeBackgroundImage.src = UNIVERSE_BACKGROUND_IMAGE_PATH;
+    }
+    return universeBackgroundImage && universeBackgroundImage.complete && universeBackgroundImage.naturalWidth > 0
+        ? universeBackgroundImage
+        : null;
+}
+
+function drawUniverseBackground(ctx, w, h) {
+    ctx.fillStyle = '#000508';
+    ctx.fillRect(0, 0, w, h);
+
+    const image = getUniverseBackgroundImage();
+    if (image) {
+        const imageRatio = image.naturalWidth / Math.max(1, image.naturalHeight);
+        const canvasRatio = w / Math.max(1, h);
+        let drawW = w;
+        let drawH = h;
+        let drawX = 0;
+        let drawY = 0;
+        if (imageRatio > canvasRatio) {
+            drawH = h;
+            drawW = h * imageRatio;
+            drawX = (w - drawW) / 2;
+        } else {
+            drawW = w;
+            drawH = w / imageRatio;
+            drawY = (h - drawH) / 2;
+        }
+        ctx.save();
+        ctx.globalAlpha = 0.72;
+        ctx.drawImage(image, drawX, drawY, drawW, drawH);
+        ctx.globalAlpha = 1;
+        const fade = ctx.createRadialGradient(w * 0.5, h * 0.48, Math.min(w, h) * 0.18, w * 0.5, h * 0.48, Math.max(w, h) * 0.72);
+        fade.addColorStop(0, 'rgba(0, 7, 14, 0.10)');
+        fade.addColorStop(0.72, 'rgba(0, 7, 14, 0.34)');
+        fade.addColorStop(1, 'rgba(0, 0, 0, 0.72)');
+        ctx.fillStyle = fade;
+        ctx.fillRect(0, 0, w, h);
+        ctx.fillStyle = 'rgba(0, 4, 10, 0.28)';
+        ctx.fillRect(0, 0, w, h);
+        ctx.restore();
+    }
+}
+
+function drawUniverseGrid(ctx, w, h) {
+    ctx.strokeStyle = 'rgba(40, 140, 125, 0.22)';
+    ctx.lineWidth = 1;
+    for (let i = 0; i <= 20; i++) {
+        ctx.beginPath();
+        ctx.moveTo(i * w / 20, 0);
+        ctx.lineTo(i * w / 20, h);
+        ctx.moveTo(0, i * h / 20);
+        ctx.lineTo(w, i * h / 20);
+        ctx.stroke();
+    }
+}
+
 function drawUniverseMapInMapDialog() {
     const canvas = document.getElementById('map-universe-canvas');
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
     const w = canvas.width, h = canvas.height;
     
-    ctx.fillStyle = '#000508';
-    ctx.fillRect(0, 0, w, h);
-    
-    // Grid
-    ctx.strokeStyle = 'rgba(0,50,30,0.3)';
-    ctx.lineWidth = 1;
-    for (let i = 0; i <= 20; i++) {
-        ctx.beginPath();
-        ctx.moveTo(i * w/20, 0);
-        ctx.lineTo(i * w/20, h);
-        ctx.moveTo(0, i * h/20);
-        ctx.lineTo(w, i * h/20);
-        ctx.stroke();
-    }
+    drawUniverseBackground(ctx, w, h);
+    drawUniverseGrid(ctx, w, h);
     
     const systemColor = (id) => {
         const lower = id.toLowerCase();
@@ -9293,20 +10556,8 @@ function drawUniverseMap() {
     const w = canvas.width, h = canvas.height;
     renderUniverseSectorTabs();
     
-    ctx.fillStyle = '#000508';
-    ctx.fillRect(0, 0, w, h);
-    
-    // Grid
-    ctx.strokeStyle = 'rgba(0,50,30,0.3)';
-    ctx.lineWidth = 1;
-    for (let i = 0; i <= 20; i++) {
-        ctx.beginPath();
-        ctx.moveTo(i * w/20, 0);
-        ctx.lineTo(i * w/20, h);
-        ctx.moveTo(0, i * h/20);
-        ctx.lineTo(w, i * h/20);
-        ctx.stroke();
-    }
+    drawUniverseBackground(ctx, w, h);
+    drawUniverseGrid(ctx, w, h);
     
     const systemColor = (id) => {
         const lower = id.toLowerCase();
@@ -9408,8 +10659,19 @@ document.getElementById('map-universe-canvas')?.addEventListener('mouseleave', s
 
 document.getElementById('map-canvas')?.addEventListener('wheel', (e) => {
     e.preventDefault();
+    const canvas = e.currentTarget;
+    const rect = canvas.getBoundingClientRect();
+    const mx = (e.clientX - rect.left) * (canvas.width / Math.max(1, rect.width));
+    const my = (e.clientY - rect.top) * (canvas.height / Math.max(1, rect.height));
+    const before = screenToSystemMap(mx, my, getSystemMapTransform(canvas));
     const factor = e.deltaY < 0 ? 1.15 : 1 / 1.15;
-    game.mapZoom = clamp(game.mapZoom * factor, game.minMapZoom, game.maxMapZoom);
+    const nextZoom = clamp(game.mapZoom * factor, game.minMapZoom, game.maxMapZoom);
+    if (nextZoom === game.mapZoom) return;
+    game.mapZoom = nextZoom;
+    const after = systemMapToScreen(before.x, before.z, getSystemMapTransform(canvas));
+    game.mapPanX += mx - after.x;
+    game.mapPanY += my - after.y;
+    clampSystemMapPan(canvas);
     drawMapCanvas();
 });
 
@@ -9429,6 +10691,7 @@ document.getElementById('map-canvas')?.addEventListener('mousemove', (e) => {
     if (Math.abs(dx) + Math.abs(dy) > 3) game.mapDragged = true;
     game.mapPanX = game.mapDragOriginX + dx;
     game.mapPanY = game.mapDragOriginY + dy;
+    clampSystemMapPan(e.currentTarget);
     drawMapCanvas();
 });
 
@@ -9455,8 +10718,8 @@ document.getElementById('map-canvas')?.addEventListener('click', (e) => {
         return;
     }
     const rect = e.target.getBoundingClientRect();
-    const mx = e.clientX - rect.left;
-    const my = e.clientY - rect.top;
+    const mx = (e.clientX - rect.left) * (e.target.width / Math.max(1, rect.width));
+    const my = (e.clientY - rect.top) * (e.target.height / Math.max(1, rect.height));
     const world = screenToSystemMap(mx, my, getSystemMapTransform(e.target));
     const worldX = world.x;
     const worldZ = world.z;
@@ -9805,7 +11068,7 @@ function updateMissileWarning() {
 
 function isFixedEquipmentItem(item) {
     const mountType = equipmentMountType(item);
-    return mountType === 'powerplant' || mountType === 'engine';
+    return mountType === 'powerplant' || mountType === 'engine' || mountType === 'tractor' || (!isCrossfireActive() && mountType === 'scanner');
 }
 
 function applyMountedEquipmentEffects() {
@@ -10013,12 +11276,13 @@ function renderEquipmentDealer() {
         return;
     }
     html += `<div class="bar-subtabs"><button class="bar-subtab ${dealerTab === 'equipment' ? 'active' : ''}" onclick="showEquipmentDealerTab('equipment')">${escapeHtml(t('equipmentDealer'))}</button><button class="bar-subtab ${dealerTab === 'ammo' ? 'active' : ''}" onclick="showEquipmentDealerTab('ammo')">${escapeHtml(t('ammoTab'))}</button></div>`;
-    const slots = [...getWeaponSlotKeys(), 'shield', 'thruster', 'engine', 'powerplant', 'mine', 'countermeasure'];
+    const slots = [...getWeaponSlotKeys(), 'shield', 'thruster', 'scanner', 'tractor', 'engine', 'powerplant', 'mine', 'countermeasure'];
     html += '<div class="equipment-layout"><div class="equipment-panel"><h4>Mounted Slots</h4>';
     for (const slot of slots) {
         const item = mountedEquipmentItem(slot);
-        const itemMeta = item ? `${equipmentMountType(item)} class ${equipmentClass(item)}` : '';
-        const lockedSlot = slot === 'powerplant' || slot === 'engine';
+        const rangeMeta = item && slot === 'scanner' ? ` | ${formatDistance(scannerRangeForItem(item))}` : item && slot === 'tractor' ? ` | ${formatDistance(tractorRangeForItem(item))}` : '';
+        const itemMeta = item ? `${equipmentMountType(item)} class ${equipmentClass(item)}${rangeMeta}` : '';
+        const lockedSlot = isFixedEquipmentSlot(slot);
         html += `<div class="slot-row"><div><strong>${escapeHtml(equipmentSlotLabel(slot))}</strong><br><span style="color:${item ? '#b9efff' : '#667f8f'};">${item ? escapeHtml(item.name) : 'Empty'}</span>${item ? `<br><span style="color:#88a;">${escapeHtml(itemMeta)}${lockedSlot ? ' | fixed' : ''}</span>` : ''}</div><button class="trade-button" onclick="unmountEquipment('${slot}')" ${item && !lockedSlot ? '' : 'disabled'}>Unmount</button></div>`;
     }
     html += '</div><div class="equipment-panel"><h4>Inventory</h4>';
@@ -10032,7 +11296,9 @@ function renderEquipmentDealer() {
             const inventoryItem = getEquipment(inv.id);
             const compatibility = equipmentCompatibility(inventoryItem);
             const canMount = !inventoryItem?.combinable && compatibility.ok;
-            const meta = `${equipmentMountType(inventoryItem)} class ${equipmentClass(inventoryItem)} x${inv.availableQuantity} | ${sellPrice.toLocaleString()} CR`;
+            const invType = equipmentMountType(inventoryItem);
+            const rangeMeta = invType === 'scanner' ? ` | ${formatDistance(scannerRangeForItem(inventoryItem))}` : invType === 'tractor' ? ` | ${formatDistance(tractorRangeForItem(inventoryItem))}` : '';
+            const meta = `${invType} class ${equipmentClass(inventoryItem)}${rangeMeta} x${inv.availableQuantity} | ${sellPrice.toLocaleString()} CR`;
             html += `<div class="slot-row"><div>${escapeHtml(inv.name)}<br><span style="color:#88a;">${escapeHtml(meta)}</span>${compatibility.ok ? '' : `<br><span style="color:#ff7777;">${escapeHtml(compatibility.reason)}</span>`}</div><div style="display:flex;gap:6px;justify-content:flex-end;flex-wrap:wrap;"><button class="trade-button" onclick="mountEquipment('${inv.id}')" ${canMount ? '' : 'disabled'}>Mount</button><button class="trade-button" onclick="sellEquipment('${inv.id}')" ${sellPrice > 0 ? '' : 'disabled'}>${t('sell')}</button></div></div>`;
         }
     } else {
@@ -10048,7 +11314,7 @@ function renderEquipmentDealer() {
             const item = getEquipment(entry.id);
             return item && !isFixedEquipmentItem(item) && !(String(item.category || '').toLowerCase() === 'missile' && item.combinable) && !isMineAmmo(item) && !isCountermeasureAmmo(item);
         });
-    html += '<table class="trade-table"><tr><th>Item</th><th>Type</th><th>Class</th><th>Power</th><th>Damage</th><th>Price</th><th>Stock</th><th>Owned</th><th></th></tr>';
+    html += '<table class="trade-table"><tr><th>Item</th><th>Type</th><th>Class</th><th>Power</th><th>Damage/Range</th><th>Price</th><th>Stock</th><th>Owned</th><th></th></tr>';
     for (const entry of marketEntries.slice(0, 120)) {
         const item = getEquipment(entry.id);
         if (!item) continue;
@@ -10063,17 +11329,22 @@ function renderEquipmentDealer() {
             : isMissileLauncher(item)
             ? `${Math.round(missileDamageForItem(item, getEquipment(missileAmmoItemId(item))))}`
             : (item.hullDamage || item.energyDamage ? `${Math.round(Number(item.hullDamage || 0))}/${Math.round(Number(item.energyDamage || 0))}` : '-');
+        const typeLabel = equipmentMountType(item);
+        const rangeLabel = typeLabel === 'scanner'
+            ? formatDistance(scannerRangeForItem(item))
+            : typeLabel === 'tractor'
+                ? formatDistance(tractorRangeForItem(item))
+                : damageLabel;
         const powerLabel = item.category === 'thruster'
             ? `${Math.round(thrusterPowerUsage(item)).toLocaleString()}/s thrust`
             : (item.powerUsage ? Number(item.powerUsage).toFixed(1) : (item.capacity ? `${Math.round(item.capacity).toLocaleString()} / +${Math.round(item.chargeRate || 0).toLocaleString()}` : '-'));
-        const typeLabel = equipmentMountType(item);
         const muted = !compatibility.ok || Boolean(ammoReason);
         const rowStyle = muted ? ' style="opacity:0.48;color:#778899;"' : '';
         const mutedCellStyle = muted ? ' style="color:#778899;"' : '';
         const reasonText = compatibility.reason || ammoReason;
         const reasonHtml = muted ? `<br><span style="color:#ff7777;font-size:11px;">${escapeHtml(reasonText)}</span>` : '';
         const titleAttr = muted ? ` title="${escapeHtml(reasonText)}"` : '';
-        html += `<tr${rowStyle}${titleAttr}><td style="color:${muted ? '#778899' : '#00ff00'};">${escapeHtml(item.name)}${reasonHtml}</td><td${mutedCellStyle}>${escapeHtml(typeLabel)}</td><td${mutedCellStyle}>${equipmentClass(item)}</td><td${mutedCellStyle}>${escapeHtml(powerLabel)}</td><td${mutedCellStyle}>${escapeHtml(damageLabel)}</td><td style="color:${muted ? '#777' : '#ffaa00'};">${entry.price.toLocaleString()} CR</td><td${mutedCellStyle}>${entry.forSale ? `${entry.stockMin}-${entry.stockMax}` : '-'}</td><td${mutedCellStyle}>${owned}</td><td><button class="trade-button" onclick="buyEquipment('${item.id}')" ${canBuy ? '' : 'disabled'}>${t('buy')}</button></td></tr>`;
+        html += `<tr${rowStyle}${titleAttr}><td style="color:${muted ? '#778899' : '#00ff00'};">${escapeHtml(item.name)}${reasonHtml}</td><td${mutedCellStyle}>${escapeHtml(typeLabel)}</td><td${mutedCellStyle}>${equipmentClass(item)}</td><td${mutedCellStyle}>${escapeHtml(powerLabel)}</td><td${mutedCellStyle}>${escapeHtml(rangeLabel)}</td><td style="color:${muted ? '#777' : '#ffaa00'};">${entry.price.toLocaleString()} CR</td><td${mutedCellStyle}>${entry.forSale ? `${entry.stockMin}-${entry.stockMax}` : '-'}</td><td${mutedCellStyle}>${owned}</td><td><button class="trade-button" onclick="buyEquipment('${item.id}')" ${canBuy ? '' : 'disabled'}>${t('buy')}</button></td></tr>`;
     }
     html += '</table>';
     content.innerHTML = html;
@@ -10104,6 +11375,7 @@ function repairPlayerShip() {
     game.player.hull = game.player.maxHull;
     addLog('Ship repaired at equipment dealer.');
     playSound('buy', 0.6);
+    playVoice('repairComplete', 1);
     saveGame();
     renderEquipmentDealer();
     updateHUD();
@@ -10114,7 +11386,7 @@ function buyEquipment(itemId) {
     const item = getEquipment(itemId);
     if (!marketEntry || !item || !marketEntry.forSale || game.player.credits < marketEntry.price) return;
     if (isFixedEquipmentItem(item)) {
-        addLog('Engine and powerplant are fixed ship equipment.', 'alert');
+        addLog('Fixed ship equipment cannot be bought separately.', 'alert');
         return;
     }
     const ammoReason = ammoCompatibilityReason(item);
@@ -10203,7 +11475,7 @@ function mountEquipment(itemId) {
 
 function unmountEquipment(slot) {
     if (!game.player?.mountedEquipment?.[slot]) return;
-    if (slot === 'powerplant' || slot === 'engine') {
+    if (isFixedEquipmentSlot(slot)) {
         addLog('Fixed ship equipment cannot be unmounted.', 'alert');
         return;
     }
@@ -10500,6 +11772,10 @@ async function init() {
 
 function startGame() {
     ensureAudio();
+    clearTimeout(game.playerDeathTimer);
+    game.playerDeathTimer = null;
+    game.playerDeathPending = false;
+    document.getElementById('death-overlay')?.classList.add('hidden');
     seedAmbientTradeTrafficForSystem();
     if (!game.musicStoppedByUser) playMusicTrack(defaultMusicTrack('space'), 'space');
     document.getElementById('start-screen').classList.add('hidden');

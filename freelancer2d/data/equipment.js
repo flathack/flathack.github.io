@@ -42442,6 +42442,8 @@ const FL_EQUIPMENT = {
     "reverseFraction": 0,
     "cruiseChargeTime": 0,
     "cruisePowerUsage": 0,
+    "scannerRange": 2500.0,
+    "cargoScanRange": 2000.0,
     "sourceFile": "misc_equip.ini"
   },
   "ge_s_scanner_02": {
@@ -42478,6 +42480,8 @@ const FL_EQUIPMENT = {
     "reverseFraction": 0,
     "cruiseChargeTime": 0,
     "cruisePowerUsage": 0,
+    "scannerRange": 5000.0,
+    "cargoScanRange": 2000.0,
     "sourceFile": "misc_equip.ini"
   },
   "ge_s_thruster_01": {
@@ -42666,6 +42670,8 @@ const FL_EQUIPMENT = {
     "reverseFraction": 0,
     "cruiseChargeTime": 0,
     "cruisePowerUsage": 0,
+    "tractorRange": 1500.0,
+    "tractorReachSpeed": 2000.0,
     "sourceFile": "misc_equip.ini"
   },
   "ge_t_engine_01": {
