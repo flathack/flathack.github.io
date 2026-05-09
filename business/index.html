@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flathack Business Projects</title>
+  <meta name="description" content="Serioese Projektuebersicht fuer Business-, Automatisierungs- und Software-Projekte von Flathack mit GitHub-Repositories und Fortschritt.">
+  <link rel="icon" type="image/png" href="../assets/img/icons/flathack_icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    :root {
+      --business-bg: #070b12;
+      --business-panel: rgba(15, 23, 42, 0.92);
+      --business-panel-soft: rgba(30, 41, 59, 0.72);
+      --business-border: rgba(148, 163, 184, 0.22);
+      --business-text: #e5edf7;
+      --business-muted: #94a3b8;
+      --business-accent: #60a5fa;
+      --business-accent-soft: rgba(96, 165, 250, 0.14);
+      --business-success: #2dd4bf;
+      --business-warning: #fbbf24;
+      --business-shadow: 0 18px 52px rgba(0, 0, 0, 0.34);
+      --text: var(--business-text);
+      --muted: var(--business-muted);
+      --panel-border: var(--business-border);
+      --accent: var(--business-accent);
+      --accent-strong: #0f3ea8;
+      --shadow: var(--business-shadow);
+      --content-width: 1240px;
+    }
+
+    body.business-theme {
+      font-family: "Inter", system-ui, sans-serif;
+      color: var(--business-text);
+      background:
+        linear-gradient(180deg, rgba(7, 11, 18, 0.96), rgba(11, 18, 32, 0.98)),
+        radial-gradient(circle at 8% 0%, rgba(59, 130, 246, 0.14), transparent 30%),
+        radial-gradient(circle at 88% 12%, rgba(45, 212, 191, 0.09), transparent 24%),
+        linear-gradient(180deg, #070b12 0%, #0b1220 100%);
+      background-color: var(--business-bg);
+    }
+
+    body.business-theme::before {
+      opacity: 0.35;
+      background-image:
+        linear-gradient(rgba(226, 232, 240, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(226, 232, 240, 0.035) 1px, transparent 1px);
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.55), transparent 82%);
+    }
+
+    body.business-theme .nav-capsule {
+      background: rgba(15, 23, 42, 0.86);
+      border-color: rgba(148, 163, 184, 0.22);
+      box-shadow: 0 18px 48px rgba(0, 0, 0, 0.32);
+    }
+
+    body.business-theme .nav-capsule-divider {
+      background: linear-gradient(90deg, transparent, rgba(100, 116, 139, 0.22), transparent);
+    }
+
+    body.business-theme .nav-capsule-items a,
+    body.business-theme .nav-capsule-help,
+    body.business-theme .nav-capsule-lang button {
+      color: #64748b;
+    }
+
+    body.business-theme .nav-capsule-items a:hover,
+    body.business-theme .nav-capsule-items a.active,
+    body.business-theme .nav-capsule-lang button:hover,
+    body.business-theme .nav-capsule-lang button.active {
+      color: var(--business-text);
+      background: rgba(96, 165, 250, 0.16);
+      box-shadow: none;
+    }
+
+    body.business-theme .nav-capsule-help,
+    body.business-theme .nav-capsule-lang {
+      background: rgba(30, 41, 59, 0.78);
+      border-color: rgba(148, 163, 184, 0.22);
+    }
+
+    body.business-theme .domain-tab {
+      background: rgba(15, 23, 42, 0.82);
+      border-color: rgba(148, 163, 184, 0.2);
+      color: var(--business-muted);
+    }
+
+    body.business-theme .domain-tab:hover,
+    body.business-theme .domain-tab.active {
+      color: var(--business-text);
+      background: rgba(96, 165, 250, 0.14);
+      border-color: rgba(96, 165, 250, 0.3);
+    }
+
+    .business-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+      gap: 28px;
+      align-items: stretch;
+      margin: 8px 0 28px;
+      padding: 42px;
+      border: 1px solid var(--business-border);
+      border-radius: 8px;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(17, 24, 39, 0.96));
+      box-shadow: var(--business-shadow);
+    }
+
+    .business-kicker {
+      margin: 0 0 12px;
+      color: var(--business-accent);
+      font: 700 0.78rem/1.2 "IBM Plex Mono", monospace;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .business-hero h1 {
+      max-width: 13ch;
+      margin: 0 0 16px;
+      color: var(--business-text);
+      font-size: clamp(2.35rem, 5vw, 4.8rem);
+      line-height: 0.96;
+      letter-spacing: 0;
+    }
+
+    .business-hero p {
+      max-width: 68ch;
+      margin: 0;
+      color: var(--business-muted);
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    .business-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .business-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 18px;
+      border: 1px solid var(--business-border);
+      border-radius: 6px;
+      background: rgba(15, 23, 42, 0.86);
+      color: var(--business-text);
+      font-weight: 700;
+      transition: 160ms ease;
+    }
+
+    .business-button.primary {
+      border-color: var(--business-accent);
+      background: var(--business-accent);
+      color: #06111f;
+    }
+
+    .business-button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+    }
+
+    .business-summary {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .metric {
+      min-height: 120px;
+      padding: 18px;
+      border: 1px solid var(--business-border);
+      border-radius: 8px;
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .metric strong {
+      display: block;
+      color: var(--business-text);
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    .metric span {
+      display: block;
+      margin-top: 10px;
+      color: var(--business-muted);
+      font-size: 0.9rem;
+      line-height: 1.45;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin: 34px 0 16px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      color: var(--business-text);
+      font-size: clamp(1.45rem, 2.2vw, 2rem);
+    }
+
+    .section-head p {
+      max-width: 54ch;
+      margin: 6px 0 0;
+      color: var(--business-muted);
+      line-height: 1.6;
+    }
+
+    .repo-status {
+      color: var(--business-muted);
+      font: 600 0.82rem/1.3 "IBM Plex Mono", monospace;
+      text-align: right;
+    }
+
+    .repo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .project-card,
+    .repo-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 270px;
+      padding: 22px;
+      border: 1px solid var(--business-border);
+      border-radius: 8px;
+      background: var(--business-panel);
+      box-shadow: 0 12px 34px rgba(0, 0, 0, 0.24);
+    }
+
+    .project-card h3,
+    .repo-card h3 {
+      margin: 0;
+      color: var(--business-text);
+      font-size: 1.12rem;
+      line-height: 1.25;
+    }
+
+    .project-card p,
+    .repo-card p {
+      margin: 12px 0 0;
+      color: var(--business-muted);
+      line-height: 1.58;
+    }
+
+    .card-topline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 26px;
+      padding: 0 9px;
+      border-radius: 999px;
+      background: var(--business-accent-soft);
+      color: var(--business-accent);
+      font: 700 0.72rem/1 "IBM Plex Mono", monospace;
+      white-space: nowrap;
+    }
+
+    .tag.neutral {
+      background: rgba(148, 163, 184, 0.12);
+      color: #cbd5e1;
+    }
+
+    .project-meta,
+    .repo-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 16px 0;
+    }
+
+    .project-meta span,
+    .repo-meta span {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 0 9px;
+      border: 1px solid var(--business-border);
+      border-radius: 6px;
+      color: var(--business-muted);
+      background: var(--business-panel-soft);
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .progress-block {
+      margin-top: auto;
+    }
+
+    .progress-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 8px;
+      color: var(--business-muted);
+      font: 700 0.78rem/1.3 "IBM Plex Mono", monospace;
+    }
+
+    .progress-bar {
+      height: 9px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: rgba(51, 65, 85, 0.9);
+    }
+
+    .progress-bar span {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #60a5fa, #2dd4bf);
+    }
+
+    .card-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .card-links a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 0 12px;
+      border: 1px solid var(--business-border);
+      border-radius: 6px;
+      color: var(--business-accent);
+      background: rgba(15, 23, 42, 0.86);
+      font-weight: 800;
+      font-size: 0.86rem;
+      transition: 160ms ease;
+    }
+
+    .card-links a:hover {
+      border-color: rgba(96, 165, 250, 0.45);
+      background: var(--business-accent-soft);
+    }
+
+    .repo-tools {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 0 0 16px;
+      padding: 14px;
+      border: 1px solid var(--business-border);
+      border-radius: 8px;
+      background: rgba(15, 23, 42, 0.74);
+    }
+
+    .repo-tools input,
+    .repo-tools select {
+      min-height: 40px;
+      border: 1px solid var(--business-border);
+      border-radius: 6px;
+      background: rgba(7, 11, 18, 0.96);
+      color: var(--business-text);
+      font: inherit;
+    }
+
+    .repo-tools input {
+      width: min(100%, 360px);
+      padding: 0 12px;
+    }
+
+    .repo-tools select {
+      padding: 0 10px;
+    }
+
+    .repo-card.hidden {
+      display: none;
+    }
+
+    .activity-panel {
+      padding: 22px;
+      border: 1px solid var(--business-border);
+      border-radius: 8px;
+      background: rgba(15, 23, 42, 0.82);
+      box-shadow: 0 12px 34px rgba(0, 0, 0, 0.24);
+    }
+
+    .activity-summary {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .activity-stat {
+      min-height: 96px;
+      padding: 16px;
+      border: 1px solid var(--business-border);
+      border-radius: 8px;
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .activity-stat strong {
+      display: block;
+      color: var(--business-text);
+      font-size: 1.9rem;
+      line-height: 1;
+    }
+
+    .activity-stat span {
+      display: block;
+      margin-top: 8px;
+      color: var(--business-muted);
+      font-size: 0.86rem;
+      line-height: 1.4;
+    }
+
+    .activity-chart {
+      display: grid;
+      grid-template-columns: repeat(13, minmax(28px, 1fr));
+      align-items: end;
+      gap: 8px;
+      min-height: 210px;
+      padding: 18px 10px 6px;
+      border: 1px solid var(--business-border);
+      border-radius: 8px;
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.9), rgba(7, 11, 18, 0.92));
+    }
+
+    .activity-week {
+      display: grid;
+      grid-template-rows: 1fr auto;
+      gap: 9px;
+      min-width: 0;
+      height: 174px;
+    }
+
+    .activity-stack {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      gap: 2px;
+      height: 140px;
+    }
+
+    .activity-bar {
+      display: block;
+      width: 100%;
+      min-height: 2px;
+      border-radius: 4px 4px 2px 2px;
+    }
+
+    .activity-bar.commits {
+      background: linear-gradient(180deg, #93c5fd, #2563eb);
+    }
+
+    .activity-bar.releases {
+      background: linear-gradient(180deg, #5eead4, #0f766e);
+    }
+
+    .activity-week-label {
+      overflow: hidden;
+      color: var(--business-muted);
+      font: 700 0.68rem/1.1 "IBM Plex Mono", monospace;
+      text-align: center;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .activity-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin: 12px 0 20px;
+      color: var(--business-muted);
+      font-size: 0.86rem;
+      font-weight: 700;
+    }
+
+    .activity-legend span {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .activity-legend span::before {
+      content: "";
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+      background: #60a5fa;
+    }
+
+    .activity-legend .release-key::before {
+      background: #0f766e;
+    }
+
+    .release-list {
+      display: grid;
+      gap: 6px;
+      margin-top: 12px;
+    }
+
+    .release-list a {
+      color: var(--business-accent);
+      font-weight: 800;
+      font-size: 0.86rem;
+    }
+
+    .repo-card.archived {
+      opacity: 0.78;
+    }
+
+    .repo-card.fork {
+      border-style: dashed;
+    }
+
+    .updated {
+      margin-top: 12px;
+      color: var(--business-muted);
+      font-size: 0.84rem;
+    }
+
+    .business-footer {
+      margin-top: 42px;
+      padding: 22px 0 4px;
+      color: var(--business-muted);
+      text-align: center;
+    }
+
+    @media (max-width: 1040px) {
+      .business-hero,
+      .repo-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .business-hero > div:first-child {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .business-hero,
+      .repo-grid,
+      .activity-summary,
+      .business-summary {
+        grid-template-columns: 1fr;
+      }
+
+      .activity-chart {
+        grid-template-columns: repeat(13, minmax(18px, 1fr));
+        gap: 5px;
+        padding-inline: 6px;
+      }
+
+      .business-hero {
+        padding: 28px 22px;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .repo-status {
+        margin-top: 8px;
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body class="business-theme">
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="brand" href="../index.html">
+        <img class="brand-mark" src="../assets/img/icons/flathack_icon.png" alt="" width="44" height="44">
+        <span class="brand-text">Flathack Projects</span>
+      </a>
+      <nav class="project-top-nav" aria-label="Projekt-Navigation"></nav>
+    </header>
+
+    <nav class="domain-tabs" aria-label="Projektbereiche">
+      <a class="domain-tab" href="../index.html">Gaming & Modding</a>
+      <a class="domain-tab active" href="index.html">Business Projects</a>
+    </nav>
+
+    <main>
+      <section id="activity" aria-labelledby="activity-title">
+        <div class="section-head">
+          <div>
+            <p class="business-kicker">Verlauf</p>
+            <h2 id="activity-title">Commits & Releases der letzten 3 Monate</h2>
+            <p>Der Verlauf zeigt die Aktivitaet aller oeffentlichen Repositories als 13-Wochen-Uebersicht sowie Details je Projekt.</p>
+          </div>
+          <div class="repo-status" data-activity-status>Aktivitaet wird geladen</div>
+        </div>
+
+        <div class="activity-panel">
+          <div class="activity-summary" aria-label="Aktivitaetskennzahlen">
+            <div class="activity-stat">
+              <strong data-total-commits>0</strong>
+              <span>Commits im Zeitraum</span>
+            </div>
+            <div class="activity-stat">
+              <strong data-total-releases>0</strong>
+              <span>GitHub Releases im Zeitraum</span>
+            </div>
+            <div class="activity-stat">
+              <strong data-active-activity-repos>0</strong>
+              <span>Repositories mit Aktivitaet</span>
+            </div>
+            <div class="activity-stat">
+              <strong data-activity-window>90</strong>
+              <span>Tage werden ausgewertet</span>
+            </div>
+          </div>
+
+          <div class="activity-chart" data-activity-chart aria-label="Wochenverlauf der Commits und Releases"></div>
+          <div class="activity-legend">
+            <span>Commits</span>
+            <span class="release-key">Releases</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="repositories" aria-labelledby="repo-title">
+        <div class="section-head">
+          <div>
+            <p class="business-kicker">Projektkacheln</p>
+            <h2 id="repo-title">Alle Projekte mit Status</h2>
+            <p>Jede Kachel fasst Beschreibung, Sprache, Fortschritt, Issues, Commits, Releases, letzten Commit und Links zusammen.</p>
+          </div>
+          <div class="repo-status" data-repo-status>Lokale Projektdaten geladen</div>
+        </div>
+
+        <div class="repo-tools" aria-label="Repository Filter">
+          <input type="search" data-repo-search placeholder="Repository suchen">
+          <select data-language-filter aria-label="Sprache filtern">
+            <option value="">Alle Sprachen</option>
+          </select>
+        </div>
+
+        <div class="repo-grid" data-repo-grid></div>
+      </section>
+
+      <footer class="business-footer">
+        &copy; 2026 Steven Schodel - Flathack Business Projects
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    const FALLBACK_REPOS = [
+      { name: "Admin-Startpage", description: "", language: "Python", html_url: "https://github.com/flathack/Admin-Startpage", pushed_at: "2026-04-16T16:46:53Z", updated_at: "2026-04-16T16:46:53Z", open_issues_count: 0, fork: false, archived: false },
+      { name: "AuthFlow", description: "An autologin browser for e. g. Citrix", language: "C#", html_url: "https://github.com/flathack/AuthFlow", pushed_at: "2026-05-09T06:14:41Z", updated_at: "2026-05-09T06:14:41Z", open_issues_count: 0, fork: false, archived: false },
+      { name: "docker-pcloud-sync-app", description: "", language: "Python", html_url: "https://github.com/flathack/docker-pcloud-sync-app", pushed_at: "2026-04-16T08:53:10Z", updated_at: "2026-04-16T08:53:10Z", open_issues_count: 2, fork: false, archived: false },
+      { name: "FL-Atlas-Launcher", description: "A Freelancer Game Launcher", language: "Python", html_url: "https://github.com/flathack/FL-Atlas-Launcher", pushed_at: "2026-05-05T11:21:56Z", updated_at: "2026-05-05T11:21:56Z", open_issues_count: 0, fork: false, archived: false },
+      { name: "FL-Lingo", description: "FL Lingo is a relocalization tool for Freelancer mods.", language: "Python", html_url: "https://github.com/flathack/FL-Lingo", pushed_at: "2026-03-29T15:49:53Z", updated_at: "2026-03-29T15:49:53Z", open_issues_count: 0, fork: false, archived: false },
+      { name: "flathack.github.io", description: "My personal site", language: "JavaScript", html_url: "https://github.com/flathack/flathack.github.io", pushed_at: "2026-05-09T11:17:10Z", updated_at: "2026-05-09T11:17:10Z", open_issues_count: 7, fork: false, archived: false },
+      { name: "FlatHackWiki", description: "My personal Wiki - made by me", language: "TypeScript", html_url: "https://github.com/flathack/FlatHackWiki", pushed_at: "2026-04-27T18:41:49Z", updated_at: "2026-04-27T18:41:49Z", open_issues_count: 0, fork: false, archived: false },
+      { name: "FLAtlas", description: "A Freelancer Game / Modding Editor to Edit Systems and other Stuff. Written in Python.", language: "Python", html_url: "https://github.com/flathack/FLAtlas", pushed_at: "2026-05-08T19:40:12Z", updated_at: "2026-05-08T19:40:12Z", open_issues_count: 2, fork: false, archived: false },
+      { name: "FLAtlas---Save-Game-Editor", description: "A universal Save Game Editor for the game Freelancer (2003)", language: "Python", html_url: "https://github.com/flathack/FLAtlas---Save-Game-Editor", pushed_at: "2026-05-07T09:41:07Z", updated_at: "2026-05-07T09:41:07Z", open_issues_count: 1, fork: false, archived: false },
+      { name: "FLAtlas-V2", description: "A rework of the FLAtlas Visual System Editor in C++", language: "C++", html_url: "https://github.com/flathack/FLAtlas-V2", pushed_at: "2026-05-08T23:05:17Z", updated_at: "2026-05-08T23:05:17Z", open_issues_count: 12, fork: false, archived: false },
+      { name: "flatnet2", description: "Hobby", language: "PHP", html_url: "https://github.com/flathack/flatnet2", pushed_at: "2025-07-29T11:30:32Z", updated_at: "2025-07-29T11:30:32Z", open_issues_count: 0, fork: false, archived: false },
+      { name: "PassTypePro", description: "", language: "C#", html_url: "https://github.com/flathack/PassTypePro", pushed_at: "2026-03-22T21:38:35Z", updated_at: "2026-03-22T21:38:35Z", open_issues_count: 0, fork: false, archived: false },
+      { name: "SilentInstallHelper", description: "", language: "Python", html_url: "https://github.com/flathack/SilentInstallHelper", pushed_at: "2026-03-22T21:38:44Z", updated_at: "2026-03-22T21:38:44Z", open_issues_count: 0, fork: false, archived: false },
+      { name: "SimAtlas2", description: "Ein Sims 2 Savegame Editor", language: "Python", html_url: "https://github.com/flathack/SimAtlas2", pushed_at: "2026-04-19T17:48:47Z", updated_at: "2026-04-19T17:48:47Z", open_issues_count: 0, fork: false, archived: false },
+      { name: "StevensSupportApp", description: "", language: "C#", html_url: "https://github.com/flathack/StevensSupportApp", pushed_at: "2026-04-27T14:07:42Z", updated_at: "2026-04-27T14:07:42Z", open_issues_count: 0, fork: false, archived: false },
+      { name: "translations", description: "The translations for the web interface of gw2efficiency", language: "JavaScript", html_url: "https://github.com/flathack/translations", pushed_at: "2019-07-30T15:23:55Z", updated_at: "2019-07-30T15:23:55Z", open_issues_count: 0, fork: true, archived: false }
+    ];
+
+    const PROJECT_DETAILS = {
+      "AuthFlow": { progress: 82, focus: "Enterprise Login Automation", status: "Produktiver Prototyp", summary: "Autologin-Browser fuer Citrix- und Web-Workflows, ausgelegt auf wiederkehrende Unternehmensanmeldungen und kontrollierte Bedienablaeufe." },
+      "Admin-Startpage": { progress: 72, focus: "Internal Dashboard", status: "In Ausbau", summary: "Startseite fuer administrative Routinen, Links und Betriebswerkzeuge, damit Support- und Admin-Aufgaben schneller erreichbar sind." },
+      "docker-pcloud-sync-app": { progress: 68, focus: "Backup & Sync", status: "Aktive Entwicklung", summary: "Containerisierte pCloud-Synchronisation fuer reproduzierbare Sync- und Backup-Szenarien." },
+      "StevensSupportApp": { progress: 76, focus: "Support Tooling", status: "Arbeitsfaehig", summary: "Unterstuetzungs-App fuer wiederkehrende Service- und Supportablaeufe mit klarem Fokus auf einfache Bedienung." },
+      "SilentInstallHelper": { progress: 64, focus: "Deployment Automation", status: "Werkzeugphase", summary: "Hilfswerkzeug fuer stille Installationen und wiederholbare Setup-Prozesse." },
+      "PassTypePro": { progress: 58, focus: "Productivity Utility", status: "Konzept umgesetzt", summary: "Kleines Produktivitaetswerkzeug fuer kontrollierte Eingabe- und Passwortablaeufe." }
+    };
+
+    const FALLBACK_RELEASES = {
+      "AuthFlow": [
+        ["v0.1.0", "2026-05-09T06:16:20Z", "https://github.com/flathack/AuthFlow/releases/tag/v0.1.0"]
+      ],
+      "FL-Atlas-Launcher": [
+        ["v0.4.8", "2026-05-05T11:22:20Z", "https://github.com/flathack/FL-Atlas-Launcher/releases/tag/v0.4.8"],
+        ["v0.4.7", "2026-05-05T10:27:54Z", "https://github.com/flathack/FL-Atlas-Launcher/releases/tag/v0.4.7"],
+        ["v0.4.6", "2026-04-12T18:35:26Z", "https://github.com/flathack/FL-Atlas-Launcher/releases/tag/v0.4.6"],
+        ["v0.4.5", "2026-04-11T05:54:57Z", "https://github.com/flathack/FL-Atlas-Launcher/releases/tag/v0.4.5"],
+        ["v0.4.4", "2026-04-10T22:22:48Z", "https://github.com/flathack/FL-Atlas-Launcher/releases/tag/v0.4.4"],
+        ["v0.4.3", "2026-04-10T15:53:53Z", "https://github.com/flathack/FL-Atlas-Launcher/releases/tag/v0.4.3"],
+        ["v0.4.0", "2026-04-07T15:17:30Z", "https://github.com/flathack/FL-Atlas-Launcher/releases/tag/v0.4.0"],
+        ["v0.3.2", "2026-04-05T06:53:31Z", "https://github.com/flathack/FL-Atlas-Launcher/releases/tag/v0.3.2"],
+        ["v0.3.0", "2026-03-31T21:41:18Z", "https://github.com/flathack/FL-Atlas-Launcher/releases/tag/v0.3.0"],
+        ["v0.2.2", "2026-03-28T22:37:51Z", "https://github.com/flathack/FL-Atlas-Launcher/releases/tag/v0.2.2"],
+        ["v0.2.1", "2026-03-22T19:01:48Z", "https://github.com/flathack/FL-Atlas-Launcher/releases/tag/v0.2.1"],
+        ["v0.2.0", "2026-03-22T16:02:41Z", "https://github.com/flathack/FL-Atlas-Launcher/releases/tag/v0.2.0"]
+      ],
+      "FL-Lingo": [
+        ["v0.2.2", "2026-03-29T15:50:16Z", "https://github.com/flathack/FL-Lingo/releases/tag/v0.2.2"],
+        ["v0.2.1", "2026-03-21T19:11:27Z", "https://github.com/flathack/FL-Lingo/releases/tag/v0.2.1"],
+        ["v0.2.0", "2026-03-17T23:25:23Z", "https://github.com/flathack/FL-Lingo/releases/tag/v0.2.0"],
+        ["v0.1.3", "2026-03-17T09:17:31Z", "https://github.com/flathack/FL-Lingo/releases/tag/v0.1.3"],
+        ["v0.1.2", "2026-03-16T12:41:20Z", "https://github.com/flathack/FL-Lingo/releases/tag/v0.1.2"],
+        ["v0.1.1", "2026-03-16T07:00:51Z", "https://github.com/flathack/FL-Lingo/releases/tag/v0.1.1"],
+        ["v0.1.0", "2026-03-13T11:21:39Z", "https://github.com/flathack/FL-Lingo/releases/tag/v0.1.0"]
+      ],
+      "FLAtlas": [
+        ["v0.7.4", "2026-05-08T13:55:41Z", "https://github.com/flathack/FLAtlas/releases/tag/v0.7.4"],
+        ["v0.7.3", "2026-05-07T11:43:45Z", "https://github.com/flathack/FLAtlas/releases/tag/v0.7.3"],
+        ["v0.7.2", "2026-05-05T06:58:37Z", "https://github.com/flathack/FLAtlas/releases/tag/v0.7.2"],
+        ["v0.7.1", "2026-05-04T08:54:08Z", "https://github.com/flathack/FLAtlas/releases/tag/v0.7.1"],
+        ["v0.7.0", "2026-04-18T18:29:54Z", "https://github.com/flathack/FLAtlas/releases/tag/v0.7.0"],
+        ["v0.6.9", "2026-04-06T14:27:39Z", "https://github.com/flathack/FLAtlas/releases/tag/v0.6.9"],
+        ["v0.6.8", "2026-04-01T14:16:00Z", "https://github.com/flathack/FLAtlas/releases/tag/v0.6.8"],
+        ["v0.6.7", "2026-03-31T09:36:41Z", "https://github.com/flathack/FLAtlas/releases/tag/v0.6.7"],
+        ["v0.6.6", "2026-03-31T06:33:58Z", "https://github.com/flathack/FLAtlas/releases/tag/v0.6.6"],
+        ["v0.6.5", "2026-03-25T10:05:31Z", "https://github.com/flathack/FLAtlas/releases/tag/v0.6.5"],
+        ["v0.6.4", "2026-03-22T22:37:03Z", "https://github.com/flathack/FLAtlas/releases/tag/v0.6.4"],
+        ["v0.6.3", "2026-03-12T12:26:50Z", "https://github.com/flathack/FLAtlas/releases/tag/v0.6.3"],
+        ["v0.6.2.4", "2026-03-05T22:06:55Z", "https://github.com/flathack/FLAtlas/releases/tag/v0.6.2.4"],
+        ["v0.6.2.3", "2026-03-05T12:12:50Z", "https://github.com/flathack/FLAtlas/releases/tag/v0.6.2.3"],
+        ["v0.6.2.2", "2026-03-04T12:32:38Z", "https://github.com/flathack/FLAtlas/releases/tag/v0.6.2.2"],
+        ["v0.6.2.1", "2026-03-04T06:44:30Z", "https://github.com/flathack/FLAtlas/releases/tag/v0.6.2.1"],
+        ["v0.6.2", "2026-03-03T14:27:13Z", "https://github.com/flathack/FLAtlas/releases/tag/v0.6.2"]
+      ],
+      "FLAtlas---Save-Game-Editor": [
+        ["v0.6.2", "2026-05-07T09:41:31Z", "https://github.com/flathack/FLAtlas---Save-Game-Editor/releases/tag/v0.6.2"],
+        ["v0.6.1", "2026-05-06T06:46:16Z", "https://github.com/flathack/FLAtlas---Save-Game-Editor/releases/tag/v0.6.1"],
+        ["v0.6.0", "2026-05-05T21:13:21Z", "https://github.com/flathack/FLAtlas---Save-Game-Editor/releases/tag/v0.6.0"],
+        ["v0.5.1", "2026-03-30T06:21:54Z", "https://github.com/flathack/FLAtlas---Save-Game-Editor/releases/tag/v0.5.1"],
+        ["v0.5.0", "2026-03-29T20:47:38Z", "https://github.com/flathack/FLAtlas---Save-Game-Editor/releases/tag/v0.5.0"],
+        ["v0.2.0", "2026-03-16T19:38:38Z", "https://github.com/flathack/FLAtlas---Save-Game-Editor/releases/tag/v0.2.0"],
+        ["v0.1.5", "2026-03-12T19:34:02Z", "https://github.com/flathack/FLAtlas---Save-Game-Editor/releases/tag/v0.1.5"],
+        ["v0.1.4", "2026-03-09T11:30:00Z", "https://github.com/flathack/FLAtlas---Save-Game-Editor/releases/tag/v0.1.4"],
+        ["v0.1.3", "2026-03-08T07:00:12Z", "https://github.com/flathack/FLAtlas---Save-Game-Editor/releases/tag/v0.1.3"],
+        ["v0.1.2", "2026-03-07T07:16:23Z", "https://github.com/flathack/FLAtlas---Save-Game-Editor/releases/tag/v0.1.2"],
+        ["v0.1.1", "2026-03-06T18:46:01Z", "https://github.com/flathack/FLAtlas---Save-Game-Editor/releases/tag/v0.1.1"],
+        ["v0.1.0", "2026-03-06T13:43:06Z", "https://github.com/flathack/FLAtlas---Save-Game-Editor/releases/tag/v0.1.0"]
+      ],
+      "PassTypePro": [
+        ["v0.2.3", "2026-03-21T21:26:43Z", "https://github.com/flathack/PassTypePro/releases/tag/v0.2.3"],
+        ["v0.2.2", "2026-03-21T20:57:37Z", "https://github.com/flathack/PassTypePro/releases/tag/v0.2.2"],
+        ["v0.2.0", "2026-03-21T08:50:57Z", "https://github.com/flathack/PassTypePro/releases/tag/v0.2.0"],
+        ["v0.1.0", "2026-03-20T23:13:13Z", "https://github.com/flathack/PassTypePro/releases/tag/v0.1.0"]
+      ],
+      "SilentInstallHelper": [
+        ["v0.1.0", "2026-03-21T16:15:53Z", "https://github.com/flathack/SilentInstallHelper/releases/tag/v0.1.0"]
+      ]
+    };
+
+    let currentRepos = FALLBACK_REPOS.slice();
+    let currentActivity = [];
+
+    function escapeHtml(value) {
+      return String(value || "").replace(/[&<>"']/g, function (char) {
+        return ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;" })[char];
+      });
+    }
+
+    function formatDate(value) {
+      if (!value) return "kein Datum";
+      try {
+        return new Intl.DateTimeFormat("de-DE", { year: "numeric", month: "short", day: "2-digit" }).format(new Date(value));
+      } catch (e) {
+        return value.slice(0, 10);
+      }
+    }
+
+    function inferProgress(repo) {
+      if (PROJECT_DETAILS[repo.name]) return PROJECT_DETAILS[repo.name].progress;
+      if (repo.archived) return 100;
+      if (repo.open_issues_count >= 10) return 62;
+      if (repo.open_issues_count > 0) return 78;
+      if (repo.pushed_at && Date.now() - new Date(repo.pushed_at).getTime() < 1000 * 60 * 60 * 24 * 60) return 86;
+      return 72;
+    }
+
+    function repoDescription(repo) {
+      if (PROJECT_DETAILS[repo.name]) return PROJECT_DETAILS[repo.name].summary;
+      return repo.description || "Repository ohne Beschreibung. Details und Quellcode sind direkt auf GitHub verfuegbar.";
+    }
+
+    function activityWindow() {
+      const end = new Date();
+      const start = new Date(end);
+      start.setDate(start.getDate() - 90);
+      return { start, end, days: 90 };
+    }
+
+    function shortDate(value) {
+      if (!value) return "";
+      try {
+        return new Intl.DateTimeFormat("de-DE", { day: "2-digit", month: "short" }).format(new Date(value));
+      } catch (e) {
+        return String(value).slice(5, 10);
+      }
+    }
+
+    function repoApiBase(repo) {
+      return "https://api.github.com/repos/flathack/" + encodeURIComponent(repo.name);
+    }
+
+    async function fetchJson(url) {
+      const response = await fetch(url, { headers: { "Accept": "application/vnd.github+json" } });
+      if (!response.ok) return [];
+      const data = await response.json();
+      return Array.isArray(data) ? data : [];
+    }
+
+    async function fetchRepoActivity(repo, sinceIso) {
+      const [commits, releases] = await Promise.all([
+        fetchJson(repoApiBase(repo) + "/commits?since=" + encodeURIComponent(sinceIso) + "&per_page=100"),
+        fetchJson(repoApiBase(repo) + "/releases?per_page=100")
+      ]);
+      const sinceDate = new Date(sinceIso);
+      return {
+        repo,
+        commits: commits.filter(item => item && item.commit && item.commit.author && new Date(item.commit.author.date) >= sinceDate),
+        releases: releases.filter(item => item && item.published_at && new Date(item.published_at) >= sinceDate)
+      };
+    }
+
+    function buildActivityFallback(repos) {
+      const windowData = activityWindow();
+      return repos.map(repo => {
+        const pushed = repo.pushed_at || repo.updated_at;
+        const inWindow = pushed && new Date(pushed) >= windowData.start;
+        return {
+          repo,
+          commits: inWindow ? [{
+            html_url: repo.html_url,
+            commit: {
+              message: "Letzter bekannter Push im Zeitraum",
+              author: { date: pushed }
+            }
+          }] : [],
+          releases: (FALLBACK_RELEASES[repo.name] || []).map(item => ({
+            tag_name: item[0],
+            name: item[0],
+            published_at: item[1],
+            html_url: item[2]
+          }))
+        };
+      });
+    }
+
+    function createBuckets(activity) {
+      const windowData = activityWindow();
+      const weeks = Array.from({ length: 13 }, (_, index) => {
+        const start = new Date(windowData.start);
+        start.setDate(start.getDate() + index * 7);
+        const end = new Date(start);
+        end.setDate(end.getDate() + 6);
+        return { start, end, commits: 0, releases: 0 };
+      });
+
+      function add(dateValue, key) {
+        const date = new Date(dateValue);
+        const index = Math.max(0, Math.min(12, Math.floor((date - windowData.start) / (1000 * 60 * 60 * 24 * 7))));
+        weeks[index][key] += 1;
+      }
+
+      activity.forEach(item => {
+        item.commits.forEach(commit => add(commit.commit.author.date, "commits"));
+        item.releases.forEach(release => add(release.published_at, "releases"));
+      });
+
+      return weeks;
+    }
+
+    function renderActivity(activity, sourceLabel) {
+      const totalCommits = activity.reduce((sum, item) => sum + item.commits.length, 0);
+      const totalReleases = activity.reduce((sum, item) => sum + item.releases.length, 0);
+      const activeRepos = activity.filter(item => item.commits.length || item.releases.length).length;
+      const buckets = createBuckets(activity);
+      const maxBucket = Math.max(1, ...buckets.map(bucket => bucket.commits + (bucket.releases * 3)));
+
+      document.querySelector("[data-total-commits]").textContent = totalCommits;
+      document.querySelector("[data-total-releases]").textContent = totalReleases;
+      document.querySelector("[data-active-activity-repos]").textContent = activeRepos;
+      document.querySelector("[data-activity-window]").textContent = activityWindow().days;
+      document.querySelector("[data-activity-status]").textContent = sourceLabel;
+
+      document.querySelector("[data-activity-chart]").innerHTML = buckets.map(bucket => {
+        const commitHeight = Math.max(2, Math.round((bucket.commits / maxBucket) * 132));
+        const releaseHeight = bucket.releases ? Math.max(5, Math.round(((bucket.releases * 3) / maxBucket) * 132)) : 0;
+        return `
+          <div class="activity-week" title="${bucket.commits} Commits, ${bucket.releases} Releases">
+            <div class="activity-stack">
+              ${bucket.releases ? `<span class="activity-bar releases" style="height:${releaseHeight}px"></span>` : ""}
+              ${bucket.commits ? `<span class="activity-bar commits" style="height:${commitHeight}px"></span>` : ""}
+            </div>
+            <div class="activity-week-label">${shortDate(bucket.start)}</div>
+          </div>
+        `;
+      }).join("");
+
+    }
+
+    function loadActivity(repos) {
+      const windowData = activityWindow();
+      document.querySelector("[data-activity-status]").textContent = "GitHub Aktivitaet wird geladen";
+      Promise.allSettled(repos.map(repo => fetchRepoActivity(repo, windowData.start.toISOString())))
+        .then(results => {
+          const activity = results
+            .filter(result => result.status === "fulfilled")
+            .map(result => result.value);
+          const hasActivity = activity.some(item => item.commits.length || item.releases.length);
+          if (!activity.length || !hasActivity) {
+            currentActivity = buildActivityFallback(repos);
+            renderActivity(currentActivity, "Fallback aus Pushdaten");
+            renderRepos(currentRepos);
+            return;
+          }
+          currentActivity = activity;
+          renderActivity(currentActivity, "Live: letzte 3 Monate");
+          renderRepos(currentRepos);
+        })
+        .catch(() => {
+          currentActivity = buildActivityFallback(repos);
+          renderActivity(currentActivity, "Fallback aus Pushdaten");
+          renderRepos(currentRepos);
+        });
+    }
+
+    function renderMetrics(repos) {
+      const languages = new Set(repos.map(repo => repo.language).filter(Boolean));
+      const openIssues = repos.reduce((sum, repo) => sum + (repo.open_issues_count || 0), 0);
+      const metrics = [
+        ["[data-total-repos]", repos.length],
+        ["[data-active-repos]", repos.filter(repo => !repo.archived).length],
+        ["[data-language-count]", languages.size],
+        ["[data-open-issues]", openIssues]
+      ];
+      metrics.forEach(([selector, value]) => {
+        const node = document.querySelector(selector);
+        if (node) node.textContent = value;
+      });
+    }
+
+    function renderLanguageFilter(repos) {
+      const select = document.querySelector("[data-language-filter]");
+      const current = select.value;
+      const languages = Array.from(new Set(repos.map(repo => repo.language).filter(Boolean))).sort();
+      select.innerHTML = '<option value="">Alle Sprachen</option>' + languages.map(lang => `<option value="${escapeHtml(lang)}">${escapeHtml(lang)}</option>`).join("");
+      select.value = languages.includes(current) ? current : "";
+    }
+
+    function renderRepos(repos) {
+      const grid = document.querySelector("[data-repo-grid]");
+      const activityByName = new Map(currentActivity.map(item => [item.repo.name, item]));
+      grid.innerHTML = repos
+        .slice()
+        .sort((a, b) => new Date(b.pushed_at || b.updated_at || 0) - new Date(a.pushed_at || a.updated_at || 0))
+        .map(repo => {
+          const progress = inferProgress(repo);
+          const detail = PROJECT_DETAILS[repo.name] || {};
+          const activity = activityByName.get(repo.name) || { commits: [], releases: [] };
+          const latestCommit = activity.commits[0];
+          const latestReleases = activity.releases.slice(0, 2);
+          return `
+            <article class="repo-card${repo.archived ? " archived" : ""}${repo.fork ? " fork" : ""}" data-repo-card data-name="${escapeHtml(repo.name.toLowerCase())}" data-language="${escapeHtml(repo.language || "")}">
+              <div class="card-topline">
+                <span class="tag">${escapeHtml(detail.focus || repo.language || "Software")}</span>
+                <span class="tag neutral">${escapeHtml(detail.status || (repo.fork ? "Fork" : repo.archived ? "Archiv" : "Public"))}</span>
+              </div>
+              <h3>${escapeHtml(repo.name)}</h3>
+              <p>${escapeHtml(repoDescription(repo))}</p>
+              <div class="repo-meta">
+                <span>${escapeHtml(repo.language || "n/a")}</span>
+                <span>${repo.fork ? "Fork" : "Original"}</span>
+                <span>${repo.open_issues_count || 0} offene Issues</span>
+                <span>${activity.commits.length} Commits / 3 Monate</span>
+                <span>${activity.releases.length} Releases / 3 Monate</span>
+              </div>
+              <div class="progress-block">
+                <div class="progress-head"><span>Entwicklungsstand</span><span>${progress}%</span></div>
+                <div class="progress-bar"><span style="width:${progress}%"></span></div>
+              </div>
+              <div class="updated">Letzter Push: ${formatDate(repo.pushed_at || repo.updated_at)}</div>
+              <div class="updated">${latestCommit ? "Letzter Commit: " + formatDate(latestCommit.commit.author.date) + " - " + escapeHtml(latestCommit.commit.message.split("\\n")[0]) : "Keine Commit-Aktivitaet im ausgewerteten Zeitraum."}</div>
+              ${latestReleases.length ? `
+                <div class="release-list">
+                  ${latestReleases.map(release => `<a href="${release.html_url}" target="_blank" rel="noopener">${escapeHtml(release.tag_name || release.name || "Release")} - ${formatDate(release.published_at)}</a>`).join("")}
+                </div>
+              ` : ""}
+              <div class="card-links">
+                <a href="${repo.html_url}" target="_blank" rel="noopener">GitHub</a>
+                ${repo.homepage ? `<a href="${repo.homepage}" target="_blank" rel="noopener">Website</a>` : ""}
+              </div>
+            </article>
+          `;
+        }).join("");
+      applyFilters();
+    }
+
+    function applyFilters() {
+      const query = document.querySelector("[data-repo-search]").value.trim().toLowerCase();
+      const language = document.querySelector("[data-language-filter]").value;
+      document.querySelectorAll("[data-repo-card]").forEach(card => {
+        const matchesQuery = !query || card.dataset.name.includes(query);
+        const matchesLanguage = !language || card.dataset.language === language;
+        card.classList.toggle("hidden", !(matchesQuery && matchesLanguage));
+      });
+    }
+
+    function renderAll(repos) {
+      currentRepos = repos;
+      renderMetrics(repos);
+      renderLanguageFilter(repos);
+      renderRepos(repos);
+    }
+
+    document.querySelector("[data-repo-search]").addEventListener("input", applyFilters);
+    document.querySelector("[data-language-filter]").addEventListener("change", applyFilters);
+    currentActivity = buildActivityFallback(FALLBACK_REPOS);
+    renderAll(FALLBACK_REPOS);
+    renderActivity(currentActivity, "Fallback aus Pushdaten");
+
+    fetch("../data/business-github.json")
+      .then(response => response.ok ? response.json() : Promise.reject(response))
+      .then(data => {
+        if (!data || !Array.isArray(data.repos)) return;
+        currentActivity = Array.isArray(data.activity) ? data.activity : buildActivityFallback(data.repos);
+        renderAll(data.repos);
+        renderActivity(currentActivity, data.generated_at ? "JSON aktualisiert: " + formatDate(data.generated_at) : "Lokale JSON-Daten");
+        document.querySelector("[data-repo-status]").textContent = "Aus lokaler JSON geladen";
+      })
+      .catch(() => {
+        currentActivity = buildActivityFallback(FALLBACK_REPOS);
+        renderActivity(currentActivity, "Fallback aus eingebetteten Daten");
+        renderRepos(currentRepos);
+        document.querySelector("[data-repo-status]").textContent = "Fallback-Daten aktiv";
+      });
+  </script>
+  <script src="../assets/js/nav.js"></script>
+</body>
+</html>
