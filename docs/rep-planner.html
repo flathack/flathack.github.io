@@ -23,6 +23,10 @@
     .rp-intro h1 { margin-bottom: 8px; font-size: clamp(1.4rem,3vw,2rem); }
     .rp-intro p { max-width: 68ch; color: var(--muted); font-size: 1.02rem; }
 
+    body > .site-shell {
+      --content-width: 1480px;
+    }
+
     .rp-planner-card,
     .rp-manual-card {
       margin-bottom: 18px;
@@ -45,7 +49,7 @@
     }
 
     .rp-table-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(680px, 1fr));
       margin-bottom: 18px;
     }
 
@@ -151,9 +155,12 @@
     .rp-table-wrap {
       border-radius: 14px;
       border: 1px solid var(--panel-border);
+      overflow-x: auto;
+      overflow-y: visible;
     }
     .rp-table {
       width: 100%;
+      min-width: 640px;
       border-collapse: collapse;
       font-size: .88rem;
     }
@@ -236,7 +243,7 @@
 
     /* ── Rep slider ──────────────────────────────────── */
     .rp-rep-slider {
-      width: 120px;
+      width: 150px;
       accent-color: var(--accent);
     }
     .rp-rep-slider:disabled {
@@ -266,11 +273,13 @@
     /* ── Rep badge ───────────────────────────────────── */
     .rp-rep-badge {
       display: inline-block;
+      min-width: 78px;
       padding: 2px 8px;
       border-radius: 999px;
       font-size: .78rem;
       font-weight: 600;
       font-family: "IBM Plex Mono", monospace;
+      text-align: center;
     }
     .rep-allied    { background: rgba(52,211,153,.15); color: #34d399; }
     .rep-friendly  { background: rgba(52,211,153,.10); color: #6ee7b7; }
@@ -737,6 +746,12 @@
     .rp-export-btn:hover { color: var(--text); background: rgba(88,196,255,.08); }
 
     /* ── Responsive ────────────────────────────────────── */
+    @media (max-width: 1440px) {
+      .rp-table-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     @media (max-width: 768px) {
       .rp-config-grid,
       .rp-table-grid {
