@@ -497,10 +497,10 @@ body.gaming-theme .domain-tab.active {
 }
 
 .battle-arena-panel {
-  width: min(1120px, 100%);
-  max-height: min(860px, calc(100vh - 40px));
+  width: min(1480px, 100%);
+  max-height: min(980px, calc(100vh - 28px));
   display: grid;
-  grid-template-rows: auto auto minmax(360px, 1fr);
+  grid-template-rows: auto auto minmax(560px, 1fr);
   overflow: hidden;
   border: 1px solid rgba(132, 177, 255, 0.22);
   border-radius: 18px;
@@ -545,10 +545,30 @@ body.gaming-theme .domain-tab.active {
 
 .battle-arena-controls {
   display: grid;
-  grid-template-columns: minmax(150px, 1fr) minmax(150px, 1fr) minmax(150px, 0.8fr) minmax(150px, 0.8fr) auto auto;
+  grid-template-columns: repeat(4, minmax(140px, 1fr)) auto auto;
   gap: 10px;
   align-items: end;
   padding: 0 20px 16px;
+}
+
+.battle-arena-faction {
+  min-height: 54px;
+  padding: 10px 12px;
+  border: 1px solid rgba(132, 177, 255, 0.18);
+  border-radius: 12px;
+  background: rgba(8, 20, 34, 0.66);
+  color: var(--text);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.battle-arena-faction span {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.7rem;
+  font-weight: 500;
 }
 
 .battle-arena-controls label {
@@ -596,15 +616,15 @@ body.gaming-theme .domain-tab.active {
 
 .battle-arena-stage {
   position: relative;
-  min-height: 360px;
+  min-height: 560px;
   border-top: 1px solid rgba(132, 177, 255, 0.14);
 }
 
 .battle-arena-stage canvas {
   display: block;
   width: 100%;
-  height: min(58vh, 560px);
-  min-height: 360px;
+  height: min(72vh, 760px);
+  min-height: 560px;
   outline: none;
 }
 
@@ -1451,7 +1471,7 @@ p {
 
   .battle-arena-panel {
     max-height: calc(100vh - 20px);
-    grid-template-rows: auto auto minmax(300px, 1fr);
+    grid-template-rows: auto auto minmax(380px, 1fr);
   }
 
   .battle-arena-controls {
@@ -1460,6 +1480,6 @@ p {
 
   .battle-arena-stage,
   .battle-arena-stage canvas {
-    min-height: 300px;
+    min-height: 380px;
   }
 }

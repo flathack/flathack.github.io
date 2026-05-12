@@ -533,9 +533,7 @@
     var labels = {
       en: {
         title: "Battle Arena",
-        subtitle: "Pick two fleets and let them settle it.",
-        fleetA: "Fleet A",
-        fleetB: "Fleet B",
+        subtitle: "Four factions, capital ships, everyone against everyone.",
         ships: "Ships",
         start: "Start fight",
         reset: "Reset",
@@ -555,25 +553,22 @@
       }
     };
     var text = labels[lang === "de" ? "de" : "en"];
+    if (lang === "de") text.subtitle = "Vier Fraktionen, Grosskampfschiffe, alle gegeneinander.";
     var factions = [
-      { id: "libertyPolice", name: "Liberty Police", side: "a", sprite: "li_elite", capital: "li_cruiser", color: "rgba(94, 203, 255, 0.96)" },
-      { id: "libertyRogues", name: "Liberty Rogues", side: "b", sprite: "ge_fighter", capital: "rh_fighter", color: "rgba(255, 88, 92, 0.96)" },
-      { id: "nomads", name: "Nomads", side: "b", sprite: "no_hd_fighter", capital: "no_hd_gunboat", boss: "no_hd_battleship", color: "rgba(100, 245, 255, 0.96)" },
-      { id: "rheinland", name: "Rheinland Navy", side: "a", sprite: "rh_elite", capital: "rh_cruiser", color: "rgba(255, 203, 89, 0.96)" },
-      { id: "order", name: "The Order", side: "a", sprite: "or_elite", capital: "or_osiris", color: "rgba(164, 119, 255, 0.96)" }
+      { id: "libertyNavy", name: "Liberty Navy", sprite: "li_elite", capital: "cf_li_cruiser", color: "rgba(94, 203, 255, 0.96)", corner: [0.18, 0.22] },
+      { id: "rheinlandNavy", name: "Rheinland Navy", sprite: "rh_elite", capital: "cf_rh_cruiser", color: "rgba(255, 203, 89, 0.96)", corner: [0.82, 0.22] },
+      { id: "bretoniaNavy", name: "Bretonia Armed Forces", sprite: "br_elite", capital: "cf_br_destroyer", color: "rgba(88, 255, 160, 0.96)", corner: [0.18, 0.78] },
+      { id: "kusariNavy", name: "Kusari Naval Forces", sprite: "ku_elite", capital: "cf_ku_destroyer", color: "rgba(210, 130, 255, 0.96)", corner: [0.82, 0.78] }
     ];
     var assetMap = {
-      ge_fighter: "ge_fighter.png",
-      li_cruiser: "li_cruiser.png",
+      br_elite: "br_elite.png",
+      cf_br_destroyer: "cf_br_destroyer.png",
+      cf_ku_destroyer: "cf_ku_destroyer.png",
+      cf_li_cruiser: "cf_li_cruiser.png",
+      cf_rh_cruiser: "cf_rh_cruiser.png",
+      ku_elite: "ku_elite.png",
       li_elite: "li_elite.png",
-      no_hd_battleship: "no_hd_battleship.png",
-      no_hd_fighter: "no_hd_fighter.png",
-      no_hd_gunboat: "no_hd_gunboat.png",
-      or_elite: "or_elite.png",
-      or_osiris: "or_osiris.png",
-      rh_cruiser: "rh_cruiser.png",
-      rh_elite: "rh_elite.png",
-      rh_fighter: "rh_fighter.png"
+      rh_elite: "rh_elite.png"
     };
     var images = {};
     Object.keys(assetMap).forEach(function (key) {
@@ -582,8 +577,10 @@
       images[key] = img;
     });
 
-    var options = factions.map(function (faction) {
-      return '<option value="' + faction.id + '">' + faction.name + '</option>';
+    var bgImage = new Image();
+    bgImage.src = prefix + "assets/img/home/space-nebula-wallpaper.webp";
+    var factionCards = factions.map(function (faction) {
+      return '<div class="battle-arena-faction" style="border-color:' + faction.color + ';"><strong>' + faction.name + '</strong><span>1 Battleship + Escorts</span></div>';
     }).join("");
     var overlay = document.createElement("div");
     overlay.className = "battle-arena-overlay open";
@@ -594,10 +591,7 @@
           '<button type="button" class="battle-arena-close" data-arena-close aria-label="' + text.close + '">x</button>' +
         '</div>' +
         '<div class="battle-arena-controls">' +
-          '<label><span>' + text.fleetA + '</span><select data-arena-faction-a>' + options + '</select></label>' +
-          '<label><span>' + text.fleetB + '</span><select data-arena-faction-b>' + options + '</select></label>' +
-          '<label><span>' + text.ships + ' A</span><input type="range" min="2" max="28" value="12" data-arena-count-a><output data-arena-count-a-out>12</output></label>' +
-          '<label><span>' + text.ships + ' B</span><input type="range" min="2" max="28" value="12" data-arena-count-b><output data-arena-count-b-out>12</output></label>' +
+          factionCards +
           '<button type="button" data-arena-start>' + text.start + '</button>' +
           '<button type="button" data-arena-reset>' + text.reset + '</button>' +
         '</div>' +
@@ -607,15 +601,7 @@
 
     var canvas = overlay.querySelector("canvas");
     var ctx = canvas.getContext("2d");
-    var panel = overlay.querySelector(".battle-arena-panel");
     var status = overlay.querySelector("[data-arena-status]");
-    var factionA = overlay.querySelector("[data-arena-faction-a]");
-    var factionB = overlay.querySelector("[data-arena-faction-b]");
-    var countA = overlay.querySelector("[data-arena-count-a]");
-    var countB = overlay.querySelector("[data-arena-count-b]");
-    var countAOut = overlay.querySelector("[data-arena-count-a-out]");
-    var countBOut = overlay.querySelector("[data-arena-count-b-out]");
-    factionB.value = "nomads";
     var width = 0;
     var height = 0;
     var dpr = 1;
@@ -624,6 +610,8 @@
     var shots = [];
     var sparks = [];
     var running = true;
+    var shipsPerFaction = 10;
+    var stars = [];
 
     function factionById(id) {
       return factions.find(function (faction) { return faction.id === id; }) || factions[0];
@@ -641,27 +629,43 @@
       canvas.width = Math.max(1, Math.floor(width * dpr));
       canvas.height = Math.max(1, Math.floor(height * dpr));
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      stars = Array.from({ length: 260 }, function (_, i) {
+        return {
+          x: ((i * 9301 + 49297) % 233280) / 233280 * width,
+          y: ((i * 7919 + 13257) % 259459) / 259459 * height,
+          r: 0.5 + ((i * 17) % 28) / 18,
+          a: 0.22 + ((i * 13) % 70) / 100
+        };
+      });
     }
-    function spawnFleet(sideName, faction, count) {
-      var sideX = sideName === "left" ? width * 0.2 : width * 0.8;
+    function spawnFleet(faction, count) {
+      var sideX = width * faction.corner[0];
+      var sideY = height * faction.corner[1];
       for (var i = 0; i < count; i++) {
-        var isCapital = i === 0 && count > 7;
-        var sprite = isCapital ? (faction.boss || faction.capital) : faction.sprite;
-        var hull = isCapital ? 520 : 115;
+        var isCapital = i === 0;
+        var sprite = isCapital ? faction.capital : faction.sprite;
+        var hull = isCapital ? 760 : 130;
+        var shield = isCapital ? 360 : 82;
+        var spawnAngle = Math.atan2(height * 0.5 - sideY, width * 0.5 - sideX);
         ships.push({
-          side: sideName,
           faction: faction,
           sprite: sprite,
-          x: sideX + rand(-60, 60),
-          y: height * (0.2 + 0.6 * ((i + 1) / (count + 1))) + rand(-18, 18),
-          vx: sideName === "left" ? rand(15, 42) : rand(-42, -15),
+          x: sideX + rand(-90, 90),
+          y: sideY + rand(-70, 70),
+          vx: Math.cos(spawnAngle) * rand(10, 34),
           vy: rand(-18, 18),
-          rotation: sideName === "left" ? 0 : Math.PI,
+          rotation: spawnAngle,
           hull: hull,
           maxHull: hull,
-          radius: isCapital ? 34 : 17,
-          size: isCapital ? 66 : 34,
+          shield: shield,
+          maxShield: shield,
+          shieldHit: 0,
+          shieldHitAngle: 0,
+          shieldRegenDelay: 0,
+          radius: isCapital ? 42 : 17,
+          size: isCapital ? 86 : 34,
           cooldown: rand(0.2, 1.2),
+          isCapital: isCapital,
           alive: true
         });
       }
@@ -671,15 +675,16 @@
       shots = [];
       sparks = [];
       status.textContent = "";
-      spawnFleet("left", factionById(factionA.value), parseInt(countA.value, 10));
-      spawnFleet("right", factionById(factionB.value), parseInt(countB.value, 10));
+      factions.forEach(function (faction) {
+        spawnFleet(faction, shipsPerFaction);
+      });
       running = true;
     }
     function nearestEnemy(ship) {
       var best = null;
       var bestDist = Infinity;
       ships.forEach(function (other) {
-        if (!other.alive || other.side === ship.side) return;
+        if (!other.alive || other.faction.id === ship.faction.id) return;
         var dx = other.x - ship.x;
         var dy = other.y - ship.y;
         var dist = dx * dx + dy * dy;
@@ -693,29 +698,33 @@
     function fire(ship, target) {
       var angle = Math.atan2(target.y - ship.y, target.x - ship.x);
       shots.push({
-        side: ship.side,
+        factionId: ship.faction.id,
         x: ship.x + Math.cos(angle) * 18,
         y: ship.y + Math.sin(angle) * 18,
         vx: Math.cos(angle) * 520,
         vy: Math.sin(angle) * 520,
         life: 1.05,
-        damage: ship.size > 50 ? 28 : 14,
+        damage: ship.isCapital ? 34 : 14,
         color: ship.faction.color
       });
     }
     function updateArena(dt) {
-      var aliveLeft = 0;
-      var aliveRight = 0;
+      var aliveByFaction = {};
       ships.forEach(function (ship) {
         if (!ship.alive) return;
-        if (ship.side === "left") aliveLeft++; else aliveRight++;
+        aliveByFaction[ship.faction.id] = (aliveByFaction[ship.faction.id] || 0) + 1;
+        ship.shieldHit = Math.max(0, ship.shieldHit - dt * 2.3);
+        ship.shieldRegenDelay = Math.max(0, ship.shieldRegenDelay - dt);
+        if (ship.shieldRegenDelay <= 0 && ship.shield < ship.maxShield) {
+          ship.shield = Math.min(ship.maxShield, ship.shield + ship.maxShield * 0.11 * dt);
+        }
         var target = nearestEnemy(ship);
         if (target) {
           var desired = Math.atan2(target.y - ship.y, target.x - ship.x);
           ship.rotation += normalize(desired - ship.rotation) * Math.min(1, dt * 2.8);
         }
-        ship.vx += Math.cos(ship.rotation) * dt * (ship.size > 50 ? 32 : 80);
-        ship.vy += Math.sin(ship.rotation) * dt * (ship.size > 50 ? 32 : 80);
+        ship.vx += Math.cos(ship.rotation) * dt * (ship.isCapital ? 24 : 80);
+        ship.vy += Math.sin(ship.rotation) * dt * (ship.isCapital ? 24 : 80);
         ship.vx *= 0.982;
         ship.vy *= 0.982;
         ship.x = Math.max(28, Math.min(width - 28, ship.x + ship.vx * dt));
@@ -724,9 +733,9 @@
         if (target && ship.cooldown <= 0) {
           var dist = Math.hypot(target.x - ship.x, target.y - ship.y);
           var aim = Math.abs(normalize(Math.atan2(target.y - ship.y, target.x - ship.x) - ship.rotation));
-          if (dist < 560 && aim < 0.55) {
+          if (dist < (ship.isCapital ? 700 : 560) && aim < (ship.isCapital ? 0.72 : 0.55)) {
             fire(ship, target);
-            ship.cooldown = ship.size > 50 ? rand(0.18, 0.42) : rand(0.38, 0.85);
+            ship.cooldown = ship.isCapital ? rand(0.16, 0.34) : rand(0.38, 0.85);
           }
         }
       });
@@ -737,40 +746,114 @@
         shot.life -= dt;
         var remove = shot.life <= 0;
         ships.forEach(function (ship) {
-          if (remove || !ship.alive || ship.side === shot.side) return;
+          if (remove || !ship.alive || ship.faction.id === shot.factionId) return;
           if (Math.hypot(ship.x - shot.x, ship.y - shot.y) < ship.radius + 4) {
-            ship.hull -= shot.damage;
-            sparks.push({ x: shot.x, y: shot.y, life: 0.45, color: shot.color });
+            var damage = shot.damage;
+            ship.shieldHit = 1;
+            ship.shieldHitAngle = Math.atan2(shot.y - ship.y, shot.x - ship.x);
+            ship.shieldRegenDelay = 1.7;
+            sparks.push({ x: shot.x, y: shot.y, vx: rand(-22, 22), vy: rand(-22, 22), life: 0.38, maxLife: 0.38, size: 3, color: ship.faction.color, type: "shield" });
+            if (ship.shield > 0) {
+              var absorbed = Math.min(ship.shield, damage);
+              ship.shield -= absorbed;
+              damage -= absorbed;
+            }
+            if (damage > 0) ship.hull -= damage;
             if (ship.hull <= 0) {
               ship.alive = false;
-              for (var k = 0; k < 10; k++) sparks.push({ x: ship.x + rand(-12, 12), y: ship.y + rand(-12, 12), life: rand(0.35, 0.8), color: "rgba(255, 190, 70, 0.92)" });
+              createArenaExplosion(ship);
             }
             remove = true;
           }
         });
         if (remove || shot.x < -40 || shot.x > width + 40 || shot.y < -40 || shot.y > height + 40) shots.splice(i, 1);
       }
-      if (running && (aliveLeft === 0 || aliveRight === 0)) {
+      var activeFactions = Object.keys(aliveByFaction);
+      if (running && activeFactions.length <= 1) {
         running = false;
-        var winner = aliveLeft > 0 ? factionById(factionA.value).name : factionById(factionB.value).name;
+        var winner = activeFactions.length ? factionById(activeFactions[0]).name : "No survivors";
         status.textContent = text.victory + ": " + winner;
       }
+    }
+
+    function createArenaExplosion(ship) {
+      var scale = ship.isCapital ? 2.2 : 1;
+      sparks.push({ x: ship.x, y: ship.y, vx: 0, vy: 0, life: 0.72, maxLife: 0.72, size: 30 * scale, color: "rgba(255, 220, 135, 0.96)", type: "blast" });
+      sparks.push({ x: ship.x, y: ship.y, vx: 0, vy: 0, life: 0.95, maxLife: 0.95, size: 52 * scale, color: "rgba(255, 120, 45, 0.72)", type: "ring" });
+      for (var k = 0; k < 20 * scale; k++) {
+        var angle = rand(0, Math.PI * 2);
+        var speed = rand(42, 180) * scale;
+        sparks.push({
+          x: ship.x + rand(-12, 12),
+          y: ship.y + rand(-12, 12),
+          vx: Math.cos(angle) * speed,
+          vy: Math.sin(angle) * speed,
+          life: rand(0.35, 1.15),
+          maxLife: 1.15,
+          size: rand(1.5, 4.8) * scale,
+          color: k % 5 === 0 ? ship.faction.color : "rgba(255, 185, 70, 0.94)",
+          type: "spark"
+        });
+      }
+    }
+
+    function drawArenaBackground(now) {
+      if (bgImage.complete && bgImage.naturalWidth) {
+        ctx.globalAlpha = 0.72;
+        ctx.drawImage(bgImage, 0, 0, width, height);
+        ctx.globalAlpha = 1;
+      } else {
+        var gradient = ctx.createRadialGradient(width * 0.5, height * 0.45, 0, width * 0.5, height * 0.5, width);
+        gradient.addColorStop(0, "#173052");
+        gradient.addColorStop(0.55, "#0b1730");
+        gradient.addColorStop(1, "#030814");
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, width, height);
+      }
+      ctx.fillStyle = "rgba(1, 5, 12, 0.52)";
+      ctx.fillRect(0, 0, width, height);
+      stars.forEach(function (star) {
+        var twinkle = 0.75 + Math.sin(now * 0.0015 + star.x) * 0.25;
+        ctx.globalAlpha = star.a * twinkle;
+        ctx.fillStyle = "#ffffff";
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
+        ctx.fill();
+      });
+      ctx.globalAlpha = 1;
+    }
+
+    function drawArenaShield(ship) {
+      if (ship.maxShield <= 0) return;
+      var ratio = Math.max(0, ship.shield / ship.maxShield);
+      var flash = ship.shieldHit * 0.55;
+      var alpha = ratio > 0 ? 0.05 + ratio * 0.05 : 0;
+      if (alpha <= 0 && flash <= 0) return;
+      var radius = ship.radius + (ship.isCapital ? 18 : 8);
+      ctx.save();
+      ctx.translate(ship.x, ship.y);
+      ctx.strokeStyle = ship.faction.color.replace("0.96", String(alpha + flash * 0.35));
+      ctx.fillStyle = ship.faction.color.replace("0.96", String(alpha * 0.45 + flash * 0.12));
+      ctx.lineWidth = ship.isCapital ? 2.4 : 1.4;
+      ctx.beginPath();
+      ctx.ellipse(0, 0, radius * 1.15, radius * 0.92, ship.rotation, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.stroke();
+      if (ship.shieldHit > 0) {
+        ctx.strokeStyle = ship.faction.color;
+        ctx.lineWidth = ship.isCapital ? 4 : 2.6;
+        ctx.beginPath();
+        ctx.arc(0, 0, radius * 1.08, ship.shieldHitAngle - 0.75, ship.shieldHitAngle + 0.75);
+        ctx.stroke();
+      }
+      ctx.restore();
     }
     function drawArena(now) {
       if (!document.body.contains(overlay)) return;
       var dt = Math.min(0.033, (now - last) / 1000);
       last = now;
       ctx.clearRect(0, 0, width, height);
-      ctx.fillStyle = "rgba(2, 7, 14, 0.72)";
-      ctx.fillRect(0, 0, width, height);
-      ctx.strokeStyle = "rgba(120, 210, 255, 0.12)";
-      ctx.lineWidth = 1;
-      for (var gx = 0; gx < width; gx += 54) {
-        ctx.beginPath(); ctx.moveTo(gx, 0); ctx.lineTo(gx, height); ctx.stroke();
-      }
-      for (var gy = 0; gy < height; gy += 54) {
-        ctx.beginPath(); ctx.moveTo(0, gy); ctx.lineTo(width, gy); ctx.stroke();
-      }
+      drawArenaBackground(now);
       if (running) updateArena(dt);
       shots.forEach(function (shot) {
         ctx.strokeStyle = shot.color;
@@ -783,17 +866,41 @@
       for (var i = sparks.length - 1; i >= 0; i--) {
         var spark = sparks[i];
         spark.life -= dt;
-        ctx.globalAlpha = Math.max(0, spark.life);
-        ctx.fillStyle = spark.color;
-        ctx.beginPath();
-        ctx.arc(spark.x, spark.y, 2 + (1 - spark.life) * 6, 0, Math.PI * 2);
-        ctx.fill();
+        spark.x += (spark.vx || 0) * dt;
+        spark.y += (spark.vy || 0) * dt;
+        if (spark.type === "ring") {
+          var ringProgress = 1 - spark.life / spark.maxLife;
+          ctx.globalAlpha = Math.max(0, spark.life / spark.maxLife) * 0.78;
+          ctx.strokeStyle = spark.color;
+          ctx.lineWidth = 2.5;
+          ctx.beginPath();
+          ctx.arc(spark.x, spark.y, 10 + ringProgress * spark.size, 0, Math.PI * 2);
+          ctx.stroke();
+        } else if (spark.type === "blast") {
+          var blastProgress = 1 - spark.life / spark.maxLife;
+          var boom = ctx.createRadialGradient(spark.x, spark.y, 0, spark.x, spark.y, 8 + blastProgress * spark.size);
+          boom.addColorStop(0, "rgba(255, 255, 230, 0.95)");
+          boom.addColorStop(0.35, spark.color);
+          boom.addColorStop(1, "rgba(255, 80, 20, 0)");
+          ctx.globalAlpha = Math.max(0, spark.life / spark.maxLife);
+          ctx.fillStyle = boom;
+          ctx.beginPath();
+          ctx.arc(spark.x, spark.y, 8 + blastProgress * spark.size, 0, Math.PI * 2);
+          ctx.fill();
+        } else {
+          ctx.globalAlpha = Math.max(0, spark.life / (spark.maxLife || 1));
+          ctx.fillStyle = spark.color;
+          ctx.beginPath();
+          ctx.arc(spark.x, spark.y, spark.size || (2 + (1 - spark.life) * 6), 0, Math.PI * 2);
+          ctx.fill();
+        }
         if (spark.life <= 0) sparks.splice(i, 1);
       }
       ctx.globalAlpha = 1;
       ships.forEach(function (ship) {
         if (!ship.alive) return;
         var img = images[ship.sprite];
+        drawArenaShield(ship);
         ctx.save();
         ctx.translate(ship.x, ship.y);
         ctx.rotate(ship.rotation + Math.PI / 2);
@@ -812,12 +919,6 @@
       requestAnimationFrame(drawArena);
     }
 
-    function syncOutputs() {
-      countAOut.textContent = countA.value;
-      countBOut.textContent = countB.value;
-    }
-    countA.addEventListener("input", syncOutputs);
-    countB.addEventListener("input", syncOutputs);
     overlay.querySelector("[data-arena-start]").addEventListener("click", startArena);
     overlay.querySelector("[data-arena-reset]").addEventListener("click", startArena);
     overlay.querySelector("[data-arena-close]").addEventListener("click", function () {
@@ -828,7 +929,6 @@
     });
     window.addEventListener("resize", resizeArena);
     resizeArena();
-    syncOutputs();
     startArena();
     requestAnimationFrame(drawArena);
     canvas.focus();
