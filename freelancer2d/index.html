@@ -550,7 +550,7 @@ body[data-theme="crossfire"] .mod-btn.active {
             </div>
         </div>
         <div class="start-footer">
-            <span>Made by Aldenmar Odin - flathack - v0.6.6</span>
+            <span>Made by Aldenmar Odin - flathack - v0.6.7</span>
             <a class="start-home-link" href="https://flathack.github.io/" target="_blank" rel="noopener noreferrer">Startseite</a>
         </div>
     </div>
@@ -627,14 +627,14 @@ body[data-theme="crossfire"] .mod-btn.active {
         <div id="reputation-content"></div>
     </div>
 
-<script src="data/game_systems.js"></script>
-<script src="data/ships.js"></script>
-<script src="data/commodities.js"></script>
-<script src="data/equipment.js"></script>
-<script src="data/npc_loadouts.js"></script>
-<script src="data/bar_data.js"></script>
-<script src="data/reputation.js"></script>
-<script src="data/object_icons.js"></script>
+<script src="data/game_systems.js?v=2026-05-12-object-radius"></script>
+<script src="data/ships.js?v=2026-05-12-object-radius"></script>
+<script src="data/commodities.js?v=2026-05-12-object-radius"></script>
+<script src="data/equipment.js?v=2026-05-12-object-radius"></script>
+<script src="data/npc_loadouts.js?v=2026-05-12-object-radius"></script>
+<script src="data/bar_data.js?v=2026-05-12-object-radius"></script>
+<script src="data/reputation.js?v=2026-05-12-object-radius"></script>
+<script src="data/object_icons.js?v=2026-05-12-object-radius"></script>
 <script>
 // Freelancer ID Lookup Table (extracted from INI files)
 // Maps numeric IDs to human-readable names
@@ -935,6 +935,7 @@ const game = {
     tradeInfoCommodityId: '',
     activeMission: null,
     missionOffers: {},
+    radioCooldowns: {},
     populationSpawnTimer: 0,
     stationLaunchTimer: 0,
     ambientTradeSeededSystemId: '',
@@ -960,10 +961,13 @@ const ACTIVE_MOD_KEY = 'freelancer2d.activeMod.v1';
 const SAVE_VERSION = 1;
 const MAX_SAVE_SLOTS = 5;
 const GAME_TITLE = 'Freelancer 2D - a 2d adventure';
+const DATA_CACHE_VERSION = '2026-05-12-object-radius';
 const JUSTICE_FIRE_SOUND_PATH = 'assets/audio/justice-fire.wav';
 const UNIVERSE_BACKGROUND_IMAGE_PATH = 'assets/universe-nebula-background.png';
 const MUSIC_VOLUME = 0.315;
 const MUSIC_CROSSFADE_MS = 1400;
+const CRUISE_DISRUPT_LOCKOUT_MS = 4200;
+const CRUISE_DISRUPTOR_SOUND_PATH = 'assets/audio/cruise_disrupt.wav';
 const VOICE_SOUND_PATHS = {
     dock: { en: 'assets/audio/EN-dock.mp3', de: 'assets/audio/DE-dock.mp3' },
     freeflight: { en: 'assets/audio/EN-free-flight.mp3', de: 'assets/audio/DE-free-flight.mp3' },
@@ -1019,6 +1023,7 @@ const I18N = {
         repChanged: 'Ruf geändert', repHostile: 'FEINDLICH', repFriendly: 'FREUNDLICH', repNeutral: 'NEUTRAL', noReputationData: 'Keine Rufdaten geladen.',
         missionEliminate: 'Eliminiere feindliche Kontakte in {zone}.', missionWaypointLocked: 'Mission aktiv: Wegpunkt bleibt auf dem Missionsziel.', missionFreeWaypointsLocked: 'Mission aktiv: Freie Wegpunkte sind gesperrt.',
         saveStored: 'Spielstand gespeichert', saveStoreFailed: 'Spielstand konnte nicht gespeichert werden', cruiseDisabled: 'Reiseflug deaktiviert', cruiseCharging: 'Reiseflug lädt: {seconds} Sekunden', cruiseEnabled: 'Reiseflug aktiviert',
+        cruiseDisrupted: 'Reiseflug unterbrochen!', cruiseDisruptorLock: 'Reiseflugtriebwerk gestoert: {seconds}s',
         dockingDeniedHostile: 'Andocken verweigert: {faction} ist feindlich.', noShieldInstalled: 'Kein Schild installiert.', missionContactHostile: 'Mission contact: {count} feindliche Schiffe erfasst.',
         noBarNpcs: 'Keine NPCs in dieser Bar.', noDestroyMission: 'Keine destroy_vignette-Missionen in diesem System gefunden.', gameLoaded: 'Spielstand geladen: {system}, pilot!', welcomePilot: 'Willkommen in {system}, Pilot!',
         playerDead: 'Du bist tot!', restart: 'Neustart'
@@ -1044,6 +1049,7 @@ const I18N = {
         repChanged: 'Reputation changed', repHostile: 'HOSTILE', repFriendly: 'FRIENDLY', repNeutral: 'NEUTRAL', noReputationData: 'No reputation data loaded.',
         missionEliminate: 'Eliminate hostile contacts in {zone}.', missionWaypointLocked: 'Mission active: waypoint remains on the mission target.', missionFreeWaypointsLocked: 'Mission active: free waypoints are locked.',
         saveStored: 'Game saved', saveStoreFailed: 'Could not save game', cruiseDisabled: 'Cruise disabled', cruiseCharging: 'Cruise charging: {seconds} seconds', cruiseEnabled: 'Cruise enabled',
+        cruiseDisrupted: 'Cruise disrupted!', cruiseDisruptorLock: 'Cruise engine disrupted: {seconds}s',
         dockingDeniedHostile: 'Docking denied: {faction} is hostile.', noShieldInstalled: 'No shield installed.', missionContactHostile: 'Mission contact: {count} hostile ships detected.',
         noBarNpcs: 'No NPCs in this bar.', noDestroyMission: 'No destroy_vignette missions found in this system.', gameLoaded: 'Savegame loaded: {system}, pilot!', welcomePilot: 'Welcome to {system}, pilot!',
         playerDead: 'You are dead!', restart: 'Restart'
@@ -1615,6 +1621,13 @@ function missileDamageForItem(item, ammoItem = null) {
     return Math.max(180, ammoPrice * 7);
 }
 
+function isCruiseDisruptorItem(item) {
+    const id = String(item?.id || item?.equipmentId || '').toLowerCase();
+    const ammoId = String(item?.projectileArchetype || '').toLowerCase();
+    const name = String(item?.name || '').toLowerCase();
+    return id.includes('cruise_disruptor') || ammoId.includes('cruise_disruptor') || name.includes('reiseflugunterbrecher') || name.includes('cruise disruptor');
+}
+
 function isMineDropper(item) {
     return String(item?.category || '').toLowerCase() === 'mine' && !item?.combinable && Boolean(item?.projectileArchetype);
 }
@@ -2033,6 +2046,14 @@ function weaponStatsFromEquipment(item, fallbackDifficulty = 1) {
     const energyDamage = Number(item?.energyDamage) || 0;
     const ammoItem = getEquipment(item?.projectileArchetype || '');
     const missile = isMissileLauncher(item);
+    const cruiseDisruptor = missile && (isCruiseDisruptorItem(item) || isCruiseDisruptorItem(ammoItem));
+    const ammoLifetime = Number(ammoItem?.projectileLifetime) || 0;
+    const ammoDetonation = Number(ammoItem?.detonationDist) || Number(ammoItem?.explosionRadius) || 0;
+    const ammoTurnRate = Number(ammoItem?.maxAngularVelocity) || 0;
+    const ammoMotorSpeed = Number(item?.muzzleVelocity || 0) + Math.max(0, Number(ammoItem?.motorAccel) || 0) * Math.max(0, Number(ammoItem?.motorLifetime) || 0);
+    const missileSpeed = cruiseDisruptor
+        ? Math.max(520, ammoMotorSpeed || speed * 2.5)
+        : Math.max(160, speed * 8);
     return {
         id: item?.id || '',
         name: item?.name || item?.id || 'Weapon',
@@ -2040,16 +2061,19 @@ function weaponStatsFromEquipment(item, fallbackDifficulty = 1) {
         energyCost: missile ? 0 : Math.max(0, Number(item?.powerUsage) || (5 + mark)),
         damage: missile ? missileDamageForItem(item, ammoItem) : (hullDamage || energyDamage || (7 + mark * 3 + (item?.category === 'turret' ? 3 : 0))),
         radius: missile ? Math.max(8, Math.min(18, 7 + mark * 1.6)) : Math.max(3, Math.min(10, 3 + Math.sqrt(Math.max(hullDamage, energyDamage, mark * 12)) * 0.08)),
-        speed: missile ? Math.max(160, speed * 8) : speed,
-        lifetime: missile ? Math.max(4, Number(item?.projectileLifetime) || 8) : (Number(item?.projectileLifetime) || (1.15 + Math.min(mark, 8) * 0.08)),
+        speed: missile ? missileSpeed : speed,
+        lifetime: missile ? Math.max(4, ammoLifetime || Number(item?.projectileLifetime) || 8) : (Number(item?.projectileLifetime) || (1.15 + Math.min(mark, 8) * 0.08)),
         color,
-        trailColor: weaponTrailColorForItem(item),
+        trailColor: cruiseDisruptor ? 'rgba(130,225,255,0.68)' : weaponTrailColorForItem(item),
         category: item?.category || 'weapon',
         ammoItemId: missile ? missileAmmoItemId(item) : '',
         requiresAmmo: missile ? Boolean(item?.requiresAmmo || missileAmmoItemId(item)) : false,
         homing: missile,
-        turnRate: missile ? (id.includes('torpedo') ? 1.35 : 2.8) : 0,
-        detonationRadius: missile ? (id.includes('torpedo') ? 18 : 11) : 0
+        turnRate: missile ? (ammoTurnRate || (id.includes('torpedo') ? 1.35 : 2.8)) : 0,
+        detonationRadius: missile ? Math.max(cruiseDisruptor ? 18 : 0, ammoDetonation || (id.includes('torpedo') ? 18 : 11)) : 0,
+        seekerRange: missile ? Math.max(900, Number(ammoItem?.seekerRange) || Number(ammoItem?.seekDist) || 1500) : 0,
+        cruiseDisruptor,
+        disruptDuration: cruiseDisruptor ? CRUISE_DISRUPT_LOCKOUT_MS : 0
     };
 }
 
@@ -2090,27 +2114,33 @@ function npcShipClassesText(entry) {
 }
 
 function chooseNpcShipForRole(role = 'civilian', difficulty = 1, factionId = '') {
-    if (role !== 'trader') return chooseNpcShipForMission(difficulty);
     const npcShips = npcShipsData();
     const loadouts = npcLoadoutsData();
     const ships = shipsData();
     if (!npcShips.length || !Object.keys(loadouts).length || !Object.keys(ships).length) return null;
     const targetLevel = 1 + difficulty * 3;
     const factionPrefix = String(factionId || '').split('_').slice(0, 2).join('_');
-    const transport = npcShips.filter(entry => {
+    const usable = npcShips.filter(entry => {
         const shipId = String(entry.ship || '').toLowerCase();
         const loadout = loadouts[String(entry.loadout || '').toLowerCase()];
         const ship = ships[shipId] || ships[String(loadout?.archetype || '').toLowerCase()];
         const classText = npcShipClassesText(entry);
-        return loadout && (ship || shipId.includes('ge_transport') || shipId.includes('ge_train') || classText.includes('class_transport'));
+        if (!loadout || (!ship && !shipId.includes('ge_transport') && !shipId.includes('ge_train'))) return false;
+        if (role === 'trader') return shipId.includes('transport') || shipId.includes('train') || shipId.includes('freighter') || shipId.includes('liner') || classText.includes('transport') || classText.includes('freighter') || classText.includes('lifter');
+        if (role === 'pirate') return classText.includes('fighter') || classText.includes('assault') || ship?.type === 'FIGHTER';
+        if (role === 'police') return classText.includes('fighter') || classText.includes('gunboat') || ship?.type === 'FIGHTER';
+        return classText.includes('fighter') || ship?.type === 'FIGHTER';
     });
-    const factionTransport = transport.filter(entry => factionPrefix && String(entry.id || '').toLowerCase().startsWith(factionPrefix));
-    const pool = factionTransport.length ? factionTransport : transport;
+    const exactFaction = usable.filter(entry => factionPrefix && String(entry.id || '').toLowerCase().startsWith(factionPrefix));
+    const lawfulWanted = role !== 'pirate';
+    const classFiltered = usable.filter(entry => npcShipClassesText(entry).includes(lawfulWanted ? 'lawful' : 'unlawful'));
+    const pool = exactFaction.length ? exactFaction : (classFiltered.length ? classFiltered : usable);
     if (!pool.length) return chooseNpcShipForMission(difficulty);
     const scored = pool.map(entry => {
         const shipText = String(entry.ship || '').toLowerCase();
-        const trainBias = shipText.includes('ge_train') ? -1.2 : 0;
-        return { entry, score: Math.abs((Number(entry.level) || 1) - targetLevel) + trainBias + Math.random() * 2 };
+        const trainBias = role === 'trader' && shipText.includes('ge_train') ? -1.2 : 0;
+        const factionBias = factionPrefix && String(entry.id || '').toLowerCase().startsWith(factionPrefix) ? -4 : 0;
+        return { entry, score: Math.abs((Number(entry.level) || 1) - targetLevel) + trainBias + factionBias + Math.random() * 2 };
     });
     scored.sort((a, b) => a.score - b.score);
     return scored[Math.floor(Math.random() * Math.min(6, scored.length))].entry;
@@ -2251,6 +2281,69 @@ function populationDifficulty(encounter = null) {
 
 function getPopulationZonesForSystem(system = systemData) {
     return (system?.populationZones || []).filter(zone => Number.isFinite(zone.x) && Number.isFinite(zone.z) && Number(zone.density || 0) > 0);
+}
+
+function playerViewWorldRect(margin = 0) {
+    if (!game.player) return { left: -Infinity, right: Infinity, top: -Infinity, bottom: Infinity };
+    const zoom = Math.max(0.05, Number(game.zoom) || 1);
+    const halfWidth = (Number(game.width) || window.innerWidth || 1600) / zoom / 2 + margin;
+    const halfHeight = (Number(game.height) || window.innerHeight || 900) / zoom / 2 + margin;
+    return {
+        left: game.player.x - halfWidth,
+        right: game.player.x + halfWidth,
+        top: game.player.z - halfHeight,
+        bottom: game.player.z + halfHeight
+    };
+}
+
+function isPointInsidePlayerView(x, z, margin = 900) {
+    if (!game.player) return false;
+    const rect = playerViewWorldRect(margin);
+    return x >= rect.left && x <= rect.right && z >= rect.top && z <= rect.bottom;
+}
+
+function pushPointOutsidePlayerView(point, margin = 1800) {
+    if (!game.player || !point) return point;
+    if (!isPointInsidePlayerView(point.x, point.z, margin * 0.25)) return point;
+    const dx = point.x - game.player.x;
+    const dz = point.z - game.player.z;
+    const angle = Math.abs(dx) + Math.abs(dz) > 1 ? Math.atan2(dz, dx) : Math.random() * Math.PI * 2;
+    const rect = playerViewWorldRect(0);
+    const halfWidth = Math.max(1, rect.right - game.player.x);
+    const halfHeight = Math.max(1, rect.bottom - game.player.z);
+    const distanceToEdge = Math.min(
+        Math.abs(Math.cos(angle)) > 0.001 ? halfWidth / Math.abs(Math.cos(angle)) : Infinity,
+        Math.abs(Math.sin(angle)) > 0.001 ? halfHeight / Math.abs(Math.sin(angle)) : Infinity
+    );
+    const distance = Math.max(distanceToEdge + margin, Math.hypot(dx, dz));
+    return {
+        x: game.player.x + Math.cos(angle) * distance,
+        z: game.player.z + Math.sin(angle) * distance
+    };
+}
+
+function randomOffscreenPointInZone(zone) {
+    for (let attempt = 0; attempt < 28; attempt++) {
+        const angle = Math.random() * Math.PI * 2;
+        const distance = 5200 + Math.random() * 11000;
+        const point = {
+            x: game.player.x + Math.cos(angle) * distance,
+            z: game.player.z + Math.sin(angle) * distance
+        };
+        if (!isPointInsidePlayerView(point.x, point.z) && isPointInsideZone(zone, point.x, point.z)) return point;
+    }
+    return pushPointOutsidePlayerView(randomPointNearPlayerInZone(zone), 2200);
+}
+
+function offscreenSpawnPointForRoute(origin, destination = null, role = 'traffic') {
+    const target = destination || origin || game.player;
+    if (!target) return { x: 0, z: 0, rotation: 0 };
+    const seed = origin && destination
+        ? { x: origin.x + (destination.x - origin.x) * 0.18, z: origin.z + (destination.z - origin.z) * 0.18 }
+        : { x: target.x || 0, z: target.z || 0 };
+    const point = pushPointOutsidePlayerView(seed, role === 'pirate' ? 2600 : 2200);
+    const rotation = target ? Math.atan2((target.z || 0) - point.z, (target.x || 0) - point.x) : Math.random() * Math.PI * 2;
+    return { x: point.x, z: point.z, rotation };
 }
 
 function desiredNpcCountForZone(zone) {
@@ -2439,6 +2532,7 @@ function startNpcTradeLane(npc, ring, exitRing = null) {
     npc.tradeLaneDirection = direction;
     npc.speed = Math.max(90, Math.min(Number(npc.speed) || 90, 900));
     npc.throttle = 1;
+    maybeNpcRadio(npc, 'tradeLane', ring, 34);
     return true;
 }
 
@@ -2480,12 +2574,13 @@ function updateNpcTradeLane(npc, dt) {
 
 function setNpcCruise(npc, active) {
     if (!npc) return;
-    npc.cruiseActive = Boolean(active) && !npc.hidden && !npc.inTradeLane;
+    const disrupted = (Number(npc.cruiseDisruptedUntil) || 0) > performance.now();
+    npc.cruiseActive = Boolean(active) && !disrupted && !npc.hidden && !npc.inTradeLane;
 }
 
 function updateNpcCruiseForDistance(npc, distance, options = {}) {
     if (!npc) return;
-    if (npc.hidden || npc.inTradeLane || options.combat || options.disabled) {
+    if ((Number(npc.cruiseDisruptedUntil) || 0) > performance.now() || npc.hidden || npc.inTradeLane || options.combat || options.disabled) {
         setNpcCruise(npc, false);
         return;
     }
@@ -2497,6 +2592,56 @@ function updateNpcCruiseForDistance(npc, distance, options = {}) {
         setNpcCruise(npc, distance > enterDistance);
     }
     if (npc.cruiseActive) npc.throttle = Math.max(npc.throttle || 0, 0.95);
+}
+
+function npcRadioCallsign(npc) {
+    const faction = factionDisplayName(npc?.faction || '').replace(/\s+/g, ' ').trim();
+    return `${faction || 'Civilian'} ${npc?.name || 'Contact'}`;
+}
+
+function stationRadioName(target) {
+    return target?.name || target?.id || 'Traffic Control';
+}
+
+function radioText(npc, event, target = null) {
+    const call = npcRadioCallsign(npc);
+    const station = stationRadioName(target);
+    const english = game.language === 'en';
+    const lines = {
+        dockRequest: english
+            ? `${call} to ${station}, requesting permission to dock.`
+            : `${call} an ${station}, erbitte Andockerlaubnis.`,
+        dockApproved: english
+            ? `${station} to ${npc?.name || 'contact'}, docking request granted. Proceed to docking port.`
+            : `${station} an ${npc?.name || 'Kontakt'}, Andockerlaubnis erteilt. Fliegen Sie zum Docking-Port.`,
+        tradeLane: english
+            ? `${call}, entering trade lane and proceeding on route.`
+            : `${call}, trete in die Handelsroute ein und setze Kurs fort.`,
+        patrolReport: english
+            ? `${call}, patrol sweep complete near ${station}. Continuing route.`
+            : `${call}, Patrouillensektor bei ${station} geprüft. Route wird fortgesetzt.`,
+        departure: english
+            ? `${call} departing ${station}, route confirmed.`
+            : `${call} startet von ${station}, Route bestätigt.`
+    };
+    return lines[event] || '';
+}
+
+function maybeNpcRadio(npc, event, target = null, cooldown = 24) {
+    if (!npc || npc.hidden || !event) return;
+    game.radioCooldowns ||= {};
+    const key = `${npc.id}:${event}`;
+    const now = performance.now();
+    if (game.radioCooldowns[key] && now - game.radioCooldowns[key] < cooldown * 1000) return;
+    game.radioCooldowns[key] = now;
+    const text = radioText(npc, event, target);
+    if (text) {
+        npc.speechBubble = {
+            text,
+            createdAt: now,
+            expiresAt: now + Math.max(2600, Math.min(6200, 2100 + text.length * 42))
+        };
+    }
 }
 
 function placeEscortNearLeader(escort, leader, index = 0) {
@@ -2521,7 +2666,8 @@ function createNpcFleet(type, origin, destination = null, options = {}) {
     if (!origin || game.npcs.length > 48) return null;
     const size = clamp(Number(options.size) || (3 + Math.floor(Math.random() * 2)), 3, 4);
     const angle = destination ? Math.atan2((destination.z || 0) - origin.z, (destination.x || 0) - origin.x) : Math.random() * Math.PI * 2;
-    const launch = launchPointFromTargetObject(origin, angle, 520);
+    const launch = options.spawnPoint || offscreenSpawnPointForRoute(origin, destination, type);
+    const routeAngle = Number.isFinite(launch.rotation) ? launch.rotation : angle;
     const fleetId = `${type}-fleet-${Math.random().toString(36).slice(2, 9)}`;
     const faction = normalizeFactionId(options.faction || origin.faction || (type === 'security' ? 'li_p_grp' : type === 'pirate' ? 'fc_lr_grp' : 'co_ss_grp'));
     const fleet = {
@@ -2531,9 +2677,9 @@ function createNpcFleet(type, origin, destination = null, options = {}) {
         origin,
         destination,
         gather: {
-            x: launch.x + Math.cos(angle) * 650,
-            z: launch.z + Math.sin(angle) * 650,
-            rotation: angle
+            x: launch.x + Math.cos(routeAngle) * 650,
+            z: launch.z + Math.sin(routeAngle) * 650,
+            rotation: routeAngle
         },
         size,
         spacing: type === 'trade' ? 290 : 240,
@@ -2552,7 +2698,7 @@ function createNpcFleet(type, origin, destination = null, options = {}) {
             : (type === 'pirate' ? 'pirate' : 'police');
         const difficulty = type === 'trade' ? 4 + Math.floor(Math.random() * 3) : 3 + Math.floor(Math.random() * 4);
         const offset = formationOffset(i, fleet.spacing);
-        const rotated = rotateFormationOffset(offset, angle);
+        const rotated = rotateFormationOffset(offset, routeAngle);
         const npc = createNPC(role, {
             x: launch.x + rotated.x * 0.45 + (Math.random() - 0.5) * 90,
             z: launch.z + rotated.z * 0.45 + (Math.random() - 0.5) * 90,
@@ -2562,7 +2708,7 @@ function createNpcFleet(type, origin, destination = null, options = {}) {
             populationZoneId: options.zone?.id || '',
             name: (type === 'security' ? 'SEC' : type === 'pirate' ? 'IRG' : (role === 'trader' ? 'CNV' : 'ESC')) + '-' + (Math.floor(Math.random() * 9000) + 1000)
         });
-        npc.rotation = angle;
+        npc.rotation = routeAngle;
         npc.fleetId = fleetId;
         npc.convoyId = fleetId;
         npc.formationIndex = i;
@@ -2577,7 +2723,12 @@ function createNpcFleet(type, origin, destination = null, options = {}) {
             npc.isTradeConvoy = true;
             npc.tradeOrigin = origin;
             npc.tradeDestination = destination || randomNpcTradeDestination(origin, { irregular: type === 'pirate' });
-            npc.tradeRoute = buildNpcTradeRoute(origin, npc.tradeDestination);
+            if (type === 'pirate') {
+                npc.patrolRoute = nearestAsteroidFieldPatrolRoute(faction) || choosePatrolPathForFaction(faction, 'pirate')?.points || [];
+                npc.tradeRoute = npc.patrolRoute.length ? npc.patrolRoute.map(point => ({ type: 'patrol', target: point })) : buildNpcTradeRoute(origin, npc.tradeDestination);
+            } else {
+                npc.tradeRoute = buildNpcTradeRoute(origin, npc.tradeDestination);
+            }
             npc.tradeWaypointIndex = 0;
             npc.tradeState = fleet.state === 'forming' ? 'forming' : 'enroute';
             npc.maxSpeed = Math.max(type === 'pirate' ? 120 : 82, Math.min(type === 'pirate' ? 160 : 105, npc.maxSpeed || 90));
@@ -2594,6 +2745,8 @@ function createNpcFleet(type, origin, destination = null, options = {}) {
 }
 
 function buildSecurityPatrolRoute(origin) {
+    const patrolPath = choosePatrolPathForFaction(origin?.faction || 'li_p_grp', 'security');
+    if (patrolPath?.points?.length) return patrolPath.points;
     const points = [];
     if (origin) points.push(origin);
     const nearbyGates = (game.entities || [])
@@ -2609,6 +2762,58 @@ function buildSecurityPatrolRoute(origin) {
     }
     if (points.length < 2 && game.player) points.push({ x: game.player.x + 2400, z: game.player.z, name: 'Patrol Point' });
     return points;
+}
+
+function normalizePatrolPath(path) {
+    return {
+        ...path,
+        points: (path.points || []).map(point => ({
+            id: point.id || point.nickname || '',
+            name: point.name || point.id || path.id || 'Patrol Point',
+            x: Number(point.x || 0),
+            z: Number(point.z || 0),
+            size: Number(point.size || 1000),
+            sizeX: Number(point.size_x || point.sizeX || point.size || 1000),
+            sizeZ: Number(point.size_z || point.sizeZ || point.size || 1000),
+            shape: point.shape || 'ELLIPSOID',
+            rotateY: Number(point.rotate_y || point.rotateY || 0)
+        }))
+    };
+}
+
+function choosePatrolPathForFaction(factionId = '', role = 'security') {
+    const paths = (systemData.patrolPaths || []).filter(path => path.points?.length >= 2);
+    if (!paths.length) return null;
+    const faction = normalizeFactionId(factionId);
+    const wantedPirate = role === 'pirate' || faction.startsWith('fc_');
+    const scored = paths.map(path => {
+        const text = `${path.id || ''} ${path.usage || ''} ${(path.encounters || []).map(e => e.id).join(' ')} ${(path.factions || []).map(f => f.id).join(' ')}`.toLowerCase();
+        const factionHit = (path.factions || []).some(entry => normalizeFactionId(entry.id) === faction) ? -8 : 0;
+        const roleHit = wantedPirate
+            ? (text.includes('pirate') || text.includes('fc_') || text.includes('unlaw') ? -5 : 4)
+            : (text.includes('police') || text.includes('patrolp_gov') || text.includes('_p_grp') || text.includes('lawful') ? -4 : 0);
+        const usageHit = String(path.usage || '').toLowerCase().includes('patrol') ? -2 : 1;
+        return { path, score: factionHit + roleHit + usageHit + Math.random() * 2 };
+    }).sort((a, b) => a.score - b.score);
+    return scored[0]?.path || null;
+}
+
+function nearestAsteroidFieldPatrolRoute(factionId = '') {
+    const field = (systemData.asteroidfields || [])
+        .map(item => ({ item, distance: game.player ? Math.hypot(item.x - game.player.x, item.z - game.player.z) : 0 }))
+        .sort((a, b) => a.distance - b.distance)[0]?.item;
+    if (!field) return null;
+    const radiusX = Math.max(1400, Number(field.sizeX || field.size || 6000) * 0.62);
+    const radiusZ = Math.max(1400, Number(field.sizeZ || field.size || 6000) * 0.62);
+    return Array.from({ length: 5 }, (_, index) => {
+        const angle = (index / 5) * Math.PI * 2 + 0.35;
+        return {
+            id: `${field.id || field.nickname || 'field'}-patrol-${index}`,
+            name: field.name || 'Asteroid Patrol',
+            x: field.x + Math.cos(angle) * radiusX,
+            z: field.z + Math.sin(angle) * radiusZ
+        };
+    });
 }
 
 function updateNpcFleets(dt) {
@@ -2655,6 +2860,11 @@ function positionAmbientConvoyInTradeLane(leader) {
     const t = 0.12 + Math.random() * 0.76;
     leader.x = current.x + (next.x - current.x) * t;
     leader.z = current.z + (next.z - current.z) * t;
+    if (isPointInsidePlayerView(leader.x, leader.z, 1400)) {
+        const spawn = offscreenSpawnPointForRoute(current, next, 'trade');
+        leader.x = spawn.x;
+        leader.z = spawn.z;
+    }
     leader.rotation = Math.atan2(next.z - current.z, next.x - current.x);
     leader.inTradeLane = true;
     leader.tradeLaneRoute = rings;
@@ -2677,6 +2887,11 @@ function positionAmbientConvoyInTransit(leader) {
     const t = 0.18 + Math.random() * 0.64;
     leader.x = (origin.x || 0) + ((target.x || 0) - (origin.x || 0)) * t + (Math.random() - 0.5) * 900;
     leader.z = (origin.z || 0) + ((target.z || 0) - (origin.z || 0)) * t + (Math.random() - 0.5) * 900;
+    if (isPointInsidePlayerView(leader.x, leader.z, 1400)) {
+        const spawn = offscreenSpawnPointForRoute(origin, target, 'trade');
+        leader.x = spawn.x;
+        leader.z = spawn.z;
+    }
     leader.rotation = Math.atan2((target.z || 0) - leader.z, (target.x || 0) - leader.x);
     leader.speed = 55 + Math.random() * 35;
     leader.throttle = 0.8;
@@ -2744,7 +2959,7 @@ function spawnPopulationNpc(zone) {
         if (origin) return createNpcFleet('pirate', origin, null, { zone, faction: faction?.id || 'fc_lr_grp' });
     }
     const difficulty = populationDifficulty(encounter);
-    const point = randomPointNearPlayerInZone(zone);
+    const point = randomOffscreenPointInZone(zone);
     const npc = createNPC(role, {
         x: point.x,
         z: point.z,
@@ -2875,10 +3090,23 @@ function applyHudTheme() {
 
 // Load real LI01 data from Freelancer INI files
 function getSystemRecord(systemId) {
-    const source = gameSystemsData();
-    if (!source) return {};
-    const key = Object.keys(source).find(k => k.toLowerCase() === systemId.toLowerCase());
-    return key ? source[key] : {};
+    const baseSource = typeof GAME_SYSTEMS !== 'undefined' ? GAME_SYSTEMS : FALLBACK_GAME_SYSTEMS;
+    const activeSource = game.modData?.GAME_SYSTEMS || baseSource;
+    const objectValue = value => value && typeof value === 'object' && !Array.isArray(value) ? value : {};
+    const findRecord = source => {
+        if (!source) return null;
+        const key = Object.keys(source).find(k => k.toLowerCase() === systemId.toLowerCase());
+        return key ? source[key] : null;
+    };
+    const baseRecord = findRecord(baseSource) || {};
+    const activeRecord = findRecord(activeSource);
+    if (!activeRecord || activeRecord === baseRecord) return baseRecord;
+    return {
+        ...baseRecord,
+        ...activeRecord,
+        background: { ...objectValue(baseRecord.background), ...objectValue(activeRecord.background) },
+        music: { ...objectValue(baseRecord.music), ...objectValue(activeRecord.music) }
+    };
 }
 
 function displayName(value, fallback = 'Unknown') {
@@ -2929,8 +3157,10 @@ const MISSION_SPAWN_DISTANCE = 1700;
 const MISSION_ENEMY_MIN_COUNT = 3;
 const MISSION_ENEMY_MAX_COUNT = 7;
 const SOLAR_OBJECT_RENDER_SCALE = 0.18;
-const SOLAR_OBJECT_VISUAL_RENDER_SCALE = 0.82;
+const SOLAR_OBJECT_VISUAL_RENDER_SCALE = 0.24;
 const SOLAR_OBJECT_ICON_RADIUS_BOOST = 1.1;
+const SOLAR_OBJECT_ICON_DRAW_SCALE = 2.2;
+const SOLAR_OBJECT_FLATLAS_ICON_RADIUS_SCALE = 1 / (SOLAR_OBJECT_ICON_RADIUS_BOOST * (SOLAR_OBJECT_ICON_DRAW_SCALE / 2));
 const SOLAR_OBJECT_MIN_SCREEN_RADIUS = 12;
 const SOLAR_OBJECT_FALLBACK_RADII = {
     jumpgate: 600,
@@ -2963,6 +3193,10 @@ function solarObjectWorldRadius(value, archetype = '', fallback = 600) {
 }
 
 function solarObjectVisualWorldRadius(value, archetype = '', fallback = 600) {
+    const modelRadius = getObjectModelRadius(archetype);
+    if (Number.isFinite(modelRadius) && modelRadius > 0) {
+        return Math.max(1, modelRadius * SOLAR_OBJECT_FLATLAS_ICON_RADIUS_SCALE);
+    }
     return Math.max(1, solarObjectSourceRadius(value, archetype, fallback) * SOLAR_OBJECT_VISUAL_RENDER_SCALE);
 }
 
@@ -3211,7 +3445,17 @@ function getShipImage(iconPath, fallbackPath = 'data/ship_icons/_fallback.png') 
 
 function getObjectIcon(archetype) {
     if (!archetype) return '';
-    return objectIconsData()[String(archetype).toLowerCase()] || '';
+    const entry = objectIconsData()[String(archetype).toLowerCase()];
+    if (!entry) return '';
+    return typeof entry === 'string' ? entry : (entry.src || entry.path || '');
+}
+
+function getObjectModelRadius(archetype) {
+    if (!archetype) return 0;
+    const entry = objectIconsData()[String(archetype).toLowerCase()];
+    if (!entry || typeof entry === 'string') return 0;
+    const radius = Number(entry.model_radius ?? entry.modelRadius ?? 0);
+    return Number.isFinite(radius) && radius > 0 ? radius : 0;
 }
 
 function getObjectImage(archetype) {
@@ -3250,13 +3494,15 @@ function activeSaveStorageKey(modId = game.activeModId) {
 
 function loadScriptOnce(src) {
     return new Promise((resolve, reject) => {
-        if (document.querySelector(`script[data-mod-src="${src}"]`)) {
+        const separator = src.includes('?') ? '&' : '?';
+        const versionedSrc = `${src}${separator}v=${encodeURIComponent(DATA_CACHE_VERSION)}`;
+        if (document.querySelector(`script[data-mod-src="${versionedSrc}"]`)) {
             resolve();
             return;
         }
         const script = document.createElement('script');
-        script.src = src;
-        script.dataset.modSrc = src;
+        script.src = versionedSrc;
+        script.dataset.modSrc = versionedSrc;
         script.onload = () => resolve();
         script.onerror = () => reject(new Error('Could not load ' + src));
         document.head.appendChild(script);
@@ -4269,7 +4515,9 @@ function buildSystemData(systemId) {
     tradeLanes: raw.tradeLanes || raw.tradelanes || [],
     asteroidfields: (raw.asteroidfields || []).map(normalizeAsteroidFieldData),
     background: raw.background || {},
+    music: raw.music || {},
     nebulae: raw.nebulae || [],
+    patrolPaths: (raw.patrolPaths || []).map(normalizePatrolPath),
     missionZones: (raw.missionZones || []).map(z => ({
         id: z.nickname || z.zone,
         name: z.name || z.nickname || z.zone,
@@ -4948,6 +5196,53 @@ function addShieldHitEffect(target, hitX = null, hitZ = null, strength = 1) {
     });
 }
 
+function addCruiseDisruptEffect(target, hitX = null, hitZ = null) {
+    if (!target) return;
+    game.effects.push({
+        type: 'cruise-disrupt',
+        target,
+        x: Number.isFinite(hitX) ? hitX : target.x,
+        z: Number.isFinite(hitZ) ? hitZ : target.z,
+        age: 0,
+        life: 0.72,
+        radius: Math.max(42, (Number(target.radius) || 20) + 26)
+    });
+}
+
+function playCruiseDisruptSound(x = null, z = null, intensity = 1) {
+    if (Number.isFinite(x) && Number.isFinite(z) && game.player) {
+        const distance = Math.hypot(x - game.player.x, z - game.player.z);
+        if (distance > 2800) return;
+        intensity *= 1 - clamp(distance / 2800, 0, 1);
+    }
+    if (playBufferedSound('cruiseDisrupt', CRUISE_DISRUPTOR_SOUND_PATH, clamp(0.22 * intensity, 0.08, 0.58)) === 'failed') {
+        playTone(1150, 0.08, 'sawtooth', 0.035 * intensity, 360);
+        playTone(180, 0.16, 'square', 0.026 * intensity, 70);
+    }
+}
+
+function applyCruiseDisruption(target, projectile = null, hitX = null, hitZ = null) {
+    if (!target || !projectile?.cruiseDisruptor) return false;
+    const now = performance.now();
+    const wasCruising = Boolean(target.cruiseActive || target.cruiseCharging);
+    target.cruiseDisruptedUntil = Math.max(Number(target.cruiseDisruptedUntil) || 0, now + (projectile.disruptDuration || CRUISE_DISRUPT_LOCKOUT_MS));
+    target.cruiseActive = false;
+    target.cruiseCharging = false;
+    target.cruiseCharge = 0;
+    if (target === game.player) {
+        target.afterburnerActive = false;
+        target.speed = Math.min(Number(target.speed) || 0, COMBAT_MAX_SPEED * 0.78);
+        updateCruiseButton();
+        addLog(t('cruiseDisrupted'), 'alert');
+    } else {
+        target.speed = Math.min(Number(target.speed) || 0, Math.max(60, Number(target.maxSpeed) || COMBAT_MAX_SPEED));
+        target.throttle = Math.min(Number(target.throttle) || 0.4, 0.45);
+    }
+    addCruiseDisruptEffect(target, hitX, hitZ);
+    playCruiseDisruptSound(hitX ?? target.x, hitZ ?? target.z, wasCruising ? 1.25 : 0.85);
+    return true;
+}
+
 function createExplosion(x, z, radius = 40, options = {}) {
     const size = Math.max(28, Number(radius) || 40);
     const count = Math.round(clamp(size * 0.42, 18, 90));
@@ -5480,6 +5775,10 @@ class PlayerShip {
         }
 
         this.maxSpeed = this.baseMaxSpeed || COMBAT_MAX_SPEED;
+        if ((Number(this.cruiseDisruptedUntil) || 0) > performance.now() && (this.cruiseActive || this.cruiseCharging)) {
+            this.cancelCruise();
+            updateCruiseButton();
+        }
         if (this.cruiseCharging) {
             this.cruiseCharge += dt;
             if (this.cruiseCharge >= CRUISE_CHARGE_SECONDS) {
@@ -5688,6 +5987,11 @@ class PlayerShip {
 
     startCruiseCharge() {
         if (this.inTradeLane || this.destroyed) return;
+        const disruptedMs = Math.max(0, (Number(this.cruiseDisruptedUntil) || 0) - performance.now());
+        if (disruptedMs > 0) {
+            addLog(tf('cruiseDisruptorLock', { seconds: Math.ceil(disruptedMs / 1000) }), 'alert');
+            return;
+        }
         this.cruiseActive = false;
         this.cruiseCharging = true;
         this.cruiseCharge = 0;
@@ -5771,7 +6075,10 @@ class PlayerShip {
                 trailColor: weapon.trailColor,
                 homing: Boolean(weapon.homing),
                 turnRate: weapon.turnRate || 0,
-                detonationRadius: weapon.detonationRadius || 0
+                detonationRadius: weapon.detonationRadius || 0,
+                seekerRange: weapon.seekerRange || 0,
+                cruiseDisruptor: Boolean(weapon.cruiseDisruptor),
+                disruptDuration: weapon.disruptDuration || 0
             });
         }
         this.missileCooldown = fireableWeapons.reduce((cooldown, weapon) => Math.max(cooldown, weapon.cooldown), 0.12);
@@ -6225,7 +6532,7 @@ class Station {
         
         ctx.rotate(this.rotation);
         if (objectImage) {
-            const imageSize = size * 2.2;
+            const imageSize = size * SOLAR_OBJECT_ICON_DRAW_SCALE;
             ctx.drawImage(objectImage, -imageSize / 2, -imageSize / 2, imageSize, imageSize);
         } else {
             ctx.fillStyle = '#445566';
@@ -6467,7 +6774,7 @@ class TradeLaneRing {
     render(ctx) {
         const pos = worldToScreen(this.x, this.z);
         const objectImage = getObjectImage(this.type);
-        const size = solarObjectScreenRadius(this.visualRadius || this.radius) * 2.2;
+        const size = solarObjectScreenRadius(this.visualRadius || this.radius) * SOLAR_OBJECT_ICON_DRAW_SCALE;
         const glowRadius = Math.max(16, size * 0.43);
         ctx.save();
         ctx.translate(pos.x, pos.y);
@@ -6770,7 +7077,7 @@ function createNPC(type, options = {}) {
     const colors = { trader: '#44aa44', pirate: '#aa4444', police: '#4444aa', civilian: '#888888' };
     const difficulty = Number(options.difficulty || 1);
     const optionFaction = normalizeFactionId(options.faction || (type === 'pirate' ? 'fc_lr_grp' : type === 'police' ? 'li_p_grp' : type === 'trader' ? 'co_ss_grp' : ''));
-    const npcShip = options.npcShip || (type !== 'civilian' ? chooseNpcShipForRole(type, difficulty, optionFaction) : null);
+    const npcShip = options.npcShip || chooseNpcShipForRole(type, difficulty, optionFaction);
     const details = npcLoadoutDetails(npcShip, difficulty);
     const ship = details.ship;
     const shieldItem = details.shieldItem;
@@ -6925,14 +7232,21 @@ function fireNPCWeapon(npc, target = game.player) {
     const dx = target.x - npc.x;
     const dz = target.z - npc.z;
     const distance = Math.hypot(dx, dz);
-    if (distance > 980 || distance < 1) return;
+    if (distance < 1) return;
     const targetAngle = Math.atan2(dz, dx);
     let angleDiff = targetAngle - npc.rotation;
     while (angleDiff > Math.PI) angleDiff -= Math.PI * 2;
     while (angleDiff < -Math.PI) angleDiff += Math.PI * 2;
     if (Math.abs(angleDiff) > 0.45) return;
     const weapons = (npc.weapons || []).filter(Boolean);
-    const weapon = weapons[npc.nextWeaponIndex % weapons.length] || weaponStatsFromEquipment(getEquipment('li_gun01_mark01'), 1);
+    const targetCruising = Boolean(target.cruiseActive || target.cruiseCharging);
+    const disruptor = weapons.find(weapon => weapon.cruiseDisruptor && distance <= (weapon.seekerRange || 2500));
+    const regularWeapons = weapons.filter(weapon => !weapon.cruiseDisruptor);
+    const cyclePool = targetCruising && disruptor ? [disruptor] : (regularWeapons.length ? regularWeapons : weapons);
+    const weapon = cyclePool[npc.nextWeaponIndex % cyclePool.length] || weaponStatsFromEquipment(getEquipment('li_gun01_mark01'), 1);
+    const weaponRange = weapon.cruiseDisruptor ? (weapon.seekerRange || 2500) : 980;
+    if (distance > weaponRange) return;
+    if (weapon.cruiseDisruptor && !targetCruising && Math.random() > 0.08) return;
     npc.nextWeaponIndex = (npc.nextWeaponIndex || 0) + 1;
     npc.fireCooldown = weapon.cooldown + Math.random() * 0.08;
     playWeaponFireAt(npc.x, npc.z, 0.52);
@@ -6952,7 +7266,10 @@ function fireNPCWeapon(npc, target = game.player) {
         trailColor: weapon.trailColor,
         homing: Boolean(weapon.homing),
         turnRate: weapon.turnRate || 0,
-        detonationRadius: weapon.detonationRadius || 0
+        detonationRadius: weapon.detonationRadius || 0,
+        seekerRange: weapon.seekerRange || 0,
+        cruiseDisruptor: Boolean(weapon.cruiseDisruptor),
+        disruptDuration: weapon.disruptDuration || 0
     });
 }
 
@@ -7007,7 +7324,13 @@ function fireStaticWeapon(source, target) {
         targetId: target === game.player ? 'player' : target.id,
         faction: targetFaction(source),
         color: weapon.color,
-        trailColor: weapon.trailColor
+        trailColor: weapon.trailColor,
+        homing: Boolean(weapon.homing),
+        turnRate: weapon.turnRate || 0,
+        detonationRadius: weapon.detonationRadius || 0,
+        seekerRange: weapon.seekerRange || 0,
+        cruiseDisruptor: Boolean(weapon.cruiseDisruptor),
+        disruptDuration: weapon.disruptDuration || 0
     });
 }
 
@@ -7026,7 +7349,8 @@ function findNpcCombatTarget(npc) {
     let bestDistance = Infinity;
     if (game.player && (npc.hostileToPlayer || npc.missionId || playerIsHostileToFaction(npc.faction) || (npc.role === 'pirate' && !npc.faction))) {
         const distance = Math.hypot(game.player.x - npc.x, game.player.z - npc.z);
-        if (distance < (npc.missionId ? 2400 : 1800) && (!fleet || distance < 2600)) {
+        const playerTargetRange = (game.player.cruiseActive || game.player.cruiseCharging) ? 2600 : (npc.missionId ? 2400 : 1800);
+        if (distance < playerTargetRange && (!fleet || distance < 2800)) {
             bestTarget = game.player;
             bestDistance = distance;
         }
@@ -7036,7 +7360,8 @@ function findNpcCombatTarget(npc) {
             if (other === npc || other.hull <= 0 || other.hidden || other.inTradeLane || !other.faction) continue;
             if (!factionsAreHostile(npc.faction, other.faction)) continue;
             const distance = Math.hypot(other.x - npc.x, other.z - npc.z);
-            if (distance < 2200 && distance < bestDistance) {
+            const npcTargetRange = (other.cruiseActive || other.cruiseCharging) ? 2600 : 2200;
+            if (distance < npcTargetRange && distance < bestDistance) {
                 bestTarget = other;
                 bestDistance = distance;
             }
@@ -7164,19 +7489,21 @@ function updateNpcTraderRoute(npc, dt) {
         const origin = npc.tradeDestination || npc.tradeOrigin;
         const destination = randomNpcTradeDestination(origin, { irregular: npc.irregularTraffic });
         const angle = destination ? Math.atan2(destination.z - origin.z, destination.x - origin.x) : Math.random() * Math.PI * 2;
-        const launch = launchPointFromTargetObject(origin, angle, 420);
+        const launch = offscreenSpawnPointForRoute(origin, destination, npc.irregularTraffic ? 'pirate' : 'trade');
+        const routeAngle = Number.isFinite(launch.rotation) ? launch.rotation : angle;
         npc.x = launch.x;
         npc.z = launch.z;
-        npc.rotation = launch.rotation;
+        npc.rotation = routeAngle;
         npc.speed = 0;
         assignNpcTradeRoute(npc, origin, destination);
+        maybeNpcRadio(npc, 'departure', origin, 45);
         if (fleet) {
             fleet.origin = origin;
             fleet.destination = destination;
             fleet.gather = {
-                x: launch.x + Math.cos(angle) * 650,
-                z: launch.z + Math.sin(angle) * 650,
-                rotation: angle
+                x: launch.x + Math.cos(routeAngle) * 650,
+                z: launch.z + Math.sin(routeAngle) * 650,
+                rotation: routeAngle
             };
             fleet.state = 'forming';
             fleet.wait = 0;
@@ -7190,7 +7517,14 @@ function updateNpcTraderRoute(npc, dt) {
         return true;
     }
     if (updateNpcTradeLane(npc, dt)) return true;
-    if (!npc.tradeRoute?.length || npc.tradeWaypointIndex >= npc.tradeRoute.length) assignNpcTradeRoute(npc, npc.tradeDestination || npc.tradeOrigin);
+    if (!npc.tradeRoute?.length || npc.tradeWaypointIndex >= npc.tradeRoute.length) {
+        if (npc.role === 'pirate' && npc.patrolRoute?.length) {
+            npc.tradeRoute = npc.patrolRoute.map(point => ({ type: 'patrol', target: point }));
+            npc.tradeWaypointIndex = 0;
+        } else {
+            assignNpcTradeRoute(npc, npc.tradeDestination || npc.tradeOrigin);
+        }
+    }
     const waypoint = npc.tradeRoute?.[npc.tradeWaypointIndex || 0];
     if (!waypoint?.target) return false;
     const target = waypoint.target;
@@ -7199,12 +7533,22 @@ function updateNpcTraderRoute(npc, dt) {
     const distance = Math.hypot(dx, dz);
     npc.targetAngle = Math.atan2(dz, dx);
     npc.throttle = waypoint.type === 'dock' && distance < 900 ? 0.45 : 0.82;
+    if (waypoint.type === 'dock' && distance < 1350 && npc.lastDockRadioTarget !== target.id) {
+        npc.lastDockRadioTarget = target.id;
+        maybeNpcRadio(npc, 'dockRequest', target, 40);
+        maybeNpcRadio(npc, 'dockApproved', target, 40);
+    }
     updateNpcCruiseForDistance(npc, distance, {
         enterDistance: waypoint.type === 'dock' ? 5200 : 3600,
         exitDistance: waypoint.type === 'dock' ? 1800 : 1150
     });
     if (waypoint.type === 'tradelane' && distance < 260) {
         startNpcTradeLane(npc, target, waypoint.exit);
+        return true;
+    }
+    if (waypoint.type === 'patrol' && distance < 520) {
+        npc.tradeWaypointIndex = ((npc.tradeWaypointIndex || 0) + 1) % Math.max(1, npc.tradeRoute.length);
+        maybeNpcRadio(npc, 'patrolReport', target);
         return true;
     }
     if (waypoint.type === 'dock' && distance < 220) {
@@ -7352,6 +7696,112 @@ function renderNpcFactionLabel(ctx, npc, screenPos, visualScale) {
     ctx.restore();
 }
 
+function roundedRectPath(ctx, x, y, width, height, radius) {
+    const r = Math.min(radius, width / 2, height / 2);
+    ctx.beginPath();
+    ctx.moveTo(x + r, y);
+    ctx.lineTo(x + width - r, y);
+    ctx.quadraticCurveTo(x + width, y, x + width, y + r);
+    ctx.lineTo(x + width, y + height - r);
+    ctx.quadraticCurveTo(x + width, y + height, x + width - r, y + height);
+    ctx.lineTo(x + r, y + height);
+    ctx.quadraticCurveTo(x, y + height, x, y + height - r);
+    ctx.lineTo(x, y + r);
+    ctx.quadraticCurveTo(x, y, x + r, y);
+    ctx.closePath();
+}
+
+function wrapCanvasText(ctx, text, maxWidth, maxLines = 3) {
+    const words = String(text || '').split(/\s+/).filter(Boolean);
+    const lines = [];
+    let line = '';
+    for (const word of words) {
+        const candidate = line ? `${line} ${word}` : word;
+        if (ctx.measureText(candidate).width <= maxWidth || !line) {
+            line = candidate;
+            continue;
+        }
+        lines.push(line);
+        line = word;
+        if (lines.length >= maxLines) break;
+    }
+    if (line && lines.length < maxLines) lines.push(line);
+    if (words.length && lines.length === maxLines) {
+        let last = lines[lines.length - 1];
+        while (last.length > 4 && ctx.measureText(`${last}...`).width > maxWidth) last = last.slice(0, -1).trimEnd();
+        lines[lines.length - 1] = `${last}...`;
+    }
+    return lines;
+}
+
+function renderNpcSpeechBubble(ctx, npc, screenPos, visualScale) {
+    const bubble = npc?.speechBubble;
+    if (!bubble?.text) return;
+    const now = performance.now();
+    if (now >= bubble.expiresAt) {
+        npc.speechBubble = null;
+        return;
+    }
+    const life = Math.max(1, bubble.expiresAt - bubble.createdAt);
+    const age = now - bubble.createdAt;
+    const fadeIn = clamp(age / 220, 0, 1);
+    const fadeOut = clamp((bubble.expiresAt - now) / 620, 0, 1);
+    const alpha = Math.min(fadeIn, fadeOut) * 0.86;
+    if (alpha <= 0.02) return;
+
+    ctx.save();
+    ctx.font = '11px Arial';
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'middle';
+    const maxTextWidth = Math.min(245, Math.max(130, game.width * 0.22));
+    const lines = wrapCanvasText(ctx, bubble.text, maxTextWidth, 3);
+    if (!lines.length) {
+        ctx.restore();
+        return;
+    }
+    const lineHeight = 14;
+    const paddingX = 10;
+    const paddingY = 7;
+    const textWidth = Math.max(...lines.map(line => ctx.measureText(line).width));
+    const width = Math.ceil(textWidth + paddingX * 2);
+    const height = Math.ceil(lines.length * lineHeight + paddingY * 2);
+    const shipTop = screenPos.y - Math.max(34, (npc.radius || 18) * 2.4 * visualScale);
+    let x = screenPos.x - width / 2;
+    let y = shipTop - height - 16;
+    x = clamp(x, 8, Math.max(8, game.width - width - 8));
+    y = clamp(y, 44, Math.max(44, game.height - height - 44));
+    const tailX = clamp(screenPos.x, x + 18, x + width - 18);
+    const tailY = Math.min(y + height + 10, game.height - 8);
+
+    ctx.globalAlpha = alpha;
+    ctx.shadowColor = 'rgba(0, 210, 255, 0.42)';
+    ctx.shadowBlur = 10;
+    roundedRectPath(ctx, x, y, width, height, 7);
+    ctx.fillStyle = 'rgba(0, 18, 31, 0.58)';
+    ctx.fill();
+    ctx.shadowBlur = 0;
+    ctx.strokeStyle = 'rgba(100, 220, 255, 0.58)';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(tailX - 7, y + height - 1);
+    ctx.lineTo(tailX, tailY);
+    ctx.lineTo(tailX + 7, y + height - 1);
+    ctx.closePath();
+    ctx.fillStyle = 'rgba(0, 18, 31, 0.50)';
+    ctx.fill();
+    ctx.strokeStyle = 'rgba(100, 220, 255, 0.42)';
+    ctx.stroke();
+
+    ctx.shadowColor = 'rgba(0,0,0,0.8)';
+    ctx.shadowBlur = 3;
+    ctx.fillStyle = 'rgba(205, 248, 255, 0.96)';
+    lines.forEach((line, index) => {
+        ctx.fillText(line, x + paddingX, y + paddingY + lineHeight * index + lineHeight / 2);
+    });
+    ctx.restore();
+}
+
 function drawCruiseTrail(ctx, shipDrawSize, intensity = 1) {
     const trailLength = shipDrawSize * 5;
     const flicker = (0.86 + Math.sin(game.gameTime * 42) * 0.08) * intensity;
@@ -7411,6 +7861,41 @@ function renderEffects(ctx) {
             ctx.beginPath();
             ctx.arc(0, 0, radius * 0.82, -0.68, 0.68);
             ctx.stroke();
+            ctx.restore();
+            continue;
+        }
+        if (effect.type === 'cruise-disrupt') {
+            const target = effect.target;
+            if (!target || target.destroyed || target.hidden) continue;
+            const pos = worldToScreen(target.x, target.z);
+            const visualScale = Math.max(0.25, Math.min(2.8, game.zoom));
+            const radius = effect.radius * visualScale;
+            const alpha = (1 - ratio) * 0.8;
+            ctx.save();
+            ctx.translate(pos.x, pos.y);
+            ctx.globalCompositeOperation = 'lighter';
+            for (let i = 0; i < 3; i++) {
+                const r = radius * (0.54 + ratio * 1.15 + i * 0.18);
+                ctx.strokeStyle = `rgba(125,225,255,${alpha * (0.55 - i * 0.12)})`;
+                ctx.lineWidth = Math.max(1, (3 - i * 0.55) * visualScale);
+                ctx.setLineDash([Math.max(3, 9 * visualScale), Math.max(3, 7 * visualScale)]);
+                ctx.lineDashOffset = -game.gameTime * 42 - i * 6;
+                ctx.beginPath();
+                ctx.arc(0, 0, r, 0, Math.PI * 2);
+                ctx.stroke();
+            }
+            ctx.setLineDash([]);
+            for (let i = 0; i < 8; i++) {
+                const a = (i / 8) * Math.PI * 2 + ratio * 2.8;
+                const inner = radius * 0.32;
+                const outer = radius * (0.72 + ratio * 0.42);
+                ctx.strokeStyle = `rgba(205,250,255,${alpha * 0.38})`;
+                ctx.lineWidth = Math.max(1, 1.5 * visualScale);
+                ctx.beginPath();
+                ctx.moveTo(Math.cos(a) * inner, Math.sin(a) * inner);
+                ctx.lineTo(Math.cos(a + 0.12) * outer, Math.sin(a + 0.12) * outer);
+                ctx.stroke();
+            }
             ctx.restore();
             continue;
         }
@@ -7497,6 +7982,7 @@ function renderNPC(ctx, npc) {
     ctx.restore();
     renderNpcFactionLabel(ctx, npc, pos, visualScale);
     renderNpcStatusBars(ctx, npc, pos, visualScale);
+    renderNpcSpeechBubble(ctx, npc, pos, visualScale);
 }
 
 // Utility Functions
@@ -7530,7 +8016,7 @@ function addLog(message, type = 'system') {
 }
 
 function allMusicTracks() {
-    return [...MUSIC_TRACKS.space, ...MUSIC_TRACKS.fight];
+    return [...MUSIC_TRACKS.space, ...MUSIC_TRACKS.fight, ...systemMusicTracks()];
 }
 
 function musicTrackByPath(path) {
@@ -7538,15 +8024,42 @@ function musicTrackByPath(path) {
 }
 
 function musicModeForTrack(path) {
+    const systemTrack = systemMusicTracks().find(track => track.path === path);
+    if (systemTrack) return systemTrack.mode;
     return MUSIC_TRACKS.fight.some(track => track.path === path) ? 'fight' : 'space';
 }
 
+function systemMusicTrack(slot = 'space') {
+    const entry = systemData?.music?.[slot] || null;
+    if (!entry?.path) return null;
+    return {
+        name: entry.name || entry.id || slot,
+        path: entry.path,
+        mode: slot === 'battle' ? 'fight' : 'space',
+        slot,
+        systemId: currentSystemId
+    };
+}
+
+function systemMusicTracks() {
+    const tracks = [];
+    for (const slot of ['space', 'danger', 'battle']) {
+        const track = systemMusicTrack(slot);
+        if (track && !tracks.some(existing => existing.path === track.path)) tracks.push(track);
+    }
+    return tracks;
+}
+
 function defaultMusicTrack(mode = 'space') {
+    const systemTrack = systemMusicTrack(mode === 'fight' ? 'battle' : 'space');
+    if (systemTrack) return systemTrack;
     const tracks = MUSIC_TRACKS[mode] || MUSIC_TRACKS.space;
     return tracks[0] || null;
 }
 
 function nextMusicTrack(mode = game.musicMode) {
+    const systemTrack = defaultMusicTrack(mode);
+    if (systemTrack?.systemId === currentSystemId) return systemTrack;
     const tracks = MUSIC_TRACKS[mode] || MUSIC_TRACKS.space;
     if (!tracks.length) return null;
     const currentIndex = tracks.findIndex(track => track.path === game.currentMusicTrackPath);
@@ -7580,7 +8093,22 @@ function stopMusicFade() {
 function populateMusicPlayer() {
     const select = document.getElementById('music-track-select');
     if (!select) return;
+    const signature = `${currentSystemId}:${systemMusicTracks().map(track => track.path).join('|')}`;
+    if (select.dataset.musicSignature === signature) return;
+    select.dataset.musicSignature = signature;
     select.innerHTML = '';
+    const systemTracks = systemMusicTracks();
+    if (systemTracks.length) {
+        const group = document.createElement('optgroup');
+        group.label = 'SYSTEM';
+        for (const track of systemTracks) {
+            const option = document.createElement('option');
+            option.value = track.path;
+            option.textContent = `${track.slot.toUpperCase()} - ${track.name}`;
+            group.appendChild(option);
+        }
+        select.appendChild(group);
+    }
     for (const mode of ['space', 'fight']) {
         const group = document.createElement('optgroup');
         group.label = mode.toUpperCase();
@@ -7597,12 +8125,13 @@ function populateMusicPlayer() {
 }
 
 function updateMusicPlayer() {
+    populateMusicPlayer();
     const select = document.getElementById('music-track-select');
     const button = document.getElementById('music-toggle');
     const label = document.getElementById('music-label');
     if (select && game.currentMusicTrackPath) select.value = game.currentMusicTrackPath;
     if (button) button.textContent = game.musicStoppedByUser ? 'PLAY' : 'STOP';
-    if (label) label.textContent = game.musicMode === 'fight' ? 'FIGHT' : 'SPACE';
+    if (label) label.textContent = game.musicMode === 'fight' ? 'BATTLE' : 'SPACE';
 }
 
 function playMusicTrack(track, mode = 'space', manual = false) {
@@ -7706,10 +8235,10 @@ function updateMusicMode() {
     if (game.musicStoppedByUser) return;
     const manualTrack = musicTrackByPath(game.manualMusicTrackPath);
     const wantedMode = combatMusicActive() ? 'fight' : (manualTrack ? musicModeForTrack(manualTrack.path) : 'space');
-    if (game.musicMode === wantedMode && game.currentMusicTrackPath) return;
     const track = manualTrack && musicModeForTrack(manualTrack.path) === wantedMode
         ? manualTrack
         : defaultMusicTrack(wantedMode);
+    if (game.musicMode === wantedMode && game.currentMusicTrackPath === track?.path) return;
     playMusicTrack(track, wantedMode);
 }
 
@@ -7764,6 +8293,7 @@ function loadAudioBuffer(name, path) {
 function primeImportedAudio() {
     if (!game.audioContext) return;
     loadAudioBuffer('justiceFire', JUSTICE_FIRE_SOUND_PATH);
+    loadAudioBuffer('cruiseDisrupt', CRUISE_DISRUPTOR_SOUND_PATH);
     for (const [name, path] of collectVoiceSoundPaths()) loadAudioBuffer(name, path);
 }
 
@@ -8698,6 +9228,7 @@ function update(dt) {
             const hitRadius = Math.max(Number(p.radius) || 0, Number(p.detonationRadius) || 0);
             const armed = p.type !== 'mine' || p.age >= (p.armedAfter || 0);
             if (armed && p.targetId === 'player' && Math.hypot(game.player.x - p.x, game.player.z - p.z) < game.player.radius + hitRadius) {
+                applyCruiseDisruption(game.player, p, p.x, p.z);
                 game.player.takeDamage(p.damage, p.x, p.z);
                 p.lifetime = 0;
             } else if (p.targetId && p.targetId !== 'player') {
@@ -8709,6 +9240,7 @@ function update(dt) {
                 }
                 const targetNpc = game.npcs.find(npc => npc.id === p.targetId);
                 if (armed && targetNpc && Math.hypot(targetNpc.x - p.x, targetNpc.z - p.z) < targetNpc.radius + hitRadius) {
+                    applyCruiseDisruption(targetNpc, p, p.x, p.z);
                     damageNpc(targetNpc, p.damage, game.npcs.find(npc => npc.id === p.ownerId) || null, p.x, p.z);
                     p.lifetime = 0;
                 }
@@ -8725,6 +9257,7 @@ function update(dt) {
                 if (p.type === 'mine' && !factionsAreHostile(game.player?.faction || '', npc.faction)) continue;
                 const dx = npc.x - p.x, dz = npc.z - p.z;
                 if (armed && Math.sqrt(dx * dx + dz * dz) < npc.radius + hitRadius) {
+                    applyCruiseDisruption(npc, p, p.x, p.z);
                     damageNpc(npc, p.damage, game.player, p.x, p.z);
                     p.lifetime = 0;
                     break;
@@ -9086,6 +9619,9 @@ function updateHUD() {
     } else if (p.afterburnerActive) {
         modeEl.textContent = t('modeAfterburner') + ' 200 m/s';
         modeEl.style.color = '#ff8844';
+    } else if ((Number(p.cruiseDisruptedUntil) || 0) > performance.now()) {
+        modeEl.textContent = tf('cruiseDisruptorLock', { seconds: Math.ceil((p.cruiseDisruptedUntil - performance.now()) / 1000) });
+        modeEl.style.color = '#66ddff';
     } else {
         modeEl.textContent = game.approachTarget ? t('approach') : t('freeflight');
         modeEl.style.color = game.approachTarget ? '#ffaa00' : '#00ff00';
