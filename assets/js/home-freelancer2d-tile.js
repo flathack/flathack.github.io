@@ -4,13 +4,37 @@
 
   const ctx = canvas.getContext("2d");
   const assetPaths = {
-    trader: "freelancer2d/data/ship_icons/li_freighter.png",
-    civilian: "freelancer2d/data/ship_icons/patriot.png",
-    pirate: "freelancer2d/data/ship_icons/ge_fighter.png",
-    police: "freelancer2d/data/ship_icons/li_elite.png",
-    transport: "freelancer2d/data/ship_icons/ge_transport.png",
+    traderLiberty: "freelancer2d/data/ship_icons/li_freighter.png",
+    traderBretonia: "freelancer2d/data/ship_icons/br_freighter.png",
+    traderRheinland: "freelancer2d/data/ship_icons/rh_freighter.png",
+    civilianLiberty: "freelancer2d/data/ship_icons/li_fighter.png",
+    civilianBorder: "freelancer2d/data/ship_icons/bw_fighter.png",
+    pirateRogue: "freelancer2d/data/ship_icons/pi_fighter.png",
+    pirateCorsair: "freelancer2d/data/ship_icons/co_fighter.png",
+    policeLiberty: "freelancer2d/data/ship_icons/li_elite.png",
+    policeBountyHunter: "freelancer2d/data/ship_icons/bh_elite.png",
     station: "freelancer2d/data/vanilla-en/object_icons/smallstation1.png",
+    dockRing: "freelancer2d/data/vanilla-en/object_icons/dock_ring.png",
+    newark: "freelancer2d/data/vanilla-en/object_icons/space_shipping01.png",
+    manhattanTexture: "freelancer2d/data/planet_textures/planet_earthgrncld_4000.png",
     tradeLane: "freelancer2d/data/vanilla-en/object_icons/trade_lane_ring.png",
+  };
+  const roleSprites = {
+    trader: ["traderLiberty", "traderBretonia", "traderRheinland"],
+    civilian: ["civilianLiberty", "civilianBorder"],
+    pirate: ["pirateRogue", "pirateCorsair"],
+    police: ["policeLiberty", "policeBountyHunter"],
+  };
+  const spriteNames = {
+    traderLiberty: "Rhino",
+    traderBretonia: "Clydesdale",
+    traderRheinland: "Humpback",
+    civilianLiberty: "Patriot",
+    civilianBorder: "Dagger",
+    pirateRogue: "Bloodhound",
+    pirateCorsair: "Legionnaire",
+    policeLiberty: "Defender",
+    policeBountyHunter: "Barracuda",
   };
   const roles = ["trader", "trader", "civilian", "civilian", "pirate", "police"];
   const colors = {
@@ -20,14 +44,6 @@
     civilian: "#888888",
     miner: "#aa8844",
   };
-  const prefixes = {
-    trader: ["MV", "TS", "STS"],
-    pirate: ["SH", "BC", "REAPER"],
-    police: ["CPD", "SFPD"],
-    civilian: ["ST", "LS", "RV"],
-    miner: ["EX", "MR"],
-  };
-
   let width = 640;
   let height = 300;
   let last = performance.now();
@@ -50,10 +66,8 @@
     return list[Math.floor(Math.random() * list.length)];
   }
 
-  function generateName(role) {
-    const prefix = pick(prefixes[role] || ["DS"]);
-    const number = Math.floor(Math.random() * 9000) + 1000;
-    return `${prefix}-${number}`;
+  function shipNameForSprite(sprite) {
+    return spriteNames[sprite] || "Starflier";
   }
 
   function resize() {
@@ -77,7 +91,7 @@
     const role = pick(roles);
     const side = fromEdge ? Math.floor(Math.random() * 4) : -1;
     let x = Math.random() * width;
-    let y = Math.random() * height;
+    let y = height * 0.36 + Math.random() * height * 0.62;
     let targetX = Math.random() * width;
     let targetY = Math.random() * height;
 
@@ -94,10 +108,12 @@
       civilian: 48,
     }[role] || 46;
 
+    const sprite = pick(roleSprites[role] || ["civilianLiberty"]);
+
     return {
       role,
-      name: generateName(role),
-      sprite: role === "trader" && Math.random() > 0.48 ? "transport" : role,
+      name: shipNameForSprite(sprite),
+      sprite,
       x,
       y,
       rotation: angle,
@@ -114,7 +130,7 @@
   }
 
   function resetShips() {
-    ships = Array.from({ length: 13 }, () => spawnNPC(false));
+    ships = Array.from({ length: 6 }, () => spawnNPC(false));
   }
 
   function updateNPC(npc, dt) {
@@ -145,16 +161,15 @@
   }
 
   function drawBackground(time) {
-    const gradient = ctx.createRadialGradient(width * 0.45, height * 0.48, 0, width * 0.45, height * 0.48, width);
-    gradient.addColorStop(0, "#142d55");
-    gradient.addColorStop(0.42, "#081525");
-    gradient.addColorStop(1, "#030611");
+    const gradient = ctx.createRadialGradient(width * 0.48, height * 0.36, 0, width * 0.52, height * 0.5, width);
+    gradient.addColorStop(0, "#132b48");
+    gradient.addColorStop(0.48, "#0c1833");
+    gradient.addColorStop(1, "#030814");
     ctx.fillStyle = gradient;
     ctx.fillRect(0, 0, width, height);
 
-    drawNebula(width * 0.22, height * 0.52, 190, "rgba(0, 190, 220, 0.16)");
-    drawNebula(width * 0.72, height * 0.38, 220, "rgba(188, 75, 255, 0.13)");
-    drawNebula(width * 0.82, height * 0.82, 180, "rgba(255, 150, 54, 0.13)");
+    drawNebula(width * 0.28, height * 0.5, 250, "rgba(0, 140, 220, 0.12)");
+    drawNebula(width * 0.72, height * 0.42, 260, "rgba(80, 70, 180, 0.1)");
 
     for (const star of stars) {
       const twinkle = 0.72 + Math.sin(time * 0.0018 + star.x) * 0.28;
@@ -169,7 +184,7 @@
     ctx.fillStyle = "rgba(137, 240, 255, 0.65)";
     ctx.font = "11px Courier New";
     ctx.textAlign = "left";
-    ctx.fillText("NEW YORK SYSTEM / FORT BUSH SECTOR", 16, 22);
+    ctx.fillText("NEW YORK SYSTEM / MANHATTAN ORBIT", 14, 20);
   }
 
   function drawNebula(x, y, radius, color) {
@@ -181,118 +196,233 @@
   }
 
   function drawLandmarks(time) {
+    drawManhattanOrbit(time);
+    drawNewark(time);
     drawTradeLane(time);
-    drawFortBush(time);
+    drawPlayerHud(time);
   }
 
   function drawTradeLane(time) {
     const ring = images.tradeLane;
-    const laneX = width - 58;
-    const laneTop = -42;
-    const laneBottom = height + 42;
+    const laneStartX = width * 0.79;
+    const laneStartY = height * 0.15;
+    const laneEndX = width * 0.94;
+    const laneEndY = height * 0.04;
 
     ctx.save();
-    ctx.globalAlpha = 0.58;
-    ctx.strokeStyle = "rgba(100, 210, 255, 0.44)";
+    ctx.globalAlpha = 0.72;
+    ctx.strokeStyle = "rgba(88, 196, 255, 0.52)";
     ctx.lineWidth = 2;
-    ctx.setLineDash([9, 11]);
-    ctx.lineDashOffset = -(time * 0.018) % 20;
     ctx.beginPath();
-    ctx.moveTo(laneX, laneTop);
-    ctx.lineTo(laneX - 34, laneBottom);
+    ctx.moveTo(laneStartX, laneStartY);
+    ctx.lineTo(laneEndX, laneEndY);
     ctx.stroke();
-    ctx.setLineDash([]);
     ctx.restore();
 
-    for (let i = -1; i < 5; i++) {
-      const y = i * 82 + ((time * 0.018) % 82);
-      const x = laneX - (y / Math.max(1, height)) * 34;
+    for (let i = 0; i < 4; i++) {
+      const t = i / 3;
+      const x = laneStartX + (laneEndX - laneStartX) * t;
+      const y = laneStartY + (laneEndY - laneStartY) * t;
       ctx.save();
       ctx.translate(x, y);
-      ctx.rotate(Math.PI / 2.18);
-      ctx.globalAlpha = 0.9;
+      ctx.rotate(-0.78);
+      ctx.globalAlpha = 0.88;
       if (ring && ring.complete) {
-        ctx.drawImage(ring, -31, -31, 62, 62);
+        ctx.drawImage(ring, -16, -16, 32, 32);
       } else {
         ctx.strokeStyle = "rgba(83, 180, 255, 0.78)";
-        ctx.lineWidth = 3;
+        ctx.lineWidth = 2;
         ctx.beginPath();
-        ctx.ellipse(0, 0, 12, 27, 0, 0, Math.PI * 2);
+        ctx.ellipse(0, 0, 7, 15, 0, 0, Math.PI * 2);
         ctx.stroke();
       }
       ctx.restore();
     }
-
-    ctx.save();
-    ctx.translate(width - 118, height * 0.72);
-    ctx.rotate(-0.42);
-    ctx.fillStyle = "rgba(100, 210, 255, 0.18)";
-    ctx.strokeStyle = "rgba(100, 210, 255, 0.48)";
-    ctx.lineWidth = 1.5;
-    ctx.fillRect(-76, -12, 152, 24);
-    ctx.strokeRect(-76, -12, 152, 24);
-    ctx.fillStyle = "rgba(200, 245, 255, 0.78)";
-    ctx.font = "10px Courier New";
-    ctx.textAlign = "center";
-    ctx.fillText("TRADE LANE", 0, 4);
-    ctx.restore();
   }
 
-  function drawFortBush(time) {
-    const station = images.station;
-    const x = width * 0.23;
-    const y = height * 0.66;
+  function drawManhattanOrbit(time) {
+    drawPlanetHorizon(time);
+
+    const ring = images.dockRing;
+    const ringX = width * 0.5;
+    const ringY = height * 0.34;
+
+    ctx.save();
+    ctx.translate(ringX, ringY);
+    ctx.rotate(Math.sin(time * 0.0005) * 0.02);
+    ctx.globalAlpha = 0.95;
+    ctx.shadowColor = "rgba(86, 212, 255, 0.7)";
+    ctx.shadowBlur = 10;
+    if (ring && ring.complete) {
+      ctx.drawImage(ring, -24, -24, 48, 48);
+    } else {
+      ctx.strokeStyle = "rgba(83, 180, 255, 0.65)";
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      ctx.ellipse(0, 0, 17, 25, 0, 0, Math.PI * 2);
+      ctx.stroke();
+    }
+    ctx.shadowBlur = 0;
+    ctx.restore();
+
+    drawLabel("PLANET MANHATTAN", width * 0.5, height * 0.29, "rgba(190, 210, 225, 0.78)", "center");
+    drawLabel("MANHATTAN DOCKING RING", ringX, ringY + 42, "#27c8ff", "center");
+  }
+
+  function drawPlanetHorizon(time) {
+    const x = width * 0.5;
+    const radius = width * 0.69;
+    const y = -radius + height * 0.34;
 
     ctx.save();
     ctx.translate(x, y);
-    ctx.rotate(Math.sin(time * 0.00035) * 0.03);
-    ctx.globalAlpha = 0.96;
-    if (station && station.complete) {
-      ctx.drawImage(station, -44, -44, 88, 88);
-    } else {
-      ctx.strokeStyle = "rgba(83, 180, 255, 0.45)";
-      ctx.fillStyle = "rgba(5, 22, 44, 0.76)";
-      ctx.lineWidth = 2;
-      ctx.beginPath();
-      ctx.arc(0, 0, 28, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.stroke();
-    }
-    ctx.strokeStyle = "rgba(255, 170, 0, 0.5)";
     ctx.beginPath();
-    ctx.moveTo(-54, 0);
-    ctx.lineTo(54, 0);
-    ctx.moveTo(0, -54);
-    ctx.lineTo(0, 54);
-    ctx.stroke();
+    ctx.arc(0, 0, radius, 0, Math.PI * 2);
+    ctx.clip();
+
+    const texture = images.manhattanTexture;
+    if (texture && texture.complete) {
+      const sourceSize = Math.min(texture.naturalWidth || texture.width, texture.naturalHeight || texture.height);
+      const sourceX = sourceSize * 0.04;
+      ctx.drawImage(texture, sourceX, 0, sourceSize * 0.92, sourceSize * 0.48, -radius, radius * 0.42, radius * 2, radius * 0.58);
+    } else {
+      const planet = ctx.createRadialGradient(-radius * 0.18, -radius * 0.2, radius * 0.12, 0, 0, radius);
+      planet.addColorStop(0, "#d8f2ff");
+      planet.addColorStop(0.3, "#76b7cf");
+      planet.addColorStop(0.54, "#2d698a");
+      planet.addColorStop(0.76, "#163450");
+      planet.addColorStop(1, "#06101f");
+      ctx.fillStyle = planet;
+      ctx.fillRect(-radius, -radius, radius * 2, radius * 2);
+    }
+
+    const shade = ctx.createRadialGradient(radius * 0.3, radius * 0.3, radius * 0.1, radius * 0.28, radius * 0.32, radius * 0.92);
+    shade.addColorStop(0, "rgba(0, 0, 0, 0)");
+    shade.addColorStop(1, "rgba(0, 0, 0, 0.48)");
+    ctx.fillStyle = shade;
+    ctx.fillRect(-radius, -radius, radius * 2, radius * 2);
     ctx.restore();
 
-    ctx.fillStyle = "rgba(102, 255, 153, 0.9)";
-    ctx.font = "11px Courier New";
-    ctx.textAlign = "center";
-    ctx.fillText("FORT BUSH", x, y + 62);
+    ctx.save();
+    ctx.strokeStyle = "rgba(210, 160, 110, 0.35)";
+    ctx.lineWidth = 1.2;
+    ctx.beginPath();
+    ctx.arc(x, y, radius + 3, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.strokeStyle = "rgba(130, 190, 230, 0.18)";
+    ctx.lineWidth = 10;
+    ctx.beginPath();
+    ctx.arc(x, y, radius + 8, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  function drawNewark(time) {
+    const station = images.newark || images.station;
+    const x = width * 0.83;
+    const y = height * 0.24;
 
     ctx.save();
-    ctx.translate(width * 0.84, height * 0.25);
-    ctx.rotate(time * 0.0003);
-    ctx.strokeStyle = "rgba(85, 255, 180, 0.52)";
-    ctx.lineWidth = 3;
+    ctx.translate(x, y);
+    ctx.rotate(0.68 + Math.sin(time * 0.00035) * 0.02);
+    ctx.globalAlpha = 0.9;
+    ctx.shadowColor = "rgba(120, 210, 255, 0.5)";
+    ctx.shadowBlur = 8;
+    if (station && station.complete) {
+      ctx.drawImage(station, -18, -18, 36, 36);
+    } else {
+      ctx.fillStyle = "rgba(5, 22, 44, 0.76)";
+      ctx.strokeStyle = "rgba(83, 180, 255, 0.45)";
+      ctx.lineWidth = 2;
+      ctx.fillRect(-16, -10, 32, 20);
+      ctx.strokeRect(-16, -10, 32, 20);
+    }
+    ctx.shadowBlur = 0;
+    ctx.restore();
+
+    drawLabel("STATION NEWARK", x - 10, y + 44, "#27c8ff", "center");
+  }
+
+  function drawPlayerHud(time) {
+    const ship = images.civilianLiberty;
+    const x = width * 0.49;
+    const y = height * 0.87;
+
+    ctx.save();
+    ctx.strokeStyle = "rgba(25, 210, 130, 0.45)";
+    ctx.lineWidth = 1.5;
     ctx.beginPath();
-    ctx.ellipse(0, 0, 28, 46, 0, 0, Math.PI * 2);
+    ctx.moveTo(x, y + 3);
+    ctx.lineTo(x, height + 80);
     ctx.stroke();
+
+    const glow = ctx.createRadialGradient(x, y, 0, x, y, 28);
+    glow.addColorStop(0, "rgba(30, 230, 120, 0.55)");
+    glow.addColorStop(1, "rgba(30, 230, 120, 0)");
+    ctx.fillStyle = glow;
+    ctx.fillRect(x - 30, y - 30, 60, 60);
+
+    ctx.translate(x, y);
+    ctx.rotate(-Math.PI / 2 + Math.sin(time * 0.001) * 0.02);
+    if (ship && ship.complete) {
+      ctx.drawImage(ship, -12, -12, 24, 24);
+    } else {
+      ctx.fillStyle = "rgba(120, 210, 255, 0.9)";
+      ctx.beginPath();
+      ctx.moveTo(13, 0);
+      ctx.lineTo(-8, -6);
+      ctx.lineTo(-5, 0);
+      ctx.lineTo(-8, 6);
+      ctx.closePath();
+      ctx.fill();
+    }
+    ctx.restore();
+
+    ctx.save();
+    ctx.strokeStyle = "rgba(110, 200, 255, 0.5)";
+    ctx.lineWidth = 1.2;
+    ctx.beginPath();
+    ctx.arc(width * 0.5, height * 0.54, 4, 0, Math.PI * 2);
+    ctx.moveTo(width * 0.5 - 12, height * 0.54);
+    ctx.lineTo(width * 0.5 - 5, height * 0.54);
+    ctx.moveTo(width * 0.5 + 5, height * 0.54);
+    ctx.lineTo(width * 0.5 + 12, height * 0.54);
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  function drawLabel(text, x, y, color, align) {
+    ctx.fillStyle = color;
+    ctx.font = "11px Courier New";
+    ctx.textAlign = align || "left";
+    ctx.fillText(text, x, y);
+  }
+
+  function drawCallout(fromX, fromY, toX, toY, text) {
+    ctx.save();
+    ctx.strokeStyle = "rgba(137, 240, 255, 0.45)";
+    ctx.fillStyle = "rgba(137, 240, 255, 0.82)";
+    ctx.lineWidth = 1.2;
+    ctx.beginPath();
+    ctx.moveTo(fromX, fromY);
+    ctx.lineTo(toX - 8, toY + 4);
+    ctx.stroke();
+    ctx.font = "10px Courier New";
+    ctx.textAlign = "left";
+    ctx.fillText(text, toX, toY);
     ctx.restore();
   }
 
   function drawNPC(npc) {
-    const sprite = images[npc.sprite] || images[npc.role];
+    const sprite = images[npc.sprite] || images.civilianLiberty;
     ctx.save();
     ctx.translate(npc.x, npc.y);
     ctx.rotate(npc.rotation + Math.PI / 2);
 
     if (sprite && sprite.complete) {
-      const size = npc.role === "trader" ? 44 : 34;
+      const size = npc.role === "trader" ? 24 : 18;
       ctx.shadowColor = npc.role === "pirate" ? "rgba(255, 90, 90, 0.55)" : "rgba(120, 210, 255, 0.46)";
-      ctx.shadowBlur = 8;
+      ctx.shadowBlur = 6;
       ctx.drawImage(sprite, -size / 2, -size / 2, size, size);
       ctx.shadowBlur = 0;
     } else {
@@ -310,9 +440,9 @@
     }
 
     const glow = Math.min(1, Math.hypot(npc.vx, npc.vy) / 80);
-    ctx.fillStyle = `rgba(255, ${120 + Math.floor(glow * 80)}, 30, ${0.35 + glow * 0.35})`;
+    ctx.fillStyle = `rgba(255, ${120 + Math.floor(glow * 80)}, 30, ${0.25 + glow * 0.25})`;
     ctx.beginPath();
-    ctx.arc(0, 17, 2 + glow * 4, 0, Math.PI * 2);
+    ctx.arc(0, 9, 1.5 + glow * 3, 0, Math.PI * 2);
     ctx.fill();
     ctx.restore();
 
@@ -320,7 +450,7 @@
       ctx.font = "10px Courier New";
       ctx.textAlign = "center";
       ctx.fillStyle = npc.role === "pirate" ? "#ff7777" : "#66ff99";
-      ctx.fillText(npc.name, npc.x, npc.y + npc.radius + 12);
+      ctx.fillText(npc.name, npc.x, npc.y + npc.radius + 8);
     }
   }
 
