@@ -146,6 +146,11 @@
         target: null,
         hull: capital ? 520 : police || humanFleet ? 130 : 95,
         maxHull: capital ? 520 : police || humanFleet ? 130 : 95,
+        shield: capital ? 180 : police || humanFleet ? 52 : 44,
+        maxShield: capital ? 180 : police || humanFleet ? 52 : 44,
+        shieldHit: 0,
+        shieldHitAngle: 0,
+        shieldRegenDelay: 0,
         fireCooldown: rand(0.2, 1.6),
         turnRate: capital ? 0.8 : police || humanFleet ? 2.4 : 3.0,
         speed: capital ? rand(18, 28) : police || humanFleet ? rand(46, 66) : rand(54, 78),
@@ -212,6 +217,12 @@
           }
         }
         return;
+      }
+
+      ship.shieldHit = Math.max(0, ship.shieldHit - dt * 2.2);
+      ship.shieldRegenDelay = Math.max(0, ship.shieldRegenDelay - dt);
+      if (ship.shieldRegenDelay <= 0 && ship.shield < ship.maxShield) {
+        ship.shield = Math.min(ship.maxShield, ship.shield + ship.maxShield * 0.1 * dt);
       }
 
       ship.target = nearestEnemy(ship);
@@ -282,11 +293,45 @@
           var dx = ship.x - p.x;
           var dy = ship.y - p.y;
           if (Math.hypot(dx, dy) < ship.radius + 4) {
-            ship.hull -= p.damage;
-            sparks.push({ x: p.x, y: p.y, life: 0.42, color: p.color });
+            var damage = p.damage;
+            ship.shieldHit = 1;
+            ship.shieldHitAngle = Math.atan2(p.y - ship.y, p.x - ship.x);
+            ship.shieldRegenDelay = 1.8;
+            sparks.push({
+              x: p.x,
+              y: p.y,
+              vx: rand(-18, 18),
+              vy: rand(-18, 18),
+              life: 0.38,
+              maxLife: 0.38,
+              size: 3,
+              color: ship.side === "human" ? "rgba(120, 220, 255, 0.95)" : "rgba(255, 120, 165, 0.95)",
+              type: "shield"
+            });
+            if (ship.shield > 0) {
+              var absorbed = Math.min(ship.shield, damage);
+              ship.shield -= absorbed;
+              damage -= absorbed;
+              if (ship.shield <= 0) {
+                for (var b = 0; b < 7; b++) {
+                  sparks.push({
+                    x: ship.x + Math.cos(ship.shieldHitAngle + rand(-0.9, 0.9)) * rand(ship.radius, ship.radius + 12),
+                    y: ship.y + Math.sin(ship.shieldHitAngle + rand(-0.9, 0.9)) * rand(ship.radius, ship.radius + 12),
+                    vx: rand(-34, 34),
+                    vy: rand(-34, 34),
+                    life: rand(0.25, 0.55),
+                    maxLife: 0.55,
+                    size: rand(1.8, 4.2),
+                    color: "rgba(130, 225, 255, 0.9)",
+                    type: "spark"
+                  });
+                }
+              }
+            }
+            if (damage > 0) ship.hull -= damage;
             if (ship.hull <= 0) {
               ship.respawnTimer = rand(1.1, 2.4);
-              for (var k = 0; k < 8; k++) sparks.push({ x: ship.x + rand(-10, 10), y: ship.y + rand(-10, 10), life: rand(0.35, 0.8), color: "rgba(255, 190, 70, 0.9)" });
+              createExplosion(ship);
             }
             hit = true;
             break;
@@ -298,9 +343,80 @@
       }
     }
 
+    function createExplosion(ship) {
+      var boomSize = ship.faction === "humanCapital" ? 2.1 : 1;
+      sparks.push({
+        x: ship.x,
+        y: ship.y,
+        vx: 0,
+        vy: 0,
+        life: 0.72,
+        maxLife: 0.72,
+        size: 28 * boomSize,
+        color: "rgba(255, 220, 135, 0.95)",
+        type: "blast"
+      });
+      sparks.push({
+        x: ship.x,
+        y: ship.y,
+        vx: 0,
+        vy: 0,
+        life: 0.95,
+        maxLife: 0.95,
+        size: 48 * boomSize,
+        color: "rgba(255, 120, 45, 0.7)",
+        type: "ring"
+      });
+      for (var k = 0; k < 22 * boomSize; k++) {
+        var angle = rand(0, Math.PI * 2);
+        var speed = rand(38, 175) * boomSize;
+        sparks.push({
+          x: ship.x + rand(-10, 10),
+          y: ship.y + rand(-10, 10),
+          vx: Math.cos(angle) * speed,
+          vy: Math.sin(angle) * speed,
+          life: rand(0.35, 1.1),
+          maxLife: 1.1,
+          size: rand(1.6, 4.8) * boomSize,
+          color: k % 4 === 0 ? "rgba(120, 210, 255, 0.85)" : "rgba(255, 185, 70, 0.95)",
+          type: "spark"
+        });
+      }
+    }
+
+    function drawShield(ship) {
+      if (ship.maxShield <= 0) return;
+      var shieldRatio = Math.max(0, ship.shield / ship.maxShield);
+      var baseAlpha = shieldRatio > 0 ? 0.045 + shieldRatio * 0.04 : 0;
+      var flashAlpha = ship.shieldHit * 0.55;
+      if (baseAlpha <= 0 && flashAlpha <= 0) return;
+      var radius = ship.radius + (ship.faction === "humanCapital" ? 15 : 8);
+      var color = ship.side === "human" ? "98, 210, 255" : "255, 96, 155";
+
+      ctx.save();
+      ctx.translate(ship.x, ship.y);
+      ctx.strokeStyle = "rgba(" + color + ", " + (baseAlpha + flashAlpha * 0.35) + ")";
+      ctx.fillStyle = "rgba(" + color + ", " + (baseAlpha * 0.45 + flashAlpha * 0.12) + ")";
+      ctx.lineWidth = ship.faction === "humanCapital" ? 2 : 1.4;
+      ctx.beginPath();
+      ctx.ellipse(0, 0, radius * 1.12, radius * 0.92, ship.rotation, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.stroke();
+
+      if (ship.shieldHit > 0) {
+        ctx.strokeStyle = "rgba(" + color + ", " + Math.min(0.95, flashAlpha + 0.25) + ")";
+        ctx.lineWidth = ship.faction === "humanCapital" ? 4 : 2.8;
+        ctx.beginPath();
+        ctx.arc(0, 0, radius * 1.08, ship.shieldHitAngle - 0.75, ship.shieldHitAngle + 0.75);
+        ctx.stroke();
+      }
+      ctx.restore();
+    }
+
     function drawShip(ship) {
       if (ship.hull <= 0) return;
       var img = images[ship.sprite];
+      drawShield(ship);
       ctx.save();
       ctx.translate(ship.x, ship.y);
       ctx.rotate(ship.rotation + Math.PI / 2);
@@ -345,11 +461,34 @@
       for (var i = sparks.length - 1; i >= 0; i--) {
         var s = sparks[i];
         s.life -= dt;
-        ctx.globalAlpha = Math.max(0, s.life);
-        ctx.fillStyle = s.color;
-        ctx.beginPath();
-        ctx.arc(s.x, s.y, 2 + (1 - s.life) * 5, 0, Math.PI * 2);
-        ctx.fill();
+        s.x += (s.vx || 0) * dt;
+        s.y += (s.vy || 0) * dt;
+        if (s.type === "ring") {
+          var ringProgress = 1 - s.life / s.maxLife;
+          ctx.globalAlpha = Math.max(0, s.life / s.maxLife) * 0.8;
+          ctx.strokeStyle = s.color;
+          ctx.lineWidth = 2.5;
+          ctx.beginPath();
+          ctx.arc(s.x, s.y, 8 + ringProgress * s.size, 0, Math.PI * 2);
+          ctx.stroke();
+        } else if (s.type === "blast") {
+          var blastProgress = 1 - s.life / s.maxLife;
+          var gradient = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, 8 + blastProgress * s.size);
+          gradient.addColorStop(0, "rgba(255, 255, 230, 0.95)");
+          gradient.addColorStop(0.35, s.color);
+          gradient.addColorStop(1, "rgba(255, 80, 20, 0)");
+          ctx.globalAlpha = Math.max(0, s.life / s.maxLife);
+          ctx.fillStyle = gradient;
+          ctx.beginPath();
+          ctx.arc(s.x, s.y, 8 + blastProgress * s.size, 0, Math.PI * 2);
+          ctx.fill();
+        } else {
+          ctx.globalAlpha = Math.max(0, s.life / (s.maxLife || 1));
+          ctx.fillStyle = s.color;
+          ctx.beginPath();
+          ctx.arc(s.x, s.y, s.size || (2 + (1 - s.life) * 5), 0, Math.PI * 2);
+          ctx.fill();
+        }
         if (s.life <= 0) sparks.splice(i, 1);
       }
       ctx.globalAlpha = 1;
