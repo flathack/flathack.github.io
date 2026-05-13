@@ -82,16 +82,18 @@ body[data-theme="crossfire"] {
 .info-row { display: flex; justify-content: space-between; margin-bottom: 5px; font-size: 11px; }
 .info-row span:last-child { color: #00ff00; }
 .info-text { margin-top: 8px; padding-top: 8px; border-top: 1px solid #223344; color: #aaddff; font-size: 10px; line-height: 1.35; max-height: 140px; overflow-y: auto; white-space: pre-line; }
-#hud-left { position: absolute; left: 50%; bottom: 10px; transform: translateX(-50%); min-width: 430px; padding: 8px 10px; background: rgba(0, 10, 24, 0.76); border: 1px solid color-mix(in srgb, var(--hud-accent) 70%, transparent); box-shadow: 0 0 16px color-mix(in srgb, var(--hud-accent-strong) 22%, transparent); }
-.stat-bar { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
-.stat-label { width: 80px; font-size: 11px; color: #888; }
-.bar-container { flex: 1; min-width: 210px; height: 14px; background: rgba(0,0,0,0.7); border: 1px solid #333; }
+#hud-left { position: absolute; left: 50%; bottom: 10px; transform: translateX(-50%); width: min(520px, calc(100vw - 36px)); padding: 7px 9px; background: rgba(0, 10, 24, 0.68); border: 1px solid color-mix(in srgb, var(--hud-accent) 58%, transparent); box-shadow: 0 0 12px color-mix(in srgb, var(--hud-accent-strong) 16%, transparent); }
+.status-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px 10px; }
+.stat-bar { display: grid; grid-template-columns: 56px minmax(0, 1fr) 42px; align-items: center; gap: 7px; min-width: 0; }
+.stat-label { font-size: 10px; color: #8fb8c8; text-transform: uppercase; white-space: nowrap; }
+.stat-value { color: #d8f7ff; font-size: 10px; text-align: right; font-variant-numeric: tabular-nums; }
+.bar-container { min-width: 0; height: 8px; background: rgba(0,0,0,0.62); border: 1px solid rgba(100,150,180,0.34); overflow: hidden; }
 .bar-fill { height: 100%; transition: width 0.1s; }
 .bar-fill.hull { background: linear-gradient(to right, #880000, #ff4444); }
 .bar-fill.shield { background: linear-gradient(to right, #004488, #44aaff); }
 .bar-fill.energy { background: linear-gradient(to right, #886600, #ffcc44); }
+.bar-fill.thrust { background: linear-gradient(to right, #065c48, #55ffd5); }
 #hud-bottom { position: absolute; bottom: 10px; left: 10px; width: min(360px, calc(50vw - 230px)); min-width: 260px; pointer-events: auto; }
-#hud-info { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px 12px; margin-top: 8px; font-size: 11px; color: #9edfff; }
 #hud-right { position: absolute; bottom: 10px; right: 10px; width: min(360px, calc(50vw - 230px)); min-width: 280px; text-align: left; }
 .side-control { position: absolute; top: 50%; transform: translateY(-50%); width: 74px; height: 260px; display: grid; grid-template-rows: auto 1fr auto; justify-items: center; align-items: center; gap: 8px; text-align: center; }
 #speed-control { right: 10px; }
@@ -124,7 +126,8 @@ body[data-theme="crossfire"] {
 @media (max-width: 980px) {
     #command-bar { margin-top: 42px; }
     #music-player { width: min(340px, calc(100vw - 28px)); }
-    #hud-left { min-width: 300px; width: calc(100vw - 28px); bottom: 120px; }
+    #hud-left { width: calc(100vw - 28px); bottom: 120px; }
+    .status-grid { grid-template-columns: 1fr; }
     .side-control { height: 220px; width: 62px; }
     #speed-control { right: 6px; }
     #zoom-control { left: 6px; }
@@ -133,12 +136,15 @@ body[data-theme="crossfire"] {
     .side-slider-wrap { height: 145px; }
     .side-slider { width: 145px; }
     .cmd-btn { min-width: 62px; padding: 6px 8px; font-size: 10px; }
-    #hud-info { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 .hidden { display: none !important; }
 #start-screen { position: absolute; inset: 0; overflow: hidden; background: #020612; z-index: 1000; color: #dff7ff; }
 #start-bg-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
 #start-screen::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(90deg, rgba(2,8,24,0.52), rgba(2,8,24,0.12) 34%, rgba(0,0,0,0.08) 64%, rgba(0,0,0,0.36)), radial-gradient(circle at 46% 26%, rgba(255,190,65,0.18), transparent 18%), radial-gradient(circle at 84% 80%, rgba(255,110,18,0.18), transparent 24%); }
+#start-screen[data-menu-screen="dock"]::after { background: linear-gradient(90deg, rgba(1,6,18,0.6), rgba(1,6,18,0.22) 34%, rgba(0,0,0,0.02) 62%, rgba(0,0,0,0.18)); }
+.start-screen-picker { position: absolute; top: 18px; right: 22px; z-index: 3; display: flex; gap: 8px; align-items: center; }
+#start-screen .start-screen-picker button { min-height: 30px; min-width: 34px; padding: 0 10px; clip-path: none; border-color: rgba(115,207,255,0.58); background: rgba(4,26,52,0.7); color: #9edfff; font-size: 12px; box-shadow: 0 0 12px rgba(0,136,255,0.18), inset 0 0 12px rgba(80,170,255,0.1); }
+#start-screen .start-screen-picker button.active { border-color: #ffaa00; color: #fff1c7; background: rgba(72,48,0,0.62); box-shadow: 0 0 14px rgba(255,170,0,0.28), inset 0 0 12px rgba(255,210,90,0.1); }
 .start-menu-content { position: relative; z-index: 1; min-height: 100%; padding: clamp(28px, 4vw, 62px) clamp(24px, 5vw, 76px); display: grid; grid-template-columns: minmax(320px, 430px) minmax(280px, 520px); grid-template-rows: auto auto 1fr auto; gap: 14px clamp(22px, 5vw, 70px); align-items: start; text-shadow: 0 2px 12px #000; }
 #start-title { grid-column: 1 / -1; justify-self: start; font-size: clamp(42px, 7vw, 96px); line-height: 0.95; margin: 0; color: #f5fbff; letter-spacing: 0; font-weight: 700; text-transform: uppercase; text-shadow: 0 0 12px rgba(220,246,255,0.96), 0 0 28px rgba(126,206,255,0.74), 0 0 54px rgba(70,120,180,0.58); }
 #start-title::before, #start-title::after { content: ''; display: block; width: min(42vw, 620px); height: 2px; margin: 0 0 10px; background: linear-gradient(90deg, rgba(255,255,255,0), rgba(245,252,255,0.96), rgba(255,255,255,0)); box-shadow: 0 0 12px rgba(210,246,255,0.86); }
@@ -187,6 +193,7 @@ body[data-theme="crossfire"] {
     .save-panel { grid-row: auto; align-self: start; }
     .controls { grid-template-columns: 1fr; }
     .start-footer { position: relative; right: auto; bottom: auto; z-index: 2; margin: 14px 24px 18px; justify-content: flex-start; flex-wrap: wrap; }
+    .start-screen-picker { top: 12px; right: 12px; }
 }
 #map-overlay { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: min(1120px, calc(100vw - 32px)); height: min(760px, calc(100vh - 32px)); background: rgba(0,10,20,0.95); border: 2px solid #00aaff; z-index: 2000; display: flex; flex-direction: column; overflow: hidden; }
 #map-header { padding: 10px; border-bottom: 1px solid #333; display: flex; justify-content: space-between; align-items: center; }
@@ -413,27 +420,27 @@ body[data-theme="crossfire"] .mod-btn.active {
             </div>
             
             <div id="hud-left">
-                <div class="speed-display" id="speed-display">SPEED: 0 m/s</div>
-                <div class="stat-bar">
-                    <span class="stat-label" id="label-hull">HULL</span>
-                    <div class="bar-container"><div id="hull-bar" class="bar-fill hull"></div></div>
-                </div>
-                <div class="stat-bar">
-                    <span class="stat-label" id="label-shield">SHIELD</span>
-                    <div class="bar-container"><div id="shield-bar" class="bar-fill shield"></div></div>
-                </div>
-                <div class="stat-bar">
-                    <span class="stat-label" id="label-energy">ENERGY</span>
-                    <div class="bar-container"><div id="energy-bar" class="bar-fill energy"></div></div>
-                </div>
-                <div id="hud-info">
-                    <span id="credits">CREDITS: 10,000</span>
-                    <span id="cargo">CARGO: 0/50</span>
-                    <span id="system-name">SYSTEM: LI01</span>
-                    <span id="game-time">00:00</span>
-                    <span id="zoom-display">ZOOM: 1.0x</span>
-                    <span id="thrust-display">THRUST: 0/0</span>
-                    <span id="mode-indicator">FREEFLIGHT</span>
+                <div class="status-grid">
+                    <div class="stat-bar">
+                        <span class="stat-label" id="label-shield">SHIELD</span>
+                        <div class="bar-container"><div id="shield-bar" class="bar-fill shield"></div></div>
+                        <span class="stat-value" id="shield-value">0%</span>
+                    </div>
+                    <div class="stat-bar">
+                        <span class="stat-label" id="label-hull">HULL</span>
+                        <div class="bar-container"><div id="hull-bar" class="bar-fill hull"></div></div>
+                        <span class="stat-value" id="hull-value">0%</span>
+                    </div>
+                    <div class="stat-bar">
+                        <span class="stat-label" id="label-energy">ENERGY</span>
+                        <div class="bar-container"><div id="energy-bar" class="bar-fill energy"></div></div>
+                        <span class="stat-value" id="energy-value">0%</span>
+                    </div>
+                    <div class="stat-bar">
+                        <span class="stat-label" id="label-thrust">THRUST</span>
+                        <div class="bar-container"><div id="thrust-bar" class="bar-fill thrust"></div></div>
+                        <span class="stat-value" id="thrust-value">0%</span>
+                    </div>
                 </div>
             </div>
             
@@ -506,6 +513,7 @@ body[data-theme="crossfire"] .mod-btn.active {
     
     <div id="start-screen">
         <canvas id="start-bg-canvas"></canvas>
+        <div id="start-screen-picker" class="start-screen-picker" aria-label="Menu background"></div>
         <div class="start-menu-content">
             <h1 id="start-title">Freelancer 2D</h1>
             <p id="start-subtitle" class="subtitle">a 2d adventure</p>
@@ -550,7 +558,7 @@ body[data-theme="crossfire"] .mod-btn.active {
             </div>
         </div>
         <div class="start-footer">
-            <span>Made by Aldenmar Odin - flathack - v0.6.7</span>
+            <span>Made by Aldenmar Odin - flathack - v0.6.8</span>
             <a class="start-home-link" href="https://flathack.github.io/" target="_blank" rel="noopener noreferrer">Startseite</a>
         </div>
     </div>
@@ -904,6 +912,8 @@ const game = {
         language: 'en',
     landedBase: null,
     lastLanding: null,
+    interior: null,
+    interiorKeys: {},
     landingDeck: 'launch',
     barSubDeck: 'news',
     activeRumor: null,
@@ -938,6 +948,7 @@ const game = {
     radioCooldowns: {},
     populationSpawnTimer: 0,
     stationLaunchTimer: 0,
+    freeSpaceTrafficTimer: 0,
     ambientTradeSeededSystemId: '',
     audioContext: null,
     audioEnabled: false,
@@ -958,14 +969,16 @@ const SAVE_KEY = 'freelancer2d.save.v1';
 const SAVE_INDEX_KEY = 'freelancer2d.saveSlots.v1';
 const ACTIVE_SAVE_SLOT_KEY = 'freelancer2d.activeSaveSlot.v1';
 const ACTIVE_MOD_KEY = 'freelancer2d.activeMod.v1';
+const START_MENU_SCREEN_KEY = 'freelancer2d.startMenuScreen.v1';
 const SAVE_VERSION = 1;
 const MAX_SAVE_SLOTS = 5;
 const GAME_TITLE = 'Freelancer 2D - a 2d adventure';
-const DATA_CACHE_VERSION = '2026-05-12-object-radius';
+const DATA_CACHE_VERSION = '2026-05-13-textured-icons-orientation';
 const JUSTICE_FIRE_SOUND_PATH = 'assets/audio/justice-fire.wav';
 const UNIVERSE_BACKGROUND_IMAGE_PATH = 'assets/universe-nebula-background.png';
 const MUSIC_VOLUME = 0.315;
 const MUSIC_CROSSFADE_MS = 1400;
+const MUSIC_BACKGROUND_MUTED = true;
 const CRUISE_DISRUPT_LOCKOUT_MS = 4200;
 const CRUISE_DISRUPTOR_SOUND_PATH = 'assets/audio/cruise_disrupt.wav';
 const VOICE_SOUND_PATHS = {
@@ -996,8 +1009,9 @@ const MUSIC_TRACKS = {
     ]
 };
 const ENABLE_CROSSFIRE_MOD = true;
+const VANILLA_DE_MOD_ID = 'vanilla-de';
 const MODS = [
-    { id: 'vanilla', name: 'Vanilla DE', dataPath: '' },
+    { id: VANILLA_DE_MOD_ID, name: 'Vanilla DE', dataPath: 'data/vanilla-de/mod_data.js' },
     { id: 'vanilla-en', name: 'Vanilla EN', dataPath: 'data/vanilla-en/mod_data.js' },
     ...(ENABLE_CROSSFIRE_MOD ? [{ id: 'crossfire', name: 'Crossfire', dataPath: 'data/crossfire/mod_data.js' }] : [])
 ];
@@ -1015,7 +1029,7 @@ const I18N = {
         noSaveForMod: 'Kein Savegame fuer diesen Mod vorhanden', separateSaves: 'Vanilla DE, Vanilla EN und Crossfire haben getrennte Spielstaende',
         noSavedGameFound: 'Kein gespeicherter Spielstand gefunden.', savegameLabel: 'Spielstand', activeLabel: 'AKTIV', loadLabel: 'LADEN', unknownDate: 'unbekannt',
         maxSavesReached: 'Maximal 5 Savegames. Bitte zuerst einen Spielstand loeschen.', deleteSaveConfirm: 'Savegame "{name}" loeschen?', modDataMissing: '{mod}-Daten nicht gefunden. Starte mit Vanilla DE.',
-        hudHull: 'HÜLLE', hudShield: 'SCHILD', hudEnergy: 'ENERGIE', loadoutTitle: 'WAFFEN', scannerTitle: 'SCANNER', labelNanobots: 'Nanobots', labelShieldBatteries: 'Schildbatterien',
+        hudHull: 'HÜLLE', hudShield: 'SCHILD', hudEnergy: 'ENERGIE', hudThrust: 'SCHUB', uiSystem: 'System', uiSpeed: 'Geschwindigkeit', uiZoom: 'Zoom', uiTime: 'Uhrzeit', uiMode: 'Modus', loadoutTitle: 'WAFFEN', scannerTitle: 'SCANNER', labelNanobots: 'Nanobots', labelShieldBatteries: 'Schildbatterien',
         ammoTab: 'Ammo', missileAmmo: 'Raketen', mines: 'Minen', countermeasures: 'Gegenmaßnahmen', countermeasureAmmoCount: 'Gegenmaßnahmen: {count}', countermeasureDropped: 'Gegenmaßnahme abgeworfen.', countermeasureAmmoEmpty: 'Keine Gegenmaßnahmen uebrig.', countermeasureDropperMissing: 'Kein Gegenmaßnahmen-Werfer montiert.', countermeasureDropLocked: 'Gegenmaßnahmen nicht beim Andocken, in Tradelanes oder Sprüngen nutzbar.', countermeasureAutoOn: 'AUTO AN', countermeasureAutoOff: 'AUTO AUS', missileIncoming: 'Rakete im Anflug!', mineAmmoCount: 'Minen: {count}/{max}', mineDropped: 'Mine abgeworfen.', mineAmmoEmpty: 'Keine Minen uebrig.', mineAmmoFull: 'Minenlager voll.', mineDropperMissing: 'Kein Minenwerfer montiert.', mineDropLocked: 'Minen nur bei Kampfgeschwindigkeit bis 80 m/s, nicht in Cruise, Tradelane oder Sprung.', ammoFull: 'Raketenlager voll.', ammoMissing: 'Keine Raketen-Munition.', missileAmmoCount: 'Raketen: {count}/{max}',
         selected: 'Ausgewählt', distance: 'Distanz', clearSelection: '[-] Ziel/WP', selectionCleared: 'Zielauswahl geloescht.', waypointFromSelection: 'WP AUS AUSWAHL', noWaypointSelection: 'Kein geeignetes Objekt ausgewaehlt.', clearWaypoint: 'Wegpunkt loeschen', modeRotate: 'DREHMODUS', modeCruiseCharge: 'REISEFLUG LÄDT', modeCruise: 'REISEFLUG', modeAfterburner: 'NACHBRENNER',
         scannerNone: 'Keine Schiffe oder Stationen in Reichweite.', scanNoTarget: 'Kein NPC-Ziel ausgewählt.', scanOutOfRange: 'Ziel außerhalb der Scannerreichweite.', scanResultTitle: 'Scan-Ergebnis', noWeaponSlots: 'Keine Waffen-Slots vorhanden.', emptyWeapon: 'Leer', noGunMounted: 'Keine Waffe montiert',
@@ -1041,7 +1055,7 @@ const I18N = {
         noSaveForMod: 'No savegame exists for this mod yet', separateSaves: 'Vanilla DE, Vanilla EN, and Crossfire use separate save slots',
         noSavedGameFound: 'No saved game found.', savegameLabel: 'Savegame', activeLabel: 'ACTIVE', loadLabel: 'LOAD', unknownDate: 'unknown',
         maxSavesReached: 'Maximum of 5 savegames. Delete one first.', deleteSaveConfirm: 'Delete savegame "{name}"?', modDataMissing: '{mod} data not found. Starting with Vanilla DE.',
-        hudHull: 'HULL', hudShield: 'SHIELD', hudEnergy: 'ENERGY', loadoutTitle: 'WEAPONS', scannerTitle: 'SCANNER', labelNanobots: 'Nanobots', labelShieldBatteries: 'Shield Batteries',
+        hudHull: 'HULL', hudShield: 'SHIELD', hudEnergy: 'ENERGY', hudThrust: 'THRUST', uiSystem: 'System', uiSpeed: 'Speed', uiZoom: 'Zoom', uiTime: 'Time', uiMode: 'Mode', loadoutTitle: 'WEAPONS', scannerTitle: 'SCANNER', labelNanobots: 'Nanobots', labelShieldBatteries: 'Shield Batteries',
         ammoTab: 'Ammo', missileAmmo: 'Missiles', mines: 'Mines', countermeasures: 'Countermeasures', countermeasureAmmoCount: 'Countermeasures: {count}', countermeasureDropped: 'Countermeasure dropped.', countermeasureAmmoEmpty: 'No countermeasures left.', countermeasureDropperMissing: 'No countermeasure dropper mounted.', countermeasureDropLocked: 'Countermeasures cannot be used while docked, in trade lanes, or during jumps.', countermeasureAutoOn: 'AUTO ON', countermeasureAutoOff: 'AUTO OFF', missileIncoming: 'Incoming missile!', mineAmmoCount: 'Mines: {count}/{max}', mineDropped: 'Mine dropped.', mineAmmoEmpty: 'No mines left.', mineAmmoFull: 'Mine bay full.', mineDropperMissing: 'No mine dropper mounted.', mineDropLocked: 'Mines only at combat speed up to 80 m/s, not in cruise, trade lane, or jump.', ammoFull: 'Missile bay full.', ammoMissing: 'No missile ammo.', missileAmmoCount: 'Missiles: {count}/{max}',
         selected: 'Selected', distance: 'Distance', clearSelection: '[-] Clear', selectionCleared: 'Selection cleared.', waypointFromSelection: 'WP FROM SELECTION', noWaypointSelection: 'No suitable object selected.', clearWaypoint: 'Clear waypoint', modeRotate: 'ROTATE MODE', modeCruiseCharge: 'CRUISE CHARGE', modeCruise: 'CRUISE', modeAfterburner: 'AFTERBURNER',
         scannerNone: 'No ships or stations in range.', scanNoTarget: 'No NPC target selected.', scanOutOfRange: 'Target outside scanner range.', scanResultTitle: 'Scan Result', noWeaponSlots: 'No weapon slots available.', emptyWeapon: 'Empty', noGunMounted: 'No weapon mounted',
@@ -2727,7 +2741,9 @@ function createNpcFleet(type, origin, destination = null, options = {}) {
                 npc.patrolRoute = nearestAsteroidFieldPatrolRoute(faction) || choosePatrolPathForFaction(faction, 'pirate')?.points || [];
                 npc.tradeRoute = npc.patrolRoute.length ? npc.patrolRoute.map(point => ({ type: 'patrol', target: point })) : buildNpcTradeRoute(origin, npc.tradeDestination);
             } else {
-                npc.tradeRoute = buildNpcTradeRoute(origin, npc.tradeDestination);
+                npc.tradeRoute = options.directTransit
+                    ? [{ type: 'dock', target: npc.tradeDestination }]
+                    : buildNpcTradeRoute(origin, npc.tradeDestination);
             }
             npc.tradeWaypointIndex = 0;
             npc.tradeState = fleet.state === 'forming' ? 'forming' : 'enroute';
@@ -2899,6 +2915,96 @@ function positionAmbientConvoyInTransit(leader) {
     return true;
 }
 
+function distancePointToSegment(px, pz, ax, az, bx, bz) {
+    const dx = bx - ax;
+    const dz = bz - az;
+    const lenSq = dx * dx + dz * dz;
+    if (lenSq <= 0) return Math.hypot(px - ax, pz - az);
+    const t = clamp(((px - ax) * dx + (pz - az) * dz) / lenSq, 0, 1);
+    return Math.hypot(px - (ax + dx * t), pz - (az + dz * t));
+}
+
+function routeSpawnPointNearPlayer(origin, destination, role = 'trade') {
+    if (!game.player || !origin || !destination) return null;
+    const ax = Number(origin.x || 0);
+    const az = Number(origin.z || 0);
+    const bx = Number(destination.x || 0);
+    const bz = Number(destination.z || 0);
+    const dx = bx - ax;
+    const dz = bz - az;
+    const lenSq = dx * dx + dz * dz;
+    if (lenSq <= 1) return offscreenSpawnPointForRoute(origin, destination, role);
+    const baseT = clamp(((game.player.x - ax) * dx + (game.player.z - az) * dz) / lenSq, 0.08, 0.92);
+    const t = clamp(baseT + (Math.random() - 0.5) * 0.34, 0.06, 0.94);
+    const lateral = (Math.random() - 0.5) * 1400;
+    const length = Math.sqrt(lenSq);
+    const nx = -dz / length;
+    const nz = dx / length;
+    let point = {
+        x: ax + dx * t + nx * lateral,
+        z: az + dz * t + nz * lateral
+    };
+    point = pushPointOutsidePlayerView(point, role === 'pirate' ? 2800 : 2300);
+    return {
+        x: point.x,
+        z: point.z,
+        rotation: Math.atan2(bz - point.z, bx - point.x)
+    };
+}
+
+function chooseFreeSpaceTrafficRoute() {
+    if (!game.player) return null;
+    const targets = legalTrafficTargets();
+    if (targets.length < 2) return null;
+    const candidates = [];
+    for (let i = 0; i < targets.length; i++) {
+        for (let j = 0; j < targets.length; j++) {
+            if (i === j) continue;
+            const origin = targets[i];
+            const destination = targets[j];
+            const distance = Math.hypot((destination.x || 0) - (origin.x || 0), (destination.z || 0) - (origin.z || 0));
+            if (distance < 7000) continue;
+            const routeDistance = distancePointToSegment(game.player.x, game.player.z, origin.x || 0, origin.z || 0, destination.x || 0, destination.z || 0);
+            if (routeDistance > 26000) continue;
+            candidates.push({
+                origin,
+                destination,
+                routeDistance,
+                score: routeDistance + Math.random() * 4500
+            });
+        }
+    }
+    candidates.sort((a, b) => a.score - b.score);
+    return candidates[0] || null;
+}
+
+function visibleFreeSpaceNpcCount(range = 22000) {
+    if (!game.player) return 0;
+    return game.npcs.filter(npc => {
+        if (!npc || npc.hidden || npc.hull <= 0 || npc.missionId) return false;
+        return Math.hypot(npc.x - game.player.x, npc.z - game.player.z) <= range;
+    }).length;
+}
+
+function spawnFreeSpaceTrafficNearPlayer() {
+    if (!game.player || game.isDocked || game.activeMission?.spawned) return false;
+    if (game.npcs.length >= 58 || visibleFreeSpaceNpcCount() >= 10) return false;
+    const route = chooseFreeSpaceTrafficRoute();
+    if (!route) return false;
+    const spawnPoint = routeSpawnPointNearPlayer(route.origin, route.destination, 'trade');
+    const leader = spawnTraderConvoy(route.origin, null, route.origin?.faction || '', {
+        ambientTrade: true,
+        destination: route.destination,
+        spawnPoint,
+        directTransit: true,
+        size: Math.random() < 0.72 ? 3 : 4
+    });
+    if (!leader) return false;
+    leader.ambientFreeSpaceTraffic = true;
+    convoyMembersForLeader(leader).forEach(member => { member.ambientFreeSpaceTraffic = true; });
+    return true;
+}
+
 function seedAmbientTradeTrafficForSystem() {
     if (game.ambientTradeSeededSystemId === currentSystemId) return;
     game.ambientTradeSeededSystemId = currentSystemId;
@@ -2938,6 +3044,8 @@ function spawnTraderConvoy(origin = null, zone = null, factionId = '', options =
         zone,
         faction: factionId || source.faction || 'co_ss_grp',
         ambientTrade: options.ambientTrade,
+        spawnPoint: options.spawnPoint,
+        directTransit: options.directTransit,
         size: options.size || (3 + Math.floor(Math.random() * 2))
     });
 }
@@ -2980,18 +3088,24 @@ function updatePopulationNpcs(dt) {
     if (!game.player || game.activeMission?.spawned) return;
     game.populationSpawnTimer = Math.max(0, (game.populationSpawnTimer || 0) - dt);
     game.stationLaunchTimer = Math.max(0, (game.stationLaunchTimer || 0) - dt);
+    game.freeSpaceTrafficTimer = Math.max(0, (game.freeSpaceTrafficTimer || 0) - dt);
     for (let i = game.npcs.length - 1; i >= 0; i--) {
         const npc = game.npcs[i];
         if (!npc.populationZoneId || npc.missionId) continue;
         const distance = Math.hypot(npc.x - game.player.x, npc.z - game.player.z);
         if (distance > 24000 || npc.hull <= 0) game.npcs.splice(i, 1);
     }
+    if (game.freeSpaceTrafficTimer <= 0) {
+        const nearbyTraffic = visibleFreeSpaceNpcCount(24000);
+        game.freeSpaceTrafficTimer = nearbyTraffic < 6 ? 7 + Math.random() * 7 : 12 + Math.random() * 12;
+        if (nearbyTraffic < 10) spawnFreeSpaceTrafficNearPlayer();
+    }
     if (game.stationLaunchTimer <= 0 && game.npcs.length < 44) {
-        game.stationLaunchTimer = 18 + Math.random() * 18;
+        game.stationLaunchTimer = 12 + Math.random() * 14;
         const station = npcDockingTargets()
             .filter(target => Math.hypot((target.x || 0) - game.player.x, (target.z || 0) - game.player.z) < 18000)
             .sort((a, b) => Math.hypot(a.x - game.player.x, a.z - game.player.z) - Math.hypot(b.x - game.player.x, b.z - game.player.z))[0];
-        if (station && Math.random() < 0.65) spawnTraderConvoy(station, null, station.faction || '');
+        if (station && Math.random() < 0.72) spawnTraderConvoy(station, null, station.faction || '');
         else if (station) createNpcFleet('security', station, null, { faction: station.faction || 'li_p_grp' });
     }
     if (game.populationSpawnTimer > 0) return;
@@ -3041,6 +3155,8 @@ function applyLanguage() {
     if (shieldLabel) shieldLabel.textContent = t('hudShield');
     const energyLabel = document.getElementById('label-energy');
     if (energyLabel) energyLabel.textContent = t('hudEnergy');
+    const thrustLabel = document.getElementById('label-thrust');
+    if (thrustLabel) thrustLabel.textContent = t('hudThrust');
     const loadoutTitle = document.getElementById('loadout-title');
     if (loadoutTitle) loadoutTitle.textContent = t('loadoutTitle');
     const scannerTitle = document.getElementById('scanner-title');
@@ -3435,7 +3551,8 @@ function getShipImage(iconPath, fallbackPath = 'data/ship_icons/_fallback.png') 
     if (!game.shipImages[iconPath]) {
         const img = new Image();
         img.onerror = () => { img.dataset.failed = '1'; };
-        img.src = iconPath;
+        const separator = iconPath.includes('?') ? '&' : '?';
+        img.src = `${iconPath}${separator}v=${encodeURIComponent(DATA_CACHE_VERSION)}`;
         game.shipImages[iconPath] = img;
     }
     const image = game.shipImages[iconPath];
@@ -3463,7 +3580,8 @@ function getObjectImage(archetype) {
     if (!iconPath) return null;
     if (!game.objectImages[iconPath]) {
         const img = new Image();
-        img.src = iconPath;
+        const separator = iconPath.includes('?') ? '&' : '?';
+        img.src = `${iconPath}${separator}v=${encodeURIComponent(DATA_CACHE_VERSION)}`;
         game.objectImages[iconPath] = img;
     }
     const image = game.objectImages[iconPath];
@@ -3472,7 +3590,12 @@ function getObjectImage(archetype) {
 
 function normalizeModId(modId) {
     const id = String(modId || '').toLowerCase();
-    return MODS.some(mod => mod.id === id) ? id : 'vanilla';
+    if (id === 'vanilla') return VANILLA_DE_MOD_ID;
+    return MODS.some(mod => mod.id === id) ? id : VANILLA_DE_MOD_ID;
+}
+
+function isVanillaDeActive() {
+    return normalizeModId(game.activeModId || localStorage.getItem(ACTIVE_MOD_KEY)) === VANILLA_DE_MOD_ID;
 }
 
 function isCrossfireActive() {
@@ -3522,8 +3645,8 @@ async function loadActiveModData() {
     } catch (error) {
         console.warn(error);
         addLog(tf('modDataMissing', { mod: mod.name }), 'alert');
-        game.activeModId = 'vanilla';
-        localStorage.setItem(ACTIVE_MOD_KEY, 'vanilla');
+        game.activeModId = VANILLA_DE_MOD_ID;
+        localStorage.setItem(ACTIVE_MOD_KEY, VANILLA_DE_MOD_ID);
         game.modData = null;
         applyHudTheme();
     }
@@ -3558,11 +3681,11 @@ function readSaveSlots() {
     try {
         const raw = localStorage.getItem(saveIndexStorageKey());
         const slots = raw ? JSON.parse(raw) : [];
-        if (Array.isArray(slots) && (raw || game.activeModId !== 'vanilla')) return slots.filter(slot => slot && slot.id && slot.save?.version === SAVE_VERSION).slice(0, MAX_SAVE_SLOTS);
+        if (Array.isArray(slots) && (raw || !isVanillaDeActive())) return slots.filter(slot => slot && slot.id && slot.save?.version === SAVE_VERSION).slice(0, MAX_SAVE_SLOTS);
     } catch (error) {
         console.warn('Could not read save slots:', error);
     }
-    if (game.activeModId !== 'vanilla') return [];
+    if (!isVanillaDeActive()) return [];
     try {
         const raw = localStorage.getItem(SAVE_INDEX_KEY);
         const slots = raw ? JSON.parse(raw) : [];
@@ -3586,7 +3709,7 @@ function writeSaveSlots(slots) {
 }
 
 function getActiveSaveSlotId(slots = readSaveSlots()) {
-    const stored = localStorage.getItem(activeSaveStorageKey()) || (game.activeModId === 'vanilla' ? localStorage.getItem(ACTIVE_SAVE_SLOT_KEY) : '') || '';
+    const stored = localStorage.getItem(activeSaveStorageKey()) || (isVanillaDeActive() ? localStorage.getItem(ACTIVE_SAVE_SLOT_KEY) : '') || '';
     if (stored && slots.some(slot => slot.id === stored)) return stored;
     return slots[0]?.id || '';
 }
@@ -3603,7 +3726,7 @@ function setActiveSaveSlot(slotId) {
     game.activeSaveSlotId = slot.id;
     game.saveSlotName = slot.name || 'Pilot';
     localStorage.setItem(activeSaveStorageKey(), slot.id);
-    if (game.activeModId === 'vanilla') localStorage.setItem(ACTIVE_SAVE_SLOT_KEY, slot.id);
+    if (isVanillaDeActive()) localStorage.setItem(ACTIVE_SAVE_SLOT_KEY, slot.id);
     game.suppressAutoSave = true;
     updateSaveHint(slot.save);
     window.location.reload();
@@ -5583,7 +5706,8 @@ function rebuildEntities() {
 }
 
 function updateSystemHud() {
-    document.getElementById('system-name').textContent = activeModConfig().name.toUpperCase() + ' | SYSTEM: ' + systemData.name;
+    const systemName = document.getElementById('system-name');
+    if (systemName) systemName.textContent = activeModConfig().name.toUpperCase() + ' | SYSTEM: ' + systemData.name;
     const mapTitle = document.querySelector('#map-header h3');
     if (mapTitle) mapTitle.textContent = 'SYSTEM MAP - ' + systemData.name.toUpperCase();
     updateDocumentTitle();
@@ -8071,12 +8195,23 @@ function ensureMusicAudio() {
     const audio = new Audio();
     audio.preload = 'auto';
     audio.volume = MUSIC_VOLUME;
+    audio.muted = shouldMuteMusicForFocus();
     audio.addEventListener('ended', () => {
         const track = nextMusicTrack(game.musicMode);
         if (track) playMusicTrack(track, game.musicMode);
     });
     game.musicAudio = audio;
     return audio;
+}
+
+function shouldMuteMusicForFocus() {
+    return MUSIC_BACKGROUND_MUTED && (document.hidden || !document.hasFocus());
+}
+
+function applyMusicFocusMute() {
+    const muted = shouldMuteMusicForFocus();
+    if (game.musicAudio) game.musicAudio.muted = muted;
+    if (game.musicFadeAudio) game.musicFadeAudio.muted = muted;
 }
 
 function stopMusicFade() {
@@ -8144,6 +8279,7 @@ function playMusicTrack(track, mode = 'space', manual = false) {
     if (manual) game.manualMusicTrackPath = track.path;
     if (sameTrack) {
         audio.volume = MUSIC_VOLUME;
+        audio.muted = shouldMuteMusicForFocus();
         audio.loop = (MUSIC_TRACKS[mode] || []).length <= 1;
         if (!game.musicStoppedByUser) audio.play().catch(error => console.warn('Music playback blocked:', error));
         updateMusicPlayer();
@@ -8153,6 +8289,7 @@ function playMusicTrack(track, mode = 'space', manual = false) {
         stopMusicFade();
         audio.src = track.path;
         audio.volume = MUSIC_VOLUME;
+        audio.muted = shouldMuteMusicForFocus();
         audio.loop = (MUSIC_TRACKS[mode] || []).length <= 1;
         updateMusicPlayer();
         return;
@@ -8162,6 +8299,7 @@ function playMusicTrack(track, mode = 'space', manual = false) {
     next.preload = 'auto';
     next.loop = (MUSIC_TRACKS[mode] || []).length <= 1;
     next.volume = previous ? 0 : MUSIC_VOLUME;
+    next.muted = shouldMuteMusicForFocus();
     next.addEventListener('ended', () => {
         if (game.musicAudio !== next) return;
         const following = nextMusicTrack(game.musicMode);
@@ -8172,6 +8310,7 @@ function playMusicTrack(track, mode = 'space', manual = false) {
     next.play().catch(error => console.warn('Music playback blocked:', error));
     if (previous) {
         game.musicFadeAudio = previous;
+        previous.muted = shouldMuteMusicForFocus();
         const start = performance.now();
         game.musicFadeTimer = setInterval(() => {
             const t = clamp((performance.now() - start) / MUSIC_CROSSFADE_MS, 0, 1);
@@ -8218,6 +8357,10 @@ function setupMusicPlayer() {
         if (game.musicStoppedByUser) resumeMusic();
         else stopMusic(true);
     });
+    document.addEventListener('visibilitychange', applyMusicFocusMute);
+    window.addEventListener('blur', applyMusicFocusMute);
+    window.addEventListener('focus', applyMusicFocusMute);
+    applyMusicFocusMute();
     updateMusicPlayer();
 }
 
@@ -8424,10 +8567,18 @@ function playWeaponFireAt(x, z, intensity = 1) {
 const startMenuBackground = {
     running: false,
     lastFrameAt: 0,
+    screen: localStorage.getItem(START_MENU_SCREEN_KEY) || 'classic',
     stars: [],
+    dockStars: [],
     lights: [],
-    nebulae: []
+    nebulae: [],
+    stationImage: null
 };
+
+const START_MENU_SCREENS = [
+    { id: 'classic', label: '1', title: 'Classic Space' },
+    { id: 'dock', label: '2', title: 'Planet Dock' }
+];
 
 function resizeStartMenuCanvas(canvas) {
     const dpr = Math.min(1.35, window.devicePixelRatio || 1);
@@ -8463,6 +8614,43 @@ function initStartMenuBackground() {
         size: 0.8 + rng() * 3.4,
         alpha: 0.24 + rng() * 0.68
     }));
+    const dockRng = seededRandom(237911);
+    startMenuBackground.dockStars = Array.from({ length: 150 }, () => ({
+        x: dockRng(),
+        y: dockRng(),
+        size: 0.35 + dockRng() * 1.45,
+        phase: dockRng() * Math.PI * 2,
+        drift: 0.006 + dockRng() * 0.018
+    }));
+}
+
+function applyStartMenuScreen(screenId = startMenuBackground.screen) {
+    const screen = START_MENU_SCREENS.some(item => item.id === screenId) ? screenId : 'classic';
+    startMenuBackground.screen = screen;
+    localStorage.setItem(START_MENU_SCREEN_KEY, screen);
+    const startScreen = document.getElementById('start-screen');
+    if (startScreen) startScreen.dataset.menuScreen = screen;
+    document.querySelectorAll('.start-screen-picker button').forEach(button => {
+        button.classList.toggle('active', button.dataset.screen === screen);
+    });
+    drawStartMenuBackground(performance.now());
+}
+
+function renderStartMenuScreenPicker() {
+    const picker = document.getElementById('start-screen-picker');
+    if (!picker) return;
+    picker.innerHTML = '';
+    for (const screen of START_MENU_SCREENS) {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.dataset.screen = screen.id;
+        button.textContent = screen.label;
+        button.title = screen.title;
+        button.setAttribute('aria-label', screen.title);
+        button.addEventListener('click', () => applyStartMenuScreen(screen.id));
+        picker.appendChild(button);
+    }
+    applyStartMenuScreen(startMenuBackground.screen);
 }
 
 function drawStartMenuPlanet(ctx, w, h, time) {
@@ -8506,6 +8694,244 @@ function drawStartMenuPlanet(ctx, w, h, time) {
     ctx.globalAlpha = 1;
 }
 
+function drawStartMenuDockPlanet(ctx, w, h, time) {
+    const radius = Math.max(w, h) * 0.46;
+    const cx = w * 0.88;
+    const cy = h * 0.5;
+    ctx.save();
+    ctx.beginPath();
+    ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+    ctx.clip();
+    const planet = ctx.createRadialGradient(cx - radius * 0.45, cy - radius * 0.48, radius * 0.08, cx, cy, radius);
+    planet.addColorStop(0, '#dcefe6');
+    planet.addColorStop(0.24, '#6f9975');
+    planet.addColorStop(0.55, '#1d382e');
+    planet.addColorStop(0.8, '#08100f');
+    planet.addColorStop(1, '#000000');
+    ctx.fillStyle = planet;
+    ctx.fillRect(cx - radius, cy - radius, radius * 2, radius * 2);
+
+    ctx.globalAlpha = 0.48;
+    for (let i = 0; i < 18; i++) {
+        const angle = i * 1.78 + Math.sin(time * 0.00004 + i) * 0.18;
+        const band = 0.2 + (i % 6) * 0.11;
+        const x = cx + Math.cos(angle) * radius * band;
+        const y = cy + Math.sin(angle * 0.9) * radius * (0.18 + (i % 5) * 0.08);
+        const r = radius * (0.09 + (i % 4) * 0.035);
+        const cloud = ctx.createRadialGradient(x, y, 0, x, y, r);
+        cloud.addColorStop(0, 'rgba(245,255,250,0.42)');
+        cloud.addColorStop(1, 'rgba(245,255,250,0)');
+        ctx.fillStyle = cloud;
+        ctx.beginPath();
+        ctx.ellipse(x, y, r * 1.8, r * 0.7, angle * 0.25, 0, Math.PI * 2);
+        ctx.fill();
+    }
+    ctx.restore();
+
+    ctx.globalAlpha = 0.28;
+    ctx.strokeStyle = 'rgba(170,240,255,0.38)';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.globalAlpha = 1;
+}
+
+function drawStartMenuShip(ctx, x, y, scale, angle = 0, color = '#c4ced2') {
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.rotate(angle);
+    ctx.scale(scale, scale);
+    ctx.fillStyle = color;
+    ctx.strokeStyle = 'rgba(220,248,255,0.55)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(34, 0);
+    ctx.lineTo(-18, -11);
+    ctx.lineTo(-10, 0);
+    ctx.lineTo(-18, 11);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+    ctx.fillStyle = 'rgba(255,205,80,0.9)';
+    ctx.fillRect(-24, -7, 8, 5);
+    ctx.fillRect(-24, 2, 8, 5);
+    ctx.restore();
+}
+
+function getStartMenuStationImage() {
+    if (!startMenuBackground.stationImage) {
+        const image = new Image();
+        image.src = 'assets/menu/freelancer_station_perspective.png';
+        image.onload = () => drawStartMenuBackground(performance.now());
+        startMenuBackground.stationImage = image;
+    }
+    return startMenuBackground.stationImage;
+}
+
+function drawStartMenuDockStation(ctx, w, h, time) {
+    const stationImage = getStartMenuStationImage();
+    if (stationImage.complete && stationImage.naturalWidth > 0) {
+        const baseWidth = Math.min(w * 0.66, h * 1.14);
+        const baseHeight = baseWidth * (stationImage.naturalHeight / stationImage.naturalWidth);
+        const x = w * 0.66;
+        const y = h * 0.5;
+        ctx.save();
+        ctx.translate(x, y);
+        ctx.rotate(-0.05 + Math.sin(time * 0.00012) * 0.01);
+        ctx.globalAlpha = 0.55;
+        ctx.filter = 'blur(18px)';
+        ctx.drawImage(stationImage, -baseWidth * 0.45 + 28, -baseHeight * 0.45 + 52, baseWidth, baseHeight);
+        ctx.filter = 'none';
+        ctx.globalAlpha = 1;
+        ctx.drawImage(stationImage, -baseWidth * 0.45, -baseHeight * 0.45, baseWidth, baseHeight);
+        ctx.restore();
+
+        const glow = ctx.createRadialGradient(w * 0.73, h * 0.57, 0, w * 0.73, h * 0.57, Math.max(w, h) * 0.16);
+        glow.addColorStop(0, 'rgba(80,215,255,0.32)');
+        glow.addColorStop(0.36, 'rgba(80,215,255,0.12)');
+        glow.addColorStop(1, 'rgba(80,215,255,0)');
+        ctx.fillStyle = glow;
+        ctx.fillRect(0, 0, w, h);
+
+        drawStartMenuShip(ctx, w * 0.58 + Math.sin(time * 0.0007) * 18, h * 0.36, Math.max(0.46, Math.min(w, h) / 1400), -0.25);
+        drawStartMenuShip(ctx, w * 0.79, h * 0.32 + Math.cos(time * 0.0006) * 14, Math.max(0.32, Math.min(w, h) / 1800), -0.08);
+        drawStartMenuShip(ctx, w * 0.52, h * 0.68, Math.max(0.36, Math.min(w, h) / 1600), -0.34);
+        return;
+    }
+
+    const cx = w * 0.67;
+    const cy = h * 0.57;
+    const s = Math.max(0.72, Math.min(w, h) / 900);
+    ctx.save();
+    ctx.translate(cx, cy);
+    ctx.rotate(-0.16);
+    ctx.scale(s, s);
+
+    const metal = ctx.createLinearGradient(-330, -210, 360, 260);
+    metal.addColorStop(0, '#d7d5cc');
+    metal.addColorStop(0.42, '#737b80');
+    metal.addColorStop(0.75, '#1d242a');
+    metal.addColorStop(1, '#090d13');
+    ctx.fillStyle = metal;
+    ctx.strokeStyle = 'rgba(220,245,255,0.55)';
+    ctx.lineWidth = 4;
+    ctx.beginPath();
+    ctx.ellipse(0, 130, 230, 104, 0, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.stroke();
+    ctx.fillStyle = 'rgba(2,7,14,0.96)';
+    ctx.beginPath();
+    ctx.ellipse(0, 130, 145, 61, 0, 0, Math.PI * 2);
+    ctx.fill();
+
+    const glow = ctx.createRadialGradient(0, 132, 0, 0, 132, 142);
+    glow.addColorStop(0, 'rgba(92,215,255,0.78)');
+    glow.addColorStop(0.26, 'rgba(92,215,255,0.26)');
+    glow.addColorStop(1, 'rgba(92,215,255,0)');
+    ctx.fillStyle = glow;
+    ctx.beginPath();
+    ctx.ellipse(0, 130, 150, 60, 0, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.fillStyle = '#8f9494';
+    ctx.strokeStyle = 'rgba(240,250,255,0.45)';
+    ctx.lineWidth = 3;
+    ctx.fillRect(-138, -64, 276, 118);
+    ctx.strokeRect(-138, -64, 276, 118);
+    ctx.fillStyle = '#111820';
+    ctx.fillRect(-94, -34, 188, 58);
+
+    ctx.fillStyle = '#a4aaa8';
+    ctx.beginPath();
+    ctx.moveTo(100, -34);
+    ctx.lineTo(360, -155);
+    ctx.lineTo(402, -122);
+    ctx.lineTo(132, 22);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+    for (let i = 0; i < 10; i++) {
+        ctx.fillStyle = i % 2 ? '#d9c470' : '#20252c';
+        ctx.fillRect(150 + i * 22, -82 - i * 8, 15, 30);
+    }
+
+    ctx.fillStyle = '#090d15';
+    ctx.fillRect(340, -144, 52, 330);
+    ctx.strokeRect(340, -144, 52, 330);
+    ctx.fillStyle = 'rgba(200,235,255,0.85)';
+    for (let i = 0; i < 11; i++) ctx.fillRect(351, -118 + i * 26, 28, 4);
+
+    ctx.strokeStyle = 'rgba(50,150,210,0.24)';
+    ctx.lineWidth = 2;
+    for (let i = -4; i <= 4; i++) {
+        ctx.beginPath();
+        ctx.moveTo(-210 + i * 42, 49);
+        ctx.lineTo(-260 + i * 36, 224);
+        ctx.stroke();
+    }
+
+    ctx.globalAlpha = 0.9;
+    for (let i = 0; i < 28; i++) {
+        const px = -210 + (i % 7) * 68;
+        const py = -36 + Math.floor(i / 7) * 46;
+        ctx.fillStyle = i % 3 === 0 ? 'rgba(255,210,80,0.6)' : 'rgba(210,235,245,0.28)';
+        ctx.fillRect(px, py, 24, 4);
+    }
+    ctx.restore();
+
+    drawStartMenuShip(ctx, w * 0.58 + Math.sin(time * 0.0007) * 18, h * 0.36, s * 0.62, -0.25);
+    drawStartMenuShip(ctx, w * 0.79, h * 0.32 + Math.cos(time * 0.0006) * 14, s * 0.42, -0.08);
+    drawStartMenuShip(ctx, w * 0.52, h * 0.68, s * 0.48, -0.34);
+}
+
+function drawStartMenuDockBackground(ctx, w, h, dpr, t) {
+    const bg = ctx.createLinearGradient(0, 0, w, h);
+    bg.addColorStop(0, '#01050b');
+    bg.addColorStop(0.42, '#06102a');
+    bg.addColorStop(1, '#14021c');
+    ctx.fillStyle = bg;
+    ctx.fillRect(0, 0, w, h);
+
+    ctx.save();
+    ctx.globalCompositeOperation = 'screen';
+    const nebula = ctx.createRadialGradient(w * 0.48, h * 0.86, 0, w * 0.48, h * 0.86, Math.max(w, h) * 0.45);
+    nebula.addColorStop(0, 'rgba(120,42,168,0.22)');
+    nebula.addColorStop(0.45, 'rgba(40,70,170,0.12)');
+    nebula.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = nebula;
+    ctx.fillRect(0, 0, w, h);
+    ctx.restore();
+
+    for (const star of startMenuBackground.dockStars) {
+        const x = ((star.x + t * 0.000008 * star.drift) % 1) * w;
+        const y = star.y * h;
+        const blink = 0.62 + Math.sin(t * 0.0016 + star.phase) * 0.32;
+        ctx.globalAlpha = clamp(blink, 0.18, 1);
+        ctx.fillStyle = '#ffffff';
+        ctx.beginPath();
+        ctx.arc(x, y, star.size * dpr, 0, Math.PI * 2);
+        ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+
+    const logoPlanetX = w * 0.31;
+    const logoPlanetY = h * 0.105;
+    const smallR = Math.max(28 * dpr, Math.min(w, h) * 0.075);
+    const lava = ctx.createRadialGradient(logoPlanetX - smallR * 0.3, logoPlanetY - smallR * 0.36, 0, logoPlanetX, logoPlanetY, smallR);
+    lava.addColorStop(0, '#ffe0a0');
+    lava.addColorStop(0.28, '#9f4f28');
+    lava.addColorStop(0.7, '#3b1511');
+    lava.addColorStop(1, '#060506');
+    ctx.fillStyle = lava;
+    ctx.beginPath();
+    ctx.arc(logoPlanetX, logoPlanetY, smallR, 0, Math.PI * 2);
+    ctx.fill();
+
+    drawStartMenuDockPlanet(ctx, w, h, t);
+    drawStartMenuDockStation(ctx, w, h, t);
+}
+
 function drawStartMenuBackground(currentTime) {
     const canvas = document.getElementById('start-bg-canvas');
     if (!canvas) return;
@@ -8515,6 +8941,11 @@ function drawStartMenuBackground(currentTime) {
     const w = canvas.width;
     const h = canvas.height;
     const t = currentTime || performance.now();
+
+    if (startMenuBackground.screen === 'dock') {
+        drawStartMenuDockBackground(ctx, w, h, dpr, t);
+        return;
+    }
 
     const bg = ctx.createLinearGradient(0, 0, w, h);
     bg.addColorStop(0, '#06152b');
@@ -9079,6 +9510,12 @@ function renderTradeLaneWarpBubble() {
 
 function update(dt) {
     updateMusicMode();
+    if (game.interior?.active) {
+        game.gameTime += dt;
+        updateInterior(dt);
+        updateHUD();
+        return;
+    }
     if (!game.running || game.isDocked) return;
     game.gameTime += dt;
     if (game.gameTime >= 1800) game.gameTime = 0;
@@ -9581,18 +10018,17 @@ function setZoomLevel(value) {
 
 function updateHUD() {
     const p = game.player;
-    document.getElementById('hull-bar').style.width = (p.hull / Math.max(1, p.maxHull) * 100) + '%';
-    document.getElementById('shield-bar').style.width = (p.maxShield > 0 ? p.shield / p.maxShield * 100 : 0) + '%';
-    document.getElementById('energy-bar').style.width = (p.energy / Math.max(1, p.maxEnergy) * 100) + '%';
-    document.getElementById('credits').textContent = `CREDITS: ${p.credits.toLocaleString()}`;
-    document.getElementById('cargo').textContent = `CARGO: ${cargoUnits()}/${p.maxCargo}`;
-    const h = Math.floor(game.gameTime / 75);
-    const m = Math.floor((game.gameTime % 75) / 1.25);
-    document.getElementById('game-time').textContent = `${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}`;
-    document.getElementById('zoom-display').textContent = `ZOOM: ${game.zoom.toFixed(1)}x`;
-    document.getElementById('speed-display').textContent = `SPEED: ${Math.round(p.speed)} m/s`;
-    const thrustDisplay = document.getElementById('thrust-display');
-    if (thrustDisplay) thrustDisplay.textContent = `THRUST: ${Math.round(p.thrustEnergy || 0)}/${Math.round(p.thrustCapacity || 0)}`;
+    const setStatus = (barId, valueId, ratio) => {
+        const percent = Math.round(clamp(Number(ratio) || 0, 0, 1) * 100);
+        const bar = document.getElementById(barId);
+        if (bar) bar.style.width = percent + '%';
+        const value = document.getElementById(valueId);
+        if (value) value.textContent = percent + '%';
+    };
+    setStatus('shield-bar', 'shield-value', p.maxShield > 0 ? p.shield / p.maxShield : 0);
+    setStatus('hull-bar', 'hull-value', p.hull / Math.max(1, p.maxHull));
+    setStatus('energy-bar', 'energy-value', p.energy / Math.max(1, p.maxEnergy));
+    setStatus('thrust-bar', 'thrust-value', (p.thrustCapacity || 0) > 0 ? (p.thrustEnergy || 0) / p.thrustCapacity : 0);
     updateSpeedControl();
     updateZoomControl();
     updateCruiseButton();
@@ -9604,7 +10040,9 @@ function updateHUD() {
     
     // Mode indicator
     const modeEl = document.getElementById('mode-indicator');
-    if ((game.commandMode === 'approach' || game.commandMode === 'dock') && game.approachTarget) {
+    if (!modeEl) {
+        // The compact in-game HUD no longer renders a mode text field.
+    } else if ((game.commandMode === 'approach' || game.commandMode === 'dock') && game.approachTarget) {
         modeEl.textContent = game.commandMode === 'dock' ? t('dock') : t('approach');
         modeEl.style.color = '#ffaa00';
     } else if (isManualSteeringActive()) {
@@ -9688,6 +10126,10 @@ function renderWaypointLine(ctx) {
 
 function render() {
     const ctx = game.ctx;
+    if (game.interior?.active) {
+        renderInterior(ctx);
+        return;
+    }
     renderSystemWallpaper();
     
     renderStars();
@@ -9908,6 +10350,7 @@ function gameLoop(currentTime) {
     try {
         update(dt);
         render();
+        updateVisibleMapOverlayFrame();
     } catch (error) {
         game.loopErrorCount = (game.loopErrorCount || 0) + 1;
         console.error('Game loop error:', error);
@@ -10005,6 +10448,7 @@ function setupInput() {
     
     canvas.addEventListener('wheel', (e) => {
         e.preventDefault();
+        if (game.interior?.active) return;
         setZoomLevel(game.zoom + (e.deltaY < 0 ? 0.1 : -0.1));
     });
     
@@ -10025,6 +10469,10 @@ function setupInput() {
     // Click on canvas to select target
     canvas.addEventListener('click', (e) => {
         ensureAudio();
+        if (game.interior?.active) {
+            performInteriorAction();
+            return;
+        }
         if (!game.mouseDown && !game.running) return;
         
         const world = screenToWorld(e.clientX, e.clientY);
@@ -10038,6 +10486,7 @@ function setupInput() {
 
     canvas.addEventListener('dblclick', (e) => {
         ensureAudio();
+        if (game.interior?.active) return;
         if (!game.running) return;
         const world = screenToWorld(e.clientX, e.clientY);
         if (findCanvasTargetAtWorld(world)) return;
@@ -10047,6 +10496,22 @@ function setupInput() {
     window.addEventListener('keydown', (e) => {
         const tagName = e.target?.tagName?.toLowerCase();
         if (tagName === 'input' || tagName === 'textarea' || tagName === 'select' || e.target?.isContentEditable) return;
+        if (game.interior?.active) {
+            if (['KeyW', 'KeyA', 'KeyS', 'KeyD', 'ArrowUp', 'ArrowLeft', 'ArrowDown', 'ArrowRight'].includes(e.code)) {
+                e.preventDefault();
+                game.interiorKeys[e.code] = true;
+                return;
+            }
+            if (e.code === 'KeyE' || e.code === 'Enter' || e.code === 'Space') {
+                e.preventDefault();
+                performInteriorAction();
+                return;
+            }
+            if (e.code === 'Escape') {
+                document.getElementById('landing-overlay')?.classList.add('hidden');
+                return;
+            }
+        }
         if (e.code === 'Escape') {
             toggleInventoryPanel(false);
             if (game.commandMode !== 'freeflight' || game.approachTarget || game.dockTarget) {
@@ -10129,6 +10594,10 @@ function setupInput() {
     });
 
     window.addEventListener('keyup', (e) => {
+        if (game.interiorKeys && e.code in game.interiorKeys) {
+            game.interiorKeys[e.code] = false;
+            return;
+        }
         if (e.code === 'Tab') {
             e.preventDefault();
             if (game.player) {
@@ -10601,6 +11070,15 @@ function drawMapCanvas() {
     ctx.fillStyle = '#668899';
     ctx.textAlign = 'right';
     ctx.fillText('Wheel zoom / drag pan: ' + game.mapZoom.toFixed(1) + 'x', w - 10, 18);
+}
+
+function updateVisibleMapOverlayFrame() {
+    if (!game.showMap) return;
+    const overlay = document.getElementById('map-overlay');
+    if (!overlay || overlay.classList.contains('hidden')) return;
+    const systemCanvas = document.getElementById('map-canvas');
+    if (!systemCanvas || systemCanvas.style.display === 'none') return;
+    drawMapCanvas();
 }
 
 // Universe View
@@ -11370,12 +11848,28 @@ function renderInventoryPanel() {
     if (!content || !game.player) return;
     const p = game.player;
     const shieldText = p.maxShield > 0 ? `${Math.round(p.shield).toLocaleString()}/${Math.round(p.maxShield).toLocaleString()}` : 'none';
+    const thrustPercent = (p.thrustCapacity || 0) > 0 ? Math.round(clamp((p.thrustEnergy || 0) / p.thrustCapacity, 0, 1) * 100) : 0;
+    const thrustText = `${thrustPercent}% (${Math.round(p.thrustEnergy || 0).toLocaleString()}/${Math.round(p.thrustCapacity || 0).toLocaleString()})`;
+    const h = Math.floor(game.gameTime / 75);
+    const m = Math.floor((game.gameTime % 75) / 1.25);
+    let modeText = game.approachTarget ? t('approach') : t('freeflight');
+    if ((game.commandMode === 'approach' || game.commandMode === 'dock') && game.approachTarget) modeText = game.commandMode === 'dock' ? t('dock') : t('approach');
+    else if (isManualSteeringActive()) modeText = t('modeRotate');
+    else if (p.cruiseCharging) modeText = t('modeCruiseCharge');
+    else if (p.cruiseActive) modeText = t('modeCruise');
+    else if (p.afterburnerActive) modeText = t('modeAfterburner');
     let html = '<div class="inventory-summary">';
     html += `<div class="inventory-stat"><strong>${escapeHtml(t('credits'))}</strong>${p.credits.toLocaleString()} CR</div>`;
     html += `<div class="inventory-stat"><strong>${escapeHtml(t('cargo'))}</strong>${cargoUnits()}/${p.maxCargo}</div>`;
+    html += `<div class="inventory-stat"><strong>${escapeHtml(t('uiSystem'))}</strong>${escapeHtml(systemData?.name || currentSystemId)}</div>`;
+    html += `<div class="inventory-stat"><strong>${escapeHtml(t('uiSpeed'))}</strong>${Math.round(p.speed).toLocaleString()} m/s</div>`;
+    html += `<div class="inventory-stat"><strong>${escapeHtml(t('uiZoom'))}</strong>${game.zoom.toFixed(1)}x</div>`;
+    html += `<div class="inventory-stat"><strong>${escapeHtml(t('uiTime'))}</strong>${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}</div>`;
+    html += `<div class="inventory-stat"><strong>${escapeHtml(t('uiMode'))}</strong>${escapeHtml(modeText)}</div>`;
     html += `<div class="inventory-stat"><strong>${escapeHtml(t('hudHull'))}</strong>${Math.round(p.hull).toLocaleString()}/${Math.round(p.maxHull).toLocaleString()}</div>`;
     html += `<div class="inventory-stat"><strong>${escapeHtml(t('hudShield'))}</strong>${shieldText}</div>`;
     html += `<div class="inventory-stat"><strong>${escapeHtml(t('hudEnergy'))}</strong>${Math.round(p.energy).toLocaleString()}/${Math.round(p.maxEnergy).toLocaleString()}</div>`;
+    html += `<div class="inventory-stat"><strong>${escapeHtml(t('hudThrust'))}</strong>${thrustText}</div>`;
     html += `<div class="inventory-stat"><strong>${escapeHtml(t('labelNanobots'))}</strong>${p.nanobots}/${p.maxNanobots}</div>`;
     html += `<div class="inventory-stat"><strong>${escapeHtml(t('labelShieldBatteries'))}</strong>${p.shieldBatteries}/${p.maxShieldBatteries}</div>`;
     html += `<div class="inventory-stat"><strong>${escapeHtml(t('missileAmmo'))}</strong>${totalMissileAmmoCount()}/${p.maxMissileAmmo}</div>`;
@@ -11591,6 +12085,247 @@ function getBarData(location = game.landedBase) {
     return barData()[baseId] || { npcs: [], news: [], factions: [] };
 }
 
+function isFortBushLocation(location) {
+    const baseId = getBaseId(location);
+    const nickname = String(location?.nickname || location?.id || '').toLowerCase();
+    const name = String(location?.name || '').toLowerCase();
+    return baseId === 'li01_02_base' || nickname === 'li01_02' || name.includes('fort bush') || name.includes('ft. bush');
+}
+
+function fortBushInteriorDefinition(location) {
+    const room = (id, type, name, x, y, w, h, color, action = '') => ({ id, type, name, x, y, w, h, color, action });
+    const rooms = [
+        room('planetscape', 'deck', 'Fort Bush Landing Pad', -360, -190, 720, 320, '#17324a', 'launch'),
+        room('concourse', 'hall', 'Customs Concourse', -250, 150, 500, 180, '#142438'),
+        room('bar', 'bar', 'Bar', -620, 80, 290, 250, '#2d1c2f', 'bar'),
+        room('equipment', 'equipment', 'Equipment Dealer', 330, 70, 310, 260, '#193546', 'equipment'),
+        room('warehouse', 'trade', 'Warehouse Dealer', -210, 390, 300, 230, '#2e2d20', 'trade'),
+        room('shipdealer', 'ship', 'Ship Dealer', 170, 390, 300, 230, '#243053', 'ship')
+    ];
+    const corridors = [
+        { x: -70, y: 120, w: 140, h: 80 },
+        { x: -335, y: 190, w: 110, h: 70 },
+        { x: 235, y: 190, w: 115, h: 70 },
+        { x: -80, y: 315, w: 80, h: 90 },
+        { x: 235, y: 315, w: 80, h: 90 }
+    ];
+    const props = [
+        { type: 'ship', x: 0, y: -70, w: 150, h: 64, label: game.player?.shipName || 'Ship' },
+        { type: 'counter', x: -535, y: 165, w: 170, h: 34 },
+        { type: 'table', x: -475, y: 255, r: 28 }, { type: 'table', x: -390, y: 250, r: 22 },
+        { type: 'console', x: 435, y: 125, w: 120, h: 36, label: 'Weapons' },
+        { type: 'crate', x: -145, y: 455, w: 55, h: 45 }, { type: 'crate', x: -60, y: 505, w: 65, h: 42 },
+        { type: 'holo', x: 320, y: 490, r: 44, label: 'Ships' },
+        { type: 'terminal', x: 0, y: 235, w: 120, h: 28, label: 'Transit' }
+    ];
+    return { baseId: 'li01_02_base', name: location?.name || 'Fort Bush', rooms, corridors, props, spawn: { x: 0, y: 20 } };
+}
+
+function enterBaseInterior(location) {
+    game.isDocked = true;
+    game.landedBase = location;
+    game.lastLanding = createLandingRecord(location);
+    game.player.cancelCruise?.();
+    game.player.afterburnerActive = false;
+    game.player.reverseActive = false;
+    game.player.throttle = 0;
+    game.player.speed = 0;
+    game.interior = {
+        active: true,
+        location,
+        layout: fortBushInteriorDefinition(location),
+        player: { x: 0, y: 20, radius: 13, speed: 210, facing: 0 },
+        camera: { x: 0, y: 0 },
+        prompt: '',
+        activeAction: ''
+    };
+    game.interiorKeys = {};
+    document.getElementById('landing-overlay')?.classList.add('hidden');
+    addLog(`${t('landedAt')}: ${location.name} - Interior test`);
+    playSound('dock', 1);
+    updateCruiseButton();
+    updateSpeedControl();
+    saveGame();
+}
+
+function interiorRects() {
+    const layout = game.interior?.layout;
+    return layout ? [...layout.rooms, ...layout.corridors] : [];
+}
+
+function pointInRect(x, y, rect, padding = 0) {
+    return x >= rect.x - padding && x <= rect.x + rect.w + padding && y >= rect.y - padding && y <= rect.y + rect.h + padding;
+}
+
+function isInteriorWalkable(x, y) {
+    const radius = game.interior?.player?.radius || 12;
+    return interiorRects().some(rect => pointInRect(x, y, rect, -radius));
+}
+
+function nearestInteriorAction() {
+    const interior = game.interior;
+    if (!interior?.active) return null;
+    const p = interior.player;
+    let best = null;
+    for (const room of interior.layout.rooms) {
+        if (!room.action) continue;
+        const cx = room.x + room.w * 0.5;
+        const cy = room.y + room.h * 0.5;
+        const distance = Math.hypot(cx - p.x, cy - p.y);
+        if (distance < 145 && (!best || distance < best.distance)) best = { ...room, distance };
+    }
+    return best;
+}
+
+function performInteriorAction() {
+    const action = nearestInteriorAction();
+    if (!action) return;
+    if (action.action === 'launch') {
+        game.interior = null;
+        launchFromBase();
+        return;
+    }
+    const overlay = document.getElementById('landing-overlay');
+    if (overlay) overlay.classList.remove('hidden');
+    showLandingDeck(action.action);
+}
+
+function updateInterior(dt) {
+    const interior = game.interior;
+    if (!interior?.active) return;
+    const keys = game.interiorKeys || {};
+    let dx = 0, dy = 0;
+    if (keys.KeyW || keys.ArrowUp) dy -= 1;
+    if (keys.KeyS || keys.ArrowDown) dy += 1;
+    if (keys.KeyA || keys.ArrowLeft) dx -= 1;
+    if (keys.KeyD || keys.ArrowRight) dx += 1;
+    if (dx || dy) {
+        const len = Math.hypot(dx, dy) || 1;
+        dx /= len; dy /= len;
+        const p = interior.player;
+        const step = p.speed * dt;
+        const nx = p.x + dx * step;
+        const ny = p.y + dy * step;
+        if (isInteriorWalkable(nx, p.y)) p.x = nx;
+        if (isInteriorWalkable(p.x, ny)) p.y = ny;
+        p.facing = Math.atan2(dy, dx);
+    }
+    const action = nearestInteriorAction();
+    interior.activeAction = action?.action || '';
+    interior.prompt = action ? `E - ${action.name}` : '';
+    interior.camera.x += (interior.player.x - interior.camera.x) * Math.min(1, dt * 8);
+    interior.camera.y += (interior.player.y - interior.camera.y) * Math.min(1, dt * 8);
+}
+
+function drawInteriorProp(ctx, prop) {
+    ctx.save();
+    if (prop.type === 'ship') {
+        ctx.translate(prop.x, prop.y);
+        ctx.fillStyle = '#9edfff';
+        ctx.strokeStyle = '#d8f7ff';
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.moveTo(prop.w * 0.5, 0);
+        ctx.lineTo(-prop.w * 0.35, -prop.h * 0.5);
+        ctx.lineTo(-prop.w * 0.18, 0);
+        ctx.lineTo(-prop.w * 0.35, prop.h * 0.5);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+    } else if (prop.type === 'table' || prop.type === 'holo') {
+        ctx.fillStyle = prop.type === 'holo' ? 'rgba(80,190,255,0.24)' : '#4c3344';
+        ctx.strokeStyle = prop.type === 'holo' ? '#69d8ff' : '#8b657f';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.arc(prop.x, prop.y, prop.r, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.stroke();
+    } else {
+        ctx.fillStyle = prop.type === 'crate' ? '#71643a' : '#24455c';
+        ctx.strokeStyle = prop.type === 'crate' ? '#b79e58' : '#6ccfff';
+        ctx.lineWidth = 2;
+        ctx.fillRect(prop.x - prop.w / 2, prop.y - prop.h / 2, prop.w, prop.h);
+        ctx.strokeRect(prop.x - prop.w / 2, prop.y - prop.h / 2, prop.w, prop.h);
+    }
+    if (prop.label) {
+        ctx.fillStyle = '#b9efff';
+        ctx.font = '11px Courier New';
+        ctx.textAlign = 'center';
+        ctx.fillText(prop.label, prop.x, prop.y - (prop.r || prop.h || 30) * 0.65);
+    }
+    ctx.restore();
+}
+
+function renderInterior(ctx) {
+    const interior = game.interior;
+    if (!interior?.active) return;
+    const { layout, player, camera } = interior;
+    const cx = game.width * 0.5 - camera.x;
+    const cy = game.height * 0.5 - camera.y;
+    const grad = ctx.createLinearGradient(0, 0, game.width, game.height);
+    grad.addColorStop(0, '#050914');
+    grad.addColorStop(0.55, '#071a24');
+    grad.addColorStop(1, '#120b18');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, game.width, game.height);
+    ctx.save();
+    ctx.translate(cx, cy);
+    for (const rect of layout.corridors) {
+        ctx.fillStyle = '#101f30';
+        ctx.strokeStyle = '#24445c';
+        ctx.lineWidth = 2;
+        ctx.fillRect(rect.x, rect.y, rect.w, rect.h);
+        ctx.strokeRect(rect.x, rect.y, rect.w, rect.h);
+    }
+    for (const room of layout.rooms) {
+        ctx.fillStyle = room.color || '#142438';
+        ctx.strokeStyle = room.action && interior.activeAction === room.action ? '#ffaa00' : '#356b8a';
+        ctx.lineWidth = room.action && interior.activeAction === room.action ? 4 : 2;
+        ctx.fillRect(room.x, room.y, room.w, room.h);
+        ctx.strokeRect(room.x, room.y, room.w, room.h);
+        ctx.fillStyle = '#b9efff';
+        ctx.font = '15px Courier New';
+        ctx.textAlign = 'left';
+        ctx.fillText(room.name, room.x + 14, room.y + 25);
+        ctx.strokeStyle = 'rgba(255,255,255,0.06)';
+        ctx.lineWidth = 1;
+        for (let gx = room.x + 40; gx < room.x + room.w; gx += 40) {
+            ctx.beginPath(); ctx.moveTo(gx, room.y); ctx.lineTo(gx, room.y + room.h); ctx.stroke();
+        }
+        for (let gy = room.y + 40; gy < room.y + room.h; gy += 40) {
+            ctx.beginPath(); ctx.moveTo(room.x, gy); ctx.lineTo(room.x + room.w, gy); ctx.stroke();
+        }
+    }
+    for (const prop of layout.props) drawInteriorProp(ctx, prop);
+    ctx.save();
+    ctx.translate(player.x, player.y);
+    ctx.rotate(player.facing);
+    ctx.fillStyle = '#ffcc66';
+    ctx.strokeStyle = '#fff0b7';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.arc(0, 0, player.radius, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.stroke();
+    ctx.strokeStyle = '#1b1208';
+    ctx.beginPath();
+    ctx.moveTo(4, 0);
+    ctx.lineTo(player.radius + 8, 0);
+    ctx.stroke();
+    ctx.restore();
+    ctx.restore();
+
+    ctx.fillStyle = 'rgba(0,15,25,0.78)';
+    ctx.fillRect(18, game.height - 78, Math.min(760, game.width - 36), 58);
+    ctx.strokeStyle = '#1d75a5';
+    ctx.strokeRect(18, game.height - 78, Math.min(760, game.width - 36), 58);
+    ctx.fillStyle = '#00ff99';
+    ctx.font = '14px Courier New';
+    ctx.fillText(`${layout.name} Interior Prototype`, 34, game.height - 52);
+    ctx.fillStyle = '#9edfff';
+    ctx.fillText(interior.prompt || 'WASD laufen | E interagieren | Launch Pad zum Starten', 34, game.height - 30);
+}
+
 function equipmentSlot(itemOrCategory) {
     return firstAvailableSlot(itemOrCategory);
 }
@@ -11667,6 +12402,10 @@ function applyMountedEquipmentEffects() {
 }
 
 function openLandingWindow(target) {
+    if (isFortBushLocation(target)) {
+        enterBaseInterior(target);
+        return;
+    }
     game.isDocked = true;
     game.landedBase = target;
     game.lastLanding = createLandingRecord(target);
@@ -11691,6 +12430,7 @@ function launchFromBase() {
     const launchTarget = game.landedBase || findLandingTarget();
     const launchPoint = launchPointFromDockTarget(launchTarget);
     document.getElementById('landing-overlay')?.classList.add('hidden');
+    game.interior = null;
     game.isDocked = false;
     game.landedBase = null;
     game.player.cancelCruise?.();
@@ -12237,6 +12977,7 @@ async function init() {
     game.canvas = document.getElementById('game-canvas');
     game.ctx = game.canvas.getContext('2d');
     startStartMenuBackground();
+    renderStartMenuScreenPicker();
     game.width = window.innerWidth;
     game.height = window.innerHeight;
     game.canvas.width = game.width;

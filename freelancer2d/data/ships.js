@@ -59,7 +59,8 @@ const FL_SHIPS = {
       "width": 10.5202,
       "height": 15.0992,
       "length": 18.0856
-    }
+    },
+    "icon": "data/ship_icons/bh_elite.png"
   },
   "bh_elite2": {
     "id": "bh_elite2",
@@ -118,7 +119,8 @@ const FL_SHIPS = {
       "width": 10.5202,
       "height": 16.2128,
       "length": 18.0856
-    }
+    },
+    "icon": "data/ship_icons/bh_elite2.png"
   },
   "bh_fighter": {
     "id": "bh_fighter",
@@ -177,7 +179,8 @@ const FL_SHIPS = {
       "width": 3.9826,
       "height": 15.0992,
       "length": 12.2486
-    }
+    },
+    "icon": "data/ship_icons/bh_fighter.png"
   },
   "br_battleship": {
     "id": "br_battleship",
@@ -236,7 +239,8 @@ const FL_SHIPS = {
       "width": 101.1838,
       "height": 101.0304,
       "length": 398.3774
-    }
+    },
+    "icon": "data/ship_icons/br_battleship.png"
   },
   "br_destroyer": {
     "id": "br_destroyer",
@@ -295,7 +299,8 @@ const FL_SHIPS = {
       "width": 63.1918,
       "height": 67.2344,
       "length": 126.667
-    }
+    },
+    "icon": "data/ship_icons/br_destroyer.png"
   },
   "br_elite": {
     "id": "br_elite",
@@ -354,7 +359,8 @@ const FL_SHIPS = {
       "width": 12.9798,
       "height": 8.1688,
       "length": 16.4832
-    }
+    },
+    "icon": "data/ship_icons/br_elite.png"
   },
   "br_fighter": {
     "id": "br_fighter",
@@ -413,7 +419,8 @@ const FL_SHIPS = {
       "width": 4.9164,
       "height": 7.2282,
       "length": 13.6458
-    }
+    },
+    "icon": "data/ship_icons/br_fighter.png"
   },
   "br_freighter": {
     "id": "br_freighter",
@@ -472,7 +479,8 @@ const FL_SHIPS = {
       "width": 19.9916,
       "height": 9.86,
       "length": 22.1392
-    }
+    },
+    "icon": "data/ship_icons/br_freighter.png"
   },
   "br_gunboat": {
     "id": "br_gunboat",
@@ -531,7 +539,8 @@ const FL_SHIPS = {
       "width": 67.7064,
       "height": 49.2608,
       "length": 65.7706
-    }
+    },
+    "icon": "data/ship_icons/br_gunboat.png"
   },
   "bw_elite": {
     "id": "bw_elite",
@@ -590,7 +599,8 @@ const FL_SHIPS = {
       "width": 13.6552,
       "height": 9.118,
       "length": 19.7812
-    }
+    },
+    "icon": "data/ship_icons/bw_elite.png"
   },
   "bw_elite2": {
     "id": "bw_elite2",
@@ -649,7 +659,8 @@ const FL_SHIPS = {
       "width": 14.3438,
       "height": 9.118,
       "length": 19.7812
-    }
+    },
+    "icon": "data/ship_icons/bw_elite2.png"
   },
   "bw_fighter": {
     "id": "bw_fighter",
@@ -708,7 +719,8 @@ const FL_SHIPS = {
       "width": 13.6552,
       "height": 3.9866,
       "length": 18.1664
-    }
+    },
+    "icon": "data/ship_icons/bw_fighter.png"
   },
   "bw_freighter": {
     "id": "bw_freighter",
@@ -767,7 +779,8 @@ const FL_SHIPS = {
       "width": 13.851,
       "height": 11.6598,
       "length": 28.7304
-    }
+    },
+    "icon": "data/ship_icons/bw_freighter.png"
   },
   "co_elite": {
     "id": "co_elite",
@@ -826,7 +839,8 @@ const FL_SHIPS = {
       "width": 19.9372,
       "height": 11.2948,
       "length": 7.9862
-    }
+    },
+    "icon": "data/ship_icons/co_elite.png"
   },
   "co_elite2": {
     "id": "co_elite2",
@@ -885,7 +899,8 @@ const FL_SHIPS = {
       "width": 19.3614,
       "height": 13.185,
       "length": 8.8608
-    }
+    },
+    "icon": "data/ship_icons/co_elite2.png"
   },
   "co_fighter": {
     "id": "co_fighter",
@@ -944,7 +959,8 @@ const FL_SHIPS = {
       "width": 19.9372,
       "height": 4.1532,
       "length": 7.9458
-    }
+    },
+    "icon": "data/ship_icons/co_fighter.png"
   },
   "debris_tosser_200": {
     "id": "debris_tosser_200",
@@ -1003,7 +1019,8 @@ const FL_SHIPS = {
       "width": 4.43,
       "height": 3.6558,
       "length": 12.7898
-    }
+    },
+    "icon": "data/ship_icons/debris_tosser_200.png"
   },
   "depot": {
     "id": "depot",
@@ -1050,7 +1067,8 @@ const FL_SHIPS = {
       "width": 167.9304,
       "height": 197.1698,
       "length": 108.7156
-    }
+    },
+    "icon": "data/ship_icons/depot.png"
   },
   "ge_armored": {
     "id": "ge_armored",
@@ -1109,7 +1127,8 @@ const FL_SHIPS = {
       "width": 22.3946,
       "height": 12.3904,
       "length": 36.055
-    }
+    },
+    "icon": "data/ship_icons/ge_armored.png"
   },
   "ge_armored_nobay": {
     "id": "ge_armored_nobay",
@@ -1168,7 +1187,8 @@ const FL_SHIPS = {
       "width": 22.3946,
       "height": 12.3904,
       "length": 36.055
-    }
+    },
+    "icon": "data/ship_icons/ge_armored_nobay.png"
   },
   "ge_csv": {
     "id": "ge_csv",
@@ -1227,7 +1247,8 @@ const FL_SHIPS = {
       "width": 9.0212,
       "height": 11.1606,
       "length": 19.212
-    }
+    },
+    "icon": "data/ship_icons/ge_csv.png"
   },
   "ge_fighter": {
     "id": "ge_fighter",
@@ -1286,7 +1307,8 @@ const FL_SHIPS = {
       "width": 10.5912,
       "height": 7.5546,
       "length": 13.7726
-    }
+    },
+    "icon": "data/ship_icons/ge_fighter.png"
   },
   "ge_fighter2": {
     "id": "ge_fighter2",
@@ -1345,7 +1367,8 @@ const FL_SHIPS = {
       "width": 10.5912,
       "height": 7.8992,
       "length": 13.7726
-    }
+    },
+    "icon": "data/ship_icons/ge_fighter2.png"
   },
   "ge_fighter4": {
     "id": "ge_fighter4",
@@ -1404,7 +1427,8 @@ const FL_SHIPS = {
       "width": 19.9494,
       "height": 4.5764,
       "length": 15.1804
-    }
+    },
+    "icon": "data/ship_icons/ge_fighter4.png"
   },
   "ge_fighter5": {
     "id": "ge_fighter5",
@@ -1463,7 +1487,8 @@ const FL_SHIPS = {
       "width": 19.9494,
       "height": 8.2244,
       "length": 15.1804
-    }
+    },
+    "icon": "data/ship_icons/ge_fighter5.png"
   },
   "ge_fighter6": {
     "id": "ge_fighter6",
@@ -1522,7 +1547,8 @@ const FL_SHIPS = {
       "width": 19.9494,
       "height": 8.3932,
       "length": 17.3718
-    }
+    },
+    "icon": "data/ship_icons/ge_fighter6.png"
   },
   "ge_large_train": {
     "id": "ge_large_train",
@@ -1581,7 +1607,8 @@ const FL_SHIPS = {
       "width": 50.3574,
       "height": 32.7818,
       "length": 201.491
-    }
+    },
+    "icon": "data/ship_icons/ge_large_train.png"
   },
   "ge_large_transport": {
     "id": "ge_large_transport",
@@ -1640,7 +1667,8 @@ const FL_SHIPS = {
       "width": 29.2202,
       "height": 27.5322,
       "length": 188.3626
-    }
+    },
+    "icon": "data/ship_icons/ge_large_transport.png"
   },
   "ge_lifter": {
     "id": "ge_lifter",
@@ -1699,7 +1727,8 @@ const FL_SHIPS = {
       "width": 79.0494,
       "height": 41.2416,
       "length": 80.728
-    }
+    },
+    "icon": "data/ship_icons/ge_lifter.png"
   },
   "ge_liner": {
     "id": "ge_liner",
@@ -1758,7 +1787,8 @@ const FL_SHIPS = {
       "width": 71.8272,
       "height": 68.426,
       "length": 360.7768
-    }
+    },
+    "icon": "data/ship_icons/ge_liner.png"
   },
   "ge_miner": {
     "id": "ge_miner",
@@ -1817,7 +1847,8 @@ const FL_SHIPS = {
       "width": 190.9868,
       "height": 82.4128,
       "length": 232.4542
-    }
+    },
+    "icon": "data/ship_icons/ge_miner.png"
   },
   "ge_prison": {
     "id": "ge_prison",
@@ -1876,7 +1907,8 @@ const FL_SHIPS = {
       "width": 49.4118,
       "height": 50.2402,
       "length": 360.7774
-    }
+    },
+    "icon": "data/ship_icons/ge_prison.png"
   },
   "ge_repair": {
     "id": "ge_repair",
@@ -1935,7 +1967,8 @@ const FL_SHIPS = {
       "width": 21.0442,
       "height": 18.083,
       "length": 41.5818
-    }
+    },
+    "icon": "data/ship_icons/ge_repair.png"
   },
   "ge_train": {
     "id": "ge_train",
@@ -1994,7 +2027,8 @@ const FL_SHIPS = {
       "width": 50.3574,
       "height": 32.7818,
       "length": 158.0598
-    }
+    },
+    "icon": "data/ship_icons/ge_train.png"
   },
   "ge_transport": {
     "id": "ge_transport",
@@ -2053,7 +2087,8 @@ const FL_SHIPS = {
       "width": 29.2202,
       "height": 27.5322,
       "length": 120.1486
-    }
+    },
+    "icon": "data/ship_icons/ge_transport.png"
   },
   "ku_battleship": {
     "id": "ku_battleship",
@@ -2112,7 +2147,8 @@ const FL_SHIPS = {
       "width": 136.3178,
       "height": 268.888,
       "length": 676.1992
-    }
+    },
+    "icon": "data/ship_icons/ku_battleship.png"
   },
   "ku_destroyer": {
     "id": "ku_destroyer",
@@ -2171,7 +2207,8 @@ const FL_SHIPS = {
       "width": 11.8408,
       "height": 38.9734,
       "length": 72.2152
-    }
+    },
+    "icon": "data/ship_icons/ku_destroyer.png"
   },
   "ku_dragon": {
     "id": "ku_dragon",
@@ -2230,7 +2267,8 @@ const FL_SHIPS = {
       "width": 9.7096,
       "height": 7.4802,
       "length": 15.0976
-    }
+    },
+    "icon": "data/ship_icons/ku_dragon.png"
   },
   "ku_elite": {
     "id": "ku_elite",
@@ -2289,7 +2327,8 @@ const FL_SHIPS = {
       "width": 9.7096,
       "height": 7.4802,
       "length": 15.0976
-    }
+    },
+    "icon": "data/ship_icons/ku_elite.png"
   },
   "ku_fighter": {
     "id": "ku_fighter",
@@ -2348,7 +2387,8 @@ const FL_SHIPS = {
       "width": 5.6418,
       "height": 4.3136,
       "length": 12.0186
-    }
+    },
+    "icon": "data/ship_icons/ku_fighter.png"
   },
   "ku_freighter": {
     "id": "ku_freighter",
@@ -2407,7 +2447,8 @@ const FL_SHIPS = {
       "width": 16.442,
       "height": 11.6972,
       "length": 21.0546
-    }
+    },
+    "icon": "data/ship_icons/ku_freighter.png"
   },
   "ku_gunboat": {
     "id": "ku_gunboat",
@@ -2466,7 +2507,8 @@ const FL_SHIPS = {
       "width": 17.407,
       "height": 19.1808,
       "length": 51.1688
-    }
+    },
+    "icon": "data/ship_icons/ku_gunboat.png"
   },
   "large_transport_m03": {
     "id": "large_transport_m03",
@@ -2525,7 +2567,8 @@ const FL_SHIPS = {
       "width": 29.2202,
       "height": 27.5322,
       "length": 188.3626
-    }
+    },
+    "icon": "data/ship_icons/large_transport_m03.png"
   },
   "li_cruiser": {
     "id": "li_cruiser",
@@ -2584,7 +2627,8 @@ const FL_SHIPS = {
       "width": 36.077,
       "height": 38.8236,
       "length": 193.3722
-    }
+    },
+    "icon": "data/ship_icons/li_cruiser.png"
   },
   "li_dreadnought": {
     "id": "li_dreadnought",
@@ -2643,7 +2687,8 @@ const FL_SHIPS = {
       "width": 90.6426,
       "height": 118.2456,
       "length": 496.1674
-    }
+    },
+    "icon": "data/ship_icons/li_dreadnought.png"
   },
   "li_elite": {
     "id": "li_elite",
@@ -2702,7 +2747,8 @@ const FL_SHIPS = {
       "width": 13.9228,
       "height": 5.9742,
       "length": 15.0486
-    }
+    },
+    "icon": "data/ship_icons/li_elite.png"
   },
   "li_elite2": {
     "id": "li_elite2",
@@ -2761,7 +2807,8 @@ const FL_SHIPS = {
       "width": 13.9086,
       "height": 9.7814,
       "length": 15.5912
-    }
+    },
+    "icon": "data/ship_icons/li_elite2.png"
   },
   "li_fighter": {
     "id": "li_fighter",
@@ -2820,7 +2867,8 @@ const FL_SHIPS = {
       "width": 4.43,
       "height": 3.6558,
       "length": 12.7898
-    }
+    },
+    "icon": "data/ship_icons/li_fighter.png"
   },
   "li_fighter_indestr": {
     "id": "li_fighter_indestr",
@@ -2879,7 +2927,8 @@ const FL_SHIPS = {
       "width": 4.43,
       "height": 3.6558,
       "length": 12.7898
-    }
+    },
+    "icon": "data/ship_icons/li_fighter_indestr.png"
   },
   "li_fighter_king": {
     "id": "li_fighter_king",
@@ -2938,7 +2987,8 @@ const FL_SHIPS = {
       "width": 4.43,
       "height": 3.6558,
       "length": 12.7898
-    }
+    },
+    "icon": "data/ship_icons/li_fighter_king.png"
   },
   "li_freighter": {
     "id": "li_freighter",
@@ -2997,7 +3047,8 @@ const FL_SHIPS = {
       "width": 8.9424,
       "height": 11.1004,
       "length": 29.2096
-    }
+    },
+    "icon": "data/ship_icons/li_freighter.png"
   },
   "mission02_burning_l_elite": {
     "id": "mission02_burning_l_elite",
@@ -3056,7 +3107,8 @@ const FL_SHIPS = {
       "width": 13.9228,
       "height": 5.9742,
       "length": 15.0486
-    }
+    },
+    "icon": "data/ship_icons/mission02_burning_l_elite.png"
   },
   "mission02_burning_transport": {
     "id": "mission02_burning_transport",
@@ -3115,7 +3167,8 @@ const FL_SHIPS = {
       "width": 29.2202,
       "height": 27.5322,
       "length": 120.1486
-    }
+    },
+    "icon": "data/ship_icons/mission02_burning_transport.png"
   },
   "msn_playership": {
     "id": "msn_playership",
@@ -3174,7 +3227,8 @@ const FL_SHIPS = {
       "width": 10.5912,
       "height": 7.5546,
       "length": 13.7726
-    }
+    },
+    "icon": "data/ship_icons/msn_playership.png"
   },
   "no_battleship": {
     "id": "no_battleship",
@@ -3233,7 +3287,8 @@ const FL_SHIPS = {
       "width": 276.9306,
       "height": 244.194,
       "length": 1256.9598
-    }
+    },
+    "icon": "data/ship_icons/no_battleship.png"
   },
   "no_fighter": {
     "id": "no_fighter",
@@ -3292,7 +3347,8 @@ const FL_SHIPS = {
       "width": 9.5398,
       "height": 8.2628,
       "length": 17.2722
-    }
+    },
+    "icon": "data/ship_icons/no_fighter.png"
   },
   "no_gunboat": {
     "id": "no_gunboat",
@@ -3351,7 +3407,8 @@ const FL_SHIPS = {
       "width": 59.9564,
       "height": 54.9976,
       "length": 119.1708
-    }
+    },
+    "icon": "data/ship_icons/no_gunboat.png"
   },
   "or_elite": {
     "id": "or_elite",
@@ -3410,7 +3467,8 @@ const FL_SHIPS = {
       "width": 17.8,
       "height": 9.29,
       "length": 17.4108
-    }
+    },
+    "icon": "data/ship_icons/or_elite.png"
   },
   "or_elite_msn01": {
     "id": "or_elite_msn01",
@@ -3469,7 +3527,8 @@ const FL_SHIPS = {
       "width": 17.8,
       "height": 9.29,
       "length": 17.4108
-    }
+    },
+    "icon": "data/ship_icons/or_elite_msn01.png"
   },
   "or_osiris": {
     "id": "or_osiris",
@@ -3528,7 +3587,8 @@ const FL_SHIPS = {
       "width": 63.0328,
       "height": 101.4158,
       "length": 426.715
-    }
+    },
+    "icon": "data/ship_icons/or_osiris.png"
   },
   "pi_elite": {
     "id": "pi_elite",
@@ -3587,7 +3647,8 @@ const FL_SHIPS = {
       "width": 10.8712,
       "height": 18.7764,
       "length": 26.2388
-    }
+    },
+    "icon": "data/ship_icons/pi_elite.png"
   },
   "pi_fighter": {
     "id": "pi_fighter",
@@ -3646,7 +3707,8 @@ const FL_SHIPS = {
       "width": 9.091,
       "height": 14.4398,
       "length": 18.6816
-    }
+    },
+    "icon": "data/ship_icons/pi_fighter.png"
   },
   "pi_freighter": {
     "id": "pi_freighter",
@@ -3705,7 +3767,8 @@ const FL_SHIPS = {
       "width": 12.3342,
       "height": 15.5194,
       "length": 20.957
-    }
+    },
+    "icon": "data/ship_icons/pi_freighter.png"
   },
   "playership": {
     "id": "playership",
@@ -3752,7 +3815,8 @@ const FL_SHIPS = {
       "width": 8.9424,
       "height": 11.1004,
       "length": 29.2096
-    }
+    },
+    "icon": "data/ship_icons/playership.png"
   },
   "rh_battleship": {
     "id": "rh_battleship",
@@ -3811,7 +3875,8 @@ const FL_SHIPS = {
       "width": 194.3856,
       "height": 212.013,
       "length": 800.1614
-    }
+    },
+    "icon": "data/ship_icons/rh_battleship.png"
   },
   "rh_cruiser": {
     "id": "rh_cruiser",
@@ -3870,7 +3935,8 @@ const FL_SHIPS = {
       "width": 43.6394,
       "height": 66.8838,
       "length": 169.1834
-    }
+    },
+    "icon": "data/ship_icons/rh_cruiser.png"
   },
   "rh_elite": {
     "id": "rh_elite",
@@ -3929,7 +3995,8 @@ const FL_SHIPS = {
       "width": 15.0556,
       "height": 7.056,
       "length": 16.7316
-    }
+    },
+    "icon": "data/ship_icons/rh_elite.png"
   },
   "rh_fighter": {
     "id": "rh_fighter",
@@ -3988,7 +4055,8 @@ const FL_SHIPS = {
       "width": 10.9976,
       "height": 7.1328,
       "length": 13.6056
-    }
+    },
+    "icon": "data/ship_icons/rh_fighter.png"
   },
   "rh_freighter": {
     "id": "rh_freighter",
@@ -4047,7 +4115,8 @@ const FL_SHIPS = {
       "width": 9.4648,
       "height": 11.4626,
       "length": 23.7232
-    }
+    },
+    "icon": "data/ship_icons/rh_freighter.png"
   },
   "rh_gunboat": {
     "id": "rh_gunboat",
@@ -4106,7 +4175,8 @@ const FL_SHIPS = {
       "width": 14.6466,
       "height": 33.6498,
       "length": 84.5296
-    }
+    },
+    "icon": "data/ship_icons/rh_gunboat.png"
   },
   "rtc_lifeboat": {
     "id": "rtc_lifeboat",
@@ -4165,7 +4235,8 @@ const FL_SHIPS = {
       "width": 8.0558,
       "height": 8.0558,
       "length": 13.5952
-    }
+    },
+    "icon": "data/ship_icons/rtc_lifeboat.png"
   },
   "rtcprop_armored_transport": {
     "id": "rtcprop_armored_transport",
@@ -4212,7 +4283,8 @@ const FL_SHIPS = {
       "width": 22.3946,
       "height": 12.3904,
       "length": 36.055
-    }
+    },
+    "icon": "data/ship_icons/rtcprop_armored_transport.png"
   },
   "rtcprop_b_battleship": {
     "id": "rtcprop_b_battleship",
@@ -4259,7 +4331,8 @@ const FL_SHIPS = {
       "width": 101.1838,
       "height": 101.0304,
       "length": 398.3774
-    }
+    },
+    "icon": "data/ship_icons/rtcprop_b_battleship.png"
   },
   "rtcprop_b_destroyer": {
     "id": "rtcprop_b_destroyer",
@@ -4306,7 +4379,8 @@ const FL_SHIPS = {
       "width": 63.1918,
       "height": 67.2344,
       "length": 126.667
-    }
+    },
+    "icon": "data/ship_icons/rtcprop_b_destroyer.png"
   },
   "rtcprop_b_elite": {
     "id": "rtcprop_b_elite",
@@ -4353,7 +4427,8 @@ const FL_SHIPS = {
       "width": 12.9798,
       "height": 8.1688,
       "length": 16.4832
-    }
+    },
+    "icon": "data/ship_icons/rtcprop_b_elite.png"
   },
   "rtcprop_b_fighter": {
     "id": "rtcprop_b_fighter",
@@ -4400,7 +4475,8 @@ const FL_SHIPS = {
       "width": 4.9164,
       "height": 7.2282,
       "length": 13.6458
-    }
+    },
+    "icon": "data/ship_icons/rtcprop_b_fighter.png"
   },
   "rtcprop_b_freighter": {
     "id": "rtcprop_b_freighter",
@@ -4447,7 +4523,8 @@ const FL_SHIPS = {
       "width": 19.9916,
       "height": 9.86,
       "length": 22.1392
-    }
+    },
+    "icon": "data/ship_icons/rtcprop_b_freighter.png"
   },
   "rtcprop_b_gunboat": {
     "id": "rtcprop_b_gunboat",
@@ -4494,7 +4571,8 @@ const FL_SHIPS = {
       "width": 67.7064,
       "height": 49.2608,
       "length": 65.7706
-    }
+    },
+    "icon": "data/ship_icons/rtcprop_b_gunboat.png"
   },
   "rtcprop_bw_elite": {
     "id": "rtcprop_bw_elite",
@@ -4541,7 +4619,8 @@ const FL_SHIPS = {
       "width": 13.6552,
       "height": 9.118,
       "length": 19.7812
-    }
+    },
+    "icon": "data/ship_icons/rtcprop_bw_elite.png"
   },
   "rtcprop_bw_fighter": {
     "id": "rtcprop_bw_fighter",
@@ -4588,7 +4667,8 @@ const FL_SHIPS = {
       "width": 13.6552,
       "height": 3.9866,
       "length": 18.1664
-    }
+    },
+    "icon": "data/ship_icons/rtcprop_bw_fighter.png"
   },
   "rtcprop_bw_freighter": {
     "id": "rtcprop_bw_freighter",
@@ -4635,7 +4715,8 @@ const FL_SHIPS = {
       "width": 13.851,
       "height": 11.6598,
       "length": 28.7304
-    }
+    },
+    "icon": "data/ship_icons/rtcprop_bw_freighter.png"
   },
   "rtcprop_civ_elite": {
     "id": "rtcprop_civ_elite",
@@ -4682,7 +4763,8 @@ const FL_SHIPS = {
       "width": 10.5912,
       "height": 7.8992,
       "length": 13.7726
-    }
+    },
+    "icon": "data/ship_icons/rtcprop_civ_elite.png"
   },
   "rtcprop_civ_fighter": {
     "id": "rtcprop_civ_fighter",
@@ -4729,7 +4811,8 @@ const FL_SHIPS = {
       "width": 10.5912,
       "height": 7.5546,
       "length": 13.7726
-    }
+    },
+    "icon": "data/ship_icons/rtcprop_civ_fighter.png"
   },
   "rtcprop_civ_freighter": {
     "id": "rtcprop_civ_freighter",
@@ -4776,7 +4859,8 @@ const FL_SHIPS = {
       "width": 10.5912,
       "height": 9.9742,
       "length": 13.7726
-    }
+    },
+    "icon": "data/ship_icons/rtcprop_civ_freighter.png"
   },
   "rtcprop_csv": {
     "id": "rtcprop_csv",
@@ -4823,7 +4907,8 @@ const FL_SHIPS = {
       "width": 9.0212,
       "height": 11.1606,
       "length": 19.212
-    }
+    },
+    "icon": "data/ship_icons/rtcprop_csv.png"
   },
   "rtcprop_juni_elite": {
     "id": "rtcprop_juni_elite",
@@ -4870,7 +4955,8 @@ const FL_SHIPS = {
       "width": 13.9086,
       "height": 9.7814,
       "length": 15.5912
-    }
+    },
+    "icon": "data/ship_icons/rtcprop_juni_elite.png"
   },
   "rtcprop_k_battleship": {
     "id": "rtcprop_k_battleship",
@@ -4917,7 +5003,8 @@ const FL_SHIPS = {
       "width": 136.3178,
       "height": 268.888,
       "length": 676.1992
-    }
+    },
+    "icon": "data/ship_icons/rtcprop_k_battleship.png"
   },
   "rtcprop_k_destroyer": {
     "id": "rtcprop_k_destroyer",
@@ -4964,7 +5051,8 @@ const FL_SHIPS = {
       "width": 11.8408,
       "height": 38.9734,
       "length": 72.2152
-    }
+    },
+    "icon": "data/ship_icons/rtcprop_k_destroyer.png"
   },
   "rtcprop_k_dragon": {
     "id": "rtcprop_k_dragon",
@@ -5011,7 +5099,8 @@ const FL_SHIPS = {
       "width": 9.7096,
       "height": 7.4802,
       "length": 15.0976
-    }
+    },
+    "icon": "data/ship_icons/rtcprop_k_dragon.png"
   },
   "rtcprop_k_elite": {
     "id": "rtcprop_k_elite",
@@ -5058,7 +5147,8 @@ const FL_SHIPS = {
       "width": 9.7096,
       "height": 7.4802,
       "length": 15.0976
-    }
+    },
+    "icon": "data/ship_icons/rtcprop_k_elite.png"
   },
   "rtcprop_k_fighter": {
     "id": "rtcprop_k_fighter",
@@ -5105,7 +5195,8 @@ const FL_SHIPS = {
       "width": 5.6418,
       "height": 4.3136,
       "length": 12.0186
-    }
+    },
+    "icon": "data/ship_icons/rtcprop_k_fighter.png"
   },
   "rtcprop_k_freighter": {
     "id": "rtcprop_k_freighter",
@@ -5152,7 +5243,8 @@ const FL_SHIPS = {
       "width": 16.442,
       "height": 11.6972,
       "length": 21.0546
-    }
+    },
+    "icon": "data/ship_icons/rtcprop_k_freighter.png"
   },
   "rtcprop_k_gunboat": {
     "id": "rtcprop_k_gunboat",
@@ -5199,7 +5291,8 @@ const FL_SHIPS = {
       "width": 17.407,
       "height": 19.1808,
       "length": 51.1688
-    }
+    },
+    "icon": "data/ship_icons/rtcprop_k_gunboat.png"
   },
   "rtcprop_l_cruiser": {
     "id": "rtcprop_l_cruiser",
@@ -5246,7 +5339,8 @@ const FL_SHIPS = {
       "width": 36.077,
       "height": 38.8236,
       "length": 193.3722
-    }
+    },
+    "icon": "data/ship_icons/rtcprop_l_cruiser.png"
   },
   "rtcprop_l_dreadnought": {
     "id": "rtcprop_l_dreadnought",
@@ -5293,7 +5387,8 @@ const FL_SHIPS = {
       "width": 90.6426,
       "height": 118.2456,
       "length": 496.1674
-    }
+    },
+    "icon": "data/ship_icons/rtcprop_l_dreadnought.png"
   },
   "rtcprop_l_elite": {
     "id": "rtcprop_l_elite",
@@ -5340,7 +5435,8 @@ const FL_SHIPS = {
       "width": 13.9228,
       "height": 5.9742,
       "length": 15.0486
-    }
+    },
+    "icon": "data/ship_icons/rtcprop_l_elite.png"
   },
   "rtcprop_l_fighter": {
     "id": "rtcprop_l_fighter",
@@ -5387,7 +5483,8 @@ const FL_SHIPS = {
       "width": 4.43,
       "height": 3.6558,
       "length": 12.7898
-    }
+    },
+    "icon": "data/ship_icons/rtcprop_l_fighter.png"
   },
   "rtcprop_l_freighter": {
     "id": "rtcprop_l_freighter",
@@ -5434,7 +5531,8 @@ const FL_SHIPS = {
       "width": 8.9424,
       "height": 11.1004,
       "length": 29.2096
-    }
+    },
+    "icon": "data/ship_icons/rtcprop_l_freighter.png"
   },
   "rtcprop_large_transport": {
     "id": "rtcprop_large_transport",
@@ -5481,7 +5579,8 @@ const FL_SHIPS = {
       "width": 29.2202,
       "height": 27.5322,
       "length": 188.3626
-    }
+    },
+    "icon": "data/ship_icons/rtcprop_large_transport.png"
   },
   "rtcprop_lifter": {
     "id": "rtcprop_lifter",
@@ -5528,7 +5627,8 @@ const FL_SHIPS = {
       "width": 79.0494,
       "height": 41.2416,
       "length": 80.728
-    }
+    },
+    "icon": "data/ship_icons/rtcprop_lifter.png"
   },
   "rtcprop_luxury_liner": {
     "id": "rtcprop_luxury_liner",
@@ -5575,7 +5675,8 @@ const FL_SHIPS = {
       "width": 71.8272,
       "height": 68.426,
       "length": 360.7768
-    }
+    },
+    "icon": "data/ship_icons/rtcprop_luxury_liner.png"
   },
   "rtcprop_mining": {
     "id": "rtcprop_mining",
@@ -5622,7 +5723,8 @@ const FL_SHIPS = {
       "width": 190.9868,
       "height": 82.4128,
       "length": 232.4542
-    }
+    },
+    "icon": "data/ship_icons/rtcprop_mining.png"
   },
   "rtcprop_p_elite": {
     "id": "rtcprop_p_elite",
@@ -5669,7 +5771,8 @@ const FL_SHIPS = {
       "width": 10.8712,
       "height": 18.7764,
       "length": 26.2388
-    }
+    },
+    "icon": "data/ship_icons/rtcprop_p_elite.png"
   },
   "rtcprop_p_elite_akira": {
     "id": "rtcprop_p_elite_akira",
@@ -5716,7 +5819,8 @@ const FL_SHIPS = {
       "width": 13.6552,
       "height": 3.9866,
       "length": 18.1664
-    }
+    },
+    "icon": "data/ship_icons/rtcprop_p_elite_akira.png"
   },
   "rtcprop_p_fighter": {
     "id": "rtcprop_p_fighter",
@@ -5763,7 +5867,8 @@ const FL_SHIPS = {
       "width": 9.091,
       "height": 14.4398,
       "length": 18.6816
-    }
+    },
+    "icon": "data/ship_icons/rtcprop_p_fighter.png"
   },
   "rtcprop_p_freighter": {
     "id": "rtcprop_p_freighter",
@@ -5810,7 +5915,8 @@ const FL_SHIPS = {
       "width": 12.3342,
       "height": 15.5194,
       "length": 20.957
-    }
+    },
+    "icon": "data/ship_icons/rtcprop_p_freighter.png"
   },
   "rtcprop_prison": {
     "id": "rtcprop_prison",
@@ -5857,7 +5963,8 @@ const FL_SHIPS = {
       "width": 49.4118,
       "height": 50.2402,
       "length": 360.7774
-    }
+    },
+    "icon": "data/ship_icons/rtcprop_prison.png"
   },
   "rtcprop_r_battleship": {
     "id": "rtcprop_r_battleship",
@@ -5904,7 +6011,8 @@ const FL_SHIPS = {
       "width": 194.3856,
       "height": 212.013,
       "length": 800.1614
-    }
+    },
+    "icon": "data/ship_icons/rtcprop_r_battleship.png"
   },
   "rtcprop_r_cruiser": {
     "id": "rtcprop_r_cruiser",
@@ -5951,7 +6059,8 @@ const FL_SHIPS = {
       "width": 43.6394,
       "height": 66.8838,
       "length": 169.1834
-    }
+    },
+    "icon": "data/ship_icons/rtcprop_r_cruiser.png"
   },
   "rtcprop_r_elite": {
     "id": "rtcprop_r_elite",
@@ -5998,7 +6107,8 @@ const FL_SHIPS = {
       "width": 15.0556,
       "height": 7.056,
       "length": 16.7316
-    }
+    },
+    "icon": "data/ship_icons/rtcprop_r_elite.png"
   },
   "rtcprop_r_fighter": {
     "id": "rtcprop_r_fighter",
@@ -6045,7 +6155,8 @@ const FL_SHIPS = {
       "width": 10.9976,
       "height": 7.1328,
       "length": 13.6056
-    }
+    },
+    "icon": "data/ship_icons/rtcprop_r_fighter.png"
   },
   "rtcprop_r_freighter": {
     "id": "rtcprop_r_freighter",
@@ -6092,7 +6203,8 @@ const FL_SHIPS = {
       "width": 9.4648,
       "height": 11.4626,
       "length": 23.7232
-    }
+    },
+    "icon": "data/ship_icons/rtcprop_r_freighter.png"
   },
   "rtcprop_r_gunboat": {
     "id": "rtcprop_r_gunboat",
@@ -6139,7 +6251,8 @@ const FL_SHIPS = {
       "width": 14.6466,
       "height": 33.6498,
       "length": 84.5296
-    }
+    },
+    "icon": "data/ship_icons/rtcprop_r_gunboat.png"
   },
   "rtcprop_repair": {
     "id": "rtcprop_repair",
@@ -6186,7 +6299,8 @@ const FL_SHIPS = {
       "width": 21.0442,
       "height": 18.083,
       "length": 41.5818
-    }
+    },
+    "icon": "data/ship_icons/rtcprop_repair.png"
   },
   "rtcprop_transport": {
     "id": "rtcprop_transport",
@@ -6233,7 +6347,8 @@ const FL_SHIPS = {
       "width": 29.2202,
       "height": 27.5322,
       "length": 120.1486
-    }
+    },
+    "icon": "data/ship_icons/rtcprop_transport.png"
   }
 };
 

@@ -43,7 +43,24 @@ const FL_SHIPS = {
     },
     "turnRate": 2.07,
     "firePower": 6,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\A-100\\a100.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\A-100\\a100.cmp",
+    "modelBounds": {
+      "min": [
+        -8.7889,
+        -2.0002,
+        -8.6014
+      ],
+      "max": [
+        8.7889,
+        2.0002,
+        8.6014
+      ],
+      "radius": 11.1395,
+      "width": 17.5778,
+      "height": 4.0004,
+      "length": 17.2028
+    },
+    "icon": "data/ship_icons/a100.png"
   },
   "a9fx": {
     "id": "a9fx",
@@ -86,7 +103,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.69,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\a9fx\\a9fx.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\a9fx\\a9fx.cmp",
+    "modelBounds": {
+      "min": [
+        -9.2164,
+        -2.5258,
+        -8.7344
+      ],
+      "max": [
+        9.2164,
+        2.5258,
+        8.7344
+      ],
+      "radius": 11.1198,
+      "width": 18.4328,
+      "height": 5.0516,
+      "length": 17.4688
+    },
+    "icon": "data/ship_icons/a9fx.png"
   },
   "adonis": {
     "id": "adonis",
@@ -129,7 +163,144 @@ const FL_SHIPS = {
     },
     "turnRate": 1.03,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\Adonis\\adonis.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\Adonis\\adonis.cmp",
+    "modelBounds": {
+      "min": [
+        -9.1912,
+        -2.9484,
+        -7.7111
+      ],
+      "max": [
+        9.1912,
+        2.9484,
+        7.7111
+      ],
+      "radius": 10.7946,
+      "width": 18.3824,
+      "height": 5.8968,
+      "length": 15.4222
+    },
+    "icon": "data/ship_icons/adonis.png"
+  },
+  "adrone": {
+    "id": "adrone",
+    "name": "Drone",
+    "info": "",
+    "idsName": "237029",
+    "idsInfo": "500301",
+    "type": "FIGHTER",
+    "shipClass": 3,
+    "mass": 200,
+    "holdSize": 500,
+    "hitPts": 45800,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      56000.0,
+      56000.0,
+      69000.0
+    ],
+    "angularDrag": [
+      42000.0,
+      42000.0,
+      45000.0
+    ],
+    "rotationInertia": [
+      8300.0,
+      8300.0,
+      1000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 1.73,
+      "agility": 1.24,
+      "acceleration": 1.11,
+      "brakeRate": 3.96,
+      "strafePower": 0.77,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 1.73,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\a_fighter.cmp",
+    "modelBounds": {
+      "min": [
+        -10.7006,
+        -6.1077,
+        -8.8859
+      ],
+      "max": [
+        10.7006,
+        6.1077,
+        8.8859
+      ],
+      "radius": 13.7616,
+      "width": 21.4012,
+      "height": 12.2154,
+      "length": 17.7718
+    },
+    "icon": "data/ship_icons/adrone.png"
+  },
+  "anatov": {
+    "id": "anatov",
+    "name": "Missile Gunboat 'Antonov'",
+    "info": "",
+    "idsName": "226746",
+    "idsInfo": "226747",
+    "type": "CAPITAL",
+    "shipClass": 4,
+    "mass": 15000,
+    "holdSize": 190,
+    "hitPts": 28700,
+    "linearDrag": 7680.0,
+    "steeringTorque": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "angularDrag": [
+      500000000000000.0,
+      500000000000000.0,
+      500000000000000.0
+    ],
+    "rotationInertia": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "nudgeForce": 1.0,
+    "strafeForce": 307200.0,
+    "maxBankAngle": 15.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 7680.0,
+      "bankFactor": 0.45
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\coalition\\Anatov.cmp",
+    "modelBounds": {
+      "min": [
+        -45.9772,
+        -34.1178,
+        -121.3104
+      ],
+      "max": [
+        45.9772,
+        34.1178,
+        121.3104
+      ],
+      "radius": 139.3071,
+      "width": 91.9544,
+      "height": 68.2356,
+      "length": 242.6208
+    },
+    "icon": "data/ship_icons/anatov.png"
   },
   "angelfinal": {
     "id": "angelfinal",
@@ -172,7 +343,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.98,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\AngelFinal\\angelfinal.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\AngelFinal\\angelfinal.cmp",
+    "modelBounds": {
+      "min": [
+        -9.0398,
+        -3.1522,
+        -12.2657
+      ],
+      "max": [
+        9.0398,
+        3.1522,
+        12.2657
+      ],
+      "radius": 13.3661,
+      "width": 18.0796,
+      "height": 6.3044,
+      "length": 24.5314
+    },
+    "icon": "data/ship_icons/angelfinal.png"
   },
   "apc": {
     "id": "apc",
@@ -215,7 +403,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.03,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\APC\\apc.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\APC\\apc.cmp",
+    "modelBounds": {
+      "min": [
+        -6.7456,
+        -4.6325,
+        -12.2313
+      ],
+      "max": [
+        6.7456,
+        4.6325,
+        12.2313
+      ],
+      "radius": 17.4798,
+      "width": 13.4912,
+      "height": 9.265,
+      "length": 24.4626
+    },
+    "icon": "data/ship_icons/apc.png"
   },
   "arcangel": {
     "id": "arcangel",
@@ -258,7 +463,264 @@ const FL_SHIPS = {
     },
     "turnRate": 1.69,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\arcangel\\arcangel.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\arcangel\\arcangel.cmp",
+    "modelBounds": {
+      "min": [
+        -9.5635,
+        -1.4988,
+        -8.7637
+      ],
+      "max": [
+        9.5635,
+        1.4988,
+        8.7637
+      ],
+      "radius": 12.5937,
+      "width": 19.127,
+      "height": 2.9976,
+      "length": 17.5274
+    },
+    "icon": "data/ship_icons/arcangel.png"
+  },
+  "asf1": {
+    "id": "asf1",
+    "name": "Olympus",
+    "info": "",
+    "idsName": "470759",
+    "idsInfo": "470760",
+    "type": "CAPITAL",
+    "shipClass": 7,
+    "mass": 15000,
+    "holdSize": 1000,
+    "hitPts": 470000,
+    "linearDrag": 7680.0,
+    "steeringTorque": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "angularDrag": [
+      500000000000000.0,
+      500000000000000.0,
+      500000000000000.0
+    ],
+    "rotationInertia": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "nudgeForce": 1.0,
+    "strafeForce": 307200.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 7680.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\ASFCSF\\cf18sfship11.cmp",
+    "modelBounds": {
+      "min": [
+        -86.1648,
+        -110.9481,
+        -237.8585
+      ],
+      "max": [
+        86.1648,
+        110.9481,
+        237.8585
+      ],
+      "radius": 251.1093,
+      "width": 172.3296,
+      "height": 221.8962,
+      "length": 475.717
+    },
+    "icon": "data/ship_icons/asf1.png"
+  },
+  "asf2": {
+    "id": "asf2",
+    "name": "Telestria",
+    "info": "",
+    "idsName": "470755",
+    "idsInfo": "470756",
+    "type": "CAPITAL",
+    "shipClass": 7,
+    "mass": 15000,
+    "holdSize": 1000,
+    "hitPts": 470000,
+    "linearDrag": 7680.0,
+    "steeringTorque": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "angularDrag": [
+      500000000000000.0,
+      500000000000000.0,
+      500000000000000.0
+    ],
+    "rotationInertia": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "nudgeForce": 1.0,
+    "strafeForce": 307200.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 7680.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\ASFCSF\\cf18sfship12.cmp",
+    "modelBounds": {
+      "min": [
+        -86.1648,
+        -110.9481,
+        -237.8585
+      ],
+      "max": [
+        86.1648,
+        110.9481,
+        237.8585
+      ],
+      "radius": 251.1093,
+      "width": 172.3296,
+      "height": 221.8962,
+      "length": 475.717
+    },
+    "icon": "data/ship_icons/asf2.png"
+  },
+  "asf3": {
+    "id": "asf3",
+    "name": "Proton",
+    "info": "",
+    "idsName": "470763",
+    "idsInfo": "470764",
+    "type": "CAPITAL",
+    "shipClass": 7,
+    "mass": 15000,
+    "holdSize": 500,
+    "hitPts": 390000,
+    "linearDrag": 7680.0,
+    "steeringTorque": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "angularDrag": [
+      500000000000000.0,
+      500000000000000.0,
+      500000000000000.0
+    ],
+    "rotationInertia": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "nudgeForce": 1.0,
+    "strafeForce": 307200.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 7680.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\ASFCSF\\cf18sfship13.cmp",
+    "modelBounds": {
+      "min": [
+        -91.2255,
+        -120.3243,
+        -230.9717
+      ],
+      "max": [
+        91.2255,
+        120.3243,
+        230.9717
+      ],
+      "radius": 240.27,
+      "width": 182.451,
+      "height": 240.6486,
+      "length": 461.9434
+    },
+    "icon": "data/ship_icons/asf3.png"
+  },
+  "asf4": {
+    "id": "asf4",
+    "name": "Tellurium",
+    "info": "",
+    "idsName": "470767",
+    "idsInfo": "470768",
+    "type": "CAPITAL",
+    "shipClass": 7,
+    "mass": 15000,
+    "holdSize": 500,
+    "hitPts": 390000,
+    "linearDrag": 7680.0,
+    "steeringTorque": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "angularDrag": [
+      500000000000000.0,
+      500000000000000.0,
+      500000000000000.0
+    ],
+    "rotationInertia": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "nudgeForce": 1.0,
+    "strafeForce": 307200.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 7680.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\ASFCSF\\cf18sfship14.cmp",
+    "modelBounds": {
+      "min": [
+        -91.2255,
+        -120.3243,
+        -230.9717
+      ],
+      "max": [
+        91.2255,
+        120.3243,
+        230.9717
+      ],
+      "radius": 240.27,
+      "width": 182.451,
+      "height": 240.6486,
+      "length": 461.9434
+    },
+    "icon": "data/ship_icons/asf4.png"
   },
   "asf5": {
     "id": "asf5",
@@ -301,7 +763,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\ASFCSF\\cf18sfship22.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\ASFCSF\\cf18sfship22.cmp",
+    "modelBounds": {
+      "min": [
+        -6.5949,
+        -5.4696,
+        -10.218
+      ],
+      "max": [
+        6.5949,
+        5.4696,
+        10.218
+      ],
+      "radius": 10.2755,
+      "width": 13.1898,
+      "height": 10.9392,
+      "length": 20.436
+    },
+    "icon": "data/ship_icons/asf5.png"
   },
   "asf6": {
     "id": "asf6",
@@ -344,7 +823,84 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\ASFCSF\\cf18sfship21.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\ASFCSF\\cf18sfship21.cmp",
+    "modelBounds": {
+      "min": [
+        -6.5949,
+        -5.4696,
+        -10.218
+      ],
+      "max": [
+        6.5949,
+        5.4696,
+        10.218
+      ],
+      "radius": 10.2755,
+      "width": 13.1898,
+      "height": 10.9392,
+      "length": 20.436
+    },
+    "icon": "data/ship_icons/asf6.png"
+  },
+  "asf7": {
+    "id": "asf7",
+    "name": "Titus",
+    "info": "",
+    "idsName": "470783",
+    "idsInfo": "470784",
+    "type": "FIGHTER",
+    "shipClass": 3,
+    "mass": 140,
+    "holdSize": 30,
+    "hitPts": 19300,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      55000.0,
+      55000.0,
+      48000.0
+    ],
+    "angularDrag": [
+      41000.0,
+      41000.0,
+      35000.0
+    ],
+    "rotationInertia": [
+      8400.0,
+      8400.0,
+      1000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 1.75,
+      "agility": 1.3,
+      "acceleration": 1.59,
+      "brakeRate": 4.19,
+      "strafePower": 1.1,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 1.75,
+    "firePower": 10,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\ASFCSF\\cf18sfship31.cmp",
+    "modelBounds": {
+      "min": [
+        -9.2063,
+        -7.3851,
+        -9.0804
+      ],
+      "max": [
+        9.2063,
+        7.3851,
+        9.0804
+      ],
+      "radius": 12.7397,
+      "width": 18.4126,
+      "height": 14.7702,
+      "length": 18.1608
+    },
+    "icon": "data/ship_icons/asf7.png"
   },
   "asf7x": {
     "id": "asf7x",
@@ -387,7 +943,84 @@ const FL_SHIPS = {
     },
     "turnRate": 1.14,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\ASFCSF\\cf18sfship31.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\ASFCSF\\cf18sfship31.cmp",
+    "modelBounds": {
+      "min": [
+        -9.2063,
+        -7.3851,
+        -9.0804
+      ],
+      "max": [
+        9.2063,
+        7.3851,
+        9.0804
+      ],
+      "radius": 12.7397,
+      "width": 18.4126,
+      "height": 14.7702,
+      "length": 18.1608
+    },
+    "icon": "data/ship_icons/asf7x.png"
+  },
+  "asf8": {
+    "id": "asf8",
+    "name": "Royal",
+    "info": "",
+    "idsName": "470779",
+    "idsInfo": "470780",
+    "type": "FIGHTER",
+    "shipClass": 3,
+    "mass": 140,
+    "holdSize": 30,
+    "hitPts": 19300,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      55000.0,
+      55000.0,
+      48000.0
+    ],
+    "angularDrag": [
+      41000.0,
+      41000.0,
+      35000.0
+    ],
+    "rotationInertia": [
+      8400.0,
+      8400.0,
+      1000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 1.75,
+      "agility": 1.3,
+      "acceleration": 1.59,
+      "brakeRate": 4.19,
+      "strafePower": 1.1,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 1.75,
+    "firePower": 10,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\ASFCSF\\cf18sfship30.cmp",
+    "modelBounds": {
+      "min": [
+        -9.2063,
+        -7.3851,
+        -9.0804
+      ],
+      "max": [
+        9.2063,
+        7.3851,
+        9.0804
+      ],
+      "radius": 12.7397,
+      "width": 18.4126,
+      "height": 14.7702,
+      "length": 18.1608
+    },
+    "icon": "data/ship_icons/asf8.png"
   },
   "asf8x": {
     "id": "asf8x",
@@ -430,7 +1063,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.14,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\ASFCSF\\cf18sfship30.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\ASFCSF\\cf18sfship30.cmp",
+    "modelBounds": {
+      "min": [
+        -9.2063,
+        -7.3851,
+        -9.0804
+      ],
+      "max": [
+        9.2063,
+        7.3851,
+        9.0804
+      ],
+      "radius": 12.7397,
+      "width": 18.4126,
+      "height": 14.7702,
+      "length": 18.1608
+    },
+    "icon": "data/ship_icons/asf8x.png"
   },
   "avenger": {
     "id": "avenger",
@@ -473,7 +1123,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.65,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\Avenger\\avenger.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\Avenger\\avenger.cmp",
+    "modelBounds": {
+      "min": [
+        -8.193,
+        -7.1443,
+        -6.3002
+      ],
+      "max": [
+        8.193,
+        7.1443,
+        6.3002
+      ],
+      "radius": 11.1917,
+      "width": 16.386,
+      "height": 14.2886,
+      "length": 12.6004
+    },
+    "icon": "data/ship_icons/avenger.png"
   },
   "azan": {
     "id": "azan",
@@ -516,7 +1183,24 @@ const FL_SHIPS = {
     },
     "turnRate": 2.22,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\coalition\\azan.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\coalition\\azan.cmp",
+    "modelBounds": {
+      "min": [
+        -5.2481,
+        -2.709,
+        -7.8904
+      ],
+      "max": [
+        5.2481,
+        2.709,
+        7.8904
+      ],
+      "radius": 10.9998,
+      "width": 10.4962,
+      "height": 5.418,
+      "length": 15.7808
+    },
+    "icon": "data/ship_icons/azan.png"
   },
   "basilisk": {
     "id": "basilisk",
@@ -559,7 +1243,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.63,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\coalition\\basilisk.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\coalition\\basilisk.cmp",
+    "modelBounds": {
+      "min": [
+        -7.3199,
+        -2.7893,
+        -9.5343
+      ],
+      "max": [
+        7.3199,
+        2.7893,
+        9.5343
+      ],
+      "radius": 11.0079,
+      "width": 14.6398,
+      "height": 5.5786,
+      "length": 19.0686
+    },
+    "icon": "data/ship_icons/basilisk.png"
   },
   "bastard": {
     "id": "bastard",
@@ -602,7 +1303,84 @@ const FL_SHIPS = {
     },
     "turnRate": 1.14,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\bastard.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\bastard.cmp",
+    "modelBounds": {
+      "min": [
+        -5.1439,
+        -3.7045,
+        -10.8426
+      ],
+      "max": [
+        5.1439,
+        3.7045,
+        10.8426
+      ],
+      "radius": 15.4341,
+      "width": 10.2878,
+      "height": 7.409,
+      "length": 21.6852
+    },
+    "icon": "data/ship_icons/bastard.png"
+  },
+  "berijev": {
+    "id": "berijev",
+    "name": "Cruiser 'Berijev'",
+    "info": "",
+    "idsName": "227580",
+    "idsInfo": "227581",
+    "type": "CAPITAL",
+    "shipClass": 5,
+    "mass": 15000,
+    "holdSize": 250,
+    "hitPts": 50500,
+    "linearDrag": 7680.0,
+    "steeringTorque": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "angularDrag": [
+      500000000000000.0,
+      500000000000000.0,
+      500000000000000.0
+    ],
+    "rotationInertia": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "nudgeForce": 1.0,
+    "strafeForce": 307200.0,
+    "maxBankAngle": 15.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 7680.0,
+      "bankFactor": 0.45
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\coalition\\Berijev.cmp",
+    "modelBounds": {
+      "min": [
+        -73.7787,
+        -39.6361,
+        -156.9388
+      ],
+      "max": [
+        73.7787,
+        39.6361,
+        156.9388
+      ],
+      "radius": 174.9257,
+      "width": 147.5574,
+      "height": 79.2722,
+      "length": 313.8776
+    },
+    "icon": "data/ship_icons/berijev.png"
   },
   "bh_elite": {
     "id": "bh_elite",
@@ -645,7 +1423,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.52,
     "firePower": 6,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\BOUNTY_HUNTER\\BH_ELITE\\bh_elite.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\BOUNTY_HUNTER\\BH_ELITE\\bh_elite.cmp",
+    "modelBounds": {
+      "min": [
+        -5.2601,
+        -7.5496,
+        -9.0428
+      ],
+      "max": [
+        5.2601,
+        7.5496,
+        9.0428
+      ],
+      "radius": 11.7835,
+      "width": 10.5202,
+      "height": 15.0992,
+      "length": 18.0856
+    },
+    "icon": "data/ship_icons/bh_elite.png"
   },
   "bh_elite2": {
     "id": "bh_elite2",
@@ -688,7 +1483,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.13,
     "firePower": 9,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\BOUNTY_HUNTER\\BH_VHEAVY_FIGHTER\\bh_vheavy_fighter.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\BOUNTY_HUNTER\\BH_VHEAVY_FIGHTER\\bh_vheavy_fighter.cmp",
+    "modelBounds": {
+      "min": [
+        -5.2601,
+        -8.1064,
+        -9.0428
+      ],
+      "max": [
+        5.2601,
+        8.1064,
+        9.0428
+      ],
+      "radius": 11.7835,
+      "width": 10.5202,
+      "height": 16.2128,
+      "length": 18.0856
+    },
+    "icon": "data/ship_icons/bh_elite2.png"
   },
   "bh_fighter": {
     "id": "bh_fighter",
@@ -731,7 +1543,24 @@ const FL_SHIPS = {
     },
     "turnRate": 2.21,
     "firePower": 4,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\BOUNTY_HUNTER\\BH_FIGHTER\\bh_fighter.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\BOUNTY_HUNTER\\BH_FIGHTER\\bh_fighter.cmp",
+    "modelBounds": {
+      "min": [
+        -1.9913,
+        -7.5496,
+        -6.1243
+      ],
+      "max": [
+        1.9913,
+        7.5496,
+        6.1243
+      ],
+      "radius": 8.1696,
+      "width": 3.9826,
+      "height": 15.0992,
+      "length": 12.2486
+    },
+    "icon": "data/ship_icons/bh_fighter.png"
   },
   "bident": {
     "id": "bident",
@@ -774,7 +1603,24 @@ const FL_SHIPS = {
     },
     "turnRate": 2.21,
     "firePower": 3,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\Bident_military.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\Bident_military.cmp",
+    "modelBounds": {
+      "min": [
+        -8.4507,
+        -2.7102,
+        -8.1116
+      ],
+      "max": [
+        8.4507,
+        2.7102,
+        8.1116
+      ],
+      "radius": 11.416,
+      "width": 16.9014,
+      "height": 5.4204,
+      "length": 16.2232
+    },
+    "icon": "data/ship_icons/bident.png"
   },
   "bowin": {
     "id": "bowin",
@@ -817,7 +1663,144 @@ const FL_SHIPS = {
     },
     "turnRate": 1.66,
     "firePower": 9,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\bowin\\bowin.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\bowin\\bowin.cmp",
+    "modelBounds": {
+      "min": [
+        -8.4869,
+        -2.1497,
+        -9.1114
+      ],
+      "max": [
+        8.4869,
+        2.1497,
+        9.1114
+      ],
+      "radius": 13.1685,
+      "width": 16.9738,
+      "height": 4.2994,
+      "length": 18.2228
+    },
+    "icon": "data/ship_icons/bowin.png"
+  },
+  "br_battleship": {
+    "id": "br_battleship",
+    "name": "Bretonia Battleship",
+    "info": "Bretonianisches Schlachtschiff\nDiese Klasse wurde von der königlichen Marine von Bretonia als Symbol und Verkörperung ihrer militärischen Macht gebaut und ist das Rückgrat ihrer Streitkräfte.",
+    "idsName": "237005",
+    "idsInfo": "66503",
+    "type": "CAPITAL",
+    "shipClass": 0,
+    "mass": 2000,
+    "holdSize": 600,
+    "hitPts": 69300,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      1501900032.0,
+      1501900032.0,
+      1501900032.0
+    ],
+    "angularDrag": [
+      13200000000.0,
+      13200000000.0,
+      13200000000.0
+    ],
+    "rotationInertia": [
+      15000000512.0,
+      15000000512.0,
+      15000000512.0
+    ],
+    "nudgeForce": 3000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\BRETONIA\\BR_BATTLESHIP\\br_battleship.cmp",
+    "modelBounds": {
+      "min": [
+        -50.5919,
+        -50.5152,
+        -199.1887
+      ],
+      "max": [
+        50.5157,
+        50.5152,
+        199.1887
+      ],
+      "radius": 213.7623,
+      "width": 101.1838,
+      "height": 101.0304,
+      "length": 398.3774
+    },
+    "icon": "data/ship_icons/br_battleship.png"
+  },
+  "br_destroyer": {
+    "id": "br_destroyer",
+    "name": "Bretonia Destroyer",
+    "info": "Bretonianischer Zerstörer\nDiese Klasse wurde von der bretonianischen königlichen Marine insbesondere gebaut, um mögliche Streitigkeiten bei der Expansion beizulegen. Sie dient inzwischen der Sicherung des inneren Friedens.",
+    "idsName": "237006",
+    "idsInfo": "66504",
+    "type": "CRUISER",
+    "shipClass": 0,
+    "mass": 5000,
+    "holdSize": 1001000,
+    "hitPts": 43300,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      20000000.0,
+      20000000.0,
+      20000000.0
+    ],
+    "angularDrag": [
+      132000000.0,
+      132000000.0,
+      132000000.0
+    ],
+    "rotationInertia": [
+      40000000.0,
+      40000000.0,
+      40000000.0
+    ],
+    "nudgeForce": 360000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\BRETONIA\\BR_DESTROYER\\br_destroyer.cmp",
+    "modelBounds": {
+      "min": [
+        -31.5959,
+        -33.6172,
+        -62.2403
+      ],
+      "max": [
+        31.484,
+        33.2552,
+        63.3335
+      ],
+      "radius": 74.9697,
+      "width": 63.1918,
+      "height": 67.2344,
+      "length": 126.667
+    },
+    "icon": "data/ship_icons/br_destroyer.png"
   },
   "br_elite": {
     "id": "br_elite",
@@ -860,7 +1843,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.52,
     "firePower": 5,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\BRETONIA\\BR_ELITE\\br_elite.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\BRETONIA\\BR_ELITE\\br_elite.cmp",
+    "modelBounds": {
+      "min": [
+        -6.4899,
+        -4.0567,
+        -8.2085
+      ],
+      "max": [
+        6.4899,
+        4.0844,
+        8.2416
+      ],
+      "radius": 12.1934,
+      "width": 12.9798,
+      "height": 8.1688,
+      "length": 16.4832
+    },
+    "icon": "data/ship_icons/br_elite.png"
   },
   "br_elitex": {
     "id": "br_elitex",
@@ -903,7 +1903,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.1,
     "firePower": 8,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\BRETONIA\\br_elitex\\br_champion.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\BRETONIA\\br_elitex\\br_champion.cmp",
+    "modelBounds": {
+      "min": [
+        -8.228,
+        -3.2319,
+        -9.2347
+      ],
+      "max": [
+        8.228,
+        3.2319,
+        9.2347
+      ],
+      "radius": 11.3511,
+      "width": 16.456,
+      "height": 6.4638,
+      "length": 18.4694
+    },
+    "icon": "data/ship_icons/br_elitex.png"
   },
   "br_fighter": {
     "id": "br_fighter",
@@ -946,7 +1963,24 @@ const FL_SHIPS = {
     },
     "turnRate": 2.21,
     "firePower": 5,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\BRETONIA\\BR_FIGHTER\\br_fighter.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\BRETONIA\\BR_FIGHTER\\br_fighter.cmp",
+    "modelBounds": {
+      "min": [
+        -2.4579,
+        -3.6141,
+        -6.8229
+      ],
+      "max": [
+        2.4582,
+        3.5657,
+        6.8127
+      ],
+      "radius": 10.0108,
+      "width": 4.9164,
+      "height": 7.2282,
+      "length": 13.6458
+    },
+    "icon": "data/ship_icons/br_fighter.png"
   },
   "br_freighter": {
     "id": "br_freighter",
@@ -989,7 +2023,144 @@ const FL_SHIPS = {
     },
     "turnRate": 1.03,
     "firePower": 4,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\BRETONIA\\BR_FREIGHTER\\br_freighter.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\BRETONIA\\BR_FREIGHTER\\br_freighter.cmp",
+    "modelBounds": {
+      "min": [
+        -9.9958,
+        -4.93,
+        -11.0696
+      ],
+      "max": [
+        9.9391,
+        4.9294,
+        11.0694
+      ],
+      "radius": 13.0892,
+      "width": 19.9916,
+      "height": 9.86,
+      "length": 22.1392
+    },
+    "icon": "data/ship_icons/br_freighter.png"
+  },
+  "br_freighternofuse": {
+    "id": "br_freighternofuse",
+    "name": "Clydesdale",
+    "info": "Statistik\nGeschütz-/Turmsockel: 3/5\nPanzerung: 2200\nFrachtraum: 125\nMax. Batterien/Nanobots: 15/15\nOptimale Waffenklasse: 2\nMax. Waffenklasse: 4\nZusätzliche Ausrüstung: M, GM",
+    "idsName": "237009",
+    "idsInfo": "66511",
+    "type": "FREIGHTER",
+    "shipClass": 2,
+    "mass": 300,
+    "holdSize": 125,
+    "hitPts": 2200,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      54000.0,
+      54000.0,
+      104000.0
+    ],
+    "angularDrag": [
+      60000.0,
+      60000.0,
+      60000.0
+    ],
+    "rotationInertia": [
+      16800.0,
+      16800.0,
+      16800.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 15.0,
+    "handling": {
+      "turnRate": 1.02,
+      "agility": 0.64,
+      "acceleration": 0.85,
+      "brakeRate": 3.73,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.45
+    },
+    "turnRate": 1.02,
+    "firePower": 4,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\BRETONIA\\BR_FREIGHTER\\br_freighter.cmp",
+    "modelBounds": {
+      "min": [
+        -9.9958,
+        -4.93,
+        -11.0696
+      ],
+      "max": [
+        9.9391,
+        4.9294,
+        11.0694
+      ],
+      "radius": 13.0892,
+      "width": 19.9916,
+      "height": 9.86,
+      "length": 22.1392
+    },
+    "icon": "data/ship_icons/br_freighternofuse.png"
+  },
+  "br_gunboat": {
+    "id": "br_gunboat",
+    "name": "Bretonia Gunboat",
+    "info": "Bretonianische Korvette\nDie königliche Marine von Bretonia baut eine Vielzahl dieser Schiffe, die als zuverlässige Überwachungseinheiten sowie als effektives Mittel im Masseneinsatz angewendet werden können.",
+    "idsName": "237010",
+    "idsInfo": "66514",
+    "type": "GUNBOAT",
+    "shipClass": 0,
+    "mass": 3000,
+    "holdSize": 200,
+    "hitPts": 3500,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      60000000.0,
+      60000000.0,
+      60000000.0
+    ],
+    "angularDrag": [
+      120000000.0,
+      120000000.0,
+      120000000.0
+    ],
+    "rotationInertia": [
+      16800000.0,
+      16800000.0,
+      16800000.0
+    ],
+    "nudgeForce": 150000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\BRETONIA\\BR_GUNSHIP\\br_gunship.cmp",
+    "modelBounds": {
+      "min": [
+        -33.6898,
+        -24.6304,
+        -32.7835
+      ],
+      "max": [
+        33.8532,
+        24.5708,
+        32.8853
+      ],
+      "radius": 49.0239,
+      "width": 67.7064,
+      "height": 49.2608,
+      "length": 65.7706
+    },
+    "icon": "data/ship_icons/br_gunboat.png"
   },
   "btransport": {
     "id": "btransport",
@@ -1032,7 +2203,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.03,
     "firePower": 7,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\Btransport.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\Btransport.cmp",
+    "modelBounds": {
+      "min": [
+        -7.0548,
+        -2.1452,
+        -14.1021
+      ],
+      "max": [
+        7.0548,
+        2.1452,
+        14.1021
+      ],
+      "radius": 14.9888,
+      "width": 14.1096,
+      "height": 4.2904,
+      "length": 28.2042
+    },
+    "icon": "data/ship_icons/btransport.png"
   },
   "bullpup": {
     "id": "bullpup",
@@ -1075,7 +2263,24 @@ const FL_SHIPS = {
     },
     "turnRate": 2.21,
     "firePower": 8,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\bullpup\\bullpup.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\bullpup\\bullpup.cmp",
+    "modelBounds": {
+      "min": [
+        -6.9813,
+        -2.56,
+        -9.4398
+      ],
+      "max": [
+        6.9813,
+        2.56,
+        9.4398
+      ],
+      "radius": 12.4508,
+      "width": 13.9626,
+      "height": 5.12,
+      "length": 18.8796
+    },
+    "icon": "data/ship_icons/bullpup.png"
   },
   "bullpupmk2": {
     "id": "bullpupmk2",
@@ -1118,7 +2323,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.13,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\bullpupmk2\\bullpupmk2.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\bullpupmk2\\bullpupmk2.cmp",
+    "modelBounds": {
+      "min": [
+        -6.8951,
+        -4.5491,
+        -9.3233
+      ],
+      "max": [
+        6.8951,
+        4.5491,
+        9.3233
+      ],
+      "radius": 11.8718,
+      "width": 13.7902,
+      "height": 9.0982,
+      "length": 18.6466
+    },
+    "icon": "data/ship_icons/bullpupmk2.png"
   },
   "bullpupmk3": {
     "id": "bullpupmk3",
@@ -1161,7 +2383,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.03,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\bullpupmk3\\bullpupmk3.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\bullpupmk3\\bullpupmk3.cmp",
+    "modelBounds": {
+      "min": [
+        -6.8951,
+        -4.5491,
+        -9.3233
+      ],
+      "max": [
+        6.8951,
+        4.5491,
+        9.3233
+      ],
+      "radius": 11.817,
+      "width": 13.7902,
+      "height": 9.0982,
+      "length": 18.6466
+    },
+    "icon": "data/ship_icons/bullpupmk3.png"
   },
   "busterh": {
     "id": "busterh",
@@ -1204,7 +2443,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.85,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfbusterh.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfbusterh.cmp",
+    "modelBounds": {
+      "min": [
+        -6.6832,
+        -3.8844,
+        -9.4935
+      ],
+      "max": [
+        6.6832,
+        3.8844,
+        9.4935
+      ],
+      "radius": 10.6957,
+      "width": 13.3664,
+      "height": 7.7688,
+      "length": 18.987
+    },
+    "icon": "data/ship_icons/busterh.png"
   },
   "busterp": {
     "id": "busterp",
@@ -1247,7 +2503,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfbusterp.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfbusterp.cmp",
+    "modelBounds": {
+      "min": [
+        -6.9271,
+        -3.3641,
+        -8.652
+      ],
+      "max": [
+        6.9271,
+        3.3641,
+        8.652
+      ],
+      "radius": 9.7478,
+      "width": 13.8542,
+      "height": 6.7282,
+      "length": 17.304
+    },
+    "icon": "data/ship_icons/busterp.png"
   },
   "busterr": {
     "id": "busterr",
@@ -1290,7 +2563,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.98,
     "firePower": 5,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfbusterr.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfbusterr.cmp",
+    "modelBounds": {
+      "min": [
+        -7.8243,
+        -2.9045,
+        -6.9149
+      ],
+      "max": [
+        7.8243,
+        2.9045,
+        6.9149
+      ],
+      "radius": 9.6025,
+      "width": 15.6486,
+      "height": 5.809,
+      "length": 13.8298
+    },
+    "icon": "data/ship_icons/busterr.png"
   },
   "busters": {
     "id": "busters",
@@ -1333,7 +2623,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfbusters.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfbusters.cmp",
+    "modelBounds": {
+      "min": [
+        -6.8378,
+        -3.4398,
+        -9.2327
+      ],
+      "max": [
+        6.8378,
+        3.4398,
+        9.2327
+      ],
+      "radius": 10.6072,
+      "width": 13.6756,
+      "height": 6.8796,
+      "length": 18.4654
+    },
+    "icon": "data/ship_icons/busters.png"
   },
   "busterv": {
     "id": "busterv",
@@ -1376,7 +2683,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfbusterv.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfbusterv.cmp",
+    "modelBounds": {
+      "min": [
+        -6.9271,
+        -3.3641,
+        -8.652
+      ],
+      "max": [
+        6.9271,
+        3.3641,
+        8.652
+      ],
+      "radius": 9.7483,
+      "width": 13.8542,
+      "height": 6.7282,
+      "length": 17.304
+    },
+    "icon": "data/ship_icons/busterv.png"
   },
   "butcher": {
     "id": "butcher",
@@ -1419,7 +2743,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.64,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\butcher_neutral.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\butcher_neutral.cmp",
+    "modelBounds": {
+      "min": [
+        -8.1681,
+        -5.511,
+        -6.856
+      ],
+      "max": [
+        8.1681,
+        5.511,
+        6.856
+      ],
+      "radius": 12.6318,
+      "width": 16.3362,
+      "height": 11.022,
+      "length": 13.712
+    },
+    "icon": "data/ship_icons/butcher.png"
   },
   "buzzardp": {
     "id": "buzzardp",
@@ -1462,7 +2803,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.93,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfbuzzardp.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfbuzzardp.cmp",
+    "modelBounds": {
+      "min": [
+        -4.6985,
+        -5.7716,
+        -11.9832
+      ],
+      "max": [
+        4.6985,
+        5.7716,
+        11.9832
+      ],
+      "radius": 16.2963,
+      "width": 9.397,
+      "height": 11.5432,
+      "length": 23.9664
+    },
+    "icon": "data/ship_icons/buzzardp.png"
   },
   "buzzardr": {
     "id": "buzzardr",
@@ -1505,7 +2863,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.66,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfbuzzardr.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfbuzzardr.cmp",
+    "modelBounds": {
+      "min": [
+        -4.6985,
+        -5.7716,
+        -11.9832
+      ],
+      "max": [
+        4.6985,
+        5.7716,
+        11.9832
+      ],
+      "radius": 16.2963,
+      "width": 9.397,
+      "height": 11.5432,
+      "length": 23.9664
+    },
+    "icon": "data/ship_icons/buzzardr.png"
   },
   "buzzardv": {
     "id": "buzzardv",
@@ -1548,7 +2923,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.48,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfbuzzardv.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfbuzzardv.cmp",
+    "modelBounds": {
+      "min": [
+        -5.8333,
+        -4.1477,
+        -11.9055
+      ],
+      "max": [
+        5.8333,
+        4.1477,
+        11.9055
+      ],
+      "radius": 16.7257,
+      "width": 11.6666,
+      "height": 8.2954,
+      "length": 23.811
+    },
+    "icon": "data/ship_icons/buzzardv.png"
   },
   "bw_elite": {
     "id": "bw_elite",
@@ -1591,7 +2983,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.52,
     "firePower": 7,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\BORDER_WORLD\\BW_ELITE\\bw_elite.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\BORDER_WORLD\\BW_ELITE\\bw_elite.cmp",
+    "modelBounds": {
+      "min": [
+        -6.8276,
+        -4.559,
+        -9.8906
+      ],
+      "max": [
+        6.8276,
+        4.559,
+        9.8906
+      ],
+      "radius": 13.1998,
+      "width": 13.6552,
+      "height": 9.118,
+      "length": 19.7812
+    },
+    "icon": "data/ship_icons/bw_elite.png"
   },
   "bw_elite2": {
     "id": "bw_elite2",
@@ -1634,7 +3043,24 @@ const FL_SHIPS = {
     },
     "turnRate": 2.04,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\BORDER_WORLD\\BW_VHEAVY_FIGHTER\\bw_vheavy_fighter.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\BORDER_WORLD\\BW_VHEAVY_FIGHTER\\bw_vheavy_fighter.cmp",
+    "modelBounds": {
+      "min": [
+        -7.1719,
+        -4.559,
+        -9.8906
+      ],
+      "max": [
+        7.1719,
+        4.559,
+        9.8906
+      ],
+      "radius": 13.1998,
+      "width": 14.3438,
+      "height": 9.118,
+      "length": 19.7812
+    },
+    "icon": "data/ship_icons/bw_elite2.png"
   },
   "bw_fighter": {
     "id": "bw_fighter",
@@ -1677,7 +3103,24 @@ const FL_SHIPS = {
     },
     "turnRate": 2.21,
     "firePower": 4,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\BORDER_WORLD\\BW_FIGHTER\\bw_fighter.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\BORDER_WORLD\\BW_FIGHTER\\bw_fighter.cmp",
+    "modelBounds": {
+      "min": [
+        -6.8276,
+        -1.9933,
+        -9.0832
+      ],
+      "max": [
+        6.8276,
+        1.9933,
+        9.0832
+      ],
+      "radius": 11.5868,
+      "width": 13.6552,
+      "height": 3.9866,
+      "length": 18.1664
+    },
+    "icon": "data/ship_icons/bw_fighter.png"
   },
   "bw_freighter": {
     "id": "bw_freighter",
@@ -1720,7 +3163,84 @@ const FL_SHIPS = {
     },
     "turnRate": 0.75,
     "firePower": 6,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\BORDER_WORLD\\BW_FREIGHTER\\bw_freighter.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\BORDER_WORLD\\BW_FREIGHTER\\bw_freighter.cmp",
+    "modelBounds": {
+      "min": [
+        -6.9255,
+        -5.8299,
+        -14.3652
+      ],
+      "max": [
+        6.9255,
+        5.8299,
+        14.3628
+      ],
+      "radius": 17.646,
+      "width": 13.851,
+      "height": 11.6598,
+      "length": 28.7304
+    },
+    "icon": "data/ship_icons/bw_freighter.png"
+  },
+  "bw_freighternofuse": {
+    "id": "bw_freighternofuse",
+    "name": "Dromedary",
+    "info": "Statistik\nGeschütz-/Turmsockel: 3/5\nPanzerung: 3600\nFrachtraum: 275\nMax. Batterien/Nanobots: 23/23\nOptimale Waffenklasse: 4\nMax. Waffenklasse: 6\nZusätzliche Ausrüstung: M, GM",
+    "idsName": "237014",
+    "idsInfo": "66524",
+    "type": "FREIGHTER",
+    "shipClass": 2,
+    "mass": 300,
+    "holdSize": 275,
+    "hitPts": 3600,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      54000.0,
+      54000.0,
+      54000.0
+    ],
+    "angularDrag": [
+      60000.0,
+      60000.0,
+      60000.0
+    ],
+    "rotationInertia": [
+      16800.0,
+      16800.0,
+      16800.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 15.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 5.33,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.45
+    },
+    "turnRate": 0.75,
+    "firePower": 6,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\BORDER_WORLD\\BW_FREIGHTER\\bw_freighter.cmp",
+    "modelBounds": {
+      "min": [
+        -6.9255,
+        -5.8299,
+        -14.3652
+      ],
+      "max": [
+        6.9255,
+        5.8299,
+        14.3628
+      ],
+      "radius": 17.646,
+      "width": 13.851,
+      "height": 11.6598,
+      "length": 28.7304
+    },
+    "icon": "data/ship_icons/bw_freighternofuse.png"
   },
   "cancer": {
     "id": "cancer",
@@ -1763,7 +3283,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 8,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\Cancer.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\Cancer.cmp",
+    "modelBounds": {
+      "min": [
+        -4.9081,
+        -5.5153,
+        -6.6977
+      ],
+      "max": [
+        4.9081,
+        5.5153,
+        6.6977
+      ],
+      "radius": 9.5766,
+      "width": 9.8162,
+      "height": 11.0306,
+      "length": 13.3954
+    },
+    "icon": "data/ship_icons/cancer.png"
   },
   "ceptyr": {
     "id": "ceptyr",
@@ -1806,7 +3343,624 @@ const FL_SHIPS = {
     },
     "turnRate": 1.52,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\ceptyr\\ceptyr.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\ceptyr\\ceptyr.cmp",
+    "modelBounds": {
+      "min": [
+        -6.3875,
+        -3.6653,
+        -10.3498
+      ],
+      "max": [
+        6.3875,
+        3.6653,
+        10.3498
+      ],
+      "radius": 11.6316,
+      "width": 12.775,
+      "height": 7.3306,
+      "length": 20.6996
+    },
+    "icon": "data/ship_icons/ceptyr.png"
+  },
+  "cerberus": {
+    "id": "cerberus",
+    "name": "Cerberus",
+    "info": "",
+    "idsName": "500044",
+    "idsInfo": "500045",
+    "type": "CAPITAL",
+    "shipClass": 7,
+    "mass": 15000,
+    "holdSize": 1000,
+    "hitPts": 280000,
+    "linearDrag": 7680.0,
+    "steeringTorque": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "angularDrag": [
+      500000000000000.0,
+      500000000000000.0,
+      500000000000000.0
+    ],
+    "rotationInertia": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "nudgeForce": 1.0,
+    "strafeForce": 307200.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 7680.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\cerberus\\cerberus.cmp",
+    "modelBounds": {
+      "min": [
+        -33.9042,
+        -27.6383,
+        -85.7337
+      ],
+      "max": [
+        33.9042,
+        27.6383,
+        85.7337
+      ],
+      "radius": 97.7502,
+      "width": 67.8084,
+      "height": 55.2766,
+      "length": 171.4674
+    },
+    "icon": "data/ship_icons/cerberus.png"
+  },
+  "cf10custom": {
+    "id": "cf10custom",
+    "name": "Archon Gunboat",
+    "info": "",
+    "idsName": "500148",
+    "idsInfo": "500149",
+    "type": "CAPITAL",
+    "shipClass": 2,
+    "mass": 15000,
+    "holdSize": 155,
+    "hitPts": 22100,
+    "linearDrag": 7680.0,
+    "steeringTorque": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "angularDrag": [
+      500000000000000.0,
+      500000000000000.0,
+      500000000000000.0
+    ],
+    "rotationInertia": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "nudgeForce": 1.0,
+    "strafeForce": 307200.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 7680.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\ORDER\\Or_Collection\\CFOrderCapShip10.cmp",
+    "modelBounds": {
+      "min": [
+        -29.5107,
+        -13.8581,
+        -36.8701
+      ],
+      "max": [
+        29.5107,
+        13.8581,
+        36.8701
+      ],
+      "radius": 49.2846,
+      "width": 59.0214,
+      "height": 27.7162,
+      "length": 73.7402
+    },
+    "icon": "data/ship_icons/cf10custom.png"
+  },
+  "cf11custom": {
+    "id": "cf11custom",
+    "name": "Ares Cruiser",
+    "info": "",
+    "idsName": "500152",
+    "idsInfo": "500153",
+    "type": "CAPITAL",
+    "shipClass": 2,
+    "mass": 15000,
+    "holdSize": 178,
+    "hitPts": 42200,
+    "linearDrag": 7680.0,
+    "steeringTorque": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "angularDrag": [
+      500000000000000.0,
+      500000000000000.0,
+      500000000000000.0
+    ],
+    "rotationInertia": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "nudgeForce": 1.0,
+    "strafeForce": 307200.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 7680.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\ORDER\\Or_Collection\\CFOrderCapShip11.cmp",
+    "modelBounds": {
+      "min": [
+        -23.0546,
+        -16.7657,
+        -112.5503
+      ],
+      "max": [
+        23.0546,
+        16.7657,
+        112.5503
+      ],
+      "radius": 135.89,
+      "width": 46.1092,
+      "height": 33.5314,
+      "length": 225.1006
+    },
+    "icon": "data/ship_icons/cf11custom.png"
+  },
+  "cf12custom": {
+    "id": "cf12custom",
+    "name": "Intrepid Transporter",
+    "info": "",
+    "idsName": "500156",
+    "idsInfo": "500157",
+    "type": "CAPITAL",
+    "shipClass": 2,
+    "mass": 15000,
+    "holdSize": 5000,
+    "hitPts": 30500,
+    "linearDrag": 7680.0,
+    "steeringTorque": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "angularDrag": [
+      500000000000000.0,
+      500000000000000.0,
+      500000000000000.0
+    ],
+    "rotationInertia": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "nudgeForce": 1.0,
+    "strafeForce": 307200.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 7680.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\ORDER\\Or_Collection\\CFOrderCapShip12.cmp",
+    "modelBounds": {
+      "min": [
+        -28.1795,
+        -16.3732,
+        -67.752
+      ],
+      "max": [
+        28.1795,
+        16.3732,
+        67.752
+      ],
+      "radius": 75.3486,
+      "width": 56.359,
+      "height": 32.7464,
+      "length": 135.504
+    },
+    "icon": "data/ship_icons/cf12custom.png"
+  },
+  "cf13custom": {
+    "id": "cf13custom",
+    "name": "Galilleo Destroyer",
+    "info": "",
+    "idsName": "500160",
+    "idsInfo": "500161",
+    "type": "CAPITAL",
+    "shipClass": 2,
+    "mass": 15000,
+    "holdSize": 188,
+    "hitPts": 44800,
+    "linearDrag": 7680.0,
+    "steeringTorque": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "angularDrag": [
+      500000000000000.0,
+      500000000000000.0,
+      500000000000000.0
+    ],
+    "rotationInertia": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "nudgeForce": 1.0,
+    "strafeForce": 307200.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 7680.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\ORDER\\Or_Collection\\CFOrderCapShip13.cmp",
+    "modelBounds": {
+      "min": [
+        -20.8663,
+        -32.6087,
+        -94.4622
+      ],
+      "max": [
+        20.8663,
+        32.6087,
+        94.4622
+      ],
+      "radius": 103.0581,
+      "width": 41.7326,
+      "height": 65.2174,
+      "length": 188.9244
+    },
+    "icon": "data/ship_icons/cf13custom.png"
+  },
+  "cf14custom": {
+    "id": "cf14custom",
+    "name": "Paladin Battleship",
+    "info": "",
+    "idsName": "500164",
+    "idsInfo": "500165",
+    "type": "CAPITAL",
+    "shipClass": 2,
+    "mass": 15000,
+    "holdSize": 300,
+    "hitPts": 71200,
+    "linearDrag": 7680.0,
+    "steeringTorque": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "angularDrag": [
+      500000000000000.0,
+      500000000000000.0,
+      500000000000000.0
+    ],
+    "rotationInertia": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "nudgeForce": 1.0,
+    "strafeForce": 307200.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 7680.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\ORDER\\Or_Collection\\CFOrderCapShip14.cmp",
+    "modelBounds": {
+      "min": [
+        -33.4379,
+        -47.2124,
+        -232.6335
+      ],
+      "max": [
+        33.4379,
+        47.2124,
+        232.6335
+      ],
+      "radius": 243.1337,
+      "width": 66.8758,
+      "height": 94.4248,
+      "length": 465.267
+    },
+    "icon": "data/ship_icons/cf14custom.png"
+  },
+  "cf15custom": {
+    "id": "cf15custom",
+    "name": "Hephaistos Destroyer",
+    "info": "",
+    "idsName": "500168",
+    "idsInfo": "500169",
+    "type": "CAPITAL",
+    "shipClass": 2,
+    "mass": 15000,
+    "holdSize": 210,
+    "hitPts": 41100,
+    "linearDrag": 7680.0,
+    "steeringTorque": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "angularDrag": [
+      500000000000000.0,
+      500000000000000.0,
+      500000000000000.0
+    ],
+    "rotationInertia": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "nudgeForce": 1.0,
+    "strafeForce": 307200.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 7680.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\ORDER\\Or_Collection\\CFOrderCapShip15.cmp",
+    "modelBounds": {
+      "min": [
+        -27.8261,
+        -9.7043,
+        -66.7968
+      ],
+      "max": [
+        27.8261,
+        9.7043,
+        66.7968
+      ],
+      "radius": 71.7803,
+      "width": 55.6522,
+      "height": 19.4086,
+      "length": 133.5936
+    },
+    "icon": "data/ship_icons/cf15custom.png"
+  },
+  "cf16custom": {
+    "id": "cf16custom",
+    "name": "Saphiras Gunboat",
+    "info": "",
+    "idsName": "500172",
+    "idsInfo": "500173",
+    "type": "CAPITAL",
+    "shipClass": 2,
+    "mass": 15000,
+    "holdSize": 150,
+    "hitPts": 21200,
+    "linearDrag": 7680.0,
+    "steeringTorque": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "angularDrag": [
+      500000000000000.0,
+      500000000000000.0,
+      500000000000000.0
+    ],
+    "rotationInertia": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "nudgeForce": 1.0,
+    "strafeForce": 307200.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 7680.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\ORDER\\Or_Collection\\CFOrderCapShip16.cmp",
+    "modelBounds": {
+      "min": [
+        -28.1078,
+        -7.1434,
+        -28.5652
+      ],
+      "max": [
+        28.1078,
+        7.1434,
+        28.5652
+      ],
+      "radius": 34.7806,
+      "width": 56.2156,
+      "height": 14.2868,
+      "length": 57.1304
+    },
+    "icon": "data/ship_icons/cf16custom.png"
+  },
+  "cf17custom": {
+    "id": "cf17custom",
+    "name": "Herakles Gunboat",
+    "info": "",
+    "idsName": "500176",
+    "idsInfo": "500177",
+    "type": "CAPITAL",
+    "shipClass": 2,
+    "mass": 15000,
+    "holdSize": 210,
+    "hitPts": 22700,
+    "linearDrag": 7680.0,
+    "steeringTorque": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "angularDrag": [
+      500000000000000.0,
+      500000000000000.0,
+      500000000000000.0
+    ],
+    "rotationInertia": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "nudgeForce": 1.0,
+    "strafeForce": 307200.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 7680.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\ORDER\\Or_Collection\\CFOrderCapShip17.cmp",
+    "modelBounds": {
+      "min": [
+        -26.55,
+        -10.4625,
+        -35.1286
+      ],
+      "max": [
+        26.55,
+        10.4625,
+        35.1286
+      ],
+      "radius": 43.7649,
+      "width": 53.1,
+      "height": 20.925,
+      "length": 70.2572
+    },
+    "icon": "data/ship_icons/cf17custom.png"
+  },
+  "cf18custom": {
+    "id": "cf18custom",
+    "name": "Broadsword Cruiser",
+    "info": "",
+    "idsName": "500180",
+    "idsInfo": "500181",
+    "type": "CAPITAL",
+    "shipClass": 2,
+    "mass": 15000,
+    "holdSize": 220,
+    "hitPts": 42300,
+    "linearDrag": 7680.0,
+    "steeringTorque": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "angularDrag": [
+      500000000000000.0,
+      500000000000000.0,
+      500000000000000.0
+    ],
+    "rotationInertia": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "nudgeForce": 1.0,
+    "strafeForce": 307200.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 7680.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\ORDER\\Or_Collection\\CFOrderCapShip18.cmp",
+    "modelBounds": {
+      "min": [
+        -36.5218,
+        -23.2826,
+        -74.0707
+      ],
+      "max": [
+        36.5218,
+        23.2826,
+        74.0707
+      ],
+      "radius": 81.4498,
+      "width": 73.0436,
+      "height": 46.5652,
+      "length": 148.1414
+    },
+    "icon": "data/ship_icons/cf18custom.png"
   },
   "cf1901": {
     "id": "cf1901",
@@ -1849,7 +4003,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.14,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shipscf19\\cf19-01.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shipscf19\\cf19-01.cmp",
+    "modelBounds": {
+      "min": [
+        -5.7186,
+        -4.9706,
+        -10.5452
+      ],
+      "max": [
+        5.7186,
+        4.9706,
+        10.5452
+      ],
+      "radius": 16.1751,
+      "width": 11.4372,
+      "height": 9.9412,
+      "length": 21.0904
+    },
+    "icon": "data/ship_icons/cf1901.png"
   },
   "cf1902": {
     "id": "cf1902",
@@ -1892,7 +4063,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shipscf19\\cf19-02.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shipscf19\\cf19-02.cmp",
+    "modelBounds": {
+      "min": [
+        -6.6668,
+        -1.6255,
+        -11.9511
+      ],
+      "max": [
+        6.6668,
+        1.6255,
+        11.9511
+      ],
+      "radius": 12.0594,
+      "width": 13.3336,
+      "height": 3.251,
+      "length": 23.9022
+    },
+    "icon": "data/ship_icons/cf1902.png"
   },
   "cf1903": {
     "id": "cf1903",
@@ -1935,7 +4123,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 1,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shipscf19\\cf19-03.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shipscf19\\cf19-03.cmp",
+    "modelBounds": {
+      "min": [
+        -7.9459,
+        -8.7008,
+        -10.1531
+      ],
+      "max": [
+        7.9459,
+        8.7008,
+        10.1531
+      ],
+      "radius": 13.1319,
+      "width": 15.8918,
+      "height": 17.4016,
+      "length": 20.3062
+    },
+    "icon": "data/ship_icons/cf1903.png"
   },
   "cf1904": {
     "id": "cf1904",
@@ -1978,7 +4183,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.22,
     "firePower": 8,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shipscf19\\cf19-04.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shipscf19\\cf19-04.cmp",
+    "modelBounds": {
+      "min": [
+        -14.7957,
+        -3.0464,
+        -13.3111
+      ],
+      "max": [
+        14.7957,
+        3.0464,
+        13.3111
+      ],
+      "radius": 15.2801,
+      "width": 29.5914,
+      "height": 6.0928,
+      "length": 26.6222
+    },
+    "icon": "data/ship_icons/cf1904.png"
   },
   "cf1905": {
     "id": "cf1905",
@@ -2021,7 +4243,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shipscf19\\cf19-05.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shipscf19\\cf19-05.cmp",
+    "modelBounds": {
+      "min": [
+        -7.1169,
+        -5.1067,
+        -13.4582
+      ],
+      "max": [
+        7.1169,
+        5.1067,
+        13.4582
+      ],
+      "radius": 17.5222,
+      "width": 14.2338,
+      "height": 10.2134,
+      "length": 26.9164
+    },
+    "icon": "data/ship_icons/cf1905.png"
   },
   "cf1906": {
     "id": "cf1906",
@@ -2064,7 +4303,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shipscf19\\cf19-06.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shipscf19\\cf19-06.cmp",
+    "modelBounds": {
+      "min": [
+        -7.9621,
+        -4.7591,
+        -12.2084
+      ],
+      "max": [
+        7.9621,
+        4.7591,
+        12.2084
+      ],
+      "radius": 13.3571,
+      "width": 15.9242,
+      "height": 9.5182,
+      "length": 24.4168
+    },
+    "icon": "data/ship_icons/cf1906.png"
   },
   "cf1907": {
     "id": "cf1907",
@@ -2107,7 +4363,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.64,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shipscf19\\cf19-07.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shipscf19\\cf19-07.cmp",
+    "modelBounds": {
+      "min": [
+        -6.4792,
+        -3.6016,
+        -8.0678
+      ],
+      "max": [
+        6.4792,
+        3.6016,
+        8.0678
+      ],
+      "radius": 10.7036,
+      "width": 12.9584,
+      "height": 7.2032,
+      "length": 16.1356
+    },
+    "icon": "data/ship_icons/cf1907.png"
   },
   "cf1908": {
     "id": "cf1908",
@@ -2150,7 +4423,84 @@ const FL_SHIPS = {
     },
     "turnRate": 1.03,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shipscf19\\cf19-08.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shipscf19\\cf19-08.cmp",
+    "modelBounds": {
+      "min": [
+        -11.2096,
+        -8.5161,
+        -17.313
+      ],
+      "max": [
+        11.2096,
+        8.5161,
+        17.313
+      ],
+      "radius": 19.631,
+      "width": 22.4192,
+      "height": 17.0322,
+      "length": 34.626
+    },
+    "icon": "data/ship_icons/cf1908.png"
+  },
+  "cf1909": {
+    "id": "cf1909",
+    "name": "Colony Ship",
+    "info": "",
+    "idsName": "261802",
+    "idsInfo": "261802",
+    "type": "CAPITAL",
+    "shipClass": 0,
+    "mass": 1000,
+    "holdSize": 5000,
+    "hitPts": 69300,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      20000000.0,
+      20000000.0,
+      20000000.0
+    ],
+    "angularDrag": [
+      132000000.0,
+      132000000.0,
+      132000000.0
+    ],
+    "rotationInertia": [
+      40000000.0,
+      40000000.0,
+      40000000.0
+    ],
+    "nudgeForce": 360000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 2.67,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shipscf19\\cf19-09.cmp",
+    "modelBounds": {
+      "min": [
+        -41.4427,
+        -29.8058,
+        -98.3938
+      ],
+      "max": [
+        41.4427,
+        29.8058,
+        98.3938
+      ],
+      "radius": 140.3846,
+      "width": 82.8854,
+      "height": 59.6116,
+      "length": 196.7876
+    },
+    "icon": "data/ship_icons/cf1909.png"
   },
   "cf1910": {
     "id": "cf1910",
@@ -2193,7 +4543,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.08,
     "firePower": 1,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shipscf19\\cf19-10.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shipscf19\\cf19-10.cmp",
+    "modelBounds": {
+      "min": [
+        -61.2031,
+        -49.6399,
+        -228.0781
+      ],
+      "max": [
+        61.2031,
+        49.6399,
+        228.0781
+      ],
+      "radius": 266.4221,
+      "width": 122.4062,
+      "height": 99.2798,
+      "length": 456.1562
+    },
+    "icon": "data/ship_icons/cf1910.png"
   },
   "cf1911": {
     "id": "cf1911",
@@ -2236,7 +4603,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.08,
     "firePower": 1,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shipscf19\\cf19-11.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shipscf19\\cf19-11.cmp",
+    "modelBounds": {
+      "min": [
+        -43.5725,
+        -46.1696,
+        -217.4032
+      ],
+      "max": [
+        43.5725,
+        46.1696,
+        217.4032
+      ],
+      "radius": 241.67,
+      "width": 87.145,
+      "height": 92.3392,
+      "length": 434.8064
+    },
+    "icon": "data/ship_icons/cf1911.png"
   },
   "cf1912": {
     "id": "cf1912",
@@ -2279,7 +4663,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.08,
     "firePower": 1,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shipscf19\\cf19-12.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shipscf19\\cf19-12.cmp",
+    "modelBounds": {
+      "min": [
+        -72.0687,
+        -54.5501,
+        -226.2531
+      ],
+      "max": [
+        72.0687,
+        54.5501,
+        226.2531
+      ],
+      "radius": 278.7598,
+      "width": 144.1374,
+      "height": 109.1002,
+      "length": 452.5062
+    },
+    "icon": "data/ship_icons/cf1912.png"
   },
   "cf1913": {
     "id": "cf1913",
@@ -2322,7 +4723,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.08,
     "firePower": 1,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shipscf19\\cf19-13.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shipscf19\\cf19-13.cmp",
+    "modelBounds": {
+      "min": [
+        -136.2292,
+        -84.1517,
+        -230.6909
+      ],
+      "max": [
+        136.2292,
+        84.1517,
+        230.6909
+      ],
+      "radius": 265.8979,
+      "width": 272.4584,
+      "height": 168.3034,
+      "length": 461.3818
+    },
+    "icon": "data/ship_icons/cf1913.png"
   },
   "cf1914": {
     "id": "cf1914",
@@ -2365,7 +4783,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.08,
     "firePower": 1,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shipscf19\\cf19-14.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shipscf19\\cf19-14.cmp",
+    "modelBounds": {
+      "min": [
+        -61.0263,
+        -48.3016,
+        -221.549
+      ],
+      "max": [
+        61.0263,
+        48.3016,
+        221.549
+      ],
+      "radius": 248.2422,
+      "width": 122.0526,
+      "height": 96.6032,
+      "length": 443.098
+    },
+    "icon": "data/ship_icons/cf1914.png"
   },
   "cf1915": {
     "id": "cf1915",
@@ -2408,7 +4843,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 1,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shipscf19\\cf19-15.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shipscf19\\cf19-15.cmp",
+    "modelBounds": {
+      "min": [
+        -4.98,
+        -4.0935,
+        -7.4195
+      ],
+      "max": [
+        4.98,
+        4.0935,
+        7.4195
+      ],
+      "radius": 9.9157,
+      "width": 9.96,
+      "height": 8.187,
+      "length": 14.839
+    },
+    "icon": "data/ship_icons/cf1915.png"
   },
   "cf1916": {
     "id": "cf1916",
@@ -2451,7 +4903,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shipscf19\\cf19-16.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shipscf19\\cf19-16.cmp",
+    "modelBounds": {
+      "min": [
+        -5.6339,
+        -7.5014,
+        -8.5247
+      ],
+      "max": [
+        5.6339,
+        7.5014,
+        8.5247
+      ],
+      "radius": 10.7499,
+      "width": 11.2678,
+      "height": 15.0028,
+      "length": 17.0494
+    },
+    "icon": "data/ship_icons/cf1916.png"
   },
   "cf1917": {
     "id": "cf1917",
@@ -2494,7 +4963,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.08,
     "firePower": 1,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shipscf19\\cf19-17.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shipscf19\\cf19-17.cmp",
+    "modelBounds": {
+      "min": [
+        -63.08,
+        -53.0526,
+        -186.2607
+      ],
+      "max": [
+        63.08,
+        53.0526,
+        186.2607
+      ],
+      "radius": 223.6857,
+      "width": 126.16,
+      "height": 106.1052,
+      "length": 372.5214
+    },
+    "icon": "data/ship_icons/cf1917.png"
   },
   "cf1918": {
     "id": "cf1918",
@@ -2537,7 +5023,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.08,
     "firePower": 1,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shipscf19\\cf19-18.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shipscf19\\cf19-18.cmp",
+    "modelBounds": {
+      "min": [
+        -95.2173,
+        -83.1066,
+        -247.9903
+      ],
+      "max": [
+        95.2173,
+        83.1066,
+        247.9903
+      ],
+      "radius": 299.036,
+      "width": 190.4346,
+      "height": 166.2132,
+      "length": 495.9806
+    },
+    "icon": "data/ship_icons/cf1918.png"
   },
   "cf1919": {
     "id": "cf1919",
@@ -2580,7 +5083,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.08,
     "firePower": 1,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shipscf19\\cf19-19.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shipscf19\\cf19-19.cmp",
+    "modelBounds": {
+      "min": [
+        -140.269,
+        -94.8883,
+        -275.8893
+      ],
+      "max": [
+        140.269,
+        94.8883,
+        275.8893
+      ],
+      "radius": 320.6384,
+      "width": 280.538,
+      "height": 189.7766,
+      "length": 551.7786
+    },
+    "icon": "data/ship_icons/cf1919.png"
   },
   "cf1920": {
     "id": "cf1920",
@@ -2623,7 +5143,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.08,
     "firePower": 1,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shipscf19\\LIBattlecruiser.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shipscf19\\LIBattlecruiser.cmp",
+    "modelBounds": {
+      "min": [
+        -52.3894,
+        -52.7195,
+        -224.9704
+      ],
+      "max": [
+        52.3894,
+        52.7195,
+        224.9704
+      ],
+      "radius": 238.5756,
+      "width": 104.7788,
+      "height": 105.439,
+      "length": 449.9408
+    },
+    "icon": "data/ship_icons/cf1920.png"
   },
   "cf1921": {
     "id": "cf1921",
@@ -2666,7 +5203,204 @@ const FL_SHIPS = {
     },
     "turnRate": 1.14,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shipscf19\\sax1.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shipscf19\\sax1.cmp",
+    "modelBounds": {
+      "min": [
+        -9.5998,
+        -2.8797,
+        -7.3998
+      ],
+      "max": [
+        9.5998,
+        2.8797,
+        7.3998
+      ],
+      "radius": 10.3885,
+      "width": 19.1996,
+      "height": 5.7594,
+      "length": 14.7996
+    },
+    "icon": "data/ship_icons/cf1921.png"
+  },
+  "cf19custom": {
+    "id": "cf19custom",
+    "name": "Nocturne Battleship",
+    "info": "",
+    "idsName": "500184",
+    "idsInfo": "500185",
+    "type": "CAPITAL",
+    "shipClass": 2,
+    "mass": 15000,
+    "holdSize": 350,
+    "hitPts": 72700,
+    "linearDrag": 7680.0,
+    "steeringTorque": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "angularDrag": [
+      500000000000000.0,
+      500000000000000.0,
+      500000000000000.0
+    ],
+    "rotationInertia": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "nudgeForce": 1.0,
+    "strafeForce": 307200.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 7680.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\ORDER\\Or_Collection\\CFOrderCapShip19.cmp",
+    "modelBounds": {
+      "min": [
+        -58.4367,
+        -68.0784,
+        -211.75
+      ],
+      "max": [
+        58.4367,
+        68.0784,
+        211.75
+      ],
+      "radius": 225.7988,
+      "width": 116.8734,
+      "height": 136.1568,
+      "length": 423.5
+    },
+    "icon": "data/ship_icons/cf19custom.png"
+  },
+  "cf1custom": {
+    "id": "cf1custom",
+    "name": "Damocles Cruiser",
+    "info": "",
+    "idsName": "500112",
+    "idsInfo": "500113",
+    "type": "CAPITAL",
+    "shipClass": 2,
+    "mass": 15000,
+    "holdSize": 320,
+    "hitPts": 43300,
+    "linearDrag": 7680.0,
+    "steeringTorque": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "angularDrag": [
+      500000000000000.0,
+      500000000000000.0,
+      500000000000000.0
+    ],
+    "rotationInertia": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "nudgeForce": 1.0,
+    "strafeForce": 307200.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 7680.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\ORDER\\Or_Collection\\CFOrderCapShip1.cmp",
+    "modelBounds": {
+      "min": [
+        -40.427,
+        -26.2636,
+        -88.7925
+      ],
+      "max": [
+        40.427,
+        26.2636,
+        88.7925
+      ],
+      "radius": 93.435,
+      "width": 80.854,
+      "height": 52.5272,
+      "length": 177.585
+    },
+    "icon": "data/ship_icons/cf1custom.png"
+  },
+  "cf20custom": {
+    "id": "cf20custom",
+    "name": "Spectra Gunboat",
+    "info": "",
+    "idsName": "500188",
+    "idsInfo": "500189",
+    "type": "CAPITAL",
+    "shipClass": 2,
+    "mass": 15000,
+    "holdSize": 160,
+    "hitPts": 19560,
+    "linearDrag": 7680.0,
+    "steeringTorque": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "angularDrag": [
+      500000000000000.0,
+      500000000000000.0,
+      500000000000000.0
+    ],
+    "rotationInertia": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "nudgeForce": 1.0,
+    "strafeForce": 307200.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 7680.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\ORDER\\Or_Collection\\CFOrderCapShip20.cmp",
+    "modelBounds": {
+      "min": [
+        -18.3086,
+        -10.2119,
+        -26.7781
+      ],
+      "max": [
+        18.3086,
+        10.2119,
+        26.7781
+      ],
+      "radius": 34.8122,
+      "width": 36.6172,
+      "height": 20.4238,
+      "length": 53.5562
+    },
+    "icon": "data/ship_icons/cf20custom.png"
   },
   "cf20ship01": {
     "id": "cf20ship01",
@@ -2709,7 +5443,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.68,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shipscf20\\cf20ship01.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shipscf20\\cf20ship01.cmp",
+    "modelBounds": {
+      "min": [
+        -6.7811,
+        -2.8799,
+        -11.8112
+      ],
+      "max": [
+        6.7811,
+        2.8799,
+        11.8112
+      ],
+      "radius": 15.1216,
+      "width": 13.5622,
+      "height": 5.7598,
+      "length": 23.6224
+    },
+    "icon": "data/ship_icons/cf20ship01.png"
   },
   "cf20ship02": {
     "id": "cf20ship02",
@@ -2752,7 +5503,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 8,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shipscf20\\cf20ship02.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shipscf20\\cf20ship02.cmp",
+    "modelBounds": {
+      "min": [
+        -5.8485,
+        -1.5366,
+        -6.631
+      ],
+      "max": [
+        5.8485,
+        1.5366,
+        6.631
+      ],
+      "radius": 8.3769,
+      "width": 11.697,
+      "height": 3.0732,
+      "length": 13.262
+    },
+    "icon": "data/ship_icons/cf20ship02.png"
   },
   "cf20ship03": {
     "id": "cf20ship03",
@@ -2795,7 +5563,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.64,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shipscf20\\cf20ship03.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shipscf20\\cf20ship03.cmp",
+    "modelBounds": {
+      "min": [
+        -7.6037,
+        -2.2668,
+        -9.6578
+      ],
+      "max": [
+        7.6037,
+        2.2668,
+        9.6578
+      ],
+      "radius": 12.4878,
+      "width": 15.2074,
+      "height": 4.5336,
+      "length": 19.3156
+    },
+    "icon": "data/ship_icons/cf20ship03.png"
   },
   "cf20ship04": {
     "id": "cf20ship04",
@@ -2838,7 +5623,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.08,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shipscf20\\cf20ship04.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shipscf20\\cf20ship04.cmp",
+    "modelBounds": {
+      "min": [
+        -11.9523,
+        -1.9297,
+        -11.0492
+      ],
+      "max": [
+        11.9523,
+        1.9297,
+        11.0492
+      ],
+      "radius": 13.237,
+      "width": 23.9046,
+      "height": 3.8594,
+      "length": 22.0984
+    },
+    "icon": "data/ship_icons/cf20ship04.png"
   },
   "cf20ship05": {
     "id": "cf20ship05",
@@ -2881,7 +5683,504 @@ const FL_SHIPS = {
     },
     "turnRate": 1.6,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shipscf20\\cf20ship05.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shipscf20\\cf20ship05.cmp",
+    "modelBounds": {
+      "min": [
+        -8.9899,
+        -2.1105,
+        -8.275
+      ],
+      "max": [
+        8.9899,
+        2.1105,
+        8.275
+      ],
+      "radius": 10.5678,
+      "width": 17.9798,
+      "height": 4.221,
+      "length": 16.55
+    },
+    "icon": "data/ship_icons/cf20ship05.png"
+  },
+  "cf2custom": {
+    "id": "cf2custom",
+    "name": "Valiant Gunboat",
+    "info": "",
+    "idsName": "500116",
+    "idsInfo": "500117",
+    "type": "CAPITAL",
+    "shipClass": 2,
+    "mass": 15000,
+    "holdSize": 252,
+    "hitPts": 23500,
+    "linearDrag": 7680.0,
+    "steeringTorque": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "angularDrag": [
+      500000000000000.0,
+      500000000000000.0,
+      500000000000000.0
+    ],
+    "rotationInertia": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "nudgeForce": 1.0,
+    "strafeForce": 307200.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 7680.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\ORDER\\Or_Collection\\CFOrderCapShip2.cmp",
+    "modelBounds": {
+      "min": [
+        -14.52,
+        -11.5146,
+        -32.9948
+      ],
+      "max": [
+        14.52,
+        11.5146,
+        32.9948
+      ],
+      "radius": 36.5204,
+      "width": 29.04,
+      "height": 23.0292,
+      "length": 65.9896
+    },
+    "icon": "data/ship_icons/cf2custom.png"
+  },
+  "cf3custom": {
+    "id": "cf3custom",
+    "name": "Orkus Destroyer",
+    "info": "",
+    "idsName": "500120",
+    "idsInfo": "500121",
+    "type": "CAPITAL",
+    "shipClass": 2,
+    "mass": 15000,
+    "holdSize": 175,
+    "hitPts": 41200,
+    "linearDrag": 7680.0,
+    "steeringTorque": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "angularDrag": [
+      500000000000000.0,
+      500000000000000.0,
+      500000000000000.0
+    ],
+    "rotationInertia": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "nudgeForce": 1.0,
+    "strafeForce": 307200.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 7680.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\ORDER\\Or_Collection\\CFOrderCapShip3.cmp",
+    "modelBounds": {
+      "min": [
+        -32.1626,
+        -25.4574,
+        -80.0157
+      ],
+      "max": [
+        32.1626,
+        25.4574,
+        80.0157
+      ],
+      "radius": 88.7856,
+      "width": 64.3252,
+      "height": 50.9148,
+      "length": 160.0314
+    },
+    "icon": "data/ship_icons/cf3custom.png"
+  },
+  "cf4custom": {
+    "id": "cf4custom",
+    "name": "Gladiator Cruiser",
+    "info": "",
+    "idsName": "500124",
+    "idsInfo": "500125",
+    "type": "CAPITAL",
+    "shipClass": 2,
+    "mass": 15000,
+    "holdSize": 205,
+    "hitPts": 45800,
+    "linearDrag": 7680.0,
+    "steeringTorque": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "angularDrag": [
+      500000000000000.0,
+      500000000000000.0,
+      500000000000000.0
+    ],
+    "rotationInertia": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "nudgeForce": 1.0,
+    "strafeForce": 307200.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 7680.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\ORDER\\Or_Collection\\CFOrderCapShip4.cmp",
+    "modelBounds": {
+      "min": [
+        -39.8354,
+        -22.1114,
+        -78.8892
+      ],
+      "max": [
+        39.8354,
+        22.1114,
+        78.8892
+      ],
+      "radius": 86.2568,
+      "width": 79.6708,
+      "height": 44.2228,
+      "length": 157.7784
+    },
+    "icon": "data/ship_icons/cf4custom.png"
+  },
+  "cf5custom": {
+    "id": "cf5custom",
+    "name": "Typhon Gunboat",
+    "info": "",
+    "idsName": "500128",
+    "idsInfo": "500129",
+    "type": "CAPITAL",
+    "shipClass": 2,
+    "mass": 15000,
+    "holdSize": 190,
+    "hitPts": 25100,
+    "linearDrag": 7680.0,
+    "steeringTorque": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "angularDrag": [
+      500000000000000.0,
+      500000000000000.0,
+      500000000000000.0
+    ],
+    "rotationInertia": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "nudgeForce": 1.0,
+    "strafeForce": 307200.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 7680.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\ORDER\\Or_Collection\\CFOrderCapShip5.cmp",
+    "modelBounds": {
+      "min": [
+        -17.2226,
+        -12.8975,
+        -44.3063
+      ],
+      "max": [
+        17.2226,
+        12.8975,
+        44.3063
+      ],
+      "radius": 49.1019,
+      "width": 34.4452,
+      "height": 25.795,
+      "length": 88.6126
+    },
+    "icon": "data/ship_icons/cf5custom.png"
+  },
+  "cf6custom": {
+    "id": "cf6custom",
+    "name": "Rage Destroyer",
+    "info": "",
+    "idsName": "500132",
+    "idsInfo": "500133",
+    "type": "CAPITAL",
+    "shipClass": 2,
+    "mass": 15000,
+    "holdSize": 230,
+    "hitPts": 42500,
+    "linearDrag": 7680.0,
+    "steeringTorque": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "angularDrag": [
+      500000000000000.0,
+      500000000000000.0,
+      500000000000000.0
+    ],
+    "rotationInertia": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "nudgeForce": 1.0,
+    "strafeForce": 307200.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 7680.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\ORDER\\Or_Collection\\CFOrderCapShip6.cmp",
+    "modelBounds": {
+      "min": [
+        -37.6557,
+        -27.4788,
+        -89.3834
+      ],
+      "max": [
+        37.6557,
+        27.4788,
+        89.3834
+      ],
+      "radius": 114.4804,
+      "width": 75.3114,
+      "height": 54.9576,
+      "length": 178.7668
+    },
+    "icon": "data/ship_icons/cf6custom.png"
+  },
+  "cf7custom": {
+    "id": "cf7custom",
+    "name": "Eos Transporter",
+    "info": "",
+    "idsName": "500136",
+    "idsInfo": "500137",
+    "type": "CAPITAL",
+    "shipClass": 2,
+    "mass": 15000,
+    "holdSize": 3000,
+    "hitPts": 10500,
+    "linearDrag": 7680.0,
+    "steeringTorque": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "angularDrag": [
+      500000000000000.0,
+      500000000000000.0,
+      500000000000000.0
+    ],
+    "rotationInertia": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "nudgeForce": 1.0,
+    "strafeForce": 307200.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 7680.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\ORDER\\Or_Collection\\CFOrderCapShip7.cmp",
+    "modelBounds": {
+      "min": [
+        -24.3406,
+        -7.2872,
+        -69.3251
+      ],
+      "max": [
+        24.3406,
+        7.2872,
+        69.3251
+      ],
+      "radius": 69.4873,
+      "width": 48.6812,
+      "height": 14.5744,
+      "length": 138.6502
+    },
+    "icon": "data/ship_icons/cf7custom.png"
+  },
+  "cf8custom": {
+    "id": "cf8custom",
+    "name": "Protheus Cruiser",
+    "info": "",
+    "idsName": "500140",
+    "idsInfo": "500141",
+    "type": "CAPITAL",
+    "shipClass": 2,
+    "mass": 15000,
+    "holdSize": 245,
+    "hitPts": 44500,
+    "linearDrag": 7680.0,
+    "steeringTorque": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "angularDrag": [
+      500000000000000.0,
+      500000000000000.0,
+      500000000000000.0
+    ],
+    "rotationInertia": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "nudgeForce": 1.0,
+    "strafeForce": 307200.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 7680.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\ORDER\\Or_Collection\\CFOrderCapShip8.cmp",
+    "modelBounds": {
+      "min": [
+        -36.3435,
+        -17.3532,
+        -99.2308
+      ],
+      "max": [
+        36.3435,
+        17.3532,
+        99.2308
+      ],
+      "radius": 113.8631,
+      "width": 72.687,
+      "height": 34.7064,
+      "length": 198.4616
+    },
+    "icon": "data/ship_icons/cf8custom.png"
+  },
+  "cf9custom": {
+    "id": "cf9custom",
+    "name": "Tyrannis Battleship",
+    "info": "",
+    "idsName": "500144",
+    "idsInfo": "500145",
+    "type": "CAPITAL",
+    "shipClass": 2,
+    "mass": 15000,
+    "holdSize": 360,
+    "hitPts": 69300,
+    "linearDrag": 7680.0,
+    "steeringTorque": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "angularDrag": [
+      500000000000000.0,
+      500000000000000.0,
+      500000000000000.0
+    ],
+    "rotationInertia": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "nudgeForce": 1.0,
+    "strafeForce": 307200.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 7680.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\ORDER\\Or_Collection\\CFOrderCapShip9.cmp",
+    "modelBounds": {
+      "min": [
+        -59.0734,
+        -58.0424,
+        -218.9473
+      ],
+      "max": [
+        59.0734,
+        58.0424,
+        218.9473
+      ],
+      "radius": 235.9812,
+      "width": 118.1468,
+      "height": 116.0848,
+      "length": 437.8946
+    },
+    "icon": "data/ship_icons/cf9custom.png"
   },
   "cf_armored": {
     "id": "cf_armored",
@@ -2924,7 +6223,24 @@ const FL_SHIPS = {
     },
     "turnRate": 0.9,
     "firePower": 1,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\UTILITY\\TRANSPORT_ARMORED\\transport_armored2.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\UTILITY\\TRANSPORT_ARMORED\\transport_armored2.cmp",
+    "modelBounds": {
+      "min": [
+        -6.5303,
+        -3.613,
+        -10.5136
+      ],
+      "max": [
+        6.5297,
+        3.613,
+        10.5136
+      ],
+      "radius": 12.6774,
+      "width": 13.0606,
+      "height": 7.226,
+      "length": 21.0272
+    },
+    "icon": "data/ship_icons/cf_armored.png"
   },
   "cf_br_destroyer": {
     "id": "cf_br_destroyer",
@@ -2967,7 +6283,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.12,
     "firePower": 1,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\BRETONIA\\BR_DESTROYER\\br_destroyer.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\BRETONIA\\BR_DESTROYER\\br_destroyer.cmp",
+    "modelBounds": {
+      "min": [
+        -31.5959,
+        -33.6172,
+        -62.2403
+      ],
+      "max": [
+        31.484,
+        33.2552,
+        63.3335
+      ],
+      "radius": 74.9697,
+      "width": 63.1918,
+      "height": 67.2344,
+      "length": 126.667
+    },
+    "icon": "data/ship_icons/cf_br_destroyer.png"
   },
   "cf_br_gunboat": {
     "id": "cf_br_gunboat",
@@ -3010,7 +6343,24 @@ const FL_SHIPS = {
     },
     "turnRate": 0.81,
     "firePower": 1,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\BRETONIA\\BR_GUNSHIP\\br_gunship.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\BRETONIA\\BR_GUNSHIP\\br_gunship.cmp",
+    "modelBounds": {
+      "min": [
+        -33.6898,
+        -24.6304,
+        -32.7835
+      ],
+      "max": [
+        33.8532,
+        24.5708,
+        32.8853
+      ],
+      "radius": 49.0239,
+      "width": 67.7064,
+      "height": 49.2608,
+      "length": 65.7706
+    },
+    "icon": "data/ship_icons/cf_br_gunboat.png"
   },
   "cf_ku_destroyer": {
     "id": "cf_ku_destroyer",
@@ -3053,7 +6403,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.12,
     "firePower": 1,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\KUSARI\\KU_DESTROYER\\ku_destroyer.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\KUSARI\\KU_DESTROYER\\ku_destroyer.cmp",
+    "modelBounds": {
+      "min": [
+        -5.9204,
+        -19.4867,
+        -36.1076
+      ],
+      "max": [
+        5.9204,
+        19.3916,
+        36.1076
+      ],
+      "radius": 41.2638,
+      "width": 11.8408,
+      "height": 38.9734,
+      "length": 72.2152
+    },
+    "icon": "data/ship_icons/cf_ku_destroyer.png"
   },
   "cf_ku_gunboat": {
     "id": "cf_ku_gunboat",
@@ -3096,7 +6463,24 @@ const FL_SHIPS = {
     },
     "turnRate": 0.88,
     "firePower": 1,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\KUSARI\\KU_GUNSHIP\\ku_gunship.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\KUSARI\\KU_GUNSHIP\\ku_gunship.cmp",
+    "modelBounds": {
+      "min": [
+        -8.7035,
+        -9.5904,
+        -25.5844
+      ],
+      "max": [
+        8.7035,
+        9.5904,
+        25.5844
+      ],
+      "radius": 27.1577,
+      "width": 17.407,
+      "height": 19.1808,
+      "length": 51.1688
+    },
+    "icon": "data/ship_icons/cf_ku_gunboat.png"
   },
   "cf_large_transport": {
     "id": "cf_large_transport",
@@ -3139,7 +6523,24 @@ const FL_SHIPS = {
     },
     "turnRate": 0.83,
     "firePower": 1,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\UTILITY\\TRANSPORT_LARGE\\transport_large.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\UTILITY\\TRANSPORT_LARGE\\transport_large.cmp",
+    "modelBounds": {
+      "min": [
+        -14.6101,
+        -13.7661,
+        -94.1813
+      ],
+      "max": [
+        14.6101,
+        13.7661,
+        90.4203
+      ],
+      "radius": 97.2765,
+      "width": 29.2202,
+      "height": 27.5322,
+      "length": 188.3626
+    },
+    "icon": "data/ship_icons/cf_large_transport.png"
   },
   "cf_li_cruiser": {
     "id": "cf_li_cruiser",
@@ -3182,7 +6583,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.1,
     "firePower": 1,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\LIBERTY\\LI_CRUISER\\li_cruiser.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\LIBERTY\\LI_CRUISER\\li_cruiser.cmp",
+    "modelBounds": {
+      "min": [
+        -18.0385,
+        -18.8609,
+        -96.6861
+      ],
+      "max": [
+        18.0118,
+        19.4118,
+        96.6861
+      ],
+      "radius": 104.1793,
+      "width": 36.077,
+      "height": 38.8236,
+      "length": 193.3722
+    },
+    "icon": "data/ship_icons/cf_li_cruiser.png"
   },
   "cf_li_gunboat": {
     "id": "cf_li_gunboat",
@@ -3225,7 +6643,24 @@ const FL_SHIPS = {
     },
     "turnRate": 0.81,
     "firePower": 1,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\LIBERTY\\LI_GUNSHIP\\edgecrusher.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\LIBERTY\\LI_GUNSHIP\\edgecrusher.cmp",
+    "modelBounds": {
+      "min": [
+        -8.204,
+        -10.5721,
+        -42.539
+      ],
+      "max": [
+        8.204,
+        10.5721,
+        42.539
+      ],
+      "radius": 50.5698,
+      "width": 16.408,
+      "height": 21.1442,
+      "length": 85.078
+    },
+    "icon": "data/ship_icons/cf_li_gunboat.png"
   },
   "cf_lifter": {
     "id": "cf_lifter",
@@ -3268,7 +6703,24 @@ const FL_SHIPS = {
     },
     "turnRate": 0.8,
     "firePower": 1,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\UTILITY\\HEAVY_LIFTER\\heavy_lifter.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\UTILITY\\HEAVY_LIFTER\\heavy_lifter.cmp",
+    "modelBounds": {
+      "min": [
+        -39.5247,
+        -20.6138,
+        -40.364
+      ],
+      "max": [
+        39.5247,
+        20.6208,
+        40.364
+      ],
+      "radius": 48.6021,
+      "width": 79.0494,
+      "height": 41.2416,
+      "length": 80.728
+    },
+    "icon": "data/ship_icons/cf_lifter.png"
   },
   "cf_liner": {
     "id": "cf_liner",
@@ -3311,7 +6763,24 @@ const FL_SHIPS = {
     },
     "turnRate": 0.94,
     "firePower": 1,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\UTILITY\\LUXURY_LINER\\luxury_liner.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\UTILITY\\LUXURY_LINER\\luxury_liner.cmp",
+    "modelBounds": {
+      "min": [
+        -35.9134,
+        -34.213,
+        -180.3884
+      ],
+      "max": [
+        35.9136,
+        34.213,
+        180.3376
+      ],
+      "radius": 227.1928,
+      "width": 71.8272,
+      "height": 68.426,
+      "length": 360.7768
+    },
+    "icon": "data/ship_icons/cf_liner.png"
   },
   "cf_or_destroyer": {
     "id": "cf_or_destroyer",
@@ -3354,7 +6823,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.12,
     "firePower": 1,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\ORDER\\OR_Destroyer\\orderdestroyer.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\ORDER\\OR_Destroyer\\orderdestroyer.cmp",
+    "modelBounds": {
+      "min": [
+        -18.8834,
+        -21.6217,
+        -108.626
+      ],
+      "max": [
+        18.8834,
+        21.6217,
+        108.626
+      ],
+      "radius": 110.0886,
+      "width": 37.7668,
+      "height": 43.2434,
+      "length": 217.252
+    },
+    "icon": "data/ship_icons/cf_or_destroyer.png"
   },
   "cf_prison": {
     "id": "cf_prison",
@@ -3397,7 +6883,24 @@ const FL_SHIPS = {
     },
     "turnRate": 0.94,
     "firePower": 1,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\UTILITY\\PRISON_LINER\\prison_liner.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\UTILITY\\PRISON_LINER\\prison_liner.cmp",
+    "modelBounds": {
+      "min": [
+        -24.5939,
+        -25.1201,
+        -180.3887
+      ],
+      "max": [
+        24.7059,
+        25.12,
+        180.3379
+      ],
+      "radius": 217.8798,
+      "width": 49.4118,
+      "height": 50.2402,
+      "length": 360.7774
+    },
+    "icon": "data/ship_icons/cf_prison.png"
   },
   "cf_repair": {
     "id": "cf_repair",
@@ -3440,7 +6943,24 @@ const FL_SHIPS = {
     },
     "turnRate": 0.75,
     "firePower": 1,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\UTILITY\\REPAIR\\repair.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\UTILITY\\REPAIR\\repair.cmp",
+    "modelBounds": {
+      "min": [
+        -10.5221,
+        -8.8879,
+        -20.7909
+      ],
+      "max": [
+        10.5196,
+        9.0415,
+        20.7909
+      ],
+      "radius": 22.3212,
+      "width": 21.0442,
+      "height": 18.083,
+      "length": 41.5818
+    },
+    "icon": "data/ship_icons/cf_repair.png"
   },
   "cf_rh_cruiser": {
     "id": "cf_rh_cruiser",
@@ -3483,7 +7003,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.12,
     "firePower": 1,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\RHEINLAND\\RH_CRUISER\\rh_cruiser.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\RHEINLAND\\RH_CRUISER\\rh_cruiser.cmp",
+    "modelBounds": {
+      "min": [
+        -21.8197,
+        -33.4419,
+        -84.5917
+      ],
+      "max": [
+        21.8197,
+        33.4419,
+        84.5917
+      ],
+      "radius": 86.998,
+      "width": 43.6394,
+      "height": 66.8838,
+      "length": 169.1834
+    },
+    "icon": "data/ship_icons/cf_rh_cruiser.png"
   },
   "cf_rh_gunboat": {
     "id": "cf_rh_gunboat",
@@ -3526,7 +7063,24 @@ const FL_SHIPS = {
     },
     "turnRate": 0.81,
     "firePower": 1,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\RHEINLAND\\RH_GUNSHIP\\rh_gunship.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\RHEINLAND\\RH_GUNSHIP\\rh_gunship.cmp",
+    "modelBounds": {
+      "min": [
+        -7.3233,
+        -16.2622,
+        -42.2648
+      ],
+      "max": [
+        7.3233,
+        16.8249,
+        42.2648
+      ],
+      "radius": 43.4271,
+      "width": 14.6466,
+      "height": 33.6498,
+      "length": 84.5296
+    },
+    "icon": "data/ship_icons/cf_rh_gunboat.png"
   },
   "cf_transport": {
     "id": "cf_transport",
@@ -3569,7 +7123,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.12,
     "firePower": 1,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\UTILITY\\TRANSPORT_SMALL\\transport_small.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\UTILITY\\TRANSPORT_SMALL\\transport_small.cmp",
+    "modelBounds": {
+      "min": [
+        -14.6101,
+        -13.7661,
+        -60.0743
+      ],
+      "max": [
+        14.6101,
+        13.7661,
+        56.3133
+      ],
+      "radius": 64.1645,
+      "width": 29.2202,
+      "height": 27.5322,
+      "length": 120.1486
+    },
+    "icon": "data/ship_icons/cf_transport.png"
   },
   "cfbomber1": {
     "id": "cfbomber1",
@@ -3612,7 +7183,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.5,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\ORDER\\Or_Collection\\CFOrderFighter1.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\ORDER\\Or_Collection\\CFOrderFighter1.cmp",
+    "modelBounds": {
+      "min": [
+        -9.1329,
+        -3.3124,
+        -9.7944
+      ],
+      "max": [
+        9.1329,
+        3.3124,
+        9.7944
+      ],
+      "radius": 13.186,
+      "width": 18.2658,
+      "height": 6.6248,
+      "length": 19.5888
+    },
+    "icon": "data/ship_icons/cfbomber1.png"
   },
   "cffighter1": {
     "id": "cffighter1",
@@ -3655,7 +7243,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.76,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\ORDER\\Or_Collection\\CFOrderFighter2.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\ORDER\\Or_Collection\\CFOrderFighter2.cmp",
+    "modelBounds": {
+      "min": [
+        -8.6068,
+        -3.3969,
+        -10.8993
+      ],
+      "max": [
+        8.6068,
+        3.3969,
+        10.8993
+      ],
+      "radius": 12.4141,
+      "width": 17.2136,
+      "height": 6.7938,
+      "length": 21.7986
+    },
+    "icon": "data/ship_icons/cffighter1.png"
   },
   "cffighter2": {
     "id": "cffighter2",
@@ -3698,7 +7303,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.87,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\ORDER\\Or_Collection\\CFOrderFighter3.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\ORDER\\Or_Collection\\CFOrderFighter3.cmp",
+    "modelBounds": {
+      "min": [
+        -11.4554,
+        -3.7377,
+        -10.6827
+      ],
+      "max": [
+        11.4554,
+        3.7377,
+        10.6827
+      ],
+      "radius": 13.095,
+      "width": 22.9108,
+      "height": 7.4754,
+      "length": 21.3654
+    },
+    "icon": "data/ship_icons/cffighter2.png"
   },
   "cffighter3": {
     "id": "cffighter3",
@@ -3741,7 +7363,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\ORDER\\Or_Collection\\CFOrderFighter4.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\ORDER\\Or_Collection\\CFOrderFighter4.cmp",
+    "modelBounds": {
+      "min": [
+        -9.5868,
+        -3.0293,
+        -8.9795
+      ],
+      "max": [
+        9.5868,
+        3.0293,
+        8.9795
+      ],
+      "radius": 11.3138,
+      "width": 19.1736,
+      "height": 6.0586,
+      "length": 17.959
+    },
+    "icon": "data/ship_icons/cffighter3.png"
   },
   "cffreighter1": {
     "id": "cffreighter1",
@@ -3784,7 +7423,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.23,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\CFships\\CFfreighter1.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\CFships\\CFfreighter1.cmp",
+    "modelBounds": {
+      "min": [
+        -10.3799,
+        -3.1122,
+        -6.8843
+      ],
+      "max": [
+        10.3799,
+        3.1122,
+        6.8843
+      ],
+      "radius": 11.9141,
+      "width": 20.7598,
+      "height": 6.2244,
+      "length": 13.7686
+    },
+    "icon": "data/ship_icons/cffreighter1.png"
   },
   "cfminingship": {
     "id": "cfminingship",
@@ -3827,7 +7483,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.1,
     "firePower": 1,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\SKY_SENTINAL\\sentinal.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\SKY_SENTINAL\\sentinal.cmp",
+    "modelBounds": {
+      "min": [
+        -31.9893,
+        -15.6621,
+        -61.8068
+      ],
+      "max": [
+        31.9893,
+        15.6621,
+        61.8068
+      ],
+      "radius": 63.4382,
+      "width": 63.9786,
+      "height": 31.3242,
+      "length": 123.6136
+    },
+    "icon": "data/ship_icons/cfminingship.png"
   },
   "cfrhnlndfreighter": {
     "id": "cfrhnlndfreighter",
@@ -3870,7 +7543,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.08,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\CFships\\CFRhnlndFreighter.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\CFships\\CFRhnlndFreighter.cmp",
+    "modelBounds": {
+      "min": [
+        -9.5471,
+        -1.8288,
+        -8.3053
+      ],
+      "max": [
+        9.5471,
+        1.8288,
+        8.3053
+      ],
+      "radius": 10.6583,
+      "width": 19.0942,
+      "height": 3.6576,
+      "length": 16.6106
+    },
+    "icon": "data/ship_icons/cfrhnlndfreighter.png"
   },
   "chimera": {
     "id": "chimera",
@@ -3913,7 +7603,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\chimera\\chimera.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\chimera\\chimera.cmp",
+    "modelBounds": {
+      "min": [
+        -7.5359,
+        -1.7439,
+        -7.6521
+      ],
+      "max": [
+        7.5359,
+        1.7439,
+        7.6521
+      ],
+      "radius": 9.8253,
+      "width": 15.0718,
+      "height": 3.4878,
+      "length": 15.3042
+    },
+    "icon": "data/ship_icons/chimera.png"
   },
   "chimera2": {
     "id": "chimera2",
@@ -3956,7 +7663,24 @@ const FL_SHIPS = {
     },
     "turnRate": 2.07,
     "firePower": 6,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\Chimera.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\Chimera.cmp",
+    "modelBounds": {
+      "min": [
+        -4.0144,
+        -4.7059,
+        -11.7317
+      ],
+      "max": [
+        4.0144,
+        4.7059,
+        11.7317
+      ],
+      "radius": 14.1466,
+      "width": 8.0288,
+      "height": 9.4118,
+      "length": 23.4634
+    },
+    "icon": "data/ship_icons/chimera2.png"
   },
   "co_elite": {
     "id": "co_elite",
@@ -3999,7 +7723,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.52,
     "firePower": 9,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\PIRATE\\PI_ELITE\\pi_elite.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\PIRATE\\PI_ELITE\\pi_elite.cmp",
+    "modelBounds": {
+      "min": [
+        -9.9686,
+        -5.6474,
+        -3.9931
+      ],
+      "max": [
+        9.9686,
+        5.6474,
+        3.9931
+      ],
+      "radius": 10.0516,
+      "width": 19.9372,
+      "height": 11.2948,
+      "length": 7.9862
+    },
+    "icon": "data/ship_icons/co_elite.png"
   },
   "co_elite2": {
     "id": "co_elite2",
@@ -4042,7 +7783,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.13,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\PIRATE\\PI_VHEAVY_FIGHTER\\pi_vheavy_fighter.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\PIRATE\\PI_VHEAVY_FIGHTER\\pi_vheavy_fighter.cmp",
+    "modelBounds": {
+      "min": [
+        -9.6807,
+        -6.5925,
+        -4.4304
+      ],
+      "max": [
+        9.6807,
+        6.585,
+        4.4296
+      ],
+      "radius": 9.8713,
+      "width": 19.3614,
+      "height": 13.185,
+      "length": 8.8608
+    },
+    "icon": "data/ship_icons/co_elite2.png"
   },
   "co_fighter": {
     "id": "co_fighter",
@@ -4085,7 +7843,84 @@ const FL_SHIPS = {
     },
     "turnRate": 2.73,
     "firePower": 5,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\PIRATE\\PI_FIGHTER\\pi_fighter.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\PIRATE\\PI_FIGHTER\\pi_fighter.cmp",
+    "modelBounds": {
+      "min": [
+        -9.9686,
+        -2.0766,
+        -3.9729
+      ],
+      "max": [
+        9.9686,
+        2.0766,
+        3.9729
+      ],
+      "radius": 10.0516,
+      "width": 19.9372,
+      "height": 4.1532,
+      "length": 7.9458
+    },
+    "icon": "data/ship_icons/co_fighter.png"
+  },
+  "coal_transport": {
+    "id": "coal_transport",
+    "name": "Transporter 'Goliath'",
+    "info": "",
+    "idsName": "226804",
+    "idsInfo": "226805",
+    "type": "TRANSPORT",
+    "shipClass": 0,
+    "mass": 500,
+    "holdSize": 1000,
+    "hitPts": 3000,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      700000.0,
+      700000.0,
+      300000.0
+    ],
+    "angularDrag": [
+      2500000.0,
+      2500000.0,
+      2500000.0
+    ],
+    "rotationInertia": [
+      1200000.0,
+      1200000.0,
+      1200000.0
+    ],
+    "nudgeForce": 150000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 2.22,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\coalition\\coaltransport.cmp",
+    "modelBounds": {
+      "min": [
+        -20.6064,
+        -14.7942,
+        -60.5759
+      ],
+      "max": [
+        20.6064,
+        14.7942,
+        60.5759
+      ],
+      "radius": 66.6112,
+      "width": 41.2128,
+      "height": 29.5884,
+      "length": 121.1518
+    },
+    "icon": "data/ship_icons/coal_transport.png"
   },
   "cobra": {
     "id": "cobra",
@@ -4128,7 +7963,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\cobra\\cobra.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\cobra\\cobra.cmp",
+    "modelBounds": {
+      "min": [
+        -7.9847,
+        -3.3304,
+        -9.3617
+      ],
+      "max": [
+        7.9847,
+        3.3304,
+        9.3617
+      ],
+      "radius": 12.514,
+      "width": 15.9694,
+      "height": 6.6608,
+      "length": 18.7234
+    },
+    "icon": "data/ship_icons/cobra.png"
   },
   "colsabre": {
     "id": "colsabre",
@@ -4171,7 +8023,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\coalition\\colsabre.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\coalition\\colsabre.cmp",
+    "modelBounds": {
+      "min": [
+        -7.449,
+        -1.522,
+        -7.9669
+      ],
+      "max": [
+        7.449,
+        1.522,
+        7.9669
+      ],
+      "radius": 8.6377,
+      "width": 14.898,
+      "height": 3.044,
+      "length": 15.9338
+    },
+    "icon": "data/ship_icons/colsabre.png"
   },
   "combatship": {
     "id": "combatship",
@@ -4214,7 +8083,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.5,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\combatship\\combatship.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\combatship\\combatship.cmp",
+    "modelBounds": {
+      "min": [
+        -7.921,
+        -3.3667,
+        -6.7629
+      ],
+      "max": [
+        7.921,
+        3.3667,
+        6.7629
+      ],
+      "radius": 10.1066,
+      "width": 15.842,
+      "height": 6.7334,
+      "length": 13.5258
+    },
+    "icon": "data/ship_icons/combatship.png"
   },
   "corsair": {
     "id": "corsair",
@@ -4257,7 +8143,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\corsair\\corsair.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\corsair\\corsair.cmp",
+    "modelBounds": {
+      "min": [
+        -8.08,
+        -2.7463,
+        -10.9702
+      ],
+      "max": [
+        8.08,
+        2.7463,
+        10.9702
+      ],
+      "radius": 11.9638,
+      "width": 16.16,
+      "height": 5.4926,
+      "length": 21.9404
+    },
+    "icon": "data/ship_icons/corsair.png"
   },
   "coyote": {
     "id": "coyote",
@@ -4300,7 +8203,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\Shroud\\coyote.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\Shroud\\coyote.cmp",
+    "modelBounds": {
+      "min": [
+        -8.6255,
+        -5.5247,
+        -11.3322
+      ],
+      "max": [
+        8.6255,
+        5.5247,
+        11.3322
+      ],
+      "radius": 12.4381,
+      "width": 17.251,
+      "height": 11.0494,
+      "length": 22.6644
+    },
+    "icon": "data/ship_icons/coyote.png"
   },
   "crusader": {
     "id": "crusader",
@@ -4343,7 +8263,264 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\Shroud\\crusader.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\Shroud\\crusader.cmp",
+    "modelBounds": {
+      "min": [
+        -8.4347,
+        -3.006,
+        -11.1177
+      ],
+      "max": [
+        8.4347,
+        3.006,
+        11.1177
+      ],
+      "radius": 14.2289,
+      "width": 16.8694,
+      "height": 6.012,
+      "length": 22.2354
+    },
+    "icon": "data/ship_icons/crusader.png"
+  },
+  "cs01": {
+    "id": "cs01",
+    "name": "Blackburn",
+    "info": "",
+    "idsName": "501260",
+    "idsInfo": "501261",
+    "type": "FIGHTER",
+    "shipClass": 13,
+    "mass": 140,
+    "holdSize": 54,
+    "hitPts": 14900,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      55000.0,
+      55000.0,
+      48000.0
+    ],
+    "angularDrag": [
+      41000.0,
+      41000.0,
+      35000.0
+    ],
+    "rotationInertia": [
+      8400.0,
+      8400.0,
+      1000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 1.75,
+      "agility": 1.3,
+      "acceleration": 1.59,
+      "brakeRate": 4.19,
+      "strafePower": 1.1,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 1.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shipscf20\\clanship01.cmp",
+    "modelBounds": {
+      "min": [
+        -6.4483,
+        -3.6534,
+        -10.5074
+      ],
+      "max": [
+        6.4483,
+        3.6534,
+        10.5074
+      ],
+      "radius": 13.0838,
+      "width": 12.8966,
+      "height": 7.3068,
+      "length": 21.0148
+    },
+    "icon": "data/ship_icons/cs01.png"
+  },
+  "cs02": {
+    "id": "cs02",
+    "name": "Antares Armored Freighter",
+    "info": "",
+    "idsName": "501256",
+    "idsInfo": "501257",
+    "type": "FREIGHTER",
+    "shipClass": 2,
+    "mass": 290,
+    "holdSize": 520,
+    "hitPts": 19000,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      54000.0,
+      54000.0,
+      104000.0
+    ],
+    "angularDrag": [
+      60000.0,
+      60000.0,
+      60000.0
+    ],
+    "rotationInertia": [
+      16800.0,
+      16800.0,
+      16800.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 30000.0,
+    "maxBankAngle": 15.0,
+    "handling": {
+      "turnRate": 1.03,
+      "agility": 0.65,
+      "acceleration": 0.85,
+      "brakeRate": 3.73,
+      "strafePower": 0.8,
+      "linearDrag": 1.0,
+      "bankFactor": 0.45
+    },
+    "turnRate": 1.03,
+    "firePower": 10,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shipscf20\\clanship02.cmp",
+    "modelBounds": {
+      "min": [
+        -8.5592,
+        -3.1769,
+        -11.1293
+      ],
+      "max": [
+        8.5592,
+        3.1769,
+        11.1293
+      ],
+      "radius": 13.0706,
+      "width": 17.1184,
+      "height": 6.3538,
+      "length": 22.2586
+    },
+    "icon": "data/ship_icons/cs02.png"
+  },
+  "cs03": {
+    "id": "cs03",
+    "name": "Dragonfly",
+    "info": "",
+    "idsName": "501264",
+    "idsInfo": "501265",
+    "type": "FIGHTER",
+    "shipClass": 1,
+    "mass": 90,
+    "holdSize": 40,
+    "hitPts": 6600,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      18000.0,
+      18000.0,
+      58000.0
+    ],
+    "angularDrag": [
+      15000.0,
+      15000.0,
+      35000.0
+    ],
+    "rotationInertia": [
+      2800.0,
+      2800.0,
+      1000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.21,
+      "agility": 1.68,
+      "acceleration": 2.47,
+      "brakeRate": 3.81,
+      "strafePower": 1.71,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.21,
+    "firePower": 10,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shipscf20\\clanship03.cmp",
+    "modelBounds": {
+      "min": [
+        -10.3758,
+        -2.116,
+        -8.4127
+      ],
+      "max": [
+        10.3758,
+        2.116,
+        8.4127
+      ],
+      "radius": 11.4681,
+      "width": 20.7516,
+      "height": 4.232,
+      "length": 16.8254
+    },
+    "icon": "data/ship_icons/cs03.png"
+  },
+  "cs_badanov": {
+    "id": "cs_badanov",
+    "name": "Destroyer 'Badanov'",
+    "info": "",
+    "idsName": "226953",
+    "idsInfo": "226954",
+    "type": "CAPITAL",
+    "shipClass": 6,
+    "mass": 15000,
+    "holdSize": 100,
+    "hitPts": 75300,
+    "linearDrag": 7680.0,
+    "steeringTorque": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "angularDrag": [
+      500000000000000.0,
+      500000000000000.0,
+      500000000000000.0
+    ],
+    "rotationInertia": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "nudgeForce": 1.0,
+    "strafeForce": 307200.0,
+    "maxBankAngle": 15.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 7680.0,
+      "bankFactor": 0.45
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\coalition\\CS_BADANOV.cmp",
+    "modelBounds": {
+      "min": [
+        -46.4798,
+        -62.4939,
+        -195.6656
+      ],
+      "max": [
+        46.4798,
+        62.4939,
+        195.6656
+      ],
+      "radius": 241.5785,
+      "width": 92.9596,
+      "height": 124.9878,
+      "length": 391.3312
+    },
+    "icon": "data/ship_icons/cs_badanov.png"
   },
   "csv": {
     "id": "csv",
@@ -4386,7 +8563,84 @@ const FL_SHIPS = {
     },
     "turnRate": 1.49,
     "firePower": 8,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\UTILITY\\CSV\\csv.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\UTILITY\\CSV\\csv.cmp",
+    "modelBounds": {
+      "min": [
+        -4.5106,
+        -5.5803,
+        -9.4726
+      ],
+      "max": [
+        4.4711,
+        5.5803,
+        9.606
+      ],
+      "radius": 13.5374,
+      "width": 9.0212,
+      "height": 11.1606,
+      "length": 19.212
+    },
+    "icon": "data/ship_icons/csv.png"
+  },
+  "czar": {
+    "id": "czar",
+    "name": "Carrier \"Czar\"",
+    "info": "",
+    "idsName": "480510",
+    "idsInfo": "480511",
+    "type": "CAPITAL",
+    "shipClass": 6,
+    "mass": 15000,
+    "holdSize": 165,
+    "hitPts": 80300,
+    "linearDrag": 7680.0,
+    "steeringTorque": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "angularDrag": [
+      500000000000000.0,
+      500000000000000.0,
+      500000000000000.0
+    ],
+    "rotationInertia": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "nudgeForce": 1.0,
+    "strafeForce": 307200.0,
+    "maxBankAngle": 15.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 7680.0,
+      "bankFactor": 0.45
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\coalition\\czar.cmp",
+    "modelBounds": {
+      "min": [
+        -84.5623,
+        -55.819,
+        -261.0624
+      ],
+      "max": [
+        84.5623,
+        55.819,
+        261.0624
+      ],
+      "radius": 275.734,
+      "width": 169.1246,
+      "height": 111.638,
+      "length": 522.1248
+    },
+    "icon": "data/ship_icons/czar.png"
   },
   "dangel": {
     "id": "dangel",
@@ -4429,7 +8683,252 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\dangel\\dangel.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\dangel\\dangel.cmp",
+    "modelBounds": {
+      "min": [
+        -8.1945,
+        -1.8798,
+        -8.9294
+      ],
+      "max": [
+        8.1945,
+        1.8798,
+        8.9294
+      ],
+      "radius": 10.226,
+      "width": 16.389,
+      "height": 3.7596,
+      "length": 17.8588
+    },
+    "icon": "data/ship_icons/dangel.png"
+  },
+  "dark_fighter": {
+    "id": "dark_fighter",
+    "name": "Nomad Interceptor",
+    "info": "",
+    "idsName": "253801",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 90,
+    "holdSize": 25,
+    "hitPts": 10000,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      55000.0,
+      55000.0,
+      48000.0
+    ],
+    "angularDrag": [
+      41000.0,
+      41000.0,
+      35000.0
+    ],
+    "rotationInertia": [
+      8400.0,
+      8400.0,
+      1000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 35.0,
+    "handling": {
+      "turnRate": 1.94,
+      "agility": 1.52,
+      "acceleration": 2.47,
+      "brakeRate": 4.19,
+      "strafePower": 1.71,
+      "linearDrag": 1.0,
+      "bankFactor": 1.0
+    },
+    "turnRate": 1.94,
+    "firePower": 10,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\NOMAD2\\NO2_ELITE\\no2_elite.cmp",
+    "modelBounds": {
+      "min": [
+        -5.0342,
+        -4.3735,
+        -10.837
+      ],
+      "max": [
+        5.0342,
+        4.3735,
+        10.837
+      ],
+      "radius": 11.6558,
+      "width": 10.0684,
+      "height": 8.747,
+      "length": 21.674
+    },
+    "icon": "data/ship_icons/dark_fighter.png"
+  },
+  "dark_fighterold": {
+    "id": "dark_fighterold",
+    "name": "Nomad Interceptor",
+    "info": "",
+    "idsName": "253801",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 90,
+    "holdSize": 25,
+    "hitPts": 10000,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      55000.0,
+      55000.0,
+      48000.0
+    ],
+    "angularDrag": [
+      41000.0,
+      41000.0,
+      35000.0
+    ],
+    "rotationInertia": [
+      8400.0,
+      8400.0,
+      1000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 35.0,
+    "handling": {
+      "turnRate": 1.94,
+      "agility": 1.52,
+      "acceleration": 2.47,
+      "brakeRate": 4.19,
+      "strafePower": 1.71,
+      "linearDrag": 1.0,
+      "bankFactor": 1.0
+    },
+    "turnRate": 1.94,
+    "firePower": 10,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\NOMAD\\NO_ELITE\\no_elite.3db",
+    "modelBounds": {
+      "min": [
+        -8.0514,
+        -6.9735,
+        -11.9453
+      ],
+      "max": [
+        8.0514,
+        6.9735,
+        11.9453
+      ],
+      "radius": 14.1553,
+      "width": 16.1028,
+      "height": 13.947,
+      "length": 23.8906
+    },
+    "icon": "data/ship_icons/dark_fighterold.png"
+  },
+  "debris_tosser_200": {
+    "id": "debris_tosser_200",
+    "name": "Patriot",
+    "info": "Statistik\nGeschütz-/Turmsockel: 4/0\nPanzerung: 1300\nFrachtraum: 25\nMax. Batterien/Nanobots: 12/12\nOptimale Waffenklasse: 2\nMax. Waffenklasse: 3\nZusätzliche Ausrüstung: M, GM, RFU",
+    "idsName": "237034",
+    "idsInfo": "66570",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 87,
+    "holdSize": 200,
+    "hitPts": 900,
+    "linearDrag": 7.42,
+    "steeringTorque": [
+      800.0,
+      800.0,
+      372.0
+    ],
+    "angularDrag": [
+      1250.0,
+      1250.0,
+      300.0
+    ],
+    "rotationInertia": [
+      571.770752,
+      573.764893,
+      74.587044
+    ],
+    "nudgeForce": 1900.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.01,
+      "agility": 1.3,
+      "acceleration": 1.36,
+      "brakeRate": 6.5,
+      "strafePower": 1.33,
+      "linearDrag": 7.42,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.01,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\LIBERTY\\LI_FIGHTER\\li_fighter.cmp",
+    "modelBounds": {
+      "min": [
+        -2.215,
+        -1.8279,
+        -6.3065
+      ],
+      "max": [
+        2.215,
+        1.8279,
+        6.3949
+      ],
+      "radius": 7.6687,
+      "width": 4.43,
+      "height": 3.6558,
+      "length": 12.7898
+    },
+    "icon": "data/ship_icons/debris_tosser_200.png"
+  },
+  "depot": {
+    "id": "depot",
+    "name": "depot",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SOLAR\\DOCKABLE\\depot_lod.cmp",
+    "modelBounds": {
+      "min": [
+        -83.9652,
+        -98.5849,
+        -54.3578
+      ],
+      "max": [
+        83.9652,
+        98.5849,
+        54.3578
+      ],
+      "radius": 136.4871,
+      "width": 167.9304,
+      "height": 197.1698,
+      "length": 108.7156
+    },
+    "icon": "data/ship_icons/depot.png"
   },
   "devastator": {
     "id": "devastator",
@@ -4472,7 +8971,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.77,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\devastator\\devastator.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\devastator\\devastator.cmp",
+    "modelBounds": {
+      "min": [
+        -5.1069,
+        -1.6797,
+        -9.3113
+      ],
+      "max": [
+        5.1069,
+        1.6797,
+        9.3113
+      ],
+      "radius": 9.9755,
+      "width": 10.2138,
+      "height": 3.3594,
+      "length": 18.6226
+    },
+    "icon": "data/ship_icons/devastator.png"
   },
   "devil": {
     "id": "devil",
@@ -4515,7 +9031,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.94,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\devil\\devil.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\devil\\devil.cmp",
+    "modelBounds": {
+      "min": [
+        -7.2662,
+        -2.0739,
+        -8.1413
+      ],
+      "max": [
+        7.2662,
+        2.0739,
+        8.1413
+      ],
+      "radius": 10.6567,
+      "width": 14.5324,
+      "height": 4.1478,
+      "length": 16.2826
+    },
+    "icon": "data/ship_icons/devil.png"
   },
   "devilray": {
     "id": "devilray",
@@ -4558,7 +9091,24 @@ const FL_SHIPS = {
     },
     "turnRate": 2.08,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\devilray\\devilray.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\devilray\\devilray.cmp",
+    "modelBounds": {
+      "min": [
+        -9.4813,
+        -5.7922,
+        -7.3824
+      ],
+      "max": [
+        9.4813,
+        5.7922,
+        7.3824
+      ],
+      "radius": 10.9204,
+      "width": 18.9626,
+      "height": 11.5844,
+      "length": 14.7648
+    },
+    "icon": "data/ship_icons/devilray.png"
   },
   "discoverere": {
     "id": "discoverere",
@@ -4601,7 +9151,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.71,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfdiscoverere.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfdiscoverere.cmp",
+    "modelBounds": {
+      "min": [
+        -8.8858,
+        -4.2231,
+        -8.6529
+      ],
+      "max": [
+        8.8858,
+        4.2231,
+        8.6529
+      ],
+      "radius": 9.5745,
+      "width": 17.7716,
+      "height": 8.4462,
+      "length": 17.3058
+    },
+    "icon": "data/ship_icons/discoverere.png"
   },
   "discovererh": {
     "id": "discovererh",
@@ -4644,7 +9211,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.76,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfdiscovererh.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfdiscovererh.cmp",
+    "modelBounds": {
+      "min": [
+        -7.7733,
+        -4.9637,
+        -8.6814
+      ],
+      "max": [
+        7.7733,
+        4.9637,
+        8.6814
+      ],
+      "radius": 10.5123,
+      "width": 15.5466,
+      "height": 9.9274,
+      "length": 17.3628
+    },
+    "icon": "data/ship_icons/discovererh.png"
   },
   "discovererr": {
     "id": "discovererr",
@@ -4687,7 +9271,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfdiscovererr.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfdiscovererr.cmp",
+    "modelBounds": {
+      "min": [
+        -8.6488,
+        -4.4184,
+        -8.7591
+      ],
+      "max": [
+        8.6488,
+        4.4184,
+        8.7591
+      ],
+      "radius": 10.9005,
+      "width": 17.2976,
+      "height": 8.8368,
+      "length": 17.5182
+    },
+    "icon": "data/ship_icons/discovererr.png"
   },
   "discoverers": {
     "id": "discoverers",
@@ -4730,7 +9331,2844 @@ const FL_SHIPS = {
     },
     "turnRate": 1.91,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfdiscoverers.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfdiscoverers.cmp",
+    "modelBounds": {
+      "min": [
+        -8.8924,
+        -4.368,
+        -8.6594
+      ],
+      "max": [
+        8.8924,
+        4.368,
+        8.6594
+      ],
+      "radius": 9.9154,
+      "width": 17.7848,
+      "height": 8.736,
+      "length": 17.3188
+    },
+    "icon": "data/ship_icons/discoverers.png"
+  },
+  "dk2battleship1": {
+    "id": "dk2battleship1",
+    "name": "dk2battleship1",
+    "info": "",
+    "idsName": "001134",
+    "idsInfo": "500293",
+    "type": "CAPITAL",
+    "shipClass": 0,
+    "mass": 15000,
+    "holdSize": 20800,
+    "hitPts": 669300,
+    "linearDrag": 7680.0,
+    "steeringTorque": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "angularDrag": [
+      500000000000000.0,
+      500000000000000.0,
+      500000000000000.0
+    ],
+    "rotationInertia": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "nudgeForce": 1.0,
+    "strafeForce": 307200.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 7680.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\DK2\\crossfire29.cmp",
+    "modelBounds": {
+      "min": [
+        -919.5327,
+        -827.6095,
+        -1877.2351
+      ],
+      "max": [
+        919.5327,
+        827.6095,
+        1877.2351
+      ],
+      "radius": 2090.3666,
+      "width": 1839.0654,
+      "height": 1655.219,
+      "length": 3754.4702
+    },
+    "icon": "data/ship_icons/dk2battleship1.png"
+  },
+  "dk2battleship2": {
+    "id": "dk2battleship2",
+    "name": "Mothership",
+    "info": "",
+    "idsName": "500292",
+    "idsInfo": "500293",
+    "type": "CAPITAL",
+    "shipClass": 0,
+    "mass": 15000,
+    "holdSize": 20800,
+    "hitPts": 669300,
+    "linearDrag": 7680.0,
+    "steeringTorque": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "angularDrag": [
+      500000000000000.0,
+      500000000000000.0,
+      500000000000000.0
+    ],
+    "rotationInertia": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "nudgeForce": 1.0,
+    "strafeForce": 307200.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 7680.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\DK2\\Crossfire34.cmp",
+    "modelBounds": {
+      "min": [
+        -541.5931,
+        -474.7698,
+        -407.489
+      ],
+      "max": [
+        541.5931,
+        474.7698,
+        407.489
+      ],
+      "radius": 565.7817,
+      "width": 1083.1862,
+      "height": 949.5396,
+      "length": 814.978
+    },
+    "icon": "data/ship_icons/dk2battleship2.png"
+  },
+  "dk2bomber1": {
+    "id": "dk2bomber1",
+    "name": "Bomber",
+    "info": "",
+    "idsName": "470863",
+    "idsInfo": "470864",
+    "type": "FIGHTER",
+    "shipClass": 3,
+    "mass": 190,
+    "holdSize": 500,
+    "hitPts": 25800,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      56000.0,
+      56000.0,
+      69000.0
+    ],
+    "angularDrag": [
+      42000.0,
+      42000.0,
+      45000.0
+    ],
+    "rotationInertia": [
+      8300.0,
+      8300.0,
+      1000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 1.75,
+      "agility": 1.26,
+      "acceleration": 1.17,
+      "brakeRate": 3.96,
+      "strafePower": 0.81,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 1.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\DK2\\cf18dk2bomber.cmp",
+    "modelBounds": {
+      "min": [
+        -14.4247,
+        -12.3271,
+        -17.0136
+      ],
+      "max": [
+        14.4247,
+        12.3271,
+        17.0136
+      ],
+      "radius": 29.8656,
+      "width": 28.8494,
+      "height": 24.6542,
+      "length": 34.0272
+    },
+    "icon": "data/ship_icons/dk2bomber1.png"
+  },
+  "dk2bomber2": {
+    "id": "dk2bomber2",
+    "name": "Bomber",
+    "info": "",
+    "idsName": "470863",
+    "idsInfo": "470864",
+    "type": "FIGHTER",
+    "shipClass": 3,
+    "mass": 200,
+    "holdSize": 500,
+    "hitPts": 25800,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      56000.0,
+      56000.0,
+      69000.0
+    ],
+    "angularDrag": [
+      42000.0,
+      42000.0,
+      45000.0
+    ],
+    "rotationInertia": [
+      8300.0,
+      8300.0,
+      1000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 1.73,
+      "agility": 1.24,
+      "acceleration": 1.11,
+      "brakeRate": 3.96,
+      "strafePower": 0.77,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 1.73,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\DK2\\cf18dk2bomber2.cmp",
+    "modelBounds": {
+      "min": [
+        -15.493,
+        -5.7849,
+        -19.8323
+      ],
+      "max": [
+        15.493,
+        5.7849,
+        19.8323
+      ],
+      "radius": 26.7921,
+      "width": 30.986,
+      "height": 11.5698,
+      "length": 39.6646
+    },
+    "icon": "data/ship_icons/dk2bomber2.png"
+  },
+  "dk2cruiser1": {
+    "id": "dk2cruiser1",
+    "name": "Cruiser",
+    "info": "",
+    "idsName": "500383",
+    "idsInfo": "500384",
+    "type": "GUNBOAT",
+    "shipClass": 3,
+    "mass": 500,
+    "holdSize": 1000,
+    "hitPts": 155800,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      9600.0,
+      9600.0,
+      9900.0
+    ],
+    "angularDrag": [
+      8200.0,
+      8200.0,
+      8500.0
+    ],
+    "rotationInertia": [
+      133000.0,
+      133000.0,
+      10000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.94,
+      "agility": 0.54,
+      "acceleration": 0.85,
+      "brakeRate": 4.58,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.94,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\DK2\\cf18ship35.cmp",
+    "modelBounds": {
+      "min": [
+        -36.6808,
+        -49.5712,
+        -124.817
+      ],
+      "max": [
+        36.6808,
+        49.5712,
+        124.817
+      ],
+      "radius": 127.3653,
+      "width": 73.3616,
+      "height": 99.1424,
+      "length": 249.634
+    },
+    "icon": "data/ship_icons/dk2cruiser1.png"
+  },
+  "dk2cruiser2": {
+    "id": "dk2cruiser2",
+    "name": "Cruiser",
+    "info": "",
+    "idsName": "500383",
+    "idsInfo": "500384",
+    "type": "GUNBOAT",
+    "shipClass": 3,
+    "mass": 500,
+    "holdSize": 1000,
+    "hitPts": 155800,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      9600.0,
+      9600.0,
+      9900.0
+    ],
+    "angularDrag": [
+      8200.0,
+      8200.0,
+      8500.0
+    ],
+    "rotationInertia": [
+      133000.0,
+      133000.0,
+      10000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.94,
+      "agility": 0.54,
+      "acceleration": 0.85,
+      "brakeRate": 4.58,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.94,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\DK2\\cf18ship37.cmp",
+    "modelBounds": {
+      "min": [
+        -68.1512,
+        -49.4408,
+        -154.0787
+      ],
+      "max": [
+        68.1512,
+        49.4408,
+        154.0787
+      ],
+      "radius": 156.9741,
+      "width": 136.3024,
+      "height": 98.8816,
+      "length": 308.1574
+    },
+    "icon": "data/ship_icons/dk2cruiser2.png"
+  },
+  "dk2cruiser3": {
+    "id": "dk2cruiser3",
+    "name": "Cruiser",
+    "info": "",
+    "idsName": "500383",
+    "idsInfo": "500384",
+    "type": "GUNBOAT",
+    "shipClass": 3,
+    "mass": 500,
+    "holdSize": 1000,
+    "hitPts": 155800,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      9600.0,
+      9600.0,
+      9900.0
+    ],
+    "angularDrag": [
+      8200.0,
+      8200.0,
+      8500.0
+    ],
+    "rotationInertia": [
+      133000.0,
+      133000.0,
+      10000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.94,
+      "agility": 0.54,
+      "acceleration": 0.85,
+      "brakeRate": 4.58,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.94,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\DK2\\cf18ship40.cmp",
+    "modelBounds": {
+      "min": [
+        -99.8274,
+        -118.385,
+        -199.2847
+      ],
+      "max": [
+        99.8274,
+        118.385,
+        199.2847
+      ],
+      "radius": 224.6244,
+      "width": 199.6548,
+      "height": 236.77,
+      "length": 398.5694
+    },
+    "icon": "data/ship_icons/dk2cruiser3.png"
+  },
+  "dk2gunboat": {
+    "id": "dk2gunboat",
+    "name": "Gunboat",
+    "info": "",
+    "idsName": "500300",
+    "idsInfo": "500301",
+    "type": "GUNBOAT",
+    "shipClass": 3,
+    "mass": 200,
+    "holdSize": 500,
+    "hitPts": 45800,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      56000.0,
+      56000.0,
+      69000.0
+    ],
+    "angularDrag": [
+      42000.0,
+      42000.0,
+      45000.0
+    ],
+    "rotationInertia": [
+      8300.0,
+      8300.0,
+      1000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 1.73,
+      "agility": 1.24,
+      "acceleration": 1.11,
+      "brakeRate": 3.96,
+      "strafePower": 0.77,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 1.73,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\DK2\\cf18dk2freighter.cmp",
+    "modelBounds": {
+      "min": [
+        -17.2898,
+        -16.2944,
+        -29.0462
+      ],
+      "max": [
+        17.2898,
+        16.2944,
+        29.0462
+      ],
+      "radius": 32.35,
+      "width": 34.5796,
+      "height": 32.5888,
+      "length": 58.0924
+    },
+    "icon": "data/ship_icons/dk2gunboat.png"
+  },
+  "dk2heavyfighter": {
+    "id": "dk2heavyfighter",
+    "name": "Heavy Fighter",
+    "info": "",
+    "idsName": "500296",
+    "idsInfo": "500297",
+    "type": "FIGHTER",
+    "shipClass": 3,
+    "mass": 100,
+    "holdSize": 120,
+    "hitPts": 9800,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      36000.0,
+      36000.0,
+      39000.0
+    ],
+    "angularDrag": [
+      22000.0,
+      22000.0,
+      25000.0
+    ],
+    "rotationInertia": [
+      5300.0,
+      5300.0,
+      1000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.06,
+      "agility": 1.7,
+      "acceleration": 2.22,
+      "brakeRate": 3.92,
+      "strafePower": 1.54,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.06,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\DK2\\cf18dk2fighter3.cmp",
+    "modelBounds": {
+      "min": [
+        -10.932,
+        -5.3276,
+        -15.9309
+      ],
+      "max": [
+        10.932,
+        5.3276,
+        15.9309
+      ],
+      "radius": 22.911,
+      "width": 21.864,
+      "height": 10.6552,
+      "length": 31.8618
+    },
+    "icon": "data/ship_icons/dk2heavyfighter.png"
+  },
+  "dk2lightfighter": {
+    "id": "dk2lightfighter",
+    "name": "Light Fighter",
+    "info": "",
+    "idsName": "500284",
+    "idsInfo": "500285",
+    "type": "FIGHTER",
+    "shipClass": 3,
+    "mass": 100,
+    "holdSize": 220,
+    "hitPts": 15300,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      56000.0,
+      56000.0,
+      49000.0
+    ],
+    "angularDrag": [
+      42000.0,
+      42000.0,
+      35000.0
+    ],
+    "rotationInertia": [
+      8300.0,
+      8300.0,
+      1000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 1.91,
+      "agility": 1.48,
+      "acceleration": 2.22,
+      "brakeRate": 4.14,
+      "strafePower": 1.54,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 1.91,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\DK2\\cf18dk2fighter.cmp",
+    "modelBounds": {
+      "min": [
+        -9.005,
+        -7.139,
+        -13.2671
+      ],
+      "max": [
+        9.005,
+        7.139,
+        13.2671
+      ],
+      "radius": 17.5189,
+      "width": 18.01,
+      "height": 14.278,
+      "length": 26.5342
+    },
+    "icon": "data/ship_icons/dk2lightfighter.png"
+  },
+  "dk2mediumfighter": {
+    "id": "dk2mediumfighter",
+    "name": "Medium Fighter",
+    "info": "",
+    "idsName": "500288",
+    "idsInfo": "500289",
+    "type": "FIGHTER",
+    "shipClass": 3,
+    "mass": 100,
+    "holdSize": 220,
+    "hitPts": 14800,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      36000.0,
+      36000.0,
+      39000.0
+    ],
+    "angularDrag": [
+      32000.0,
+      32000.0,
+      35000.0
+    ],
+    "rotationInertia": [
+      7300.0,
+      7300.0,
+      1000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 1.65,
+      "agility": 1.2,
+      "acceleration": 2.22,
+      "brakeRate": 4.69,
+      "strafePower": 1.54,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 1.65,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\DK2\\cf18dk2fighter2.cmp",
+    "modelBounds": {
+      "min": [
+        -13.1022,
+        -5.9914,
+        -14.2297
+      ],
+      "max": [
+        13.1022,
+        5.9914,
+        14.2297
+      ],
+      "radius": 15.1199,
+      "width": 26.2044,
+      "height": 11.9828,
+      "length": 28.4594
+    },
+    "icon": "data/ship_icons/dk2mediumfighter.png"
+  },
+  "dk3battleship": {
+    "id": "dk3battleship",
+    "name": "Mothership",
+    "info": "",
+    "idsName": "500292",
+    "idsInfo": "500293",
+    "type": "CAPITAL",
+    "shipClass": 0,
+    "mass": 15000,
+    "holdSize": 20800,
+    "hitPts": 669300,
+    "linearDrag": 7680.0,
+    "steeringTorque": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "angularDrag": [
+      500000000000000.0,
+      500000000000000.0,
+      500000000000000.0
+    ],
+    "rotationInertia": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "nudgeForce": 1.0,
+    "strafeForce": 307200.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 7680.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\DK3\\cf18ship20.cmp",
+    "modelBounds": {
+      "min": [
+        -969.2032,
+        -598.2571,
+        -2396.5276
+      ],
+      "max": [
+        969.2032,
+        598.2571,
+        2396.5276
+      ],
+      "radius": 2417.1468,
+      "width": 1938.4064,
+      "height": 1196.5142,
+      "length": 4793.0552
+    },
+    "icon": "data/ship_icons/dk3battleship.png"
+  },
+  "dk3cruiser1": {
+    "id": "dk3cruiser1",
+    "name": "Cruiser",
+    "info": "",
+    "idsName": "500383",
+    "idsInfo": "500384",
+    "type": "GUNBOAT",
+    "shipClass": 3,
+    "mass": 500,
+    "holdSize": 1000,
+    "hitPts": 155800,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      9600.0,
+      9600.0,
+      9900.0
+    ],
+    "angularDrag": [
+      8200.0,
+      8200.0,
+      8500.0
+    ],
+    "rotationInertia": [
+      133000.0,
+      133000.0,
+      10000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.94,
+      "agility": 0.54,
+      "acceleration": 0.85,
+      "brakeRate": 4.58,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.94,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\DK3\\cf18ship06.cmp",
+    "modelBounds": {
+      "min": [
+        -186.0231,
+        -137.6053,
+        -486.3812
+      ],
+      "max": [
+        186.0231,
+        137.6053,
+        486.3812
+      ],
+      "radius": 507.8629,
+      "width": 372.0462,
+      "height": 275.2106,
+      "length": 972.7624
+    },
+    "icon": "data/ship_icons/dk3cruiser1.png"
+  },
+  "dk3cruiser2": {
+    "id": "dk3cruiser2",
+    "name": "Cruiser",
+    "info": "",
+    "idsName": "500383",
+    "idsInfo": "500384",
+    "type": "GUNBOAT",
+    "shipClass": 3,
+    "mass": 500,
+    "holdSize": 1000,
+    "hitPts": 155800,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      9600.0,
+      9600.0,
+      9900.0
+    ],
+    "angularDrag": [
+      8200.0,
+      8200.0,
+      8500.0
+    ],
+    "rotationInertia": [
+      133000.0,
+      133000.0,
+      10000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.94,
+      "agility": 0.54,
+      "acceleration": 0.85,
+      "brakeRate": 4.58,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.94,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\DK3\\cf18ship13.cmp",
+    "modelBounds": {
+      "min": [
+        -144.0369,
+        -131.9275,
+        -399.2633
+      ],
+      "max": [
+        144.0369,
+        131.9275,
+        399.2633
+      ],
+      "radius": 461.7048,
+      "width": 288.0738,
+      "height": 263.855,
+      "length": 798.5266
+    },
+    "icon": "data/ship_icons/dk3cruiser2.png"
+  },
+  "dk3gunboat": {
+    "id": "dk3gunboat",
+    "name": "Gunboat",
+    "info": "",
+    "idsName": "500300",
+    "idsInfo": "500301",
+    "type": "GUNBOAT",
+    "shipClass": 3,
+    "mass": 200,
+    "holdSize": 500,
+    "hitPts": 45800,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      56000.0,
+      56000.0,
+      69000.0
+    ],
+    "angularDrag": [
+      42000.0,
+      42000.0,
+      45000.0
+    ],
+    "rotationInertia": [
+      8300.0,
+      8300.0,
+      1000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 1.73,
+      "agility": 1.24,
+      "acceleration": 1.11,
+      "brakeRate": 3.96,
+      "strafePower": 0.77,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 1.73,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\DK3\\cf18ship16.cmp",
+    "modelBounds": {
+      "min": [
+        -16.9468,
+        -8.274,
+        -39.8085
+      ],
+      "max": [
+        16.9468,
+        8.274,
+        39.8085
+      ],
+      "radius": 43.2135,
+      "width": 33.8936,
+      "height": 16.548,
+      "length": 79.617
+    },
+    "icon": "data/ship_icons/dk3gunboat.png"
+  },
+  "dk3heavyfighter": {
+    "id": "dk3heavyfighter",
+    "name": "Heavy Fighter",
+    "info": "",
+    "idsName": "500296",
+    "idsInfo": "500297",
+    "type": "FIGHTER",
+    "shipClass": 3,
+    "mass": 100,
+    "holdSize": 120,
+    "hitPts": 9800,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      36000.0,
+      36000.0,
+      39000.0
+    ],
+    "angularDrag": [
+      22000.0,
+      22000.0,
+      25000.0
+    ],
+    "rotationInertia": [
+      5300.0,
+      5300.0,
+      1000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.06,
+      "agility": 1.7,
+      "acceleration": 2.22,
+      "brakeRate": 3.92,
+      "strafePower": 1.54,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.06,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\DK3\\cf18ship24.cmp",
+    "modelBounds": {
+      "min": [
+        -16.3857,
+        -9.4379,
+        -23.3341
+      ],
+      "max": [
+        16.3857,
+        9.4379,
+        23.3341
+      ],
+      "radius": 27.7714,
+      "width": 32.7714,
+      "height": 18.8758,
+      "length": 46.6682
+    },
+    "icon": "data/ship_icons/dk3heavyfighter.png"
+  },
+  "dk3lightfighter": {
+    "id": "dk3lightfighter",
+    "name": "Light Fighter",
+    "info": "",
+    "idsName": "500284",
+    "idsInfo": "500285",
+    "type": "FIGHTER",
+    "shipClass": 3,
+    "mass": 100,
+    "holdSize": 220,
+    "hitPts": 15300,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      56000.0,
+      56000.0,
+      49000.0
+    ],
+    "angularDrag": [
+      42000.0,
+      42000.0,
+      35000.0
+    ],
+    "rotationInertia": [
+      8300.0,
+      8300.0,
+      1000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 1.91,
+      "agility": 1.48,
+      "acceleration": 2.22,
+      "brakeRate": 4.14,
+      "strafePower": 1.54,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 1.91,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\DK3\\cf18ship23.cmp",
+    "modelBounds": {
+      "min": [
+        -7.048,
+        -7.472,
+        -13.4125
+      ],
+      "max": [
+        7.048,
+        7.472,
+        13.4125
+      ],
+      "radius": 15.2506,
+      "width": 14.096,
+      "height": 14.944,
+      "length": 26.825
+    },
+    "icon": "data/ship_icons/dk3lightfighter.png"
+  },
+  "dk3mediumfighter": {
+    "id": "dk3mediumfighter",
+    "name": "Medium Fighter",
+    "info": "",
+    "idsName": "500288",
+    "idsInfo": "500289",
+    "type": "FIGHTER",
+    "shipClass": 3,
+    "mass": 100,
+    "holdSize": 220,
+    "hitPts": 14800,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      36000.0,
+      36000.0,
+      39000.0
+    ],
+    "angularDrag": [
+      32000.0,
+      32000.0,
+      35000.0
+    ],
+    "rotationInertia": [
+      7300.0,
+      7300.0,
+      1000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 1.65,
+      "agility": 1.2,
+      "acceleration": 2.22,
+      "brakeRate": 4.69,
+      "strafePower": 1.54,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 1.65,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\DK3\\cf18ship15.cmp",
+    "modelBounds": {
+      "min": [
+        -12.2384,
+        -7.2815,
+        -22.597
+      ],
+      "max": [
+        12.2384,
+        7.2815,
+        22.597
+      ],
+      "radius": 24.1282,
+      "width": 24.4768,
+      "height": 14.563,
+      "length": 45.194
+    },
+    "icon": "data/ship_icons/dk3mediumfighter.png"
+  },
+  "dk4battleship": {
+    "id": "dk4battleship",
+    "name": "dk4battleship",
+    "info": "",
+    "idsName": "001134",
+    "idsInfo": "500293",
+    "type": "CAPITAL",
+    "shipClass": 0,
+    "mass": 15000,
+    "holdSize": 20800,
+    "hitPts": 669300,
+    "linearDrag": 7680.0,
+    "steeringTorque": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "angularDrag": [
+      500000000000000.0,
+      500000000000000.0,
+      500000000000000.0
+    ],
+    "rotationInertia": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "nudgeForce": 1.0,
+    "strafeForce": 307200.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 7680.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\DK4\\cf18sfship05-6.cmp",
+    "modelBounds": {
+      "min": [
+        -854.9076,
+        -314.6869,
+        -996.4021
+      ],
+      "max": [
+        854.9076,
+        314.6869,
+        996.4021
+      ],
+      "radius": 1108.7006,
+      "width": 1709.8152,
+      "height": 629.3738,
+      "length": 1992.8042
+    },
+    "icon": "data/ship_icons/dk4battleship.png"
+  },
+  "dk4cruiser": {
+    "id": "dk4cruiser",
+    "name": "Cruiser",
+    "info": "",
+    "idsName": "500383",
+    "idsInfo": "500384",
+    "type": "GUNBOAT",
+    "shipClass": 3,
+    "mass": 500,
+    "holdSize": 1000,
+    "hitPts": 155800,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      9600.0,
+      9600.0,
+      9900.0
+    ],
+    "angularDrag": [
+      8200.0,
+      8200.0,
+      8500.0
+    ],
+    "rotationInertia": [
+      133000.0,
+      133000.0,
+      10000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.94,
+      "agility": 0.54,
+      "acceleration": 0.85,
+      "brakeRate": 4.58,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.94,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\DK4\\cf18sfship05.cmp",
+    "modelBounds": {
+      "min": [
+        -93.8995,
+        -62.9374,
+        -221.7442
+      ],
+      "max": [
+        93.8995,
+        62.9374,
+        221.7442
+      ],
+      "radius": 221.9839,
+      "width": 187.799,
+      "height": 125.8748,
+      "length": 443.4884
+    },
+    "icon": "data/ship_icons/dk4cruiser.png"
+  },
+  "dk4gunboat": {
+    "id": "dk4gunboat",
+    "name": "Gunboat",
+    "info": "",
+    "idsName": "500300",
+    "idsInfo": "500301",
+    "type": "GUNBOAT",
+    "shipClass": 3,
+    "mass": 200,
+    "holdSize": 500,
+    "hitPts": 45800,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      56000.0,
+      56000.0,
+      69000.0
+    ],
+    "angularDrag": [
+      42000.0,
+      42000.0,
+      45000.0
+    ],
+    "rotationInertia": [
+      8300.0,
+      8300.0,
+      1000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 1.73,
+      "agility": 1.24,
+      "acceleration": 1.11,
+      "brakeRate": 3.96,
+      "strafePower": 0.77,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 1.73,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\DK4\\cf18sfship05-2.cmp",
+    "modelBounds": {
+      "min": [
+        -36.333,
+        -11.4652,
+        -34.0047
+      ],
+      "max": [
+        36.333,
+        11.4652,
+        34.0047
+      ],
+      "radius": 44.348,
+      "width": 72.666,
+      "height": 22.9304,
+      "length": 68.0094
+    },
+    "icon": "data/ship_icons/dk4gunboat.png"
+  },
+  "dk4heavyfighter": {
+    "id": "dk4heavyfighter",
+    "name": "Heavy Fighter",
+    "info": "",
+    "idsName": "500296",
+    "idsInfo": "500297",
+    "type": "FIGHTER",
+    "shipClass": 3,
+    "mass": 100,
+    "holdSize": 120,
+    "hitPts": 9800,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      36000.0,
+      36000.0,
+      39000.0
+    ],
+    "angularDrag": [
+      22000.0,
+      22000.0,
+      25000.0
+    ],
+    "rotationInertia": [
+      5300.0,
+      5300.0,
+      1000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.06,
+      "agility": 1.7,
+      "acceleration": 2.22,
+      "brakeRate": 3.92,
+      "strafePower": 1.54,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.06,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\DK4\\cf18sfship05-4.cmp",
+    "modelBounds": {
+      "min": [
+        -20.8756,
+        -4.2113,
+        -20.2419
+      ],
+      "max": [
+        20.8756,
+        4.2113,
+        20.2419
+      ],
+      "radius": 21.3034,
+      "width": 41.7512,
+      "height": 8.4226,
+      "length": 40.4838
+    },
+    "icon": "data/ship_icons/dk4heavyfighter.png"
+  },
+  "dk4lightfighter": {
+    "id": "dk4lightfighter",
+    "name": "Light Fighter",
+    "info": "",
+    "idsName": "500284",
+    "idsInfo": "500285",
+    "type": "FIGHTER",
+    "shipClass": 3,
+    "mass": 100,
+    "holdSize": 220,
+    "hitPts": 15300,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      56000.0,
+      56000.0,
+      49000.0
+    ],
+    "angularDrag": [
+      42000.0,
+      42000.0,
+      35000.0
+    ],
+    "rotationInertia": [
+      8300.0,
+      8300.0,
+      1000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 1.91,
+      "agility": 1.48,
+      "acceleration": 2.22,
+      "brakeRate": 4.14,
+      "strafePower": 1.54,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 1.91,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\DK4\\cf18sfship05-5.cmp",
+    "modelBounds": {
+      "min": [
+        -7.6233,
+        -13.6295,
+        -7.1721
+      ],
+      "max": [
+        7.6233,
+        13.6295,
+        7.1721
+      ],
+      "radius": 15.7856,
+      "width": 15.2466,
+      "height": 27.259,
+      "length": 14.3442
+    },
+    "icon": "data/ship_icons/dk4lightfighter.png"
+  },
+  "dk4mediumfighter": {
+    "id": "dk4mediumfighter",
+    "name": "Medium Fighter",
+    "info": "",
+    "idsName": "500288",
+    "idsInfo": "500289",
+    "type": "FIGHTER",
+    "shipClass": 3,
+    "mass": 100,
+    "holdSize": 220,
+    "hitPts": 14800,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      36000.0,
+      36000.0,
+      39000.0
+    ],
+    "angularDrag": [
+      32000.0,
+      32000.0,
+      35000.0
+    ],
+    "rotationInertia": [
+      7300.0,
+      7300.0,
+      1000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 1.65,
+      "agility": 1.2,
+      "acceleration": 2.22,
+      "brakeRate": 4.69,
+      "strafePower": 1.54,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 1.65,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\DK4\\cf18sfship05-3.cmp",
+    "modelBounds": {
+      "min": [
+        -12.4494,
+        -3.511,
+        -20.2419
+      ],
+      "max": [
+        12.4494,
+        3.511,
+        20.2419
+      ],
+      "radius": 20.6308,
+      "width": 24.8988,
+      "height": 7.022,
+      "length": 40.4838
+    },
+    "icon": "data/ship_icons/dk4mediumfighter.png"
+  },
+  "dk5battleship": {
+    "id": "dk5battleship",
+    "name": "dk5battleship",
+    "info": "",
+    "idsName": "001134",
+    "idsInfo": "500293",
+    "type": "CAPITAL",
+    "shipClass": 0,
+    "mass": 15000,
+    "holdSize": 20800,
+    "hitPts": 669300,
+    "linearDrag": 7680.0,
+    "steeringTorque": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "angularDrag": [
+      500000000000000.0,
+      500000000000000.0,
+      500000000000000.0
+    ],
+    "rotationInertia": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "nudgeForce": 1.0,
+    "strafeForce": 307200.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 7680.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\DK5\\dk5battleship.cmp",
+    "modelBounds": {
+      "min": [
+        -407.041,
+        -692.6219,
+        -1308.5294
+      ],
+      "max": [
+        407.041,
+        692.6219,
+        1308.5294
+      ],
+      "radius": 1373.8469,
+      "width": 814.082,
+      "height": 1385.2438,
+      "length": 2617.0588
+    },
+    "icon": "data/ship_icons/dk5battleship.png"
+  },
+  "dk5cruiser": {
+    "id": "dk5cruiser",
+    "name": "Cruiser",
+    "info": "",
+    "idsName": "500383",
+    "idsInfo": "500384",
+    "type": "GUNBOAT",
+    "shipClass": 3,
+    "mass": 500,
+    "holdSize": 1000,
+    "hitPts": 155800,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      9600.0,
+      9600.0,
+      9900.0
+    ],
+    "angularDrag": [
+      8200.0,
+      8200.0,
+      8500.0
+    ],
+    "rotationInertia": [
+      133000.0,
+      133000.0,
+      10000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.94,
+      "agility": 0.54,
+      "acceleration": 0.85,
+      "brakeRate": 4.58,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.94,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\DK5\\dk5cruiser1.cmp",
+    "modelBounds": {
+      "min": [
+        -145.7401,
+        -91.1515,
+        -231.4509
+      ],
+      "max": [
+        145.7401,
+        91.1515,
+        231.4509
+      ],
+      "radius": 272.8919,
+      "width": 291.4802,
+      "height": 182.303,
+      "length": 462.9018
+    },
+    "icon": "data/ship_icons/dk5cruiser.png"
+  },
+  "dk5gunboat": {
+    "id": "dk5gunboat",
+    "name": "Gunboat",
+    "info": "",
+    "idsName": "500300",
+    "idsInfo": "500301",
+    "type": "GUNBOAT",
+    "shipClass": 3,
+    "mass": 200,
+    "holdSize": 500,
+    "hitPts": 45800,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      56000.0,
+      56000.0,
+      69000.0
+    ],
+    "angularDrag": [
+      42000.0,
+      42000.0,
+      45000.0
+    ],
+    "rotationInertia": [
+      8300.0,
+      8300.0,
+      1000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 1.73,
+      "agility": 1.24,
+      "acceleration": 1.11,
+      "brakeRate": 3.96,
+      "strafePower": 0.77,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 1.73,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\DK5\\dk5gunboat.cmp",
+    "modelBounds": {
+      "min": [
+        -17.5607,
+        -26.0946,
+        -45.2448
+      ],
+      "max": [
+        17.5607,
+        26.0946,
+        45.2448
+      ],
+      "radius": 47.1746,
+      "width": 35.1214,
+      "height": 52.1892,
+      "length": 90.4896
+    },
+    "icon": "data/ship_icons/dk5gunboat.png"
+  },
+  "dk5heavyfighter": {
+    "id": "dk5heavyfighter",
+    "name": "Heavy Fighter",
+    "info": "",
+    "idsName": "500296",
+    "idsInfo": "500297",
+    "type": "FIGHTER",
+    "shipClass": 3,
+    "mass": 100,
+    "holdSize": 120,
+    "hitPts": 9800,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      36000.0,
+      36000.0,
+      39000.0
+    ],
+    "angularDrag": [
+      22000.0,
+      22000.0,
+      25000.0
+    ],
+    "rotationInertia": [
+      5300.0,
+      5300.0,
+      1000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.06,
+      "agility": 1.7,
+      "acceleration": 2.22,
+      "brakeRate": 3.92,
+      "strafePower": 1.54,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.06,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\DK5\\dk5heavyfighter.cmp",
+    "modelBounds": {
+      "min": [
+        -13.7965,
+        -8.2391,
+        -20.2965
+      ],
+      "max": [
+        13.7965,
+        8.2391,
+        20.2965
+      ],
+      "radius": 23.309,
+      "width": 27.593,
+      "height": 16.4782,
+      "length": 40.593
+    },
+    "icon": "data/ship_icons/dk5heavyfighter.png"
+  },
+  "dk5lightfighter": {
+    "id": "dk5lightfighter",
+    "name": "Light Fighter",
+    "info": "",
+    "idsName": "500284",
+    "idsInfo": "500285",
+    "type": "FIGHTER",
+    "shipClass": 3,
+    "mass": 100,
+    "holdSize": 220,
+    "hitPts": 15300,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      56000.0,
+      56000.0,
+      49000.0
+    ],
+    "angularDrag": [
+      42000.0,
+      42000.0,
+      35000.0
+    ],
+    "rotationInertia": [
+      8300.0,
+      8300.0,
+      1000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 1.91,
+      "agility": 1.48,
+      "acceleration": 2.22,
+      "brakeRate": 4.14,
+      "strafePower": 1.54,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 1.91,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\DK5\\dk5lightfighter.cmp",
+    "modelBounds": {
+      "min": [
+        -5.7267,
+        -6.5086,
+        -15.2026
+      ],
+      "max": [
+        5.7267,
+        6.5086,
+        15.2026
+      ],
+      "radius": 17.7227,
+      "width": 11.4534,
+      "height": 13.0172,
+      "length": 30.4052
+    },
+    "icon": "data/ship_icons/dk5lightfighter.png"
+  },
+  "dk5mediumfighter": {
+    "id": "dk5mediumfighter",
+    "name": "Medium Fighter",
+    "info": "",
+    "idsName": "500288",
+    "idsInfo": "500289",
+    "type": "FIGHTER",
+    "shipClass": 3,
+    "mass": 100,
+    "holdSize": 220,
+    "hitPts": 14800,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      36000.0,
+      36000.0,
+      39000.0
+    ],
+    "angularDrag": [
+      32000.0,
+      32000.0,
+      35000.0
+    ],
+    "rotationInertia": [
+      7300.0,
+      7300.0,
+      1000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 1.65,
+      "agility": 1.2,
+      "acceleration": 2.22,
+      "brakeRate": 4.69,
+      "strafePower": 1.54,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 1.65,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\DK5\\dk5mediumfighter.cmp",
+    "modelBounds": {
+      "min": [
+        -4.4148,
+        -9.5262,
+        -15.3215
+      ],
+      "max": [
+        4.4148,
+        9.5262,
+        15.3215
+      ],
+      "radius": 23.8679,
+      "width": 8.8296,
+      "height": 19.0524,
+      "length": 30.643
+    },
+    "icon": "data/ship_icons/dk5mediumfighter.png"
+  },
+  "dk6battleship": {
+    "id": "dk6battleship",
+    "name": "Mothership",
+    "info": "",
+    "idsName": "500292",
+    "idsInfo": "500293",
+    "type": "CAPITAL",
+    "shipClass": 0,
+    "mass": 15000,
+    "holdSize": 20800,
+    "hitPts": 669300,
+    "linearDrag": 7680.0,
+    "steeringTorque": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "angularDrag": [
+      500000000000000.0,
+      500000000000000.0,
+      500000000000000.0
+    ],
+    "rotationInertia": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "nudgeForce": 1.0,
+    "strafeForce": 307200.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 7680.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\DK6\\cf18sfship18.cmp",
+    "modelBounds": {
+      "min": [
+        -828.5554,
+        -419.0697,
+        -617.4733
+      ],
+      "max": [
+        828.5554,
+        419.0697,
+        617.4733
+      ],
+      "radius": 963.2918,
+      "width": 1657.1108,
+      "height": 838.1394,
+      "length": 1234.9466
+    },
+    "icon": "data/ship_icons/dk6battleship.png"
+  },
+  "dk6cruiser": {
+    "id": "dk6cruiser",
+    "name": "Cruiser",
+    "info": "",
+    "idsName": "500383",
+    "idsInfo": "500384",
+    "type": "GUNBOAT",
+    "shipClass": 3,
+    "mass": 500,
+    "holdSize": 1000,
+    "hitPts": 155800,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      9600.0,
+      9600.0,
+      9900.0
+    ],
+    "angularDrag": [
+      8200.0,
+      8200.0,
+      8500.0
+    ],
+    "rotationInertia": [
+      133000.0,
+      133000.0,
+      10000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.94,
+      "agility": 0.54,
+      "acceleration": 0.85,
+      "brakeRate": 4.58,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.94,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\DK6\\cf18sfship20.cmp",
+    "modelBounds": {
+      "min": [
+        -212.3207,
+        -100.9795,
+        -101.6706
+      ],
+      "max": [
+        212.3207,
+        100.9795,
+        101.6706
+      ],
+      "radius": 225.5261,
+      "width": 424.6414,
+      "height": 201.959,
+      "length": 203.3412
+    },
+    "icon": "data/ship_icons/dk6cruiser.png"
+  },
+  "dk6gunboat": {
+    "id": "dk6gunboat",
+    "name": "Gunboat",
+    "info": "",
+    "idsName": "500300",
+    "idsInfo": "500301",
+    "type": "GUNBOAT",
+    "shipClass": 3,
+    "mass": 200,
+    "holdSize": 500,
+    "hitPts": 45800,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      56000.0,
+      56000.0,
+      69000.0
+    ],
+    "angularDrag": [
+      42000.0,
+      42000.0,
+      45000.0
+    ],
+    "rotationInertia": [
+      8300.0,
+      8300.0,
+      1000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 1.73,
+      "agility": 1.24,
+      "acceleration": 1.11,
+      "brakeRate": 3.96,
+      "strafePower": 0.77,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 1.73,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\DK6\\cf18sfship1801-3.cmp",
+    "modelBounds": {
+      "min": [
+        -34.8385,
+        -16.2773,
+        -28.7643
+      ],
+      "max": [
+        34.8385,
+        16.2773,
+        28.7643
+      ],
+      "radius": 35.2313,
+      "width": 69.677,
+      "height": 32.5546,
+      "length": 57.5286
+    },
+    "icon": "data/ship_icons/dk6gunboat.png"
+  },
+  "dk6heavyfighter": {
+    "id": "dk6heavyfighter",
+    "name": "Heavy Fighter",
+    "info": "",
+    "idsName": "500296",
+    "idsInfo": "500297",
+    "type": "FIGHTER",
+    "shipClass": 3,
+    "mass": 100,
+    "holdSize": 120,
+    "hitPts": 9800,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      36000.0,
+      36000.0,
+      39000.0
+    ],
+    "angularDrag": [
+      22000.0,
+      22000.0,
+      25000.0
+    ],
+    "rotationInertia": [
+      5300.0,
+      5300.0,
+      1000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.06,
+      "agility": 1.7,
+      "acceleration": 2.22,
+      "brakeRate": 3.92,
+      "strafePower": 1.54,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.06,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\DK6\\cf18sfship1801-2.cmp",
+    "modelBounds": {
+      "min": [
+        -7.3652,
+        -13.0945,
+        -23.1399
+      ],
+      "max": [
+        7.3652,
+        13.0945,
+        23.1399
+      ],
+      "radius": 25.8292,
+      "width": 14.7304,
+      "height": 26.189,
+      "length": 46.2798
+    },
+    "icon": "data/ship_icons/dk6heavyfighter.png"
+  },
+  "dk6lightfighter": {
+    "id": "dk6lightfighter",
+    "name": "Light Fighter",
+    "info": "",
+    "idsName": "500284",
+    "idsInfo": "500285",
+    "type": "FIGHTER",
+    "shipClass": 3,
+    "mass": 100,
+    "holdSize": 220,
+    "hitPts": 15300,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      56000.0,
+      56000.0,
+      49000.0
+    ],
+    "angularDrag": [
+      42000.0,
+      42000.0,
+      35000.0
+    ],
+    "rotationInertia": [
+      8300.0,
+      8300.0,
+      1000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 1.91,
+      "agility": 1.48,
+      "acceleration": 2.22,
+      "brakeRate": 4.14,
+      "strafePower": 1.54,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 1.91,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\DK6\\cf18sfship2001-2.cmp",
+    "modelBounds": {
+      "min": [
+        -11.2878,
+        -4.5763,
+        -12.9765
+      ],
+      "max": [
+        11.2878,
+        4.5763,
+        12.9765
+      ],
+      "radius": 16.6497,
+      "width": 22.5756,
+      "height": 9.1526,
+      "length": 25.953
+    },
+    "icon": "data/ship_icons/dk6lightfighter.png"
+  },
+  "dk6mediumfighter": {
+    "id": "dk6mediumfighter",
+    "name": "Medium Fighter",
+    "info": "",
+    "idsName": "500288",
+    "idsInfo": "500289",
+    "type": "FIGHTER",
+    "shipClass": 3,
+    "mass": 100,
+    "holdSize": 220,
+    "hitPts": 14800,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      36000.0,
+      36000.0,
+      39000.0
+    ],
+    "angularDrag": [
+      32000.0,
+      32000.0,
+      35000.0
+    ],
+    "rotationInertia": [
+      7300.0,
+      7300.0,
+      1000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 1.65,
+      "agility": 1.2,
+      "acceleration": 2.22,
+      "brakeRate": 4.69,
+      "strafePower": 1.54,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 1.65,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\DK6\\cf18sfship2001-3.cmp",
+    "modelBounds": {
+      "min": [
+        -12.2714,
+        -8.7947,
+        -16.8694
+      ],
+      "max": [
+        12.2714,
+        8.7947,
+        16.8694
+      ],
+      "radius": 21.6447,
+      "width": 24.5428,
+      "height": 17.5894,
+      "length": 33.7388
+    },
+    "icon": "data/ship_icons/dk6mediumfighter.png"
+  },
+  "dk7battleship": {
+    "id": "dk7battleship",
+    "name": "Mothership",
+    "info": "",
+    "idsName": "500292",
+    "idsInfo": "500293",
+    "type": "CAPITAL",
+    "shipClass": 0,
+    "mass": 15000,
+    "holdSize": 20800,
+    "hitPts": 669300,
+    "linearDrag": 7680.0,
+    "steeringTorque": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "angularDrag": [
+      500000000000000.0,
+      500000000000000.0,
+      500000000000000.0
+    ],
+    "rotationInertia": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "nudgeForce": 1.0,
+    "strafeForce": 307200.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 7680.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\DK7\\dk7Crossfire39.cmp",
+    "modelBounds": {
+      "min": [
+        -584.0429,
+        -391.4186,
+        -1372.2751
+      ],
+      "max": [
+        584.0429,
+        391.4186,
+        1372.2751
+      ],
+      "radius": 1533.8775,
+      "width": 1168.0858,
+      "height": 782.8372,
+      "length": 2744.5502
+    },
+    "icon": "data/ship_icons/dk7battleship.png"
+  },
+  "dk7cruiser1": {
+    "id": "dk7cruiser1",
+    "name": "Cruiser",
+    "info": "",
+    "idsName": "500383",
+    "idsInfo": "500384",
+    "type": "GUNBOAT",
+    "shipClass": 3,
+    "mass": 500,
+    "holdSize": 1000,
+    "hitPts": 155800,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      9600.0,
+      9600.0,
+      9900.0
+    ],
+    "angularDrag": [
+      8200.0,
+      8200.0,
+      8500.0
+    ],
+    "rotationInertia": [
+      133000.0,
+      133000.0,
+      10000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.94,
+      "agility": 0.54,
+      "acceleration": 0.85,
+      "brakeRate": 4.58,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.94,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\DK7\\dk7Crossfire28.cmp",
+    "modelBounds": {
+      "min": [
+        -166.2419,
+        -87.2457,
+        -346.5179
+      ],
+      "max": [
+        166.2419,
+        87.2457,
+        346.5179
+      ],
+      "radius": 350.5357,
+      "width": 332.4838,
+      "height": 174.4914,
+      "length": 693.0358
+    },
+    "icon": "data/ship_icons/dk7cruiser1.png"
+  },
+  "dk7cruiser2": {
+    "id": "dk7cruiser2",
+    "name": "Cruiser",
+    "info": "",
+    "idsName": "500383",
+    "idsInfo": "500384",
+    "type": "GUNBOAT",
+    "shipClass": 3,
+    "mass": 500,
+    "holdSize": 1000,
+    "hitPts": 155800,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      9600.0,
+      9600.0,
+      9900.0
+    ],
+    "angularDrag": [
+      8200.0,
+      8200.0,
+      8500.0
+    ],
+    "rotationInertia": [
+      133000.0,
+      133000.0,
+      10000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.94,
+      "agility": 0.54,
+      "acceleration": 0.85,
+      "brakeRate": 4.58,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.94,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\DK7\\dk7Crossfire36.cmp",
+    "modelBounds": {
+      "min": [
+        -128.4679,
+        -87.8236,
+        -217.7177
+      ],
+      "max": [
+        128.4679,
+        87.8236,
+        217.7177
+      ],
+      "radius": 244.9321,
+      "width": 256.9358,
+      "height": 175.6472,
+      "length": 435.4354
+    },
+    "icon": "data/ship_icons/dk7cruiser2.png"
+  },
+  "dk7gunboat": {
+    "id": "dk7gunboat",
+    "name": "Gunboat",
+    "info": "",
+    "idsName": "500300",
+    "idsInfo": "500301",
+    "type": "GUNBOAT",
+    "shipClass": 3,
+    "mass": 200,
+    "holdSize": 500,
+    "hitPts": 45800,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      56000.0,
+      56000.0,
+      69000.0
+    ],
+    "angularDrag": [
+      42000.0,
+      42000.0,
+      45000.0
+    ],
+    "rotationInertia": [
+      8300.0,
+      8300.0,
+      1000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 1.73,
+      "agility": 1.24,
+      "acceleration": 1.11,
+      "brakeRate": 3.96,
+      "strafePower": 0.77,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 1.73,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\DK7\\dk7Crossfire38.cmp",
+    "modelBounds": {
+      "min": [
+        -21.3088,
+        -8.8967,
+        -34.1549
+      ],
+      "max": [
+        21.3088,
+        8.8967,
+        34.1549
+      ],
+      "radius": 37.9904,
+      "width": 42.6176,
+      "height": 17.7934,
+      "length": 68.3098
+    },
+    "icon": "data/ship_icons/dk7gunboat.png"
+  },
+  "dk7heavyfighter": {
+    "id": "dk7heavyfighter",
+    "name": "Heavy Fighter",
+    "info": "",
+    "idsName": "500296",
+    "idsInfo": "500297",
+    "type": "FIGHTER",
+    "shipClass": 3,
+    "mass": 100,
+    "holdSize": 120,
+    "hitPts": 9800,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      36000.0,
+      36000.0,
+      39000.0
+    ],
+    "angularDrag": [
+      22000.0,
+      22000.0,
+      25000.0
+    ],
+    "rotationInertia": [
+      5300.0,
+      5300.0,
+      1000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.06,
+      "agility": 1.7,
+      "acceleration": 2.22,
+      "brakeRate": 3.92,
+      "strafePower": 1.54,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.06,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\DK7\\dk7Crossfire33.cmp",
+    "modelBounds": {
+      "min": [
+        -18.6993,
+        -3.9301,
+        -20.6477
+      ],
+      "max": [
+        18.6993,
+        3.9301,
+        20.6477
+      ],
+      "radius": 23.9975,
+      "width": 37.3986,
+      "height": 7.8602,
+      "length": 41.2954
+    },
+    "icon": "data/ship_icons/dk7heavyfighter.png"
+  },
+  "dk7lightfighter": {
+    "id": "dk7lightfighter",
+    "name": "Light Fighter",
+    "info": "",
+    "idsName": "500284",
+    "idsInfo": "500285",
+    "type": "FIGHTER",
+    "shipClass": 3,
+    "mass": 100,
+    "holdSize": 220,
+    "hitPts": 15300,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      56000.0,
+      56000.0,
+      49000.0
+    ],
+    "angularDrag": [
+      42000.0,
+      42000.0,
+      35000.0
+    ],
+    "rotationInertia": [
+      8300.0,
+      8300.0,
+      1000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 1.91,
+      "agility": 1.48,
+      "acceleration": 2.22,
+      "brakeRate": 4.14,
+      "strafePower": 1.54,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 1.91,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\DK7\\dk7Crossfire32.cmp",
+    "modelBounds": {
+      "min": [
+        -10.0329,
+        -6.4075,
+        -8.9957
+      ],
+      "max": [
+        10.0329,
+        6.4075,
+        8.9957
+      ],
+      "radius": 12.2836,
+      "width": 20.0658,
+      "height": 12.815,
+      "length": 17.9914
+    },
+    "icon": "data/ship_icons/dk7lightfighter.png"
+  },
+  "dk7mediumfighter": {
+    "id": "dk7mediumfighter",
+    "name": "Medium Fighter",
+    "info": "",
+    "idsName": "500288",
+    "idsInfo": "500289",
+    "type": "FIGHTER",
+    "shipClass": 3,
+    "mass": 100,
+    "holdSize": 220,
+    "hitPts": 14800,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      36000.0,
+      36000.0,
+      39000.0
+    ],
+    "angularDrag": [
+      32000.0,
+      32000.0,
+      35000.0
+    ],
+    "rotationInertia": [
+      7300.0,
+      7300.0,
+      1000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 1.65,
+      "agility": 1.2,
+      "acceleration": 2.22,
+      "brakeRate": 4.69,
+      "strafePower": 1.54,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 1.65,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\DK7\\dk7fighter1.cmp",
+    "modelBounds": {
+      "min": [
+        -17.6568,
+        -4.085,
+        -12.3871
+      ],
+      "max": [
+        17.6568,
+        4.085,
+        12.3871
+      ],
+      "radius": 19.4592,
+      "width": 35.3136,
+      "height": 8.17,
+      "length": 24.7742
+    },
+    "icon": "data/ship_icons/dk7mediumfighter.png"
+  },
+  "dk8battleship": {
+    "id": "dk8battleship",
+    "name": "Nomad Lich",
+    "info": "",
+    "idsName": "470972",
+    "idsInfo": "500293",
+    "type": "CAPITAL",
+    "shipClass": 0,
+    "mass": 15000,
+    "holdSize": 20800,
+    "hitPts": 269300,
+    "linearDrag": 7680.0,
+    "steeringTorque": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "angularDrag": [
+      500000000000000.0,
+      500000000000000.0,
+      500000000000000.0
+    ],
+    "rotationInertia": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "nudgeForce": 1.0,
+    "strafeForce": 307200.0,
+    "maxBankAngle": 180.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 7680.0,
+      "bankFactor": 1.25
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\NOMAD2\\NO2_CRUISER\\no2_cruiser.cmp",
+    "modelBounds": {
+      "min": [
+        -41.1109,
+        -35.6637,
+        -109.451
+      ],
+      "max": [
+        41.1109,
+        35.6637,
+        109.451
+      ],
+      "radius": 118.6275,
+      "width": 82.2218,
+      "height": 71.3274,
+      "length": 218.902
+    },
+    "icon": "data/ship_icons/dk8battleship.png"
+  },
+  "dk8battleshipold": {
+    "id": "dk8battleshipold",
+    "name": "Nomad Lich",
+    "info": "",
+    "idsName": "470972",
+    "idsInfo": "500293",
+    "type": "CAPITAL",
+    "shipClass": 0,
+    "mass": 15000,
+    "holdSize": 20800,
+    "hitPts": 269300,
+    "linearDrag": 7680.0,
+    "steeringTorque": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "angularDrag": [
+      500000000000000.0,
+      500000000000000.0,
+      500000000000000.0
+    ],
+    "rotationInertia": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "nudgeForce": 1.0,
+    "strafeForce": 307200.0,
+    "maxBankAngle": 180.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 7680.0,
+      "bankFactor": 1.25
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\DK8\\cf18sfship33.cmp",
+    "modelBounds": {
+      "min": [
+        -404.2683,
+        -353.4181,
+        -733.388
+      ],
+      "max": [
+        404.2683,
+        353.4181,
+        733.388
+      ],
+      "radius": 836.0783,
+      "width": 808.5366,
+      "height": 706.8362,
+      "length": 1466.776
+    },
+    "icon": "data/ship_icons/dk8battleshipold.png"
+  },
+  "dk8cruiser": {
+    "id": "dk8cruiser",
+    "name": "Nomad Haunt",
+    "info": "",
+    "idsName": "470974",
+    "idsInfo": "500384",
+    "type": "GUNBOAT",
+    "shipClass": 3,
+    "mass": 15000,
+    "holdSize": 1000,
+    "hitPts": 155800,
+    "linearDrag": 7680.0,
+    "steeringTorque": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "angularDrag": [
+      500000000000000.0,
+      500000000000000.0,
+      500000000000000.0
+    ],
+    "rotationInertia": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "nudgeForce": 1.0,
+    "strafeForce": 307200.0,
+    "maxBankAngle": 180.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 7680.0,
+      "bankFactor": 1.25
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\NOMAD2\\NO2_GUNBOAT\\no2_gunboat.cmp",
+    "modelBounds": {
+      "min": [
+        -14.2444,
+        -13.5608,
+        -50.7477
+      ],
+      "max": [
+        14.2444,
+        13.5608,
+        50.7477
+      ],
+      "radius": 52.1637,
+      "width": 28.4888,
+      "height": 27.1216,
+      "length": 101.4954
+    },
+    "icon": "data/ship_icons/dk8cruiser.png"
+  },
+  "dk8cruiserold": {
+    "id": "dk8cruiserold",
+    "name": "Nomad Haunt",
+    "info": "",
+    "idsName": "470974",
+    "idsInfo": "500384",
+    "type": "GUNBOAT",
+    "shipClass": 3,
+    "mass": 15000,
+    "holdSize": 1000,
+    "hitPts": 155800,
+    "linearDrag": 7680.0,
+    "steeringTorque": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "angularDrag": [
+      500000000000000.0,
+      500000000000000.0,
+      500000000000000.0
+    ],
+    "rotationInertia": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "nudgeForce": 1.0,
+    "strafeForce": 307200.0,
+    "maxBankAngle": 180.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 7680.0,
+      "bankFactor": 1.25
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\DK8\\cf18sfship32.cmp",
+    "modelBounds": {
+      "min": [
+        -75.2726,
+        -109.9653,
+        -98.0943
+      ],
+      "max": [
+        75.2726,
+        109.9653,
+        98.0943
+      ],
+      "radius": 132.6469,
+      "width": 150.5452,
+      "height": 219.9306,
+      "length": 196.1886
+    },
+    "icon": "data/ship_icons/dk8cruiserold.png"
   },
   "dolphin": {
     "id": "dolphin",
@@ -4773,7 +12211,444 @@ const FL_SHIPS = {
     },
     "turnRate": 1.68,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\dolphin\\dolphin.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\dolphin\\dolphin.cmp",
+    "modelBounds": {
+      "min": [
+        -11.9066,
+        -3.9605,
+        -7.4203
+      ],
+      "max": [
+        11.9066,
+        3.9605,
+        7.4203
+      ],
+      "radius": 13.777,
+      "width": 23.8132,
+      "height": 7.921,
+      "length": 14.8406
+    },
+    "icon": "data/ship_icons/dolphin.png"
+  },
+  "dom_beleth": {
+    "id": "dom_beleth",
+    "name": "Bomber",
+    "info": "",
+    "idsName": "470863",
+    "idsInfo": "470864",
+    "type": "FIGHTER",
+    "shipClass": 3,
+    "mass": 200,
+    "holdSize": 500,
+    "hitPts": 25800,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      56000.0,
+      56000.0,
+      69000.0
+    ],
+    "angularDrag": [
+      42000.0,
+      42000.0,
+      45000.0
+    ],
+    "rotationInertia": [
+      8300.0,
+      8300.0,
+      1000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 1.73,
+      "agility": 1.24,
+      "acceleration": 1.11,
+      "brakeRate": 3.96,
+      "strafePower": 0.77,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 1.73,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\DK1\\beleth.cmp",
+    "modelBounds": {
+      "min": [
+        -26.9212,
+        -13.5483,
+        -15.9113
+      ],
+      "max": [
+        26.9212,
+        13.5483,
+        15.9113
+      ],
+      "radius": 30.0805,
+      "width": 53.8424,
+      "height": 27.0966,
+      "length": 31.8226
+    },
+    "icon": "data/ship_icons/dom_beleth.png"
+  },
+  "dom_death": {
+    "id": "dom_death",
+    "name": "Light Fighter",
+    "info": "",
+    "idsName": "500284",
+    "idsInfo": "500285",
+    "type": "FIGHTER",
+    "shipClass": 3,
+    "mass": 100,
+    "holdSize": 220,
+    "hitPts": 15300,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      56000.0,
+      56000.0,
+      49000.0
+    ],
+    "angularDrag": [
+      42000.0,
+      42000.0,
+      35000.0
+    ],
+    "rotationInertia": [
+      8300.0,
+      8300.0,
+      1000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 1.91,
+      "agility": 1.48,
+      "acceleration": 2.22,
+      "brakeRate": 4.14,
+      "strafePower": 1.54,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 1.91,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\DK1\\belair.cmp",
+    "modelBounds": {
+      "min": [
+        -8.7897,
+        -9.5498,
+        -16.9174
+      ],
+      "max": [
+        8.7897,
+        9.5498,
+        16.9174
+      ],
+      "radius": 19.7689,
+      "width": 17.5794,
+      "height": 19.0996,
+      "length": 33.8348
+    },
+    "icon": "data/ship_icons/dom_death.png"
+  },
+  "dom_doomsday": {
+    "id": "dom_doomsday",
+    "name": "Medium Fighter",
+    "info": "",
+    "idsName": "500288",
+    "idsInfo": "500289",
+    "type": "FIGHTER",
+    "shipClass": 3,
+    "mass": 100,
+    "holdSize": 220,
+    "hitPts": 14800,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      36000.0,
+      36000.0,
+      39000.0
+    ],
+    "angularDrag": [
+      32000.0,
+      32000.0,
+      35000.0
+    ],
+    "rotationInertia": [
+      7300.0,
+      7300.0,
+      1000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 1.65,
+      "agility": 1.2,
+      "acceleration": 2.22,
+      "brakeRate": 4.69,
+      "strafePower": 1.54,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 1.65,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\DK1\\diablos.cmp",
+    "modelBounds": {
+      "min": [
+        -8.4324,
+        -8.5683,
+        -24.14
+      ],
+      "max": [
+        8.4324,
+        8.5683,
+        24.14
+      ],
+      "radius": 24.6719,
+      "width": 16.8648,
+      "height": 17.1366,
+      "length": 48.28
+    },
+    "icon": "data/ship_icons/dom_doomsday.png"
+  },
+  "dom_dreadnought": {
+    "id": "dom_dreadnought",
+    "name": "Mothership",
+    "info": "",
+    "idsName": "500292",
+    "idsInfo": "500293",
+    "type": "CAPITAL",
+    "shipClass": 0,
+    "mass": 15000,
+    "holdSize": 20800,
+    "hitPts": 669300,
+    "linearDrag": 7680.0,
+    "steeringTorque": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "angularDrag": [
+      500000000000000.0,
+      500000000000000.0,
+      500000000000000.0
+    ],
+    "rotationInertia": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "nudgeForce": 1.0,
+    "strafeForce": 307200.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 7680.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\DK1\\mephistopheles.cmp",
+    "modelBounds": {
+      "min": [
+        -1984.9703,
+        -633.6092,
+        -1596.3552
+      ],
+      "max": [
+        1984.9703,
+        633.6092,
+        1596.3552
+      ],
+      "radius": 2071.5616,
+      "width": 3969.9406,
+      "height": 1267.2184,
+      "length": 3192.7104
+    },
+    "icon": "data/ship_icons/dom_dreadnought.png"
+  },
+  "dom_kraken": {
+    "id": "dom_kraken",
+    "name": "Cruiser",
+    "info": "",
+    "idsName": "500383",
+    "idsInfo": "500384",
+    "type": "GUNBOAT",
+    "shipClass": 3,
+    "mass": 500,
+    "holdSize": 1000,
+    "hitPts": 155800,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      9600.0,
+      9600.0,
+      9900.0
+    ],
+    "angularDrag": [
+      8200.0,
+      8200.0,
+      8500.0
+    ],
+    "rotationInertia": [
+      133000.0,
+      133000.0,
+      10000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.94,
+      "agility": 0.54,
+      "acceleration": 0.85,
+      "brakeRate": 4.58,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.94,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\DK1\\kraken.cmp",
+    "modelBounds": {
+      "min": [
+        -119.6786,
+        -145.1296,
+        -262.5622
+      ],
+      "max": [
+        119.6786,
+        145.1296,
+        262.5622
+      ],
+      "radius": 370.3969,
+      "width": 239.3572,
+      "height": 290.2592,
+      "length": 525.1244
+    },
+    "icon": "data/ship_icons/dom_kraken.png"
+  },
+  "dom_manta": {
+    "id": "dom_manta",
+    "name": "Heavy Fighter",
+    "info": "",
+    "idsName": "500296",
+    "idsInfo": "500297",
+    "type": "FIGHTER",
+    "shipClass": 3,
+    "mass": 100,
+    "holdSize": 120,
+    "hitPts": 9800,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      36000.0,
+      36000.0,
+      39000.0
+    ],
+    "angularDrag": [
+      22000.0,
+      22000.0,
+      25000.0
+    ],
+    "rotationInertia": [
+      5300.0,
+      5300.0,
+      1000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.06,
+      "agility": 1.7,
+      "acceleration": 2.22,
+      "brakeRate": 3.92,
+      "strafePower": 1.54,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.06,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\DK1\\doomsday.cmp",
+    "modelBounds": {
+      "min": [
+        -23.5537,
+        -8.9663,
+        -32.593
+      ],
+      "max": [
+        23.5537,
+        8.9663,
+        32.593
+      ],
+      "radius": 46.6217,
+      "width": 47.1074,
+      "height": 17.9326,
+      "length": 65.186
+    },
+    "icon": "data/ship_icons/dom_manta.png"
+  },
+  "dom_razhid": {
+    "id": "dom_razhid",
+    "name": "Gunboat",
+    "info": "",
+    "idsName": "500300",
+    "idsInfo": "500301",
+    "type": "FIGHTER",
+    "shipClass": 3,
+    "mass": 200,
+    "holdSize": 500,
+    "hitPts": 45800,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      56000.0,
+      56000.0,
+      69000.0
+    ],
+    "angularDrag": [
+      42000.0,
+      42000.0,
+      45000.0
+    ],
+    "rotationInertia": [
+      8300.0,
+      8300.0,
+      1000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 1.73,
+      "agility": 1.24,
+      "acceleration": 1.11,
+      "brakeRate": 3.96,
+      "strafePower": 0.77,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 1.73,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\DomKavash\\razhid.cmp",
+    "modelBounds": {
+      "min": [
+        -23.8136,
+        -20.1752,
+        -69.361
+      ],
+      "max": [
+        23.8136,
+        20.1752,
+        69.361
+      ],
+      "radius": 119.8174,
+      "width": 47.6272,
+      "height": 40.3504,
+      "length": 138.722
+    },
+    "icon": "data/ship_icons/dom_razhid.png"
   },
   "draconji": {
     "id": "draconji",
@@ -4816,7 +12691,24 @@ const FL_SHIPS = {
     },
     "turnRate": 2.04,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\draconji\\draconji.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\draconji\\draconji.cmp",
+    "modelBounds": {
+      "min": [
+        -5.9102,
+        -4.7748,
+        -9.1363
+      ],
+      "max": [
+        5.9102,
+        4.7748,
+        9.1363
+      ],
+      "radius": 10.8941,
+      "width": 11.8204,
+      "height": 9.5496,
+      "length": 18.2726
+    },
+    "icon": "data/ship_icons/draconji.png"
   },
   "drizzt": {
     "id": "drizzt",
@@ -4859,7 +12751,24 @@ const FL_SHIPS = {
     },
     "turnRate": 2.08,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\drizzt\\drizzt.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\drizzt\\drizzt.cmp",
+    "modelBounds": {
+      "min": [
+        -15.9108,
+        -3.4363,
+        -12.6913
+      ],
+      "max": [
+        15.9108,
+        3.4363,
+        12.6913
+      ],
+      "radius": 17.0011,
+      "width": 31.8216,
+      "height": 6.8726,
+      "length": 25.3826
+    },
+    "icon": "data/ship_icons/drizzt.png"
   },
   "edefender": {
     "id": "edefender",
@@ -4902,7 +12811,24 @@ const FL_SHIPS = {
     },
     "turnRate": 2.04,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\edefender\\edefender.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\edefender\\edefender.cmp",
+    "modelBounds": {
+      "min": [
+        -10.1703,
+        -4.5214,
+        -8.1254
+      ],
+      "max": [
+        10.1703,
+        4.5214,
+        8.1254
+      ],
+      "radius": 12.3245,
+      "width": 20.3406,
+      "height": 9.0428,
+      "length": 16.2508
+    },
+    "icon": "data/ship_icons/edefender.png"
   },
   "elder": {
     "id": "elder",
@@ -4945,7 +12871,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\elder\\elder.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\elder\\elder.cmp",
+    "modelBounds": {
+      "min": [
+        -14.456,
+        -3.9093,
+        -16.0543
+      ],
+      "max": [
+        14.456,
+        3.9093,
+        16.0543
+      ],
+      "radius": 17.9452,
+      "width": 28.912,
+      "height": 7.8186,
+      "length": 32.1086
+    },
+    "icon": "data/ship_icons/elder.png"
   },
   "eliminator": {
     "id": "eliminator",
@@ -4988,7 +12931,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.35,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\eliminator\\eliminator.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\eliminator\\eliminator.cmp",
+    "modelBounds": {
+      "min": [
+        -12.2484,
+        -1.5282,
+        -10.0767
+      ],
+      "max": [
+        12.2484,
+        1.5282,
+        10.0767
+      ],
+      "radius": 13.894,
+      "width": 24.4968,
+      "height": 3.0564,
+      "length": 20.1534
+    },
+    "icon": "data/ship_icons/eliminator.png"
   },
   "enfilade": {
     "id": "enfilade",
@@ -5031,7 +12991,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.13,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\enfilade\\enfilade.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\enfilade\\enfilade.cmp",
+    "modelBounds": {
+      "min": [
+        -8.5748,
+        -5.2588,
+        -11.5159
+      ],
+      "max": [
+        8.5748,
+        5.2588,
+        11.5159
+      ],
+      "radius": 13.0665,
+      "width": 17.1496,
+      "height": 10.5176,
+      "length": 23.0318
+    },
+    "icon": "data/ship_icons/enfilade.png"
   },
   "es_rgrk": {
     "id": "es_rgrk",
@@ -5074,7 +13051,24 @@ const FL_SHIPS = {
     },
     "turnRate": 2.41,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\ESTHAR\\ragnarok.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\ESTHAR\\ragnarok.cmp",
+    "modelBounds": {
+      "min": [
+        -13.3018,
+        -7.2743,
+        -14.7163
+      ],
+      "max": [
+        13.3018,
+        7.2743,
+        14.7163
+      ],
+      "radius": 21.1658,
+      "width": 26.6036,
+      "height": 14.5486,
+      "length": 29.4326
+    },
+    "icon": "data/ship_icons/es_rgrk.png"
   },
   "evileye": {
     "id": "evileye",
@@ -5117,7 +13111,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\EvilEye_patrol.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\EvilEye_patrol.cmp",
+    "modelBounds": {
+      "min": [
+        -4.5605,
+        -4.4545,
+        -10.7224
+      ],
+      "max": [
+        4.5605,
+        4.4545,
+        10.7224
+      ],
+      "radius": 13.7937,
+      "width": 9.121,
+      "height": 8.909,
+      "length": 21.4448
+    },
+    "icon": "data/ship_icons/evileye.png"
   },
   "exocet": {
     "id": "exocet",
@@ -5160,7 +13171,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.51,
     "firePower": 9,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\exocet\\exocet.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\exocet\\exocet.cmp",
+    "modelBounds": {
+      "min": [
+        -6.1467,
+        -2.2718,
+        -11.5834
+      ],
+      "max": [
+        6.1467,
+        2.2718,
+        11.5834
+      ],
+      "radius": 13.2053,
+      "width": 12.2934,
+      "height": 4.5436,
+      "length": 23.1668
+    },
+    "icon": "data/ship_icons/exocet.png"
   },
   "f190": {
     "id": "f190",
@@ -5203,7 +13231,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.64,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\Dagger\\dagger.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\Dagger\\dagger.cmp",
+    "modelBounds": {
+      "min": [
+        -6.9973,
+        -2.8327,
+        -8.0015
+      ],
+      "max": [
+        6.9973,
+        2.8327,
+        8.0015
+      ],
+      "radius": 9.9663,
+      "width": 13.9946,
+      "height": 5.6654,
+      "length": 16.003
+    },
+    "icon": "data/ship_icons/f190.png"
   },
   "falconp": {
     "id": "falconp",
@@ -5246,7 +13291,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.81,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cffalconp.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cffalconp.cmp",
+    "modelBounds": {
+      "min": [
+        -8.0602,
+        -5.4228,
+        -19.1159
+      ],
+      "max": [
+        8.0602,
+        5.4228,
+        19.1159
+      ],
+      "radius": 27.2858,
+      "width": 16.1204,
+      "height": 10.8456,
+      "length": 38.2318
+    },
+    "icon": "data/ship_icons/falconp.png"
   },
   "falconr": {
     "id": "falconr",
@@ -5289,7 +13351,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.98,
     "firePower": 6,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cffalconr.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cffalconr.cmp",
+    "modelBounds": {
+      "min": [
+        -7.3275,
+        -4.9298,
+        -17.3781
+      ],
+      "max": [
+        7.3275,
+        4.9298,
+        17.3781
+      ],
+      "radius": 24.8052,
+      "width": 14.655,
+      "height": 9.8596,
+      "length": 34.7562
+    },
+    "icon": "data/ship_icons/falconr.png"
   },
   "falcons": {
     "id": "falcons",
@@ -5332,7 +13411,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cffalcons.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cffalcons.cmp",
+    "modelBounds": {
+      "min": [
+        -6.712,
+        -7.1025,
+        -17.8671
+      ],
+      "max": [
+        6.712,
+        7.1025,
+        17.8671
+      ],
+      "radius": 25.7239,
+      "width": 13.424,
+      "height": 14.205,
+      "length": 35.7342
+    },
+    "icon": "data/ship_icons/falcons.png"
   },
   "freedomx": {
     "id": "freedomx",
@@ -5375,7 +13471,84 @@ const FL_SHIPS = {
     },
     "turnRate": 1.74,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\freedom\\freedomx.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\freedom\\freedomx.cmp",
+    "modelBounds": {
+      "min": [
+        -8.3769,
+        -2.8195,
+        -8.6394
+      ],
+      "max": [
+        8.3769,
+        2.8195,
+        8.6394
+      ],
+      "radius": 10.7813,
+      "width": 16.7538,
+      "height": 5.639,
+      "length": 17.2788
+    },
+    "icon": "data/ship_icons/freedomx.png"
+  },
+  "frship_battleship": {
+    "id": "frship_battleship",
+    "name": "Renaissance Battleship",
+    "info": "",
+    "idsName": "501840",
+    "idsInfo": "501841",
+    "type": "CAPITAL",
+    "shipClass": 6,
+    "mass": 15000,
+    "holdSize": 165,
+    "hitPts": 81300,
+    "linearDrag": 7680.0,
+    "steeringTorque": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "angularDrag": [
+      500000000000000.0,
+      500000000000000.0,
+      500000000000000.0
+    ],
+    "rotationInertia": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "nudgeForce": 1.0,
+    "strafeForce": 307200.0,
+    "maxBankAngle": 15.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 7680.0,
+      "bankFactor": 0.45
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\french\\frbattleship.cmp",
+    "modelBounds": {
+      "min": [
+        -51.1794,
+        -36.9592,
+        -180.5401
+      ],
+      "max": [
+        51.1794,
+        36.9592,
+        180.5401
+      ],
+      "radius": 196.9607,
+      "width": 102.3588,
+      "height": 73.9184,
+      "length": 361.0802
+    },
+    "icon": "data/ship_icons/frship_battleship.png"
   },
   "frship_fighter1": {
     "id": "frship_fighter1",
@@ -5418,7 +13591,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\french\\frfighter1.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\french\\frfighter1.cmp",
+    "modelBounds": {
+      "min": [
+        -6.0644,
+        -2.5976,
+        -12.2825
+      ],
+      "max": [
+        6.0644,
+        2.5976,
+        12.2825
+      ],
+      "radius": 12.7456,
+      "width": 12.1288,
+      "height": 5.1952,
+      "length": 24.565
+    },
+    "icon": "data/ship_icons/frship_fighter1.png"
   },
   "frship_fighter2": {
     "id": "frship_fighter2",
@@ -5461,7 +13651,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.64,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\french\\frfighter2.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\french\\frfighter2.cmp",
+    "modelBounds": {
+      "min": [
+        -6.9331,
+        -1.7393,
+        -12.9065
+      ],
+      "max": [
+        6.9331,
+        1.7393,
+        12.9065
+      ],
+      "radius": 16.7462,
+      "width": 13.8662,
+      "height": 3.4786,
+      "length": 25.813
+    },
+    "icon": "data/ship_icons/frship_fighter2.png"
   },
   "frship_fighter3": {
     "id": "frship_fighter3",
@@ -5504,7 +13711,264 @@ const FL_SHIPS = {
     },
     "turnRate": 1.13,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\french\\frfighter3.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\french\\frfighter3.cmp",
+    "modelBounds": {
+      "min": [
+        -7.9097,
+        -1.8913,
+        -12.3098
+      ],
+      "max": [
+        7.9097,
+        1.8913,
+        12.3098
+      ],
+      "radius": 15.7577,
+      "width": 15.8194,
+      "height": 3.7826,
+      "length": 24.6196
+    },
+    "icon": "data/ship_icons/frship_fighter3.png"
+  },
+  "frship_transport": {
+    "id": "frship_transport",
+    "name": "Transporter 'Floréal'",
+    "info": "",
+    "idsName": "501844",
+    "idsInfo": "501845",
+    "type": "TRANSPORT",
+    "shipClass": 0,
+    "mass": 500,
+    "holdSize": 900,
+    "hitPts": 20300,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      700000.0,
+      700000.0,
+      300000.0
+    ],
+    "angularDrag": [
+      2500000.0,
+      2500000.0,
+      2500000.0
+    ],
+    "rotationInertia": [
+      1200000.0,
+      1200000.0,
+      1200000.0
+    ],
+    "nudgeForce": 150000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 2.22,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\french\\frtransport.cmp",
+    "modelBounds": {
+      "min": [
+        -34.5014,
+        -25.6967,
+        -92.836
+      ],
+      "max": [
+        34.5014,
+        25.6967,
+        92.836
+      ],
+      "radius": 102.4616,
+      "width": 69.0028,
+      "height": 51.3934,
+      "length": 185.672
+    },
+    "icon": "data/ship_icons/frship_transport.png"
+  },
+  "ge_armored": {
+    "id": "ge_armored",
+    "name": "Armored Transport",
+    "info": "Gepanzerter Transporter\nWird normalerweise verwendet, um Waren und Personal (üblicherweise VIPs) zu kommerziellen und militärischen Stützpunkten zu bringen.",
+    "idsName": "237001",
+    "idsInfo": "66493",
+    "type": "TRANSPORT",
+    "shipClass": 0,
+    "mass": 500,
+    "holdSize": 750,
+    "hitPts": 2600,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      50000.0,
+      50000.0,
+      50000.0
+    ],
+    "angularDrag": [
+      100000.0,
+      100000.0,
+      100000.0
+    ],
+    "rotationInertia": [
+      60000.0,
+      60000.0,
+      60000.0
+    ],
+    "nudgeForce": 150000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 2.22,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\UTILITY\\TRANSPORT_ARMORED\\transport_armored.cmp",
+    "modelBounds": {
+      "min": [
+        -11.1973,
+        -6.1952,
+        -18.0275
+      ],
+      "max": [
+        11.1963,
+        6.1952,
+        18.0275
+      ],
+      "radius": 21.7376,
+      "width": 22.3946,
+      "height": 12.3904,
+      "length": 36.055
+    },
+    "icon": "data/ship_icons/ge_armored.png"
+  },
+  "ge_armored_nobay": {
+    "id": "ge_armored_nobay",
+    "name": "Armored Transport",
+    "info": "Gepanzerter Transporter\nWird normalerweise verwendet, um Waren und Personal (üblicherweise VIPs) zu kommerziellen und militärischen Stützpunkten zu bringen.",
+    "idsName": "237001",
+    "idsInfo": "66493",
+    "type": "TRANSPORT",
+    "shipClass": 0,
+    "mass": 4000,
+    "holdSize": 750,
+    "hitPts": 10000,
+    "linearDrag": 20000.0,
+    "steeringTorque": [
+      5000000.0,
+      5000000.0,
+      5000000.0
+    ],
+    "angularDrag": [
+      100000.0,
+      100000.0,
+      100000.0
+    ],
+    "rotationInertia": [
+      60000.0,
+      60000.0,
+      60000.0
+    ],
+    "nudgeForce": 300000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 3.35,
+      "agility": 3.25,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 20000.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 3.35,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\UTILITY\\TRANSPORT_ARMORED\\transport_armored_nobay.3db",
+    "modelBounds": {
+      "min": [
+        -11.1973,
+        -6.1952,
+        -18.0275
+      ],
+      "max": [
+        11.1963,
+        6.1952,
+        18.0275
+      ],
+      "radius": 21.7376,
+      "width": 22.3946,
+      "height": 12.3904,
+      "length": 36.055
+    },
+    "icon": "data/ship_icons/ge_armored_nobay.png"
+  },
+  "ge_csv": {
+    "id": "ge_csv",
+    "name": "CSV",
+    "info": "Gefechtsbergungsfahrzeug (GBF)\nDas Gefechtsbergungsfahrzeug wird nur von den Schrotties und den Hogosha verwendet. Es stellt normalerweise keine große Bedrohung dar und wird hauptsächlich zur Suche nach Bergegut eingesetzt.",
+    "idsName": "237023",
+    "idsInfo": "66551",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 140,
+    "holdSize": 500,
+    "hitPts": 3200,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      33000.0,
+      33000.0,
+      230000.0
+    ],
+    "angularDrag": [
+      41000.0,
+      41000.0,
+      141000.0
+    ],
+    "rotationInertia": [
+      8400.0,
+      8400.0,
+      8400.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 1.52,
+      "agility": 1.01,
+      "acceleration": 1.59,
+      "brakeRate": 3.84,
+      "strafePower": 0.82,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 1.52,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\UTILITY\\CSV\\csv.cmp",
+    "modelBounds": {
+      "min": [
+        -4.5106,
+        -5.5803,
+        -9.4726
+      ],
+      "max": [
+        4.4711,
+        5.5803,
+        9.606
+      ],
+      "radius": 13.5374,
+      "width": 9.0212,
+      "height": 11.1606,
+      "length": 19.212
+    },
+    "icon": "data/ship_icons/ge_csv.png"
   },
   "ge_fighter": {
     "id": "ge_fighter",
@@ -5547,7 +14011,24 @@ const FL_SHIPS = {
     },
     "turnRate": 2.21,
     "firePower": 3,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CIVILIAN\\CV_STARFLIER\\cv_starflier.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CIVILIAN\\CV_STARFLIER\\cv_starflier.cmp",
+    "modelBounds": {
+      "min": [
+        -5.2956,
+        -3.7773,
+        -6.8863
+      ],
+      "max": [
+        5.2956,
+        3.6514,
+        6.3817
+      ],
+      "radius": 10.9867,
+      "width": 10.5912,
+      "height": 7.5546,
+      "length": 13.7726
+    },
+    "icon": "data/ship_icons/ge_fighter.png"
   },
   "ge_fighter2": {
     "id": "ge_fighter2",
@@ -5590,7 +14071,24 @@ const FL_SHIPS = {
     },
     "turnRate": 2.21,
     "firePower": 4,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CIVILIAN\\CV_STARTRACKER\\cv_startracker.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CIVILIAN\\CV_STARTRACKER\\cv_startracker.cmp",
+    "modelBounds": {
+      "min": [
+        -5.2956,
+        -3.9496,
+        -6.8863
+      ],
+      "max": [
+        5.2956,
+        3.8202,
+        6.3817
+      ],
+      "radius": 10.9867,
+      "width": 10.5912,
+      "height": 7.8992,
+      "length": 13.7726
+    },
+    "icon": "data/ship_icons/ge_fighter2.png"
   },
   "ge_fighter3": {
     "id": "ge_fighter3",
@@ -5633,7 +14131,24 @@ const FL_SHIPS = {
     },
     "turnRate": 2.21,
     "firePower": 5,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CIVILIAN\\CV_STARBLAZER\\cv_starblazer.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CIVILIAN\\CV_STARBLAZER\\cv_starblazer.cmp",
+    "modelBounds": {
+      "min": [
+        -5.2956,
+        -4.9871,
+        -6.8863
+      ],
+      "max": [
+        5.2956,
+        4.8577,
+        6.3817
+      ],
+      "radius": 10.9867,
+      "width": 10.5912,
+      "height": 9.9742,
+      "length": 13.7726
+    },
+    "icon": "data/ship_icons/ge_fighter3.png"
   },
   "ge_fighter4": {
     "id": "ge_fighter4",
@@ -5676,7 +14191,24 @@ const FL_SHIPS = {
     },
     "turnRate": 2.21,
     "firePower": 6,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CIVILIAN\\CV_FIGHTER\\cv_fighter.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CIVILIAN\\CV_FIGHTER\\cv_fighter.cmp",
+    "modelBounds": {
+      "min": [
+        -9.9747,
+        -2.2882,
+        -7.5902
+      ],
+      "max": [
+        9.9734,
+        2.2882,
+        7.5902
+      ],
+      "radius": 10.3485,
+      "width": 19.9494,
+      "height": 4.5764,
+      "length": 15.1804
+    },
+    "icon": "data/ship_icons/ge_fighter4.png"
   },
   "ge_fighter5": {
     "id": "ge_fighter5",
@@ -5719,7 +14251,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 8,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CIVILIAN\\CV_ELITE\\cv_elite.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CIVILIAN\\CV_ELITE\\cv_elite.cmp",
+    "modelBounds": {
+      "min": [
+        -9.9747,
+        -4.1122,
+        -7.5902
+      ],
+      "max": [
+        9.9734,
+        4.1122,
+        7.5902
+      ],
+      "radius": 10.3485,
+      "width": 19.9494,
+      "height": 8.2244,
+      "length": 15.1804
+    },
+    "icon": "data/ship_icons/ge_fighter5.png"
   },
   "ge_fighter6": {
     "id": "ge_fighter6",
@@ -5762,7 +14311,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CIVILIAN\\CV_VHEAVY_FIGHTER\\cv_vheavy_fighter.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CIVILIAN\\CV_VHEAVY_FIGHTER\\cv_vheavy_fighter.cmp",
+    "modelBounds": {
+      "min": [
+        -9.9747,
+        -4.1966,
+        -8.6859
+      ],
+      "max": [
+        9.9734,
+        4.1966,
+        8.6857
+      ],
+      "radius": 11.5836,
+      "width": 19.9494,
+      "height": 8.3932,
+      "length": 17.3718
+    },
+    "icon": "data/ship_icons/ge_fighter6.png"
   },
   "ge_fighter7": {
     "id": "ge_fighter7",
@@ -5805,7 +14371,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.31,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\LIBERTY\\LI_ELITE2\\li_elite2.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\LIBERTY\\LI_ELITE2\\li_elite2.cmp",
+    "modelBounds": {
+      "min": [
+        -6.9542,
+        -4.8911,
+        -7.7956
+      ],
+      "max": [
+        6.9542,
+        4.8911,
+        7.7956
+      ],
+      "radius": 10.492,
+      "width": 13.9084,
+      "height": 9.7822,
+      "length": 15.5912
+    },
+    "icon": "data/ship_icons/ge_fighter7.png"
   },
   "ge_fighter8": {
     "id": "ge_fighter8",
@@ -5848,7 +14431,684 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CIVILIAN\\CV_VHEAVY_FIGHTER\\cv_vheavy_fighter2.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CIVILIAN\\CV_VHEAVY_FIGHTER\\cv_vheavy_fighter2.cmp",
+    "modelBounds": {
+      "min": [
+        -9.9747,
+        -4.1966,
+        -8.6859
+      ],
+      "max": [
+        9.9734,
+        4.1966,
+        8.6857
+      ],
+      "radius": 11.5836,
+      "width": 19.9494,
+      "height": 8.3932,
+      "length": 17.3718
+    },
+    "icon": "data/ship_icons/ge_fighter8.png"
+  },
+  "ge_large_train": {
+    "id": "ge_large_train",
+    "name": "Large Train",
+    "info": "Großer Zug\nWie der Name andeutet, wurde diese Schiffsklasse von Unternehmen und ihren Holding-Gesellschaften entwickelt, um irrwitzige Mengen von Frachtgut zu transportieren.",
+    "idsName": "237056",
+    "idsInfo": "66610",
+    "type": "TRANSPORT",
+    "shipClass": 0,
+    "mass": 1000,
+    "holdSize": 2500,
+    "hitPts": 10500,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      190000.0,
+      190000.0,
+      90000.0
+    ],
+    "angularDrag": [
+      900000.0,
+      900000.0,
+      900000.0
+    ],
+    "rotationInertia": [
+      600000.0,
+      600000.0,
+      600000.0
+    ],
+    "nudgeForce": 150000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 1.11,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\UTILITY\\FREIGHT_TRAIN\\freight_trainx3.3db",
+    "modelBounds": {
+      "min": [
+        -25.1787,
+        -16.3909,
+        -100.7455
+      ],
+      "max": [
+        25.1787,
+        16.3909,
+        100.7455
+      ],
+      "radius": 106.2038,
+      "width": 50.3574,
+      "height": 32.7818,
+      "length": 201.491
+    },
+    "icon": "data/ship_icons/ge_large_train.png"
+  },
+  "ge_large_trainstory": {
+    "id": "ge_large_trainstory",
+    "name": "Large Train",
+    "info": "Großer Zug\nWie der Name andeutet, wurde diese Schiffsklasse von Unternehmen und ihren Holding-Gesellschaften entwickelt, um irrwitzige Mengen von Frachtgut zu transportieren.",
+    "idsName": "237056",
+    "idsInfo": "66610",
+    "type": "TRANSPORT",
+    "shipClass": 0,
+    "mass": 1000,
+    "holdSize": 2500,
+    "hitPts": 10500,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      190000.0,
+      190000.0,
+      90000.0
+    ],
+    "angularDrag": [
+      900000.0,
+      900000.0,
+      900000.0
+    ],
+    "rotationInertia": [
+      600000.0,
+      600000.0,
+      600000.0
+    ],
+    "nudgeForce": 150000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 1.11,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\UTILITY\\FREIGHT_TRAIN\\freight_trainx3story.3db",
+    "modelBounds": {
+      "min": [
+        -25.1787,
+        -16.3909,
+        -100.7455
+      ],
+      "max": [
+        25.1787,
+        16.3909,
+        100.7455
+      ],
+      "radius": 106.2038,
+      "width": 50.3574,
+      "height": 32.7818,
+      "length": 201.491
+    },
+    "icon": "data/ship_icons/ge_large_trainstory.png"
+  },
+  "ge_large_transport": {
+    "id": "ge_large_transport",
+    "name": "Large Transport",
+    "info": "Großer Transporter\nNachdem Bodenschätze gefunden wurden und die äußeren Siedlungen Fuß gefasst hatten, wurde diese Schiffsklasse entwickelt, um diese Interessen besser auszuschöpfen und zu unterstützen.",
+    "idsName": "237058",
+    "idsInfo": "66612",
+    "type": "TRANSPORT",
+    "shipClass": 0,
+    "mass": 1000,
+    "holdSize": 1500,
+    "hitPts": 3000,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      1000000.0,
+      1000000.0,
+      500000.0
+    ],
+    "angularDrag": [
+      5000000.0,
+      5000000.0,
+      5000000.0
+    ],
+    "rotationInertia": [
+      2424000.0,
+      2424000.0,
+      2424000.0
+    ],
+    "nudgeForce": 150000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 1.11,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\UTILITY\\TRANSPORT_LARGE\\transport_large.cmp",
+    "modelBounds": {
+      "min": [
+        -14.6101,
+        -13.7661,
+        -94.1813
+      ],
+      "max": [
+        14.6101,
+        13.7661,
+        90.4203
+      ],
+      "radius": 97.2765,
+      "width": 29.2202,
+      "height": 27.5322,
+      "length": 188.3626
+    },
+    "icon": "data/ship_icons/ge_large_transport.png"
+  },
+  "ge_lifter": {
+    "id": "ge_lifter",
+    "name": "Heavy Lifter",
+    "info": "Trägerraumschiff\nDie Packesel der Unternehmen. Diese Schiffe werden normalerweise zum Transport von Gütern aller Art zwischen Transportern, Frachtzügen und Stützpunkten eingesetzt.",
+    "idsName": "237024",
+    "idsInfo": "66552",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 1000,
+    "holdSize": 600,
+    "hitPts": 1600,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      25000.0,
+      25000.0,
+      25000.0
+    ],
+    "angularDrag": [
+      100000.0,
+      100000.0,
+      100000.0
+    ],
+    "rotationInertia": [
+      48000.0,
+      48000.0,
+      48000.0
+    ],
+    "nudgeForce": 100000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\UTILITY\\HEAVY_LIFTER\\heavy_lifter.cmp",
+    "modelBounds": {
+      "min": [
+        -39.5247,
+        -20.6138,
+        -40.364
+      ],
+      "max": [
+        39.5247,
+        20.6208,
+        40.364
+      ],
+      "radius": 48.6021,
+      "width": 79.0494,
+      "height": 41.2416,
+      "length": 80.728
+    },
+    "icon": "data/ship_icons/ge_lifter.png"
+  },
+  "ge_liner": {
+    "id": "ge_liner",
+    "name": "Luxury Liner",
+    "info": "Luxusliner\nWie der Name vermuten lässt, wurde diese Schiffsklasse in erster Linie für den gehobenen Geschmack und die Vergnügungen der gut Betuchten entwickelt.",
+    "idsName": "237036",
+    "idsInfo": "66576",
+    "type": "CAPITAL",
+    "shipClass": 0,
+    "mass": 5000,
+    "holdSize": 600,
+    "hitPts": 69300,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      20000000.0,
+      20000000.0,
+      20000000.0
+    ],
+    "angularDrag": [
+      132000000.0,
+      132000000.0,
+      132000000.0
+    ],
+    "rotationInertia": [
+      40000000.0,
+      40000000.0,
+      40000000.0
+    ],
+    "nudgeForce": 360000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\UTILITY\\LUXURY_LINER\\luxury_liner.cmp",
+    "modelBounds": {
+      "min": [
+        -35.9134,
+        -34.213,
+        -180.3884
+      ],
+      "max": [
+        35.9136,
+        34.213,
+        180.3376
+      ],
+      "radius": 227.1928,
+      "width": 71.8272,
+      "height": 68.426,
+      "length": 360.7768
+    },
+    "icon": "data/ship_icons/ge_liner.png"
+  },
+  "ge_linercf": {
+    "id": "ge_linercf",
+    "name": "Luxury Liner",
+    "info": "Luxusliner\nWie der Name vermuten lässt, wurde diese Schiffsklasse in erster Linie für den gehobenen Geschmack und die Vergnügungen der gut Betuchten entwickelt.",
+    "idsName": "237036",
+    "idsInfo": "66576",
+    "type": "CAPITAL",
+    "shipClass": 0,
+    "mass": 1000,
+    "holdSize": 500,
+    "hitPts": 69300,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      20000000.0,
+      20000000.0,
+      20000000.0
+    ],
+    "angularDrag": [
+      132000000.0,
+      132000000.0,
+      132000000.0
+    ],
+    "rotationInertia": [
+      40000000.0,
+      40000000.0,
+      40000000.0
+    ],
+    "nudgeForce": 36000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\UTILITY\\LUXURY_LINER\\luxury_liner.cmp",
+    "modelBounds": {
+      "min": [
+        -35.9134,
+        -34.213,
+        -180.3884
+      ],
+      "max": [
+        35.9136,
+        34.213,
+        180.3376
+      ],
+      "radius": 227.1928,
+      "width": 71.8272,
+      "height": 68.426,
+      "length": 360.7768
+    },
+    "icon": "data/ship_icons/ge_linercf.png"
+  },
+  "ge_miner": {
+    "id": "ge_miner",
+    "name": "Mining Ship",
+    "info": "Abbauschiff\nDie Bergbauunternehmen und ihre Holding-Gesellschaften entwickelten diese Schiffsklasse, um Erz und andere wertvolle Mineralien aus Fels und Eis abzubauen.",
+    "idsName": "237037",
+    "idsInfo": "66577",
+    "type": "MINING",
+    "shipClass": 0,
+    "mass": 50000,
+    "holdSize": 600,
+    "hitPts": 43300,
+    "linearDrag": 10000.0,
+    "steeringTorque": [
+      9100000.0,
+      9100000.0,
+      9100000.0
+    ],
+    "angularDrag": [
+      40000000.0,
+      40000000.0,
+      40000000.0
+    ],
+    "rotationInertia": [
+      2540999936.0,
+      25806999552.0,
+      638700032.0
+    ],
+    "nudgeForce": 360000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 10000.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\UTILITY\\MINING\\mining.cmp",
+    "modelBounds": {
+      "min": [
+        -95.4934,
+        -41.2064,
+        -116.2282
+      ],
+      "max": [
+        95.4934,
+        41.2064,
+        116.2282
+      ],
+      "radius": 136.4003,
+      "width": 190.9868,
+      "height": 82.4128,
+      "length": 232.4564
+    },
+    "icon": "data/ship_icons/ge_miner.png"
+  },
+  "ge_prison": {
+    "id": "ge_prison",
+    "name": "Prison Liner",
+    "info": "Gefängnisschiff\nBei diesen Schiffen kann es sich um neue, speziell erstellte Schiffe oder um umgebaute ehemalige Handelsschiffe handeln. In beiden Fällen beherbergen sie Kriminelle und ihre Wächter.",
+    "idsName": "237047",
+    "idsInfo": "66594",
+    "type": "CAPITAL",
+    "shipClass": 0,
+    "mass": 5000,
+    "holdSize": 600,
+    "hitPts": 69300,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      20000000.0,
+      20000000.0,
+      20000000.0
+    ],
+    "angularDrag": [
+      132000000.0,
+      132000000.0,
+      132000000.0
+    ],
+    "rotationInertia": [
+      40000000.0,
+      40000000.0,
+      40000000.0
+    ],
+    "nudgeForce": 1.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\UTILITY\\PRISON_LINER\\prison_liner.cmp",
+    "modelBounds": {
+      "min": [
+        -24.5939,
+        -25.1201,
+        -180.3887
+      ],
+      "max": [
+        24.7059,
+        25.12,
+        180.3379
+      ],
+      "radius": 217.8798,
+      "width": 49.4118,
+      "height": 50.2402,
+      "length": 360.7774
+    },
+    "icon": "data/ship_icons/ge_prison.png"
+  },
+  "ge_repair": {
+    "id": "ge_repair",
+    "name": "Repair Ship",
+    "info": "Reparaturschiff\nSchiffe können beschädigt werden, sei es im Handelsverkehr oder bei der Expansionierung oder Erkundung neuer Welten. Diese Schiffe gehören dem Reparaturdienst.",
+    "idsName": "237048",
+    "idsInfo": "66595",
+    "type": "FREIGHTER",
+    "shipClass": 0,
+    "mass": 1000,
+    "holdSize": 600,
+    "hitPts": 1600,
+    "linearDrag": 184.0,
+    "steeringTorque": [
+      25000.0,
+      25000.0,
+      25000.0
+    ],
+    "angularDrag": [
+      100000.0,
+      100000.0,
+      100000.0
+    ],
+    "rotationInertia": [
+      48000.0,
+      48000.0,
+      48000.0
+    ],
+    "nudgeForce": 3000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 184.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\UTILITY\\REPAIR\\repair.cmp",
+    "modelBounds": {
+      "min": [
+        -10.5221,
+        -8.8879,
+        -20.7909
+      ],
+      "max": [
+        10.5196,
+        9.0415,
+        20.7909
+      ],
+      "radius": 22.3212,
+      "width": 21.0442,
+      "height": 18.083,
+      "length": 41.5818
+    },
+    "icon": "data/ship_icons/ge_repair.png"
+  },
+  "ge_train": {
+    "id": "ge_train",
+    "name": "Train",
+    "info": "Zug\nMit zunehmender Entfernung zwischen Stützpunkten wuchs ihr wirtschaftliches Potenzial, was die Entwicklung dieser riesigen Transportschiffe für größere Mengen Frachtgut zur Folge hatte.",
+    "idsName": "237055",
+    "idsInfo": "66609",
+    "type": "TRANSPORT",
+    "shipClass": 0,
+    "mass": 1000,
+    "holdSize": 2000,
+    "hitPts": 10500,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      190000.0,
+      190000.0,
+      90000.0
+    ],
+    "angularDrag": [
+      900000.0,
+      900000.0,
+      900000.0
+    ],
+    "rotationInertia": [
+      600000.0,
+      600000.0,
+      600000.0
+    ],
+    "nudgeForce": 150000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 1.11,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\UTILITY\\FREIGHT_TRAIN\\freight_trainx2.3db",
+    "modelBounds": {
+      "min": [
+        -25.1787,
+        -16.3909,
+        -79.0299
+      ],
+      "max": [
+        25.1787,
+        16.3909,
+        79.0299
+      ],
+      "radius": 81.6848,
+      "width": 50.3574,
+      "height": 32.7818,
+      "length": 158.0598
+    },
+    "icon": "data/ship_icons/ge_train.png"
+  },
+  "ge_transport": {
+    "id": "ge_transport",
+    "name": "Transport",
+    "info": "Transporter\nIn der Wirtschaft des Sirius-Systems profitieren alle Staatssysteme von den täglichen Diensten dieses Schiffs. Dies war die erste Schiffsklasse, die je vom Stapel lief.",
+    "idsName": "237057",
+    "idsInfo": "66611",
+    "type": "TRANSPORT",
+    "shipClass": 0,
+    "mass": 500,
+    "holdSize": 1000,
+    "hitPts": 3000,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      700000.0,
+      700000.0,
+      300000.0
+    ],
+    "angularDrag": [
+      2500000.0,
+      2500000.0,
+      2500000.0
+    ],
+    "rotationInertia": [
+      1200000.0,
+      1200000.0,
+      1200000.0
+    ],
+    "nudgeForce": 150000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 2.22,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\UTILITY\\TRANSPORT_SMALL\\transport_small.cmp",
+    "modelBounds": {
+      "min": [
+        -14.6101,
+        -13.7661,
+        -60.0743
+      ],
+      "max": [
+        14.6101,
+        13.7661,
+        56.3133
+      ],
+      "radius": 64.1645,
+      "width": 29.2202,
+      "height": 27.5322,
+      "length": 120.1486
+    },
+    "icon": "data/ship_icons/ge_transport.png"
   },
   "geko": {
     "id": "geko",
@@ -5891,7 +15151,84 @@ const FL_SHIPS = {
     },
     "turnRate": 1.49,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\geko\\geko.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\geko\\geko.cmp",
+    "modelBounds": {
+      "min": [
+        -7.4585,
+        -2.5292,
+        -9.6097
+      ],
+      "max": [
+        7.4585,
+        2.5292,
+        9.6097
+      ],
+      "radius": 10.8985,
+      "width": 14.917,
+      "height": 5.0584,
+      "length": 19.2194
+    },
+    "icon": "data/ship_icons/geko.png"
+  },
+  "goliath": {
+    "id": "goliath",
+    "name": "Transporter \"Shavrov\"",
+    "info": "",
+    "idsName": "480509",
+    "idsInfo": "480508",
+    "type": "TRANSPORT",
+    "shipClass": 9,
+    "mass": 90,
+    "holdSize": 1000,
+    "hitPts": 15300,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      100000.0,
+      100000.0,
+      50000.0
+    ],
+    "angularDrag": [
+      500000.0,
+      500000.0,
+      500000.0
+    ],
+    "rotationInertia": [
+      400000.0,
+      400000.0,
+      400000.0
+    ],
+    "nudgeForce": 150000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 15.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 4.2,
+      "brakeRate": 6.5,
+      "strafePower": 1.28,
+      "linearDrag": 1.0,
+      "bankFactor": 0.45
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\coalition\\sharov.cmp",
+    "modelBounds": {
+      "min": [
+        -14.2114,
+        -11.7446,
+        -58.4977
+      ],
+      "max": [
+        14.2114,
+        11.7446,
+        58.4977
+      ],
+      "radius": 64.1551,
+      "width": 28.4228,
+      "height": 23.4892,
+      "length": 116.9954
+    },
+    "icon": "data/ship_icons/goliath.png"
   },
   "grendel": {
     "id": "grendel",
@@ -5934,7 +15271,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\Shroud\\grendel.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\Shroud\\grendel.cmp",
+    "modelBounds": {
+      "min": [
+        -9.4364,
+        -4.3056,
+        -10.12
+      ],
+      "max": [
+        9.4364,
+        4.3056,
+        10.12
+      ],
+      "radius": 13.4185,
+      "width": 18.8728,
+      "height": 8.6112,
+      "length": 20.24
+    },
+    "icon": "data/ship_icons/grendel.png"
   },
   "griffin": {
     "id": "griffin",
@@ -5977,7 +15331,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.64,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\Brigand_Gamer.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\Brigand_Gamer.cmp",
+    "modelBounds": {
+      "min": [
+        -10.4236,
+        -2.3668,
+        -8.2292
+      ],
+      "max": [
+        10.4236,
+        2.3668,
+        8.2292
+      ],
+      "radius": 10.7164,
+      "width": 20.8472,
+      "height": 4.7336,
+      "length": 16.4584
+    },
+    "icon": "data/ship_icons/griffin.png"
   },
   "guardian": {
     "id": "guardian",
@@ -6020,7 +15391,24 @@ const FL_SHIPS = {
     },
     "turnRate": 2.04,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\guardian\\guardian.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\guardian\\guardian.cmp",
+    "modelBounds": {
+      "min": [
+        -9.2567,
+        -2.6541,
+        -10.7806
+      ],
+      "max": [
+        9.2567,
+        2.6541,
+        10.7806
+      ],
+      "radius": 14.0047,
+      "width": 18.5134,
+      "height": 5.3082,
+      "length": 21.5612
+    },
+    "icon": "data/ship_icons/guardian.png"
   },
   "gunstar": {
     "id": "gunstar",
@@ -6063,7 +15451,24 @@ const FL_SHIPS = {
     },
     "turnRate": 2.04,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\gunstar\\gunstar.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\gunstar\\gunstar.cmp",
+    "modelBounds": {
+      "min": [
+        -10.6942,
+        -4.4726,
+        -14.8705
+      ],
+      "max": [
+        10.6942,
+        4.4726,
+        14.8705
+      ],
+      "radius": 17.371,
+      "width": 21.3884,
+      "height": 8.9452,
+      "length": 29.741
+    },
+    "icon": "data/ship_icons/gunstar.png"
   },
   "hades": {
     "id": "hades",
@@ -6106,7 +15511,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 1,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\Shroud\\hades.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\Shroud\\hades.cmp",
+    "modelBounds": {
+      "min": [
+        -5.7426,
+        -3.444,
+        -13.5102
+      ],
+      "max": [
+        5.7426,
+        3.444,
+        13.5102
+      ],
+      "radius": 20.3802,
+      "width": 11.4852,
+      "height": 6.888,
+      "length": 27.0204
+    },
+    "icon": "data/ship_icons/hades.png"
   },
   "haidar": {
     "id": "haidar",
@@ -6149,7 +15571,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\coalition\\haidar.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\coalition\\haidar.cmp",
+    "modelBounds": {
+      "min": [
+        -8.782,
+        -2.2727,
+        -8.9174
+      ],
+      "max": [
+        8.782,
+        2.2727,
+        8.9174
+      ],
+      "radius": 9.3552,
+      "width": 17.564,
+      "height": 4.5454,
+      "length": 17.8348
+    },
+    "icon": "data/ship_icons/haidar.png"
   },
   "harrierp": {
     "id": "harrierp",
@@ -6192,7 +15631,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.31,
     "firePower": 9,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfharrierp.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfharrierp.cmp",
+    "modelBounds": {
+      "min": [
+        -6.3693,
+        -4.322,
+        -10.3216
+      ],
+      "max": [
+        6.3693,
+        4.322,
+        10.3216
+      ],
+      "radius": 13.5398,
+      "width": 12.7386,
+      "height": 8.644,
+      "length": 20.6432
+    },
+    "icon": "data/ship_icons/harrierp.png"
   },
   "harrierr": {
     "id": "harrierr",
@@ -6235,7 +15691,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.81,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfharrierr.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfharrierr.cmp",
+    "modelBounds": {
+      "min": [
+        -6.4224,
+        -4.358,
+        -10.4076
+      ],
+      "max": [
+        6.4224,
+        4.358,
+        10.4076
+      ],
+      "radius": 13.6527,
+      "width": 12.8448,
+      "height": 8.716,
+      "length": 20.8152
+    },
+    "icon": "data/ship_icons/harrierr.png"
   },
   "harrierv": {
     "id": "harrierv",
@@ -6278,7 +15751,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfharrierv.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfharrierv.cmp",
+    "modelBounds": {
+      "min": [
+        -6.64,
+        -3.2814,
+        -9.4468
+      ],
+      "max": [
+        6.64,
+        3.2814,
+        9.4468
+      ],
+      "radius": 12.584,
+      "width": 13.28,
+      "height": 6.5628,
+      "length": 18.8936
+    },
+    "icon": "data/ship_icons/harrierv.png"
   },
   "hermes": {
     "id": "hermes",
@@ -6321,7 +15811,24 @@ const FL_SHIPS = {
     },
     "turnRate": 2.08,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\hermes\\hermes.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\hermes\\hermes.cmp",
+    "modelBounds": {
+      "min": [
+        -12.1848,
+        -3.2225,
+        -9.5177
+      ],
+      "max": [
+        12.1848,
+        3.2225,
+        9.5177
+      ],
+      "radius": 13.5057,
+      "width": 24.3696,
+      "height": 6.445,
+      "length": 19.0354
+    },
+    "icon": "data/ship_icons/hermes.png"
   },
   "hornet": {
     "id": "hornet",
@@ -6364,7 +15871,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\Hornet\\hornet.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\Hornet\\hornet.cmp",
+    "modelBounds": {
+      "min": [
+        -12.1492,
+        -3.1201,
+        -9.3347
+      ],
+      "max": [
+        12.1492,
+        3.1201,
+        9.3347
+      ],
+      "radius": 14.3126,
+      "width": 24.2984,
+      "height": 6.2402,
+      "length": 18.6694
+    },
+    "icon": "data/ship_icons/hornet.png"
   },
   "hydramk3": {
     "id": "hydramk3",
@@ -6407,7 +15931,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.52,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\hydramk3\\hydramk3.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\hydramk3\\hydramk3.cmp",
+    "modelBounds": {
+      "min": [
+        -5.2601,
+        -7.5496,
+        -9.0428
+      ],
+      "max": [
+        5.2601,
+        7.5496,
+        9.0428
+      ],
+      "radius": 11.7835,
+      "width": 10.5202,
+      "height": 15.0992,
+      "length": 18.0856
+    },
+    "icon": "data/ship_icons/hydramk3.png"
   },
   "interloper": {
     "id": "interloper",
@@ -6450,7 +15991,168 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 8,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\interloper\\interloper.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\interloper\\interloper.cmp",
+    "modelBounds": {
+      "min": [
+        -8.0123,
+        -2.9501,
+        -10.7984
+      ],
+      "max": [
+        8.0123,
+        2.9501,
+        10.7984
+      ],
+      "radius": 11.4705,
+      "width": 16.0246,
+      "height": 5.9002,
+      "length": 21.5968
+    },
+    "icon": "data/ship_icons/interloper.png"
+  },
+  "introship1": {
+    "id": "introship1",
+    "name": "introship1",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\Avenger\\avenger.cmp",
+    "modelBounds": {
+      "min": [
+        -8.193,
+        -7.1443,
+        -6.3002
+      ],
+      "max": [
+        8.193,
+        7.1443,
+        6.3002
+      ],
+      "radius": 11.1917,
+      "width": 16.386,
+      "height": 14.2886,
+      "length": 12.6004
+    },
+    "icon": "data/ship_icons/introship1.png"
+  },
+  "introship2": {
+    "id": "introship2",
+    "name": "introship2",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\Shroud\\sai.cmp",
+    "modelBounds": {
+      "min": [
+        -8.5831,
+        -8.1991,
+        -6.1271
+      ],
+      "max": [
+        8.5831,
+        8.1991,
+        6.1271
+      ],
+      "radius": 9.6066,
+      "width": 17.1662,
+      "height": 16.3982,
+      "length": 12.2542
+    },
+    "icon": "data/ship_icons/introship2.png"
+  },
+  "introship3": {
+    "id": "introship3",
+    "name": "introship3",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\Shroud\\naginata.cmp",
+    "modelBounds": {
+      "min": [
+        -6.2776,
+        -5.1917,
+        -9.1138
+      ],
+      "max": [
+        6.2776,
+        5.1917,
+        9.1138
+      ],
+      "radius": 13.6266,
+      "width": 12.5552,
+      "height": 10.3834,
+      "length": 18.2276
+    },
+    "icon": "data/ship_icons/introship3.png"
   },
   "intruder": {
     "id": "intruder",
@@ -6493,7 +16195,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.68,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\Intruder\\intruder.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\Intruder\\intruder.cmp",
+    "modelBounds": {
+      "min": [
+        -10.4992,
+        -2.4588,
+        -7.9206
+      ],
+      "max": [
+        10.4992,
+        2.4588,
+        7.9206
+      ],
+      "radius": 11.5539,
+      "width": 20.9984,
+      "height": 4.9176,
+      "length": 15.8412
+    },
+    "icon": "data/ship_icons/intruder.png"
   },
   "jaguar": {
     "id": "jaguar",
@@ -6536,7 +16255,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.82,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfjaguar.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfjaguar.cmp",
+    "modelBounds": {
+      "min": [
+        -7.871,
+        -9.7349,
+        -14.1364
+      ],
+      "max": [
+        7.871,
+        9.7349,
+        14.1364
+      ],
+      "radius": 22.6288,
+      "width": 15.742,
+      "height": 19.4698,
+      "length": 28.2728
+    },
+    "icon": "data/ship_icons/jaguar.png"
   },
   "kamov": {
     "id": "kamov",
@@ -6579,7 +16315,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\coalition\\kamov.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\coalition\\kamov.cmp",
+    "modelBounds": {
+      "min": [
+        -4.5943,
+        -4.5565,
+        -14.4057
+      ],
+      "max": [
+        4.5943,
+        4.5565,
+        14.4057
+      ],
+      "radius": 15.9117,
+      "width": 9.1886,
+      "height": 9.113,
+      "length": 28.8114
+    },
+    "icon": "data/ship_icons/kamov.png"
   },
   "karak": {
     "id": "karak",
@@ -6622,7 +16375,84 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\coalition\\karak.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\coalition\\karak.cmp",
+    "modelBounds": {
+      "min": [
+        -6.5747,
+        -3.1399,
+        -9.6465
+      ],
+      "max": [
+        6.5747,
+        3.1399,
+        9.6465
+      ],
+      "radius": 11.3541,
+      "width": 13.1494,
+      "height": 6.2798,
+      "length": 19.293
+    },
+    "icon": "data/ship_icons/karak.png"
+  },
+  "kiew": {
+    "id": "kiew",
+    "name": "Carrier 'Kiew'",
+    "info": "",
+    "idsName": "227411",
+    "idsInfo": "227412",
+    "type": "CAPITAL",
+    "shipClass": 7,
+    "mass": 15000,
+    "holdSize": 500,
+    "hitPts": 135200,
+    "linearDrag": 7680.0,
+    "steeringTorque": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "angularDrag": [
+      500000000000000.0,
+      500000000000000.0,
+      500000000000000.0
+    ],
+    "rotationInertia": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "nudgeForce": 1.0,
+    "strafeForce": 307200.0,
+    "maxBankAngle": 15.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 7680.0,
+      "bankFactor": 0.45
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\coalition\\kiew2.cmp",
+    "modelBounds": {
+      "min": [
+        -129.0424,
+        -96.7508,
+        -418.5615
+      ],
+      "max": [
+        129.0424,
+        96.7508,
+        418.5615
+      ],
+      "radius": 484.5826,
+      "width": 258.0848,
+      "height": 193.5016,
+      "length": 837.123
+    },
+    "icon": "data/ship_icons/kiew.png"
   },
   "kossac": {
     "id": "kossac",
@@ -6665,7 +16495,204 @@ const FL_SHIPS = {
     },
     "turnRate": 1.13,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\coalition\\kossac.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\coalition\\kossac.cmp",
+    "modelBounds": {
+      "min": [
+        -7.3853,
+        -2.7597,
+        -9.0854
+      ],
+      "max": [
+        7.3853,
+        2.7597,
+        9.0854
+      ],
+      "radius": 11.0109,
+      "width": 14.7706,
+      "height": 5.5194,
+      "length": 18.1708
+    },
+    "icon": "data/ship_icons/kossac.png"
+  },
+  "kozlow": {
+    "id": "kozlow",
+    "name": "Small Carrier 'Kozlow'",
+    "info": "",
+    "idsName": "227696",
+    "idsInfo": "227697",
+    "type": "CAPITAL",
+    "shipClass": 7,
+    "mass": 15000,
+    "holdSize": 300,
+    "hitPts": 60400,
+    "linearDrag": 7680.0,
+    "steeringTorque": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "angularDrag": [
+      500000000000000.0,
+      500000000000000.0,
+      500000000000000.0
+    ],
+    "rotationInertia": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "nudgeForce": 1.0,
+    "strafeForce": 307200.0,
+    "maxBankAngle": 15.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 7680.0,
+      "bankFactor": 0.45
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\coalition\\Kozlow.cmp",
+    "modelBounds": {
+      "min": [
+        -148.4658,
+        -88.0143,
+        -407.8689
+      ],
+      "max": [
+        148.4658,
+        88.0143,
+        407.8689
+      ],
+      "radius": 470.1275,
+      "width": 296.9316,
+      "height": 176.0286,
+      "length": 815.7378
+    },
+    "icon": "data/ship_icons/kozlow.png"
+  },
+  "krelow": {
+    "id": "krelow",
+    "name": "Heavy Cruiser 'Krelow'",
+    "info": "",
+    "idsName": "227700",
+    "idsInfo": "227701",
+    "type": "CAPITAL",
+    "shipClass": 5,
+    "mass": 15000,
+    "holdSize": 350,
+    "hitPts": 160400,
+    "linearDrag": 7680.0,
+    "steeringTorque": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "angularDrag": [
+      500000000000000.0,
+      500000000000000.0,
+      500000000000000.0
+    ],
+    "rotationInertia": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "nudgeForce": 1.0,
+    "strafeForce": 307200.0,
+    "maxBankAngle": 15.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 7680.0,
+      "bankFactor": 0.45
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\coalition\\Krelow.cmp",
+    "modelBounds": {
+      "min": [
+        -217.8783,
+        -121.6237,
+        -862.1187
+      ],
+      "max": [
+        217.8783,
+        121.6237,
+        862.1187
+      ],
+      "radius": 924.4244,
+      "width": 435.7566,
+      "height": 243.2474,
+      "length": 1724.2374
+    },
+    "icon": "data/ship_icons/krelow.png"
+  },
+  "kresta": {
+    "id": "kresta",
+    "name": "Destroyer 'Kresta'",
+    "info": "",
+    "idsName": "227704",
+    "idsInfo": "227705",
+    "type": "CAPITAL",
+    "shipClass": 6,
+    "mass": 15000,
+    "holdSize": 165,
+    "hitPts": 80300,
+    "linearDrag": 7680.0,
+    "steeringTorque": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "angularDrag": [
+      500000000000000.0,
+      500000000000000.0,
+      500000000000000.0
+    ],
+    "rotationInertia": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "nudgeForce": 1.0,
+    "strafeForce": 307200.0,
+    "maxBankAngle": 15.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 7680.0,
+      "bankFactor": 0.45
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\coalition\\kresta.cmp",
+    "modelBounds": {
+      "min": [
+        -76.854,
+        -76.4952,
+        -313.5826
+      ],
+      "max": [
+        76.854,
+        76.4952,
+        313.5826
+      ],
+      "radius": 368.2187,
+      "width": 153.708,
+      "height": 152.9904,
+      "length": 627.1652
+    },
+    "icon": "data/ship_icons/kresta.png"
   },
   "ktiger": {
     "id": "ktiger",
@@ -6708,7 +16735,204 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\ktiger\\ktiger.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\ktiger\\ktiger.cmp",
+    "modelBounds": {
+      "min": [
+        -9.2875,
+        -3.8349,
+        -10.4883
+      ],
+      "max": [
+        9.2875,
+        3.8349,
+        10.4883
+      ],
+      "radius": 11.3461,
+      "width": 18.575,
+      "height": 7.6698,
+      "length": 20.9766
+    },
+    "icon": "data/ship_icons/ktiger.png"
+  },
+  "ku_battleship": {
+    "id": "ku_battleship",
+    "name": "Kusari Battleship",
+    "info": "Kusari-Schlachtschiff\nDiese Schiffsklasse wurde von den Streitkräften und dem Militärindustriekomplex der Kusari entwickelt. Sie birgt zahlreiche Neuerungen, die als vertraulich eingestuft werden.",
+    "idsName": "237025",
+    "idsInfo": "66553",
+    "type": "CAPITAL",
+    "shipClass": 0,
+    "mass": 2000,
+    "holdSize": 600,
+    "hitPts": 69300,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      1501900032.0,
+      1501900032.0,
+      1501900032.0
+    ],
+    "angularDrag": [
+      13200000000.0,
+      13200000000.0,
+      13200000000.0
+    ],
+    "rotationInertia": [
+      15000000512.0,
+      15000000512.0,
+      15000000512.0
+    ],
+    "nudgeForce": 3000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\KUSARI\\KU_BATTLESHIP\\ku_battleship.cmp",
+    "modelBounds": {
+      "min": [
+        -68.1589,
+        -134.444,
+        -337.4119
+      ],
+      "max": [
+        68.1589,
+        134.444,
+        338.0996
+      ],
+      "radius": 349.4831,
+      "width": 136.3178,
+      "height": 268.888,
+      "length": 676.1992
+    },
+    "icon": "data/ship_icons/ku_battleship.png"
+  },
+  "ku_destroyer": {
+    "id": "ku_destroyer",
+    "name": "Kusari Destroyer",
+    "info": "Kusari-Zerstörer\nDiese Schiffsklasse war die erste vom Shogunat gebaute Klasse, die das Ziel hatte, die Feudalherren in den Provinzen zu unterstützen. Sie ist weiterhin ein gefährlicher Widersacher.",
+    "idsName": "237026",
+    "idsInfo": "66554",
+    "type": "CRUISER",
+    "shipClass": 0,
+    "mass": 5000,
+    "holdSize": 400,
+    "hitPts": 43300,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      20000000.0,
+      20000000.0,
+      20000000.0
+    ],
+    "angularDrag": [
+      132000000.0,
+      132000000.0,
+      132000000.0
+    ],
+    "rotationInertia": [
+      40000000.0,
+      40000000.0,
+      40000000.0
+    ],
+    "nudgeForce": 300000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\KUSARI\\KU_DESTROYER\\ku_destroyer.cmp",
+    "modelBounds": {
+      "min": [
+        -5.9204,
+        -19.4867,
+        -36.1076
+      ],
+      "max": [
+        5.9204,
+        19.3916,
+        36.1076
+      ],
+      "radius": 41.2638,
+      "width": 11.8408,
+      "height": 38.9734,
+      "length": 72.2152
+    },
+    "icon": "data/ship_icons/ku_destroyer.png"
+  },
+  "ku_dragon": {
+    "id": "ku_dragon",
+    "name": "Dragon",
+    "info": "Statistik\nGeschütz-/Turmsockel: 6/0\nPanzerung: 3600\nFrachtraum: 40\nMax. Batterien/Nanobots: 26/26\nOptimale Waffenklasse: 4\nMax. Waffenklasse: 6\nZusätzliche Ausrüstung: M, GM, RFU/T",
+    "idsName": "237027",
+    "idsInfo": "66555",
+    "type": "FIGHTER",
+    "shipClass": 1,
+    "mass": 140,
+    "holdSize": 35,
+    "hitPts": 3600,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      43000.0,
+      43000.0,
+      183000.0
+    ],
+    "angularDrag": [
+      41000.0,
+      41000.0,
+      141000.0
+    ],
+    "rotationInertia": [
+      8400.0,
+      8400.0,
+      8400.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 1.31,
+      "agility": 0.9,
+      "acceleration": 1.59,
+      "brakeRate": 4.31,
+      "strafePower": 1.1,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 1.31,
+    "firePower": 9,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\KUSARI\\KU_BLOOD_DRAGON\\ku_dragon.cmp",
+    "modelBounds": {
+      "min": [
+        -4.8548,
+        -3.7401,
+        -7.4247
+      ],
+      "max": [
+        4.8548,
+        3.7401,
+        7.5488
+      ],
+      "radius": 8.6992,
+      "width": 9.7096,
+      "height": 7.4802,
+      "length": 15.0976
+    },
+    "icon": "data/ship_icons/ku_dragon.png"
   },
   "ku_elite": {
     "id": "ku_elite",
@@ -6751,7 +16975,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.52,
     "firePower": 6,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\KUSARI\\KU_ELITE\\ku_elite.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\KUSARI\\KU_ELITE\\ku_elite.cmp",
+    "modelBounds": {
+      "min": [
+        -4.8548,
+        -3.7401,
+        -7.4247
+      ],
+      "max": [
+        4.8548,
+        3.7401,
+        7.5488
+      ],
+      "radius": 8.6992,
+      "width": 9.7096,
+      "height": 7.4802,
+      "length": 15.0976
+    },
+    "icon": "data/ship_icons/ku_elite.png"
   },
   "ku_elite2": {
     "id": "ku_elite2",
@@ -6794,7 +17035,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.3,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\KUSARI\\KU_ELITE2\\ku_elite2.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\KUSARI\\KU_ELITE2\\ku_elite2.cmp",
+    "modelBounds": {
+      "min": [
+        -7.4361,
+        -5.3309,
+        -13.138
+      ],
+      "max": [
+        7.4361,
+        5.3309,
+        13.138
+      ],
+      "radius": 15.4888,
+      "width": 14.8722,
+      "height": 10.6618,
+      "length": 26.276
+    },
+    "icon": "data/ship_icons/ku_elite2.png"
   },
   "ku_fighter": {
     "id": "ku_fighter",
@@ -6837,7 +17095,24 @@ const FL_SHIPS = {
     },
     "turnRate": 2.21,
     "firePower": 6,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\KUSARI\\KU_FIGHTER\\ku_fighter.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\KUSARI\\KU_FIGHTER\\ku_fighter.cmp",
+    "modelBounds": {
+      "min": [
+        -2.8204,
+        -2.1568,
+        -6.0093
+      ],
+      "max": [
+        2.8209,
+        2.1568,
+        6.0093
+      ],
+      "radius": 6.5562,
+      "width": 5.6418,
+      "height": 4.3136,
+      "length": 12.0186
+    },
+    "icon": "data/ship_icons/ku_fighter.png"
   },
   "ku_freighter": {
     "id": "ku_freighter",
@@ -6880,7 +17155,204 @@ const FL_SHIPS = {
     },
     "turnRate": 1.03,
     "firePower": 6,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\KUSARI\\KU_FREIGHTER\\ku_freighter.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\KUSARI\\KU_FREIGHTER\\ku_freighter.cmp",
+    "modelBounds": {
+      "min": [
+        -8.221,
+        -5.7838,
+        -10.5273
+      ],
+      "max": [
+        8.221,
+        5.8486,
+        10.5273
+      ],
+      "radius": 11.6421,
+      "width": 16.442,
+      "height": 11.6972,
+      "length": 21.0546
+    },
+    "icon": "data/ship_icons/ku_freighter.png"
+  },
+  "ku_freighternofuse": {
+    "id": "ku_freighternofuse",
+    "name": "Drone",
+    "info": "Statistik\nGeschütz-/Turmsockel: 2/6\nPanzerung: 3600\nFrachtraum: 175\nMax. Batterien/Nanobots: 23/23\nOptimale Waffenklasse: 4\nMax. Waffenklasse: 6\nZusätzliche Ausrüstung: M, GM",
+    "idsName": "237029",
+    "idsInfo": "66561",
+    "type": "FREIGHTER",
+    "shipClass": 2,
+    "mass": 300,
+    "holdSize": 175,
+    "hitPts": 3600,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      54000.0,
+      54000.0,
+      104000.0
+    ],
+    "angularDrag": [
+      60000.0,
+      60000.0,
+      60000.0
+    ],
+    "rotationInertia": [
+      16800.0,
+      16800.0,
+      16800.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 15.0,
+    "handling": {
+      "turnRate": 1.02,
+      "agility": 0.64,
+      "acceleration": 0.85,
+      "brakeRate": 3.73,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.45
+    },
+    "turnRate": 1.02,
+    "firePower": 6,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\KUSARI\\KU_FREIGHTER\\ku_freighter.cmp",
+    "modelBounds": {
+      "min": [
+        -8.221,
+        -5.7838,
+        -10.5273
+      ],
+      "max": [
+        8.221,
+        5.8486,
+        10.5273
+      ],
+      "radius": 11.6421,
+      "width": 16.442,
+      "height": 11.6972,
+      "length": 21.0546
+    },
+    "icon": "data/ship_icons/ku_freighternofuse.png"
+  },
+  "ku_gunboat": {
+    "id": "ku_gunboat",
+    "name": "Kusari Gunboat",
+    "info": "Kusari-Korvette\nDie Kaiserliche Marine entwickelte dieses Schiff, um den Befehlen des Kaisers Nachdruck zu verleihen. Insbesondere im Verbund mit einer großen Anzahl Artgenossen zeigt dieses Schiff vernichtende Wirkung.",
+    "idsName": "237030",
+    "idsInfo": "66564",
+    "type": "GUNBOAT",
+    "shipClass": 0,
+    "mass": 3000,
+    "holdSize": 200,
+    "hitPts": 9000,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      60000000.0,
+      60000000.0,
+      60000000.0
+    ],
+    "angularDrag": [
+      120000000.0,
+      120000000.0,
+      120000000.0
+    ],
+    "rotationInertia": [
+      16800000.0,
+      16800000.0,
+      16800000.0
+    ],
+    "nudgeForce": 150000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\KUSARI\\KU_GUNSHIP\\ku_gunship.cmp",
+    "modelBounds": {
+      "min": [
+        -8.7035,
+        -9.5904,
+        -25.5844
+      ],
+      "max": [
+        8.7035,
+        9.5904,
+        25.5844
+      ],
+      "radius": 27.1577,
+      "width": 17.407,
+      "height": 19.1808,
+      "length": 51.1688
+    },
+    "icon": "data/ship_icons/ku_gunboat.png"
+  },
+  "kurgan": {
+    "id": "kurgan",
+    "name": "Kurgan",
+    "info": "",
+    "idsName": "227419",
+    "idsInfo": "227420",
+    "type": "CAPITAL",
+    "shipClass": 4,
+    "mass": 15000,
+    "holdSize": 165,
+    "hitPts": 32900,
+    "linearDrag": 7680.0,
+    "steeringTorque": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "angularDrag": [
+      500000000000000.0,
+      500000000000000.0,
+      500000000000000.0
+    ],
+    "rotationInertia": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "nudgeForce": 1.0,
+    "strafeForce": 307200.0,
+    "maxBankAngle": 15.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 7680.0,
+      "bankFactor": 0.45
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\coalition\\kurgan.cmp",
+    "modelBounds": {
+      "min": [
+        -51.4362,
+        -44.086,
+        -165.012
+      ],
+      "max": [
+        51.4362,
+        44.086,
+        165.012
+      ],
+      "radius": 189.0449,
+      "width": 102.8724,
+      "height": 88.172,
+      "length": 330.024
+    },
+    "icon": "data/ship_icons/kurgan.png"
   },
   "lagg": {
     "id": "lagg",
@@ -6923,7 +17395,204 @@ const FL_SHIPS = {
     },
     "turnRate": 1.64,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\coalition\\lagg.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\coalition\\lagg.cmp",
+    "modelBounds": {
+      "min": [
+        -8.68,
+        -1.7713,
+        -7.4593
+      ],
+      "max": [
+        8.68,
+        1.7713,
+        7.4593
+      ],
+      "radius": 10.7539,
+      "width": 17.36,
+      "height": 3.5426,
+      "length": 14.9186
+    },
+    "icon": "data/ship_icons/lagg.png"
+  },
+  "large_transport_m03": {
+    "id": "large_transport_m03",
+    "name": "Large Transport",
+    "info": "Großer Transporter\nNachdem Bodenschätze gefunden wurden und die äußeren Siedlungen Fuß gefasst hatten, wurde diese Schiffsklasse entwickelt, um diese Interessen besser auszuschöpfen und zu unterstützen.",
+    "idsName": "237058",
+    "idsInfo": "66612",
+    "type": "TRANSPORT",
+    "shipClass": 0,
+    "mass": 32000,
+    "holdSize": 1500,
+    "hitPts": 4000000,
+    "linearDrag": 16750.0,
+    "steeringTorque": [
+      1001900.0,
+      1001900.0,
+      701900.0
+    ],
+    "angularDrag": [
+      3200000.0,
+      3200000.0,
+      3200000.0
+    ],
+    "rotationInertia": [
+      2424000.0,
+      2424000.0,
+      2424000.0
+    ],
+    "nudgeForce": 240000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 16750.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\UTILITY\\TRANSPORT_LARGE\\transport_large.cmp",
+    "modelBounds": {
+      "min": [
+        -14.6101,
+        -13.7661,
+        -94.1813
+      ],
+      "max": [
+        14.6101,
+        13.7661,
+        90.4203
+      ],
+      "radius": 97.2765,
+      "width": 29.2202,
+      "height": 27.5322,
+      "length": 188.3626
+    },
+    "icon": "data/ship_icons/large_transport_m03.png"
+  },
+  "li_cruiser": {
+    "id": "li_cruiser",
+    "name": "Liberty Cruiser",
+    "info": "Liberty-Kreuzer\nDie Kreuzerklasse wurde von der libertanischen Marine für den Mittelstreckeneinsatz entwickelt. Diese Schiffe sind eine gute Synthese aus vernichtender Feuerkraft und optimierter Mobilität.",
+    "idsName": "237031",
+    "idsInfo": "66565",
+    "type": "CRUISER",
+    "shipClass": 0,
+    "mass": 5000,
+    "holdSize": 400,
+    "hitPts": 43300,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      20000000.0,
+      20000000.0,
+      20000000.0
+    ],
+    "angularDrag": [
+      132000000.0,
+      132000000.0,
+      132000000.0
+    ],
+    "rotationInertia": [
+      40000000.0,
+      40000000.0,
+      40000000.0
+    ],
+    "nudgeForce": 300000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\LIBERTY\\LI_CRUISER\\li_cruiser.cmp",
+    "modelBounds": {
+      "min": [
+        -18.0385,
+        -18.8609,
+        -96.6861
+      ],
+      "max": [
+        18.0118,
+        19.4118,
+        96.6861
+      ],
+      "radius": 104.1793,
+      "width": 36.077,
+      "height": 38.8236,
+      "length": 193.3722
+    },
+    "icon": "data/ship_icons/li_cruiser.png"
+  },
+  "li_dreadnought": {
+    "id": "li_dreadnought",
+    "name": "Liberty Dreadnought",
+    "info": "Liberty-Dreadnought\nDie von der libertanischen Marine entwickelte Dreadnought-Klasse stellt die modernsten und schlagkräftigsten Schlachtschiffe dar.",
+    "idsName": "237032",
+    "idsInfo": "66566",
+    "type": "CAPITAL",
+    "shipClass": 0,
+    "mass": 2000,
+    "holdSize": 10730,
+    "hitPts": 69300,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      1501900032.0,
+      1501900032.0,
+      1501900032.0
+    ],
+    "angularDrag": [
+      13200000000.0,
+      13200000000.0,
+      13200000000.0
+    ],
+    "rotationInertia": [
+      15000000512.0,
+      15000000512.0,
+      15000000512.0
+    ],
+    "nudgeForce": 3000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\LIBERTY\\LI_DREADNOUGHT\\li_dreadnought.cmp",
+    "modelBounds": {
+      "min": [
+        -45.3213,
+        -55.1236,
+        -248.0837
+      ],
+      "max": [
+        45.3213,
+        59.1228,
+        248.0837
+      ],
+      "radius": 266.8625,
+      "width": 90.6426,
+      "height": 118.2456,
+      "length": 496.1674
+    },
+    "icon": "data/ship_icons/li_dreadnought.png"
   },
   "li_elite": {
     "id": "li_elite",
@@ -6966,7 +17635,84 @@ const FL_SHIPS = {
     },
     "turnRate": 1.52,
     "firePower": 4,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\LIBERTY\\LI_ELITE\\li_elite.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\LIBERTY\\LI_ELITE\\li_elite.cmp",
+    "modelBounds": {
+      "min": [
+        -6.9612,
+        -2.9874,
+        -7.5243
+      ],
+      "max": [
+        6.9612,
+        2.9874,
+        7.5243
+      ],
+      "radius": 8.8792,
+      "width": 13.9224,
+      "height": 5.9748,
+      "length": 15.0486
+    },
+    "icon": "data/ship_icons/li_elite.png"
+  },
+  "li_elite2": {
+    "id": "li_elite2",
+    "name": "Defender",
+    "info": "Statistik\nGeschütz-/Turmsockel: 5/1\nPanzerung: 1600\nFrachtraum: 30\nMax. Batterien/Nanobots: 14/14\nOptimale Waffenklasse: 2\nMax. Waffenklasse: 4\nZusätzliche Ausrüstung: M, GM, RFU/T",
+    "idsName": "237033",
+    "idsInfo": "66567",
+    "type": "FIGHTER",
+    "shipClass": 1,
+    "mass": 140,
+    "holdSize": 50,
+    "hitPts": 1600,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      50000.0,
+      50000.0,
+      183000.0
+    ],
+    "angularDrag": [
+      40000.0,
+      40000.0,
+      141000.0
+    ],
+    "rotationInertia": [
+      8400.0,
+      8400.0,
+      8400.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 1.31,
+      "agility": 0.95,
+      "acceleration": 1.59,
+      "brakeRate": 4.31,
+      "strafePower": 1.1,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 1.31,
+    "firePower": 6,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\LIBERTY\\LI_ELITE2\\li_elite2.cmp",
+    "modelBounds": {
+      "min": [
+        -6.9542,
+        -4.8911,
+        -7.7956
+      ],
+      "max": [
+        6.9542,
+        4.8911,
+        7.7956
+      ],
+      "radius": 10.492,
+      "width": 13.9084,
+      "height": 9.7822,
+      "length": 15.5912
+    },
+    "icon": "data/ship_icons/li_elite2.png"
   },
   "li_fighter": {
     "id": "li_fighter",
@@ -7009,7 +17755,144 @@ const FL_SHIPS = {
     },
     "turnRate": 2.21,
     "firePower": 3,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\LIBERTY\\LI_FIGHTER\\li_fighter.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\LIBERTY\\LI_FIGHTER\\li_fighter.cmp",
+    "modelBounds": {
+      "min": [
+        -2.215,
+        -1.8279,
+        -6.3065
+      ],
+      "max": [
+        2.215,
+        1.8279,
+        6.3949
+      ],
+      "radius": 7.6687,
+      "width": 4.43,
+      "height": 3.6558,
+      "length": 12.7898
+    },
+    "icon": "data/ship_icons/li_fighter.png"
+  },
+  "li_fighter_indestr": {
+    "id": "li_fighter_indestr",
+    "name": "Patriot",
+    "info": "Statistik\nGeschütz-/Turmsockel: 4/0\nPanzerung: 1300\nFrachtraum: 25\nMax. Batterien/Nanobots: 12/12\nOptimale Waffenklasse: 2\nMax. Waffenklasse: 3\nZusätzliche Ausrüstung: M, GM, RFU",
+    "idsName": "237034",
+    "idsInfo": "66570",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 50,
+    "holdSize": 200,
+    "hitPts": 10000,
+    "linearDrag": 7.5,
+    "steeringTorque": [
+      18000.0,
+      18000.0,
+      18000.0
+    ],
+    "angularDrag": [
+      15000.0,
+      15000.0,
+      15000.0
+    ],
+    "rotationInertia": [
+      2800.0,
+      2800.0,
+      2800.0
+    ],
+    "nudgeForce": 2900.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 1.8,
+      "agility": 1.45,
+      "acceleration": 2.37,
+      "brakeRate": 6.5,
+      "strafePower": 2.31,
+      "linearDrag": 7.5,
+      "bankFactor": 0.86
+    },
+    "turnRate": 1.8,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\LIBERTY\\LI_FIGHTER\\li_fighter.cmp",
+    "modelBounds": {
+      "min": [
+        -2.215,
+        -1.8279,
+        -6.3065
+      ],
+      "max": [
+        2.215,
+        1.8279,
+        6.3949
+      ],
+      "radius": 7.6687,
+      "width": 4.43,
+      "height": 3.6558,
+      "length": 12.7898
+    },
+    "icon": "data/ship_icons/li_fighter_indestr.png"
+  },
+  "li_fighter_king": {
+    "id": "li_fighter_king",
+    "name": "Patriot",
+    "info": "Statistik\nGeschütz-/Turmsockel: 4/0\nPanzerung: 1300\nFrachtraum: 25\nMax. Batterien/Nanobots: 12/12\nOptimale Waffenklasse: 2\nMax. Waffenklasse: 3\nZusätzliche Ausrüstung: M, GM, RFU",
+    "idsName": "237034",
+    "idsInfo": "66570",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 90,
+    "holdSize": 200,
+    "hitPts": 1600,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      18000.0,
+      18000.0,
+      18000.0
+    ],
+    "angularDrag": [
+      15000.0,
+      15000.0,
+      15000.0
+    ],
+    "rotationInertia": [
+      2800.0,
+      2800.0,
+      2800.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 1.57,
+      "agility": 1.18,
+      "acceleration": 2.47,
+      "brakeRate": 4.5,
+      "strafePower": 1.28,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 1.57,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\LIBERTY\\LI_FIGHTER\\li_fighter.cmp",
+    "modelBounds": {
+      "min": [
+        -2.215,
+        -1.8279,
+        -6.3065
+      ],
+      "max": [
+        2.215,
+        1.8279,
+        6.3949
+      ],
+      "radius": 7.6687,
+      "width": 4.43,
+      "height": 3.6558,
+      "length": 12.7898
+    },
+    "icon": "data/ship_icons/li_fighter_king.png"
   },
   "li_freighter": {
     "id": "li_freighter",
@@ -7052,7 +17935,84 @@ const FL_SHIPS = {
     },
     "turnRate": 1.03,
     "firePower": 3,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\LIBERTY\\LI_FREIGHTER\\li_freighter.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\LIBERTY\\LI_FREIGHTER\\li_freighter.cmp",
+    "modelBounds": {
+      "min": [
+        -4.4712,
+        -5.5502,
+        -14.6048
+      ],
+      "max": [
+        4.4712,
+        5.5502,
+        14.6023
+      ],
+      "radius": 14.745,
+      "width": 8.9424,
+      "height": 11.1004,
+      "length": 29.2096
+    },
+    "icon": "data/ship_icons/li_freighter.png"
+  },
+  "li_freighternofuse": {
+    "id": "li_freighternofuse",
+    "name": "Rhino",
+    "info": "Statistik\nWaffen-/Geschützturmsockel: 3/5\nPanzerung: 1600\nFrachtraum: 80\nMax. Batterien/Nanobots: 12/12\nOptimale Waffenklasse: 1\nMax. Waffenklasse: 3\nZusätzliche Ausrüstung: M, GM",
+    "idsName": "237035",
+    "idsInfo": "66573",
+    "type": "FREIGHTER",
+    "shipClass": 2,
+    "mass": 300,
+    "holdSize": 80,
+    "hitPts": 1600,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      54000.0,
+      54000.0,
+      104000.0
+    ],
+    "angularDrag": [
+      60000.0,
+      60000.0,
+      60000.0
+    ],
+    "rotationInertia": [
+      16800.0,
+      16800.0,
+      16800.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 15.0,
+    "handling": {
+      "turnRate": 1.02,
+      "agility": 0.64,
+      "acceleration": 0.85,
+      "brakeRate": 3.73,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.45
+    },
+    "turnRate": 1.02,
+    "firePower": 3,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\LIBERTY\\LI_FREIGHTER\\li_freighter.cmp",
+    "modelBounds": {
+      "min": [
+        -4.4712,
+        -5.5502,
+        -14.6048
+      ],
+      "max": [
+        4.4712,
+        5.5502,
+        14.6023
+      ],
+      "radius": 14.745,
+      "width": 8.9424,
+      "height": 11.1004,
+      "length": 29.2096
+    },
+    "icon": "data/ship_icons/li_freighternofuse.png"
   },
   "lightbringerbomber": {
     "id": "lightbringerbomber",
@@ -7095,7 +18055,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.32,
     "firePower": 1,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\ORDER\\Or_Collection\\CFOrderFighter5.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\ORDER\\Or_Collection\\CFOrderFighter5.cmp",
+    "modelBounds": {
+      "min": [
+        -7.3718,
+        -3.2208,
+        -12.2391
+      ],
+      "max": [
+        7.3718,
+        3.2208,
+        12.2391
+      ],
+      "radius": 14.4269,
+      "width": 14.7436,
+      "height": 6.4416,
+      "length": 24.4782
+    },
+    "icon": "data/ship_icons/lightbringerbomber.png"
   },
   "mambar": {
     "id": "mambar",
@@ -7138,7 +18115,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.93,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfmambar.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfmambar.cmp",
+    "modelBounds": {
+      "min": [
+        -6.1048,
+        -6.561,
+        -17.3205
+      ],
+      "max": [
+        6.1048,
+        6.561,
+        17.3205
+      ],
+      "radius": 25.7806,
+      "width": 12.2096,
+      "height": 13.122,
+      "length": 34.641
+    },
+    "icon": "data/ship_icons/mambar.png"
   },
   "mambas": {
     "id": "mambas",
@@ -7181,7 +18175,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.61,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfmambas.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfmambas.cmp",
+    "modelBounds": {
+      "min": [
+        -3.2686,
+        -3.6563,
+        -11.23
+      ],
+      "max": [
+        3.2686,
+        3.6563,
+        11.23
+      ],
+      "radius": 16.9988,
+      "width": 6.5372,
+      "height": 7.3126,
+      "length": 22.46
+    },
+    "icon": "data/ship_icons/mambas.png"
   },
   "marauder": {
     "id": "marauder",
@@ -7224,7 +18235,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 8,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\marauder\\marauder.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\marauder\\marauder.cmp",
+    "modelBounds": {
+      "min": [
+        -10.1262,
+        -4.2926,
+        -6.2721
+      ],
+      "max": [
+        10.1262,
+        4.2926,
+        6.2721
+      ],
+      "radius": 10.8967,
+      "width": 20.2524,
+      "height": 8.5852,
+      "length": 12.5442
+    },
+    "icon": "data/ship_icons/marauder.png"
   },
   "mayfly": {
     "id": "mayfly",
@@ -7267,7 +18295,84 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\mayfly\\mayfly.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\mayfly\\mayfly.cmp",
+    "modelBounds": {
+      "min": [
+        -4.3575,
+        -6.3275,
+        -2.8659
+      ],
+      "max": [
+        4.3575,
+        6.3275,
+        2.8659
+      ],
+      "radius": 7.929,
+      "width": 8.715,
+      "height": 12.655,
+      "length": 5.7318
+    },
+    "icon": "data/ship_icons/mayfly.png"
+  },
+  "midnighthammer": {
+    "id": "midnighthammer",
+    "name": "Midnight Hammer",
+    "info": "",
+    "idsName": "500048",
+    "idsInfo": "500049",
+    "type": "CAPITAL",
+    "shipClass": 7,
+    "mass": 15000,
+    "holdSize": 1000,
+    "hitPts": 280000,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "angularDrag": [
+      500000000000000.0,
+      500000000000000.0,
+      500000000000000.0
+    ],
+    "rotationInertia": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "nudgeForce": 1.0,
+    "strafeForce": 307200.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\MidnightHammer\\midnighthammer.cmp",
+    "modelBounds": {
+      "min": [
+        -41.9388,
+        -25.9883,
+        -84.3237
+      ],
+      "max": [
+        41.9388,
+        25.9883,
+        84.3237
+      ],
+      "radius": 95.6274,
+      "width": 83.8776,
+      "height": 51.9766,
+      "length": 168.6474
+    },
+    "icon": "data/ship_icons/midnighthammer.png"
   },
   "mirage": {
     "id": "mirage",
@@ -7310,7 +18415,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\Shroud\\mirage.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\Shroud\\mirage.cmp",
+    "modelBounds": {
+      "min": [
+        -7.9346,
+        -2.1634,
+        -9.0878
+      ],
+      "max": [
+        7.9346,
+        2.1634,
+        9.0878
+      ],
+      "radius": 9.8672,
+      "width": 15.8692,
+      "height": 4.3268,
+      "length": 18.1756
+    },
+    "icon": "data/ship_icons/mirage.png"
   },
   "miragex": {
     "id": "miragex",
@@ -7353,7 +18475,204 @@ const FL_SHIPS = {
     },
     "turnRate": 1.68,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\miragex\\miragex.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\miragex\\miragex.cmp",
+    "modelBounds": {
+      "min": [
+        -8.6171,
+        -2.6206,
+        -10.3564
+      ],
+      "max": [
+        8.6171,
+        2.6206,
+        10.3564
+      ],
+      "radius": 13.5201,
+      "width": 17.2342,
+      "height": 5.2412,
+      "length": 20.7128
+    },
+    "icon": "data/ship_icons/miragex.png"
+  },
+  "mission02_burning_l_elite": {
+    "id": "mission02_burning_l_elite",
+    "name": "Defender",
+    "info": "Statistik\nGeschütz-/Turmsockel: 5/1\nPanzerung: 1600\nFrachtraum: 30\nMax. Batterien/Nanobots: 14/14\nOptimale Waffenklasse: 2\nMax. Waffenklasse: 4\nZusätzliche Ausrüstung: M, GM, RFU/T",
+    "idsName": "237033",
+    "idsInfo": "66567",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 125,
+    "holdSize": 500,
+    "hitPts": 3600,
+    "linearDrag": 4.01,
+    "steeringTorque": [
+      1010.0,
+      1010.0,
+      455.0
+    ],
+    "angularDrag": [
+      900.0,
+      900.0,
+      350.0
+    ],
+    "rotationInertia": [
+      576.964294,
+      551.207703,
+      163.8936
+    ],
+    "nudgeForce": 5000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 1.9,
+      "agility": 1.36,
+      "acceleration": 0.95,
+      "brakeRate": 6.5,
+      "strafePower": 0.92,
+      "linearDrag": 4.01,
+      "bankFactor": 0.86
+    },
+    "turnRate": 1.9,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\LIBERTY\\LI_ELITE\\li_elite.cmp",
+    "modelBounds": {
+      "min": [
+        -6.9612,
+        -2.9874,
+        -7.5243
+      ],
+      "max": [
+        6.9612,
+        2.9874,
+        7.5243
+      ],
+      "radius": 8.8792,
+      "width": 13.9224,
+      "height": 5.9748,
+      "length": 15.0486
+    },
+    "icon": "data/ship_icons/mission02_burning_l_elite.png"
+  },
+  "mission02_burning_transport": {
+    "id": "mission02_burning_transport",
+    "name": "Transport",
+    "info": "Transporter\nIn der Wirtschaft des Sirius-Systems profitieren alle Staatssysteme von den täglichen Diensten dieses Schiffs. Dies war die erste Schiffsklasse, die je vom Stapel lief.",
+    "idsName": "237057",
+    "idsInfo": "66611",
+    "type": "TRANSPORT",
+    "shipClass": 0,
+    "mass": 20021,
+    "holdSize": 1000,
+    "hitPts": 20000,
+    "linearDrag": 9850.0,
+    "steeringTorque": [
+      48000000.0,
+      4800000.0,
+      6000000.0
+    ],
+    "angularDrag": [
+      400000000.0,
+      400000000.0,
+      400000000.0
+    ],
+    "rotationInertia": [
+      144029968.0,
+      144004288.0,
+      14596292.0
+    ],
+    "nudgeForce": 170000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 9850.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\UTILITY\\TRANSPORT_SMALL\\transport_small.cmp",
+    "modelBounds": {
+      "min": [
+        -14.6101,
+        -13.7661,
+        -60.0743
+      ],
+      "max": [
+        14.6101,
+        13.7661,
+        56.3133
+      ],
+      "radius": 64.1645,
+      "width": 29.2202,
+      "height": 27.5322,
+      "length": 120.1486
+    },
+    "icon": "data/ship_icons/mission02_burning_transport.png"
+  },
+  "msn_playership": {
+    "id": "msn_playership",
+    "name": "Starflier",
+    "info": "Statistik\nGeschütz-/Turmsockel: 3\nPanzerung: 1100\nFrachtraum: 20\nMax. Batterien/Nanobots: 10/10\nOptimale Waffenklasse: 1\nMax.Waffenklasse: 3\nZusätzliche Ausrüstung: M, GM",
+    "idsName": "237015",
+    "idsInfo": "66527",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 90,
+    "holdSize": 150,
+    "hitPts": 1100,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      1800.0,
+      1800.0,
+      48000.0
+    ],
+    "angularDrag": [
+      1500.0,
+      1500.0,
+      35000.0
+    ],
+    "rotationInertia": [
+      701.770813,
+      703.764893,
+      1000.0
+    ],
+    "nudgeForce": 3000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 35.0,
+    "handling": {
+      "turnRate": 1.94,
+      "agility": 1.47,
+      "acceleration": 1.32,
+      "brakeRate": 4.19,
+      "strafePower": 1.28,
+      "linearDrag": 1.0,
+      "bankFactor": 1.0
+    },
+    "turnRate": 1.94,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CIVILIAN\\CV_STARFLIER\\cv_starflier.cmp",
+    "modelBounds": {
+      "min": [
+        -5.2956,
+        -3.7773,
+        -6.8863
+      ],
+      "max": [
+        5.2956,
+        3.6514,
+        6.3817
+      ],
+      "radius": 10.9867,
+      "width": 10.5912,
+      "height": 7.5546,
+      "length": 13.7726
+    },
+    "icon": "data/ship_icons/msn_playership.png"
   },
   "murphy": {
     "id": "murphy",
@@ -7396,7 +18715,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\murphy\\murphy.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\murphy\\murphy.cmp",
+    "modelBounds": {
+      "min": [
+        -8.0375,
+        -2.6247,
+        -11.7158
+      ],
+      "max": [
+        8.0375,
+        2.6247,
+        11.7158
+      ],
+      "radius": 15.5416,
+      "width": 16.075,
+      "height": 5.2494,
+      "length": 23.4316
+    },
+    "icon": "data/ship_icons/murphy.png"
   },
   "my_br_battleship": {
     "id": "my_br_battleship",
@@ -7439,7 +18775,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.07,
     "firePower": 1,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\BRETONIA\\BR_BATTLESHIP\\br_battleship.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\BRETONIA\\BR_BATTLESHIP\\br_battleship.cmp",
+    "modelBounds": {
+      "min": [
+        -50.5919,
+        -50.5152,
+        -199.1887
+      ],
+      "max": [
+        50.5157,
+        50.5152,
+        199.1887
+      ],
+      "radius": 213.7623,
+      "width": 101.1838,
+      "height": 101.0304,
+      "length": 398.3774
+    },
+    "icon": "data/ship_icons/my_br_battleship.png"
   },
   "my_ge_train": {
     "id": "my_ge_train",
@@ -7482,7 +18835,24 @@ const FL_SHIPS = {
     },
     "turnRate": 0.75,
     "firePower": 1,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\UTILITY\\FREIGHT_TRAIN\\freight_trainx2.3db"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\UTILITY\\FREIGHT_TRAIN\\freight_trainx2.3db",
+    "modelBounds": {
+      "min": [
+        -25.1787,
+        -16.3909,
+        -79.0299
+      ],
+      "max": [
+        25.1787,
+        16.3909,
+        79.0299
+      ],
+      "radius": 81.6848,
+      "width": 50.3574,
+      "height": 32.7818,
+      "length": 158.0598
+    },
+    "icon": "data/ship_icons/my_ge_train.png"
   },
   "my_ku_battleship": {
     "id": "my_ku_battleship",
@@ -7525,7 +18895,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.07,
     "firePower": 1,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\KUSARI\\KU_BATTLESHIP\\ku_battleship.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\KUSARI\\KU_BATTLESHIP\\ku_battleship.cmp",
+    "modelBounds": {
+      "min": [
+        -68.1589,
+        -134.444,
+        -337.4119
+      ],
+      "max": [
+        68.1589,
+        134.444,
+        338.0996
+      ],
+      "radius": 349.4831,
+      "width": 136.3178,
+      "height": 268.888,
+      "length": 676.1992
+    },
+    "icon": "data/ship_icons/my_ku_battleship.png"
   },
   "my_li_dreadnought": {
     "id": "my_li_dreadnought",
@@ -7568,7 +18955,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.07,
     "firePower": 1,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\LIBERTY\\LI_DREADNOUGHT\\li_dreadnought.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\LIBERTY\\LI_DREADNOUGHT\\li_dreadnought.cmp",
+    "modelBounds": {
+      "min": [
+        -45.3213,
+        -55.1236,
+        -248.0837
+      ],
+      "max": [
+        45.3213,
+        59.1228,
+        248.0837
+      ],
+      "radius": 266.8625,
+      "width": 90.6426,
+      "height": 118.2456,
+      "length": 496.1674
+    },
+    "icon": "data/ship_icons/my_li_dreadnought.png"
   },
   "my_ltrain_ship": {
     "id": "my_ltrain_ship",
@@ -7611,7 +19015,24 @@ const FL_SHIPS = {
     },
     "turnRate": 0.75,
     "firePower": 1,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\UTILITY\\FREIGHT_TRAIN\\freight_trainx3.3db"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\UTILITY\\FREIGHT_TRAIN\\freight_trainx3.3db",
+    "modelBounds": {
+      "min": [
+        -25.1787,
+        -16.3909,
+        -100.7455
+      ],
+      "max": [
+        25.1787,
+        16.3909,
+        100.7455
+      ],
+      "radius": 106.2038,
+      "width": 50.3574,
+      "height": 32.7818,
+      "length": 201.491
+    },
+    "icon": "data/ship_icons/my_ltrain_ship.png"
   },
   "my_miner_ship": {
     "id": "my_miner_ship",
@@ -7654,7 +19075,24 @@ const FL_SHIPS = {
     },
     "turnRate": 0.75,
     "firePower": 1,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\UTILITY\\MINING\\mining.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\UTILITY\\MINING\\mining.cmp",
+    "modelBounds": {
+      "min": [
+        -95.4934,
+        -41.2064,
+        -116.2282
+      ],
+      "max": [
+        95.4934,
+        41.2064,
+        116.2282
+      ],
+      "radius": 136.4003,
+      "width": 190.9868,
+      "height": 82.4128,
+      "length": 232.4564
+    },
+    "icon": "data/ship_icons/my_miner_ship.png"
   },
   "my_or_osiris": {
     "id": "my_or_osiris",
@@ -7697,7 +19135,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.07,
     "firePower": 1,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\ORDER\\OR_OSIRIS\\or_osiris.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\ORDER\\OR_OSIRIS\\or_osiris.cmp",
+    "modelBounds": {
+      "min": [
+        -31.5164,
+        -50.7079,
+        -213.3575
+      ],
+      "max": [
+        31.5164,
+        50.7079,
+        213.2203
+      ],
+      "radius": 232.9937,
+      "width": 63.0328,
+      "height": 101.4158,
+      "length": 426.715
+    },
+    "icon": "data/ship_icons/my_or_osiris.png"
   },
   "my_rh_battleship": {
     "id": "my_rh_battleship",
@@ -7740,7 +19195,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.07,
     "firePower": 1,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\RHEINLAND\\RH_BATTLESHIP\\rh_battleship.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\RHEINLAND\\RH_BATTLESHIP\\rh_battleship.cmp",
+    "modelBounds": {
+      "min": [
+        -97.1886,
+        -106.0065,
+        -400.0807
+      ],
+      "max": [
+        97.1928,
+        106.0057,
+        400.0807
+      ],
+      "radius": 501.5191,
+      "width": 194.3856,
+      "height": 212.013,
+      "length": 800.1614
+    },
+    "icon": "data/ship_icons/my_rh_battleship.png"
   },
   "naginata": {
     "id": "naginata",
@@ -7783,7 +19255,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\Shroud\\naginata.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\Shroud\\naginata.cmp",
+    "modelBounds": {
+      "min": [
+        -6.2776,
+        -5.1917,
+        -9.1138
+      ],
+      "max": [
+        6.2776,
+        5.1917,
+        9.1138
+      ],
+      "radius": 13.6266,
+      "width": 12.5552,
+      "height": 10.3834,
+      "length": 18.2276
+    },
+    "icon": "data/ship_icons/naginata.png"
   },
   "nexus": {
     "id": "nexus",
@@ -7826,7 +19315,684 @@ const FL_SHIPS = {
     },
     "turnRate": 2.08,
     "firePower": 7,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\nexus\\nexus.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\nexus\\nexus.cmp",
+    "modelBounds": {
+      "min": [
+        -7.1924,
+        -8.1927,
+        -9.6907
+      ],
+      "max": [
+        7.1924,
+        8.1927,
+        9.6907
+      ],
+      "radius": 12.5492,
+      "width": 14.3848,
+      "height": 16.3854,
+      "length": 19.3814
+    },
+    "icon": "data/ship_icons/nexus.png"
+  },
+  "no_battleship": {
+    "id": "no_battleship",
+    "name": "Nomad Battleship",
+    "info": "Schlachtschiff der Nomaden\nKeine weiteren Informationen verfügbar. Antriebssignatur, verwendete Materialen und Waffensystem entsprechen denen einer fremden Kultur.\nKontakt sollte vermieden werden.",
+    "idsName": "237038",
+    "idsInfo": "66578",
+    "type": "CAPITAL",
+    "shipClass": 0,
+    "mass": 2000,
+    "holdSize": 800,
+    "hitPts": 69300,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      1501900032.0,
+      1501900032.0,
+      1501900032.0
+    ],
+    "angularDrag": [
+      13200000000.0,
+      13200000000.0,
+      13200000000.0
+    ],
+    "rotationInertia": [
+      15000000512.0,
+      15000000512.0,
+      15000000512.0
+    ],
+    "nudgeForce": 3000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\NOMAD2\\NO2_BATTLESHIP\\no2_battleship.cmp",
+    "modelBounds": {
+      "min": [
+        -53.4228,
+        -57.4822,
+        -270.819
+      ],
+      "max": [
+        53.4228,
+        57.4822,
+        270.819
+      ],
+      "radius": 270.9288,
+      "width": 106.8456,
+      "height": 114.9644,
+      "length": 541.638
+    },
+    "icon": "data/ship_icons/no_battleship.png"
+  },
+  "no_battleshipold": {
+    "id": "no_battleshipold",
+    "name": "Nomad Battleship",
+    "info": "Schlachtschiff der Nomaden\nKeine weiteren Informationen verfügbar. Antriebssignatur, verwendete Materialen und Waffensystem entsprechen denen einer fremden Kultur.\nKontakt sollte vermieden werden.",
+    "idsName": "237038",
+    "idsInfo": "66578",
+    "type": "CAPITAL",
+    "shipClass": 0,
+    "mass": 2000,
+    "holdSize": 800,
+    "hitPts": 69300,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      1501900032.0,
+      1501900032.0,
+      1501900032.0
+    ],
+    "angularDrag": [
+      13200000000.0,
+      13200000000.0,
+      13200000000.0
+    ],
+    "rotationInertia": [
+      15000000512.0,
+      15000000512.0,
+      15000000512.0
+    ],
+    "nudgeForce": 3000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\NOMAD\\NO_BATTLESHIP\\no_battleship.3db",
+    "modelBounds": {
+      "min": [
+        -138.4653,
+        -122.097,
+        -628.4799
+      ],
+      "max": [
+        138.4653,
+        122.097,
+        625.666
+      ],
+      "radius": 641.6316,
+      "width": 276.9306,
+      "height": 244.194,
+      "length": 1256.9598
+    },
+    "icon": "data/ship_icons/no_battleshipold.png"
+  },
+  "no_bomber": {
+    "id": "no_bomber",
+    "name": "Nomad Bomber",
+    "info": "",
+    "idsName": "500276",
+    "idsInfo": "500277",
+    "type": "FIGHTER",
+    "shipClass": 3,
+    "mass": 290,
+    "holdSize": 200,
+    "hitPts": 13300,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      56000.0,
+      56000.0,
+      49000.0
+    ],
+    "angularDrag": [
+      42000.0,
+      42000.0,
+      35000.0
+    ],
+    "rotationInertia": [
+      8300.0,
+      8300.0,
+      1000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 1.51,
+      "agility": 1.02,
+      "acceleration": 0.85,
+      "brakeRate": 4.14,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 1.51,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\NOMAD2\\NO2_BOMBER\\no2_bomber.cmp",
+    "modelBounds": {
+      "min": [
+        -6.1471,
+        -5.5115,
+        -10.4245
+      ],
+      "max": [
+        6.1471,
+        5.5115,
+        10.4245
+      ],
+      "radius": 12.5629,
+      "width": 12.2942,
+      "height": 11.023,
+      "length": 20.849
+    },
+    "icon": "data/ship_icons/no_bomber.png"
+  },
+  "no_bomberold": {
+    "id": "no_bomberold",
+    "name": "Nomad Bomber",
+    "info": "",
+    "idsName": "500276",
+    "idsInfo": "500277",
+    "type": "FIGHTER",
+    "shipClass": 3,
+    "mass": 290,
+    "holdSize": 200,
+    "hitPts": 13300,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      56000.0,
+      56000.0,
+      49000.0
+    ],
+    "angularDrag": [
+      42000.0,
+      42000.0,
+      35000.0
+    ],
+    "rotationInertia": [
+      8300.0,
+      8300.0,
+      1000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 1.51,
+      "agility": 1.02,
+      "acceleration": 0.85,
+      "brakeRate": 4.14,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 1.51,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\Nomad\\nomadbomber.cmp",
+    "modelBounds": {
+      "min": [
+        -9.7201,
+        -9.5287,
+        -11.7144
+      ],
+      "max": [
+        9.7201,
+        9.5287,
+        11.7144
+      ],
+      "radius": 14.4192,
+      "width": 19.4402,
+      "height": 19.0574,
+      "length": 23.4288
+    },
+    "icon": "data/ship_icons/no_bomberold.png"
+  },
+  "no_fighter": {
+    "id": "no_fighter",
+    "name": "Nomad Fighter",
+    "info": "Jäger der Nomaden\nÜber dieses Schiff liegen nur dürftige Informationen vor. Es scheint jedoch aus organischer Materie zu bestehen, sodass es möglicherweise nicht gebaut, sondern gezüchtet wurde.",
+    "idsName": "237039",
+    "idsInfo": "66579",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 140,
+    "holdSize": 800,
+    "hitPts": 4000,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      43000.0,
+      43000.0,
+      58000.0
+    ],
+    "angularDrag": [
+      41000.0,
+      41000.0,
+      41000.0
+    ],
+    "rotationInertia": [
+      8400.0,
+      8400.0,
+      8400.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 1.38,
+      "agility": 0.96,
+      "acceleration": 1.59,
+      "brakeRate": 4.12,
+      "strafePower": 0.82,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 1.38,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\NOMAD2\\NO2_FIGHTER\\no2_fighter.cmp",
+    "modelBounds": {
+      "min": [
+        -3.8946,
+        -3.3729,
+        -8.4548
+      ],
+      "max": [
+        3.8946,
+        3.3729,
+        8.4548
+      ],
+      "radius": 9.1829,
+      "width": 7.7892,
+      "height": 6.7458,
+      "length": 16.9096
+    },
+    "icon": "data/ship_icons/no_fighter.png"
+  },
+  "no_fighterd20": {
+    "id": "no_fighterd20",
+    "name": "Sensor Echo",
+    "info": "Jäger der Nomaden\nÜber dieses Schiff liegen nur dürftige Informationen vor. Es scheint jedoch aus organischer Materie zu bestehen, sodass es möglicherweise nicht gebaut, sondern gezüchtet wurde.",
+    "idsName": "500952",
+    "idsInfo": "66579",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 140,
+    "holdSize": 800,
+    "hitPts": 4000,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      43000.0,
+      43000.0,
+      58000.0
+    ],
+    "angularDrag": [
+      41000.0,
+      41000.0,
+      41000.0
+    ],
+    "rotationInertia": [
+      8400.0,
+      8400.0,
+      8400.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 1.38,
+      "agility": 0.96,
+      "acceleration": 1.59,
+      "brakeRate": 4.12,
+      "strafePower": 0.82,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 1.38,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\DARKNES\\DARKFIGHTER\\darkfighter2.cmp",
+    "modelBounds": {
+      "min": [
+        -4.0083,
+        -2.8596,
+        -8.173
+      ],
+      "max": [
+        4.0083,
+        2.8596,
+        8.173
+      ],
+      "radius": 10.1251,
+      "width": 8.0166,
+      "height": 5.7192,
+      "length": 16.346
+    },
+    "icon": "data/ship_icons/no_fighterd20.png"
+  },
+  "no_fighterold": {
+    "id": "no_fighterold",
+    "name": "Nomad Fighter",
+    "info": "Jäger der Nomaden\nÜber dieses Schiff liegen nur dürftige Informationen vor. Es scheint jedoch aus organischer Materie zu bestehen, sodass es möglicherweise nicht gebaut, sondern gezüchtet wurde.",
+    "idsName": "237039",
+    "idsInfo": "66579",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 140,
+    "holdSize": 800,
+    "hitPts": 4000,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      43000.0,
+      43000.0,
+      58000.0
+    ],
+    "angularDrag": [
+      41000.0,
+      41000.0,
+      41000.0
+    ],
+    "rotationInertia": [
+      8400.0,
+      8400.0,
+      8400.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 1.38,
+      "agility": 0.96,
+      "acceleration": 1.59,
+      "brakeRate": 4.12,
+      "strafePower": 0.82,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 1.38,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\NOMAD\\NO_FIGHTER\\no_fighter.3db",
+    "modelBounds": {
+      "min": [
+        -4.7699,
+        -4.1314,
+        -8.6361
+      ],
+      "max": [
+        4.7699,
+        4.1314,
+        8.5878
+      ],
+      "radius": 8.6119,
+      "width": 9.5398,
+      "height": 8.2628,
+      "length": 17.2722
+    },
+    "icon": "data/ship_icons/no_fighterold.png"
+  },
+  "no_gunboat": {
+    "id": "no_gunboat",
+    "name": "Nomad Gunboat",
+    "info": "Nomaden-Korvette\nZwar liegen keine zuverlässigen Daten über dieses Schiff vor, doch weist alles darauf hin, dass dies ein sehr gefährliches, feindliches Schiff einer Xeno-Rasse ist.",
+    "idsName": "237040",
+    "idsInfo": "66580",
+    "type": "GUNBOAT",
+    "shipClass": 0,
+    "mass": 1000,
+    "holdSize": 800,
+    "hitPts": 10000,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      60000000.0,
+      60000000.0,
+      60000000.0
+    ],
+    "angularDrag": [
+      120000000.0,
+      120000000.0,
+      120000000.0
+    ],
+    "rotationInertia": [
+      16800000.0,
+      16800000.0,
+      16800000.0
+    ],
+    "nudgeForce": 150000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 1.11,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\NOMAD2\\NO2_GUNSHIP\\no2_gunship.cmp",
+    "modelBounds": {
+      "min": [
+        -19.3131,
+        -16.7515,
+        -28.201
+      ],
+      "max": [
+        19.3131,
+        16.7515,
+        28.201
+      ],
+      "radius": 30.0835,
+      "width": 38.6262,
+      "height": 33.503,
+      "length": 56.402
+    },
+    "icon": "data/ship_icons/no_gunboat.png"
+  },
+  "no_gunboatold": {
+    "id": "no_gunboatold",
+    "name": "Nomad Gunboat",
+    "info": "Nomaden-Korvette\nZwar liegen keine zuverlässigen Daten über dieses Schiff vor, doch weist alles darauf hin, dass dies ein sehr gefährliches, feindliches Schiff einer Xeno-Rasse ist.",
+    "idsName": "237040",
+    "idsInfo": "66580",
+    "type": "GUNBOAT",
+    "shipClass": 0,
+    "mass": 1000,
+    "holdSize": 800,
+    "hitPts": 10000,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      60000000.0,
+      60000000.0,
+      60000000.0
+    ],
+    "angularDrag": [
+      120000000.0,
+      120000000.0,
+      120000000.0
+    ],
+    "rotationInertia": [
+      16800000.0,
+      16800000.0,
+      16800000.0
+    ],
+    "nudgeForce": 150000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 1.11,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\NOMAD\\NO_GUNSHIP\\no_gunship.3db",
+    "modelBounds": {
+      "min": [
+        -29.9782,
+        -27.196,
+        -59.4171
+      ],
+      "max": [
+        29.9782,
+        27.4988,
+        59.5854
+      ],
+      "radius": 72.5652,
+      "width": 59.9564,
+      "height": 54.9976,
+      "length": 119.1708
+    },
+    "icon": "data/ship_icons/no_gunboatold.png"
+  },
+  "no_strikecarrier": {
+    "id": "no_strikecarrier",
+    "name": "Nomad Strike Carrier",
+    "info": "",
+    "idsName": "500280",
+    "idsInfo": "500281",
+    "type": "CAPITAL",
+    "shipClass": 0,
+    "mass": 15000,
+    "holdSize": 10800,
+    "hitPts": 569300,
+    "linearDrag": 7680.0,
+    "steeringTorque": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "angularDrag": [
+      500000000000000.0,
+      500000000000000.0,
+      500000000000000.0
+    ],
+    "rotationInertia": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "nudgeForce": 1.0,
+    "strafeForce": 307200.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 7680.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\NOMAD2\\NO2_ARTILLERY\\no2_artillery.cmp",
+    "modelBounds": {
+      "min": [
+        -136.2653,
+        -149.5029,
+        -626.085
+      ],
+      "max": [
+        136.2653,
+        149.5029,
+        626.085
+      ],
+      "radius": 640.0,
+      "width": 272.5306,
+      "height": 299.0058,
+      "length": 1252.17
+    },
+    "icon": "data/ship_icons/no_strikecarrier.png"
+  },
+  "no_strikecarrierold": {
+    "id": "no_strikecarrierold",
+    "name": "Nomad Strike Carrier",
+    "info": "",
+    "idsName": "500280",
+    "idsInfo": "500281",
+    "type": "CAPITAL",
+    "shipClass": 0,
+    "mass": 15000,
+    "holdSize": 10800,
+    "hitPts": 569300,
+    "linearDrag": 7680.0,
+    "steeringTorque": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "angularDrag": [
+      500000000000000.0,
+      500000000000000.0,
+      500000000000000.0
+    ],
+    "rotationInertia": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "nudgeForce": 1.0,
+    "strafeForce": 307200.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 7680.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\Nomad\\strikecarrier.cmp",
+    "modelBounds": {
+      "min": [
+        -786.3969,
+        -552.6168,
+        -2047.1113
+      ],
+      "max": [
+        786.3969,
+        552.6168,
+        2047.1113
+      ],
+      "radius": 2308.1225,
+      "width": 1572.7938,
+      "height": 1105.2336,
+      "length": 4094.2226
+    },
+    "icon": "data/ship_icons/no_strikecarrierold.png"
   },
   "nova": {
     "id": "nova",
@@ -7869,7 +20035,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfnova.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfnova.cmp",
+    "modelBounds": {
+      "min": [
+        -7.136,
+        -3.8361,
+        -8.9236
+      ],
+      "max": [
+        7.136,
+        3.8361,
+        8.9236
+      ],
+      "radius": 10.1643,
+      "width": 14.272,
+      "height": 7.6722,
+      "length": 17.8472
+    },
+    "icon": "data/ship_icons/nova.png"
   },
   "novap": {
     "id": "novap",
@@ -7912,7 +20095,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfnovap.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfnovap.cmp",
+    "modelBounds": {
+      "min": [
+        -8.2826,
+        -3.8495,
+        -8.9129
+      ],
+      "max": [
+        8.2826,
+        3.8495,
+        8.9129
+      ],
+      "radius": 10.2081,
+      "width": 16.5652,
+      "height": 7.699,
+      "length": 17.8258
+    },
+    "icon": "data/ship_icons/novap.png"
   },
   "odin": {
     "id": "odin",
@@ -7955,7 +20155,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfodin.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfodin.cmp",
+    "modelBounds": {
+      "min": [
+        -7.2096,
+        -2.977,
+        -10.7918
+      ],
+      "max": [
+        7.2096,
+        2.977,
+        10.7918
+      ],
+      "radius": 11.1624,
+      "width": 14.4192,
+      "height": 5.954,
+      "length": 21.5836
+    },
+    "icon": "data/ship_icons/odin.png"
   },
   "or_elite": {
     "id": "or_elite",
@@ -7998,7 +20215,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.52,
     "firePower": 6,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\ORDER\\OR_ELITE\\or_elite.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\ORDER\\OR_ELITE\\or_elite.cmp",
+    "modelBounds": {
+      "min": [
+        -8.9,
+        -4.645,
+        -8.7021
+      ],
+      "max": [
+        8.9,
+        4.645,
+        8.7054
+      ],
+      "radius": 11.3011,
+      "width": 17.8,
+      "height": 9.29,
+      "length": 17.4108
+    },
+    "icon": "data/ship_icons/or_elite.png"
   },
   "or_elite2": {
     "id": "or_elite2",
@@ -8041,7 +20275,204 @@ const FL_SHIPS = {
     },
     "turnRate": 1.52,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\ORDER\\OR_ELITE\\or_elite2.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\ORDER\\OR_ELITE\\or_elite2.cmp",
+    "modelBounds": {
+      "min": [
+        -8.9,
+        -4.645,
+        -8.7021
+      ],
+      "max": [
+        8.9,
+        4.645,
+        8.7054
+      ],
+      "radius": 11.3011,
+      "width": 17.8,
+      "height": 9.29,
+      "length": 17.4108
+    },
+    "icon": "data/ship_icons/or_elite2.png"
+  },
+  "or_elite_msn01": {
+    "id": "or_elite_msn01",
+    "name": "Order Ship",
+    "info": "Schiff des Ordens\nFür dieses Schiff liegt kein Profil vor, doch lassen Scans der Bordkomponenten den Schluss zu, dass es aus Material unterschiedlichen Ursprungs zusammengesetzt ist und umfassend modifiziert und in eine revolutionäre Konstruktion integriert wurde.",
+    "idsName": "237042",
+    "idsInfo": "66613",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 90,
+    "holdSize": 600,
+    "hitPts": 4200,
+    "linearDrag": 4.5,
+    "steeringTorque": [
+      43000.0,
+      43000.0,
+      183000.0
+    ],
+    "angularDrag": [
+      41000.0,
+      41000.0,
+      141000.0
+    ],
+    "rotationInertia": [
+      8400.0,
+      8400.0,
+      8400.0
+    ],
+    "nudgeForce": 10000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 1.44,
+      "agility": 1.05,
+      "acceleration": 1.32,
+      "brakeRate": 6.5,
+      "strafePower": 1.71,
+      "linearDrag": 4.5,
+      "bankFactor": 0.86
+    },
+    "turnRate": 1.44,
+    "firePower": 10,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\ORDER\\OR_ELITE\\or_elite.cmp",
+    "modelBounds": {
+      "min": [
+        -8.9,
+        -4.645,
+        -8.7021
+      ],
+      "max": [
+        8.9,
+        4.645,
+        8.7054
+      ],
+      "radius": 11.3011,
+      "width": 17.8,
+      "height": 9.29,
+      "length": 17.4108
+    },
+    "icon": "data/ship_icons/or_elite_msn01.png"
+  },
+  "or_osiris": {
+    "id": "or_osiris",
+    "name": "Osiris",
+    "info": "Osiris\nÜber die Osiris oder ihre Fähigkeiten ist nur wenig bekannt. Die wenigen verfügbaren Daten deuten auf ein gemeinschaftliches Forschungsprojekt zwischen der LSF und der libertanischen Marine hin.",
+    "idsName": "237043",
+    "idsInfo": "66584",
+    "type": "CAPITAL",
+    "shipClass": 0,
+    "mass": 2000,
+    "holdSize": 600,
+    "hitPts": 69300,
+    "linearDrag": 2.0,
+    "steeringTorque": [
+      250000000.0,
+      250000000.0,
+      250000000.0
+    ],
+    "angularDrag": [
+      4000000000.0,
+      4000000000.0,
+      4000000000.0
+    ],
+    "rotationInertia": [
+      2540999936.0,
+      25806999552.0,
+      638700032.0
+    ],
+    "nudgeForce": 360000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 1.33,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 2.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\ORDER\\OR_OSIRIS\\or_osiris.cmp",
+    "modelBounds": {
+      "min": [
+        -31.5164,
+        -50.7079,
+        -213.3575
+      ],
+      "max": [
+        31.5164,
+        50.7079,
+        213.2203
+      ],
+      "radius": 232.9937,
+      "width": 63.0328,
+      "height": 101.4158,
+      "length": 426.715
+    },
+    "icon": "data/ship_icons/or_osiris.png"
+  },
+  "or_osirisstory": {
+    "id": "or_osirisstory",
+    "name": "Osiris",
+    "info": "Osiris\nÜber die Osiris oder ihre Fähigkeiten ist nur wenig bekannt. Die wenigen verfügbaren Daten deuten auf ein gemeinschaftliches Forschungsprojekt zwischen der LSF und der libertanischen Marine hin.",
+    "idsName": "237043",
+    "idsInfo": "66584",
+    "type": "CAPITAL",
+    "shipClass": 0,
+    "mass": 2000,
+    "holdSize": 600,
+    "hitPts": 69300,
+    "linearDrag": 2.0,
+    "steeringTorque": [
+      250000000.0,
+      250000000.0,
+      250000000.0
+    ],
+    "angularDrag": [
+      4000000000.0,
+      4000000000.0,
+      4000000000.0
+    ],
+    "rotationInertia": [
+      2540999936.0,
+      25806999552.0,
+      638700032.0
+    ],
+    "nudgeForce": 360000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 1.33,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 2.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\ORDER\\OR_OSIRIS\\or_osiris.cmp",
+    "modelBounds": {
+      "min": [
+        -31.5164,
+        -50.7079,
+        -213.3575
+      ],
+      "max": [
+        31.5164,
+        50.7079,
+        213.2203
+      ],
+      "radius": 232.9937,
+      "width": 63.0328,
+      "height": 101.4158,
+      "length": 426.715
+    },
+    "icon": "data/ship_icons/or_osirisstory.png"
   },
   "patriot": {
     "id": "patriot",
@@ -8084,7 +20515,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\Shroud\\patriot.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\Shroud\\patriot.cmp",
+    "modelBounds": {
+      "min": [
+        -6.9027,
+        -4.1323,
+        -9.4915
+      ],
+      "max": [
+        6.9027,
+        4.1323,
+        9.4915
+      ],
+      "radius": 11.8827,
+      "width": 13.8054,
+      "height": 8.2646,
+      "length": 18.983
+    },
+    "icon": "data/ship_icons/patriot.png"
   },
   "periclese": {
     "id": "periclese",
@@ -8127,7 +20575,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.98,
     "firePower": 5,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfpericlese.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfpericlese.cmp",
+    "modelBounds": {
+      "min": [
+        -7.6632,
+        -5.1322,
+        -6.6796
+      ],
+      "max": [
+        7.6632,
+        5.1322,
+        6.6796
+      ],
+      "radius": 10.8725,
+      "width": 15.3264,
+      "height": 10.2644,
+      "length": 13.3592
+    },
+    "icon": "data/ship_icons/periclese.png"
   },
   "periclesp": {
     "id": "periclesp",
@@ -8170,7 +20635,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfpericlesp.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfpericlesp.cmp",
+    "modelBounds": {
+      "min": [
+        -7.6632,
+        -5.1322,
+        -6.6796
+      ],
+      "max": [
+        7.6632,
+        5.1322,
+        6.6796
+      ],
+      "radius": 10.8725,
+      "width": 15.3264,
+      "height": 10.2644,
+      "length": 13.3592
+    },
+    "icon": "data/ship_icons/periclesp.png"
   },
   "periclesr": {
     "id": "periclesr",
@@ -8213,7 +20695,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfpericlesr.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfpericlesr.cmp",
+    "modelBounds": {
+      "min": [
+        -8.0294,
+        -4.7427,
+        -6.3571
+      ],
+      "max": [
+        8.0294,
+        4.7427,
+        6.3571
+      ],
+      "radius": 10.2297,
+      "width": 16.0588,
+      "height": 9.4854,
+      "length": 12.7142
+    },
+    "icon": "data/ship_icons/periclesr.png"
   },
   "perseush": {
     "id": "perseush",
@@ -8256,7 +20755,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfperseush.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfperseush.cmp",
+    "modelBounds": {
+      "min": [
+        -6.6166,
+        -3.4175,
+        -11.5277
+      ],
+      "max": [
+        6.6166,
+        3.4175,
+        11.5277
+      ],
+      "radius": 11.9276,
+      "width": 13.2332,
+      "height": 6.835,
+      "length": 23.0554
+    },
+    "icon": "data/ship_icons/perseush.png"
   },
   "perseusp": {
     "id": "perseusp",
@@ -8299,7 +20815,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfperseusp.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfperseusp.cmp",
+    "modelBounds": {
+      "min": [
+        -6.6944,
+        -2.1222,
+        -11.3944
+      ],
+      "max": [
+        6.6944,
+        2.1222,
+        11.3944
+      ],
+      "radius": 17.7754,
+      "width": 13.3888,
+      "height": 4.2444,
+      "length": 22.7888
+    },
+    "icon": "data/ship_icons/perseusp.png"
   },
   "perseusr": {
     "id": "perseusr",
@@ -8342,7 +20875,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfperseusr.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfperseusr.cmp",
+    "modelBounds": {
+      "min": [
+        -6.6944,
+        -2.1222,
+        -11.3944
+      ],
+      "max": [
+        6.6944,
+        2.1222,
+        11.3944
+      ],
+      "radius": 17.7754,
+      "width": 13.3888,
+      "height": 4.2444,
+      "length": 22.7888
+    },
+    "icon": "data/ship_icons/perseusr.png"
   },
   "perseuss": {
     "id": "perseuss",
@@ -8385,7 +20935,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfperseuss.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfperseuss.cmp",
+    "modelBounds": {
+      "min": [
+        -6.547,
+        -2.611,
+        -11.405
+      ],
+      "max": [
+        6.547,
+        2.611,
+        11.405
+      ],
+      "radius": 18.0723,
+      "width": 13.094,
+      "height": 5.222,
+      "length": 22.81
+    },
+    "icon": "data/ship_icons/perseuss.png"
   },
   "perseusv": {
     "id": "perseusv",
@@ -8428,7 +20995,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.31,
     "firePower": 8,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfperseusv.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfperseusv.cmp",
+    "modelBounds": {
+      "min": [
+        -3.9518,
+        -1.9808,
+        -11.3944
+      ],
+      "max": [
+        3.9518,
+        1.9808,
+        11.3944
+      ],
+      "radius": 17.5778,
+      "width": 7.9036,
+      "height": 3.9616,
+      "length": 22.7888
+    },
+    "icon": "data/ship_icons/perseusv.png"
   },
   "phantom": {
     "id": "phantom",
@@ -8471,7 +21055,84 @@ const FL_SHIPS = {
     },
     "turnRate": 1.65,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\phantom\\phantom.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\phantom\\phantom.cmp",
+    "modelBounds": {
+      "min": [
+        -9.3983,
+        -2.3809,
+        -13.0144
+      ],
+      "max": [
+        9.3983,
+        2.3809,
+        13.0144
+      ],
+      "radius": 13.6875,
+      "width": 18.7966,
+      "height": 4.7618,
+      "length": 26.0288
+    },
+    "icon": "data/ship_icons/phantom.png"
+  },
+  "phoenix": {
+    "id": "phoenix",
+    "name": "Phoenix",
+    "info": "",
+    "idsName": "252625",
+    "idsInfo": "252626",
+    "type": "FIGHTER",
+    "shipClass": 3,
+    "mass": 140,
+    "holdSize": 120,
+    "hitPts": 11300,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      55000.0,
+      55000.0,
+      48000.0
+    ],
+    "angularDrag": [
+      41000.0,
+      41000.0,
+      35000.0
+    ],
+    "rotationInertia": [
+      8400.0,
+      8400.0,
+      1000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 1.75,
+      "agility": 1.3,
+      "acceleration": 1.59,
+      "brakeRate": 4.19,
+      "strafePower": 1.1,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 1.75,
+    "firePower": 10,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\Shroud\\phoenix.cmp",
+    "modelBounds": {
+      "min": [
+        -6.4124,
+        -4.7821,
+        -9.8624
+      ],
+      "max": [
+        6.4124,
+        4.7821,
+        9.8624
+      ],
+      "radius": 10.9388,
+      "width": 12.8248,
+      "height": 9.5642,
+      "length": 19.7248
+    },
+    "icon": "data/ship_icons/phoenix.png"
   },
   "phoenix_ship": {
     "id": "phoenix_ship",
@@ -8514,7 +21175,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\Shroud\\phoenix.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\Shroud\\phoenix.cmp",
+    "modelBounds": {
+      "min": [
+        -6.4124,
+        -4.7821,
+        -9.8624
+      ],
+      "max": [
+        6.4124,
+        4.7821,
+        9.8624
+      ],
+      "radius": 10.9388,
+      "width": 12.8248,
+      "height": 9.5642,
+      "length": 19.7248
+    },
+    "icon": "data/ship_icons/phoenix_ship.png"
   },
   "pi_elite": {
     "id": "pi_elite",
@@ -8557,7 +21235,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.52,
     "firePower": 6,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CORSAIR\\CO_ELITE\\co_elite.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CORSAIR\\CO_ELITE\\co_elite.cmp",
+    "modelBounds": {
+      "min": [
+        -5.4356,
+        -9.3878,
+        -13.1194
+      ],
+      "max": [
+        5.4356,
+        9.3882,
+        13.1194
+      ],
+      "radius": 15.0275,
+      "width": 10.8712,
+      "height": 18.7764,
+      "length": 26.2388
+    },
+    "icon": "data/ship_icons/pi_elite.png"
   },
   "pi_fighter": {
     "id": "pi_fighter",
@@ -8600,7 +21295,24 @@ const FL_SHIPS = {
     },
     "turnRate": 2.21,
     "firePower": 4,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CORSAIR\\CO_FIGHTER\\co_fighter.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CORSAIR\\CO_FIGHTER\\co_fighter.cmp",
+    "modelBounds": {
+      "min": [
+        -4.5454,
+        -7.2199,
+        -9.3408
+      ],
+      "max": [
+        4.5455,
+        7.1086,
+        9.3408
+      ],
+      "radius": 11.4085,
+      "width": 9.091,
+      "height": 14.4398,
+      "length": 18.6816
+    },
+    "icon": "data/ship_icons/pi_fighter.png"
   },
   "pi_freighter": {
     "id": "pi_freighter",
@@ -8643,7 +21355,84 @@ const FL_SHIPS = {
     },
     "turnRate": 1.03,
     "firePower": 4,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CORSAIR\\CO_FREIGHTER\\co_freighter.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CORSAIR\\CO_FREIGHTER\\co_freighter.cmp",
+    "modelBounds": {
+      "min": [
+        -6.1671,
+        -7.7597,
+        -10.4785
+      ],
+      "max": [
+        6.1671,
+        7.7597,
+        10.4785
+      ],
+      "radius": 13.105,
+      "width": 12.3342,
+      "height": 15.5194,
+      "length": 20.957
+    },
+    "icon": "data/ship_icons/pi_freighter.png"
+  },
+  "pi_freighternofuse": {
+    "id": "pi_freighternofuse",
+    "name": "Mule",
+    "info": "Statistik\nGeschütz-/Turmsockel: 4/4\nPanzerung: 2200\nFrachtraum: 90\nMax. Batterien/Nanobots: 15/15\nOptimale Waffenklasse: 2\nMax. Waffenklasse: 4\nZusätzliche Ausrüstung: M, GM",
+    "idsName": "237046",
+    "idsInfo": "66591",
+    "type": "FREIGHTER",
+    "shipClass": 2,
+    "mass": 300,
+    "holdSize": 90,
+    "hitPts": 2200,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      54000.0,
+      54000.0,
+      104000.0
+    ],
+    "angularDrag": [
+      60000.0,
+      60000.0,
+      60000.0
+    ],
+    "rotationInertia": [
+      16800.0,
+      16800.0,
+      16800.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 15.0,
+    "handling": {
+      "turnRate": 1.02,
+      "agility": 0.64,
+      "acceleration": 0.85,
+      "brakeRate": 3.73,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.45
+    },
+    "turnRate": 1.02,
+    "firePower": 4,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CORSAIR\\CO_FREIGHTER\\co_freighter.cmp",
+    "modelBounds": {
+      "min": [
+        -6.1671,
+        -7.7597,
+        -10.4785
+      ],
+      "max": [
+        6.1671,
+        7.7597,
+        10.4785
+      ],
+      "radius": 13.105,
+      "width": 12.3342,
+      "height": 15.5194,
+      "length": 20.957
+    },
+    "icon": "data/ship_icons/pi_freighternofuse.png"
   },
   "pinkeagle": {
     "id": "pinkeagle",
@@ -8686,7 +21475,72 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CIVILIAN\\CV_VHEAVY_FIGHTER\\pinkeagle.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CIVILIAN\\CV_VHEAVY_FIGHTER\\pinkeagle.cmp",
+    "modelBounds": {
+      "min": [
+        -9.992,
+        -4.2039,
+        -8.6358
+      ],
+      "max": [
+        9.992,
+        4.2039,
+        8.6358
+      ],
+      "radius": 11.7114,
+      "width": 19.984,
+      "height": 8.4078,
+      "length": 17.2716
+    },
+    "icon": "data/ship_icons/pinkeagle.png"
+  },
+  "playership": {
+    "id": "playership",
+    "name": "playership",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\LIBERTY\\LI_FREIGHTER\\li_freighter.cmp",
+    "modelBounds": {
+      "min": [
+        -4.4712,
+        -5.5502,
+        -14.6048
+      ],
+      "max": [
+        4.4712,
+        5.5502,
+        14.6023
+      ],
+      "radius": 14.745,
+      "width": 8.9424,
+      "height": 11.1004,
+      "length": 29.2096
+    },
+    "icon": "data/ship_icons/playership.png"
   },
   "predator": {
     "id": "predator",
@@ -8729,7 +21583,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.64,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\Shroud\\predator.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\Shroud\\predator.cmp",
+    "modelBounds": {
+      "min": [
+        -5.7483,
+        -3.3663,
+        -8.2152
+      ],
+      "max": [
+        5.7483,
+        3.3663,
+        8.2152
+      ],
+      "radius": 10.9395,
+      "width": 11.4966,
+      "height": 6.7326,
+      "length": 16.4304
+    },
+    "icon": "data/ship_icons/predator.png"
   },
   "ragebringer": {
     "id": "ragebringer",
@@ -8772,7 +21643,84 @@ const FL_SHIPS = {
     },
     "turnRate": 1.13,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\ragebringer\\ragebringer.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\ragebringer\\ragebringer.cmp",
+    "modelBounds": {
+      "min": [
+        -7.1673,
+        -5.1943,
+        -9.7867
+      ],
+      "max": [
+        7.1673,
+        5.1943,
+        9.7867
+      ],
+      "radius": 13.3773,
+      "width": 14.3346,
+      "height": 10.3886,
+      "length": 19.5734
+    },
+    "icon": "data/ship_icons/ragebringer.png"
+  },
+  "ramases": {
+    "id": "ramases",
+    "name": "Carrier \"Ramases\"",
+    "info": "",
+    "idsName": "480512",
+    "idsInfo": "480513",
+    "type": "CAPITAL",
+    "shipClass": 6,
+    "mass": 15000,
+    "holdSize": 165,
+    "hitPts": 80300,
+    "linearDrag": 7680.0,
+    "steeringTorque": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "angularDrag": [
+      500000000000000.0,
+      500000000000000.0,
+      500000000000000.0
+    ],
+    "rotationInertia": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "nudgeForce": 1.0,
+    "strafeForce": 307200.0,
+    "maxBankAngle": 15.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 7680.0,
+      "bankFactor": 0.45
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\coalition\\ramases.cmp",
+    "modelBounds": {
+      "min": [
+        -100.2242,
+        -113.5894,
+        -293.1083
+      ],
+      "max": [
+        100.2242,
+        113.5894,
+        293.1083
+      ],
+      "radius": 329.6084,
+      "width": 200.4484,
+      "height": 227.1788,
+      "length": 586.2166
+    },
+    "icon": "data/ship_icons/ramases.png"
   },
   "raptor": {
     "id": "raptor",
@@ -8815,7 +21763,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\raptor\\raptor.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\raptor\\raptor.cmp",
+    "modelBounds": {
+      "min": [
+        -7.4585,
+        -3.1377,
+        -9.6097
+      ],
+      "max": [
+        7.4585,
+        3.1377,
+        9.6097
+      ],
+      "radius": 10.9617,
+      "width": 14.917,
+      "height": 6.2754,
+      "length": 19.2194
+    },
+    "icon": "data/ship_icons/raptor.png"
   },
   "ravensclaw2": {
     "id": "ravensclaw2",
@@ -8858,7 +21823,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.26,
     "firePower": 8,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\ravensclaw2\\ravensclaw2.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\ravensclaw2\\ravensclaw2.cmp",
+    "modelBounds": {
+      "min": [
+        -7.916,
+        -2.3935,
+        -11.6772
+      ],
+      "max": [
+        7.916,
+        2.3935,
+        11.6772
+      ],
+      "radius": 13.5561,
+      "width": 15.832,
+      "height": 4.787,
+      "length": 23.3544
+    },
+    "icon": "data/ship_icons/ravensclaw2.png"
   },
   "reaper": {
     "id": "reaper",
@@ -8901,7 +21883,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\coalition\\reaper.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\coalition\\reaper.cmp",
+    "modelBounds": {
+      "min": [
+        -6.5453,
+        -2.047,
+        -9.222
+      ],
+      "max": [
+        6.5453,
+        2.047,
+        9.222
+      ],
+      "radius": 11.3809,
+      "width": 13.0906,
+      "height": 4.094,
+      "length": 18.444
+    },
+    "icon": "data/ship_icons/reaper.png"
   },
   "redemption": {
     "id": "redemption",
@@ -8944,7 +21943,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.66,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\redemption\\redemption.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\redemption\\redemption.cmp",
+    "modelBounds": {
+      "min": [
+        -6.9602,
+        -1.312,
+        -9.1884
+      ],
+      "max": [
+        6.9602,
+        1.312,
+        9.1884
+      ],
+      "radius": 10.0343,
+      "width": 13.9204,
+      "height": 2.624,
+      "length": 18.3768
+    },
+    "icon": "data/ship_icons/redemption.png"
   },
   "reliant": {
     "id": "reliant",
@@ -8987,7 +22003,144 @@ const FL_SHIPS = {
     },
     "turnRate": 1.07,
     "firePower": 1,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\Shroud\\reliant.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\Shroud\\reliant.cmp",
+    "modelBounds": {
+      "min": [
+        -63.4587,
+        -42.209,
+        -282.6315
+      ],
+      "max": [
+        63.4587,
+        42.209,
+        282.6315
+      ],
+      "radius": 326.6378,
+      "width": 126.9174,
+      "height": 84.418,
+      "length": 565.263
+    },
+    "icon": "data/ship_icons/reliant.png"
+  },
+  "rh_battleship": {
+    "id": "rh_battleship",
+    "name": "Rheinland Battleship",
+    "info": "Rheinwehr-Schlachtschiff\nDiese Schiffsklasse ist der Stolz der Flotte des Kanzlers. Sie wird für taktische \"Schachmatt-Züge\" der Rheinwehr eingesetzt.",
+    "idsName": "237049",
+    "idsInfo": "66596",
+    "type": "CAPITAL",
+    "shipClass": 0,
+    "mass": 2000,
+    "holdSize": 600,
+    "hitPts": 69300,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      1501900032.0,
+      1501900032.0,
+      1501900032.0
+    ],
+    "angularDrag": [
+      13200000000.0,
+      13200000000.0,
+      13200000000.0
+    ],
+    "rotationInertia": [
+      15000000512.0,
+      15000000512.0,
+      15000000512.0
+    ],
+    "nudgeForce": 3000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\RHEINLAND\\RH_BATTLESHIP\\rh_battleship.cmp",
+    "modelBounds": {
+      "min": [
+        -97.1886,
+        -106.0065,
+        -400.0807
+      ],
+      "max": [
+        97.1928,
+        106.0057,
+        400.0807
+      ],
+      "radius": 501.5191,
+      "width": 194.3856,
+      "height": 212.013,
+      "length": 800.1614
+    },
+    "icon": "data/ship_icons/rh_battleship.png"
+  },
+  "rh_cruiser": {
+    "id": "rh_cruiser",
+    "name": "Rheinland Cruiser",
+    "info": "Rheinwehr-Kreuzer\nDiese Schiffsklasse wurde in großen Stückzahlen für die Rheinwehr produziert und bildet das Rückgrat in der Flotte des Kanzlers.",
+    "idsName": "237050",
+    "idsInfo": "66597",
+    "type": "CRUISER",
+    "shipClass": 0,
+    "mass": 5000,
+    "holdSize": 400,
+    "hitPts": 43300,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      20000000.0,
+      20000000.0,
+      20000000.0
+    ],
+    "angularDrag": [
+      132000000.0,
+      132000000.0,
+      132000000.0
+    ],
+    "rotationInertia": [
+      40000000.0,
+      40000000.0,
+      40000000.0
+    ],
+    "nudgeForce": 300000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\RHEINLAND\\RH_CRUISER\\rh_cruiser.cmp",
+    "modelBounds": {
+      "min": [
+        -21.8197,
+        -33.4419,
+        -84.5917
+      ],
+      "max": [
+        21.8197,
+        33.4419,
+        84.5917
+      ],
+      "radius": 86.998,
+      "width": 43.6394,
+      "height": 66.8838,
+      "length": 169.1834
+    },
+    "icon": "data/ship_icons/rh_cruiser.png"
   },
   "rh_elite": {
     "id": "rh_elite",
@@ -9030,7 +22183,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.52,
     "firePower": 8,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\RHEINLAND\\RH_ELITE\\rh_elite.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\RHEINLAND\\RH_ELITE\\rh_elite.cmp",
+    "modelBounds": {
+      "min": [
+        -7.5278,
+        -3.528,
+        -8.3658
+      ],
+      "max": [
+        7.5278,
+        3.3562,
+        8.2834
+      ],
+      "radius": 8.5456,
+      "width": 15.0556,
+      "height": 7.056,
+      "length": 16.7316
+    },
+    "icon": "data/ship_icons/rh_elite.png"
   },
   "rh_fighter": {
     "id": "rh_fighter",
@@ -9073,7 +22243,24 @@ const FL_SHIPS = {
     },
     "turnRate": 2.21,
     "firePower": 7,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\RHEINLAND\\RH_FIGHTER\\rh_fighter.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\RHEINLAND\\RH_FIGHTER\\rh_fighter.cmp",
+    "modelBounds": {
+      "min": [
+        -5.4988,
+        -3.5664,
+        -6.8028
+      ],
+      "max": [
+        5.4988,
+        3.5664,
+        6.8028
+      ],
+      "radius": 8.1445,
+      "width": 10.9976,
+      "height": 7.1328,
+      "length": 13.6056
+    },
+    "icon": "data/ship_icons/rh_fighter.png"
   },
   "rh_freighter": {
     "id": "rh_freighter",
@@ -9116,7 +22303,4236 @@ const FL_SHIPS = {
     },
     "turnRate": 1.03,
     "firePower": 7,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\RHEINLAND\\RH_FREIGHTER\\rh_freighter.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\RHEINLAND\\RH_FREIGHTER\\rh_freighter.cmp",
+    "modelBounds": {
+      "min": [
+        -4.7324,
+        -5.7313,
+        -11.86
+      ],
+      "max": [
+        4.7324,
+        5.7313,
+        11.8616
+      ],
+      "radius": 12.7022,
+      "width": 9.4648,
+      "height": 11.4626,
+      "length": 23.7232
+    },
+    "icon": "data/ship_icons/rh_freighter.png"
+  },
+  "rh_freighternofuse": {
+    "id": "rh_freighternofuse",
+    "name": "Humpback",
+    "info": "Statistik\nWaffen-/Geschützturmsockel: 2/6\nPanzerung: 5800\nFrachtraum: 250\nMax. Batterien/Nanobots: 33/33\nOptimale Waffenklasse: 5\nMax. Waffenklasse: 7\nZusätzliche Ausrüstung: M, GM",
+    "idsName": "237053",
+    "idsInfo": "66604",
+    "type": "FREIGHTER",
+    "shipClass": 2,
+    "mass": 300,
+    "holdSize": 250,
+    "hitPts": 5800,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      24000.0,
+      24000.0,
+      104000.0
+    ],
+    "angularDrag": [
+      60000.0,
+      60000.0,
+      60000.0
+    ],
+    "rotationInertia": [
+      16800.0,
+      16800.0,
+      16800.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 15.0,
+    "handling": {
+      "turnRate": 1.02,
+      "agility": 0.57,
+      "acceleration": 0.85,
+      "brakeRate": 3.73,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.45
+    },
+    "turnRate": 1.02,
+    "firePower": 7,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\RHEINLAND\\RH_FREIGHTER\\rh_freighter.cmp",
+    "modelBounds": {
+      "min": [
+        -4.7324,
+        -5.7313,
+        -11.86
+      ],
+      "max": [
+        4.7324,
+        5.7313,
+        11.8616
+      ],
+      "radius": 12.7022,
+      "width": 9.4648,
+      "height": 11.4626,
+      "length": 23.7232
+    },
+    "icon": "data/ship_icons/rh_freighternofuse.png"
+  },
+  "rh_gunboat": {
+    "id": "rh_gunboat",
+    "name": "Rheinland Gunboat",
+    "info": "Rheinwehr-Korvette\nDieses Schiff wird in erster Linie als taktische Unterstützungseinheit eingesetzt, es eignet sich jedoch aufgrund seiner hohen Geschwindigkeit auch für tiefe Vorstöße von Kontaktteams oder für Aufklärungszwecke.",
+    "idsName": "237054",
+    "idsInfo": "66607",
+    "type": "GUNBOAT",
+    "shipClass": 0,
+    "mass": 3000,
+    "holdSize": 200,
+    "hitPts": 10500,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      60000000.0,
+      60000000.0,
+      60000000.0
+    ],
+    "angularDrag": [
+      120000000.0,
+      120000000.0,
+      120000000.0
+    ],
+    "rotationInertia": [
+      16800000.0,
+      16800000.0,
+      16800000.0
+    ],
+    "nudgeForce": 60000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\RHEINLAND\\RH_GUNSHIP\\rh_gunship.cmp",
+    "modelBounds": {
+      "min": [
+        -7.3233,
+        -16.2622,
+        -42.2648
+      ],
+      "max": [
+        7.3233,
+        16.8249,
+        42.2648
+      ],
+      "radius": 43.4271,
+      "width": 14.6466,
+      "height": 33.6498,
+      "length": 84.5296
+    },
+    "icon": "data/ship_icons/rh_gunboat.png"
+  },
+  "rm_b_battleship": {
+    "id": "rm_b_battleship",
+    "name": "Bretonia Battleship",
+    "info": "",
+    "idsName": "329683",
+    "idsInfo": "329683",
+    "type": "MISSION_SATELLITE",
+    "shipClass": 0,
+    "mass": 100000,
+    "holdSize": 25,
+    "hitPts": 50607,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.76,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 3.81,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.76,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\BRETONIA\\BR_BATTLESHIP\\br_battleship.cmp",
+    "modelBounds": {
+      "min": [
+        -50.5919,
+        -50.5152,
+        -199.1887
+      ],
+      "max": [
+        50.5157,
+        50.5152,
+        199.1887
+      ],
+      "radius": 213.7623,
+      "width": 101.1838,
+      "height": 101.0304,
+      "length": 398.3774
+    },
+    "icon": "data/ship_icons/rm_b_battleship.png"
+  },
+  "rm_depot": {
+    "id": "rm_depot",
+    "name": "Depot",
+    "info": "",
+    "idsName": "329682",
+    "idsInfo": "329682",
+    "type": "MISSION_SATELLITE",
+    "shipClass": 0,
+    "mass": 10000,
+    "holdSize": 25,
+    "hitPts": 4800,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.93,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 3.81,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.93,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SOLAR\\DOCKABLE\\depot_lod.cmp",
+    "modelBounds": {
+      "min": [
+        -83.9652,
+        -98.5849,
+        -54.3578
+      ],
+      "max": [
+        83.9652,
+        98.5849,
+        54.3578
+      ],
+      "radius": 136.4871,
+      "width": 167.9304,
+      "height": 197.1698,
+      "length": 108.7156
+    },
+    "icon": "data/ship_icons/rm_depot.png"
+  },
+  "rm_k_battleship": {
+    "id": "rm_k_battleship",
+    "name": "Kusari Battleship",
+    "info": "",
+    "idsName": "329684",
+    "idsInfo": "329684",
+    "type": "MISSION_SATELLITE",
+    "shipClass": 0,
+    "mass": 100000,
+    "holdSize": 25,
+    "hitPts": 50607,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.76,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 3.81,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.76,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\KUSARI\\KU_BATTLESHIP\\ku_battleship.cmp",
+    "modelBounds": {
+      "min": [
+        -68.1589,
+        -134.444,
+        -337.4119
+      ],
+      "max": [
+        68.1589,
+        134.444,
+        338.0996
+      ],
+      "radius": 349.4831,
+      "width": 136.3178,
+      "height": 268.888,
+      "length": 676.1992
+    },
+    "icon": "data/ship_icons/rm_k_battleship.png"
+  },
+  "rm_l_dreadnought": {
+    "id": "rm_l_dreadnought",
+    "name": "Liberty Dreadnought",
+    "info": "",
+    "idsName": "329685",
+    "idsInfo": "329685",
+    "type": "MISSION_SATELLITE",
+    "shipClass": 0,
+    "mass": 100000,
+    "holdSize": 25,
+    "hitPts": 50607,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.76,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 3.81,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.76,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\LIBERTY\\LI_DREADNOUGHT\\li_dreadnought.cmp",
+    "modelBounds": {
+      "min": [
+        -45.3213,
+        -55.1236,
+        -248.0837
+      ],
+      "max": [
+        45.3213,
+        59.1228,
+        248.0837
+      ],
+      "radius": 266.8625,
+      "width": 90.6426,
+      "height": 118.2456,
+      "length": 496.1674
+    },
+    "icon": "data/ship_icons/rm_l_dreadnought.png"
+  },
+  "rm_miningbase_small_ice": {
+    "id": "rm_miningbase_small_ice",
+    "name": "Battle Station",
+    "info": "",
+    "idsName": "329690",
+    "idsInfo": "329690",
+    "type": "MISSION_SATELLITE",
+    "shipClass": 0,
+    "mass": 100000000,
+    "holdSize": 25,
+    "hitPts": 4800,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 3.81,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SOLAR\\DOCKABLE\\miningbase_small_ice.cmp",
+    "modelBounds": {
+      "min": [
+        -125.6503,
+        -113.3287,
+        -115.842
+      ],
+      "max": [
+        125.6503,
+        113.3287,
+        115.842
+      ],
+      "radius": 141.6689,
+      "width": 251.3006,
+      "height": 226.6574,
+      "length": 231.684
+    },
+    "icon": "data/ship_icons/rm_miningbase_small_ice.png"
+  },
+  "rm_miningbase_small_rock": {
+    "id": "rm_miningbase_small_rock",
+    "name": "Battle Station",
+    "info": "",
+    "idsName": "329690",
+    "idsInfo": "329690",
+    "type": "MISSION_SATELLITE",
+    "shipClass": 0,
+    "mass": 100000000,
+    "holdSize": 25,
+    "hitPts": 4800,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 3.81,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SOLAR\\DOCKABLE\\miningbase_small_rock.cmp",
+    "modelBounds": {
+      "min": [
+        -125.6503,
+        -113.3287,
+        -115.842
+      ],
+      "max": [
+        125.6503,
+        113.3287,
+        115.842
+      ],
+      "radius": 141.6689,
+      "width": 251.3006,
+      "height": 226.6574,
+      "length": 231.684
+    },
+    "icon": "data/ship_icons/rm_miningbase_small_rock.png"
+  },
+  "rm_r_battleship": {
+    "id": "rm_r_battleship",
+    "name": "Rheinland Battleship",
+    "info": "",
+    "idsName": "329686",
+    "idsInfo": "329686",
+    "type": "MISSION_SATELLITE",
+    "shipClass": 0,
+    "mass": 100000,
+    "holdSize": 25,
+    "hitPts": 50607,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.76,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 3.81,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.76,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\RHEINLAND\\RH_BATTLESHIP\\rh_battleship.cmp",
+    "modelBounds": {
+      "min": [
+        -97.1886,
+        -106.0065,
+        -400.0807
+      ],
+      "max": [
+        97.1928,
+        106.0057,
+        400.0807
+      ],
+      "radius": 501.5191,
+      "width": 194.3856,
+      "height": 212.013,
+      "length": 800.1614
+    },
+    "icon": "data/ship_icons/rm_r_battleship.png"
+  },
+  "rm_roid_miner": {
+    "id": "rm_roid_miner",
+    "name": "Asteroid Miner",
+    "info": "",
+    "idsName": "329687",
+    "idsInfo": "329687",
+    "type": "MISSION_SATELLITE",
+    "shipClass": 0,
+    "mass": 10000,
+    "holdSize": 25,
+    "hitPts": 4800,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.93,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 3.81,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.93,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\UTILITY\\MINING\\mining.cmp",
+    "modelBounds": {
+      "min": [
+        -95.4934,
+        -41.2064,
+        -116.2282
+      ],
+      "max": [
+        95.4934,
+        41.2064,
+        116.2282
+      ],
+      "radius": 136.4003,
+      "width": 190.9868,
+      "height": 82.4128,
+      "length": 232.4564
+    },
+    "icon": "data/ship_icons/rm_roid_miner.png"
+  },
+  "rm_space_freeport01": {
+    "id": "rm_space_freeport01",
+    "name": "Large Space Station",
+    "info": "",
+    "idsName": "329689",
+    "idsInfo": "329689",
+    "type": "MISSION_SATELLITE",
+    "shipClass": 0,
+    "mass": 10000,
+    "holdSize": 25,
+    "hitPts": 9600,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.93,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 3.81,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.93,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SOLAR\\DOCKABLE\\space_freeport01.cmp",
+    "modelBounds": {
+      "min": [
+        -336.0913,
+        -295.9634,
+        -110.6001
+      ],
+      "max": [
+        336.114,
+        295.9608,
+        110.5684
+      ],
+      "radius": 340.8056,
+      "width": 672.228,
+      "height": 591.9268,
+      "length": 221.2002
+    },
+    "icon": "data/ship_icons/rm_space_freeport01.png"
+  },
+  "rm_space_mining01": {
+    "id": "rm_space_mining01",
+    "name": "Outpost",
+    "info": "",
+    "idsName": "329688",
+    "idsInfo": "329688",
+    "type": "MISSION_SATELLITE",
+    "shipClass": 0,
+    "mass": 10000,
+    "holdSize": 25,
+    "hitPts": 4800,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.93,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 3.81,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.93,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SOLAR\\DOCKABLE\\space_mining01.cmp",
+    "modelBounds": {
+      "min": [
+        -110.4289,
+        -132.2474,
+        -415.1645
+      ],
+      "max": [
+        110.1392,
+        132.2394,
+        415.1891
+      ],
+      "radius": 771.9297,
+      "width": 220.8578,
+      "height": 264.4948,
+      "length": 830.3782
+    },
+    "icon": "data/ship_icons/rm_space_mining01.png"
+  },
+  "rm_space_police01": {
+    "id": "rm_space_police01",
+    "name": "Observation Post",
+    "info": "",
+    "idsName": "329691",
+    "idsInfo": "329691",
+    "type": "MISSION_SATELLITE",
+    "shipClass": 0,
+    "mass": 10000,
+    "holdSize": 25,
+    "hitPts": 4800,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.93,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 3.81,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.93,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SOLAR\\DOCKABLE\\space_police01.cmp",
+    "modelBounds": {
+      "min": [
+        -76.1094,
+        -140.9219,
+        -110.3431
+      ],
+      "max": [
+        76.1094,
+        140.8153,
+        110.3114
+      ],
+      "radius": 239.4269,
+      "width": 152.2188,
+      "height": 281.8438,
+      "length": 220.6862
+    },
+    "icon": "data/ship_icons/rm_space_police01.png"
+  },
+  "rm_wplatform": {
+    "id": "rm_wplatform",
+    "name": "Weapons Platform",
+    "info": "",
+    "idsName": "329680",
+    "idsInfo": "329680",
+    "type": "MISSION_SATELLITE",
+    "shipClass": 0,
+    "mass": 10000,
+    "holdSize": 25,
+    "hitPts": 1600,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.93,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 3.81,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.93,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SOLAR\\MISC\\weapons_platform_lod.cmp",
+    "modelBounds": {
+      "min": [
+        -18.5254,
+        -40.0328,
+        -7.068
+      ],
+      "max": [
+        18.5254,
+        39.9784,
+        6.812
+      ],
+      "radius": 44.1692,
+      "width": 37.0508,
+      "height": 80.0656,
+      "length": 14.136
+    },
+    "icon": "data/ship_icons/rm_wplatform.png"
+  },
+  "rm_wplatform_ice": {
+    "id": "rm_wplatform_ice",
+    "name": "Weapons Platform",
+    "info": "",
+    "idsName": "329680",
+    "idsInfo": "329680",
+    "type": "MISSION_SATELLITE",
+    "shipClass": 0,
+    "mass": 10000,
+    "holdSize": 25,
+    "hitPts": 1600,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.93,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 3.81,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.93,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SOLAR\\ASTEROIDS\\MODELS\\ast_ice_platform.3db",
+    "modelBounds": {
+      "min": [
+        -23.0076,
+        -15.3763,
+        -32.8212
+      ],
+      "max": [
+        23.0076,
+        15.3763,
+        32.8212
+      ],
+      "radius": 37.6621,
+      "width": 46.0152,
+      "height": 30.7526,
+      "length": 65.6424
+    },
+    "icon": "data/ship_icons/rm_wplatform_ice.png"
+  },
+  "rm_wplatform_rock": {
+    "id": "rm_wplatform_rock",
+    "name": "Weapons Platform",
+    "info": "",
+    "idsName": "329680",
+    "idsInfo": "329680",
+    "type": "MISSION_SATELLITE",
+    "shipClass": 0,
+    "mass": 10000,
+    "holdSize": 25,
+    "hitPts": 1600,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.93,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 3.81,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.93,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SOLAR\\ASTEROIDS\\MODELS\\ast_rock02_platform.3db",
+    "modelBounds": {
+      "min": [
+        -24.1149,
+        -12.511,
+        -33.0731
+      ],
+      "max": [
+        24.1149,
+        12.511,
+        33.0731
+      ],
+      "radius": 36.1308,
+      "width": 48.2298,
+      "height": 25.022,
+      "length": 66.1462
+    },
+    "icon": "data/ship_icons/rm_wplatform_rock.png"
+  },
+  "rtc_lifeboat": {
+    "id": "rtc_lifeboat",
+    "name": "rtc_lifeboat",
+    "info": "",
+    "idsName": "1",
+    "idsInfo": "1",
+    "type": "FREIGHTER",
+    "shipClass": 0,
+    "mass": 400,
+    "holdSize": 100000,
+    "hitPts": 10000,
+    "linearDrag": 184.0,
+    "steeringTorque": [
+      25000.0,
+      25000.0,
+      25000.0
+    ],
+    "angularDrag": [
+      100000.0,
+      100000.0,
+      100000.0
+    ],
+    "rotationInertia": [
+      48000.0,
+      48000.0,
+      48000.0
+    ],
+    "nudgeForce": 3000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 184.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SOLAR\\MISC\\space_lifeboat.cmp",
+    "modelBounds": {
+      "min": [
+        -4.0279,
+        -4.0279,
+        -6.7976
+      ],
+      "max": [
+        4.0279,
+        4.0279,
+        6.7976
+      ],
+      "radius": 7.2799,
+      "width": 8.0558,
+      "height": 8.0558,
+      "length": 13.5952
+    },
+    "icon": "data/ship_icons/rtc_lifeboat.png"
+  },
+  "rtcprop_armored_transport": {
+    "id": "rtcprop_armored_transport",
+    "name": "rtcprop_armored_transport",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\UTILITY\\TRANSPORT_ARMORED\\transport_armored_nobay.3db",
+    "modelBounds": {
+      "min": [
+        -11.1973,
+        -6.1952,
+        -18.0275
+      ],
+      "max": [
+        11.1963,
+        6.1952,
+        18.0275
+      ],
+      "radius": 21.7376,
+      "width": 22.3946,
+      "height": 12.3904,
+      "length": 36.055
+    },
+    "icon": "data/ship_icons/rtcprop_armored_transport.png"
+  },
+  "rtcprop_b_battleship": {
+    "id": "rtcprop_b_battleship",
+    "name": "rtcprop_b_battleship",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\BRETONIA\\BR_BATTLESHIP\\br_battleship.cmp",
+    "modelBounds": {
+      "min": [
+        -50.5919,
+        -50.5152,
+        -199.1887
+      ],
+      "max": [
+        50.5157,
+        50.5152,
+        199.1887
+      ],
+      "radius": 213.7623,
+      "width": 101.1838,
+      "height": 101.0304,
+      "length": 398.3774
+    },
+    "icon": "data/ship_icons/rtcprop_b_battleship.png"
+  },
+  "rtcprop_b_destroyer": {
+    "id": "rtcprop_b_destroyer",
+    "name": "rtcprop_b_destroyer",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\BRETONIA\\BR_DESTROYER\\br_destroyer.cmp",
+    "modelBounds": {
+      "min": [
+        -31.5959,
+        -33.6172,
+        -62.2403
+      ],
+      "max": [
+        31.484,
+        33.2552,
+        63.3335
+      ],
+      "radius": 74.9697,
+      "width": 63.1918,
+      "height": 67.2344,
+      "length": 126.667
+    },
+    "icon": "data/ship_icons/rtcprop_b_destroyer.png"
+  },
+  "rtcprop_b_elite": {
+    "id": "rtcprop_b_elite",
+    "name": "rtcprop_b_elite",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\BRETONIA\\BR_ELITE\\br_elite.cmp",
+    "modelBounds": {
+      "min": [
+        -6.4899,
+        -4.0567,
+        -8.2085
+      ],
+      "max": [
+        6.4899,
+        4.0844,
+        8.2416
+      ],
+      "radius": 12.1934,
+      "width": 12.9798,
+      "height": 8.1688,
+      "length": 16.4832
+    },
+    "icon": "data/ship_icons/rtcprop_b_elite.png"
+  },
+  "rtcprop_b_fighter": {
+    "id": "rtcprop_b_fighter",
+    "name": "rtcprop_b_fighter",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\BRETONIA\\BR_FIGHTER\\br_fighter.cmp",
+    "modelBounds": {
+      "min": [
+        -2.4579,
+        -3.6141,
+        -6.8229
+      ],
+      "max": [
+        2.4582,
+        3.5657,
+        6.8127
+      ],
+      "radius": 10.0108,
+      "width": 4.9164,
+      "height": 7.2282,
+      "length": 13.6458
+    },
+    "icon": "data/ship_icons/rtcprop_b_fighter.png"
+  },
+  "rtcprop_b_freighter": {
+    "id": "rtcprop_b_freighter",
+    "name": "rtcprop_b_freighter",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\BRETONIA\\BR_FREIGHTER\\br_freighter.cmp",
+    "modelBounds": {
+      "min": [
+        -9.9958,
+        -4.93,
+        -11.0696
+      ],
+      "max": [
+        9.9391,
+        4.9294,
+        11.0694
+      ],
+      "radius": 13.0892,
+      "width": 19.9916,
+      "height": 9.86,
+      "length": 22.1392
+    },
+    "icon": "data/ship_icons/rtcprop_b_freighter.png"
+  },
+  "rtcprop_b_gunboat": {
+    "id": "rtcprop_b_gunboat",
+    "name": "rtcprop_b_gunboat",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\BRETONIA\\BR_GUNSHIP\\br_gunship.cmp",
+    "modelBounds": {
+      "min": [
+        -33.6898,
+        -24.6304,
+        -32.7835
+      ],
+      "max": [
+        33.8532,
+        24.5708,
+        32.8853
+      ],
+      "radius": 49.0239,
+      "width": 67.7064,
+      "height": 49.2608,
+      "length": 65.7706
+    },
+    "icon": "data/ship_icons/rtcprop_b_gunboat.png"
+  },
+  "rtcprop_bw_elite": {
+    "id": "rtcprop_bw_elite",
+    "name": "rtcprop_bw_elite",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\BORDER_WORLD\\BW_ELITE\\bw_elite.cmp",
+    "modelBounds": {
+      "min": [
+        -6.8276,
+        -4.559,
+        -9.8906
+      ],
+      "max": [
+        6.8276,
+        4.559,
+        9.8906
+      ],
+      "radius": 13.1998,
+      "width": 13.6552,
+      "height": 9.118,
+      "length": 19.7812
+    },
+    "icon": "data/ship_icons/rtcprop_bw_elite.png"
+  },
+  "rtcprop_bw_fighter": {
+    "id": "rtcprop_bw_fighter",
+    "name": "rtcprop_bw_fighter",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\BORDER_WORLD\\BW_FIGHTER\\bw_fighter.cmp",
+    "modelBounds": {
+      "min": [
+        -6.8276,
+        -1.9933,
+        -9.0832
+      ],
+      "max": [
+        6.8276,
+        1.9933,
+        9.0832
+      ],
+      "radius": 11.5868,
+      "width": 13.6552,
+      "height": 3.9866,
+      "length": 18.1664
+    },
+    "icon": "data/ship_icons/rtcprop_bw_fighter.png"
+  },
+  "rtcprop_bw_freighter": {
+    "id": "rtcprop_bw_freighter",
+    "name": "rtcprop_bw_freighter",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\BORDER_WORLD\\BW_FREIGHTER\\bw_freighter.cmp",
+    "modelBounds": {
+      "min": [
+        -6.9255,
+        -5.8299,
+        -14.3652
+      ],
+      "max": [
+        6.9255,
+        5.8299,
+        14.3628
+      ],
+      "radius": 17.646,
+      "width": 13.851,
+      "height": 11.6598,
+      "length": 28.7304
+    },
+    "icon": "data/ship_icons/rtcprop_bw_freighter.png"
+  },
+  "rtcprop_c_battleship": {
+    "id": "rtcprop_c_battleship",
+    "name": "rtcprop_c_battleship",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\coalition\\kiew2.cmp",
+    "modelBounds": {
+      "min": [
+        -129.0424,
+        -96.7508,
+        -418.5615
+      ],
+      "max": [
+        129.0424,
+        96.7508,
+        418.5615
+      ],
+      "radius": 484.5826,
+      "width": 258.0848,
+      "height": 193.5016,
+      "length": 837.123
+    },
+    "icon": "data/ship_icons/rtcprop_c_battleship.png"
+  },
+  "rtcprop_c_cruiser": {
+    "id": "rtcprop_c_cruiser",
+    "name": "rtcprop_c_cruiser",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\coalition\\yao.cmp",
+    "modelBounds": {
+      "min": [
+        -81.2889,
+        -37.9221,
+        -262.4572
+      ],
+      "max": [
+        81.2889,
+        37.9221,
+        262.4572
+      ],
+      "radius": 319.6594,
+      "width": 162.5778,
+      "height": 75.8442,
+      "length": 524.9144
+    },
+    "icon": "data/ship_icons/rtcprop_c_cruiser.png"
+  },
+  "rtcprop_c_elite": {
+    "id": "rtcprop_c_elite",
+    "name": "rtcprop_c_elite",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\coalition\\colsabre.cmp",
+    "modelBounds": {
+      "min": [
+        -7.449,
+        -1.522,
+        -7.9669
+      ],
+      "max": [
+        7.449,
+        1.522,
+        7.9669
+      ],
+      "radius": 8.6377,
+      "width": 14.898,
+      "height": 3.044,
+      "length": 15.9338
+    },
+    "icon": "data/ship_icons/rtcprop_c_elite.png"
+  },
+  "rtcprop_c_fighter": {
+    "id": "rtcprop_c_fighter",
+    "name": "rtcprop_c_fighter",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\coalition\\basilisk.cmp",
+    "modelBounds": {
+      "min": [
+        -7.3199,
+        -2.7893,
+        -9.5343
+      ],
+      "max": [
+        7.3199,
+        2.7893,
+        9.5343
+      ],
+      "radius": 11.0079,
+      "width": 14.6398,
+      "height": 5.5786,
+      "length": 19.0686
+    },
+    "icon": "data/ship_icons/rtcprop_c_fighter.png"
+  },
+  "rtcprop_c_freighter": {
+    "id": "rtcprop_c_freighter",
+    "name": "rtcprop_c_freighter",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\coalition\\Goliath.cmp",
+    "modelBounds": {
+      "min": [
+        -26.0984,
+        -25.7007,
+        -61.491
+      ],
+      "max": [
+        26.0984,
+        25.7007,
+        61.491
+      ],
+      "radius": 89.9561,
+      "width": 52.1968,
+      "height": 51.4014,
+      "length": 122.982
+    },
+    "icon": "data/ship_icons/rtcprop_c_freighter.png"
+  },
+  "rtcprop_c_gunboat": {
+    "id": "rtcprop_c_gunboat",
+    "name": "rtcprop_c_gunboat",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\coalition\\kurgan.cmp",
+    "modelBounds": {
+      "min": [
+        -51.4362,
+        -44.086,
+        -165.012
+      ],
+      "max": [
+        51.4362,
+        44.086,
+        165.012
+      ],
+      "radius": 189.0449,
+      "width": 102.8724,
+      "height": 88.172,
+      "length": 330.024
+    },
+    "icon": "data/ship_icons/rtcprop_c_gunboat.png"
+  },
+  "rtcprop_c_transport": {
+    "id": "rtcprop_c_transport",
+    "name": "rtcprop_c_transport",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\coalition\\Anatov.cmp",
+    "modelBounds": {
+      "min": [
+        -45.9772,
+        -34.1178,
+        -121.3104
+      ],
+      "max": [
+        45.9772,
+        34.1178,
+        121.3104
+      ],
+      "radius": 139.3071,
+      "width": 91.9544,
+      "height": 68.2356,
+      "length": 242.6208
+    },
+    "icon": "data/ship_icons/rtcprop_c_transport.png"
+  },
+  "rtcprop_civ_elite": {
+    "id": "rtcprop_civ_elite",
+    "name": "rtcprop_civ_elite",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CIVILIAN\\CV_STARTRACKER\\cv_startracker.cmp",
+    "modelBounds": {
+      "min": [
+        -5.2956,
+        -3.9496,
+        -6.8863
+      ],
+      "max": [
+        5.2956,
+        3.8202,
+        6.3817
+      ],
+      "radius": 10.9867,
+      "width": 10.5912,
+      "height": 7.8992,
+      "length": 13.7726
+    },
+    "icon": "data/ship_icons/rtcprop_civ_elite.png"
+  },
+  "rtcprop_civ_fighter": {
+    "id": "rtcprop_civ_fighter",
+    "name": "rtcprop_civ_fighter",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CIVILIAN\\CV_STARFLIER\\cv_starflier.cmp",
+    "modelBounds": {
+      "min": [
+        -5.2956,
+        -3.7773,
+        -6.8863
+      ],
+      "max": [
+        5.2956,
+        3.6514,
+        6.3817
+      ],
+      "radius": 10.9867,
+      "width": 10.5912,
+      "height": 7.5546,
+      "length": 13.7726
+    },
+    "icon": "data/ship_icons/rtcprop_civ_fighter.png"
+  },
+  "rtcprop_civ_freighter": {
+    "id": "rtcprop_civ_freighter",
+    "name": "rtcprop_civ_freighter",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CIVILIAN\\CV_STARBLAZER\\cv_starblazer.cmp",
+    "modelBounds": {
+      "min": [
+        -5.2956,
+        -4.9871,
+        -6.8863
+      ],
+      "max": [
+        5.2956,
+        4.8577,
+        6.3817
+      ],
+      "radius": 10.9867,
+      "width": 10.5912,
+      "height": 9.9742,
+      "length": 13.7726
+    },
+    "icon": "data/ship_icons/rtcprop_civ_freighter.png"
+  },
+  "rtcprop_csv": {
+    "id": "rtcprop_csv",
+    "name": "rtcprop_csv",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\UTILITY\\CSV\\csv.cmp",
+    "modelBounds": {
+      "min": [
+        -4.5106,
+        -5.5803,
+        -9.4726
+      ],
+      "max": [
+        4.4711,
+        5.5803,
+        9.606
+      ],
+      "radius": 13.5374,
+      "width": 9.0212,
+      "height": 11.1606,
+      "length": 19.212
+    },
+    "icon": "data/ship_icons/rtcprop_csv.png"
+  },
+  "rtcprop_frbattleship": {
+    "id": "rtcprop_frbattleship",
+    "name": "rtcprop_frbattleship",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\french\\frbattleship.cmp",
+    "modelBounds": {
+      "min": [
+        -51.1794,
+        -36.9592,
+        -180.5401
+      ],
+      "max": [
+        51.1794,
+        36.9592,
+        180.5401
+      ],
+      "radius": 196.9607,
+      "width": 102.3588,
+      "height": 73.9184,
+      "length": 361.0802
+    },
+    "icon": "data/ship_icons/rtcprop_frbattleship.png"
+  },
+  "rtcprop_frfighter1": {
+    "id": "rtcprop_frfighter1",
+    "name": "rtcprop_frfighter1",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\french\\frfighter3.cmp",
+    "modelBounds": {
+      "min": [
+        -7.9097,
+        -1.8913,
+        -12.3098
+      ],
+      "max": [
+        7.9097,
+        1.8913,
+        12.3098
+      ],
+      "radius": 15.7577,
+      "width": 15.8194,
+      "height": 3.7826,
+      "length": 24.6196
+    },
+    "icon": "data/ship_icons/rtcprop_frfighter1.png"
+  },
+  "rtcprop_frfighter2": {
+    "id": "rtcprop_frfighter2",
+    "name": "rtcprop_frfighter2",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\french\\frfighter3.cmp",
+    "modelBounds": {
+      "min": [
+        -7.9097,
+        -1.8913,
+        -12.3098
+      ],
+      "max": [
+        7.9097,
+        1.8913,
+        12.3098
+      ],
+      "radius": 15.7577,
+      "width": 15.8194,
+      "height": 3.7826,
+      "length": 24.6196
+    },
+    "icon": "data/ship_icons/rtcprop_frfighter2.png"
+  },
+  "rtcprop_frfighter3": {
+    "id": "rtcprop_frfighter3",
+    "name": "rtcprop_frfighter3",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\french\\frfighter3.cmp",
+    "modelBounds": {
+      "min": [
+        -7.9097,
+        -1.8913,
+        -12.3098
+      ],
+      "max": [
+        7.9097,
+        1.8913,
+        12.3098
+      ],
+      "radius": 15.7577,
+      "width": 15.8194,
+      "height": 3.7826,
+      "length": 24.6196
+    },
+    "icon": "data/ship_icons/rtcprop_frfighter3.png"
+  },
+  "rtcprop_frtransport": {
+    "id": "rtcprop_frtransport",
+    "name": "rtcprop_frtransport",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\french\\frtransport.cmp",
+    "modelBounds": {
+      "min": [
+        -34.5014,
+        -25.6967,
+        -92.836
+      ],
+      "max": [
+        34.5014,
+        25.6967,
+        92.836
+      ],
+      "radius": 102.4616,
+      "width": 69.0028,
+      "height": 51.3934,
+      "length": 185.672
+    },
+    "icon": "data/ship_icons/rtcprop_frtransport.png"
+  },
+  "rtcprop_juni_elite": {
+    "id": "rtcprop_juni_elite",
+    "name": "rtcprop_juni_elite",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\LIBERTY\\LI_ELITE2\\li_elite2.cmp",
+    "modelBounds": {
+      "min": [
+        -6.9542,
+        -4.8911,
+        -7.7956
+      ],
+      "max": [
+        6.9542,
+        4.8911,
+        7.7956
+      ],
+      "radius": 10.492,
+      "width": 13.9084,
+      "height": 9.7822,
+      "length": 15.5912
+    },
+    "icon": "data/ship_icons/rtcprop_juni_elite.png"
+  },
+  "rtcprop_k_battleship": {
+    "id": "rtcprop_k_battleship",
+    "name": "rtcprop_k_battleship",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\KUSARI\\KU_BATTLESHIP\\ku_battleship.cmp",
+    "modelBounds": {
+      "min": [
+        -68.1589,
+        -134.444,
+        -337.4119
+      ],
+      "max": [
+        68.1589,
+        134.444,
+        338.0996
+      ],
+      "radius": 349.4831,
+      "width": 136.3178,
+      "height": 268.888,
+      "length": 676.1992
+    },
+    "icon": "data/ship_icons/rtcprop_k_battleship.png"
+  },
+  "rtcprop_k_destroyer": {
+    "id": "rtcprop_k_destroyer",
+    "name": "rtcprop_k_destroyer",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\KUSARI\\KU_DESTROYER\\ku_destroyer.cmp",
+    "modelBounds": {
+      "min": [
+        -5.9204,
+        -19.4867,
+        -36.1076
+      ],
+      "max": [
+        5.9204,
+        19.3916,
+        36.1076
+      ],
+      "radius": 41.2638,
+      "width": 11.8408,
+      "height": 38.9734,
+      "length": 72.2152
+    },
+    "icon": "data/ship_icons/rtcprop_k_destroyer.png"
+  },
+  "rtcprop_k_dragon": {
+    "id": "rtcprop_k_dragon",
+    "name": "rtcprop_k_dragon",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\KUSARI\\KU_BLOOD_DRAGON\\ku_dragon.cmp",
+    "modelBounds": {
+      "min": [
+        -4.8548,
+        -3.7401,
+        -7.4247
+      ],
+      "max": [
+        4.8548,
+        3.7401,
+        7.5488
+      ],
+      "radius": 8.6992,
+      "width": 9.7096,
+      "height": 7.4802,
+      "length": 15.0976
+    },
+    "icon": "data/ship_icons/rtcprop_k_dragon.png"
+  },
+  "rtcprop_k_elite": {
+    "id": "rtcprop_k_elite",
+    "name": "rtcprop_k_elite",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\KUSARI\\KU_ELITE\\ku_elite.cmp",
+    "modelBounds": {
+      "min": [
+        -4.8548,
+        -3.7401,
+        -7.4247
+      ],
+      "max": [
+        4.8548,
+        3.7401,
+        7.5488
+      ],
+      "radius": 8.6992,
+      "width": 9.7096,
+      "height": 7.4802,
+      "length": 15.0976
+    },
+    "icon": "data/ship_icons/rtcprop_k_elite.png"
+  },
+  "rtcprop_k_fighter": {
+    "id": "rtcprop_k_fighter",
+    "name": "rtcprop_k_fighter",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\KUSARI\\KU_FIGHTER\\ku_fighter.cmp",
+    "modelBounds": {
+      "min": [
+        -2.8204,
+        -2.1568,
+        -6.0093
+      ],
+      "max": [
+        2.8209,
+        2.1568,
+        6.0093
+      ],
+      "radius": 6.5562,
+      "width": 5.6418,
+      "height": 4.3136,
+      "length": 12.0186
+    },
+    "icon": "data/ship_icons/rtcprop_k_fighter.png"
+  },
+  "rtcprop_k_freighter": {
+    "id": "rtcprop_k_freighter",
+    "name": "rtcprop_k_freighter",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FREIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 1.76,
+      "agility": 1.44,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 1.76,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\KUSARI\\KU_FREIGHTER\\ku_freighter.cmp",
+    "modelBounds": {
+      "min": [
+        -8.221,
+        -5.7838,
+        -10.5273
+      ],
+      "max": [
+        8.221,
+        5.8486,
+        10.5273
+      ],
+      "radius": 11.6421,
+      "width": 16.442,
+      "height": 11.6972,
+      "length": 21.0546
+    },
+    "icon": "data/ship_icons/rtcprop_k_freighter.png"
+  },
+  "rtcprop_k_gunboat": {
+    "id": "rtcprop_k_gunboat",
+    "name": "rtcprop_k_gunboat",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\KUSARI\\KU_GUNSHIP\\ku_gunship.cmp",
+    "modelBounds": {
+      "min": [
+        -8.7035,
+        -9.5904,
+        -25.5844
+      ],
+      "max": [
+        8.7035,
+        9.5904,
+        25.5844
+      ],
+      "radius": 27.1577,
+      "width": 17.407,
+      "height": 19.1808,
+      "length": 51.1688
+    },
+    "icon": "data/ship_icons/rtcprop_k_gunboat.png"
+  },
+  "rtcprop_l_cruiser": {
+    "id": "rtcprop_l_cruiser",
+    "name": "rtcprop_l_cruiser",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\LIBERTY\\LI_CRUISER\\li_cruiser.cmp",
+    "modelBounds": {
+      "min": [
+        -18.0385,
+        -18.8609,
+        -96.6861
+      ],
+      "max": [
+        18.0118,
+        19.4118,
+        96.6861
+      ],
+      "radius": 104.1793,
+      "width": 36.077,
+      "height": 38.8236,
+      "length": 193.3722
+    },
+    "icon": "data/ship_icons/rtcprop_l_cruiser.png"
+  },
+  "rtcprop_l_dreadnought": {
+    "id": "rtcprop_l_dreadnought",
+    "name": "rtcprop_l_dreadnought",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\LIBERTY\\LI_DREADNOUGHT\\li_dreadnought.cmp",
+    "modelBounds": {
+      "min": [
+        -45.3213,
+        -55.1236,
+        -248.0837
+      ],
+      "max": [
+        45.3213,
+        59.1228,
+        248.0837
+      ],
+      "radius": 266.8625,
+      "width": 90.6426,
+      "height": 118.2456,
+      "length": 496.1674
+    },
+    "icon": "data/ship_icons/rtcprop_l_dreadnought.png"
+  },
+  "rtcprop_l_elite": {
+    "id": "rtcprop_l_elite",
+    "name": "rtcprop_l_elite",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\LIBERTY\\LI_ELITE\\li_elite.cmp",
+    "modelBounds": {
+      "min": [
+        -6.9612,
+        -2.9874,
+        -7.5243
+      ],
+      "max": [
+        6.9612,
+        2.9874,
+        7.5243
+      ],
+      "radius": 8.8792,
+      "width": 13.9224,
+      "height": 5.9748,
+      "length": 15.0486
+    },
+    "icon": "data/ship_icons/rtcprop_l_elite.png"
+  },
+  "rtcprop_l_fighter": {
+    "id": "rtcprop_l_fighter",
+    "name": "rtcprop_l_fighter",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\LIBERTY\\LI_FIGHTER\\li_fighter.cmp",
+    "modelBounds": {
+      "min": [
+        -2.215,
+        -1.8279,
+        -6.3065
+      ],
+      "max": [
+        2.215,
+        1.8279,
+        6.3949
+      ],
+      "radius": 7.6687,
+      "width": 4.43,
+      "height": 3.6558,
+      "length": 12.7898
+    },
+    "icon": "data/ship_icons/rtcprop_l_fighter.png"
+  },
+  "rtcprop_l_fighter-10": {
+    "id": "rtcprop_l_fighter-10",
+    "name": "rtcprop_l_fighter-10",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\arcangel\\arcangel.cmp",
+    "modelBounds": {
+      "min": [
+        -9.5635,
+        -1.4988,
+        -8.7637
+      ],
+      "max": [
+        9.5635,
+        1.4988,
+        8.7637
+      ],
+      "radius": 12.5937,
+      "width": 19.127,
+      "height": 2.9976,
+      "length": 17.5274
+    },
+    "icon": "data/ship_icons/rtcprop_l_fighter-10.png"
+  },
+  "rtcprop_l_fighter-11": {
+    "id": "rtcprop_l_fighter-11",
+    "name": "rtcprop_l_fighter-11",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\APC\\apc.cmp",
+    "modelBounds": {
+      "min": [
+        -6.7456,
+        -4.6325,
+        -12.2313
+      ],
+      "max": [
+        6.7456,
+        4.6325,
+        12.2313
+      ],
+      "radius": 17.4798,
+      "width": 13.4912,
+      "height": 9.265,
+      "length": 24.4626
+    },
+    "icon": "data/ship_icons/rtcprop_l_fighter-11.png"
+  },
+  "rtcprop_l_fighter-12": {
+    "id": "rtcprop_l_fighter-12",
+    "name": "rtcprop_l_fighter-12",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\UTILITY\\MINING\\mining.cmp",
+    "modelBounds": {
+      "min": [
+        -95.4934,
+        -41.2064,
+        -116.2282
+      ],
+      "max": [
+        95.4934,
+        41.2064,
+        116.2282
+      ],
+      "radius": 136.4003,
+      "width": 190.9868,
+      "height": 82.4128,
+      "length": 232.4564
+    },
+    "icon": "data/ship_icons/rtcprop_l_fighter-12.png"
+  },
+  "rtcprop_l_fighter-13": {
+    "id": "rtcprop_l_fighter-13",
+    "name": "rtcprop_l_fighter-13",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\RHEINLAND\\RH_GUNSHIP\\rh_gunship.cmp",
+    "modelBounds": {
+      "min": [
+        -7.3233,
+        -16.2622,
+        -42.2648
+      ],
+      "max": [
+        7.3233,
+        16.8249,
+        42.2648
+      ],
+      "radius": 43.4271,
+      "width": 14.6466,
+      "height": 33.6498,
+      "length": 84.5296
+    },
+    "icon": "data/ship_icons/rtcprop_l_fighter-13.png"
+  },
+  "rtcprop_l_fighter-2": {
+    "id": "rtcprop_l_fighter-2",
+    "name": "rtcprop_l_fighter-2",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\Shroud\\tempest.cmp",
+    "modelBounds": {
+      "min": [
+        -9.0576,
+        -2.5184,
+        -7.4443
+      ],
+      "max": [
+        9.0576,
+        2.5184,
+        7.4443
+      ],
+      "radius": 11.4122,
+      "width": 18.1152,
+      "height": 5.0368,
+      "length": 14.8886
+    },
+    "icon": "data/ship_icons/rtcprop_l_fighter-2.png"
+  },
+  "rtcprop_l_fighter-3": {
+    "id": "rtcprop_l_fighter-3",
+    "name": "rtcprop_l_fighter-3",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FREIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 1.76,
+      "agility": 1.44,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 1.76,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\scouser\\scouser.cmp",
+    "modelBounds": {
+      "min": [
+        -15.3494,
+        -5.5899,
+        -55.0372
+      ],
+      "max": [
+        15.3494,
+        5.5899,
+        55.0372
+      ],
+      "radius": 57.6718,
+      "width": 30.6988,
+      "height": 11.1798,
+      "length": 110.0744
+    },
+    "icon": "data/ship_icons/rtcprop_l_fighter-3.png"
+  },
+  "rtcprop_l_fighter-4": {
+    "id": "rtcprop_l_fighter-4",
+    "name": "rtcprop_l_fighter-4",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\Shroud\\sai.cmp",
+    "modelBounds": {
+      "min": [
+        -8.5831,
+        -8.1991,
+        -6.1271
+      ],
+      "max": [
+        8.5831,
+        8.1991,
+        6.1271
+      ],
+      "radius": 9.6066,
+      "width": 17.1662,
+      "height": 16.3982,
+      "length": 12.2542
+    },
+    "icon": "data/ship_icons/rtcprop_l_fighter-4.png"
+  },
+  "rtcprop_l_fighter-5": {
+    "id": "rtcprop_l_fighter-5",
+    "name": "rtcprop_l_fighter-5",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\Shroud\\naginata.cmp",
+    "modelBounds": {
+      "min": [
+        -6.2776,
+        -5.1917,
+        -9.1138
+      ],
+      "max": [
+        6.2776,
+        5.1917,
+        9.1138
+      ],
+      "radius": 13.6266,
+      "width": 12.5552,
+      "height": 10.3834,
+      "length": 18.2276
+    },
+    "icon": "data/ship_icons/rtcprop_l_fighter-5.png"
+  },
+  "rtcprop_l_fighter-6": {
+    "id": "rtcprop_l_fighter-6",
+    "name": "rtcprop_l_fighter-6",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Vesuvius\\Vesuvius.cmp",
+    "modelBounds": {
+      "min": [
+        -136.9408,
+        -86.427,
+        -543.9583
+      ],
+      "max": [
+        136.9408,
+        86.427,
+        543.9583
+      ],
+      "radius": 654.7288,
+      "width": 273.8816,
+      "height": 172.854,
+      "length": 1087.9166
+    },
+    "icon": "data/ship_icons/rtcprop_l_fighter-6.png"
+  },
+  "rtcprop_l_fighter-6cf": {
+    "id": "rtcprop_l_fighter-6cf",
+    "name": "rtcprop_l_fighter-6cf",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Vesuvius\\coalcruiser.cmp",
+    "modelBounds": {
+      "min": [
+        -34.4756,
+        -41.8377,
+        -103.3233
+      ],
+      "max": [
+        34.4756,
+        41.8377,
+        103.3233
+      ],
+      "radius": 115.061,
+      "width": 68.9512,
+      "height": 83.6754,
+      "length": 206.6466
+    },
+    "icon": "data/ship_icons/rtcprop_l_fighter-6cf.png"
+  },
+  "rtcprop_l_fighter-6cf2": {
+    "id": "rtcprop_l_fighter-6cf2",
+    "name": "rtcprop_l_fighter-6cf2",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Vesuvius\\slship.cmp",
+    "modelBounds": {
+      "min": [
+        -11.4237,
+        -6.0661,
+        -11.6327
+      ],
+      "max": [
+        11.4237,
+        6.0661,
+        11.6327
+      ],
+      "radius": 13.92,
+      "width": 22.8474,
+      "height": 12.1322,
+      "length": 23.2654
+    },
+    "icon": "data/ship_icons/rtcprop_l_fighter-6cf2.png"
+  },
+  "rtcprop_l_fighter-7": {
+    "id": "rtcprop_l_fighter-7",
+    "name": "rtcprop_l_fighter-7",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\coalition\\yamato.cmp",
+    "modelBounds": {
+      "min": [
+        -231.2075,
+        -197.0324,
+        -671.4899
+      ],
+      "max": [
+        231.2075,
+        197.0324,
+        671.4899
+      ],
+      "radius": 986.9117,
+      "width": 462.415,
+      "height": 394.0648,
+      "length": 1342.9798
+    },
+    "icon": "data/ship_icons/rtcprop_l_fighter-7.png"
+  },
+  "rtcprop_l_fighter-8": {
+    "id": "rtcprop_l_fighter-8",
+    "name": "rtcprop_l_fighter-8",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\Dagger\\dagger.cmp",
+    "modelBounds": {
+      "min": [
+        -6.9973,
+        -2.8327,
+        -8.0015
+      ],
+      "max": [
+        6.9973,
+        2.8327,
+        8.0015
+      ],
+      "radius": 9.9663,
+      "width": 13.9946,
+      "height": 5.6654,
+      "length": 16.003
+    },
+    "icon": "data/ship_icons/rtcprop_l_fighter-8.png"
+  },
+  "rtcprop_l_fighter-9": {
+    "id": "rtcprop_l_fighter-9",
+    "name": "rtcprop_l_fighter-9",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\Avenger\\avenger.cmp",
+    "modelBounds": {
+      "min": [
+        -8.193,
+        -7.1443,
+        -6.3002
+      ],
+      "max": [
+        8.193,
+        7.1443,
+        6.3002
+      ],
+      "radius": 11.1917,
+      "width": 16.386,
+      "height": 14.2886,
+      "length": 12.6004
+    },
+    "icon": "data/ship_icons/rtcprop_l_fighter-9.png"
+  },
+  "rtcprop_l_freighter": {
+    "id": "rtcprop_l_freighter",
+    "name": "rtcprop_l_freighter",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\LIBERTY\\LI_FREIGHTER\\li_freighter.cmp",
+    "modelBounds": {
+      "min": [
+        -4.4712,
+        -5.5502,
+        -14.6048
+      ],
+      "max": [
+        4.4712,
+        5.5502,
+        14.6023
+      ],
+      "radius": 14.745,
+      "width": 8.9424,
+      "height": 11.1004,
+      "length": 29.2096
+    },
+    "icon": "data/ship_icons/rtcprop_l_freighter.png"
+  },
+  "rtcprop_large_transport": {
+    "id": "rtcprop_large_transport",
+    "name": "rtcprop_large_transport",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\UTILITY\\TRANSPORT_LARGE\\transport_large.cmp",
+    "modelBounds": {
+      "min": [
+        -14.6101,
+        -13.7661,
+        -94.1813
+      ],
+      "max": [
+        14.6101,
+        13.7661,
+        90.4203
+      ],
+      "radius": 97.2765,
+      "width": 29.2202,
+      "height": 27.5322,
+      "length": 188.3626
+    },
+    "icon": "data/ship_icons/rtcprop_large_transport.png"
+  },
+  "rtcprop_lifter": {
+    "id": "rtcprop_lifter",
+    "name": "rtcprop_lifter",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\UTILITY\\HEAVY_LIFTER\\heavy_lifter.cmp",
+    "modelBounds": {
+      "min": [
+        -39.5247,
+        -20.6138,
+        -40.364
+      ],
+      "max": [
+        39.5247,
+        20.6208,
+        40.364
+      ],
+      "radius": 48.6021,
+      "width": 79.0494,
+      "height": 41.2416,
+      "length": 80.728
+    },
+    "icon": "data/ship_icons/rtcprop_lifter.png"
+  },
+  "rtcprop_luxury_liner": {
+    "id": "rtcprop_luxury_liner",
+    "name": "rtcprop_luxury_liner",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\UTILITY\\LUXURY_LINER\\luxury_liner.cmp",
+    "modelBounds": {
+      "min": [
+        -35.9134,
+        -34.213,
+        -180.3884
+      ],
+      "max": [
+        35.9136,
+        34.213,
+        180.3376
+      ],
+      "radius": 227.1928,
+      "width": 71.8272,
+      "height": 68.426,
+      "length": 360.7768
+    },
+    "icon": "data/ship_icons/rtcprop_luxury_liner.png"
+  },
+  "rtcprop_mining": {
+    "id": "rtcprop_mining",
+    "name": "rtcprop_mining",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\UTILITY\\MINING\\mining.cmp",
+    "modelBounds": {
+      "min": [
+        -95.4934,
+        -41.2064,
+        -116.2282
+      ],
+      "max": [
+        95.4934,
+        41.2064,
+        116.2282
+      ],
+      "radius": 136.4003,
+      "width": 190.9868,
+      "height": 82.4128,
+      "length": 232.4564
+    },
+    "icon": "data/ship_icons/rtcprop_mining.png"
+  },
+  "rtcprop_p_elite": {
+    "id": "rtcprop_p_elite",
+    "name": "rtcprop_p_elite",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CORSAIR\\CO_ELITE\\co_elite.cmp",
+    "modelBounds": {
+      "min": [
+        -5.4356,
+        -9.3878,
+        -13.1194
+      ],
+      "max": [
+        5.4356,
+        9.3882,
+        13.1194
+      ],
+      "radius": 15.0275,
+      "width": 10.8712,
+      "height": 18.7764,
+      "length": 26.2388
+    },
+    "icon": "data/ship_icons/rtcprop_p_elite.png"
+  },
+  "rtcprop_p_elite_akira": {
+    "id": "rtcprop_p_elite_akira",
+    "name": "rtcprop_p_elite_akira",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\BORDER_WORLD\\BW_FIGHTER\\bw_fighter_rtc.cmp",
+    "modelBounds": {
+      "min": [
+        -6.8276,
+        -1.9933,
+        -9.0832
+      ],
+      "max": [
+        6.8276,
+        1.9933,
+        9.0832
+      ],
+      "radius": 11.5868,
+      "width": 13.6552,
+      "height": 3.9866,
+      "length": 18.1664
+    },
+    "icon": "data/ship_icons/rtcprop_p_elite_akira.png"
+  },
+  "rtcprop_p_fighter": {
+    "id": "rtcprop_p_fighter",
+    "name": "rtcprop_p_fighter",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CORSAIR\\CO_FIGHTER\\co_fighter.cmp",
+    "modelBounds": {
+      "min": [
+        -4.5454,
+        -7.2199,
+        -9.3408
+      ],
+      "max": [
+        4.5455,
+        7.1086,
+        9.3408
+      ],
+      "radius": 11.4085,
+      "width": 9.091,
+      "height": 14.4398,
+      "length": 18.6816
+    },
+    "icon": "data/ship_icons/rtcprop_p_fighter.png"
+  },
+  "rtcprop_p_freighter": {
+    "id": "rtcprop_p_freighter",
+    "name": "rtcprop_p_freighter",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CORSAIR\\CO_FREIGHTER\\co_freighter.cmp",
+    "modelBounds": {
+      "min": [
+        -6.1671,
+        -7.7597,
+        -10.4785
+      ],
+      "max": [
+        6.1671,
+        7.7597,
+        10.4785
+      ],
+      "radius": 13.105,
+      "width": 12.3342,
+      "height": 15.5194,
+      "length": 20.957
+    },
+    "icon": "data/ship_icons/rtcprop_p_freighter.png"
+  },
+  "rtcprop_prison": {
+    "id": "rtcprop_prison",
+    "name": "rtcprop_prison",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\UTILITY\\PRISON_LINER\\prison_liner.cmp",
+    "modelBounds": {
+      "min": [
+        -24.5939,
+        -25.1201,
+        -180.3887
+      ],
+      "max": [
+        24.7059,
+        25.12,
+        180.3379
+      ],
+      "radius": 217.8798,
+      "width": 49.4118,
+      "height": 50.2402,
+      "length": 360.7774
+    },
+    "icon": "data/ship_icons/rtcprop_prison.png"
+  },
+  "rtcprop_r_battleship": {
+    "id": "rtcprop_r_battleship",
+    "name": "rtcprop_r_battleship",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\RHEINLAND\\RH_BATTLESHIP\\rh_battleship.cmp",
+    "modelBounds": {
+      "min": [
+        -97.1886,
+        -106.0065,
+        -400.0807
+      ],
+      "max": [
+        97.1928,
+        106.0057,
+        400.0807
+      ],
+      "radius": 501.5191,
+      "width": 194.3856,
+      "height": 212.013,
+      "length": 800.1614
+    },
+    "icon": "data/ship_icons/rtcprop_r_battleship.png"
+  },
+  "rtcprop_r_cruiser": {
+    "id": "rtcprop_r_cruiser",
+    "name": "rtcprop_r_cruiser",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\RHEINLAND\\RH_CRUISER\\rh_cruiser.cmp",
+    "modelBounds": {
+      "min": [
+        -21.8197,
+        -33.4419,
+        -84.5917
+      ],
+      "max": [
+        21.8197,
+        33.4419,
+        84.5917
+      ],
+      "radius": 86.998,
+      "width": 43.6394,
+      "height": 66.8838,
+      "length": 169.1834
+    },
+    "icon": "data/ship_icons/rtcprop_r_cruiser.png"
+  },
+  "rtcprop_r_elite": {
+    "id": "rtcprop_r_elite",
+    "name": "rtcprop_r_elite",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\RHEINLAND\\RH_ELITE\\rh_elite.cmp",
+    "modelBounds": {
+      "min": [
+        -7.5278,
+        -3.528,
+        -8.3658
+      ],
+      "max": [
+        7.5278,
+        3.3562,
+        8.2834
+      ],
+      "radius": 8.5456,
+      "width": 15.0556,
+      "height": 7.056,
+      "length": 16.7316
+    },
+    "icon": "data/ship_icons/rtcprop_r_elite.png"
+  },
+  "rtcprop_r_fighter": {
+    "id": "rtcprop_r_fighter",
+    "name": "rtcprop_r_fighter",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\RHEINLAND\\RH_FIGHTER\\rh_fighter.cmp",
+    "modelBounds": {
+      "min": [
+        -5.4988,
+        -3.5664,
+        -6.8028
+      ],
+      "max": [
+        5.4988,
+        3.5664,
+        6.8028
+      ],
+      "radius": 8.1445,
+      "width": 10.9976,
+      "height": 7.1328,
+      "length": 13.6056
+    },
+    "icon": "data/ship_icons/rtcprop_r_fighter.png"
+  },
+  "rtcprop_r_freighter": {
+    "id": "rtcprop_r_freighter",
+    "name": "rtcprop_r_freighter",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\RHEINLAND\\RH_FREIGHTER\\rh_freighter.cmp",
+    "modelBounds": {
+      "min": [
+        -4.7324,
+        -5.7313,
+        -11.86
+      ],
+      "max": [
+        4.7324,
+        5.7313,
+        11.8616
+      ],
+      "radius": 12.7022,
+      "width": 9.4648,
+      "height": 11.4626,
+      "length": 23.7232
+    },
+    "icon": "data/ship_icons/rtcprop_r_freighter.png"
+  },
+  "rtcprop_r_gunboat": {
+    "id": "rtcprop_r_gunboat",
+    "name": "rtcprop_r_gunboat",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\RHEINLAND\\RH_GUNSHIP\\rh_gunship.cmp",
+    "modelBounds": {
+      "min": [
+        -7.3233,
+        -16.2622,
+        -42.2648
+      ],
+      "max": [
+        7.3233,
+        16.8249,
+        42.2648
+      ],
+      "radius": 43.4271,
+      "width": 14.6466,
+      "height": 33.6498,
+      "length": 84.5296
+    },
+    "icon": "data/ship_icons/rtcprop_r_gunboat.png"
+  },
+  "rtcprop_repair": {
+    "id": "rtcprop_repair",
+    "name": "rtcprop_repair",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\UTILITY\\REPAIR\\repair.cmp",
+    "modelBounds": {
+      "min": [
+        -10.5221,
+        -8.8879,
+        -20.7909
+      ],
+      "max": [
+        10.5196,
+        9.0415,
+        20.7909
+      ],
+      "radius": 22.3212,
+      "width": 21.0442,
+      "height": 18.083,
+      "length": 41.5818
+    },
+    "icon": "data/ship_icons/rtcprop_repair.png"
+  },
+  "rtcprop_transport": {
+    "id": "rtcprop_transport",
+    "name": "rtcprop_transport",
+    "info": "",
+    "idsName": "",
+    "idsInfo": "",
+    "type": "FIGHTER",
+    "shipClass": 0,
+    "mass": 100,
+    "holdSize": 25,
+    "hitPts": 1000,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 2.15,
+      "agility": 1.76,
+      "acceleration": 1.85,
+      "brakeRate": 3.81,
+      "strafePower": 1.15,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 2.15,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\UTILITY\\TRANSPORT_SMALL\\transport_small.cmp",
+    "modelBounds": {
+      "min": [
+        -14.6101,
+        -13.7661,
+        -60.0743
+      ],
+      "max": [
+        14.6101,
+        13.7661,
+        56.3133
+      ],
+      "radius": 64.1645,
+      "width": 29.2202,
+      "height": 27.5322,
+      "length": 120.1486
+    },
+    "icon": "data/ship_icons/rtcprop_transport.png"
   },
   "sai": {
     "id": "sai",
@@ -9159,7 +26575,84 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\Shroud\\sai.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\Shroud\\sai.cmp",
+    "modelBounds": {
+      "min": [
+        -8.5831,
+        -8.1991,
+        -6.1271
+      ],
+      "max": [
+        8.5831,
+        8.1991,
+        6.1271
+      ],
+      "radius": 9.6066,
+      "width": 17.1662,
+      "height": 16.3982,
+      "length": 12.2542
+    },
+    "icon": "data/ship_icons/sai.png"
+  },
+  "saladin": {
+    "id": "saladin",
+    "name": "Prisonship 'Saladin'",
+    "info": "",
+    "idsName": "226800",
+    "idsInfo": "226801",
+    "type": "CAPITAL",
+    "shipClass": 8,
+    "mass": 15000,
+    "holdSize": 200,
+    "hitPts": 18200,
+    "linearDrag": 7680.0,
+    "steeringTorque": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "angularDrag": [
+      500000000000000.0,
+      500000000000000.0,
+      500000000000000.0
+    ],
+    "rotationInertia": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "nudgeForce": 1.0,
+    "strafeForce": 307200.0,
+    "maxBankAngle": 15.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 7680.0,
+      "bankFactor": 0.45
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\coalition\\Saladin.cmp",
+    "modelBounds": {
+      "min": [
+        -53.9764,
+        -87.3366,
+        -117.3432
+      ],
+      "max": [
+        53.9764,
+        87.3366,
+        117.3432
+      ],
+      "radius": 132.7228,
+      "width": 107.9528,
+      "height": 174.6732,
+      "length": 234.6864
+    },
+    "icon": "data/ship_icons/saladin.png"
   },
   "salin": {
     "id": "salin",
@@ -9202,7 +26695,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\coalition\\salin.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\coalition\\salin.cmp",
+    "modelBounds": {
+      "min": [
+        -9.0805,
+        -3.0803,
+        -7.8618
+      ],
+      "max": [
+        9.0805,
+        3.0803,
+        7.8618
+      ],
+      "radius": 10.9879,
+      "width": 18.161,
+      "height": 6.1606,
+      "length": 15.7236
+    },
+    "icon": "data/ship_icons/salin.png"
   },
   "saracen": {
     "id": "saracen",
@@ -9245,7 +26755,84 @@ const FL_SHIPS = {
     },
     "turnRate": 1.77,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\coalition\\saracen.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\coalition\\saracen.cmp",
+    "modelBounds": {
+      "min": [
+        -9.022,
+        -2.1299,
+        -7.8438
+      ],
+      "max": [
+        9.022,
+        2.1299,
+        7.8438
+      ],
+      "radius": 10.6207,
+      "width": 18.044,
+      "height": 4.2598,
+      "length": 15.6876
+    },
+    "icon": "data/ship_icons/saracen.png"
+  },
+  "scimitar": {
+    "id": "scimitar",
+    "name": "Repairship 'Scimitar'",
+    "info": "",
+    "idsName": "227576",
+    "idsInfo": "227577",
+    "type": "CAPITAL",
+    "shipClass": 8,
+    "mass": 15000,
+    "holdSize": 500,
+    "hitPts": 30500,
+    "linearDrag": 7680.0,
+    "steeringTorque": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "angularDrag": [
+      500000000000000.0,
+      500000000000000.0,
+      500000000000000.0
+    ],
+    "rotationInertia": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "nudgeForce": 1.0,
+    "strafeForce": 307200.0,
+    "maxBankAngle": 15.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 7680.0,
+      "bankFactor": 0.45
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\coalition\\scimitar.cmp",
+    "modelBounds": {
+      "min": [
+        -54.8849,
+        -25.7613,
+        -85.7165
+      ],
+      "max": [
+        54.8849,
+        25.7613,
+        85.7165
+      ],
+      "radius": 92.8051,
+      "width": 109.7698,
+      "height": 51.5226,
+      "length": 171.433
+    },
+    "icon": "data/ship_icons/scimitar.png"
   },
   "scorpionh": {
     "id": "scorpionh",
@@ -9288,7 +26875,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfscorpionh.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfscorpionh.cmp",
+    "modelBounds": {
+      "min": [
+        -6.1339,
+        -5.5406,
+        -13.8742
+      ],
+      "max": [
+        6.1339,
+        5.5406,
+        13.8742
+      ],
+      "radius": 19.707,
+      "width": 12.2678,
+      "height": 11.0812,
+      "length": 27.7484
+    },
+    "icon": "data/ship_icons/scorpionh.png"
   },
   "scorpionr": {
     "id": "scorpionr",
@@ -9331,7 +26935,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.98,
     "firePower": 6,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfscorpionr.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfscorpionr.cmp",
+    "modelBounds": {
+      "min": [
+        -7.2559,
+        -4.8295,
+        -14.9274
+      ],
+      "max": [
+        7.2559,
+        4.8295,
+        14.9274
+      ],
+      "radius": 20.5793,
+      "width": 14.5118,
+      "height": 9.659,
+      "length": 29.8548
+    },
+    "icon": "data/ship_icons/scorpionr.png"
   },
   "scorpions": {
     "id": "scorpions",
@@ -9374,7 +26995,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfscorpions.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfscorpions.cmp",
+    "modelBounds": {
+      "min": [
+        -6.3319,
+        -4.8116,
+        -13.8742
+      ],
+      "max": [
+        6.3319,
+        4.8116,
+        13.8742
+      ],
+      "radius": 19.5656,
+      "width": 12.6638,
+      "height": 9.6232,
+      "length": 27.7484
+    },
+    "icon": "data/ship_icons/scorpions.png"
   },
   "scorpionv": {
     "id": "scorpionv",
@@ -9417,7 +27055,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfscorpionv.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfscorpionv.cmp",
+    "modelBounds": {
+      "min": [
+        -6.3319,
+        -5.2362,
+        -13.8742
+      ],
+      "max": [
+        6.3319,
+        5.2362,
+        13.8742
+      ],
+      "radius": 18.5216,
+      "width": 12.6638,
+      "height": 10.4724,
+      "length": 27.7484
+    },
+    "icon": "data/ship_icons/scorpionv.png"
   },
   "scourge": {
     "id": "scourge",
@@ -9460,7 +27115,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.52,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\scourge\\scourge.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\scourge\\scourge.cmp",
+    "modelBounds": {
+      "min": [
+        -7.6104,
+        -4.2996,
+        -8.8092
+      ],
+      "max": [
+        7.6104,
+        4.2996,
+        8.8092
+      ],
+      "radius": 10.1241,
+      "width": 15.2208,
+      "height": 8.5992,
+      "length": 17.6184
+    },
+    "icon": "data/ship_icons/scourge.png"
   },
   "scouser": {
     "id": "scouser",
@@ -9503,7 +27175,24 @@ const FL_SHIPS = {
     },
     "turnRate": 0.75,
     "firePower": 1,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\scouser\\scouser.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\scouser\\scouser.cmp",
+    "modelBounds": {
+      "min": [
+        -15.3494,
+        -5.5899,
+        -55.0372
+      ],
+      "max": [
+        15.3494,
+        5.5899,
+        55.0372
+      ],
+      "radius": 57.6718,
+      "width": 30.6988,
+      "height": 11.1798,
+      "length": 110.0744
+    },
+    "icon": "data/ship_icons/scouser.png"
   },
   "seethingfury": {
     "id": "seethingfury",
@@ -9546,7 +27235,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.31,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\seethingfury\\seethingfury.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\seethingfury\\seethingfury.cmp",
+    "modelBounds": {
+      "min": [
+        -8.3666,
+        -7.8706,
+        -9.005
+      ],
+      "max": [
+        8.3666,
+        7.8706,
+        9.005
+      ],
+      "radius": 14.4072,
+      "width": 16.7332,
+      "height": 15.7412,
+      "length": 18.01
+    },
+    "icon": "data/ship_icons/seethingfury.png"
   },
   "serafina": {
     "id": "serafina",
@@ -9589,7 +27295,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.03,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\Serafina\\Serafina.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\Serafina\\Serafina.cmp",
+    "modelBounds": {
+      "min": [
+        -10.7668,
+        -4.0588,
+        -9.552
+      ],
+      "max": [
+        10.7668,
+        4.0588,
+        9.552
+      ],
+      "radius": 12.47,
+      "width": 21.5336,
+      "height": 8.1176,
+      "length": 19.104
+    },
+    "icon": "data/ship_icons/serafina.png"
   },
   "sf18": {
     "id": "sf18",
@@ -9632,7 +27355,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.68,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\sf18\\sf18.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\sf18\\sf18.cmp",
+    "modelBounds": {
+      "min": [
+        -10.0731,
+        -2.2826,
+        -9.8667
+      ],
+      "max": [
+        10.0731,
+        2.2826,
+        9.8667
+      ],
+      "radius": 11.7888,
+      "width": 20.1462,
+      "height": 4.5652,
+      "length": 19.7334
+    },
+    "icon": "data/ship_icons/sf18.png"
   },
   "sh3": {
     "id": "sh3",
@@ -9675,7 +27415,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shipscf20\\sh3.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shipscf20\\sh3.cmp",
+    "modelBounds": {
+      "min": [
+        -8.4708,
+        -4.9698,
+        -12.1629
+      ],
+      "max": [
+        8.4708,
+        4.9698,
+        12.1629
+      ],
+      "radius": 14.8982,
+      "width": 16.9416,
+      "height": 9.9396,
+      "length": 24.3258
+    },
+    "icon": "data/ship_icons/sh3.png"
   },
   "sh4": {
     "id": "sh4",
@@ -9718,7 +27475,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shipscf20\\sh4.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shipscf20\\sh4.cmp",
+    "modelBounds": {
+      "min": [
+        -8.2222,
+        -3.0196,
+        -12.2019
+      ],
+      "max": [
+        8.2222,
+        3.0196,
+        12.2019
+      ],
+      "radius": 14.5399,
+      "width": 16.4444,
+      "height": 6.0392,
+      "length": 24.4038
+    },
+    "icon": "data/ship_icons/sh4.png"
   },
   "shadowreaper": {
     "id": "shadowreaper",
@@ -9761,7 +27535,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.68,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\shadowreaper\\shadowreaper.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\shadowreaper\\shadowreaper.cmp",
+    "modelBounds": {
+      "min": [
+        -6.6751,
+        -2.2278,
+        -8.9715
+      ],
+      "max": [
+        6.6751,
+        2.2278,
+        8.9715
+      ],
+      "radius": 11.9376,
+      "width": 13.3502,
+      "height": 4.4556,
+      "length": 17.943
+    },
+    "icon": "data/ship_icons/shadowreaper.png"
   },
   "shiftermk1": {
     "id": "shiftermk1",
@@ -9804,7 +27595,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.52,
     "firePower": 8,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shiftermk1\\shiftermk1.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\shiftermk1\\shiftermk1.cmp",
+    "modelBounds": {
+      "min": [
+        -8.178,
+        -5.1644,
+        -7.66
+      ],
+      "max": [
+        8.178,
+        5.1644,
+        7.66
+      ],
+      "radius": 12.447,
+      "width": 16.356,
+      "height": 10.3288,
+      "length": 15.32
+    },
+    "icon": "data/ship_icons/shiftermk1.png"
   },
   "shroud": {
     "id": "shroud",
@@ -9847,7 +27655,144 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\Shroud\\shroud.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\Shroud\\shroud.cmp",
+    "modelBounds": {
+      "min": [
+        -7.0422,
+        -2.7326,
+        -10.8772
+      ],
+      "max": [
+        7.0422,
+        2.7326,
+        10.8772
+      ],
+      "radius": 11.6013,
+      "width": 14.0844,
+      "height": 5.4652,
+      "length": 21.7544
+    },
+    "icon": "data/ship_icons/shroud.png"
+  },
+  "shroudnpc": {
+    "id": "shroudnpc",
+    "name": "Shroud",
+    "info": "",
+    "idsName": "471316",
+    "idsInfo": "471317",
+    "type": "FIGHTER",
+    "shipClass": 3,
+    "mass": 140,
+    "holdSize": 130,
+    "hitPts": 9700,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      52000.0,
+      52000.0,
+      42000.0
+    ],
+    "angularDrag": [
+      40000.0,
+      40000.0,
+      32000.0
+    ],
+    "rotationInertia": [
+      7400.0,
+      7400.0,
+      1000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 1.7,
+      "agility": 1.25,
+      "acceleration": 1.59,
+      "brakeRate": 4.29,
+      "strafePower": 1.1,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 1.7,
+    "firePower": 10,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\Shroud\\shroud.cmp",
+    "modelBounds": {
+      "min": [
+        -7.0422,
+        -2.7326,
+        -10.8772
+      ],
+      "max": [
+        7.0422,
+        2.7326,
+        10.8772
+      ],
+      "radius": 11.6013,
+      "width": 14.0844,
+      "height": 5.4652,
+      "length": 21.7544
+    },
+    "icon": "data/ship_icons/shroudnpc.png"
+  },
+  "shroudship": {
+    "id": "shroudship",
+    "name": "Shroud",
+    "info": "",
+    "idsName": "471316",
+    "idsInfo": "471317",
+    "type": "FIGHTER",
+    "shipClass": 3,
+    "mass": 140,
+    "holdSize": 130,
+    "hitPts": 9700,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      55000.0,
+      55000.0,
+      48000.0
+    ],
+    "angularDrag": [
+      41000.0,
+      41000.0,
+      35000.0
+    ],
+    "rotationInertia": [
+      8400.0,
+      8400.0,
+      1000.0
+    ],
+    "nudgeForce": 30000.0,
+    "strafeForce": 20000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 1.75,
+      "agility": 1.3,
+      "acceleration": 1.59,
+      "brakeRate": 4.19,
+      "strafePower": 1.1,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 1.75,
+    "firePower": 10,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\Shroud\\shroud.cmp",
+    "modelBounds": {
+      "min": [
+        -7.0422,
+        -2.7326,
+        -10.8772
+      ],
+      "max": [
+        7.0422,
+        2.7326,
+        10.8772
+      ],
+      "radius": 11.6013,
+      "width": 14.0844,
+      "height": 5.4652,
+      "length": 21.7544
+    },
+    "icon": "data/ship_icons/shroudship.png"
   },
   "silverfish": {
     "id": "silverfish",
@@ -9890,7 +27835,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\silverfish\\silverfish.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\silverfish\\silverfish.cmp",
+    "modelBounds": {
+      "min": [
+        -11.7127,
+        -3.8536,
+        -13.5946
+      ],
+      "max": [
+        11.7127,
+        3.8536,
+        13.5946
+      ],
+      "radius": 17.2325,
+      "width": 23.4254,
+      "height": 7.7072,
+      "length": 27.1892
+    },
+    "icon": "data/ship_icons/silverfish.png"
   },
   "sstar": {
     "id": "sstar",
@@ -9933,7 +27895,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.68,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\sstar\\sstar.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\sstar\\sstar.cmp",
+    "modelBounds": {
+      "min": [
+        -10.1856,
+        -1.6,
+        -9.5719
+      ],
+      "max": [
+        10.1856,
+        1.6,
+        9.5719
+      ],
+      "radius": 11.3186,
+      "width": 20.3712,
+      "height": 3.2,
+      "length": 19.1438
+    },
+    "icon": "data/ship_icons/sstar.png"
   },
   "starskipper": {
     "id": "starskipper",
@@ -9976,7 +27955,24 @@ const FL_SHIPS = {
     },
     "turnRate": 2.21,
     "firePower": 3,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\starskipper\\starskipper.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\starskipper\\starskipper.cmp",
+    "modelBounds": {
+      "min": [
+        -6.2159,
+        -1.6066,
+        -7.0034
+      ],
+      "max": [
+        6.2159,
+        1.6066,
+        7.0034
+      ],
+      "radius": 8.0854,
+      "width": 12.4318,
+      "height": 3.2132,
+      "length": 14.0068
+    },
+    "icon": "data/ship_icons/starskipper.png"
   },
   "stinger": {
     "id": "stinger",
@@ -10019,7 +28015,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.71,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\stinger\\stinger.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\stinger\\stinger.cmp",
+    "modelBounds": {
+      "min": [
+        -12.6571,
+        -2.9314,
+        -10.2602
+      ],
+      "max": [
+        12.6571,
+        2.9314,
+        10.2602
+      ],
+      "radius": 13.8786,
+      "width": 25.3142,
+      "height": 5.8628,
+      "length": 20.5204
+    },
+    "icon": "data/ship_icons/stinger.png"
   },
   "stormcrow": {
     "id": "stormcrow",
@@ -10062,7 +28075,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.74,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\stormcrow.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\stormcrow.cmp",
+    "modelBounds": {
+      "min": [
+        -6.4085,
+        -5.769,
+        -10.8559
+      ],
+      "max": [
+        6.4085,
+        5.769,
+        10.8559
+      ],
+      "radius": 17.9217,
+      "width": 12.817,
+      "height": 11.538,
+      "length": 21.7118
+    },
+    "icon": "data/ship_icons/stormcrow.png"
   },
   "strikeeagle": {
     "id": "strikeeagle",
@@ -10105,7 +28135,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.68,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\StrikeEagle\\strikeeagle.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\StrikeEagle\\strikeeagle.cmp",
+    "modelBounds": {
+      "min": [
+        -9.974,
+        -4.0193,
+        -7.5903
+      ],
+      "max": [
+        9.974,
+        4.0193,
+        7.5903
+      ],
+      "radius": 11.1241,
+      "width": 19.948,
+      "height": 8.0386,
+      "length": 15.1806
+    },
+    "icon": "data/ship_icons/strikeeagle.png"
   },
   "tempest": {
     "id": "tempest",
@@ -10148,7 +28195,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\Shroud\\tempest.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\Shroud\\tempest.cmp",
+    "modelBounds": {
+      "min": [
+        -9.0576,
+        -2.5184,
+        -7.4443
+      ],
+      "max": [
+        9.0576,
+        2.5184,
+        7.4443
+      ],
+      "radius": 11.4122,
+      "width": 18.1152,
+      "height": 5.0368,
+      "length": 14.8886
+    },
+    "icon": "data/ship_icons/tempest.png"
   },
   "thor": {
     "id": "thor",
@@ -10191,7 +28255,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfthor.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfthor.cmp",
+    "modelBounds": {
+      "min": [
+        -7.3792,
+        -4.227,
+        -10.4278
+      ],
+      "max": [
+        7.3792,
+        4.227,
+        10.4278
+      ],
+      "radius": 12.0022,
+      "width": 14.7584,
+      "height": 8.454,
+      "length": 20.8556
+    },
+    "icon": "data/ship_icons/thor.png"
   },
   "thunder": {
     "id": "thunder",
@@ -10234,7 +28315,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\thunder\\thunder.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\thunder\\thunder.cmp",
+    "modelBounds": {
+      "min": [
+        -7.9546,
+        -9.6509,
+        -9.0875
+      ],
+      "max": [
+        7.9546,
+        9.6509,
+        9.0875
+      ],
+      "radius": 11.8815,
+      "width": 15.9092,
+      "height": 19.3018,
+      "length": 18.175
+    },
+    "icon": "data/ship_icons/thunder.png"
   },
   "tiger": {
     "id": "tiger",
@@ -10277,7 +28375,24 @@ const FL_SHIPS = {
     },
     "turnRate": 2.08,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\Tiger.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\Tiger.cmp",
+    "modelBounds": {
+      "min": [
+        -3.4519,
+        -5.3513,
+        -8.8849
+      ],
+      "max": [
+        3.4519,
+        5.3513,
+        8.8849
+      ],
+      "radius": 12.4984,
+      "width": 6.9038,
+      "height": 10.7026,
+      "length": 17.7698
+    },
+    "icon": "data/ship_icons/tiger.png"
   },
   "trident": {
     "id": "trident",
@@ -10320,7 +28435,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 8,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\trident.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\trident.cmp",
+    "modelBounds": {
+      "min": [
+        -4.9116,
+        -4.032,
+        -9.2163
+      ],
+      "max": [
+        4.9116,
+        4.032,
+        9.2163
+      ],
+      "radius": 13.4792,
+      "width": 9.8232,
+      "height": 8.064,
+      "length": 18.4326
+    },
+    "icon": "data/ship_icons/trident.png"
   },
   "troopcarrier": {
     "id": "troopcarrier",
@@ -10363,7 +28495,84 @@ const FL_SHIPS = {
     },
     "turnRate": 1.03,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\troopcarrier\\troopcarrier.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\troopcarrier\\troopcarrier.cmp",
+    "modelBounds": {
+      "min": [
+        -13.7318,
+        -4.8668,
+        -10.1578
+      ],
+      "max": [
+        13.7318,
+        4.8668,
+        10.1578
+      ],
+      "radius": 16.04,
+      "width": 27.4636,
+      "height": 9.7336,
+      "length": 20.3156
+    },
+    "icon": "data/ship_icons/troopcarrier.png"
+  },
+  "vesuvius_ship": {
+    "id": "vesuvius_ship",
+    "name": "Strike Carrier",
+    "info": "",
+    "idsName": "252666",
+    "idsInfo": "252667",
+    "type": "CAPITAL",
+    "shipClass": 8,
+    "mass": 2000,
+    "holdSize": 1000000,
+    "hitPts": 200000,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      140000000.0,
+      140000000.0,
+      140000000.0
+    ],
+    "angularDrag": [
+      1400000000.0,
+      1400000000.0,
+      1400000000.0
+    ],
+    "rotationInertia": [
+      1600000000.0,
+      1600000000.0,
+      1600000000.0
+    ],
+    "nudgeForce": 3000000.0,
+    "strafeForce": 3000000.0,
+    "maxBankAngle": 25.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 4.2,
+      "brakeRate": 6.5,
+      "strafePower": 3.4,
+      "linearDrag": 1.0,
+      "bankFactor": 0.71
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Vesuvius\\Vesuvius.cmp",
+    "modelBounds": {
+      "min": [
+        -136.9408,
+        -86.427,
+        -543.9583
+      ],
+      "max": [
+        136.9408,
+        86.427,
+        543.9583
+      ],
+      "radius": 654.7288,
+      "width": 273.8816,
+      "height": 172.854,
+      "length": 1087.9166
+    },
+    "icon": "data/ship_icons/vesuvius_ship.png"
   },
   "vfighter": {
     "id": "vfighter",
@@ -10406,7 +28615,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.87,
     "firePower": 8,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\vfighter\\vfighter.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\vfighter\\vfighter.cmp",
+    "modelBounds": {
+      "min": [
+        -8.1531,
+        -2.7603,
+        -8.5134
+      ],
+      "max": [
+        8.1531,
+        2.7603,
+        8.5134
+      ],
+      "radius": 11.7153,
+      "width": 16.3062,
+      "height": 5.5206,
+      "length": 17.0268
+    },
+    "icon": "data/ship_icons/vfighter.png"
   },
   "warblade1": {
     "id": "warblade1",
@@ -10449,7 +28675,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\warblade\\warblade1.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\warblade\\warblade1.cmp",
+    "modelBounds": {
+      "min": [
+        -8.7084,
+        -1.4417,
+        -8.7083
+      ],
+      "max": [
+        8.7084,
+        1.4417,
+        8.7083
+      ],
+      "radius": 11.3758,
+      "width": 17.4168,
+      "height": 2.8834,
+      "length": 17.4166
+    },
+    "icon": "data/ship_icons/warblade1.png"
   },
   "warblade2": {
     "id": "warblade2",
@@ -10492,7 +28735,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\warblade\\warblade2.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\warblade\\warblade2.cmp",
+    "modelBounds": {
+      "min": [
+        -8.7084,
+        -1.4417,
+        -8.7083
+      ],
+      "max": [
+        8.7084,
+        1.4417,
+        8.7083
+      ],
+      "radius": 11.3758,
+      "width": 17.4168,
+      "height": 2.8834,
+      "length": 17.4166
+    },
+    "icon": "data/ship_icons/warblade2.png"
   },
   "warblade3": {
     "id": "warblade3",
@@ -10535,7 +28795,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\warblade\\warblade3.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\warblade\\warblade3.cmp",
+    "modelBounds": {
+      "min": [
+        -8.7084,
+        -1.4417,
+        -8.7083
+      ],
+      "max": [
+        8.7084,
+        1.4417,
+        8.7083
+      ],
+      "radius": 11.3758,
+      "width": 17.4168,
+      "height": 2.8834,
+      "length": 17.4166
+    },
+    "icon": "data/ship_icons/warblade3.png"
   },
   "wolverine": {
     "id": "wolverine",
@@ -10578,7 +28855,72 @@ const FL_SHIPS = {
     },
     "turnRate": 1.14,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\Shroud\\wolverine.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\Shroud\\wolverine.cmp",
+    "modelBounds": {
+      "min": [
+        -8.5488,
+        -3.9838,
+        -6.7017
+      ],
+      "max": [
+        8.5488,
+        3.9838,
+        6.7017
+      ],
+      "radius": 9.8259,
+      "width": 17.0976,
+      "height": 7.9676,
+      "length": 13.4034
+    },
+    "icon": "data/ship_icons/wolverine.png"
+  },
+  "wplatform": {
+    "id": "wplatform",
+    "name": "Weapons Platform",
+    "info": "Eine schwer bewaffnete Verteidigungsplattform, kontrolliert von einer künstlichen Intelligenz an Bord, die auf Aggressionen reagiert.",
+    "idsName": "261164",
+    "idsInfo": "66171",
+    "type": "WEAPONS_PLATFORM",
+    "shipClass": 0,
+    "mass": 10000,
+    "holdSize": 25,
+    "hitPts": 1600,
+    "linearDrag": 1.0,
+    "steeringTorque": null,
+    "angularDrag": null,
+    "rotationInertia": null,
+    "nudgeForce": 25000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 30.0,
+    "handling": {
+      "turnRate": 0.93,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 3.81,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.86
+    },
+    "turnRate": 0.93,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SOLAR\\MISC\\weapons_platform_lod.cmp",
+    "modelBounds": {
+      "min": [
+        -18.5254,
+        -40.0328,
+        -7.068
+      ],
+      "max": [
+        18.5254,
+        39.9784,
+        6.812
+      ],
+      "radius": 44.1692,
+      "width": 37.0508,
+      "height": 80.0656,
+      "length": 14.136
+    },
+    "icon": "data/ship_icons/wplatform.png"
   },
   "xenong": {
     "id": "xenong",
@@ -10621,7 +28963,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfxenonG.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfxenonG.cmp",
+    "modelBounds": {
+      "min": [
+        -3.789,
+        -4.1537,
+        -8.4276
+      ],
+      "max": [
+        3.789,
+        4.1537,
+        8.4276
+      ],
+      "radius": 12.195,
+      "width": 7.578,
+      "height": 8.3074,
+      "length": 16.8552
+    },
+    "icon": "data/ship_icons/xenong.png"
   },
   "xenono": {
     "id": "xenono",
@@ -10664,7 +29023,144 @@ const FL_SHIPS = {
     },
     "turnRate": 1.31,
     "firePower": 9,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfxenonO.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfxenonO.cmp",
+    "modelBounds": {
+      "min": [
+        -5.5682,
+        -4.8461,
+        -11.5934
+      ],
+      "max": [
+        5.5682,
+        4.8461,
+        11.5934
+      ],
+      "radius": 15.7759,
+      "width": 11.1364,
+      "height": 9.6922,
+      "length": 23.1868
+    },
+    "icon": "data/ship_icons/xenono.png"
+  },
+  "yamato": {
+    "id": "yamato",
+    "name": "yamato",
+    "info": "",
+    "idsName": "1",
+    "idsInfo": "261799",
+    "type": "CAPITAL",
+    "shipClass": 0,
+    "mass": 2000,
+    "holdSize": 5000,
+    "hitPts": 30500,
+    "linearDrag": 1.0,
+    "steeringTorque": [
+      100000.0,
+      100000.0,
+      50000.0
+    ],
+    "angularDrag": [
+      500000.0,
+      500000.0,
+      500000.0
+    ],
+    "rotationInertia": [
+      400000.0,
+      400000.0,
+      400000.0
+    ],
+    "nudgeForce": 150000.0,
+    "strafeForce": 15000.0,
+    "maxBankAngle": 15.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 1.0,
+      "bankFactor": 0.45
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\coalition\\yamato.cmp",
+    "modelBounds": {
+      "min": [
+        -231.2075,
+        -197.0324,
+        -671.4899
+      ],
+      "max": [
+        231.2075,
+        197.0324,
+        671.4899
+      ],
+      "radius": 986.9117,
+      "width": 462.415,
+      "height": 394.0648,
+      "length": 1342.9798
+    },
+    "icon": "data/ship_icons/yamato.png"
+  },
+  "yao": {
+    "id": "yao",
+    "name": "Missile Gunboat 'Yao'",
+    "info": "",
+    "idsName": "227415",
+    "idsInfo": "227416",
+    "type": "CAPITAL",
+    "shipClass": 4,
+    "mass": 15000,
+    "holdSize": 65,
+    "hitPts": 21500,
+    "linearDrag": 7680.0,
+    "steeringTorque": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "angularDrag": [
+      500000000000000.0,
+      500000000000000.0,
+      500000000000000.0
+    ],
+    "rotationInertia": [
+      100000000000000.0,
+      100000000000000.0,
+      100000000000000.0
+    ],
+    "nudgeForce": 1.0,
+    "strafeForce": 307200.0,
+    "maxBankAngle": 15.0,
+    "handling": {
+      "turnRate": 0.75,
+      "agility": 0.45,
+      "acceleration": 0.85,
+      "brakeRate": 6.5,
+      "strafePower": 0.55,
+      "linearDrag": 7680.0,
+      "bankFactor": 0.45
+    },
+    "turnRate": 0.75,
+    "firePower": 1,
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\coalition\\yao.cmp",
+    "modelBounds": {
+      "min": [
+        -81.2889,
+        -37.9221,
+        -262.4572
+      ],
+      "max": [
+        81.2889,
+        37.9221,
+        262.4572
+      ],
+      "radius": 319.6594,
+      "width": 162.5778,
+      "height": 75.8442,
+      "length": 524.9144
+    },
+    "icon": "data/ship_icons/yao.png"
   },
   "zephyrp": {
     "id": "zephyrp",
@@ -10707,7 +29203,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.74,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfzephyrp.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfzephyrp.cmp",
+    "modelBounds": {
+      "min": [
+        -6.6714,
+        -3.2023,
+        -10.1901
+      ],
+      "max": [
+        6.6714,
+        3.2023,
+        10.1901
+      ],
+      "radius": 12.7588,
+      "width": 13.3428,
+      "height": 6.4046,
+      "length": 20.3802
+    },
+    "icon": "data/ship_icons/zephyrp.png"
   },
   "zephyrr": {
     "id": "zephyrr",
@@ -10750,7 +29263,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfzephyrr.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfzephyrr.cmp",
+    "modelBounds": {
+      "min": [
+        -6.6714,
+        -3.2023,
+        -10.1901
+      ],
+      "max": [
+        6.6714,
+        3.2023,
+        10.1901
+      ],
+      "radius": 12.7588,
+      "width": 13.3428,
+      "height": 6.4046,
+      "length": 20.3802
+    },
+    "icon": "data/ship_icons/zephyrr.png"
   },
   "zephyrs": {
     "id": "zephyrs",
@@ -10793,7 +29323,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.75,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfzephyrs.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfzephyrs.cmp",
+    "modelBounds": {
+      "min": [
+        -6.1148,
+        -3.0601,
+        -11.2091
+      ],
+      "max": [
+        6.1148,
+        3.0601,
+        11.2091
+      ],
+      "radius": 14.3958,
+      "width": 12.2296,
+      "height": 6.1202,
+      "length": 22.4182
+    },
+    "icon": "data/ship_icons/zephyrs.png"
   },
   "zephyrv": {
     "id": "zephyrv",
@@ -10836,7 +29383,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.98,
     "firePower": 6,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfzephyrv.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\CF18\\cfzephyrv.cmp",
+    "modelBounds": {
+      "min": [
+        -6.6532,
+        -3.2983,
+        -9.9958
+      ],
+      "max": [
+        6.6532,
+        3.2983,
+        9.9958
+      ],
+      "radius": 12.398,
+      "width": 13.3064,
+      "height": 6.5966,
+      "length": 19.9916
+    },
+    "icon": "data/ship_icons/zephyrv.png"
   },
   "zx14": {
     "id": "zx14",
@@ -10879,7 +29443,24 @@ const FL_SHIPS = {
     },
     "turnRate": 1.77,
     "firePower": 10,
-    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\ZX-14\\zx14.cmp"
+    "modelPath": "C:\\Users\\steve\\Github\\FL-Installationen\\Freelancer Crossfire\\DATA\\SHIPS\\Custom\\ZX-14\\zx14.cmp",
+    "modelBounds": {
+      "min": [
+        -9.4727,
+        -3.9316,
+        -12.2396
+      ],
+      "max": [
+        9.4727,
+        3.9316,
+        12.2396
+      ],
+      "radius": 13.8808,
+      "width": 18.9454,
+      "height": 7.8632,
+      "length": 24.4792
+    },
+    "icon": "data/ship_icons/zx14.png"
   }
 };
 
@@ -10907,6 +29488,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 6,
       "mass": 90,
       "shipClass": 0,
+      "modelBounds": {
+        "min": [
+          -8.7889,
+          -2.0002,
+          -8.6014
+        ],
+        "max": [
+          8.7889,
+          2.0002,
+          8.6014
+        ],
+        "radius": 11.1395,
+        "width": 17.5778,
+        "height": 4.0004,
+        "length": 17.2028
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -10963,6 +29560,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -9.2164,
+          -2.5258,
+          -8.7344
+        ],
+        "max": [
+          9.2164,
+          2.5258,
+          8.7344
+        ],
+        "radius": 11.1198,
+        "width": 18.4328,
+        "height": 5.0516,
+        "length": 17.4688
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -11019,6 +29632,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 290,
       "shipClass": 2,
+      "modelBounds": {
+        "min": [
+          -9.1912,
+          -2.9484,
+          -7.7111
+        ],
+        "max": [
+          9.1912,
+          2.9484,
+          7.7111
+        ],
+        "radius": 10.7946,
+        "width": 18.3824,
+        "height": 5.8968,
+        "length": 15.4222
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -11075,6 +29704,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -9.0398,
+          -3.1522,
+          -12.2657
+        ],
+        "max": [
+          9.0398,
+          3.1522,
+          12.2657
+        ],
+        "radius": 13.3661,
+        "width": 18.0796,
+        "height": 6.3044,
+        "length": 24.5314
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -11131,6 +29776,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 290,
       "shipClass": 2,
+      "modelBounds": {
+        "min": [
+          -6.7456,
+          -4.6325,
+          -12.2313
+        ],
+        "max": [
+          6.7456,
+          4.6325,
+          12.2313
+        ],
+        "radius": 17.4798,
+        "width": 13.4912,
+        "height": 9.265,
+        "length": 24.4626
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -11187,6 +29848,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -9.5635,
+          -1.4988,
+          -8.7637
+        ],
+        "max": [
+          9.5635,
+          1.4988,
+          8.7637
+        ],
+        "radius": 12.5937,
+        "width": 19.127,
+        "height": 2.9976,
+        "length": 17.5274
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -11243,6 +29920,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -6.5949,
+          -5.4696,
+          -10.218
+        ],
+        "max": [
+          6.5949,
+          5.4696,
+          10.218
+        ],
+        "radius": 10.2755,
+        "width": 13.1898,
+        "height": 10.9392,
+        "length": 20.436
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -11299,6 +29992,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -9.2063,
+          -7.3851,
+          -9.0804
+        ],
+        "max": [
+          9.2063,
+          7.3851,
+          9.0804
+        ],
+        "radius": 12.7397,
+        "width": 18.4126,
+        "height": 14.7702,
+        "length": 18.1608
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -11355,6 +30064,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -8.193,
+          -7.1443,
+          -6.3002
+        ],
+        "max": [
+          8.193,
+          7.1443,
+          6.3002
+        ],
+        "radius": 11.1917,
+        "width": 16.386,
+        "height": 14.2886,
+        "length": 12.6004
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -11411,6 +30136,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -5.2481,
+          -2.709,
+          -7.8904
+        ],
+        "max": [
+          5.2481,
+          2.709,
+          7.8904
+        ],
+        "radius": 10.9998,
+        "width": 10.4962,
+        "height": 5.418,
+        "length": 15.7808
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -11467,6 +30208,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -7.3199,
+          -2.7893,
+          -9.5343
+        ],
+        "max": [
+          7.3199,
+          2.7893,
+          9.5343
+        ],
+        "radius": 11.0079,
+        "width": 14.6398,
+        "height": 5.5786,
+        "length": 19.0686
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -11523,6 +30280,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -5.1439,
+          -3.7045,
+          -10.8426
+        ],
+        "max": [
+          5.1439,
+          3.7045,
+          10.8426
+        ],
+        "radius": 15.4341,
+        "width": 10.2878,
+        "height": 7.409,
+        "length": 21.6852
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -11579,6 +30352,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 5,
       "mass": 140,
       "shipClass": 1,
+      "modelBounds": {
+        "min": [
+          -6.4899,
+          -4.0567,
+          -8.2085
+        ],
+        "max": [
+          6.4899,
+          4.0844,
+          8.2416
+        ],
+        "radius": 12.1934,
+        "width": 12.9798,
+        "height": 8.1688,
+        "length": 16.4832
+      },
       "powerCapacity": 2500.0,
       "powerChargeRate": 248.0,
       "thrustCapacity": 1000.0,
@@ -11635,6 +30424,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 8,
       "mass": 160,
       "shipClass": 1,
+      "modelBounds": {
+        "min": [
+          -8.228,
+          -3.2319,
+          -9.2347
+        ],
+        "max": [
+          8.228,
+          3.2319,
+          9.2347
+        ],
+        "radius": 11.3511,
+        "width": 16.456,
+        "height": 6.4638,
+        "length": 18.4694
+      },
       "powerCapacity": 8900.0,
       "powerChargeRate": 890.0,
       "thrustCapacity": 1000.0,
@@ -11691,6 +30496,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 5,
       "mass": 90,
       "shipClass": 0,
+      "modelBounds": {
+        "min": [
+          -2.4579,
+          -3.6141,
+          -6.8229
+        ],
+        "max": [
+          2.4582,
+          3.5657,
+          6.8127
+        ],
+        "radius": 10.0108,
+        "width": 4.9164,
+        "height": 7.2282,
+        "length": 13.6458
+      },
       "powerCapacity": 2100.0,
       "powerChargeRate": 213.0,
       "thrustCapacity": 1000.0,
@@ -11747,6 +30568,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 4,
       "mass": 290,
       "shipClass": 2,
+      "modelBounds": {
+        "min": [
+          -9.9958,
+          -4.93,
+          -11.0696
+        ],
+        "max": [
+          9.9391,
+          4.9294,
+          11.0694
+        ],
+        "radius": 13.0892,
+        "width": 19.9916,
+        "height": 9.86,
+        "length": 22.1392
+      },
       "powerCapacity": 1800.0,
       "powerChargeRate": 183.0,
       "thrustCapacity": 1000.0,
@@ -11803,6 +30640,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 9,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -5.2601,
+          -8.1064,
+          -9.0428
+        ],
+        "max": [
+          5.2601,
+          8.1064,
+          9.0428
+        ],
+        "radius": 11.7835,
+        "width": 10.5202,
+        "height": 16.2128,
+        "length": 18.0856
+      },
       "powerCapacity": 7400.0,
       "powerChargeRate": 750.0,
       "thrustCapacity": 1000.0,
@@ -11859,6 +30712,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 6,
       "mass": 140,
       "shipClass": 1,
+      "modelBounds": {
+        "min": [
+          -5.2601,
+          -7.5496,
+          -9.0428
+        ],
+        "max": [
+          5.2601,
+          7.5496,
+          9.0428
+        ],
+        "radius": 11.7835,
+        "width": 10.5202,
+        "height": 15.0992,
+        "length": 18.0856
+      },
       "powerCapacity": 3400.0,
       "powerChargeRate": 345.0,
       "thrustCapacity": 1000.0,
@@ -11915,6 +30784,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 4,
       "mass": 90,
       "shipClass": 0,
+      "modelBounds": {
+        "min": [
+          -1.9913,
+          -7.5496,
+          -6.1243
+        ],
+        "max": [
+          1.9913,
+          7.5496,
+          6.1243
+        ],
+        "radius": 8.1696,
+        "width": 3.9826,
+        "height": 15.0992,
+        "length": 12.2486
+      },
       "powerCapacity": 1800.0,
       "powerChargeRate": 183.0,
       "thrustCapacity": 1000.0,
@@ -11971,6 +30856,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 3,
       "mass": 90,
       "shipClass": 0,
+      "modelBounds": {
+        "min": [
+          -8.4507,
+          -2.7102,
+          -8.1116
+        ],
+        "max": [
+          8.4507,
+          2.7102,
+          8.1116
+        ],
+        "radius": 11.416,
+        "width": 16.9014,
+        "height": 5.4204,
+        "length": 16.2232
+      },
       "powerCapacity": 1000.0,
       "powerChargeRate": 95.0,
       "thrustCapacity": 1000.0,
@@ -12027,6 +30928,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 9,
       "mass": 140,
       "shipClass": 1,
+      "modelBounds": {
+        "min": [
+          -8.4869,
+          -2.1497,
+          -9.1114
+        ],
+        "max": [
+          8.4869,
+          2.1497,
+          9.1114
+        ],
+        "radius": 13.1685,
+        "width": 16.9738,
+        "height": 4.2994,
+        "length": 18.2228
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -12083,6 +31000,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 7,
       "mass": 290,
       "shipClass": 2,
+      "modelBounds": {
+        "min": [
+          -7.0548,
+          -2.1452,
+          -14.1021
+        ],
+        "max": [
+          7.0548,
+          2.1452,
+          14.1021
+        ],
+        "radius": 14.9888,
+        "width": 14.1096,
+        "height": 4.2904,
+        "length": 28.2042
+      },
       "powerCapacity": 4700.0,
       "powerChargeRate": 465.0,
       "thrustCapacity": 1000.0,
@@ -12139,6 +31072,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 8,
       "mass": 90,
       "shipClass": 1,
+      "modelBounds": {
+        "min": [
+          -6.9813,
+          -2.56,
+          -9.4398
+        ],
+        "max": [
+          6.9813,
+          2.56,
+          9.4398
+        ],
+        "radius": 12.4508,
+        "width": 13.9626,
+        "height": 5.12,
+        "length": 18.8796
+      },
       "powerCapacity": 3400.0,
       "powerChargeRate": 345.0,
       "thrustCapacity": 1000.0,
@@ -12195,6 +31144,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -6.8951,
+          -4.5491,
+          -9.3233
+        ],
+        "max": [
+          6.8951,
+          4.5491,
+          9.3233
+        ],
+        "radius": 11.8718,
+        "width": 13.7902,
+        "height": 9.0982,
+        "length": 18.6466
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -12251,6 +31216,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 290,
       "shipClass": 2,
+      "modelBounds": {
+        "min": [
+          -6.8951,
+          -4.5491,
+          -9.3233
+        ],
+        "max": [
+          6.8951,
+          4.5491,
+          9.3233
+        ],
+        "radius": 11.817,
+        "width": 13.7902,
+        "height": 9.0982,
+        "length": 18.6466
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -12307,6 +31288,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -6.6832,
+          -3.8844,
+          -9.4935
+        ],
+        "max": [
+          6.6832,
+          3.8844,
+          9.4935
+        ],
+        "radius": 10.6957,
+        "width": 13.3664,
+        "height": 7.7688,
+        "length": 18.987
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -12363,6 +31360,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -6.9271,
+          -3.3641,
+          -8.652
+        ],
+        "max": [
+          6.9271,
+          3.3641,
+          8.652
+        ],
+        "radius": 9.7478,
+        "width": 13.8542,
+        "height": 6.7282,
+        "length": 17.304
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -12419,6 +31432,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 5,
       "mass": 140,
       "shipClass": 0,
+      "modelBounds": {
+        "min": [
+          -7.8243,
+          -2.9045,
+          -6.9149
+        ],
+        "max": [
+          7.8243,
+          2.9045,
+          6.9149
+        ],
+        "radius": 9.6025,
+        "width": 15.6486,
+        "height": 5.809,
+        "length": 13.8298
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -12475,6 +31504,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -6.8378,
+          -3.4398,
+          -9.2327
+        ],
+        "max": [
+          6.8378,
+          3.4398,
+          9.2327
+        ],
+        "radius": 10.6072,
+        "width": 13.6756,
+        "height": 6.8796,
+        "length": 18.4654
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -12531,6 +31576,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -6.9271,
+          -3.3641,
+          -8.652
+        ],
+        "max": [
+          6.9271,
+          3.3641,
+          8.652
+        ],
+        "radius": 9.7483,
+        "width": 13.8542,
+        "height": 6.7282,
+        "length": 17.304
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -12587,6 +31648,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -8.1681,
+          -5.511,
+          -6.856
+        ],
+        "max": [
+          8.1681,
+          5.511,
+          6.856
+        ],
+        "radius": 12.6318,
+        "width": 16.3362,
+        "height": 11.022,
+        "length": 13.712
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -12643,6 +31720,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -4.6985,
+          -5.7716,
+          -11.9832
+        ],
+        "max": [
+          4.6985,
+          5.7716,
+          11.9832
+        ],
+        "radius": 16.2963,
+        "width": 9.397,
+        "height": 11.5432,
+        "length": 23.9664
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -12699,6 +31792,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -4.6985,
+          -5.7716,
+          -11.9832
+        ],
+        "max": [
+          4.6985,
+          5.7716,
+          11.9832
+        ],
+        "radius": 16.2963,
+        "width": 9.397,
+        "height": 11.5432,
+        "length": 23.9664
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -12755,6 +31864,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -5.8333,
+          -4.1477,
+          -11.9055
+        ],
+        "max": [
+          5.8333,
+          4.1477,
+          11.9055
+        ],
+        "radius": 16.7257,
+        "width": 11.6666,
+        "height": 8.2954,
+        "length": 23.811
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -12811,6 +31936,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 65,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -7.1719,
+          -4.559,
+          -9.8906
+        ],
+        "max": [
+          7.1719,
+          4.559,
+          9.8906
+        ],
+        "radius": 13.1998,
+        "width": 14.3438,
+        "height": 9.118,
+        "length": 19.7812
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -12867,6 +32008,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 7,
       "mass": 140,
       "shipClass": 1,
+      "modelBounds": {
+        "min": [
+          -6.8276,
+          -4.559,
+          -9.8906
+        ],
+        "max": [
+          6.8276,
+          4.559,
+          9.8906
+        ],
+        "radius": 13.1998,
+        "width": 13.6552,
+        "height": 9.118,
+        "length": 19.7812
+      },
       "powerCapacity": 4700.0,
       "powerChargeRate": 465.0,
       "thrustCapacity": 1000.0,
@@ -12923,6 +32080,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 4,
       "mass": 90,
       "shipClass": 0,
+      "modelBounds": {
+        "min": [
+          -6.8276,
+          -1.9933,
+          -9.0832
+        ],
+        "max": [
+          6.8276,
+          1.9933,
+          9.0832
+        ],
+        "radius": 11.5868,
+        "width": 13.6552,
+        "height": 3.9866,
+        "length": 18.1664
+      },
       "powerCapacity": 1800.0,
       "powerChargeRate": 183.0,
       "thrustCapacity": 1000.0,
@@ -12979,6 +32152,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 6,
       "mass": 290,
       "shipClass": 2,
+      "modelBounds": {
+        "min": [
+          -6.9255,
+          -5.8299,
+          -14.3652
+        ],
+        "max": [
+          6.9255,
+          5.8299,
+          14.3628
+        ],
+        "radius": 17.646,
+        "width": 13.851,
+        "height": 11.6598,
+        "length": 28.7304
+      },
       "powerCapacity": 2900.0,
       "powerChargeRate": 290.0,
       "thrustCapacity": 1000.0,
@@ -13035,6 +32224,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 8,
       "mass": 140,
       "shipClass": 1,
+      "modelBounds": {
+        "min": [
+          -4.9081,
+          -5.5153,
+          -6.6977
+        ],
+        "max": [
+          4.9081,
+          5.5153,
+          6.6977
+        ],
+        "radius": 9.5766,
+        "width": 9.8162,
+        "height": 11.0306,
+        "length": 13.3954
+      },
       "powerCapacity": 6400.0,
       "powerChargeRate": 645.0,
       "thrustCapacity": 1000.0,
@@ -13091,6 +32296,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -6.3875,
+          -3.6653,
+          -10.3498
+        ],
+        "max": [
+          6.3875,
+          3.6653,
+          10.3498
+        ],
+        "radius": 11.6316,
+        "width": 12.775,
+        "height": 7.3306,
+        "length": 20.6996
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -13147,6 +32368,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -5.7186,
+          -4.9706,
+          -10.5452
+        ],
+        "max": [
+          5.7186,
+          4.9706,
+          10.5452
+        ],
+        "radius": 16.1751,
+        "width": 11.4372,
+        "height": 9.9412,
+        "length": 21.0904
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -13203,6 +32440,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -6.6668,
+          -1.6255,
+          -11.9511
+        ],
+        "max": [
+          6.6668,
+          1.6255,
+          11.9511
+        ],
+        "radius": 12.0594,
+        "width": 13.3336,
+        "height": 3.251,
+        "length": 23.9022
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -13259,6 +32512,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 1,
       "mass": 140,
       "shipClass": 13,
+      "modelBounds": {
+        "min": [
+          -7.9459,
+          -8.7008,
+          -10.1531
+        ],
+        "max": [
+          7.9459,
+          8.7008,
+          10.1531
+        ],
+        "radius": 13.1319,
+        "width": 15.8918,
+        "height": 17.4016,
+        "length": 20.3062
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -13315,6 +32584,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 8,
       "mass": 190,
       "shipClass": 1,
+      "modelBounds": {
+        "min": [
+          -14.7957,
+          -3.0464,
+          -13.3111
+        ],
+        "max": [
+          14.7957,
+          3.0464,
+          13.3111
+        ],
+        "radius": 15.2801,
+        "width": 29.5914,
+        "height": 6.0928,
+        "length": 26.6222
+      },
       "powerCapacity": 8900.0,
       "powerChargeRate": 890.0,
       "thrustCapacity": 1000.0,
@@ -13371,6 +32656,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -7.1169,
+          -5.1067,
+          -13.4582
+        ],
+        "max": [
+          7.1169,
+          5.1067,
+          13.4582
+        ],
+        "radius": 17.5222,
+        "width": 14.2338,
+        "height": 10.2134,
+        "length": 26.9164
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -13427,6 +32728,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -7.9621,
+          -4.7591,
+          -12.2084
+        ],
+        "max": [
+          7.9621,
+          4.7591,
+          12.2084
+        ],
+        "radius": 13.3571,
+        "width": 15.9242,
+        "height": 9.5182,
+        "length": 24.4168
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -13483,6 +32800,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -6.4792,
+          -3.6016,
+          -8.0678
+        ],
+        "max": [
+          6.4792,
+          3.6016,
+          8.0678
+        ],
+        "radius": 10.7036,
+        "width": 12.9584,
+        "height": 7.2032,
+        "length": 16.1356
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -13539,6 +32872,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 290,
       "shipClass": 2,
+      "modelBounds": {
+        "min": [
+          -11.2096,
+          -8.5161,
+          -17.313
+        ],
+        "max": [
+          11.2096,
+          8.5161,
+          17.313
+        ],
+        "radius": 19.631,
+        "width": 22.4192,
+        "height": 17.0322,
+        "length": 34.626
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -13595,6 +32944,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 1,
       "mass": 190,
       "shipClass": 7,
+      "modelBounds": {
+        "min": [
+          -61.2031,
+          -49.6399,
+          -228.0781
+        ],
+        "max": [
+          61.2031,
+          49.6399,
+          228.0781
+        ],
+        "radius": 266.4221,
+        "width": 122.4062,
+        "height": 99.2798,
+        "length": 456.1562
+      },
       "powerCapacity": 50000.0,
       "powerChargeRate": 50000.0,
       "thrustCapacity": 1000.0,
@@ -13651,6 +33016,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 1,
       "mass": 190,
       "shipClass": 7,
+      "modelBounds": {
+        "min": [
+          -43.5725,
+          -46.1696,
+          -217.4032
+        ],
+        "max": [
+          43.5725,
+          46.1696,
+          217.4032
+        ],
+        "radius": 241.67,
+        "width": 87.145,
+        "height": 92.3392,
+        "length": 434.8064
+      },
       "powerCapacity": 50000.0,
       "powerChargeRate": 50000.0,
       "thrustCapacity": 1000.0,
@@ -13707,6 +33088,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 1,
       "mass": 190,
       "shipClass": 7,
+      "modelBounds": {
+        "min": [
+          -72.0687,
+          -54.5501,
+          -226.2531
+        ],
+        "max": [
+          72.0687,
+          54.5501,
+          226.2531
+        ],
+        "radius": 278.7598,
+        "width": 144.1374,
+        "height": 109.1002,
+        "length": 452.5062
+      },
       "powerCapacity": 50000.0,
       "powerChargeRate": 50000.0,
       "thrustCapacity": 1000.0,
@@ -13763,6 +33160,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 1,
       "mass": 190,
       "shipClass": 7,
+      "modelBounds": {
+        "min": [
+          -136.2292,
+          -84.1517,
+          -230.6909
+        ],
+        "max": [
+          136.2292,
+          84.1517,
+          230.6909
+        ],
+        "radius": 265.8979,
+        "width": 272.4584,
+        "height": 168.3034,
+        "length": 461.3818
+      },
       "powerCapacity": 50000.0,
       "powerChargeRate": 50000.0,
       "thrustCapacity": 1000.0,
@@ -13819,6 +33232,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 1,
       "mass": 190,
       "shipClass": 7,
+      "modelBounds": {
+        "min": [
+          -61.0263,
+          -48.3016,
+          -221.549
+        ],
+        "max": [
+          61.0263,
+          48.3016,
+          221.549
+        ],
+        "radius": 248.2422,
+        "width": 122.0526,
+        "height": 96.6032,
+        "length": 443.098
+      },
       "powerCapacity": 50000.0,
       "powerChargeRate": 50000.0,
       "thrustCapacity": 1000.0,
@@ -13875,6 +33304,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 1,
       "mass": 140,
       "shipClass": 13,
+      "modelBounds": {
+        "min": [
+          -4.98,
+          -4.0935,
+          -7.4195
+        ],
+        "max": [
+          4.98,
+          4.0935,
+          7.4195
+        ],
+        "radius": 9.9157,
+        "width": 9.96,
+        "height": 8.187,
+        "length": 14.839
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -13931,6 +33376,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -5.6339,
+          -7.5014,
+          -8.5247
+        ],
+        "max": [
+          5.6339,
+          7.5014,
+          8.5247
+        ],
+        "radius": 10.7499,
+        "width": 11.2678,
+        "height": 15.0028,
+        "length": 17.0494
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -13987,6 +33448,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 1,
       "mass": 190,
       "shipClass": 7,
+      "modelBounds": {
+        "min": [
+          -63.08,
+          -53.0526,
+          -186.2607
+        ],
+        "max": [
+          63.08,
+          53.0526,
+          186.2607
+        ],
+        "radius": 223.6857,
+        "width": 126.16,
+        "height": 106.1052,
+        "length": 372.5214
+      },
       "powerCapacity": 50000.0,
       "powerChargeRate": 50000.0,
       "thrustCapacity": 1000.0,
@@ -14043,6 +33520,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 1,
       "mass": 190,
       "shipClass": 7,
+      "modelBounds": {
+        "min": [
+          -95.2173,
+          -83.1066,
+          -247.9903
+        ],
+        "max": [
+          95.2173,
+          83.1066,
+          247.9903
+        ],
+        "radius": 299.036,
+        "width": 190.4346,
+        "height": 166.2132,
+        "length": 495.9806
+      },
       "powerCapacity": 50000.0,
       "powerChargeRate": 50000.0,
       "thrustCapacity": 1000.0,
@@ -14099,6 +33592,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 1,
       "mass": 190,
       "shipClass": 7,
+      "modelBounds": {
+        "min": [
+          -140.269,
+          -94.8883,
+          -275.8893
+        ],
+        "max": [
+          140.269,
+          94.8883,
+          275.8893
+        ],
+        "radius": 320.6384,
+        "width": 280.538,
+        "height": 189.7766,
+        "length": 551.7786
+      },
       "powerCapacity": 50000.0,
       "powerChargeRate": 50000.0,
       "thrustCapacity": 1000.0,
@@ -14155,6 +33664,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 1,
       "mass": 190,
       "shipClass": 7,
+      "modelBounds": {
+        "min": [
+          -52.3894,
+          -52.7195,
+          -224.9704
+        ],
+        "max": [
+          52.3894,
+          52.7195,
+          224.9704
+        ],
+        "radius": 238.5756,
+        "width": 104.7788,
+        "height": 105.439,
+        "length": 449.9408
+      },
       "powerCapacity": 50000.0,
       "powerChargeRate": 50000.0,
       "thrustCapacity": 1000.0,
@@ -14211,6 +33736,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -9.5998,
+          -2.8797,
+          -7.3998
+        ],
+        "max": [
+          9.5998,
+          2.8797,
+          7.3998
+        ],
+        "radius": 10.3885,
+        "width": 19.1996,
+        "height": 5.7594,
+        "length": 14.7996
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -14267,6 +33808,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -6.7811,
+          -2.8799,
+          -11.8112
+        ],
+        "max": [
+          6.7811,
+          2.8799,
+          11.8112
+        ],
+        "radius": 15.1216,
+        "width": 13.5622,
+        "height": 5.7598,
+        "length": 23.6224
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -14323,6 +33880,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 8,
       "mass": 140,
       "shipClass": 1,
+      "modelBounds": {
+        "min": [
+          -5.8485,
+          -1.5366,
+          -6.631
+        ],
+        "max": [
+          5.8485,
+          1.5366,
+          6.631
+        ],
+        "radius": 8.3769,
+        "width": 11.697,
+        "height": 3.0732,
+        "length": 13.262
+      },
       "powerCapacity": 6400.0,
       "powerChargeRate": 645.0,
       "thrustCapacity": 1000.0,
@@ -14379,6 +33952,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -7.6037,
+          -2.2668,
+          -9.6578
+        ],
+        "max": [
+          7.6037,
+          2.2668,
+          9.6578
+        ],
+        "radius": 12.4878,
+        "width": 15.2074,
+        "height": 4.5336,
+        "length": 19.3156
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -14435,6 +34024,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 290,
       "shipClass": 2,
+      "modelBounds": {
+        "min": [
+          -11.9523,
+          -1.9297,
+          -11.0492
+        ],
+        "max": [
+          11.9523,
+          1.9297,
+          11.0492
+        ],
+        "radius": 13.237,
+        "width": 23.9046,
+        "height": 3.8594,
+        "length": 22.0984
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -14491,6 +34096,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -8.9899,
+          -2.1105,
+          -8.275
+        ],
+        "max": [
+          8.9899,
+          2.1105,
+          8.275
+        ],
+        "radius": 10.5678,
+        "width": 17.9798,
+        "height": 4.221,
+        "length": 16.55
+      },
       "powerCapacity": 6400.0,
       "powerChargeRate": 645.0,
       "thrustCapacity": 1000.0,
@@ -14547,6 +34168,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 1,
       "mass": 200,
       "shipClass": 9,
+      "modelBounds": {
+        "min": [
+          -6.5303,
+          -3.613,
+          -10.5136
+        ],
+        "max": [
+          6.5297,
+          3.613,
+          10.5136
+        ],
+        "radius": 12.6774,
+        "width": 13.0606,
+        "height": 7.226,
+        "length": 21.0272
+      },
       "powerCapacity": 25000.0,
       "powerChargeRate": 3000.0,
       "thrustCapacity": 1000.0,
@@ -14603,6 +34240,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 1,
       "mass": 200,
       "shipClass": 6,
+      "modelBounds": {
+        "min": [
+          -31.5959,
+          -33.6172,
+          -62.2403
+        ],
+        "max": [
+          31.484,
+          33.2552,
+          63.3335
+        ],
+        "radius": 74.9697,
+        "width": 63.1918,
+        "height": 67.2344,
+        "length": 126.667
+      },
       "powerCapacity": 600000.0,
       "powerChargeRate": 90000.0,
       "thrustCapacity": 1000.0,
@@ -14659,6 +34312,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 1,
       "mass": 200,
       "shipClass": 4,
+      "modelBounds": {
+        "min": [
+          -33.6898,
+          -24.6304,
+          -32.7835
+        ],
+        "max": [
+          33.8532,
+          24.5708,
+          32.8853
+        ],
+        "radius": 49.0239,
+        "width": 67.7064,
+        "height": 49.2608,
+        "length": 65.7706
+      },
       "powerCapacity": 400000.0,
       "powerChargeRate": 60000.0,
       "thrustCapacity": 1000.0,
@@ -14715,6 +34384,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 1,
       "mass": 200,
       "shipClass": 6,
+      "modelBounds": {
+        "min": [
+          -5.9204,
+          -19.4867,
+          -36.1076
+        ],
+        "max": [
+          5.9204,
+          19.3916,
+          36.1076
+        ],
+        "radius": 41.2638,
+        "width": 11.8408,
+        "height": 38.9734,
+        "length": 72.2152
+      },
       "powerCapacity": 600000.0,
       "powerChargeRate": 90000.0,
       "thrustCapacity": 1000.0,
@@ -14771,6 +34456,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 1,
       "mass": 200,
       "shipClass": 4,
+      "modelBounds": {
+        "min": [
+          -8.7035,
+          -9.5904,
+          -25.5844
+        ],
+        "max": [
+          8.7035,
+          9.5904,
+          25.5844
+        ],
+        "radius": 27.1577,
+        "width": 17.407,
+        "height": 19.1808,
+        "length": 51.1688
+      },
       "powerCapacity": 400000.0,
       "powerChargeRate": 100000.0,
       "thrustCapacity": 1000.0,
@@ -14827,6 +34528,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 1,
       "mass": 200,
       "shipClass": 10,
+      "modelBounds": {
+        "min": [
+          -14.6101,
+          -13.7661,
+          -94.1813
+        ],
+        "max": [
+          14.6101,
+          13.7661,
+          90.4203
+        ],
+        "radius": 97.2765,
+        "width": 29.2202,
+        "height": 27.5322,
+        "length": 188.3626
+      },
       "powerCapacity": 60000.0,
       "powerChargeRate": 6000.0,
       "thrustCapacity": 1000.0,
@@ -14883,6 +34600,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 1,
       "mass": 200,
       "shipClass": 5,
+      "modelBounds": {
+        "min": [
+          -18.0385,
+          -18.8609,
+          -96.6861
+        ],
+        "max": [
+          18.0118,
+          19.4118,
+          96.6861
+        ],
+        "radius": 104.1793,
+        "width": 36.077,
+        "height": 38.8236,
+        "length": 193.3722
+      },
       "powerCapacity": 600000.0,
       "powerChargeRate": 75000.0,
       "thrustCapacity": 1000.0,
@@ -14939,6 +34672,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 1,
       "mass": 200,
       "shipClass": 4,
+      "modelBounds": {
+        "min": [
+          -8.204,
+          -10.5721,
+          -42.539
+        ],
+        "max": [
+          8.204,
+          10.5721,
+          42.539
+        ],
+        "radius": 50.5698,
+        "width": 16.408,
+        "height": 21.1442,
+        "length": 85.078
+      },
       "powerCapacity": 400000.0,
       "powerChargeRate": 60000.0,
       "thrustCapacity": 1000.0,
@@ -14995,6 +34744,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 1,
       "mass": 200,
       "shipClass": 8,
+      "modelBounds": {
+        "min": [
+          -39.5247,
+          -20.6138,
+          -40.364
+        ],
+        "max": [
+          39.5247,
+          20.6208,
+          40.364
+        ],
+        "radius": 48.6021,
+        "width": 79.0494,
+        "height": 41.2416,
+        "length": 80.728
+      },
       "powerCapacity": 400000.0,
       "powerChargeRate": 60000.0,
       "thrustCapacity": 1000.0,
@@ -15051,6 +34816,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 1,
       "mass": 200,
       "shipClass": 8,
+      "modelBounds": {
+        "min": [
+          -35.9134,
+          -34.213,
+          -180.3884
+        ],
+        "max": [
+          35.9136,
+          34.213,
+          180.3376
+        ],
+        "radius": 227.1928,
+        "width": 71.8272,
+        "height": 68.426,
+        "length": 360.7768
+      },
       "powerCapacity": 2000000.0,
       "powerChargeRate": 170000.0,
       "thrustCapacity": 1000.0,
@@ -15107,6 +34888,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 1,
       "mass": 200,
       "shipClass": 6,
+      "modelBounds": {
+        "min": [
+          -18.8834,
+          -21.6217,
+          -108.626
+        ],
+        "max": [
+          18.8834,
+          21.6217,
+          108.626
+        ],
+        "radius": 110.0886,
+        "width": 37.7668,
+        "height": 43.2434,
+        "length": 217.252
+      },
       "powerCapacity": 600000.0,
       "powerChargeRate": 75000.0,
       "thrustCapacity": 1000.0,
@@ -15163,6 +34960,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 1,
       "mass": 200,
       "shipClass": 8,
+      "modelBounds": {
+        "min": [
+          -24.5939,
+          -25.1201,
+          -180.3887
+        ],
+        "max": [
+          24.7059,
+          25.12,
+          180.3379
+        ],
+        "radius": 217.8798,
+        "width": 49.4118,
+        "height": 50.2402,
+        "length": 360.7774
+      },
       "powerCapacity": 2000000.0,
       "powerChargeRate": 170000.0,
       "thrustCapacity": 1000.0,
@@ -15219,6 +35032,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 1,
       "mass": 200,
       "shipClass": 14,
+      "modelBounds": {
+        "min": [
+          -10.5221,
+          -8.8879,
+          -20.7909
+        ],
+        "max": [
+          10.5196,
+          9.0415,
+          20.7909
+        ],
+        "radius": 22.3212,
+        "width": 21.0442,
+        "height": 18.083,
+        "length": 41.5818
+      },
       "powerCapacity": 15000.0,
       "powerChargeRate": 3000.0,
       "thrustCapacity": 1000.0,
@@ -15275,6 +35104,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 1,
       "mass": 200,
       "shipClass": 5,
+      "modelBounds": {
+        "min": [
+          -21.8197,
+          -33.4419,
+          -84.5917
+        ],
+        "max": [
+          21.8197,
+          33.4419,
+          84.5917
+        ],
+        "radius": 86.998,
+        "width": 43.6394,
+        "height": 66.8838,
+        "length": 169.1834
+      },
       "powerCapacity": 640000.0,
       "powerChargeRate": 90000.0,
       "thrustCapacity": 1000.0,
@@ -15331,6 +35176,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 1,
       "mass": 200,
       "shipClass": 4,
+      "modelBounds": {
+        "min": [
+          -7.3233,
+          -16.2622,
+          -42.2648
+        ],
+        "max": [
+          7.3233,
+          16.8249,
+          42.2648
+        ],
+        "radius": 43.4271,
+        "width": 14.6466,
+        "height": 33.6498,
+        "length": 84.5296
+      },
       "powerCapacity": 400000.0,
       "powerChargeRate": 65000.0,
       "thrustCapacity": 1000.0,
@@ -15387,6 +35248,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 1,
       "mass": 200,
       "shipClass": 9,
+      "modelBounds": {
+        "min": [
+          -14.6101,
+          -13.7661,
+          -60.0743
+        ],
+        "max": [
+          14.6101,
+          13.7661,
+          56.3133
+        ],
+        "radius": 64.1645,
+        "width": 29.2202,
+        "height": 27.5322,
+        "length": 120.1486
+      },
       "powerCapacity": 50000.0,
       "powerChargeRate": 5000.0,
       "thrustCapacity": 1000.0,
@@ -15443,6 +35320,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 290,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -9.1329,
+          -3.3124,
+          -9.7944
+        ],
+        "max": [
+          9.1329,
+          3.3124,
+          9.7944
+        ],
+        "radius": 13.186,
+        "width": 18.2658,
+        "height": 6.6248,
+        "length": 19.5888
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -15499,6 +35392,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -8.6068,
+          -3.3969,
+          -10.8993
+        ],
+        "max": [
+          8.6068,
+          3.3969,
+          10.8993
+        ],
+        "radius": 12.4141,
+        "width": 17.2136,
+        "height": 6.7938,
+        "length": 21.7986
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -15555,6 +35464,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -11.4554,
+          -3.7377,
+          -10.6827
+        ],
+        "max": [
+          11.4554,
+          3.7377,
+          10.6827
+        ],
+        "radius": 13.095,
+        "width": 22.9108,
+        "height": 7.4754,
+        "length": 21.3654
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -15611,6 +35536,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -9.5868,
+          -3.0293,
+          -8.9795
+        ],
+        "max": [
+          9.5868,
+          3.0293,
+          8.9795
+        ],
+        "radius": 11.3138,
+        "width": 19.1736,
+        "height": 6.0586,
+        "length": 17.959
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -15667,6 +35608,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 290,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -10.3799,
+          -3.1122,
+          -6.8843
+        ],
+        "max": [
+          10.3799,
+          3.1122,
+          6.8843
+        ],
+        "radius": 11.9141,
+        "width": 20.7598,
+        "height": 6.2244,
+        "length": 13.7686
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -15723,6 +35680,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 1,
       "mass": 200,
       "shipClass": 15,
+      "modelBounds": {
+        "min": [
+          -31.9893,
+          -15.6621,
+          -61.8068
+        ],
+        "max": [
+          31.9893,
+          15.6621,
+          61.8068
+        ],
+        "radius": 63.4382,
+        "width": 63.9786,
+        "height": 31.3242,
+        "length": 123.6136
+      },
       "powerCapacity": 600000.0,
       "powerChargeRate": 75000.0,
       "thrustCapacity": 1000.0,
@@ -15779,6 +35752,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 290,
       "shipClass": 2,
+      "modelBounds": {
+        "min": [
+          -9.5471,
+          -1.8288,
+          -8.3053
+        ],
+        "max": [
+          9.5471,
+          1.8288,
+          8.3053
+        ],
+        "radius": 10.6583,
+        "width": 19.0942,
+        "height": 3.6576,
+        "length": 16.6106
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -15835,6 +35824,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 6,
       "mass": 90,
       "shipClass": 0,
+      "modelBounds": {
+        "min": [
+          -4.0144,
+          -4.7059,
+          -11.7317
+        ],
+        "max": [
+          4.0144,
+          4.7059,
+          11.7317
+        ],
+        "radius": 14.1466,
+        "width": 8.0288,
+        "height": 9.4118,
+        "length": 23.4634
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -15891,6 +35896,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -7.5359,
+          -1.7439,
+          -7.6521
+        ],
+        "max": [
+          7.5359,
+          1.7439,
+          7.6521
+        ],
+        "radius": 9.8253,
+        "width": 15.0718,
+        "height": 3.4878,
+        "length": 15.3042
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -15947,6 +35968,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -7.9847,
+          -3.3304,
+          -9.3617
+        ],
+        "max": [
+          7.9847,
+          3.3304,
+          9.3617
+        ],
+        "radius": 12.514,
+        "width": 15.9694,
+        "height": 6.6608,
+        "length": 18.7234
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -16003,6 +36040,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -9.6807,
+          -6.5925,
+          -4.4304
+        ],
+        "max": [
+          9.6807,
+          6.585,
+          4.4296
+        ],
+        "radius": 9.8713,
+        "width": 19.3614,
+        "height": 13.185,
+        "length": 8.8608
+      },
       "powerCapacity": 11900.0,
       "powerChargeRate": 1190.0,
       "thrustCapacity": 1000.0,
@@ -16059,6 +36112,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 9,
       "mass": 140,
       "shipClass": 1,
+      "modelBounds": {
+        "min": [
+          -9.9686,
+          -5.6474,
+          -3.9931
+        ],
+        "max": [
+          9.9686,
+          5.6474,
+          3.9931
+        ],
+        "radius": 10.0516,
+        "width": 19.9372,
+        "height": 11.2948,
+        "length": 7.9862
+      },
       "powerCapacity": 8900.0,
       "powerChargeRate": 890.0,
       "thrustCapacity": 1000.0,
@@ -16115,6 +36184,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 5,
       "mass": 40,
       "shipClass": 0,
+      "modelBounds": {
+        "min": [
+          -9.9686,
+          -2.0766,
+          -3.9729
+        ],
+        "max": [
+          9.9686,
+          2.0766,
+          3.9729
+        ],
+        "radius": 10.0516,
+        "width": 19.9372,
+        "height": 4.1532,
+        "length": 7.9458
+      },
       "powerCapacity": 2500.0,
       "powerChargeRate": 248.0,
       "thrustCapacity": 1000.0,
@@ -16171,6 +36256,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -7.449,
+          -1.522,
+          -7.9669
+        ],
+        "max": [
+          7.449,
+          1.522,
+          7.9669
+        ],
+        "radius": 8.6377,
+        "width": 14.898,
+        "height": 3.044,
+        "length": 15.9338
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -16227,6 +36328,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -7.921,
+          -3.3667,
+          -6.7629
+        ],
+        "max": [
+          7.921,
+          3.3667,
+          6.7629
+        ],
+        "radius": 10.1066,
+        "width": 15.842,
+        "height": 6.7334,
+        "length": 13.5258
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -16283,6 +36400,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -8.08,
+          -2.7463,
+          -10.9702
+        ],
+        "max": [
+          8.08,
+          2.7463,
+          10.9702
+        ],
+        "radius": 11.9638,
+        "width": 16.16,
+        "height": 5.4926,
+        "length": 21.9404
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -16339,6 +36472,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -8.6255,
+          -5.5247,
+          -11.3322
+        ],
+        "max": [
+          8.6255,
+          5.5247,
+          11.3322
+        ],
+        "radius": 12.4381,
+        "width": 17.251,
+        "height": 11.0494,
+        "length": 22.6644
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -16395,6 +36544,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -8.4347,
+          -3.006,
+          -11.1177
+        ],
+        "max": [
+          8.4347,
+          3.006,
+          11.1177
+        ],
+        "radius": 14.2289,
+        "width": 16.8694,
+        "height": 6.012,
+        "length": 22.2354
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -16451,6 +36616,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -6.5949,
+          -5.4696,
+          -10.218
+        ],
+        "max": [
+          6.5949,
+          5.4696,
+          10.218
+        ],
+        "radius": 10.2755,
+        "width": 13.1898,
+        "height": 10.9392,
+        "length": 20.436
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -16507,6 +36688,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -9.2063,
+          -7.3851,
+          -9.0804
+        ],
+        "max": [
+          9.2063,
+          7.3851,
+          9.0804
+        ],
+        "radius": 12.7397,
+        "width": 18.4126,
+        "height": 14.7702,
+        "length": 18.1608
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -16563,6 +36760,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 8,
       "mass": 140,
       "shipClass": 0,
+      "modelBounds": {
+        "min": [
+          -4.5106,
+          -5.5803,
+          -9.4726
+        ],
+        "max": [
+          4.4711,
+          5.5803,
+          9.606
+        ],
+        "radius": 13.5374,
+        "width": 9.0212,
+        "height": 11.1606,
+        "length": 19.212
+      },
       "powerCapacity": 3400.0,
       "powerChargeRate": 345.0,
       "thrustCapacity": 1000.0,
@@ -16619,6 +36832,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -8.1945,
+          -1.8798,
+          -8.9294
+        ],
+        "max": [
+          8.1945,
+          1.8798,
+          8.9294
+        ],
+        "radius": 10.226,
+        "width": 16.389,
+        "height": 3.7596,
+        "length": 17.8588
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -16675,6 +36904,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -5.1069,
+          -1.6797,
+          -9.3113
+        ],
+        "max": [
+          5.1069,
+          1.6797,
+          9.3113
+        ],
+        "radius": 9.9755,
+        "width": 10.2138,
+        "height": 3.3594,
+        "length": 18.6226
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -16731,6 +36976,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -7.2662,
+          -2.0739,
+          -8.1413
+        ],
+        "max": [
+          7.2662,
+          2.0739,
+          8.1413
+        ],
+        "radius": 10.6567,
+        "width": 14.5324,
+        "height": 4.1478,
+        "length": 16.2826
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -16787,6 +37048,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 90,
       "shipClass": 0,
+      "modelBounds": {
+        "min": [
+          -9.4813,
+          -5.7922,
+          -7.3824
+        ],
+        "max": [
+          9.4813,
+          5.7922,
+          7.3824
+        ],
+        "radius": 10.9204,
+        "width": 18.9626,
+        "height": 11.5844,
+        "length": 14.7648
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -16843,6 +37120,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -8.8858,
+          -4.2231,
+          -8.6529
+        ],
+        "max": [
+          8.8858,
+          4.2231,
+          8.6529
+        ],
+        "radius": 9.5745,
+        "width": 17.7716,
+        "height": 8.4462,
+        "length": 17.3058
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -16899,6 +37192,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -7.7733,
+          -4.9637,
+          -8.6814
+        ],
+        "max": [
+          7.7733,
+          4.9637,
+          8.6814
+        ],
+        "radius": 10.5123,
+        "width": 15.5466,
+        "height": 9.9274,
+        "length": 17.3628
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -16955,6 +37264,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -8.6488,
+          -4.4184,
+          -8.7591
+        ],
+        "max": [
+          8.6488,
+          4.4184,
+          8.7591
+        ],
+        "radius": 10.9005,
+        "width": 17.2976,
+        "height": 8.8368,
+        "length": 17.5182
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -17011,6 +37336,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -8.8924,
+          -4.368,
+          -8.6594
+        ],
+        "max": [
+          8.8924,
+          4.368,
+          8.6594
+        ],
+        "radius": 9.9154,
+        "width": 17.7848,
+        "height": 8.736,
+        "length": 17.3188
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -17067,6 +37408,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -11.9066,
+          -3.9605,
+          -7.4203
+        ],
+        "max": [
+          11.9066,
+          3.9605,
+          7.4203
+        ],
+        "radius": 13.777,
+        "width": 23.8132,
+        "height": 7.921,
+        "length": 14.8406
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -17123,6 +37480,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 65,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -5.9102,
+          -4.7748,
+          -9.1363
+        ],
+        "max": [
+          5.9102,
+          4.7748,
+          9.1363
+        ],
+        "radius": 10.8941,
+        "width": 11.8204,
+        "height": 9.5496,
+        "length": 18.2726
+      },
       "powerCapacity": 11900.0,
       "powerChargeRate": 1190.0,
       "thrustCapacity": 1000.0,
@@ -17179,6 +37552,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 90,
       "shipClass": 0,
+      "modelBounds": {
+        "min": [
+          -15.9108,
+          -3.4363,
+          -12.6913
+        ],
+        "max": [
+          15.9108,
+          3.4363,
+          12.6913
+        ],
+        "radius": 17.0011,
+        "width": 31.8216,
+        "height": 6.8726,
+        "length": 25.3826
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -17235,6 +37624,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 65,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -10.1703,
+          -4.5214,
+          -8.1254
+        ],
+        "max": [
+          10.1703,
+          4.5214,
+          8.1254
+        ],
+        "radius": 12.3245,
+        "width": 20.3406,
+        "height": 9.0428,
+        "length": 16.2508
+      },
       "powerCapacity": 11900.0,
       "powerChargeRate": 1190.0,
       "thrustCapacity": 1000.0,
@@ -17291,6 +37696,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 1,
+      "modelBounds": {
+        "min": [
+          -14.456,
+          -3.9093,
+          -16.0543
+        ],
+        "max": [
+          14.456,
+          3.9093,
+          16.0543
+        ],
+        "radius": 17.9452,
+        "width": 28.912,
+        "height": 7.8186,
+        "length": 32.1086
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -17347,6 +37768,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -12.2484,
+          -1.5282,
+          -10.0767
+        ],
+        "max": [
+          12.2484,
+          1.5282,
+          10.0767
+        ],
+        "radius": 13.894,
+        "width": 24.4968,
+        "height": 3.0564,
+        "length": 20.1534
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -17403,6 +37840,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -8.5748,
+          -5.2588,
+          -11.5159
+        ],
+        "max": [
+          8.5748,
+          5.2588,
+          11.5159
+        ],
+        "radius": 13.0665,
+        "width": 17.1496,
+        "height": 10.5176,
+        "length": 23.0318
+      },
       "powerCapacity": 11900.0,
       "powerChargeRate": 1190.0,
       "thrustCapacity": 1000.0,
@@ -17459,6 +37912,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -4.5605,
+          -4.4545,
+          -10.7224
+        ],
+        "max": [
+          4.5605,
+          4.4545,
+          10.7224
+        ],
+        "radius": 13.7937,
+        "width": 9.121,
+        "height": 8.909,
+        "length": 21.4448
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -17515,6 +37984,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 9,
       "mass": 140,
       "shipClass": 1,
+      "modelBounds": {
+        "min": [
+          -6.1467,
+          -2.2718,
+          -11.5834
+        ],
+        "max": [
+          6.1467,
+          2.2718,
+          11.5834
+        ],
+        "radius": 13.2053,
+        "width": 12.2934,
+        "height": 4.5436,
+        "length": 23.1668
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -17571,6 +38056,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -6.9973,
+          -2.8327,
+          -8.0015
+        ],
+        "max": [
+          6.9973,
+          2.8327,
+          8.0015
+        ],
+        "radius": 9.9663,
+        "width": 13.9946,
+        "height": 5.6654,
+        "length": 16.003
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -17627,6 +38128,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -8.0602,
+          -5.4228,
+          -19.1159
+        ],
+        "max": [
+          8.0602,
+          5.4228,
+          19.1159
+        ],
+        "radius": 27.2858,
+        "width": 16.1204,
+        "height": 10.8456,
+        "length": 38.2318
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -17683,6 +38200,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 6,
       "mass": 140,
       "shipClass": 0,
+      "modelBounds": {
+        "min": [
+          -7.3275,
+          -4.9298,
+          -17.3781
+        ],
+        "max": [
+          7.3275,
+          4.9298,
+          17.3781
+        ],
+        "radius": 24.8052,
+        "width": 14.655,
+        "height": 9.8596,
+        "length": 34.7562
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -17739,6 +38272,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -6.712,
+          -7.1025,
+          -17.8671
+        ],
+        "max": [
+          6.712,
+          7.1025,
+          17.8671
+        ],
+        "radius": 25.7239,
+        "width": 13.424,
+        "height": 14.205,
+        "length": 35.7342
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -17795,6 +38344,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -8.3769,
+          -2.8195,
+          -8.6394
+        ],
+        "max": [
+          8.3769,
+          2.8195,
+          8.6394
+        ],
+        "radius": 10.7813,
+        "width": 16.7538,
+        "height": 5.639,
+        "length": 17.2788
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -17851,6 +38416,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -6.0644,
+          -2.5976,
+          -12.2825
+        ],
+        "max": [
+          6.0644,
+          2.5976,
+          12.2825
+        ],
+        "radius": 12.7456,
+        "width": 12.1288,
+        "height": 5.1952,
+        "length": 24.565
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -17907,6 +38488,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -6.9331,
+          -1.7393,
+          -12.9065
+        ],
+        "max": [
+          6.9331,
+          1.7393,
+          12.9065
+        ],
+        "radius": 16.7462,
+        "width": 13.8662,
+        "height": 3.4786,
+        "length": 25.813
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -17963,6 +38560,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -7.9097,
+          -1.8913,
+          -12.3098
+        ],
+        "max": [
+          7.9097,
+          1.8913,
+          12.3098
+        ],
+        "radius": 15.7577,
+        "width": 15.8194,
+        "height": 3.7826,
+        "length": 24.6196
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -18019,6 +38632,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -7.4585,
+          -2.5292,
+          -9.6097
+        ],
+        "max": [
+          7.4585,
+          2.5292,
+          9.6097
+        ],
+        "radius": 10.8985,
+        "width": 14.917,
+        "height": 5.0584,
+        "length": 19.2194
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -18075,6 +38704,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 3,
       "mass": 90,
       "shipClass": 0,
+      "modelBounds": {
+        "min": [
+          -5.2956,
+          -3.7773,
+          -6.8863
+        ],
+        "max": [
+          5.2956,
+          3.6514,
+          6.3817
+        ],
+        "radius": 10.9867,
+        "width": 10.5912,
+        "height": 7.5546,
+        "length": 13.7726
+      },
       "powerCapacity": 1000.0,
       "powerChargeRate": 95.0,
       "thrustCapacity": 1000.0,
@@ -18131,6 +38776,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 4,
       "mass": 90,
       "shipClass": 0,
+      "modelBounds": {
+        "min": [
+          -5.2956,
+          -3.9496,
+          -6.8863
+        ],
+        "max": [
+          5.2956,
+          3.8202,
+          6.3817
+        ],
+        "radius": 10.9867,
+        "width": 10.5912,
+        "height": 7.8992,
+        "length": 13.7726
+      },
       "powerCapacity": 1800.0,
       "powerChargeRate": 183.0,
       "thrustCapacity": 1000.0,
@@ -18187,6 +38848,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 5,
       "mass": 90,
       "shipClass": 0,
+      "modelBounds": {
+        "min": [
+          -5.2956,
+          -4.9871,
+          -6.8863
+        ],
+        "max": [
+          5.2956,
+          4.8577,
+          6.3817
+        ],
+        "radius": 10.9867,
+        "width": 10.5912,
+        "height": 9.9742,
+        "length": 13.7726
+      },
       "powerCapacity": 2500.0,
       "powerChargeRate": 265.0,
       "thrustCapacity": 1000.0,
@@ -18243,6 +38920,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 6,
       "mass": 90,
       "shipClass": 0,
+      "modelBounds": {
+        "min": [
+          -9.9747,
+          -2.2882,
+          -7.5902
+        ],
+        "max": [
+          9.9734,
+          2.2882,
+          7.5902
+        ],
+        "radius": 10.3485,
+        "width": 19.9494,
+        "height": 4.5764,
+        "length": 15.1804
+      },
       "powerCapacity": 3400.0,
       "powerChargeRate": 345.0,
       "thrustCapacity": 1000.0,
@@ -18299,6 +38992,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 8,
       "mass": 140,
       "shipClass": 1,
+      "modelBounds": {
+        "min": [
+          -9.9747,
+          -4.1122,
+          -7.5902
+        ],
+        "max": [
+          9.9734,
+          4.1122,
+          7.5902
+        ],
+        "radius": 10.3485,
+        "width": 19.9494,
+        "height": 8.2244,
+        "length": 15.1804
+      },
       "powerCapacity": 6400.0,
       "powerChargeRate": 645.0,
       "thrustCapacity": 1000.0,
@@ -18355,6 +39064,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -9.9747,
+          -4.1966,
+          -8.6859
+        ],
+        "max": [
+          9.9734,
+          4.1966,
+          8.6857
+        ],
+        "radius": 11.5836,
+        "width": 19.9494,
+        "height": 8.3932,
+        "length": 17.3718
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -18411,6 +39136,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 1,
+      "modelBounds": {
+        "min": [
+          -6.9542,
+          -4.8911,
+          -7.7956
+        ],
+        "max": [
+          6.9542,
+          4.8911,
+          7.7956
+        ],
+        "radius": 10.492,
+        "width": 13.9084,
+        "height": 9.7822,
+        "length": 15.5912
+      },
       "powerCapacity": 2500.0,
       "powerChargeRate": 265.0,
       "thrustCapacity": 1000.0,
@@ -18467,6 +39208,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -9.9747,
+          -4.1966,
+          -8.6859
+        ],
+        "max": [
+          9.9734,
+          4.1966,
+          8.6857
+        ],
+        "radius": 11.5836,
+        "width": 19.9494,
+        "height": 8.3932,
+        "length": 17.3718
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -18523,6 +39280,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -9.4364,
+          -4.3056,
+          -10.12
+        ],
+        "max": [
+          9.4364,
+          4.3056,
+          10.12
+        ],
+        "radius": 13.4185,
+        "width": 18.8728,
+        "height": 8.6112,
+        "length": 20.24
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -18579,6 +39352,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -10.4236,
+          -2.3668,
+          -8.2292
+        ],
+        "max": [
+          10.4236,
+          2.3668,
+          8.2292
+        ],
+        "radius": 10.7164,
+        "width": 20.8472,
+        "height": 4.7336,
+        "length": 16.4584
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -18635,6 +39424,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 65,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -9.2567,
+          -2.6541,
+          -10.7806
+        ],
+        "max": [
+          9.2567,
+          2.6541,
+          10.7806
+        ],
+        "radius": 14.0047,
+        "width": 18.5134,
+        "height": 5.3082,
+        "length": 21.5612
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -18691,6 +39496,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 65,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -10.6942,
+          -4.4726,
+          -14.8705
+        ],
+        "max": [
+          10.6942,
+          4.4726,
+          14.8705
+        ],
+        "radius": 17.371,
+        "width": 21.3884,
+        "height": 8.9452,
+        "length": 29.741
+      },
       "powerCapacity": 11900.0,
       "powerChargeRate": 1190.0,
       "thrustCapacity": 1000.0,
@@ -18747,6 +39568,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 1,
       "mass": 140,
       "shipClass": 13,
+      "modelBounds": {
+        "min": [
+          -5.7426,
+          -3.444,
+          -13.5102
+        ],
+        "max": [
+          5.7426,
+          3.444,
+          13.5102
+        ],
+        "radius": 20.3802,
+        "width": 11.4852,
+        "height": 6.888,
+        "length": 27.0204
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -18803,6 +39640,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -8.782,
+          -2.2727,
+          -8.9174
+        ],
+        "max": [
+          8.782,
+          2.2727,
+          8.9174
+        ],
+        "radius": 9.3552,
+        "width": 17.564,
+        "height": 4.5454,
+        "length": 17.8348
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -18859,6 +39712,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 9,
       "mass": 140,
       "shipClass": 1,
+      "modelBounds": {
+        "min": [
+          -6.3693,
+          -4.322,
+          -10.3216
+        ],
+        "max": [
+          6.3693,
+          4.322,
+          10.3216
+        ],
+        "radius": 13.5398,
+        "width": 12.7386,
+        "height": 8.644,
+        "length": 20.6432
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -18915,6 +39784,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -6.4224,
+          -4.358,
+          -10.4076
+        ],
+        "max": [
+          6.4224,
+          4.358,
+          10.4076
+        ],
+        "radius": 13.6527,
+        "width": 12.8448,
+        "height": 8.716,
+        "length": 20.8152
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -18971,6 +39856,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -6.64,
+          -3.2814,
+          -9.4468
+        ],
+        "max": [
+          6.64,
+          3.2814,
+          9.4468
+        ],
+        "radius": 12.584,
+        "width": 13.28,
+        "height": 6.5628,
+        "length": 18.8936
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -19027,6 +39928,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 90,
       "shipClass": 0,
+      "modelBounds": {
+        "min": [
+          -12.1848,
+          -3.2225,
+          -9.5177
+        ],
+        "max": [
+          12.1848,
+          3.2225,
+          9.5177
+        ],
+        "radius": 13.5057,
+        "width": 24.3696,
+        "height": 6.445,
+        "length": 19.0354
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -19083,6 +40000,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -12.1492,
+          -3.1201,
+          -9.3347
+        ],
+        "max": [
+          12.1492,
+          3.1201,
+          9.3347
+        ],
+        "radius": 14.3126,
+        "width": 24.2984,
+        "height": 6.2402,
+        "length": 18.6694
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -19139,6 +40072,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -5.2601,
+          -7.5496,
+          -9.0428
+        ],
+        "max": [
+          5.2601,
+          7.5496,
+          9.0428
+        ],
+        "radius": 11.7835,
+        "width": 10.5202,
+        "height": 15.0992,
+        "length": 18.0856
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -19195,6 +40144,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 8,
       "mass": 140,
       "shipClass": 1,
+      "modelBounds": {
+        "min": [
+          -8.0123,
+          -2.9501,
+          -10.7984
+        ],
+        "max": [
+          8.0123,
+          2.9501,
+          10.7984
+        ],
+        "radius": 11.4705,
+        "width": 16.0246,
+        "height": 5.9002,
+        "length": 21.5968
+      },
       "powerCapacity": 6400.0,
       "powerChargeRate": 645.0,
       "thrustCapacity": 1000.0,
@@ -19251,6 +40216,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -10.4992,
+          -2.4588,
+          -7.9206
+        ],
+        "max": [
+          10.4992,
+          2.4588,
+          7.9206
+        ],
+        "radius": 11.5539,
+        "width": 20.9984,
+        "height": 4.9176,
+        "length": 15.8412
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -19307,6 +40288,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -7.871,
+          -9.7349,
+          -14.1364
+        ],
+        "max": [
+          7.871,
+          9.7349,
+          14.1364
+        ],
+        "radius": 22.6288,
+        "width": 15.742,
+        "height": 19.4698,
+        "length": 28.2728
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -19363,6 +40360,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 13,
+      "modelBounds": {
+        "min": [
+          -4.5943,
+          -4.5565,
+          -14.4057
+        ],
+        "max": [
+          4.5943,
+          4.5565,
+          14.4057
+        ],
+        "radius": 15.9117,
+        "width": 9.1886,
+        "height": 9.113,
+        "length": 28.8114
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -19419,6 +40432,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -6.5747,
+          -3.1399,
+          -9.6465
+        ],
+        "max": [
+          6.5747,
+          3.1399,
+          9.6465
+        ],
+        "radius": 11.3541,
+        "width": 13.1494,
+        "height": 6.2798,
+        "length": 19.293
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -19475,6 +40504,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -7.4361,
+          -5.3309,
+          -13.138
+        ],
+        "max": [
+          7.4361,
+          5.3309,
+          13.138
+        ],
+        "radius": 15.4888,
+        "width": 14.8722,
+        "height": 10.6618,
+        "length": 26.276
+      },
       "powerCapacity": 12100.0,
       "powerChargeRate": 1210.0,
       "thrustCapacity": 1000.0,
@@ -19531,6 +40576,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 6,
       "mass": 140,
       "shipClass": 1,
+      "modelBounds": {
+        "min": [
+          -4.8548,
+          -3.7401,
+          -7.4247
+        ],
+        "max": [
+          4.8548,
+          3.7401,
+          7.5488
+        ],
+        "radius": 8.6992,
+        "width": 9.7096,
+        "height": 7.4802,
+        "length": 15.0976
+      },
       "powerCapacity": 3400.0,
       "powerChargeRate": 345.0,
       "thrustCapacity": 1000.0,
@@ -19587,6 +40648,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 6,
       "mass": 90,
       "shipClass": 0,
+      "modelBounds": {
+        "min": [
+          -2.8204,
+          -2.1568,
+          -6.0093
+        ],
+        "max": [
+          2.8209,
+          2.1568,
+          6.0093
+        ],
+        "radius": 6.5562,
+        "width": 5.6418,
+        "height": 4.3136,
+        "length": 12.0186
+      },
       "powerCapacity": 2900.0,
       "powerChargeRate": 290.0,
       "thrustCapacity": 1000.0,
@@ -19643,6 +40720,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 6,
       "mass": 290,
       "shipClass": 2,
+      "modelBounds": {
+        "min": [
+          -8.221,
+          -5.7838,
+          -10.5273
+        ],
+        "max": [
+          8.221,
+          5.8486,
+          10.5273
+        ],
+        "radius": 11.6421,
+        "width": 16.442,
+        "height": 11.6972,
+        "length": 21.0546
+      },
       "powerCapacity": 2700.0,
       "powerChargeRate": 265.0,
       "thrustCapacity": 1000.0,
@@ -19699,6 +40792,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -7.3853,
+          -2.7597,
+          -9.0854
+        ],
+        "max": [
+          7.3853,
+          2.7597,
+          9.0854
+        ],
+        "radius": 11.0109,
+        "width": 14.7706,
+        "height": 5.5194,
+        "length": 18.1708
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -19755,6 +40864,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -9.2875,
+          -3.8349,
+          -10.4883
+        ],
+        "max": [
+          9.2875,
+          3.8349,
+          10.4883
+        ],
+        "radius": 11.3461,
+        "width": 18.575,
+        "height": 7.6698,
+        "length": 20.9766
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -19811,6 +40936,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -8.68,
+          -1.7713,
+          -7.4593
+        ],
+        "max": [
+          8.68,
+          1.7713,
+          7.4593
+        ],
+        "radius": 10.7539,
+        "width": 17.36,
+        "height": 3.5426,
+        "length": 14.9186
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -19867,6 +41008,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 4,
       "mass": 140,
       "shipClass": 1,
+      "modelBounds": {
+        "min": [
+          -6.9612,
+          -2.9874,
+          -7.5243
+        ],
+        "max": [
+          6.9612,
+          2.9874,
+          7.5243
+        ],
+        "radius": 8.8792,
+        "width": 13.9224,
+        "height": 5.9748,
+        "length": 15.0486
+      },
       "powerCapacity": 1500.0,
       "powerChargeRate": 157.0,
       "thrustCapacity": 1000.0,
@@ -19923,6 +41080,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 3,
       "mass": 90,
       "shipClass": 0,
+      "modelBounds": {
+        "min": [
+          -2.215,
+          -1.8279,
+          -6.3065
+        ],
+        "max": [
+          2.215,
+          1.8279,
+          6.3949
+        ],
+        "radius": 7.6687,
+        "width": 4.43,
+        "height": 3.6558,
+        "length": 12.7898
+      },
       "powerCapacity": 1300.0,
       "powerChargeRate": 126.0,
       "thrustCapacity": 1000.0,
@@ -19979,6 +41152,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 3,
       "mass": 290,
       "shipClass": 2,
+      "modelBounds": {
+        "min": [
+          -4.4712,
+          -5.5502,
+          -14.6048
+        ],
+        "max": [
+          4.4712,
+          5.5502,
+          14.6023
+        ],
+        "radius": 14.745,
+        "width": 8.9424,
+        "height": 11.1004,
+        "length": 29.2096
+      },
       "powerCapacity": 1300.0,
       "powerChargeRate": 126.0,
       "thrustCapacity": 1000.0,
@@ -20035,6 +41224,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 1,
       "mass": 290,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -7.3718,
+          -3.2208,
+          -12.2391
+        ],
+        "max": [
+          7.3718,
+          3.2208,
+          12.2391
+        ],
+        "radius": 14.4269,
+        "width": 14.7436,
+        "height": 6.4416,
+        "length": 24.4782
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -20091,6 +41296,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -6.1048,
+          -6.561,
+          -17.3205
+        ],
+        "max": [
+          6.1048,
+          6.561,
+          17.3205
+        ],
+        "radius": 25.7806,
+        "width": 12.2096,
+        "height": 13.122,
+        "length": 34.641
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -20147,6 +41368,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -3.2686,
+          -3.6563,
+          -11.23
+        ],
+        "max": [
+          3.2686,
+          3.6563,
+          11.23
+        ],
+        "radius": 16.9988,
+        "width": 6.5372,
+        "height": 7.3126,
+        "length": 22.46
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -20203,6 +41440,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 8,
       "mass": 140,
       "shipClass": 1,
+      "modelBounds": {
+        "min": [
+          -10.1262,
+          -4.2926,
+          -6.2721
+        ],
+        "max": [
+          10.1262,
+          4.2926,
+          6.2721
+        ],
+        "radius": 10.8967,
+        "width": 20.2524,
+        "height": 8.5852,
+        "length": 12.5442
+      },
       "powerCapacity": 6400.0,
       "powerChargeRate": 645.0,
       "thrustCapacity": 1000.0,
@@ -20259,6 +41512,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -4.3575,
+          -6.3275,
+          -2.8659
+        ],
+        "max": [
+          4.3575,
+          6.3275,
+          2.8659
+        ],
+        "radius": 7.929,
+        "width": 8.715,
+        "height": 12.655,
+        "length": 5.7318
+      },
       "powerCapacity": 11900.0,
       "powerChargeRate": 1190.0,
       "thrustCapacity": 1000.0,
@@ -20315,6 +41584,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -7.9346,
+          -2.1634,
+          -9.0878
+        ],
+        "max": [
+          7.9346,
+          2.1634,
+          9.0878
+        ],
+        "radius": 9.8672,
+        "width": 15.8692,
+        "height": 4.3268,
+        "length": 18.1756
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -20371,6 +41656,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -8.6171,
+          -2.6206,
+          -10.3564
+        ],
+        "max": [
+          8.6171,
+          2.6206,
+          10.3564
+        ],
+        "radius": 13.5201,
+        "width": 17.2342,
+        "height": 5.2412,
+        "length": 20.7128
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -20427,6 +41728,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -8.0375,
+          -2.6247,
+          -11.7158
+        ],
+        "max": [
+          8.0375,
+          2.6247,
+          11.7158
+        ],
+        "radius": 15.5416,
+        "width": 16.075,
+        "height": 5.2494,
+        "length": 23.4316
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -20483,6 +41800,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 1,
       "mass": 200,
       "shipClass": 7,
+      "modelBounds": {
+        "min": [
+          -50.5919,
+          -50.5152,
+          -199.1887
+        ],
+        "max": [
+          50.5157,
+          50.5152,
+          199.1887
+        ],
+        "radius": 213.7623,
+        "width": 101.1838,
+        "height": 101.0304,
+        "length": 398.3774
+      },
       "powerCapacity": 50000.0,
       "powerChargeRate": 50000.0,
       "thrustCapacity": 1000.0,
@@ -20539,6 +41872,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 1,
       "mass": 500,
       "shipClass": 11,
+      "modelBounds": {
+        "min": [
+          -25.1787,
+          -16.3909,
+          -79.0299
+        ],
+        "max": [
+          25.1787,
+          16.3909,
+          79.0299
+        ],
+        "radius": 81.6848,
+        "width": 50.3574,
+        "height": 32.7818,
+        "length": 158.0598
+      },
       "powerCapacity": 50000.0,
       "powerChargeRate": 50000.0,
       "thrustCapacity": 1000.0,
@@ -20595,6 +41944,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 1,
       "mass": 200,
       "shipClass": 7,
+      "modelBounds": {
+        "min": [
+          -68.1589,
+          -134.444,
+          -337.4119
+        ],
+        "max": [
+          68.1589,
+          134.444,
+          338.0996
+        ],
+        "radius": 349.4831,
+        "width": 136.3178,
+        "height": 268.888,
+        "length": 676.1992
+      },
       "powerCapacity": 50000.0,
       "powerChargeRate": 50000.0,
       "thrustCapacity": 1000.0,
@@ -20651,6 +42016,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 1,
       "mass": 200,
       "shipClass": 7,
+      "modelBounds": {
+        "min": [
+          -45.3213,
+          -55.1236,
+          -248.0837
+        ],
+        "max": [
+          45.3213,
+          59.1228,
+          248.0837
+        ],
+        "radius": 266.8625,
+        "width": 90.6426,
+        "height": 118.2456,
+        "length": 496.1674
+      },
       "powerCapacity": 50000.0,
       "powerChargeRate": 50000.0,
       "thrustCapacity": 1000.0,
@@ -20707,6 +42088,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 1,
       "mass": 1000,
       "shipClass": 12,
+      "modelBounds": {
+        "min": [
+          -25.1787,
+          -16.3909,
+          -100.7455
+        ],
+        "max": [
+          25.1787,
+          16.3909,
+          100.7455
+        ],
+        "radius": 106.2038,
+        "width": 50.3574,
+        "height": 32.7818,
+        "length": 201.491
+      },
       "powerCapacity": 50000.0,
       "powerChargeRate": 50000.0,
       "thrustCapacity": 1000.0,
@@ -20763,6 +42160,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 1,
       "mass": 50000,
       "shipClass": 15,
+      "modelBounds": {
+        "min": [
+          -95.4934,
+          -41.2064,
+          -116.2282
+        ],
+        "max": [
+          95.4934,
+          41.2064,
+          116.2282
+        ],
+        "radius": 136.4003,
+        "width": 190.9868,
+        "height": 82.4128,
+        "length": 232.4564
+      },
       "powerCapacity": 50000.0,
       "powerChargeRate": 50000.0,
       "thrustCapacity": 1000.0,
@@ -20819,6 +42232,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 1,
       "mass": 200,
       "shipClass": 7,
+      "modelBounds": {
+        "min": [
+          -31.5164,
+          -50.7079,
+          -213.3575
+        ],
+        "max": [
+          31.5164,
+          50.7079,
+          213.2203
+        ],
+        "radius": 232.9937,
+        "width": 63.0328,
+        "height": 101.4158,
+        "length": 426.715
+      },
       "powerCapacity": 50000.0,
       "powerChargeRate": 50000.0,
       "thrustCapacity": 1000.0,
@@ -20875,6 +42304,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 1,
       "mass": 200,
       "shipClass": 7,
+      "modelBounds": {
+        "min": [
+          -97.1886,
+          -106.0065,
+          -400.0807
+        ],
+        "max": [
+          97.1928,
+          106.0057,
+          400.0807
+        ],
+        "radius": 501.5191,
+        "width": 194.3856,
+        "height": 212.013,
+        "length": 800.1614
+      },
       "powerCapacity": 50000.0,
       "powerChargeRate": 50000.0,
       "thrustCapacity": 1000.0,
@@ -20931,6 +42376,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -6.2776,
+          -5.1917,
+          -9.1138
+        ],
+        "max": [
+          6.2776,
+          5.1917,
+          9.1138
+        ],
+        "radius": 13.6266,
+        "width": 12.5552,
+        "height": 10.3834,
+        "length": 18.2276
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -20987,6 +42448,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 7,
       "mass": 90,
       "shipClass": 0,
+      "modelBounds": {
+        "min": [
+          -7.1924,
+          -8.1927,
+          -9.6907
+        ],
+        "max": [
+          7.1924,
+          8.1927,
+          9.6907
+        ],
+        "radius": 12.5492,
+        "width": 14.3848,
+        "height": 16.3854,
+        "length": 19.3814
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -21043,6 +42520,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -7.136,
+          -3.8361,
+          -8.9236
+        ],
+        "max": [
+          7.136,
+          3.8361,
+          8.9236
+        ],
+        "radius": 10.1643,
+        "width": 14.272,
+        "height": 7.6722,
+        "length": 17.8472
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -21099,6 +42592,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -8.2826,
+          -3.8495,
+          -8.9129
+        ],
+        "max": [
+          8.2826,
+          3.8495,
+          8.9129
+        ],
+        "radius": 10.2081,
+        "width": 16.5652,
+        "height": 7.699,
+        "length": 17.8258
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -21155,6 +42664,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -7.2096,
+          -2.977,
+          -10.7918
+        ],
+        "max": [
+          7.2096,
+          2.977,
+          10.7918
+        ],
+        "radius": 11.1624,
+        "width": 14.4192,
+        "height": 5.954,
+        "length": 21.5836
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -21211,6 +42736,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 6,
       "mass": 140,
       "shipClass": 1,
+      "modelBounds": {
+        "min": [
+          -8.9,
+          -4.645,
+          -8.7021
+        ],
+        "max": [
+          8.9,
+          4.645,
+          8.7054
+        ],
+        "radius": 11.3011,
+        "width": 17.8,
+        "height": 9.29,
+        "length": 17.4108
+      },
       "powerCapacity": 4000.0,
       "powerChargeRate": 395.0,
       "thrustCapacity": 1000.0,
@@ -21267,6 +42808,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -8.9,
+          -4.645,
+          -8.7021
+        ],
+        "max": [
+          8.9,
+          4.645,
+          8.7054
+        ],
+        "radius": 11.3011,
+        "width": 17.8,
+        "height": 9.29,
+        "length": 17.4108
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -21323,6 +42880,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -6.9027,
+          -4.1323,
+          -9.4915
+        ],
+        "max": [
+          6.9027,
+          4.1323,
+          9.4915
+        ],
+        "radius": 11.8827,
+        "width": 13.8054,
+        "height": 8.2646,
+        "length": 18.983
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -21379,6 +42952,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 6,
       "mass": 140,
       "shipClass": 1,
+      "modelBounds": {
+        "min": [
+          -5.4356,
+          -9.3878,
+          -13.1194
+        ],
+        "max": [
+          5.4356,
+          9.3882,
+          13.1194
+        ],
+        "radius": 15.0275,
+        "width": 10.8712,
+        "height": 18.7764,
+        "length": 26.2388
+      },
       "powerCapacity": 3400.0,
       "powerChargeRate": 345.0,
       "thrustCapacity": 1000.0,
@@ -21435,6 +43024,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 5,
       "mass": 140,
       "shipClass": 0,
+      "modelBounds": {
+        "min": [
+          -7.6632,
+          -5.1322,
+          -6.6796
+        ],
+        "max": [
+          7.6632,
+          5.1322,
+          6.6796
+        ],
+        "radius": 10.8725,
+        "width": 15.3264,
+        "height": 10.2644,
+        "length": 13.3592
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -21491,6 +43096,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -7.6632,
+          -5.1322,
+          -6.6796
+        ],
+        "max": [
+          7.6632,
+          5.1322,
+          6.6796
+        ],
+        "radius": 10.8725,
+        "width": 15.3264,
+        "height": 10.2644,
+        "length": 13.3592
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -21547,6 +43168,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -8.0294,
+          -4.7427,
+          -6.3571
+        ],
+        "max": [
+          8.0294,
+          4.7427,
+          6.3571
+        ],
+        "radius": 10.2297,
+        "width": 16.0588,
+        "height": 9.4854,
+        "length": 12.7142
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -21603,6 +43240,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -6.6166,
+          -3.4175,
+          -11.5277
+        ],
+        "max": [
+          6.6166,
+          3.4175,
+          11.5277
+        ],
+        "radius": 11.9276,
+        "width": 13.2332,
+        "height": 6.835,
+        "length": 23.0554
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -21659,6 +43312,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -6.6944,
+          -2.1222,
+          -11.3944
+        ],
+        "max": [
+          6.6944,
+          2.1222,
+          11.3944
+        ],
+        "radius": 17.7754,
+        "width": 13.3888,
+        "height": 4.2444,
+        "length": 22.7888
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -21715,6 +43384,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -6.6944,
+          -2.1222,
+          -11.3944
+        ],
+        "max": [
+          6.6944,
+          2.1222,
+          11.3944
+        ],
+        "radius": 17.7754,
+        "width": 13.3888,
+        "height": 4.2444,
+        "length": 22.7888
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -21771,6 +43456,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -6.547,
+          -2.611,
+          -11.405
+        ],
+        "max": [
+          6.547,
+          2.611,
+          11.405
+        ],
+        "radius": 18.0723,
+        "width": 13.094,
+        "height": 5.222,
+        "length": 22.81
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -21827,6 +43528,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 8,
       "mass": 140,
       "shipClass": 1,
+      "modelBounds": {
+        "min": [
+          -3.9518,
+          -1.9808,
+          -11.3944
+        ],
+        "max": [
+          3.9518,
+          1.9808,
+          11.3944
+        ],
+        "radius": 17.5778,
+        "width": 7.9036,
+        "height": 3.9616,
+        "length": 22.7888
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -21883,6 +43600,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 4,
       "mass": 90,
       "shipClass": 0,
+      "modelBounds": {
+        "min": [
+          -4.5454,
+          -7.2199,
+          -9.3408
+        ],
+        "max": [
+          4.5455,
+          7.1086,
+          9.3408
+        ],
+        "radius": 11.4085,
+        "width": 9.091,
+        "height": 14.4398,
+        "length": 18.6816
+      },
       "powerCapacity": 1500.0,
       "powerChargeRate": 157.0,
       "thrustCapacity": 1000.0,
@@ -21939,6 +43672,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 4,
       "mass": 290,
       "shipClass": 2,
+      "modelBounds": {
+        "min": [
+          -6.1671,
+          -7.7597,
+          -10.4785
+        ],
+        "max": [
+          6.1671,
+          7.7597,
+          10.4785
+        ],
+        "radius": 13.105,
+        "width": 12.3342,
+        "height": 15.5194,
+        "length": 20.957
+      },
       "powerCapacity": 1800.0,
       "powerChargeRate": 183.0,
       "thrustCapacity": 1000.0,
@@ -21995,6 +43744,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -9.3983,
+          -2.3809,
+          -13.0144
+        ],
+        "max": [
+          9.3983,
+          2.3809,
+          13.0144
+        ],
+        "radius": 13.6875,
+        "width": 18.7966,
+        "height": 4.7618,
+        "length": 26.0288
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -22051,6 +43816,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -6.4124,
+          -4.7821,
+          -9.8624
+        ],
+        "max": [
+          6.4124,
+          4.7821,
+          9.8624
+        ],
+        "radius": 10.9388,
+        "width": 12.8248,
+        "height": 9.5642,
+        "length": 19.7248
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -22107,6 +43888,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -9.992,
+          -4.2039,
+          -8.6358
+        ],
+        "max": [
+          9.992,
+          4.2039,
+          8.6358
+        ],
+        "radius": 11.7114,
+        "width": 19.984,
+        "height": 8.4078,
+        "length": 17.2716
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -22163,6 +43960,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -5.7483,
+          -3.3663,
+          -8.2152
+        ],
+        "max": [
+          5.7483,
+          3.3663,
+          8.2152
+        ],
+        "radius": 10.9395,
+        "width": 11.4966,
+        "height": 6.7326,
+        "length": 16.4304
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -22219,6 +44032,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -7.1673,
+          -5.1943,
+          -9.7867
+        ],
+        "max": [
+          7.1673,
+          5.1943,
+          9.7867
+        ],
+        "radius": 13.3773,
+        "width": 14.3346,
+        "height": 10.3886,
+        "length": 19.5734
+      },
       "powerCapacity": 11900.0,
       "powerChargeRate": 1190.0,
       "thrustCapacity": 1000.0,
@@ -22275,6 +44104,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -7.4585,
+          -3.1377,
+          -9.6097
+        ],
+        "max": [
+          7.4585,
+          3.1377,
+          9.6097
+        ],
+        "radius": 10.9617,
+        "width": 14.917,
+        "height": 6.2754,
+        "length": 19.2194
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -22331,6 +44176,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 8,
       "mass": 190,
       "shipClass": 1,
+      "modelBounds": {
+        "min": [
+          -7.916,
+          -2.3935,
+          -11.6772
+        ],
+        "max": [
+          7.916,
+          2.3935,
+          11.6772
+        ],
+        "radius": 13.5561,
+        "width": 15.832,
+        "height": 4.787,
+        "length": 23.3544
+      },
       "powerCapacity": 8900.0,
       "powerChargeRate": 890.0,
       "thrustCapacity": 1000.0,
@@ -22387,6 +44248,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 8,
       "mass": 140,
       "shipClass": 1,
+      "modelBounds": {
+        "min": [
+          -7.5278,
+          -3.528,
+          -8.3658
+        ],
+        "max": [
+          7.5278,
+          3.3562,
+          8.2834
+        ],
+        "radius": 8.5456,
+        "width": 15.0556,
+        "height": 7.056,
+        "length": 16.7316
+      },
       "powerCapacity": 5400.0,
       "powerChargeRate": 545.0,
       "thrustCapacity": 1000.0,
@@ -22443,6 +44320,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -6.5453,
+          -2.047,
+          -9.222
+        ],
+        "max": [
+          6.5453,
+          2.047,
+          9.222
+        ],
+        "radius": 11.3809,
+        "width": 13.0906,
+        "height": 4.094,
+        "length": 18.444
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -22499,6 +44392,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -6.9602,
+          -1.312,
+          -9.1884
+        ],
+        "max": [
+          6.9602,
+          1.312,
+          9.1884
+        ],
+        "radius": 10.0343,
+        "width": 13.9204,
+        "height": 2.624,
+        "length": 18.3768
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -22555,6 +44464,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 1,
       "mass": 200,
       "shipClass": 7,
+      "modelBounds": {
+        "min": [
+          -63.4587,
+          -42.209,
+          -282.6315
+        ],
+        "max": [
+          63.4587,
+          42.209,
+          282.6315
+        ],
+        "radius": 326.6378,
+        "width": 126.9174,
+        "height": 84.418,
+        "length": 565.263
+      },
       "powerCapacity": 50000.0,
       "powerChargeRate": 50000.0,
       "thrustCapacity": 1000.0,
@@ -22611,6 +44536,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 7,
       "mass": 90,
       "shipClass": 0,
+      "modelBounds": {
+        "min": [
+          -5.4988,
+          -3.5664,
+          -6.8028
+        ],
+        "max": [
+          5.4988,
+          3.5664,
+          6.8028
+        ],
+        "radius": 8.1445,
+        "width": 10.9976,
+        "height": 7.1328,
+        "length": 13.6056
+      },
       "powerCapacity": 4700.0,
       "powerChargeRate": 465.0,
       "thrustCapacity": 1000.0,
@@ -22667,6 +44608,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 7,
       "mass": 290,
       "shipClass": 2,
+      "modelBounds": {
+        "min": [
+          -4.7324,
+          -5.7313,
+          -11.86
+        ],
+        "max": [
+          4.7324,
+          5.7313,
+          11.8616
+        ],
+        "radius": 12.7022,
+        "width": 9.4648,
+        "height": 11.4626,
+        "length": 23.7232
+      },
       "powerCapacity": 4700.0,
       "powerChargeRate": 465.0,
       "thrustCapacity": 1000.0,
@@ -22723,6 +44680,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 90,
       "shipClass": 4,
+      "modelBounds": {
+        "min": [
+          -13.3018,
+          -7.2743,
+          -14.7163
+        ],
+        "max": [
+          13.3018,
+          7.2743,
+          14.7163
+        ],
+        "radius": 21.1658,
+        "width": 26.6036,
+        "height": 14.5486,
+        "length": 29.4326
+      },
       "powerCapacity": 105000.0,
       "powerChargeRate": 10500.0,
       "thrustCapacity": 10000.0,
@@ -22779,6 +44752,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -8.5831,
+          -8.1991,
+          -6.1271
+        ],
+        "max": [
+          8.5831,
+          8.1991,
+          6.1271
+        ],
+        "radius": 9.6066,
+        "width": 17.1662,
+        "height": 16.3982,
+        "length": 12.2542
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -22835,6 +44824,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -9.0805,
+          -3.0803,
+          -7.8618
+        ],
+        "max": [
+          9.0805,
+          3.0803,
+          7.8618
+        ],
+        "radius": 10.9879,
+        "width": 18.161,
+        "height": 6.1606,
+        "length": 15.7236
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -22891,6 +44896,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -9.022,
+          -2.1299,
+          -7.8438
+        ],
+        "max": [
+          9.022,
+          2.1299,
+          7.8438
+        ],
+        "radius": 10.6207,
+        "width": 18.044,
+        "height": 4.2598,
+        "length": 15.6876
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -22947,6 +44968,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -6.1339,
+          -5.5406,
+          -13.8742
+        ],
+        "max": [
+          6.1339,
+          5.5406,
+          13.8742
+        ],
+        "radius": 19.707,
+        "width": 12.2678,
+        "height": 11.0812,
+        "length": 27.7484
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -23003,6 +45040,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 6,
       "mass": 140,
       "shipClass": 0,
+      "modelBounds": {
+        "min": [
+          -7.2559,
+          -4.8295,
+          -14.9274
+        ],
+        "max": [
+          7.2559,
+          4.8295,
+          14.9274
+        ],
+        "radius": 20.5793,
+        "width": 14.5118,
+        "height": 9.659,
+        "length": 29.8548
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -23059,6 +45112,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -6.3319,
+          -4.8116,
+          -13.8742
+        ],
+        "max": [
+          6.3319,
+          4.8116,
+          13.8742
+        ],
+        "radius": 19.5656,
+        "width": 12.6638,
+        "height": 9.6232,
+        "length": 27.7484
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -23115,6 +45184,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -6.3319,
+          -5.2362,
+          -13.8742
+        ],
+        "max": [
+          6.3319,
+          5.2362,
+          13.8742
+        ],
+        "radius": 18.5216,
+        "width": 12.6638,
+        "height": 10.4724,
+        "length": 27.7484
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -23171,6 +45256,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -7.6104,
+          -4.2996,
+          -8.8092
+        ],
+        "max": [
+          7.6104,
+          4.2996,
+          8.8092
+        ],
+        "radius": 10.1241,
+        "width": 15.2208,
+        "height": 8.5992,
+        "length": 17.6184
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -23227,6 +45328,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 1,
       "mass": 1000,
       "shipClass": 9,
+      "modelBounds": {
+        "min": [
+          -15.3494,
+          -5.5899,
+          -55.0372
+        ],
+        "max": [
+          15.3494,
+          5.5899,
+          55.0372
+        ],
+        "radius": 57.6718,
+        "width": 30.6988,
+        "height": 11.1798,
+        "length": 110.0744
+      },
       "powerCapacity": 11900.0,
       "powerChargeRate": 1190.0,
       "thrustCapacity": 1000.0,
@@ -23283,6 +45400,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -8.3666,
+          -7.8706,
+          -9.005
+        ],
+        "max": [
+          8.3666,
+          7.8706,
+          9.005
+        ],
+        "radius": 14.4072,
+        "width": 16.7332,
+        "height": 15.7412,
+        "length": 18.01
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -23339,6 +45472,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 290,
       "shipClass": 2,
+      "modelBounds": {
+        "min": [
+          -10.7668,
+          -4.0588,
+          -9.552
+        ],
+        "max": [
+          10.7668,
+          4.0588,
+          9.552
+        ],
+        "radius": 12.47,
+        "width": 21.5336,
+        "height": 8.1176,
+        "length": 19.104
+      },
       "powerCapacity": 11900.0,
       "powerChargeRate": 1190.0,
       "thrustCapacity": 1000.0,
@@ -23395,6 +45544,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -10.0731,
+          -2.2826,
+          -9.8667
+        ],
+        "max": [
+          10.0731,
+          2.2826,
+          9.8667
+        ],
+        "radius": 11.7888,
+        "width": 20.1462,
+        "height": 4.5652,
+        "length": 19.7334
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -23451,6 +45616,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -8.4708,
+          -4.9698,
+          -12.1629
+        ],
+        "max": [
+          8.4708,
+          4.9698,
+          12.1629
+        ],
+        "radius": 14.8982,
+        "width": 16.9416,
+        "height": 9.9396,
+        "length": 24.3258
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -23507,6 +45688,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -8.2222,
+          -3.0196,
+          -12.2019
+        ],
+        "max": [
+          8.2222,
+          3.0196,
+          12.2019
+        ],
+        "radius": 14.5399,
+        "width": 16.4444,
+        "height": 6.0392,
+        "length": 24.4038
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -23563,6 +45760,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -6.6751,
+          -2.2278,
+          -8.9715
+        ],
+        "max": [
+          6.6751,
+          2.2278,
+          8.9715
+        ],
+        "radius": 11.9376,
+        "width": 13.3502,
+        "height": 4.4556,
+        "length": 17.943
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -23619,6 +45832,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 8,
       "mass": 140,
       "shipClass": 1,
+      "modelBounds": {
+        "min": [
+          -8.178,
+          -5.1644,
+          -7.66
+        ],
+        "max": [
+          8.178,
+          5.1644,
+          7.66
+        ],
+        "radius": 12.447,
+        "width": 16.356,
+        "height": 10.3288,
+        "length": 15.32
+      },
       "powerCapacity": 8900.0,
       "powerChargeRate": 890.0,
       "thrustCapacity": 1000.0,
@@ -23675,6 +45904,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -7.0422,
+          -2.7326,
+          -10.8772
+        ],
+        "max": [
+          7.0422,
+          2.7326,
+          10.8772
+        ],
+        "radius": 11.6013,
+        "width": 14.0844,
+        "height": 5.4652,
+        "length": 21.7544
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -23731,6 +45976,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -11.7127,
+          -3.8536,
+          -13.5946
+        ],
+        "max": [
+          11.7127,
+          3.8536,
+          13.5946
+        ],
+        "radius": 17.2325,
+        "width": 23.4254,
+        "height": 7.7072,
+        "length": 27.1892
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -23787,6 +46048,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -10.1856,
+          -1.6,
+          -9.5719
+        ],
+        "max": [
+          10.1856,
+          1.6,
+          9.5719
+        ],
+        "radius": 11.3186,
+        "width": 20.3712,
+        "height": 3.2,
+        "length": 19.1438
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -23843,6 +46120,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 3,
       "mass": 90,
       "shipClass": 0,
+      "modelBounds": {
+        "min": [
+          -6.2159,
+          -1.6066,
+          -7.0034
+        ],
+        "max": [
+          6.2159,
+          1.6066,
+          7.0034
+        ],
+        "radius": 8.0854,
+        "width": 12.4318,
+        "height": 3.2132,
+        "length": 14.0068
+      },
       "powerCapacity": 1000.0,
       "powerChargeRate": 95.0,
       "thrustCapacity": 1000.0,
@@ -23899,6 +46192,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 1,
+      "modelBounds": {
+        "min": [
+          -12.6571,
+          -2.9314,
+          -10.2602
+        ],
+        "max": [
+          12.6571,
+          2.9314,
+          10.2602
+        ],
+        "radius": 13.8786,
+        "width": 25.3142,
+        "height": 5.8628,
+        "length": 20.5204
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -23955,6 +46264,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -6.4085,
+          -5.769,
+          -10.8559
+        ],
+        "max": [
+          6.4085,
+          5.769,
+          10.8559
+        ],
+        "radius": 17.9217,
+        "width": 12.817,
+        "height": 11.538,
+        "length": 21.7118
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -24011,6 +46336,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -9.974,
+          -4.0193,
+          -7.5903
+        ],
+        "max": [
+          9.974,
+          4.0193,
+          7.5903
+        ],
+        "radius": 11.1241,
+        "width": 19.948,
+        "height": 8.0386,
+        "length": 15.1806
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -24067,6 +46408,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -9.0576,
+          -2.5184,
+          -7.4443
+        ],
+        "max": [
+          9.0576,
+          2.5184,
+          7.4443
+        ],
+        "radius": 11.4122,
+        "width": 18.1152,
+        "height": 5.0368,
+        "length": 14.8886
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -24123,6 +46480,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -7.3792,
+          -4.227,
+          -10.4278
+        ],
+        "max": [
+          7.3792,
+          4.227,
+          10.4278
+        ],
+        "radius": 12.0022,
+        "width": 14.7584,
+        "height": 8.454,
+        "length": 20.8556
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -24179,6 +46552,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -7.9546,
+          -9.6509,
+          -9.0875
+        ],
+        "max": [
+          7.9546,
+          9.6509,
+          9.0875
+        ],
+        "radius": 11.8815,
+        "width": 15.9092,
+        "height": 19.3018,
+        "length": 18.175
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -24235,6 +46624,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 90,
       "shipClass": 0,
+      "modelBounds": {
+        "min": [
+          -3.4519,
+          -5.3513,
+          -8.8849
+        ],
+        "max": [
+          3.4519,
+          5.3513,
+          8.8849
+        ],
+        "radius": 12.4984,
+        "width": 6.9038,
+        "height": 10.7026,
+        "length": 17.7698
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -24291,6 +46696,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 8,
       "mass": 140,
       "shipClass": 1,
+      "modelBounds": {
+        "min": [
+          -4.9116,
+          -4.032,
+          -9.2163
+        ],
+        "max": [
+          4.9116,
+          4.032,
+          9.2163
+        ],
+        "radius": 13.4792,
+        "width": 9.8232,
+        "height": 8.064,
+        "length": 18.4326
+      },
       "powerCapacity": 6400.0,
       "powerChargeRate": 645.0,
       "thrustCapacity": 1000.0,
@@ -24347,6 +46768,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 290,
       "shipClass": 2,
+      "modelBounds": {
+        "min": [
+          -13.7318,
+          -4.8668,
+          -10.1578
+        ],
+        "max": [
+          13.7318,
+          4.8668,
+          10.1578
+        ],
+        "radius": 16.04,
+        "width": 27.4636,
+        "height": 9.7336,
+        "length": 20.3156
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -24403,6 +46840,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 8,
       "mass": 140,
       "shipClass": 1,
+      "modelBounds": {
+        "min": [
+          -8.1531,
+          -2.7603,
+          -8.5134
+        ],
+        "max": [
+          8.1531,
+          2.7603,
+          8.5134
+        ],
+        "radius": 11.7153,
+        "width": 16.3062,
+        "height": 5.5206,
+        "length": 17.0268
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -24459,6 +46912,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -8.7084,
+          -1.4417,
+          -8.7083
+        ],
+        "max": [
+          8.7084,
+          1.4417,
+          8.7083
+        ],
+        "radius": 11.3758,
+        "width": 17.4168,
+        "height": 2.8834,
+        "length": 17.4166
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -24515,6 +46984,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -8.7084,
+          -1.4417,
+          -8.7083
+        ],
+        "max": [
+          8.7084,
+          1.4417,
+          8.7083
+        ],
+        "radius": 11.3758,
+        "width": 17.4168,
+        "height": 2.8834,
+        "length": 17.4166
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -24571,6 +47056,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -8.7084,
+          -1.4417,
+          -8.7083
+        ],
+        "max": [
+          8.7084,
+          1.4417,
+          8.7083
+        ],
+        "radius": 11.3758,
+        "width": 17.4168,
+        "height": 2.8834,
+        "length": 17.4166
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -24627,6 +47128,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -8.5488,
+          -3.9838,
+          -6.7017
+        ],
+        "max": [
+          8.5488,
+          3.9838,
+          6.7017
+        ],
+        "radius": 9.8259,
+        "width": 17.0976,
+        "height": 7.9676,
+        "length": 13.4034
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -24683,6 +47200,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -3.789,
+          -4.1537,
+          -8.4276
+        ],
+        "max": [
+          3.789,
+          4.1537,
+          8.4276
+        ],
+        "radius": 12.195,
+        "width": 7.578,
+        "height": 8.3074,
+        "length": 16.8552
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -24739,6 +47272,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 9,
       "mass": 140,
       "shipClass": 1,
+      "modelBounds": {
+        "min": [
+          -5.5682,
+          -4.8461,
+          -11.5934
+        ],
+        "max": [
+          5.5682,
+          4.8461,
+          11.5934
+        ],
+        "radius": 15.7759,
+        "width": 11.1364,
+        "height": 9.6922,
+        "length": 23.1868
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -24795,6 +47344,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -6.6714,
+          -3.2023,
+          -10.1901
+        ],
+        "max": [
+          6.6714,
+          3.2023,
+          10.1901
+        ],
+        "radius": 12.7588,
+        "width": 13.3428,
+        "height": 6.4046,
+        "length": 20.3802
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -24851,6 +47416,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -6.6714,
+          -3.2023,
+          -10.1901
+        ],
+        "max": [
+          6.6714,
+          3.2023,
+          10.1901
+        ],
+        "radius": 12.7588,
+        "width": 13.3428,
+        "height": 6.4046,
+        "length": 20.3802
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -24907,6 +47488,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -6.1148,
+          -3.0601,
+          -11.2091
+        ],
+        "max": [
+          6.1148,
+          3.0601,
+          11.2091
+        ],
+        "radius": 14.3958,
+        "width": 12.2296,
+        "height": 6.1202,
+        "length": 22.4182
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -24963,6 +47560,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 6,
       "mass": 140,
       "shipClass": 0,
+      "modelBounds": {
+        "min": [
+          -6.6532,
+          -3.2983,
+          -9.9958
+        ],
+        "max": [
+          6.6532,
+          3.2983,
+          9.9958
+        ],
+        "radius": 12.398,
+        "width": 13.3064,
+        "height": 6.5966,
+        "length": 19.9916
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
@@ -25019,6 +47632,22 @@ const FL_SHIP_PACKAGES = {
       "firePower": 10,
       "mass": 140,
       "shipClass": 3,
+      "modelBounds": {
+        "min": [
+          -9.4727,
+          -3.9316,
+          -12.2396
+        ],
+        "max": [
+          9.4727,
+          3.9316,
+          12.2396
+        ],
+        "radius": 13.8808,
+        "width": 18.9454,
+        "height": 7.8632,
+        "length": 24.4792
+      },
       "powerCapacity": 10400.0,
       "powerChargeRate": 1040.0,
       "thrustCapacity": 1000.0,
