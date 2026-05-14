@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "name": "light",
+  "displayName": "Light",
+  "palette": {
+    "bg": "#f6f8fb",
+    "bg_alt": "#edf1f6",
+    "bg_input": "#ffffff",
+    "bg_list": "#ffffff",
+    "bg_toolbar": "#e9edf3",
+    "bg_textedit": "#ffffff",
+    "fg": "#1f2937",
+    "fg_dim": "#6b7280",
+    "fg_accent": "#0d4f94",
+    "border": "#cfd7e3",
+    "border_light": "#b9c5d6",
+    "btn_bg": "#f3f6fb",
+    "btn_hover": "#e8edf5",
+    "sel_bg": "#2f7dd1",
+    "list_hover": "#eef3fa",
+    "splitter": "#d4dbe6",
+    "cb_checked": "#2f7dd1",
+    "menu_bg": "#f4f7fc",
+    "scrollbar_bg": "#edf2f8",
+    "scrollbar_fg": "#c4cedd"
+  }
+}

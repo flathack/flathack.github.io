@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "name": "founder",
+  "displayName": "Founder",
+  "palette": {
+    "bg": "#12122a",
+    "bg_alt": "#0d0d25",
+    "bg_input": "#0d0d22",
+    "bg_list": "#0a0a1e",
+    "bg_toolbar": "#0e0e28",
+    "bg_textedit": "#08080f",
+    "fg": "#ddddee",
+    "fg_dim": "#444455",
+    "fg_accent": "#99aaff",
+    "border": "#333344",
+    "border_light": "#444466",
+    "btn_bg": "#1e1e50",
+    "btn_hover": "#2a2a70",
+    "sel_bg": "#2a3070",
+    "list_hover": "#1e2050",
+    "splitter": "#222244",
+    "cb_checked": "#5060c0",
+    "menu_bg": "#16163a",
+    "scrollbar_bg": "#0a0a1e",
+    "scrollbar_fg": "#333344"
+  }
+}

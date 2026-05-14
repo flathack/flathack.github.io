@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "name": "xp",
+  "displayName": "Windows XP",
+  "palette": {
+    "bg": "#dbeafc",
+    "bg_alt": "#eaf2fd",
+    "bg_input": "#ffffff",
+    "bg_list": "#ffffff",
+    "bg_toolbar": "#c9ddf7",
+    "bg_textedit": "#ffffff",
+    "fg": "#001a52",
+    "fg_dim": "#4b628a",
+    "fg_accent": "#003c9d",
+    "border": "#7f9db9",
+    "border_light": "#96b3d5",
+    "btn_bg": "#e7f0fc",
+    "btn_hover": "#d7e9ff",
+    "sel_bg": "#316ac5",
+    "list_hover": "#edf5ff",
+    "splitter": "#9fbbe0",
+    "cb_checked": "#316ac5",
+    "menu_bg": "#f2f7ff",
+    "scrollbar_bg": "#d6e6fb",
+    "scrollbar_fg": "#9fb7d8",
+    "variant": "xp"
+  }
+}
