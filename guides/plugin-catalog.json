@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "catalogVersion": "2026.05.14",
+  "generatedAt": "2026-05-14T00:00:00Z",
+  "policy": "External provider catalog only. FLAtlas links to original sources and does not mirror, rehost, review, support, or silently download third-party binaries.",
+  "plugins": [
+    {
+      "id": "multiverse-plugin",
+      "name": "Multiverse Plugin",
+      "link": "https://codeberg.org/TheStarport/FLUF/issues/47",
+      "mirrorLink": "https://www.elite-games.ru/conference/viewtopic.php?t=60714",
+      "creditsToAuthor": "Whiskas"
+    }
+  ]
+}
