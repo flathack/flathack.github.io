@@ -1,0 +1,71 @@
+{
+  "schema": 1,
+  "id": "modding.patrol-zones",
+  "language": "de",
+  "title": "Patrol-Zones erstellen und bearbeiten",
+  "summary": "Wie Freelancer Patrouillen- und Handelsrouten als Zonen, Encounter und Faction-Gewichte zusammensetzt.",
+  "category": "Modding Grundlagen",
+  "tags": ["patrol", "zones", "encounters", "factions", "system-editor"],
+  "contexts": ["system-editor"],
+  "updatedAt": "2026-05-15T00:00:00Z",
+  "blocks": [
+    {
+      "type": "paragraph",
+      "title": "Grundidee",
+      "text": "Patrol-Zones sind in Freelancer normale [Zone]-Sections mit shape = CYLINDER. Jede Zone ist ein Segment einer Route. Mehrere Segmente gehören über path_label = <route>, <index> zusammen. Das eigentliche Flugverhalten kommt nicht aus einem Zone-Key namens patrol_path, sondern aus der referenzierten Encounter-Datei: dort steht behavior = patrol_path."
+    },
+    {
+      "type": "file-map",
+      "title": "Beteiligte Dateien",
+      "items": [
+        { "path": "DATA/UNIVERSE/SYSTEMS/<system>/<system>.ini", "purpose": "Enthält [EncounterParameters] und die [Zone]-Segmente der Patrol- oder Trade-Route." },
+        { "path": "DATA/MISSIONS/encounters/patrolp_*.ini", "purpose": "Patrol-Encounter mit behavior = patrol_path, z. B. patrolp_assault oder patrolp_gov_patrol." },
+        { "path": "DATA/MISSIONS/encounters/tradep_*.ini", "purpose": "Trade-/Transport-Encounter mit behavior = patrol_path, z. B. tradep_trade_transport." },
+        { "path": "DATA/initialworld.ini", "purpose": "Faction-Nicknames und Reputation-Kontext; wichtig für faction = <faction>, <weight>." }
+      ]
+    },
+    {
+      "type": "code",
+      "title": "Typisches Patrol-Segment",
+      "language": "ini",
+      "text": "[Zone]\nnickname = Zone_Li01_path_example_1\npos = 12000, 0, -34000\nrotate = 90, 42, 180\nshape = CYLINDER\nsize = 750, 18000\nsort = 99\ntoughness = 6\ndensity = 3\nrepop_time = 90\nmax_battle_size = 4\npop_type = attack_patrol\nrelief_time = 30\npath_label = example, 1\nusage = patrol\nmission_eligible = true\ndensity_restriction = 1, patroller\ndensity_restriction = 1, police_patroller\ndensity_restriction = 1, pirate_patroller\ndensity_restriction = 4, lawfuls\ndensity_restriction = 4, unlawfuls\nencounter = patrolp_assault, 6, 0.29\nfaction = li_p_grp, 1"
+    },
+    {
+      "type": "checklist",
+      "title": "Create-Workflow im System-Editor",
+      "items": [
+        "Encounter auswählen: patrolp_* für Kampf-/Sicherheitsrouten, tradep_* oder miningp_* für Handels- und Miningrouten.",
+        "[EncounterParameters] prüfen oder automatisch ergänzen; ohne passende EncounterParameters kann die Zone nichts spawnen.",
+        "Faction setzen; die Faction-Zeile gehört immer direkt unter den Encounter, auf den sie wirkt.",
+        "Route als mehrere Cylinder-Segmente zeichnen; path_label route, 1 / route, 2 / route, 3 hält die Segmente zusammen.",
+        "Für patrol meistens density 3, repop_time 90, max_battle_size 4, relief_time 30 verwenden.",
+        "Für trade meistens pop_type trade_path, relief_time 20 und höhere Encounter-Chance verwenden.",
+        "Nach dem Erstellen die Zone Population prüfen, besonders Encounter-Chancen und Faction-Gewichte."
+      ]
+    },
+    {
+      "type": "paragraph",
+      "title": "Wichtige Felder",
+      "text": "size = radius, length beschreibt den Patrol-Zylinder. Der Radius ist die Breite des Korridors, die Länge folgt dem gezeichneten Segment. rotate richtet den Zylinder entlang der Strecke aus. usage ist meistens patrol oder trade. pop_type beschreibt den Traffic-Typ, z. B. attack_patrol, field_patrol, lane_patrol, trade_path oder mining_path. density und repop_time steuern, wie viel Aktivität im Korridor entsteht; relief_time wirkt wie eine Nachfüll-/Entlastungszeit."
+    },
+    {
+      "type": "paragraph",
+      "title": "Density Restrictions",
+      "text": "Vanilla-Patrol-Zones setzen fast immer 1, patroller sowie 1, police_patroller und 1, pirate_patroller. Kampfpatrouillen haben oft zusätzlich 4, lawfuls und 4, unlawfuls. Trade-Routen haben diese lawful/unlawful-Restriktionen häufig nicht. Diese Werte begrenzen, welche Population-Klassen gleichzeitig in der Zone auftreten dürfen."
+    },
+    {
+      "type": "paragraph",
+      "title": "Encounter und Factions",
+      "text": "Eine encounter-Zeile hat Name, Level und Chance. Die folgenden faction-Zeilen gehören zu genau diesem Encounter, bis der nächste Encounter beginnt. Die Summe der Faction-Gewichte pro Encounter sollte nicht über 1.0 liegen. Die Summe aller Encounter-Chancen sollte ebenfalls nicht über 1.0 liegen, sonst wird das Spawn-Verhalten schwer vorhersehbar."
+    },
+    {
+      "type": "paragraph",
+      "title": "Vanilla-Muster",
+      "text": "In den untersuchten Freelancer-HD-Systemdaten sind Patrol-Zones immer CYLINDER. Der größte Teil verwendet usage = patrol, density = 3, repop_time = 90, max_battle_size = 4, relief_time = 30 und encounter = patrolp_assault mit Chance 0.29. Trade-Routen verwenden meist usage = trade, pop_type = trade_path und tradep_*-Encounter."
+    },
+    {
+      "type": "related",
+      "articleIds": ["atlas.system-editor", "modding.ini.basics", "modding.factions.introduction"]
+    }
+  ]
+}

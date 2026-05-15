@@ -34,6 +34,20 @@
       "sha256": "8fd586d14df526435fd89f0526856f534460876455f2365aa52c64bc2c37fada"
     },
     {
+      "id": "modding.patrol-zones",
+      "language": "de",
+      "title": "Patrol-Zones erstellen und bearbeiten",
+      "summary": "Wie Freelancer Patrouillen- und Handelsrouten als Zonen, Encounter und Faction-Gewichte zusammensetzt.",
+      "category": "Modding Grundlagen",
+      "tags": ["patrol", "zones", "encounters", "factions", "system-editor"],
+      "contexts": ["system-editor"],
+      "level": "intermediate",
+      "path": "articles/de/modding.patrol-zones.json",
+      "version": 1,
+      "updatedAt": "2026-05-15T00:00:00Z",
+      "sha256": "2f10619f92ad6fd7bdd754b5e9ca1a9ef249cb14d9a766cf5238afe505dccc81"
+    },
+    {
       "id": "atlas.system-editor",
       "language": "de",
       "title": "System-Editor benutzen",
@@ -74,6 +88,20 @@
       "version": 1,
       "updatedAt": "2026-05-12T00:00:00Z",
       "sha256": "4fcd592b1e04f20d24d3d8d5875416dfdbc0cc3050a6d3480bb421ad81bb81b6"
+    },
+    {
+      "id": "modding.patrol-zones",
+      "language": "en",
+      "title": "Creating and editing patrol zones",
+      "summary": "How Freelancer combines patrol and trade routes from zones, encounters and faction weights.",
+      "category": "Modding Basics",
+      "tags": ["patrol", "zones", "encounters", "factions", "system-editor"],
+      "contexts": ["system-editor"],
+      "level": "intermediate",
+      "path": "articles/en/modding.patrol-zones.json",
+      "version": 1,
+      "updatedAt": "2026-05-15T00:00:00Z",
+      "sha256": "0fcbe972d09a4770db7687afbd8bc049a327d49c08ef3513907a7eb51813974d"
     },
     {
       "id": "atlas.system-editor",

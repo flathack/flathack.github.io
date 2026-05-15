@@ -1,0 +1,71 @@
+{
+  "schema": 1,
+  "id": "modding.patrol-zones",
+  "language": "en",
+  "title": "Creating and editing patrol zones",
+  "summary": "How Freelancer combines patrol and trade routes from zones, encounters and faction weights.",
+  "category": "Modding Basics",
+  "tags": ["patrol", "zones", "encounters", "factions", "system-editor"],
+  "contexts": ["system-editor"],
+  "updatedAt": "2026-05-15T00:00:00Z",
+  "blocks": [
+    {
+      "type": "paragraph",
+      "title": "Core idea",
+      "text": "Patrol zones are ordinary [Zone] sections with shape = CYLINDER. Each zone is one route segment. Multiple segments are connected by path_label = <route>, <index>. The actual patrol behavior does not come from a zone key named patrol_path; it comes from the referenced encounter file, where behavior = patrol_path is defined."
+    },
+    {
+      "type": "file-map",
+      "title": "Files involved",
+      "items": [
+        { "path": "DATA/UNIVERSE/SYSTEMS/<system>/<system>.ini", "purpose": "Contains [EncounterParameters] and the [Zone] segments for patrol or trade routes." },
+        { "path": "DATA/MISSIONS/encounters/patrolp_*.ini", "purpose": "Patrol encounters with behavior = patrol_path, for example patrolp_assault or patrolp_gov_patrol." },
+        { "path": "DATA/MISSIONS/encounters/tradep_*.ini", "purpose": "Trade and transport encounters with behavior = patrol_path, for example tradep_trade_transport." },
+        { "path": "DATA/initialworld.ini", "purpose": "Faction nicknames and reputation context; important for faction = <faction>, <weight>." }
+      ]
+    },
+    {
+      "type": "code",
+      "title": "Typical patrol segment",
+      "language": "ini",
+      "text": "[Zone]\nnickname = Zone_Li01_path_example_1\npos = 12000, 0, -34000\nrotate = 90, 42, 180\nshape = CYLINDER\nsize = 750, 18000\nsort = 99\ntoughness = 6\ndensity = 3\nrepop_time = 90\nmax_battle_size = 4\npop_type = attack_patrol\nrelief_time = 30\npath_label = example, 1\nusage = patrol\nmission_eligible = true\ndensity_restriction = 1, patroller\ndensity_restriction = 1, police_patroller\ndensity_restriction = 1, pirate_patroller\ndensity_restriction = 4, lawfuls\ndensity_restriction = 4, unlawfuls\nencounter = patrolp_assault, 6, 0.29\nfaction = li_p_grp, 1"
+    },
+    {
+      "type": "checklist",
+      "title": "System Editor create workflow",
+      "items": [
+        "Choose an encounter: patrolp_* for combat or security routes, tradep_* or miningp_* for trade and mining routes.",
+        "Check or add [EncounterParameters]; without a matching EncounterParameters entry the zone cannot spawn that encounter.",
+        "Set the faction; each faction line belongs directly to the encounter above it.",
+        "Draw the route as multiple cylinder segments; path_label route, 1 / route, 2 / route, 3 keeps the segments together.",
+        "For patrol routes, density 3, repop_time 90, max_battle_size 4 and relief_time 30 are good vanilla-style defaults.",
+        "For trade routes, use pop_type trade_path, relief_time 20 and usually a higher encounter chance.",
+        "After creation, review Zone Population, especially encounter chances and faction weights."
+      ]
+    },
+    {
+      "type": "paragraph",
+      "title": "Important fields",
+      "text": "size = radius, length describes the patrol cylinder. The radius is the corridor width and the length follows the drawn segment. rotate aligns the cylinder along the route. usage is usually patrol or trade. pop_type describes the traffic type, for example attack_patrol, field_patrol, lane_patrol, trade_path or mining_path. density and repop_time control how much activity appears in the corridor; relief_time acts like a refill or relief timer."
+    },
+    {
+      "type": "paragraph",
+      "title": "Density restrictions",
+      "text": "Vanilla patrol zones almost always set 1, patroller plus 1, police_patroller and 1, pirate_patroller. Combat patrols often add 4, lawfuls and 4, unlawfuls. Trade routes often omit these lawful/unlawful restrictions. These values limit which population classes may appear together inside the zone."
+    },
+    {
+      "type": "paragraph",
+      "title": "Encounters and factions",
+      "text": "An encounter line contains name, level and chance. The following faction lines belong to that encounter until the next encounter begins. The faction weights per encounter should not add up to more than 1.0. The sum of all encounter chances should also stay at or below 1.0, otherwise spawn behavior becomes hard to predict."
+    },
+    {
+      "type": "paragraph",
+      "title": "Vanilla pattern",
+      "text": "In the inspected Freelancer-HD system data, patrol zones are always CYLINDER. Most use usage = patrol, density = 3, repop_time = 90, max_battle_size = 4, relief_time = 30 and encounter = patrolp_assault with chance 0.29. Trade routes usually use usage = trade, pop_type = trade_path and tradep_* encounters."
+    },
+    {
+      "type": "related",
+      "articleIds": ["atlas.system-editor", "modding.ini.basics", "modding.factions.introduction"]
+    }
+  ]
+}
