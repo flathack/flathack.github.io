@@ -6,7 +6,7 @@
   "summary": "Wie Freelancer Patrouillen- und Handelsrouten als Zonen, Encounter und Faction-Gewichte zusammensetzt.",
   "category": "Modding Grundlagen",
   "tags": ["patrol", "zones", "encounters", "factions", "system-editor"],
-  "contexts": ["system-editor"],
+  "contexts": ["system-editor", "dialog.system.create-patrol-zone", "feature.patrol-zones"],
   "updatedAt": "2026-05-15T00:00:00Z",
   "blocks": [
     {
