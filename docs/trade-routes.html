@@ -548,6 +548,28 @@
       padding: 2px 5px;
       border-bottom: 1px solid rgba(132, 177, 255, 0.08);
     }
+    .tr-base-cell {
+      display: flex;
+      min-width: 0;
+      flex-direction: column;
+      gap: 1px;
+      line-height: 1.25;
+    }
+    .tr-base-name,
+    .tr-base-system {
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .tr-base-name {
+      color: var(--text);
+    }
+    .tr-base-system {
+      display: none;
+      color: var(--muted);
+      font-size: 0.76rem;
+      white-space: normal;
+    }
     .tr-table tbody tr:nth-child(even) { background: rgba(4, 14, 23, 0.35); }
     .tr-table tbody tr:hover { background: rgba(88, 196, 255, 0.06); }
 
@@ -798,13 +820,101 @@
     .td-ppm { color: #f0c040; font-weight: 600; }
 
     /* ── Responsive ────────────────────────────────────── */
+    @media (max-width: 1180px) {
+      .tr-table :is(.tr-priority-5) { display: none; }
+    }
+
+    @media (max-width: 980px) {
+      .tr-table :is(.tr-priority-4) { display: none; }
+    }
+
+    @media (max-width: 820px) {
+      .tr-table :is(.tr-col-src-sys, .tr-col-dst-sys, .tr-priority-3) { display: none; }
+      .tr-base-system { display: block; }
+      .tr-table-wrap { overflow-x: hidden; }
+      .tr-table,
+      .tr-table thead,
+      .tr-table tbody {
+        display: block;
+        width: 100%;
+      }
+      .tr-table thead tr,
+      .tr-table tbody tr.tr-route-parent,
+      .tr-table tbody tr.tr-loop-parent {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(82px, 0.75fr) 78px;
+        width: 100%;
+      }
+      .tr-table .tr-col-buy-base { grid-column: 1; }
+      .tr-table .tr-col-sell-base { grid-column: 2; }
+      .tr-table .tr-col-commodity { grid-column: 3; }
+      .tr-table .tr-col-profit-per-min { grid-column: 4; }
+      .tr-base-name {
+        overflow: visible;
+        text-overflow: clip;
+        white-space: normal;
+        overflow-wrap: anywhere;
+      }
+      .tr-path-row.open,
+      .tr-loop-legs.open {
+        display: block;
+      }
+      .tr-path-row td,
+      .tr-loop-legs td {
+        display: block;
+        width: 100%;
+      }
+    }
+
     @media (max-width: 700px) {
+      .site-shell { width: calc(100% - 16px); }
       .tr-controls { flex-direction: column; align-items: stretch; }
       .tr-field select, .tr-field input[type="number"] { min-width: unset; width: 100%; }
       .tr-calendar-field { min-width: unset; }
       .tr-calendar-panel { width: 100%; }
       .tr-tabs { flex-wrap: wrap; }
       .tr-dataset-strip { grid-auto-columns: minmax(62px, 62px); }
+      .tr-table-wrap { border-radius: 10px; }
+      .tr-table {
+        font-size: 0.78rem;
+        white-space: normal;
+      }
+      .tr-table th {
+        padding: 6px 5px;
+        font-size: 0.66rem;
+        letter-spacing: 0.03em;
+      }
+      .tr-table td {
+        padding: 5px;
+        vertical-align: top;
+      }
+      .tr-table .tr-col-profit-per-min { text-align: right; }
+      .tr-commodity-btn {
+        white-space: normal;
+        text-align: left;
+      }
+      .tr-path-row td,
+      .tr-loop-legs td {
+        padding: 6px 8px 8px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .tr-table :is(.tr-priority-2) { display: none; }
+      .tr-table thead tr,
+      .tr-table tbody tr.tr-route-parent,
+      .tr-table tbody tr.tr-loop-parent {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 74px;
+      }
+      .tr-table .tr-col-profit-per-min { grid-column: 3; }
+      .tr-table {
+        font-size: 0.74rem;
+      }
+      .tr-table th,
+      .tr-table td {
+        padding-left: 4px;
+        padding-right: 4px;
+      }
     }
   </style>
 </head>
@@ -2514,47 +2624,62 @@
       activeItemNick = '';
     }
 
+    function colCssClass(col) {
+      const keyClass = 'tr-col-' + String(col.key)
+        .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
+        .replace(/[^a-zA-Z0-9-]/g, '-')
+        .toLowerCase();
+      return keyClass + (col.priority ? ' tr-priority-' + col.priority : '');
+    }
+
+    function baseCellHtml(baseName, systemName) {
+      return '<span class="tr-base-cell">' +
+        '<span class="tr-base-name">' + escHtml(baseName || '-') + '</span>' +
+        (systemName ? '<span class="tr-base-system">' + escHtml(systemName) + '</span>' : '') +
+      '</span>';
+    }
+
     function colsRoute() { return [
       { key: 'srcSys',       label: t('col_srcSys') },
-      { key: 'buyBase',      label: t('col_buyBase'), format: (v, r) => tBase(r.buyBaseNick, v) },
+      { key: 'buyBase',      label: t('col_buyBase'), format: (v, r) => tBase(r.buyBaseNick, v), html: (v, r) => baseCellHtml(tBase(r.buyBaseNick, v), r.srcSys) },
       { key: 'dstSys',       label: t('col_dstSys') },
-      { key: 'sellBase',     label: t('col_sellBase'), format: (v, r) => tBase(r.sellBaseNick, v) },
-      { key: 'commodity',    label: t('col_commodity'), format: v => tCommodity(v), html: (v, r) => commodityButtonHtml(getCommodityNickByName(v), tCommodity(v)) },
-      { key: 'buyPrice',     label: t('col_buyPrice'),   cls: 'td-num' },
-      { key: 'sellPrice',    label: t('col_sellPrice'),  cls: 'td-num' },
-      { key: 'profitPerUnit',label: t('col_profitUnit'), cls: 'td-num td-profit' },
-      { key: 'totalProfit',  label: t('col_totalProfit'),cls: 'td-num td-profit' },
-      { key: 'jumps',        label: t('col_jumps'),      cls: 'td-num td-jumps' },
-      { key: 'travelTime',   label: t('col_time'),       cls: 'td-num td-time', format: v => fmtTime(v) },
+      { key: 'sellBase',     label: t('col_sellBase'), format: (v, r) => tBase(r.sellBaseNick, v), html: (v, r) => baseCellHtml(tBase(r.sellBaseNick, v), r.dstSys) },
+      { key: 'commodity',    label: t('col_commodity'), priority: 2, format: v => tCommodity(v), html: (v, r) => commodityButtonHtml(getCommodityNickByName(v), tCommodity(v)) },
+      { key: 'buyPrice',     label: t('col_buyPrice'),   priority: 5, cls: 'td-num' },
+      { key: 'sellPrice',    label: t('col_sellPrice'),  priority: 5, cls: 'td-num' },
+      { key: 'profitPerUnit',label: t('col_profitUnit'), priority: 4, cls: 'td-num td-profit' },
+      { key: 'totalProfit',  label: t('col_totalProfit'),priority: 3, cls: 'td-num td-profit' },
+      { key: 'jumps',        label: t('col_jumps'),      priority: 4, cls: 'td-num td-jumps' },
+      { key: 'travelTime',   label: t('col_time'),       priority: 3, cls: 'td-num td-time', format: v => fmtTime(v) },
       { key: 'profitPerMin', label: t('col_ppm'),        cls: 'td-num td-ppm', format: v => v != null ? fmt(v) : '-' },
     ]; }
 
     function colsLoop() { return [
       { key: 'routeText',    label: t('col_route') },
-      { key: 'commodities',  label: t('col_commodities'), format: v => Array.isArray(v) ? v.map(tCommodity).join(', ') : tCommodity(v), html: v => Array.isArray(v) ? v.map(name => commodityButtonHtml(getCommodityNickByName(name), tCommodity(name))).join(', ') : commodityButtonHtml(getCommodityNickByName(v), tCommodity(v)) },
-      { key: 'totalProfit',  label: t('col_totalProfit'), cls: 'td-num td-profit' },
-      { key: 'totalJumps',   label: t('col_jumps'),       cls: 'td-num td-jumps' },
-      { key: 'travelTime',   label: t('col_time'),       cls: 'td-num td-time', format: v => fmtTime(v) },
+      { key: 'commodities',  label: t('col_commodities'), priority: 2, format: v => Array.isArray(v) ? v.map(tCommodity).join(', ') : tCommodity(v), html: v => Array.isArray(v) ? v.map(name => commodityButtonHtml(getCommodityNickByName(name), tCommodity(name))).join(', ') : commodityButtonHtml(getCommodityNickByName(v), tCommodity(v)) },
+      { key: 'totalProfit',  label: t('col_totalProfit'), priority: 2, cls: 'td-num td-profit' },
+      { key: 'totalJumps',   label: t('col_jumps'),       priority: 4, cls: 'td-num td-jumps' },
+      { key: 'travelTime',   label: t('col_time'),        priority: 3, cls: 'td-num td-time', format: v => fmtTime(v) },
       { key: 'profitPerMin', label: t('col_ppm'),        cls: 'td-num td-ppm', format: v => v != null ? fmt(v) : '-' },
     ]; }
 
     function colsJourney() { return colsRoute(); }
     function colsPods() { return [
-      { key: 'item',         label: t('col_item'), format: (v, r) => tItem(r.itemNick, v), html: (v, r) => itemButtonHtml((engine && engine.data && engine.data.specialItems && engine.data.specialItems[r.itemNick]) ? r.itemNick : '', tItem(r.itemNick, v)) },
+      { key: 'item',         label: t('col_item'), priority: 2, format: (v, r) => tItem(r.itemNick, v), html: (v, r) => itemButtonHtml((engine && engine.data && engine.data.specialItems && engine.data.specialItems[r.itemNick]) ? r.itemNick : '', tItem(r.itemNick, v)) },
       { key: 'srcSys',       label: t('col_srcSys') },
-      { key: 'buyBase',      label: t('col_buyBase'), format: (v, r) => r.buyBaseNick ? tBase(r.buyBaseNick, v) : v },
+      { key: 'buyBase',      label: t('col_buyBase'), format: (v, r) => r.buyBaseNick ? tBase(r.buyBaseNick, v) : v, html: (v, r) => baseCellHtml(r.buyBaseNick ? tBase(r.buyBaseNick, v) : v, r.srcSys) },
       { key: 'dstSys',       label: t('col_dstSys') },
-      { key: 'sellBase',     label: t('col_sellBase'), format: (v, r) => r.sellBaseNick ? tBase(r.sellBaseNick, v) : v },
-      { key: 'buyPrice',     label: t('col_buyPrice'), cls: 'td-num' },
-      { key: 'sellPrice',    label: t('col_sellPrice'), cls: 'td-num' },
-      { key: 'marketFactor', label: t('col_marketFactor'), cls: 'td-num' },
-      { key: 'resaleFactor', label: t('col_resaleFactor'), cls: 'td-num' },
-      { key: 'profitPerUnit',label: t('col_profitUnit'), cls: 'td-num td-profit' },
-      { key: 'units',        label: t('col_units'), cls: 'td-num' },
-      { key: 'volume',       label: t('col_volume_unit'), cls: 'td-num' },
-      { key: 'totalProfit',  label: t('col_totalProfit'), cls: 'td-num td-profit' },
-      { key: 'jumps',        label: t('col_jumps'), cls: 'td-num td-jumps' },
-      { key: 'travelTime',   label: t('col_time'), cls: 'td-num td-time', format: v => fmtTime(v) },
+      { key: 'sellBase',     label: t('col_sellBase'), format: (v, r) => r.sellBaseNick ? tBase(r.sellBaseNick, v) : v, html: (v, r) => baseCellHtml(r.sellBaseNick ? tBase(r.sellBaseNick, v) : v, r.dstSys) },
+      { key: 'buyPrice',     label: t('col_buyPrice'), priority: 5, cls: 'td-num' },
+      { key: 'sellPrice',    label: t('col_sellPrice'), priority: 5, cls: 'td-num' },
+      { key: 'marketFactor', label: t('col_marketFactor'), priority: 5, cls: 'td-num' },
+      { key: 'resaleFactor', label: t('col_resaleFactor'), priority: 5, cls: 'td-num' },
+      { key: 'profitPerUnit',label: t('col_profitUnit'), priority: 4, cls: 'td-num td-profit' },
+      { key: 'units',        label: t('col_units'), priority: 4, cls: 'td-num' },
+      { key: 'volume',       label: t('col_volume_unit'), priority: 4, cls: 'td-num' },
+      { key: 'totalProfit',  label: t('col_totalProfit'), priority: 3, cls: 'td-num td-profit' },
+      { key: 'jumps',        label: t('col_jumps'), priority: 4, cls: 'td-num td-jumps' },
+      { key: 'travelTime',   label: t('col_time'), priority: 3, cls: 'td-num td-time', format: v => fmtTime(v) },
       { key: 'profitPerMin', label: t('col_ppm'), cls: 'td-num td-ppm', format: v => v != null ? fmt(v) : '-' },
     ]; }
 
@@ -2572,7 +2697,7 @@
       // Header
       tableHead.innerHTML = '<tr>' + cols.map((c, i) => {
         const arrow = sortCol === i ? (sortAsc ? ' ▲' : ' ▼') : '';
-        return '<th data-col="' + i + '">' + c.label +
+        return '<th data-col="' + i + '" class="' + colCssClass(c) + '">' + c.label +
           '<span class="sort-arrow">' + arrow + '</span></th>';
       }).join('') + '</tr>';
 
@@ -2655,7 +2780,8 @@
           const raw = r[c.key];
           const val = c.format ? c.format(raw, r) : (typeof raw === 'number' ? fmt(raw) : String(raw || ''));
           const inner = c.html ? c.html(raw, r) : escHtml(val);
-          html += '<td' + (c.cls ? ' class="' + c.cls + '"' : '') + '>' + inner + '</td>';
+          const cellClass = colCssClass(c) + (c.cls ? ' ' + c.cls : '');
+          html += '<td class="' + cellClass + '">' + inner + '</td>';
         }
         html += '</tr>';
 
