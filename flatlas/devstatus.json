@@ -1,0 +1,42 @@
+{
+  "title": "FLAtlas V2 Dev Status",
+  "updated": "2026-05-17",
+  "summary": "Kompakter Entwicklungsstatus fuer den FLAtlas-Dialog. Die Anwendung liest diese JSON spaeter direkt von flathack.github.io/flatlas/devstatus.json.",
+  "sections": [
+    {
+      "title": "Aktuell",
+      "items": [
+        {
+          "status": "in_progress",
+          "label": "Base Creator",
+          "text": "Raumauswahl, Template-Kopien und Base-Erzeugung werden weiter geglaettet."
+        },
+        {
+          "status": "in_progress",
+          "label": "Universe und System View",
+          "text": "Editor-Menues, Raster und Jump-Verbindungen werden fuer Mod-Workflows nachgezogen."
+        }
+      ]
+    },
+    {
+      "title": "Erledigt",
+      "items": [
+        {
+          "status": "done",
+          "label": "Dev Status JSON",
+          "text": "Der Dialog kann Statusdaten aus JSON anzeigen und ist fuer Web-Abruf vorbereitet."
+        }
+      ]
+    },
+    {
+      "title": "Geplant",
+      "items": [
+        {
+          "status": "planned",
+          "label": "UI Polish",
+          "text": "Der Statusdialog bekommt weiter dichtere, besser scanbare Inhalte."
+        }
+      ]
+    }
+  ]
+}
