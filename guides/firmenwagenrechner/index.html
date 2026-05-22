@@ -1,0 +1,1153 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Firmenwagen-Rechner | Flathack Projects</title>
+  <meta name="description" content="Browser-Rechner fuer den Nettovergleich einer Gehaltsabrechnung mit und ohne Firmenwagen. PDF lokal einlesen, Firmenwagen anpassen, Szenarien vergleichen.">
+  <link rel="icon" type="image/png" href="../../assets/img/icons/flathack_icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <style>
+    :root {
+      --business-bg: #070b12;
+      --business-panel: rgba(15, 23, 42, 0.92);
+      --business-panel-soft: rgba(30, 41, 59, 0.72);
+      --business-border: rgba(148, 163, 184, 0.22);
+      --business-text: #e5edf7;
+      --business-muted: #94a3b8;
+      --business-accent: #60a5fa;
+      --business-accent-soft: rgba(96, 165, 250, 0.14);
+      --business-success: #2dd4bf;
+      --business-warning: #fbbf24;
+      --business-danger: #fb7185;
+      --business-shadow: 0 18px 52px rgba(0, 0, 0, 0.34);
+      --text: var(--business-text);
+      --muted: var(--business-muted);
+      --panel-border: var(--business-border);
+      --accent: var(--business-accent);
+      --accent-strong: #93c5fd;
+      --shadow: var(--business-shadow);
+      --content-width: 1240px;
+    }
+
+    body.business-theme {
+      font-family: "Inter", system-ui, sans-serif;
+      color: var(--business-text);
+      background:
+        linear-gradient(180deg, rgba(7, 11, 18, 0.96), rgba(11, 18, 32, 0.98)),
+        radial-gradient(circle at 8% 0%, rgba(59, 130, 246, 0.14), transparent 30%),
+        radial-gradient(circle at 88% 12%, rgba(45, 212, 191, 0.09), transparent 24%),
+        linear-gradient(180deg, #070b12 0%, #0b1220 100%);
+      background-color: var(--business-bg);
+    }
+
+    body.business-theme::before {
+      opacity: 0.35;
+      background-image:
+        linear-gradient(rgba(226, 232, 240, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(226, 232, 240, 0.035) 1px, transparent 1px);
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.55), transparent 82%);
+    }
+
+    body.business-theme .nav-capsule {
+      background: rgba(15, 23, 42, 0.86);
+      border-color: rgba(148, 163, 184, 0.22);
+      box-shadow: 0 18px 48px rgba(0, 0, 0, 0.32);
+    }
+
+    body.business-theme .domain-tab {
+      background: rgba(15, 23, 42, 0.82);
+      border-color: rgba(148, 163, 184, 0.2);
+      color: var(--business-muted);
+    }
+
+    body.business-theme .domain-tab:hover,
+    body.business-theme .domain-tab.active {
+      color: var(--business-text);
+      background: rgba(96, 165, 250, 0.14);
+      border-color: rgba(96, 165, 250, 0.3);
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    button {
+      border: 0;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .calc-app {
+      margin: 0;
+    }
+
+    .calculator-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 24px;
+      align-items: end;
+      margin: 8px 0 22px;
+      padding: 34px;
+      border: 1px solid var(--business-border);
+      border-radius: 8px;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(17, 24, 39, 0.96));
+      box-shadow: var(--business-shadow);
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--business-text);
+      font-size: clamp(2.1rem, 4vw, 4rem);
+      line-height: 0.98;
+      letter-spacing: 0;
+    }
+
+    .business-kicker {
+      margin: 0 0 12px;
+      color: var(--business-accent);
+      font: 700 0.78rem/1.2 "IBM Plex Mono", monospace;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .subtitle {
+      margin: 14px 0 0;
+      color: var(--business-muted);
+      max-width: 720px;
+      line-height: 1.65;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      border: 1px solid var(--business-border);
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.84);
+      color: var(--business-muted);
+      padding: 9px 12px;
+      font-size: 0.9rem;
+      font-family: "IBM Plex Mono", monospace;
+    }
+
+    .status-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--business-warning);
+    }
+
+    .status-pill.ready .status-dot {
+      background: var(--business-success);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: minmax(300px, 0.95fr) minmax(440px, 1.45fr);
+      gap: 18px;
+      align-items: start;
+    }
+
+    .panel,
+    .result,
+    .vehicle-table-wrap {
+      background: var(--business-panel);
+      border: 1px solid var(--business-border);
+      border-radius: 8px;
+      box-shadow: var(--business-shadow);
+    }
+
+    .panel {
+      padding: 20px;
+    }
+
+    .panel + .panel {
+      margin-top: 18px;
+    }
+
+    .panel-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    h2 {
+      margin: 0;
+      color: var(--business-text);
+      font-size: 1rem;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    .hint,
+    .fineprint {
+      color: var(--business-muted);
+      font-size: 0.88rem;
+      line-height: 1.45;
+    }
+
+    .legal-note {
+      margin: 14px 0 0;
+      padding: 12px 14px;
+      border: 1px solid rgba(45, 212, 191, 0.26);
+      border-radius: 8px;
+      background: rgba(45, 212, 191, 0.08);
+      color: var(--business-muted);
+      font-size: 0.86rem;
+      line-height: 1.55;
+    }
+
+    .legal-note strong {
+      color: var(--business-text);
+    }
+
+    .dropzone {
+      display: grid;
+      gap: 12px;
+      place-items: center;
+      min-height: 154px;
+      border: 1.5px dashed rgba(148, 163, 184, 0.34);
+      border-radius: 8px;
+      background: rgba(7, 11, 18, 0.64);
+      padding: 18px;
+      text-align: center;
+    }
+
+    .dropzone.dragover {
+      border-color: var(--business-accent);
+      background: rgba(96, 165, 250, 0.1);
+    }
+
+    .file-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 40px;
+      padding: 0 14px;
+      background: var(--business-accent);
+      color: #06111f;
+      border-radius: 6px;
+      font-weight: 700;
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+
+    .field-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .field {
+      display: grid;
+      gap: 6px;
+    }
+
+    label {
+      color: var(--business-text);
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      min-height: 39px;
+      border: 1px solid var(--business-border);
+      border-radius: 6px;
+      background: rgba(7, 11, 18, 0.92);
+      color: var(--business-text);
+      padding: 8px 10px;
+      outline: none;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--business-accent);
+      box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.16);
+    }
+
+    textarea {
+      min-height: 108px;
+      resize: vertical;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .download-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+    }
+
+    .download-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      padding: 0 14px;
+      border: 1px solid var(--business-border);
+      border-radius: 6px;
+      background: rgba(30, 41, 59, 0.78);
+      color: var(--business-text);
+      font-weight: 700;
+    }
+
+    .secondary-button {
+      min-height: 38px;
+      padding: 0 12px;
+      border: 1px solid var(--business-border);
+      background: rgba(30, 41, 59, 0.78);
+      color: var(--business-text);
+      font-weight: 700;
+    }
+
+    .results {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .result {
+      padding: 16px;
+      min-height: 122px;
+    }
+
+    .result small {
+      display: block;
+      color: var(--business-muted);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .amount {
+      font-size: clamp(1.45rem, 2.2vw, 2rem);
+      line-height: 1.1;
+      font-weight: 800;
+      overflow-wrap: anywhere;
+    }
+
+    .amount.good {
+      color: var(--business-success);
+    }
+
+    .amount.bad {
+      color: var(--business-danger);
+    }
+
+    .subline {
+      margin-top: 10px;
+      color: var(--business-muted);
+      font-size: 0.86rem;
+      line-height: 1.35;
+    }
+
+    .vehicle-table-wrap {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 820px;
+    }
+
+    th,
+    td {
+      border-bottom: 1px solid var(--business-border);
+      padding: 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      color: var(--business-muted);
+      font-size: 0.8rem;
+      white-space: nowrap;
+      background: rgba(30, 41, 59, 0.58);
+    }
+
+    td input,
+    td select {
+      min-height: 36px;
+      padding: 7px 8px;
+    }
+
+    td:first-child {
+      width: 126px;
+    }
+
+    .icon-button {
+      display: inline-grid;
+      place-items: center;
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--business-border);
+      background: rgba(15, 23, 42, 0.88);
+      color: var(--business-danger);
+      font-size: 1.2rem;
+      line-height: 1;
+    }
+
+    .totals {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .metric {
+      border: 1px solid var(--business-border);
+      border-radius: 8px;
+      padding: 12px;
+      background: rgba(7, 11, 18, 0.58);
+    }
+
+    .metric span {
+      display: block;
+      color: var(--business-muted);
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .metric strong {
+      font-size: 1.08rem;
+    }
+
+    details {
+      margin-top: 14px;
+    }
+
+    summary {
+      cursor: pointer;
+      color: var(--business-accent);
+      font-weight: 800;
+    }
+
+    .calculator-footer {
+      margin-top: 20px;
+      padding: 18px 0 0;
+      border-top: 1px solid rgba(148, 163, 184, 0.18);
+      color: var(--business-muted);
+      font-size: 0.82rem;
+      line-height: 1.45;
+    }
+
+    .calculator-footer a {
+      color: var(--business-accent);
+      font-weight: 700;
+    }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    @media (max-width: 980px) {
+      .calculator-hero,
+      .grid,
+      .results {
+        grid-template-columns: 1fr;
+      }
+
+      .calculator-hero {
+        align-items: flex-start;
+      }
+
+      .status-pill {
+        white-space: normal;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .calculator-hero {
+        padding: 24px 20px;
+      }
+
+      .panel-title {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .panel-title .secondary-button {
+        width: 100%;
+      }
+
+      .field-grid,
+      .totals {
+        grid-template-columns: 1fr;
+      }
+
+      .panel,
+      .result {
+        padding: 14px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .site-shell {
+        width: min(calc(100% - 20px), var(--content-width));
+      }
+
+      .calculator-hero {
+        gap: 18px;
+        margin-top: 0;
+      }
+
+      .status-pill {
+        width: 100%;
+        justify-content: flex-start;
+      }
+
+      .dropzone {
+        min-height: 132px;
+        padding: 16px 12px;
+      }
+
+      .download-actions,
+      .download-actions .file-button,
+      .download-actions .download-link {
+        width: 100%;
+      }
+
+      .vehicle-table-wrap {
+        overflow: visible;
+        border: 0;
+        background: transparent;
+        box-shadow: none;
+      }
+
+      table {
+        min-width: 0;
+      }
+
+      table,
+      thead,
+      tbody,
+      tr,
+      td {
+        display: block;
+        width: 100%;
+      }
+
+      thead {
+        display: none;
+      }
+
+      tbody {
+        display: grid;
+        gap: 12px;
+      }
+
+      tr {
+        padding: 12px;
+        border: 1px solid var(--business-border);
+        border-radius: 8px;
+        background: rgba(7, 11, 18, 0.58);
+      }
+
+      td {
+        display: grid;
+        grid-template-columns: minmax(112px, 0.38fr) minmax(0, 1fr);
+        gap: 10px;
+        align-items: center;
+        border-bottom: 0;
+        padding: 7px 0;
+      }
+
+      td::before {
+        content: attr(data-label);
+        color: var(--business-muted);
+        font-size: 0.78rem;
+        font-weight: 800;
+        line-height: 1.25;
+      }
+
+      td[data-label="Aktion"] {
+        display: block;
+        padding-top: 12px;
+      }
+
+      td[data-label="Aktion"]::before {
+        display: none;
+      }
+
+      td input,
+      td select {
+        min-width: 0;
+      }
+
+      .icon-button {
+        width: 100%;
+        height: 38px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      td {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+    }
+  </style>
+</head>
+<body class="business-theme">
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="brand" href="../../index.html">
+        <img class="brand-mark" src="../../assets/img/icons/flathack_icon.png" alt="" width="44" height="44">
+        <span class="brand-text">Flathack Projects</span>
+      </a>
+      <nav class="project-top-nav" aria-label="Projekt-Navigation"></nav>
+    </header>
+
+    <nav class="domain-tabs" aria-label="Projektbereiche">
+      <a class="domain-tab" href="../../index.html">Gaming & Modding</a>
+      <a class="domain-tab active" href="../../business/index.html">Business Projects</a>
+    </nav>
+
+    <main class="calc-app">
+      <section class="calculator-hero" aria-labelledby="calculator-title">
+        <div>
+          <p class="business-kicker">Browser-Tool</p>
+          <h1 id="calculator-title">Firmenwagen-Rechner</h1>
+          <p class="subtitle">Nettovergleich auf Basis einer Gehaltsabrechnung: Ist-Zustand, ohne Firmenwagen und mit frei einstellbaren Fahrzeugen.</p>
+        </div>
+        <div class="status-pill" id="status"><span class="status-dot"></span><span>PDF noch nicht gelesen</span></div>
+      </section>
+
+    <section class="grid" aria-label="Rechner">
+      <div>
+        <section class="panel" aria-labelledby="upload-title">
+          <div class="panel-title">
+            <h2 id="upload-title">Abrechnung</h2>
+          </div>
+          <div class="dropzone" id="dropzone">
+            <div>
+              <strong>April2026.pdf oder neue PDF hochladen</strong>
+              <div class="hint">Die Datei wird nur im Browser gelesen.</div>
+            </div>
+            <div class="download-actions">
+              <label class="file-button" for="pdfInput">PDF wählen</label>
+              <a class="download-link" href="firmenwagenrechner-standalone.html" download>Standalone-HTML herunterladen</a>
+            </div>
+            <input id="pdfInput" type="file" accept="application/pdf">
+          </div>
+          <p class="fineprint">Die Standalone-Datei ist die ursprüngliche Single-HTML-Version des Rechners. Du kannst sie herunterladen und lokal im Browser öffnen.</p>
+          <p class="legal-note"><strong>Datenschutz:</strong> Die Abrechnung wird nur lokal in deinem Browser verarbeitet. Es findet kein Upload an Flathack oder einen Server statt; der Rechner speichert deine Abrechnungsdaten nicht dauerhaft.</p>
+          <details>
+            <summary>PDF-Text</summary>
+            <div class="field" style="margin-top: 10px;">
+              <label for="rawText">Extrahierter Text</label>
+              <textarea id="rawText" spellcheck="false"></textarea>
+            </div>
+            <div class="actions">
+              <button class="secondary-button" id="parseTextButton" type="button">Text auswerten</button>
+            </div>
+          </details>
+        </section>
+
+        <section class="panel" aria-labelledby="payroll-title">
+          <div class="panel-title">
+            <h2 id="payroll-title">Werte aus der Abrechnung</h2>
+          </div>
+          <div class="field-grid">
+            <div class="field">
+              <label for="payout">Auszahlung ist</label>
+              <input id="payout" inputmode="decimal" value="">
+            </div>
+            <div class="field">
+              <label for="deductionRate">Abzugsquote auf geldwerten Vorteil</label>
+              <input id="deductionRate" inputmode="decimal" value="">
+            </div>
+            <div class="field">
+              <label for="currentBenefit">Aktueller geldwerter Vorteil</label>
+              <input id="currentBenefit" inputmode="decimal" value="">
+            </div>
+            <div class="field">
+              <label for="currentCharges">Aktuelle Netto-Wagenkosten</label>
+              <input id="currentCharges" inputmode="decimal" value="">
+            </div>
+          </div>
+          <p class="fineprint">Die Abzugsquote ist editierbar. Für eine schnelle Netto-Differenz wird sie auf den geldwerten Vorteil angewendet.</p>
+        </section>
+      </div>
+
+      <div>
+        <section class="results" aria-label="Ergebnisse">
+          <article class="result">
+            <small>Ist-Auszahlung</small>
+            <div class="amount" id="currentPayoutView">0,00 €</div>
+            <div class="subline" id="currentCostView">Wagen-Effekt aktuell: 0,00 €</div>
+          </article>
+          <article class="result">
+            <small>Ohne Firmenwagen</small>
+            <div class="amount good" id="noCarPayoutView">0,00 €</div>
+            <div class="subline" id="noCarDeltaView">0,00 € gegenüber Ist</div>
+          </article>
+          <article class="result">
+            <small>Mit eingestellten Wagen</small>
+            <div class="amount" id="scenarioPayoutView">0,00 €</div>
+            <div class="subline" id="scenarioDeltaView">0,00 € gegenüber Ist</div>
+          </article>
+        </section>
+
+        <section class="panel" aria-labelledby="cars-title">
+          <div class="panel-title">
+            <h2 id="cars-title">Firmenwagen</h2>
+            <button class="secondary-button" id="addCarButton" type="button">Wagen hinzufügen</button>
+          </div>
+
+          <div class="vehicle-table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Bruttolistenpreis</th>
+                  <th>Privatanteil</th>
+                  <th>Arbeitsweg km</th>
+                  <th>Arbeitsweg</th>
+                  <th>Tage</th>
+                  <th>Netto-Kosten</th>
+                  <th><span class="visually-hidden">Aktion</span></th>
+                </tr>
+              </thead>
+              <tbody id="carsBody"></tbody>
+            </table>
+          </div>
+
+          <div class="totals">
+            <div class="metric">
+              <span>Geldwerter Vorteil</span>
+              <strong id="scenarioBenefitView">0,00 €</strong>
+            </div>
+            <div class="metric">
+              <span>Netto-Kosten</span>
+              <strong id="scenarioChargesView">0,00 €</strong>
+            </div>
+            <div class="metric">
+              <span>Geschätzte Abzüge</span>
+              <strong id="scenarioDeductionsView">0,00 €</strong>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <footer class="calculator-footer">
+      <p><strong>Datenschutz- und Nutzungshinweis:</strong> Alle eingegebenen Werte und der aus der PDF gelesene Text werden lokal im Browser verarbeitet. Diese Seite überträgt deine Abrechnungsdaten nicht an Flathack, speichert sie nicht serverseitig und setzt dafür keine Tracking- oder Analysefunktion ein. Dein Browser kann allgemeine Seitenbestandteile wie HTML, CSS, JavaScript oder Bibliotheken zwischenspeichern; die hochgeladene Abrechnung wird vom Rechner nicht dauerhaft abgelegt.</p>
+      <p><strong>Haftungshinweis:</strong> Der Rechner liefert eine überschlägige Netto-Differenzrechnung und ersetzt keine Lohnabrechnung, Steuerberatung oder rechtliche Prüfung.</p>
+      Rechenbasis: pauschale Privatnutzung nach 1%-Methode, optionaler Arbeitsweg-Zuschlag mit 0,03% bzw. Einzelbewertung 0,002% des Listenpreises. Mehrere gleichzeitig verfügbare Fahrzeuge werden privat grundsätzlich je Fahrzeug angesetzt; Arbeitsweg ist separat wählbar. Quellen:
+      <a href="https://lsth.bundesfinanzministerium.de/lsth/2026/B-Anhaenge/Anhang-24/IV/IV-1/inhalt.html" target="_blank" rel="noreferrer">BMF LStH 2026</a>,
+      <a href="https://www.gesetze-im-internet.de/estg/__8.html" target="_blank" rel="noreferrer">§ 8 EStG</a>,
+      <a href="https://www.gesetze-im-internet.de/estg/__6.html" target="_blank" rel="noreferrer">§ 6 EStG</a>.
+    </footer>
+    </main>
+  </div>
+
+  <script id="calculator-core">
+    (function exposeCalculator(global) {
+      const EURO_RE = /-?\d{1,3}(?:\.\d{3})*,\d{2}|-?\d+,\d{2}/g;
+
+      function round2(value) {
+        return Math.round((Number(value) + Number.EPSILON) * 100) / 100;
+      }
+
+      function parseEuro(value) {
+        if (typeof value === "number") return Number.isFinite(value) ? value : 0;
+        const normalized = String(value || "")
+          .replace(/\s/g, "")
+          .replace(/[^\d,.-]/g, "")
+          .replace(/\./g, "")
+          .replace(",", ".");
+        const parsed = Number.parseFloat(normalized);
+        return Number.isFinite(parsed) ? parsed : 0;
+      }
+
+      function formatEuro(value) {
+        return new Intl.NumberFormat("de-DE", {
+          style: "currency",
+          currency: "EUR",
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        }).format(round2(value));
+      }
+
+      function extractEuroValues(text) {
+        return [...String(text || "").matchAll(EURO_RE)].map((match) => parseEuro(match[0]));
+      }
+
+      function sum(values) {
+        return round2(values.reduce((total, value) => total + Number(value || 0), 0));
+      }
+
+      function extractNetCarRows(text) {
+        const source = String(text || "");
+        const rentLabel = "MIETE PKW-.?BERL\\.";
+        const firstCarLabel = source.search(new RegExp(`ABZ\\.MIETWAGEN|KORR\\.MIETWAGEN|${rentLabel}`));
+        if (firstCarLabel < 0) return [];
+
+        const endCandidates = [
+          source.indexOf("Netto Be-/Abzüge", firstCarLabel),
+          source.indexOf("Auszahlung", firstCarLabel),
+          source.indexOf("D e r", firstCarLabel),
+        ].filter((index) => index > firstCarLabel);
+        const end = endCandidates.length ? Math.min(...endCandidates) : Math.min(source.length, firstCarLabel + 1800);
+        const block = source.slice(firstCarLabel, end);
+        const labels = [...block.matchAll(new RegExp(`(?:^|\\n)(ABZ\\.MIETWAGEN|KORR\\.MIETWAGEN|${rentLabel})`, "g"))].map((match) => match[1]);
+        const laIndex = block.indexOf("\nLA");
+        const valueSource = laIndex >= 0 ? block.slice(laIndex) : block;
+        const values = extractEuroValues(valueSource).slice(0, labels.length);
+        return labels.map((label, index) => ({ label, amount: values[index] || 0 }));
+      }
+
+      function inferBenefitFromGrossRows(text, expectedCount) {
+        const source = String(text || "");
+        const count = expectedCount || (source.match(/MIETWAGEN 1% BEZ/g) || []).length;
+        if (!count) return [];
+        const start = source.indexOf("MIETWAGEN 1% BEZ");
+        const end = source.indexOf("Lohnsteuer", start);
+        const values = extractEuroValues(source.slice(start, end > start ? end : start + 1600));
+        const candidates = values.filter((value) => value > 100 && value < 2000);
+        const withNegativePair = candidates.filter((value) => values.some((other) => round2(other + value) === 0));
+        return withNegativePair.slice(0, count);
+      }
+
+      function extractPayrollValues(text) {
+        const source = String(text || "");
+        const payoutMatch = source.match(/Auszahlung\s+(-?\d{1,3}(?:\.\d{3})*,\d{2}|-?\d+,\d{2})/);
+        const payout = payoutMatch ? parseEuro(payoutMatch[1]) : 0;
+        const rows = extractNetCarRows(source);
+
+        const korr = rows.filter((row) => row.label === "KORR.MIETWAGEN" && row.amount > 0).map((row) => row.amount);
+        const abz = rows.filter((row) => row.label === "ABZ.MIETWAGEN").map((row) => Math.abs(row.amount));
+        const gross = inferBenefitFromGrossRows(source, Math.max(korr.length, abz.length));
+        const benefitValues = korr.length ? korr : gross.length ? gross : abz;
+        const chargeValues = rows
+          .filter((row) => /MIETE PKW-.?BERL\./.test(row.label))
+          .map((row) => Math.abs(row.amount));
+
+        return {
+          payout: round2(payout),
+          currentBenefit: sum(benefitValues),
+          currentCarCharges: sum(chargeValues),
+          benefitValues: benefitValues.map(round2),
+          chargeValues: chargeValues.map(round2),
+          rows,
+        };
+      }
+
+      function calculateCars(cars) {
+        const totals = (cars || []).reduce(
+          (acc, car) => {
+            const listPrice = parseEuro(car.listPrice);
+            const privateRate = Number(car.privateRate || 0);
+            const commuteKm = parseEuro(car.commuteKm);
+            const commuteRate = Number(car.commuteRate || 0);
+            const commuteDays = Math.max(0, parseEuro(car.commuteDays || 0));
+            const contribution = Math.max(0, parseEuro(car.contribution));
+            const privateBenefit = listPrice * (privateRate / 100);
+            const commuteMultiplier = commuteRate === 0.002 ? commuteDays : commuteRate > 0 ? 1 : 0;
+            const commuteBenefit = listPrice * (commuteRate / 100) * commuteKm * commuteMultiplier;
+            acc.benefit += privateBenefit + commuteBenefit;
+            acc.carCharges += contribution;
+            return acc;
+          },
+          { benefit: 0, carCharges: 0 },
+        );
+        return {
+          benefit: round2(totals.benefit),
+          carCharges: round2(totals.carCharges),
+        };
+      }
+
+      function calculateScenario(input) {
+        const payout = parseEuro(input.payout);
+        const currentBenefit = Math.max(0, parseEuro(input.currentBenefit));
+        const currentCarCharges = Math.max(0, parseEuro(input.currentCarCharges));
+        const deductionRate = Math.max(0, parseEuro(input.deductionRate));
+        const scenarioBenefit = Math.max(0, parseEuro(input.scenarioBenefit));
+        const scenarioCarCharges = Math.max(0, parseEuro(input.scenarioCarCharges));
+        const noCarPayout = round2(payout + currentCarCharges + currentBenefit * deductionRate);
+        const scenarioDeductions = round2(scenarioBenefit * deductionRate);
+        const scenarioPayout = round2(noCarPayout - scenarioCarCharges - scenarioDeductions);
+        return {
+          noCarPayout,
+          scenarioPayout,
+          scenarioDeductions,
+          currentCarCost: round2(noCarPayout - payout),
+          scenarioCarCost: round2(noCarPayout - scenarioPayout),
+          deltaNoCar: round2(noCarPayout - payout),
+          deltaScenario: round2(scenarioPayout - payout),
+        };
+      }
+
+      global.MuepCalc = {
+        parseEuro,
+        formatEuro,
+        extractPayrollValues,
+        calculateCars,
+        calculateScenario,
+      };
+    })(window);
+  </script>
+
+  <script type="module">
+    import * as pdfjsLib from "https://cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38/build/pdf.mjs";
+
+    pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38/build/pdf.worker.mjs";
+
+    const calc = window.MuepCalc;
+    const els = {
+      status: document.querySelector("#status"),
+      dropzone: document.querySelector("#dropzone"),
+      pdfInput: document.querySelector("#pdfInput"),
+      rawText: document.querySelector("#rawText"),
+      parseTextButton: document.querySelector("#parseTextButton"),
+      payout: document.querySelector("#payout"),
+      deductionRate: document.querySelector("#deductionRate"),
+      currentBenefit: document.querySelector("#currentBenefit"),
+      currentCharges: document.querySelector("#currentCharges"),
+      carsBody: document.querySelector("#carsBody"),
+      addCarButton: document.querySelector("#addCarButton"),
+      currentPayoutView: document.querySelector("#currentPayoutView"),
+      currentCostView: document.querySelector("#currentCostView"),
+      noCarPayoutView: document.querySelector("#noCarPayoutView"),
+      noCarDeltaView: document.querySelector("#noCarDeltaView"),
+      scenarioPayoutView: document.querySelector("#scenarioPayoutView"),
+      scenarioDeltaView: document.querySelector("#scenarioDeltaView"),
+      scenarioBenefitView: document.querySelector("#scenarioBenefitView"),
+      scenarioChargesView: document.querySelector("#scenarioChargesView"),
+      scenarioDeductionsView: document.querySelector("#scenarioDeductionsView"),
+    };
+
+    let cars = [];
+
+    function setStatus(text, ready = false) {
+      els.status.classList.toggle("ready", ready);
+      els.status.querySelector("span:last-child").textContent = text;
+    }
+
+    function inputEuro(value) {
+      return calc.formatEuro(value).replace("€", "").trim();
+    }
+
+    function renderCars() {
+      els.carsBody.innerHTML = "";
+      cars.forEach((car, index) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td data-label="Name"><input aria-label="Name Wagen ${index + 1}" data-field="name" data-index="${index}" value="${escapeHtml(car.name)}"></td>
+          <td data-label="Listenpreis"><input aria-label="Bruttolistenpreis Wagen ${index + 1}" data-field="listPrice" data-index="${index}" inputmode="decimal" value="${inputEuro(car.listPrice)}"></td>
+          <td data-label="Privatanteil">
+            <select aria-label="Privatanteil Wagen ${index + 1}" data-field="privateRate" data-index="${index}">
+              <option value="1">1,00%</option>
+              <option value="0.5">0,50%</option>
+              <option value="0.25">0,25%</option>
+              <option value="0">0,00%</option>
+            </select>
+          </td>
+          <td data-label="Arbeitsweg km"><input aria-label="Arbeitsweg Kilometer Wagen ${index + 1}" data-field="commuteKm" data-index="${index}" inputmode="decimal" value="${inputEuro(car.commuteKm)}"></td>
+          <td data-label="Arbeitsweg">
+            <select aria-label="Arbeitsweg Methode Wagen ${index + 1}" data-field="commuteRate" data-index="${index}">
+              <option value="0">kein Ansatz</option>
+              <option value="0.03">0,03% monatlich</option>
+              <option value="0.002">0,002% je Fahrt</option>
+            </select>
+          </td>
+          <td data-label="Tage"><input aria-label="Fahrtage Wagen ${index + 1}" data-field="commuteDays" data-index="${index}" inputmode="decimal" value="${inputEuro(car.commuteDays)}"></td>
+          <td data-label="Netto-Kosten"><input aria-label="Netto-Kosten Wagen ${index + 1}" data-field="contribution" data-index="${index}" inputmode="decimal" value="${inputEuro(car.contribution)}"></td>
+          <td data-label="Aktion"><button class="icon-button" type="button" data-remove="${index}" title="Wagen entfernen" aria-label="Wagen entfernen">×</button></td>
+        `;
+        els.carsBody.appendChild(row);
+        row.querySelector('[data-field="privateRate"]').value = String(car.privateRate);
+        row.querySelector('[data-field="commuteRate"]').value = String(car.commuteRate);
+      });
+      update();
+    }
+
+    function escapeHtml(value) {
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;");
+    }
+
+    function getPayrollInput() {
+      return {
+        payout: calc.parseEuro(els.payout.value),
+        currentBenefit: calc.parseEuro(els.currentBenefit.value),
+        currentCarCharges: calc.parseEuro(els.currentCharges.value),
+        deductionRate: calc.parseEuro(els.deductionRate.value) / 100,
+      };
+    }
+
+    function update() {
+      const payroll = getPayrollInput();
+      const scenarioCars = calc.calculateCars(cars);
+      const result = calc.calculateScenario({
+        ...payroll,
+        scenarioBenefit: scenarioCars.benefit,
+        scenarioCarCharges: scenarioCars.carCharges,
+      });
+
+      els.currentPayoutView.textContent = calc.formatEuro(payroll.payout);
+      els.currentCostView.textContent = `Wagen-Effekt aktuell: -${calc.formatEuro(result.currentCarCost)}`;
+      els.noCarPayoutView.textContent = calc.formatEuro(result.noCarPayout);
+      els.noCarDeltaView.textContent = `${signedEuro(result.deltaNoCar)} gegenüber Ist`;
+      els.scenarioPayoutView.textContent = calc.formatEuro(result.scenarioPayout);
+      els.scenarioDeltaView.textContent = `${signedEuro(result.deltaScenario)} gegenüber Ist`;
+      els.scenarioPayoutView.classList.toggle("good", result.deltaScenario > 0);
+      els.scenarioPayoutView.classList.toggle("bad", result.deltaScenario < 0);
+      els.scenarioBenefitView.textContent = calc.formatEuro(scenarioCars.benefit);
+      els.scenarioChargesView.textContent = calc.formatEuro(scenarioCars.carCharges);
+      els.scenarioDeductionsView.textContent = calc.formatEuro(result.scenarioDeductions);
+    }
+
+    function signedEuro(value) {
+      const amount = calc.formatEuro(Math.abs(value));
+      return `${value >= 0 ? "+" : "-"}${amount}`;
+    }
+
+    async function readPdf(file) {
+      const bytes = await file.arrayBuffer();
+      const pdf = await pdfjsLib.getDocument({ data: bytes }).promise;
+      const pages = [];
+      for (let pageNumber = 1; pageNumber <= pdf.numPages; pageNumber += 1) {
+        const page = await pdf.getPage(pageNumber);
+        const content = await page.getTextContent();
+        pages.push(content.items.map((item) => item.str).join("\n"));
+      }
+      return pages.join("\n\n");
+    }
+
+    function applyExtractedValues(text) {
+      const extracted = calc.extractPayrollValues(text);
+      if (extracted.payout) els.payout.value = inputEuro(extracted.payout);
+      if (extracted.currentBenefit) els.currentBenefit.value = inputEuro(extracted.currentBenefit);
+      if (extracted.currentCarCharges) els.currentCharges.value = inputEuro(extracted.currentCarCharges);
+
+      if (extracted.benefitValues.length || extracted.chargeValues.length) {
+        const count = Math.max(extracted.benefitValues.length, extracted.chargeValues.length, 3);
+        cars = Array.from({ length: count }, (_, index) => {
+          const benefit = extracted.benefitValues[index] || 0;
+          const charge = extracted.chargeValues[index] || 0;
+          return {
+            name: `Wagen ${index + 1}`,
+            listPrice: benefit ? roundToHundred(benefit / 0.01) : 0,
+            privateRate: benefit ? 1 : 0,
+            commuteKm: 0,
+            commuteRate: 0,
+            commuteDays: 0,
+            contribution: charge,
+          };
+        });
+      }
+      renderCars();
+      setStatus(extracted.payout ? "PDF-Werte übernommen" : "PDF-Text gelesen", Boolean(extracted.payout));
+    }
+
+    function roundToHundred(value) {
+      return Math.round(value / 100) * 100;
+    }
+
+    async function handleFile(file) {
+      if (!file) return;
+      try {
+        setStatus("PDF wird gelesen");
+        const text = await readPdf(file);
+        els.rawText.value = text;
+        applyExtractedValues(text);
+      } catch (error) {
+        console.error(error);
+        setStatus("PDF konnte nicht gelesen werden");
+      }
+    }
+
+    els.pdfInput.addEventListener("change", (event) => handleFile(event.target.files[0]));
+    els.parseTextButton.addEventListener("click", () => applyExtractedValues(els.rawText.value));
+
+    ["dragenter", "dragover"].forEach((name) => {
+      els.dropzone.addEventListener(name, (event) => {
+        event.preventDefault();
+        els.dropzone.classList.add("dragover");
+      });
+    });
+
+    ["dragleave", "drop"].forEach((name) => {
+      els.dropzone.addEventListener(name, (event) => {
+        event.preventDefault();
+        els.dropzone.classList.remove("dragover");
+      });
+    });
+
+    els.dropzone.addEventListener("drop", (event) => handleFile(event.dataTransfer.files[0]));
+
+    document.addEventListener("input", (event) => {
+      const target = event.target;
+      if (target.matches("[data-field]")) {
+        const index = Number(target.dataset.index);
+        cars[index][target.dataset.field] = target.value;
+      }
+      update();
+    });
+
+    document.addEventListener("change", (event) => {
+      const target = event.target;
+      if (target.matches("[data-field]")) {
+        const index = Number(target.dataset.index);
+        cars[index][target.dataset.field] = target.value;
+      }
+      update();
+    });
+
+    document.addEventListener("click", (event) => {
+      const removeIndex = event.target.dataset.remove;
+      if (removeIndex !== undefined) {
+        cars.splice(Number(removeIndex), 1);
+        renderCars();
+      }
+    });
+
+    els.addCarButton.addEventListener("click", () => {
+      cars.push({ name: `Wagen ${cars.length + 1}`, listPrice: 0, privateRate: 1, commuteKm: 0, commuteRate: 0, commuteDays: 0, contribution: 0 });
+      renderCars();
+    });
+
+    renderCars();
+  </script>
+  <script src="../../assets/js/nav.js"></script>
+</body>
+</html>

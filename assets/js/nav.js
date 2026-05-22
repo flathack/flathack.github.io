@@ -23,6 +23,7 @@
   const NAV_ITEMS = [
     { label: "Home", href: "index.html" },
     { label: "Business", href: "business/index.html" },
+    { label: "Firmenwagen", href: "guides/firmenwagenrechner/index.html" },
     { label: "Freelancer 2D", href: "freelancer2d/index.html" },
     { label: "Trade Routes", href: "docs/trade-routes.html", children: MOD_CHILDREN },
     { label: "Schiff-Explorer", href: "docs/ship-explorer.html", children: MOD_CHILDREN },
@@ -39,9 +40,11 @@
     if (/\/about\//.test(path)) return 1;
     if (/\/business\//.test(path)) return 1;
     if (/\/help\//.test(path)) return 1;
+    if (/\/guides\/[^/]+\//.test(path)) return 2;
+    if (/\/guides\//.test(path)) return 1;
     return 0;
   })();
-  const prefix = depth ? "../" : "";
+  const prefix = "../".repeat(depth);
   const isBusinessPage = document.body && document.body.classList.contains("business-theme");
 
   function initCombatBackground() {
@@ -940,9 +943,12 @@
   const segments = path.split("/");
   const fileName = segments.pop() || "index.html";
   const folder = segments.pop() || "";
-  const current = folder && folder !== "" && !/flathack\.github\.io/i.test(folder)
-    ? folder + "/" + fileName
-    : fileName;
+  const current = (function () {
+    if (/\/guides\/[^/]+\//.test(path)) return "guides/" + folder + "/" + fileName;
+    return folder && folder !== "" && !/flathack\.github\.io/i.test(folder)
+      ? folder + "/" + fileName
+      : fileName;
+  })();
 
   // Find the nav container
   const nav = document.querySelector(".site-nav, .project-top-nav");
