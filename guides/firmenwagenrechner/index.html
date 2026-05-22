@@ -814,7 +814,7 @@
 
       function extractNetCarRows(text) {
         const source = String(text || "");
-        const rentLabel = "MIETE PKW-.?BERL\\.";
+        const rentLabel = "MIETE\\s*PKW\\s*-\\s*.?BERL\\.";
         const firstCarLabel = source.search(new RegExp(`ABZ\\.MIETWAGEN|KORR\\.MIETWAGEN|${rentLabel}`));
         if (firstCarLabel < 0) return [];
 
@@ -825,7 +825,7 @@
         ].filter((index) => index > firstCarLabel);
         const end = endCandidates.length ? Math.min(...endCandidates) : Math.min(source.length, firstCarLabel + 1800);
         const block = source.slice(firstCarLabel, end);
-        const labels = [...block.matchAll(new RegExp(`(?:^|\\n)(ABZ\\.MIETWAGEN|KORR\\.MIETWAGEN|${rentLabel})`, "g"))].map((match) => match[1]);
+        const labels = [...block.matchAll(new RegExp(`ABZ\\.MIETWAGEN|KORR\\.MIETWAGEN|${rentLabel}`, "g"))].map((match) => match[0]);
         const laIndex = block.indexOf("\nLA");
         const valueSource = laIndex >= 0 ? block.slice(laIndex) : block;
         const values = extractEuroValues(valueSource).slice(0, labels.length);
@@ -855,15 +855,16 @@
         const gross = inferBenefitFromGrossRows(source, Math.max(korr.length, abz.length));
         const benefitValues = korr.length ? korr : gross.length ? gross : abz;
         const chargeValues = rows
-          .filter((row) => /MIETE PKW-.?BERL\./.test(row.label))
+          .filter((row) => /MIETE\s*PKW\s*-\s*.?BERL\./.test(row.label))
           .map((row) => Math.abs(row.amount));
+        const fallbackCharges = chargeValues.length ? chargeValues : abz.length ? abz : [];
 
         return {
           payout: round2(payout),
           currentBenefit: sum(benefitValues),
-          currentCarCharges: sum(chargeValues),
+          currentCarCharges: sum(fallbackCharges),
           benefitValues: benefitValues.map(round2),
-          chargeValues: chargeValues.map(round2),
+          chargeValues: fallbackCharges.map(round2),
           rows,
         };
       }
@@ -1058,6 +1059,9 @@
       if (extracted.payout) els.payout.value = inputEuro(extracted.payout);
       if (extracted.currentBenefit) els.currentBenefit.value = inputEuro(extracted.currentBenefit);
       if (extracted.currentCarCharges) els.currentCharges.value = inputEuro(extracted.currentCarCharges);
+      if (extracted.currentBenefit && !els.deductionRate.value.trim()) {
+        els.deductionRate.value = inputEuro(32.4);
+      }
 
       if (extracted.benefitValues.length || extracted.chargeValues.length) {
         const count = Math.max(extracted.benefitValues.length, extracted.chargeValues.length, 3);
