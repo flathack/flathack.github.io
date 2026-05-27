@@ -386,6 +386,30 @@
       box-shadow: var(--shadow);
       animation: rise-in 560ms ease both;
     }
+    .hp-tool-callout {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin: 0 0 28px;
+      padding: 24px 28px;
+      border: 1px solid rgba(132, 177, 255, 0.18);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(7, 16, 29, 0.92));
+      box-shadow: var(--shadow);
+      animation: rise-in 560ms ease both;
+    }
+    .hp-tool-callout h2 {
+      margin-bottom: 8px;
+    }
+    .hp-tool-callout p {
+      max-width: 68ch;
+    }
+    .hp-tool-callout .hp-card-link {
+      flex: 0 0 auto;
+      min-height: 42px;
+      padding: 0 18px;
+    }
 
     /* ── Responsive ── */
     @media (max-width: 960px) {
@@ -399,6 +423,10 @@
         min-height: 220px;
         border-left: 0;
         border-top: 1px solid var(--panel-border);
+      }
+      .hp-tool-callout {
+        align-items: flex-start;
+        flex-direction: column;
       }
       .hp-bottom-grid { grid-template-columns: 1fr; }
       .tr-banner-inner { flex-direction: column; text-align: center; }
@@ -620,6 +648,15 @@
         </article>
       </div>
 
+      <section class="hp-tool-callout" aria-labelledby="other-tools-title">
+        <div>
+          <p class="eyebrow" data-i18n="eyebrow_other_tools">Weitere Tools</p>
+          <h2 id="other-tools-title" data-i18n="company_car_title">Firmenwagen-Rechner</h2>
+          <p data-i18n="company_car_desc">Browser-Rechner fuer den Nettovergleich einer Gehaltsabrechnung mit und ohne Firmenwagen. Die PDF-Auswertung bleibt lokal im Browser.</p>
+        </div>
+        <a class="hp-card-link" href="guides/firmenwagenrechner/index.html" data-i18n="company_car_open">Rechner oeffnen</a>
+      </section>
+
       <footer class="page-footer">
         &copy; 2026 Steven Schödel — Flathack Projects · <a href="help/index.html">Help Center</a>
       </footer>
@@ -648,6 +685,10 @@
         eyebrow_tools: 'Freelancer Modding Tools',
         intro_title: 'MIT-lizenzierte Tools für die Freelancer-Community',
         eyebrow_projects: 'Projekte',
+        eyebrow_other_tools: 'Weitere Tools',
+        company_car_title: 'Firmenwagen-Rechner',
+        company_car_desc: 'Browser-Rechner fuer den Nettovergleich einer Gehaltsabrechnung mit und ohne Firmenwagen. Die PDF-Auswertung bleibt lokal im Browser.',
+        company_car_open: 'Rechner oeffnen',
         atlas_desc: 'Umfassender visueller Mod-Editor für Freelancer: Universe-Map, System-Editor (2D/3D), Flight-Mode, Trade-Routes, Name/Infocard-Editor, INI-Editor und NPC/Rumor/News-Editor.',
         status_released: 'Released',
         status_in_progress: 'In Arbeit',
@@ -689,6 +730,10 @@
         eyebrow_tools: 'Freelancer Modding Tools',
         intro_title: 'Tools for the Freelancer Community',
         eyebrow_projects: 'Projects',
+        eyebrow_other_tools: 'More Tools',
+        company_car_title: 'Company Car Calculator',
+        company_car_desc: 'Browser calculator for comparing payroll payout with and without a company car. PDF parsing stays local in your browser.',
+        company_car_open: 'Open calculator',
         atlas_desc: 'Comprehensive visual mod editor for Freelancer: Universe Map, System Editor (2D/3D), Flight Mode, Trade Routes, Name/Infocard Editor, INI Editor, and NPC/Rumor/News Editor.',
         status_released: 'Released',
         status_in_progress: 'In Progress',
