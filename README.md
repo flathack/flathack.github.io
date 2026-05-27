@@ -7,7 +7,6 @@ Static GitHub Pages site for Flathack project pages, documentation, support arti
 - `index.html`: main project overview
 - `docs`: standalone tool pages and documentation views
 - `help`: support articles and setup guides
-- `business`: repository status overview
 - `freelancer2d`: browser-based Freelancer 2D prototype
 - `assets`: shared styles, images, scripts, and generated widgets
 - `data`: generated data used by the browser tools

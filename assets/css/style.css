@@ -16,7 +16,7 @@
   --content-width: 1180px;
 }
 
-body.business-theme {
+body.tool-theme {
   background:
     linear-gradient(180deg, rgba(3, 8, 15, 0.72), rgba(5, 11, 18, 0.9)),
     url("../img/home/space-nebula-wallpaper.webp") center top / cover fixed,
@@ -142,7 +142,7 @@ a {
   background: rgba(88, 196, 255, 0.1);
 }
 
-body.business-theme .domain-tab.active {
+body.tool-theme .domain-tab.active {
   background: rgba(148, 163, 184, 0.14);
   border-color: rgba(148, 163, 184, 0.24);
 }
@@ -1124,10 +1124,6 @@ p {
 
 .split-card h2 {
   margin-bottom: 12px;
-}
-
-.split-card.business {
-  background: linear-gradient(180deg, rgba(15, 24, 35, 0.96), rgba(9, 16, 24, 0.96));
 }
 
 .split-card.gaming {

@@ -12,39 +12,39 @@
   <link rel="stylesheet" href="../../assets/css/style.css">
   <style>
     :root {
-      --business-bg: #070b12;
-      --business-panel: rgba(15, 23, 42, 0.92);
-      --business-panel-soft: rgba(30, 41, 59, 0.72);
-      --business-border: rgba(148, 163, 184, 0.22);
-      --business-text: #e5edf7;
-      --business-muted: #94a3b8;
-      --business-accent: #60a5fa;
-      --business-accent-soft: rgba(96, 165, 250, 0.14);
-      --business-success: #2dd4bf;
-      --business-warning: #fbbf24;
-      --business-danger: #fb7185;
-      --business-shadow: 0 18px 52px rgba(0, 0, 0, 0.34);
-      --text: var(--business-text);
-      --muted: var(--business-muted);
-      --panel-border: var(--business-border);
-      --accent: var(--business-accent);
+      --tool-bg: #070b12;
+      --tool-panel: rgba(15, 23, 42, 0.92);
+      --tool-panel-soft: rgba(30, 41, 59, 0.72);
+      --tool-border: rgba(148, 163, 184, 0.22);
+      --tool-text: #e5edf7;
+      --tool-muted: #94a3b8;
+      --tool-accent: #60a5fa;
+      --tool-accent-soft: rgba(96, 165, 250, 0.14);
+      --tool-success: #2dd4bf;
+      --tool-warning: #fbbf24;
+      --tool-danger: #fb7185;
+      --tool-shadow: 0 18px 52px rgba(0, 0, 0, 0.34);
+      --text: var(--tool-text);
+      --muted: var(--tool-muted);
+      --panel-border: var(--tool-border);
+      --accent: var(--tool-accent);
       --accent-strong: #93c5fd;
-      --shadow: var(--business-shadow);
+      --shadow: var(--tool-shadow);
       --content-width: 1240px;
     }
 
-    body.business-theme {
+    body.tool-theme {
       font-family: "Inter", system-ui, sans-serif;
-      color: var(--business-text);
+      color: var(--tool-text);
       background:
         linear-gradient(180deg, rgba(7, 11, 18, 0.96), rgba(11, 18, 32, 0.98)),
         radial-gradient(circle at 8% 0%, rgba(59, 130, 246, 0.14), transparent 30%),
         radial-gradient(circle at 88% 12%, rgba(45, 212, 191, 0.09), transparent 24%),
         linear-gradient(180deg, #070b12 0%, #0b1220 100%);
-      background-color: var(--business-bg);
+      background-color: var(--tool-bg);
     }
 
-    body.business-theme::before {
+    body.tool-theme::before {
       opacity: 0.35;
       background-image:
         linear-gradient(rgba(226, 232, 240, 0.035) 1px, transparent 1px),
@@ -52,21 +52,21 @@
       mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.55), transparent 82%);
     }
 
-    body.business-theme .nav-capsule {
+    body.tool-theme .nav-capsule {
       background: rgba(15, 23, 42, 0.86);
       border-color: rgba(148, 163, 184, 0.22);
       box-shadow: 0 18px 48px rgba(0, 0, 0, 0.32);
     }
 
-    body.business-theme .domain-tab {
+    body.tool-theme .domain-tab {
       background: rgba(15, 23, 42, 0.82);
       border-color: rgba(148, 163, 184, 0.2);
-      color: var(--business-muted);
+      color: var(--tool-muted);
     }
 
-    body.business-theme .domain-tab:hover,
-    body.business-theme .domain-tab.active {
-      color: var(--business-text);
+    body.tool-theme .domain-tab:hover,
+    body.tool-theme .domain-tab.active {
+      color: var(--tool-text);
       background: rgba(96, 165, 250, 0.14);
       border-color: rgba(96, 165, 250, 0.3);
     }
@@ -95,23 +95,23 @@
       align-items: end;
       margin: 8px 0 22px;
       padding: 34px;
-      border: 1px solid var(--business-border);
+      border: 1px solid var(--tool-border);
       border-radius: 8px;
       background: linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(17, 24, 39, 0.96));
-      box-shadow: var(--business-shadow);
+      box-shadow: var(--tool-shadow);
     }
 
     h1 {
       margin: 0;
-      color: var(--business-text);
+      color: var(--tool-text);
       font-size: clamp(2.1rem, 4vw, 4rem);
       line-height: 0.98;
       letter-spacing: 0;
     }
 
-    .business-kicker {
+    .tool-kicker {
       margin: 0 0 12px;
-      color: var(--business-accent);
+      color: var(--tool-accent);
       font: 700 0.78rem/1.2 "IBM Plex Mono", monospace;
       letter-spacing: 0.08em;
       text-transform: uppercase;
@@ -119,7 +119,7 @@
 
     .subtitle {
       margin: 14px 0 0;
-      color: var(--business-muted);
+      color: var(--tool-muted);
       max-width: 720px;
       line-height: 1.65;
     }
@@ -129,10 +129,10 @@
       align-items: center;
       gap: 8px;
       white-space: nowrap;
-      border: 1px solid var(--business-border);
+      border: 1px solid var(--tool-border);
       border-radius: 999px;
       background: rgba(15, 23, 42, 0.84);
-      color: var(--business-muted);
+      color: var(--tool-muted);
       padding: 9px 12px;
       font-size: 0.9rem;
       font-family: "IBM Plex Mono", monospace;
@@ -142,11 +142,11 @@
       width: 9px;
       height: 9px;
       border-radius: 50%;
-      background: var(--business-warning);
+      background: var(--tool-warning);
     }
 
     .status-pill.ready .status-dot {
-      background: var(--business-success);
+      background: var(--tool-success);
     }
 
     .grid {
@@ -159,10 +159,10 @@
     .panel,
     .result,
     .vehicle-table-wrap {
-      background: var(--business-panel);
-      border: 1px solid var(--business-border);
+      background: var(--tool-panel);
+      border: 1px solid var(--tool-border);
       border-radius: 8px;
-      box-shadow: var(--business-shadow);
+      box-shadow: var(--tool-shadow);
     }
 
     .panel {
@@ -183,7 +183,7 @@
 
     h2 {
       margin: 0;
-      color: var(--business-text);
+      color: var(--tool-text);
       font-size: 1rem;
       line-height: 1.2;
       letter-spacing: 0;
@@ -191,7 +191,7 @@
 
     .hint,
     .fineprint {
-      color: var(--business-muted);
+      color: var(--tool-muted);
       font-size: 0.88rem;
       line-height: 1.45;
     }
@@ -202,13 +202,13 @@
       border: 1px solid rgba(45, 212, 191, 0.26);
       border-radius: 8px;
       background: rgba(45, 212, 191, 0.08);
-      color: var(--business-muted);
+      color: var(--tool-muted);
       font-size: 0.86rem;
       line-height: 1.55;
     }
 
     .legal-note strong {
-      color: var(--business-text);
+      color: var(--tool-text);
     }
 
     .dropzone {
@@ -224,7 +224,7 @@
     }
 
     .dropzone.dragover {
-      border-color: var(--business-accent);
+      border-color: var(--tool-accent);
       background: rgba(96, 165, 250, 0.1);
     }
 
@@ -235,7 +235,7 @@
       gap: 8px;
       min-height: 40px;
       padding: 0 14px;
-      background: var(--business-accent);
+      background: var(--tool-accent);
       color: #06111f;
       border-radius: 6px;
       font-weight: 700;
@@ -257,7 +257,7 @@
     }
 
     label {
-      color: var(--business-text);
+      color: var(--tool-text);
       font-size: 0.84rem;
       font-weight: 700;
     }
@@ -267,10 +267,10 @@
     textarea {
       width: 100%;
       min-height: 39px;
-      border: 1px solid var(--business-border);
+      border: 1px solid var(--tool-border);
       border-radius: 6px;
       background: rgba(7, 11, 18, 0.92);
-      color: var(--business-text);
+      color: var(--tool-text);
       padding: 8px 10px;
       outline: none;
     }
@@ -278,7 +278,7 @@
     input:focus,
     select:focus,
     textarea:focus {
-      border-color: var(--business-accent);
+      border-color: var(--tool-accent);
       box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.16);
     }
 
@@ -308,19 +308,19 @@
       justify-content: center;
       min-height: 40px;
       padding: 0 14px;
-      border: 1px solid var(--business-border);
+      border: 1px solid var(--tool-border);
       border-radius: 6px;
       background: rgba(30, 41, 59, 0.78);
-      color: var(--business-text);
+      color: var(--tool-text);
       font-weight: 700;
     }
 
     .secondary-button {
       min-height: 38px;
       padding: 0 12px;
-      border: 1px solid var(--business-border);
+      border: 1px solid var(--tool-border);
       background: rgba(30, 41, 59, 0.78);
-      color: var(--business-text);
+      color: var(--tool-text);
       font-weight: 700;
     }
 
@@ -338,7 +338,7 @@
 
     .result small {
       display: block;
-      color: var(--business-muted);
+      color: var(--tool-muted);
       font-weight: 700;
       margin-bottom: 10px;
     }
@@ -351,16 +351,16 @@
     }
 
     .amount.good {
-      color: var(--business-success);
+      color: var(--tool-success);
     }
 
     .amount.bad {
-      color: var(--business-danger);
+      color: var(--tool-danger);
     }
 
     .subline {
       margin-top: 10px;
-      color: var(--business-muted);
+      color: var(--tool-muted);
       font-size: 0.86rem;
       line-height: 1.35;
     }
@@ -377,14 +377,14 @@
 
     th,
     td {
-      border-bottom: 1px solid var(--business-border);
+      border-bottom: 1px solid var(--tool-border);
       padding: 10px;
       text-align: left;
       vertical-align: top;
     }
 
     th {
-      color: var(--business-muted);
+      color: var(--tool-muted);
       font-size: 0.8rem;
       white-space: nowrap;
       background: rgba(30, 41, 59, 0.58);
@@ -405,9 +405,9 @@
       place-items: center;
       width: 36px;
       height: 36px;
-      border: 1px solid var(--business-border);
+      border: 1px solid var(--tool-border);
       background: rgba(15, 23, 42, 0.88);
-      color: var(--business-danger);
+      color: var(--tool-danger);
       font-size: 1.2rem;
       line-height: 1;
     }
@@ -420,7 +420,7 @@
     }
 
     .metric {
-      border: 1px solid var(--business-border);
+      border: 1px solid var(--tool-border);
       border-radius: 8px;
       padding: 12px;
       background: rgba(7, 11, 18, 0.58);
@@ -428,7 +428,7 @@
 
     .metric span {
       display: block;
-      color: var(--business-muted);
+      color: var(--tool-muted);
       font-size: 0.8rem;
       font-weight: 700;
       margin-bottom: 8px;
@@ -444,7 +444,7 @@
 
     summary {
       cursor: pointer;
-      color: var(--business-accent);
+      color: var(--tool-accent);
       font-weight: 800;
     }
 
@@ -452,13 +452,13 @@
       margin-top: 20px;
       padding: 18px 0 0;
       border-top: 1px solid rgba(148, 163, 184, 0.18);
-      color: var(--business-muted);
+      color: var(--tool-muted);
       font-size: 0.82rem;
       line-height: 1.45;
     }
 
     .calculator-footer a {
-      color: var(--business-accent);
+      color: var(--tool-accent);
       font-weight: 700;
     }
 
@@ -572,7 +572,7 @@
 
       tr {
         padding: 12px;
-        border: 1px solid var(--business-border);
+        border: 1px solid var(--tool-border);
         border-radius: 8px;
         background: rgba(7, 11, 18, 0.58);
       }
@@ -588,7 +588,7 @@
 
       td::before {
         content: attr(data-label);
-        color: var(--business-muted);
+        color: var(--tool-muted);
         font-size: 0.78rem;
         font-weight: 800;
         line-height: 1.25;
@@ -622,7 +622,7 @@
     }
   </style>
 </head>
-<body class="business-theme">
+<body class="tool-theme">
   <div class="site-shell">
     <header class="site-header">
       <a class="brand" href="../../index.html">
@@ -632,15 +632,10 @@
       <nav class="project-top-nav" aria-label="Projekt-Navigation"></nav>
     </header>
 
-    <nav class="domain-tabs" aria-label="Projektbereiche">
-      <a class="domain-tab" href="../../index.html">Gaming & Modding</a>
-      <a class="domain-tab active" href="../../business/index.html">Business Projects</a>
-    </nav>
-
     <main class="calc-app">
       <section class="calculator-hero" aria-labelledby="calculator-title">
         <div>
-          <p class="business-kicker">Browser-Tool</p>
+          <p class="tool-kicker">Browser-Tool</p>
           <h1 id="calculator-title">Firmenwagen-Rechner</h1>
           <p class="subtitle">Nettovergleich auf Basis einer Gehaltsabrechnung: Ist-Zustand, ohne Firmenwagen und mit frei einstellbaren Fahrzeugen.</p>
         </div>

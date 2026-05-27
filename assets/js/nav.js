@@ -22,7 +22,6 @@
 
   const NAV_ITEMS = [
     { label: "Home", href: "index.html" },
-    { label: "Business", href: "business/index.html" },
     { label: "Freelancer 2D", href: "freelancer2d/index.html" },
     { label: "Trade Routes", href: "docs/trade-routes.html", children: MOD_CHILDREN },
     { label: "Schiff-Explorer", href: "docs/ship-explorer.html", children: MOD_CHILDREN },
@@ -37,14 +36,13 @@
   const depth = (function () {
     if (/\/docs\//.test(path)) return 1;
     if (/\/about\//.test(path)) return 1;
-    if (/\/business\//.test(path)) return 1;
     if (/\/help\//.test(path)) return 1;
     if (/\/guides\/[^/]+\//.test(path)) return 2;
     if (/\/guides\//.test(path)) return 1;
     return 0;
   })();
   const prefix = "../".repeat(depth);
-  const isBusinessPage = document.body && document.body.classList.contains("business-theme");
+  const isToolThemePage = document.body && document.body.classList.contains("tool-theme");
 
   function initCombatBackground() {
     if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -936,7 +934,7 @@
     canvas.focus();
   }
 
-  if (!isBusinessPage) initCombatBackground();
+  if (!isToolThemePage) initCombatBackground();
 
   // Build current page's canonical path segment for matching
   const segments = path.split("/");
@@ -983,7 +981,7 @@
   var savedShipCount = window.flathackCombatBackground && window.flathackCombatBackground.getShipTarget
     ? window.flathackCombatBackground.getShipTarget()
     : 8;
-  var businessActionsHtml =
+  var compactActionsHtml =
     '<a class="nav-capsule-help" href="' + prefix + 'help/index.html" title="Help">?</a>' +
     '<div class="nav-capsule-lang" data-lang="' + currentLang + '">' + langToggleHtml + '</div>';
   var standardActionsHtml =
@@ -993,7 +991,7 @@
       '<output data-bg-ship-output>' + savedShipCount + '</output>' +
     '</label>' +
     '<button class="nav-arena-trigger" type="button" data-arena-open>Bored?</button>' +
-    businessActionsHtml;
+    compactActionsHtml;
 
   // ── Build the complete capsule structure ──
   var capsule = document.createElement("div");
@@ -1005,7 +1003,7 @@
         '<span class="brand-text">Flathack Projects</span>' +
       '</a>' +
       '<div class="nav-capsule-actions">' +
-        (isBusinessPage ? businessActionsHtml : standardActionsHtml) +
+        (isToolThemePage ? compactActionsHtml : standardActionsHtml) +
       '</div>' +
     '</div>' +
     '<div class="nav-capsule-divider"></div>' +
