@@ -49,18 +49,18 @@ BAR_PAD_X = 10   # left/right padding inside each project column
 PROJECTS = [
     {
         "name":    "FL Atlas — Visual Editor",
-        "version": "v0.6.5",
-        "status":  "Released · Alpha · 16 Updates",
+        "version": "v0.8.0.5",
+        "status":  "Released · Alpha · v0.9.0 in progress",
         "detail":  "3D Viewer · INI Editor · Universe Map",
         "target":  "→ v1.0",
-        "pct":     63,
+        "pct":     80,
         "dot":     "green",
         "theme":   "red",
     },
     {
         "name":    "FL Atlas — Savegame Editor",
-        "version": "v0.5.0",
-        "status":  "Released · Full Release · Complete",
+        "version": "v0.8.2",
+        "status":  "Released · Alpha · Active",
         "detail":  "Save Editing · Inventory · Ship Swap",
         "target":  "Complete",
         "pct":     100,
