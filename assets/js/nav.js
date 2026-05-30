@@ -794,6 +794,75 @@
       }
     }
 
+    function createProjectileImpact(p, targetShip) {
+      if (p.type === "super") {
+        sparks.push({
+          x: p.x, y: p.y, vx: 0, vy: 0,
+          life: 0.65, maxLife: 0.65,
+          size: 44,
+          color: "rgba(255, 60, 60, 0.85)",
+          type: "blast"
+        });
+        sparks.push({
+          x: p.x, y: p.y, vx: 0, vy: 0,
+          life: 0.8, maxLife: 0.8,
+          size: 72,
+          color: "rgba(255, 180, 80, 0.65)",
+          type: "ring"
+        });
+        for (var k = 0; k < 18; k++) {
+          var angle = rand(0, Math.PI * 2);
+          var speed = rand(60, 220);
+          sparks.push({
+            x: p.x, y: p.y,
+            vx: Math.cos(angle) * speed + targetShip.vx * 0.25,
+            vy: Math.sin(angle) * speed + targetShip.vy * 0.25,
+            life: rand(0.35, 0.85), maxLife: 0.85,
+            size: rand(2.2, 4.5),
+            color: "rgba(255, 100, 100, 0.95)",
+            type: "spark"
+          });
+        }
+      } else if (p.type === "missile") {
+        sparks.push({
+          x: p.x, y: p.y, vx: 0, vy: 0,
+          life: 0.48, maxLife: 0.48,
+          size: 26,
+          color: "rgba(255, 140, 30, 0.9)",
+          type: "blast"
+        });
+        sparks.push({
+          x: p.x, y: p.y, vx: 0, vy: 0,
+          life: 0.58, maxLife: 0.58,
+          size: 40,
+          color: "rgba(255, 200, 50, 0.72)",
+          type: "ring"
+        });
+        for (var k = 0; k < 10; k++) {
+          var angle = rand(0, Math.PI * 2);
+          var speed = rand(40, 150);
+          sparks.push({
+            x: p.x, y: p.y,
+            vx: Math.cos(angle) * speed + targetShip.vx * 0.2,
+            vy: Math.sin(angle) * speed + targetShip.vy * 0.2,
+            life: rand(0.28, 0.65), maxLife: 0.65,
+            size: rand(1.8, 3.4),
+            color: "rgba(255, 180, 50, 0.9)",
+            type: "spark"
+          });
+        }
+      } else {
+        sparks.push({
+          x: p.x, y: p.y,
+          vx: rand(-18, 18), vy: rand(-18, 18),
+          life: 0.38, maxLife: 0.38,
+          size: 3,
+          color: targetShip.side === "human" ? "rgba(120, 220, 255, 0.95)" : "rgba(255, 120, 165, 0.95)",
+          type: "shield"
+        });
+      }
+    }
+
     function updateProjectiles(dt) {
       for (var i = projectiles.length - 1; i >= 0; i--) {
         var p = projectiles[i];
@@ -839,17 +908,32 @@
             ship.shieldHit = 1;
             ship.shieldHitAngle = Math.atan2(p.y - ship.y, p.x - ship.x);
             ship.shieldRegenDelay = 1.8;
-            sparks.push({
-              x: p.x,
-              y: p.y,
-              vx: rand(-18, 18),
-              vy: rand(-18, 18),
-              life: 0.38,
-              maxLife: 0.38,
-              size: 3,
-              color: ship.side === "human" ? "rgba(120, 220, 255, 0.95)" : "rgba(255, 120, 165, 0.95)",
-              type: "shield"
-            });
+            
+            createProjectileImpact(p, ship);
+            
+            if (p.type === "missile") {
+              ships.forEach(function (otherShip) {
+                if (otherShip.hull <= 0 || otherShip.side === p.side || otherShip === ship) return;
+                var sdist = Math.hypot(otherShip.x - p.x, otherShip.y - p.y);
+                if (sdist < 65) {
+                  var splashDamage = 18;
+                  otherShip.shieldHit = 1;
+                  otherShip.shieldHitAngle = Math.atan2(otherShip.y - p.y, otherShip.x - p.x);
+                  otherShip.shieldRegenDelay = 1.8;
+                  if (otherShip.shield > 0) {
+                    var absorbed = Math.min(otherShip.shield, splashDamage);
+                    otherShip.shield -= absorbed;
+                    splashDamage -= absorbed;
+                  }
+                  if (splashDamage > 0) otherShip.hull -= splashDamage;
+                  if (otherShip.hull <= 0) {
+                    otherShip.respawnTimer = rand(1.1, 2.4);
+                    createExplosion(otherShip);
+                  }
+                }
+              });
+            }
+
             if (ship.shield > 0) {
               var absorbed = Math.min(ship.shield, damage);
               ship.shield -= absorbed;
@@ -1320,6 +1404,7 @@
     var shots = [];
     var sparks = [];
     var running = true;
+    var arenaScreenShake = 0;
     var shipsPerFaction = 10;
     var stars = [];
 
@@ -1610,6 +1695,75 @@
         });
       }
     }
+
+    function createArenaProjectileImpact(p, targetShip) {
+      if (p.type === "super") {
+        sparks.push({
+          x: p.x, y: p.y, vx: 0, vy: 0,
+          life: 0.65, maxLife: 0.65,
+          size: 46,
+          color: "rgba(255, 60, 60, 0.85)",
+          type: "blast"
+        });
+        sparks.push({
+          x: p.x, y: p.y, vx: 0, vy: 0,
+          life: 0.8, maxLife: 0.8,
+          size: 76,
+          color: "rgba(255, 180, 80, 0.65)",
+          type: "ring"
+        });
+        for (var k = 0; k < 18; k++) {
+          var angle = rand(0, Math.PI * 2);
+          var speed = rand(60, 220);
+          sparks.push({
+            x: p.x, y: p.y,
+            vx: Math.cos(angle) * speed + targetShip.vx * 0.25,
+            vy: Math.sin(angle) * speed + targetShip.vy * 0.25,
+            life: rand(0.35, 0.85), maxLife: 0.85,
+            size: rand(2.2, 4.5),
+            color: "rgba(255, 100, 100, 0.95)",
+            type: "spark"
+          });
+        }
+      } else if (p.type === "missile") {
+        sparks.push({
+          x: p.x, y: p.y, vx: 0, vy: 0,
+          life: 0.48, maxLife: 0.48,
+          size: 28,
+          color: "rgba(255, 140, 30, 0.9)",
+          type: "blast"
+        });
+        sparks.push({
+          x: p.x, y: p.y, vx: 0, vy: 0,
+          life: 0.58, maxLife: 0.58,
+          size: 42,
+          color: "rgba(255, 200, 50, 0.72)",
+          type: "ring"
+        });
+        for (var k = 0; k < 10; k++) {
+          var angle = rand(0, Math.PI * 2);
+          var speed = rand(40, 150);
+          sparks.push({
+            x: p.x, y: p.y,
+            vx: Math.cos(angle) * speed + targetShip.vx * 0.2,
+            vy: Math.sin(angle) * speed + targetShip.vy * 0.2,
+            life: rand(0.28, 0.65), maxLife: 0.65,
+            size: rand(1.8, 3.4),
+            color: "rgba(255, 180, 50, 0.9)",
+            type: "spark"
+          });
+        }
+      } else {
+        sparks.push({
+          x: p.x, y: p.y,
+          vx: rand(-22, 22), vy: rand(-22, 22),
+          life: 0.38, maxLife: 0.38,
+          size: 3,
+          color: targetShip.faction.color,
+          type: "shield"
+        });
+      }
+    }
     function updateArena(dt) {
       var aliveByFaction = {};
       ships.forEach(function (ship) {
@@ -1844,7 +1998,38 @@
             ship.shieldHit = 1;
             ship.shieldHitAngle = Math.atan2(shot.y - ship.y, shot.x - shot.x);
             ship.shieldRegenDelay = 1.7;
-            sparks.push({ x: shot.x, y: shot.y, vx: rand(-22, 22), vy: rand(-22, 22), life: 0.38, maxLife: 0.38, size: 3, color: ship.faction.color, type: "shield" });
+            
+            createArenaProjectileImpact(shot, ship);
+            
+            if (shot.type === "super") {
+              arenaScreenShake = 18;
+            } else if (shot.type === "missile") {
+              arenaScreenShake = Math.max(arenaScreenShake, 7);
+            }
+            
+            if (shot.type === "missile") {
+              ships.forEach(function (otherShip) {
+                if (!otherShip.alive || otherShip.faction.id === shot.factionId || otherShip === ship) return;
+                var sdist = Math.hypot(otherShip.x - shot.x, otherShip.y - shot.y);
+                if (sdist < 60) {
+                  var splashDamage = 18;
+                  otherShip.shieldHit = 1;
+                  otherShip.shieldHitAngle = Math.atan2(otherShip.y - shot.y, otherShip.x - shot.x);
+                  otherShip.shieldRegenDelay = 1.7;
+                  if (otherShip.shield > 0) {
+                    var absorbed = Math.min(otherShip.shield, splashDamage);
+                    otherShip.shield -= absorbed;
+                    splashDamage -= absorbed;
+                  }
+                  if (splashDamage > 0) otherShip.hull -= splashDamage;
+                  if (otherShip.hull <= 0) {
+                    otherShip.alive = false;
+                    createArenaExplosion(otherShip);
+                  }
+                }
+              });
+            }
+
             if (ship.shield > 0) {
               var absorbed = Math.min(ship.shield, damage);
               ship.shield -= absorbed;
@@ -1951,6 +2136,15 @@
       var dt = Math.min(0.033, (now - last) / 1000);
       last = now;
       ctx.clearRect(0, 0, width, height);
+      
+      ctx.save();
+      if (arenaScreenShake > 0) {
+        var dx = (Math.random() - 0.5) * arenaScreenShake;
+        var dy = (Math.random() - 0.5) * arenaScreenShake;
+        ctx.translate(dx, dy);
+        arenaScreenShake = Math.max(0, arenaScreenShake - dt * 25);
+      }
+      
       drawArenaBackground(now);
       if (running) updateArena(dt);
       shots.forEach(function (shot) {
@@ -2071,6 +2265,8 @@
         }
         ctx.restore();
       });
+      
+      ctx.restore();
       requestAnimationFrame(drawArena);
     }
 
