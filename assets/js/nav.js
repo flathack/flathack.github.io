@@ -193,6 +193,69 @@
     osc.stop(now + duration);
   }
 
+  function playMissileLaunchSound() {
+    if (soundMuted) return;
+    if (!document.querySelector(".battle-arena-overlay.open")) return;
+    initAudio();
+    if (!audioCtx) return;
+    if (audioCtx.state === "suspended") audioCtx.resume();
+
+    var bufferSize = audioCtx.sampleRate * 0.4;
+    var buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+    var data = buffer.getChannelData(0);
+    for (var i = 0; i < bufferSize; i++) {
+      data[i] = Math.random() * 2 - 1;
+    }
+
+    var noise = audioCtx.createBufferSource();
+    noise.buffer = buffer;
+
+    var filter = audioCtx.createBiquadFilter();
+    filter.type = "bandpass";
+    
+    var now = audioCtx.currentTime;
+    filter.frequency.setValueAtTime(600, now);
+    filter.frequency.exponentialRampToValueAtTime(150, now + 0.4);
+    filter.Q.setValueAtTime(4.0, now);
+
+    var gain = audioCtx.createGain();
+    gain.gain.setValueAtTime(0.18, now);
+    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.4);
+
+    noise.connect(filter);
+    filter.connect(gain);
+    gain.connect(audioCtx.destination);
+
+    noise.start(now);
+    noise.stop(now + 0.4);
+  }
+
+  function playSuperWeaponSound() {
+    if (soundMuted) return;
+    if (!document.querySelector(".battle-arena-overlay.open")) return;
+    initAudio();
+    if (!audioCtx) return;
+    if (audioCtx.state === "suspended") audioCtx.resume();
+
+    var osc = audioCtx.createOscillator();
+    var gainNode = audioCtx.createGain();
+    osc.connect(gainNode);
+    gainNode.connect(audioCtx.destination);
+
+    osc.type = "sawtooth";
+    var now = audioCtx.currentTime;
+    var duration = 0.85;
+
+    osc.frequency.setValueAtTime(140, now);
+    osc.frequency.linearRampToValueAtTime(30, now + duration);
+
+    gainNode.gain.setValueAtTime(0.35, now);
+    gainNode.gain.exponentialRampToValueAtTime(0.001, now + duration);
+
+    osc.start(now);
+    osc.stop(now + duration);
+  }
+
   // Attach window hooks so home-freelancer2d-tile.js can leverage these sounds
   window.flathackAudio = {
     playLaser: playLaserSound,
@@ -576,29 +639,112 @@
         });
       }
 
-      ship.fireCooldown -= dt;
-      if (ship.target && ship.fireCooldown <= 0) {
-        var dx = ship.target.x - ship.x;
-        var dy = ship.target.y - ship.y;
-        var dist = Math.hypot(dx, dy);
-        var aimDiff = Math.abs(normalize(Math.atan2(dy, dx) - ship.rotation));
-        var range = isCapital ? 780 : 520;
-        var arc = isCapital ? Math.PI * 2 : 0.45;
-        if (dist < range && aimDiff < arc) {
-          fire(ship, ship.target);
-          ship.fireCooldown = isCapital ? rand(0.18, 0.42) : rand(0.45, 1.15);
-        } else {
-          ship.fireCooldown = 0.15;
+      if (isCapital) {
+        // Primary Lasers
+        ship.fireCooldown -= dt;
+        if (ship.target && ship.fireCooldown <= 0) {
+          var dx = ship.target.x - ship.x;
+          var dy = ship.target.y - ship.y;
+          var dist = Math.hypot(dx, dy);
+          if (dist < 780) {
+            fire(ship, ship.target, "laser");
+            ship.fireCooldown = rand(0.18, 0.42);
+          } else {
+            ship.fireCooldown = 0.15;
+          }
+        }
+
+        // Secondary Missiles
+        if (ship.missileCooldown == null) ship.missileCooldown = rand(1, 4);
+        ship.missileCooldown -= dt;
+        if (ship.target && ship.missileCooldown <= 0) {
+          var dx = ship.target.x - ship.x;
+          var dy = ship.target.y - ship.y;
+          var dist = Math.hypot(dx, dy);
+          if (dist < 850) {
+            fire(ship, ship.target, "missile");
+            ship.missileCooldown = rand(3.5, 6.0);
+          } else {
+            ship.missileCooldown = 0.5;
+          }
+        }
+
+        // Super Battleship Weapon
+        if (ship.superCooldown == null) ship.superCooldown = rand(4, 9);
+        ship.superCooldown -= dt;
+        if (ship.target && ship.superCooldown <= 0) {
+          var dx = ship.target.x - ship.x;
+          var dy = ship.target.y - ship.y;
+          var dist = Math.hypot(dx, dy);
+          if (dist < 900) {
+            fire(ship, ship.target, "super");
+            ship.superCooldown = rand(8.0, 12.0);
+          } else {
+            ship.superCooldown = 0.8;
+          }
+        }
+      } else {
+        // Non-capital standard fire
+        ship.fireCooldown -= dt;
+        if (ship.target && ship.fireCooldown <= 0) {
+          var dx = ship.target.x - ship.x;
+          var dy = ship.target.y - ship.y;
+          var dist = Math.hypot(dx, dy);
+          var aimDiff = Math.abs(normalize(Math.atan2(dy, dx) - ship.rotation));
+          if (dist < 520 && aimDiff < 0.45) {
+            fire(ship, ship.target, "laser");
+            ship.fireCooldown = rand(0.45, 1.15);
+          } else {
+            ship.fireCooldown = 0.15;
+          }
         }
       }
     }
 
-    function fire(ship, target) {
+    function fire(ship, target, type) {
+      if (type == null) type = "laser";
       var angle = Math.atan2(target.y - ship.y, target.x - ship.x);
       var isCapital = ship.faction === "humanCapital";
-      var speed = isCapital ? 460 : ship.side === "human" ? 420 : 370;
       
-      if (isCapital) {
+      if (isCapital && type === "missile") {
+        var cos = Math.cos(ship.rotation);
+        var sin = Math.sin(ship.rotation);
+        var tx = ship.x - 20 * sin;
+        var ty = ship.y + 20 * cos;
+        var fireAngle = ship.rotation + Math.PI / 2;
+        
+        projectiles.push({
+          owner: ship,
+          side: ship.side,
+          x: tx,
+          y: ty,
+          vx: Math.cos(fireAngle) * 220 + ship.vx * 0.4,
+          vy: Math.sin(fireAngle) * 220 + ship.vy * 0.4,
+          life: 3.5,
+          damage: 58,
+          color: "#ff8833",
+          type: "missile",
+          target: target
+        });
+      } else if (isCapital && type === "super") {
+        var tx = ship.x + Math.cos(ship.rotation) * 40;
+        var ty = ship.y + Math.sin(ship.rotation) * 40;
+        var fireAngle = Math.atan2(target.y - ty, target.x - tx);
+        
+        projectiles.push({
+          owner: ship,
+          side: ship.side,
+          x: tx,
+          y: ty,
+          vx: Math.cos(fireAngle) * 380 + ship.vx * 0.3,
+          vy: Math.sin(fireAngle) * 380 + ship.vy * 0.3,
+          life: 2.2,
+          damage: 180,
+          color: "rgba(255, 60, 60, 0.95)",
+          type: "super"
+        });
+      } else if (isCapital) {
+        var speed = 460;
         var offsets = [
           { dl: -15, df: 15 },
           { dl: 15, df: 15 },
@@ -627,10 +773,12 @@
             vy: Math.sin(fireAngle) * speed + ship.vy * 0.25,
             life: 1.55,
             damage: 22,
-            color: ship.side === "human" ? "rgba(105, 210, 255, 0.95)" : "rgba(255, 88, 88, 0.95)"
+            color: ship.side === "human" ? "rgba(105, 210, 255, 0.95)" : "rgba(255, 88, 88, 0.95)",
+            type: "laser"
           });
         });
       } else {
+        var speed = ship.side === "human" ? 420 : 370;
         projectiles.push({
           owner: ship,
           side: ship.side,
@@ -640,7 +788,8 @@
           vy: Math.sin(angle) * speed + ship.vy * 0.2,
           life: 1.15,
           damage: 16,
-          color: ship.side === "human" ? "rgba(105, 210, 255, 0.95)" : "rgba(255, 88, 88, 0.95)"
+          color: ship.side === "human" ? "rgba(105, 210, 255, 0.95)" : "rgba(255, 88, 88, 0.95)",
+          type: "laser"
         });
       }
     }
@@ -648,6 +797,34 @@
     function updateProjectiles(dt) {
       for (var i = projectiles.length - 1; i >= 0; i--) {
         var p = projectiles[i];
+        
+        if (p.type === "missile" && p.target && p.target.hull > 0) {
+          var mdx = p.target.x - p.x;
+          var mdy = p.target.y - p.y;
+          var targetAngle = Math.atan2(mdy, mdx);
+          var currentAngle = Math.atan2(p.vy, p.vx);
+          var diff = normalize(targetAngle - currentAngle);
+          var turn = Math.min(Math.abs(diff), 2.4 * dt);
+          var newAngle = currentAngle + Math.sign(diff) * turn;
+          var speed = Math.hypot(p.vx, p.vy);
+          p.vx = Math.cos(newAngle) * speed;
+          p.vy = Math.sin(newAngle) * speed;
+        }
+
+        if (p.type === "missile" && Math.random() > 0.2) {
+          sparks.push({
+            x: p.x,
+            y: p.y,
+            vx: -p.vx * 0.15 + rand(-8, 8),
+            vy: -p.vy * 0.15 + rand(-8, 8),
+            life: rand(0.18, 0.38),
+            maxLife: 0.38,
+            size: rand(1.5, 3.0),
+            color: "rgba(220, 220, 220, 0.68)",
+            type: "spark"
+          });
+        }
+
         p.x += p.vx * dt;
         p.y += p.vy * dt;
         p.life -= dt;
@@ -856,12 +1033,35 @@
       updateProjectiles(dt);
 
       projectiles.forEach(function (p) {
-        ctx.strokeStyle = p.color;
-        ctx.lineWidth = 1.8;
-        ctx.beginPath();
-        ctx.moveTo(p.x, p.y);
-        ctx.lineTo(p.x - p.vx * 0.035, p.y - p.vy * 0.035);
-        ctx.stroke();
+        if (p.type === "super") {
+          ctx.save();
+          ctx.shadowColor = p.color;
+          ctx.shadowBlur = 16;
+          ctx.fillStyle = "#ffffff";
+          ctx.strokeStyle = p.color;
+          ctx.lineWidth = 2.4;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, 6 + Math.sin(performance.now() * 0.035) * 1.5, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.stroke();
+          ctx.restore();
+        } else if (p.type === "missile") {
+          ctx.save();
+          ctx.fillStyle = "#ffaa44";
+          ctx.shadowColor = "#ffaa44";
+          ctx.shadowBlur = 8;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, 3.2, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.restore();
+        } else {
+          ctx.strokeStyle = p.color;
+          ctx.lineWidth = 1.8;
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(p.x - p.vx * 0.035, p.y - p.vy * 0.035);
+          ctx.stroke();
+        }
       });
 
       for (var i = sparks.length - 1; i >= 0; i--) {
@@ -1207,11 +1407,55 @@
       });
       return best;
     }
-    function fire(ship, target) {
-      playLaserSound(ship.isCapital);
+    function fire(ship, target, type) {
+      if (type == null) type = "laser";
+      
+      if (type === "laser") {
+        playLaserSound(ship.isCapital);
+      } else if (type === "missile") {
+        playMissileLaunchSound();
+      } else if (type === "super") {
+        playSuperWeaponSound();
+      }
+      
       var angle = Math.atan2(target.y - ship.y, target.x - ship.x);
       
-      if (ship.isCapital) {
+      if (ship.isCapital && type === "missile") {
+        var cos = Math.cos(ship.rotation);
+        var sin = Math.sin(ship.rotation);
+        var tx = ship.x - 24 * sin;
+        var ty = ship.y + 24 * cos;
+        var fireAngle = ship.rotation + Math.PI / 2;
+        
+        shots.push({
+          factionId: ship.faction.id,
+          x: tx,
+          y: ty,
+          vx: Math.cos(fireAngle) * 250 + ship.vx * 0.4,
+          vy: Math.sin(fireAngle) * 250 + ship.vy * 0.4,
+          life: 3.2,
+          damage: 58,
+          color: ship.faction.color,
+          type: "missile",
+          target: target
+        });
+      } else if (ship.isCapital && type === "super") {
+        var tx = ship.x + Math.cos(ship.rotation) * 44;
+        var ty = ship.y + Math.sin(ship.rotation) * 44;
+        var fireAngle = Math.atan2(target.y - ty, target.x - tx);
+        
+        shots.push({
+          factionId: ship.faction.id,
+          x: tx,
+          y: ty,
+          vx: Math.cos(fireAngle) * 420 + ship.vx * 0.3,
+          vy: Math.sin(fireAngle) * 420 + ship.vy * 0.3,
+          life: 1.8,
+          damage: 180,
+          color: ship.faction.color,
+          type: "super"
+        });
+      } else if (ship.isCapital) {
         var offsets = [
           { dl: -18, df: 20 },
           { dl: 18, df: 20 },
@@ -1239,7 +1483,8 @@
             vy: Math.sin(fireAngle) * 520 + ship.vy * 0.25,
             life: 1.05,
             damage: 22,
-            color: ship.faction.color
+            color: ship.faction.color,
+            type: "laser"
           });
         });
       } else {
@@ -1251,7 +1496,8 @@
           vy: Math.sin(angle) * 520 + ship.vy * 0.2,
           life: 1.05,
           damage: 14,
-          color: ship.faction.color
+          color: ship.faction.color,
+          type: "laser"
         });
       }
     }
@@ -1374,20 +1620,80 @@
           });
         }
 
-        ship.cooldown -= dt;
-        if (target && ship.cooldown <= 0) {
-          var dist = Math.hypot(target.x - ship.x, target.y - ship.y);
-          var aim = Math.abs(normalize(Math.atan2(target.y - ship.y, target.x - ship.x) - ship.rotation));
-          var range = ship.isCapital ? 700 : 560;
-          var arc = ship.isCapital ? Math.PI * 2 : 0.55;
-          if (dist < range && aim < arc) {
-            fire(ship, target);
-            ship.cooldown = ship.isCapital ? rand(0.16, 0.34) : rand(0.38, 0.85);
+        if (ship.isCapital) {
+          // Primary Lasers
+          ship.cooldown -= dt;
+          if (target && ship.cooldown <= 0) {
+            var dist = Math.hypot(target.x - ship.x, target.y - ship.y);
+            if (dist < 720) {
+              fire(ship, target, "laser");
+              ship.cooldown = rand(0.16, 0.34);
+            }
+          }
+          
+          // Secondary Missiles
+          if (ship.missileCooldown == null) ship.missileCooldown = rand(1, 4);
+          ship.missileCooldown -= dt;
+          if (target && ship.missileCooldown <= 0) {
+            var dist = Math.hypot(target.x - ship.x, target.y - ship.y);
+            if (dist < 800) {
+              fire(ship, target, "missile");
+              ship.missileCooldown = rand(4.0, 7.0);
+            }
+          }
+
+          // Super Battleship Weapon
+          if (ship.superCooldown == null) ship.superCooldown = rand(4, 9);
+          ship.superCooldown -= dt;
+          if (target && ship.superCooldown <= 0) {
+            var dist = Math.hypot(target.x - ship.x, target.y - ship.y);
+            if (dist < 850) {
+              fire(ship, target, "super");
+              ship.superCooldown = rand(9.0, 14.0);
+            }
+          }
+        } else {
+          ship.cooldown -= dt;
+          if (target && ship.cooldown <= 0) {
+            var dist = Math.hypot(target.x - ship.x, target.y - ship.y);
+            var aim = Math.abs(normalize(Math.atan2(target.y - ship.y, target.x - ship.x) - ship.rotation));
+            if (dist < 560 && aim < 0.55) {
+              fire(ship, target, "laser");
+              ship.cooldown = rand(0.38, 0.85);
+            }
           }
         }
       });
       for (var i = shots.length - 1; i >= 0; i--) {
         var shot = shots[i];
+        
+        if (shot.type === "missile" && shot.target && shot.target.alive) {
+          var mdx = shot.target.x - shot.x;
+          var mdy = shot.target.y - shot.y;
+          var targetAngle = Math.atan2(mdy, mdx);
+          var currentAngle = Math.atan2(shot.vy, shot.vx);
+          var diff = normalize(targetAngle - currentAngle);
+          var turn = Math.min(Math.abs(diff), 2.2 * dt);
+          var newAngle = currentAngle + Math.sign(diff) * turn;
+          var speed = Math.hypot(shot.vx, shot.vy);
+          shot.vx = Math.cos(newAngle) * speed;
+          shot.vy = Math.sin(newAngle) * speed;
+        }
+
+        if (shot.type === "missile" && Math.random() > 0.2) {
+          sparks.push({
+            x: shot.x,
+            y: shot.y,
+            vx: -shot.vx * 0.15 + rand(-8, 8),
+            vy: -shot.vy * 0.15 + rand(-8, 8),
+            life: rand(0.18, 0.38),
+            maxLife: 0.38,
+            size: rand(1.5, 3.0),
+            color: "rgba(220, 220, 220, 0.68)",
+            type: "spark"
+          });
+        }
+
         shot.x += shot.vx * dt;
         shot.y += shot.vy * dt;
         shot.life -= dt;
@@ -1509,12 +1815,35 @@
       drawArenaBackground(now);
       if (running) updateArena(dt);
       shots.forEach(function (shot) {
-        ctx.strokeStyle = shot.color;
-        ctx.lineWidth = 2;
-        ctx.beginPath();
-        ctx.moveTo(shot.x, shot.y);
-        ctx.lineTo(shot.x - shot.vx * 0.035, shot.y - shot.vy * 0.035);
-        ctx.stroke();
+        if (shot.type === "super") {
+          ctx.save();
+          ctx.shadowColor = shot.color;
+          ctx.shadowBlur = 18;
+          ctx.fillStyle = "#ffffff";
+          ctx.strokeStyle = shot.color;
+          ctx.lineWidth = 3;
+          ctx.beginPath();
+          ctx.arc(shot.x, shot.y, 7 + Math.sin(performance.now() * 0.03) * 2, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.stroke();
+          ctx.restore();
+        } else if (shot.type === "missile") {
+          ctx.save();
+          ctx.fillStyle = "#ffaa44";
+          ctx.shadowColor = "#ffaa44";
+          ctx.shadowBlur = 8;
+          ctx.beginPath();
+          ctx.arc(shot.x, shot.y, 4, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.restore();
+        } else {
+          ctx.strokeStyle = shot.color;
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.moveTo(shot.x, shot.y);
+          ctx.lineTo(shot.x - shot.vx * 0.035, shot.y - shot.vy * 0.035);
+          ctx.stroke();
+        }
       });
       for (var i = sparks.length - 1; i >= 0; i--) {
         var spark = sparks[i];
