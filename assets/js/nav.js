@@ -44,6 +44,164 @@
   const prefix = "../".repeat(depth);
   const isToolThemePage = document.body && document.body.classList.contains("tool-theme");
 
+  // ── Real-Time Space Combat Sound Synthesizer (Web Audio API) ──
+  var audioCtx = null;
+  var soundMuted = true;
+  try {
+    var storedMute = localStorage.getItem("flathack-sound-muted");
+    if (storedMute !== null) soundMuted = storedMute === "true";
+  } catch (e) {}
+
+  function initAudio() {
+    if (!audioCtx) {
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+  }
+
+  document.addEventListener("visibilitychange", function () {
+    if (document.hidden) {
+      if (audioCtx && audioCtx.state === "running") {
+        audioCtx.suspend();
+      }
+    } else {
+      if (audioCtx && audioCtx.state === "suspended" && !soundMuted) {
+        audioCtx.resume();
+      }
+    }
+  });
+
+  function playLaserSound(isCapital) {
+    if (soundMuted) return;
+    if (!document.querySelector(".battle-arena-overlay.open")) return;
+    initAudio();
+    if (!audioCtx) return;
+    if (audioCtx.state === "suspended") audioCtx.resume();
+
+    var osc = audioCtx.createOscillator();
+    var gainNode = audioCtx.createGain();
+    
+    osc.connect(gainNode);
+    gainNode.connect(audioCtx.destination);
+    
+    osc.type = isCapital ? "sawtooth" : "triangle";
+    var now = audioCtx.currentTime;
+    var duration = isCapital ? 0.28 : 0.14;
+    var startFreq = isCapital ? 380 : 880;
+    var endFreq = isCapital ? 80 : 220;
+    
+    osc.frequency.setValueAtTime(startFreq, now);
+    osc.frequency.exponentialRampToValueAtTime(endFreq, now + duration);
+    
+    gainNode.gain.setValueAtTime(isCapital ? 0.16 : 0.08, now);
+    gainNode.gain.exponentialRampToValueAtTime(0.001, now + duration);
+    
+    osc.start(now);
+    osc.stop(now + duration);
+  }
+
+  function playShieldSound() {
+    if (soundMuted) return;
+    if (!document.querySelector(".battle-arena-overlay.open")) return;
+    initAudio();
+    if (!audioCtx) return;
+    if (audioCtx.state === "suspended") audioCtx.resume();
+
+    var osc = audioCtx.createOscillator();
+    var gainNode = audioCtx.createGain();
+    
+    osc.connect(gainNode);
+    gainNode.connect(audioCtx.destination);
+    
+    osc.type = "sine";
+    var now = audioCtx.currentTime;
+    var duration = 0.08;
+    
+    osc.frequency.setValueAtTime(1400, now);
+    osc.frequency.exponentialRampToValueAtTime(700, now + duration);
+    
+    gainNode.gain.setValueAtTime(0.06, now);
+    gainNode.gain.exponentialRampToValueAtTime(0.001, now + duration);
+    
+    osc.start(now);
+    osc.stop(now + duration);
+  }
+
+  function playExplosionSound(isCapital) {
+    if (soundMuted) return;
+    if (!document.querySelector(".battle-arena-overlay.open")) return;
+    initAudio();
+    if (!audioCtx) return;
+    if (audioCtx.state === "suspended") audioCtx.resume();
+
+    var bufferSize = audioCtx.sampleRate * (isCapital ? 1.4 : 0.85);
+    var buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+    var data = buffer.getChannelData(0);
+    
+    for (var i = 0; i < bufferSize; i++) {
+      data[i] = Math.random() * 2 - 1;
+    }
+    
+    var noiseNode = audioCtx.createBufferSource();
+    noiseNode.buffer = buffer;
+    
+    var filter = audioCtx.createBiquadFilter();
+    filter.type = "lowpass";
+    
+    var now = audioCtx.currentTime;
+    var duration = isCapital ? 1.4 : 0.85;
+    
+    filter.frequency.setValueAtTime(isCapital ? 140 : 250, now);
+    filter.frequency.exponentialRampToValueAtTime(15, now + duration);
+    
+    var gainNode = audioCtx.createGain();
+    gainNode.gain.setValueAtTime(isCapital ? 0.35 : 0.22, now);
+    gainNode.gain.exponentialRampToValueAtTime(0.001, now + duration);
+    
+    noiseNode.connect(filter);
+    filter.connect(gainNode);
+    gainNode.connect(audioCtx.destination);
+    
+    noiseNode.start(now);
+    noiseNode.stop(now + duration);
+  }
+
+  function playWarpSound() {
+    if (soundMuted) return;
+    if (!document.querySelector(".battle-arena-overlay.open")) return;
+    initAudio();
+    if (!audioCtx) return;
+    if (audioCtx.state === "suspended") audioCtx.resume();
+
+    var osc = audioCtx.createOscillator();
+    var gainNode = audioCtx.createGain();
+    
+    osc.connect(gainNode);
+    gainNode.connect(audioCtx.destination);
+    
+    osc.type = "sine";
+    var now = audioCtx.currentTime;
+    var duration = 0.65;
+    
+    osc.frequency.setValueAtTime(80, now);
+    osc.frequency.linearRampToValueAtTime(950, now + duration);
+    
+    gainNode.gain.setValueAtTime(0.001, now);
+    gainNode.gain.linearRampToValueAtTime(0.12, now + duration * 0.4);
+    gainNode.gain.exponentialRampToValueAtTime(0.001, now + duration);
+    
+    osc.start(now);
+    osc.stop(now + duration);
+  }
+
+  // Attach window hooks so home-freelancer2d-tile.js can leverage these sounds
+  window.flathackAudio = {
+    playLaser: playLaserSound,
+    playShield: playShieldSound,
+    playExplosion: playExplosionSound,
+    playWarp: playWarpSound,
+    isMuted: function () { return soundMuted; }
+  };
+
   function initCombatBackground() {
     if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     if (document.querySelector(".site-bg-combat-canvas")) return;
@@ -684,6 +842,10 @@
     }
 
     function drawFrame(now) {
+      if (document.hidden) {
+        requestAnimationFrame(drawFrame);
+        return;
+      }
       var dt = Math.min(0.033, (now - last) / 1000);
       last = now;
       ctx.clearRect(0, 0, width, height);
@@ -784,9 +946,25 @@
   }
 
   function openBattleArena(lang) {
+    // Unmute by default on arena entry unless they have explicitly saved a 'true' mute setting
+    try {
+      var storedMute = localStorage.getItem("flathack-sound-muted");
+      if (storedMute === null) {
+        soundMuted = false;
+      } else {
+        soundMuted = storedMute === "true";
+      }
+    } catch (e) {
+      soundMuted = false;
+    }
+
     var existing = document.querySelector(".battle-arena-overlay");
     if (existing) {
       existing.classList.add("open");
+      var soundBtn = existing.querySelector("[data-arena-sound]");
+      if (soundBtn) {
+        soundBtn.textContent = soundMuted ? "🔇" : "🔊";
+      }
       existing.querySelector("canvas").focus();
       return;
     }
@@ -795,7 +973,7 @@
       en: {
         title: "Battle Arena",
         subtitle: "Four factions, capital ships, everyone against everyone.",
-        ships: "Ships",
+        ships: "Ships per faction",
         start: "Start fight",
         reset: "Reset",
         close: "Close",
@@ -806,7 +984,7 @@
         subtitle: "Wähle zwei Flotten und lass sie gegeneinander antreten.",
         fleetA: "Flotte A",
         fleetB: "Flotte B",
-        ships: "Schiffe",
+        ships: "Schiffe pro Fraktion",
         start: "Kampf starten",
         reset: "Reset",
         close: "Schließen",
@@ -841,7 +1019,10 @@
     var bgImage = new Image();
     bgImage.src = prefix + "assets/img/home/space-nebula-wallpaper.webp";
     var factionCards = factions.map(function (faction) {
-      return '<div class="battle-arena-faction" style="border-color:' + faction.color + ';"><strong>' + faction.name + '</strong><span>1 Battleship + Escorts</span></div>';
+      return '<div class="battle-arena-faction active" data-faction-id="' + faction.id + '" data-active="true" style="border-color:' + faction.color + '; cursor:pointer; user-select:none;">' +
+        '<strong>' + faction.name + '</strong>' +
+        '<span data-faction-status>1 Battleship + 9 Escorts</span>' +
+      '</div>';
     }).join("");
     var overlay = document.createElement("div");
     overlay.className = "battle-arena-overlay open";
@@ -852,9 +1033,21 @@
           '<button type="button" class="battle-arena-close" data-arena-close aria-label="' + text.close + '">x</button>' +
         '</div>' +
         '<div class="battle-arena-controls">' +
-          factionCards +
-          '<button type="button" data-arena-start>' + text.start + '</button>' +
-          '<button type="button" data-arena-reset>' + text.reset + '</button>' +
+          '<div class="battle-arena-factions-row">' + factionCards + '</div>' +
+          '<div class="battle-arena-actions-row">' +
+            '<label class="arena-ship-control" style="display: flex; flex-direction: column; gap: 4px; width: 220px; cursor: pointer;">' +
+              '<span style="font-size: 0.78rem; color: var(--muted); font-weight: 800; display: flex; justify-content: space-between;">' +
+                '<span>' + text.ships + '</span>' +
+                '<output data-arena-ship-output>10</output>' +
+              '</span>' +
+              '<input type="range" min="3" max="25" step="1" value="10" data-arena-ship-count style="cursor: pointer;">' +
+            '</label>' +
+            '<div class="battle-arena-action-buttons">' +
+              '<button type="button" data-arena-start>' + text.start + '</button>' +
+              '<button type="button" data-arena-reset>' + text.reset + '</button>' +
+              '<button type="button" data-arena-sound title="Mute/Unmute sound" style="font-size:1.15rem; min-width:44px; padding:0; cursor:pointer;">' + (soundMuted ? '🔇' : '🔊') + '</button>' +
+            '</div>' +
+          '</div>' +
         '</div>' +
         '<div class="battle-arena-stage"><canvas tabindex="0"></canvas><div class="battle-arena-status" data-arena-status></div></div>' +
       '</div>';
@@ -961,13 +1154,29 @@
       }
     }
     function startArena() {
+      var shipsInput = overlay.querySelector("[data-arena-ship-count]");
+      var shipsPerFaction = shipsInput ? parseInt(shipsInput.value, 10) : 10;
+      
       ships = [];
       shots = [];
       sparks = [];
       status.textContent = "";
+      
+      var activeCount = 0;
       factions.forEach(function (faction) {
-        spawnFleet(faction, shipsPerFaction);
+        var card = overlay.querySelector('[data-faction-id="' + faction.id + '"]');
+        var isActive = card ? card.getAttribute("data-active") === "true" : true;
+        if (isActive) {
+          spawnFleet(faction, shipsPerFaction);
+          activeCount++;
+        }
       });
+      
+      if (activeCount < 2) {
+        status.textContent = lang === "de" ? "Wähle mindestens 2 aktive Parteien!" : "Select at least 2 active factions!";
+        running = false;
+        return;
+      }
       running = true;
     }
     function nearestEnemy(ship) {
@@ -999,6 +1208,7 @@
       return best;
     }
     function fire(ship, target) {
+      playLaserSound(ship.isCapital);
       var angle = Math.atan2(target.y - ship.y, target.x - ship.x);
       
       if (ship.isCapital) {
@@ -1194,6 +1404,7 @@
               var absorbed = Math.min(ship.shield, damage);
               ship.shield -= absorbed;
               damage -= absorbed;
+              playShieldSound();
             }
             if (damage > 0) ship.hull -= damage;
             if (ship.hull <= 0) {
@@ -1214,6 +1425,7 @@
     }
 
     function createArenaExplosion(ship) {
+      playExplosionSound(ship.isCapital);
       var scale = ship.isCapital ? 2.2 : 1;
       sparks.push({ x: ship.x, y: ship.y, vx: 0, vy: 0, life: 0.72, maxLife: 0.72, size: 30 * scale, color: "rgba(255, 220, 135, 0.96)", type: "blast" });
       sparks.push({ x: ship.x, y: ship.y, vx: 0, vy: 0, life: 0.95, maxLife: 0.95, size: 52 * scale, color: "rgba(255, 120, 45, 0.72)", type: "ring" });
@@ -1286,6 +1498,10 @@
       ctx.restore();
     }
     function drawArena(now) {
+      if (document.hidden) {
+        requestAnimationFrame(drawArena);
+        return;
+      }
       if (!document.body.contains(overlay)) return;
       var dt = Math.min(0.033, (now - last) / 1000);
       last = now;
@@ -1395,6 +1611,67 @@
     overlay.querySelector("[data-arena-close]").addEventListener("click", function () {
       overlay.classList.remove("open");
     });
+    var soundBtn = overlay.querySelector("[data-arena-sound]");
+    if (soundBtn) {
+      soundBtn.addEventListener("click", function () {
+        soundMuted = !soundMuted;
+        soundBtn.textContent = soundMuted ? "🔇" : "🔊";
+        try {
+          localStorage.setItem("flathack-sound-muted", soundMuted);
+        } catch (e) {}
+        if (!soundMuted) {
+          initAudio();
+          if (audioCtx && audioCtx.state === "suspended") {
+            audioCtx.resume();
+          }
+        }
+      });
+    }
+
+    function updateFactionCardLabels(shipsCount) {
+      overlay.querySelectorAll(".battle-arena-faction").forEach(function (card) {
+        var isActive = card.getAttribute("data-active") === "true";
+        var statusSpan = card.querySelector("[data-faction-status]");
+        if (statusSpan) {
+          if (isActive) {
+            var escorts = shipsCount - 1;
+            if (lang === "de") {
+              statusSpan.textContent = "1 Schlachtschiff + " + escorts + " Eskorten";
+            } else {
+              statusSpan.textContent = "1 Battleship + " + escorts + " Escorts";
+            }
+          } else {
+            statusSpan.textContent = lang === "de" ? "Inaktiv" : "Inactive";
+          }
+        }
+      });
+    }
+
+    overlay.querySelectorAll(".battle-arena-faction").forEach(function (card) {
+      card.addEventListener("click", function () {
+        var isActive = card.getAttribute("data-active") === "true";
+        var nextActive = !isActive;
+        card.setAttribute("data-active", nextActive ? "true" : "false");
+        card.classList.toggle("active", nextActive);
+        
+        var shipsInput = overlay.querySelector("[data-arena-ship-count]");
+        var count = shipsInput ? parseInt(shipsInput.value, 10) : 10;
+        updateFactionCardLabels(count);
+      });
+    });
+
+    var shipsInput = overlay.querySelector("[data-arena-ship-count]");
+    var shipsOutput = overlay.querySelector("[data-arena-ship-output]");
+    if (shipsInput) {
+      shipsInput.addEventListener("input", function () {
+        var count = parseInt(shipsInput.value, 10);
+        if (shipsOutput) shipsOutput.textContent = count;
+        updateFactionCardLabels(count);
+      });
+    }
+
+    // Initialize labels
+    updateFactionCardLabels(10);
     overlay.addEventListener("click", function (event) {
       if (event.target === overlay) overlay.classList.remove("open");
     });

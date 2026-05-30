@@ -544,11 +544,29 @@ body.gaming-theme .domain-tab.active {
 }
 
 .battle-arena-controls {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(140px, 1fr)) auto auto;
-  gap: 10px;
-  align-items: end;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
   padding: 0 20px 16px;
+}
+
+.battle-arena-factions-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.battle-arena-actions-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.battle-arena-action-buttons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 
 .battle-arena-faction {
@@ -560,6 +578,17 @@ body.gaming-theme .domain-tab.active {
   color: var(--text);
   font-size: 0.82rem;
   font-weight: 800;
+  transition: all 0.22s ease-in-out;
+}
+
+.battle-arena-faction.active {
+  box-shadow: 0 0 10px rgba(88, 196, 255, 0.15);
+}
+
+.battle-arena-faction:not(.active) {
+  opacity: 0.35;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  background: rgba(1, 6, 12, 0.4);
 }
 
 .battle-arena-faction span {
@@ -1437,7 +1466,7 @@ p {
     width: 100%;
   }
 
-  .battle-arena-controls {
+  .battle-arena-factions-row {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -1470,8 +1499,22 @@ p {
     grid-template-rows: auto auto minmax(380px, 1fr);
   }
 
-  .battle-arena-controls {
+  .battle-arena-factions-row {
     grid-template-columns: 1fr;
+  }
+
+  .battle-arena-actions-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .arena-ship-control {
+    width: 100% !important;
+  }
+
+  .battle-arena-action-buttons {
+    justify-content: flex-end;
   }
 
   .battle-arena-stage,

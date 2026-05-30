@@ -931,6 +931,10 @@
   }
 
   function frame(now) {
+    if (document.hidden) {
+      raf = requestAnimationFrame(frame);
+      return;
+    }
     const dt = Math.min(0.033, (now - last) / 1000);
     last = now;
 
