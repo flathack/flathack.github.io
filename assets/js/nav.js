@@ -1194,20 +1194,76 @@
     var text = labels[lang === "de" ? "de" : "en"];
     if (lang === "de") text.subtitle = "Vier Fraktionen, Grosskampfschiffe, alle gegeneinander.";
     var factions = [
-      { id: "libertyNavy", name: "Liberty Navy", sprite: "li_elite", capital: "cf_li_cruiser", color: "rgba(94, 203, 255, 0.96)", corner: [0.18, 0.22] },
-      { id: "rheinlandNavy", name: "Rheinland Navy", sprite: "rh_elite", capital: "cf_rh_cruiser", color: "rgba(255, 203, 89, 0.96)", corner: [0.82, 0.22] },
-      { id: "bretoniaNavy", name: "Bretonia Armed Forces", sprite: "br_elite", capital: "cf_br_destroyer", color: "rgba(88, 255, 160, 0.96)", corner: [0.18, 0.78] },
-      { id: "kusariNavy", name: "Kusari Naval Forces", sprite: "ku_elite", capital: "cf_ku_destroyer", color: "rgba(210, 130, 255, 0.96)", corner: [0.82, 0.78] }
+      { 
+        id: "libertyNavy", 
+        name: "Liberty Navy", 
+        fighter: "li_fighter", 
+        elite: "li_elite", 
+        gunboat: "cf_li_gunboat", 
+        destroyer: "cf_li_cruiser", 
+        battleship: "li_dreadnought", 
+        color: "rgba(94, 203, 255, 0.96)", 
+        corner: [0.18, 0.22] 
+      },
+      { 
+        id: "rheinlandNavy", 
+        name: "Rheinland Navy", 
+        fighter: "rh_fighter", 
+        elite: "rh_elite", 
+        gunboat: "cf_rh_gunboat", 
+        destroyer: "cf_rh_cruiser", 
+        battleship: "rh_battleship", 
+        color: "rgba(255, 203, 89, 0.96)", 
+        corner: [0.82, 0.22] 
+      },
+      { 
+        id: "bretoniaNavy", 
+        name: "Bretonia Armed Forces", 
+        fighter: "br_fighter", 
+        elite: "br_elite", 
+        gunboat: "cf_br_gunboat", 
+        destroyer: "cf_br_destroyer", 
+        battleship: "br_battleship", 
+        color: "rgba(88, 255, 160, 0.96)", 
+        corner: [0.18, 0.78] 
+      },
+      { 
+        id: "kusariNavy", 
+        name: "Kusari Naval Forces", 
+        fighter: "ku_fighter", 
+        elite: "ku_elite", 
+        gunboat: "cf_ku_gunboat", 
+        destroyer: "cf_ku_destroyer", 
+        battleship: "ku_battleship", 
+        color: "rgba(210, 130, 255, 0.96)", 
+        corner: [0.82, 0.78] 
+      }
     ];
     var assetMap = {
-      br_elite: "br_elite.png",
-      cf_br_destroyer: "cf_br_destroyer.png",
-      cf_ku_destroyer: "cf_ku_destroyer.png",
-      cf_li_cruiser: "cf_li_cruiser.png",
-      cf_rh_cruiser: "cf_rh_cruiser.png",
-      ku_elite: "ku_elite.png",
+      // Liberty
+      li_fighter: "li_fighter.png",
       li_elite: "li_elite.png",
-      rh_elite: "rh_elite.png"
+      cf_li_gunboat: "cf_li_gunboat.png",
+      cf_li_cruiser: "cf_li_cruiser.png",
+      li_dreadnought: "li_dreadnought.png",
+      // Rheinland
+      rh_fighter: "rh_fighter.png",
+      rh_elite: "rh_elite.png",
+      cf_rh_gunboat: "cf_rh_gunboat.png",
+      cf_rh_cruiser: "cf_rh_cruiser.png",
+      rh_battleship: "rh_battleship.png",
+      // Bretonia
+      br_fighter: "br_fighter.png",
+      br_elite: "br_elite.png",
+      cf_br_gunboat: "cf_br_gunboat.png",
+      cf_br_destroyer: "cf_br_destroyer.png",
+      br_battleship: "br_battleship.png",
+      // Kusari
+      ku_fighter: "ku_fighter.png",
+      ku_elite: "ku_elite.png",
+      cf_ku_gunboat: "cf_ku_gunboat.png",
+      cf_ku_destroyer: "cf_ku_destroyer.png",
+      ku_battleship: "ku_battleship.png"
     };
     var images = {};
     Object.keys(assetMap).forEach(function (key) {
@@ -1221,7 +1277,7 @@
     var factionCards = factions.map(function (faction) {
       return '<div class="battle-arena-faction active" data-faction-id="' + faction.id + '" data-active="true" style="border-color:' + faction.color + '; cursor:pointer; user-select:none;">' +
         '<strong>' + faction.name + '</strong>' +
-        '<span data-faction-status>1 Battleship + 9 Escorts</span>' +
+        '<span data-faction-status>1 BB + 1 DD + 2 GS + 6 Ftr</span>' +
       '</div>';
     }).join("");
     var overlay = document.createElement("div");
@@ -1307,19 +1363,64 @@
     function spawnFleet(faction, count) {
       var sideX = width * faction.corner[0];
       var sideY = height * faction.corner[1];
-      var capitalShip = null;
+      var battleshipShip = null;
+      var destroyerShip = null;
+      
       for (var i = 0; i < count; i++) {
-        var isCapital = i === 0;
-        var sprite = isCapital ? faction.capital : faction.sprite;
-        var hull = isCapital ? 2000 : 130;
-        var shield = isCapital ? 800 : 82;
+        var classType = "fighter";
+        if (i === 0) classType = "battleship";
+        else if (i === 1) classType = "destroyer";
+        else if (i === 2) classType = "gunboat";
+        else if (i === 3 && count > 5) classType = "gunboat";
+        else if (i < Math.ceil(count * 0.6)) classType = "elite";
+        else classType = "fighter";
+
+        var sprite = faction[classType];
+        var hull = 110;
+        var shield = 60;
+        var radius = 14;
+        var size = 28;
+        var turnRate = 2.8;
+        var speed = rand(62, 78);
+
+        if (classType === "battleship") {
+          hull = 4000;
+          shield = 1600;
+          radius = 48;
+          size = 102;
+          turnRate = 0.28;
+          speed = rand(8, 12);
+        } else if (classType === "destroyer") {
+          hull = 2200;
+          shield = 800;
+          radius = 38;
+          size = 80;
+          turnRate = 0.38;
+          speed = rand(12, 16);
+        } else if (classType === "gunboat") {
+          hull = 800;
+          shield = 300;
+          radius = 26;
+          size = 54;
+          turnRate = 0.78;
+          speed = rand(24, 32);
+        } else if (classType === "elite") {
+          hull = 180;
+          shield = 100;
+          radius = 17;
+          size = 34;
+          turnRate = 2.2;
+          speed = rand(52, 68);
+        }
+
         var spawnAngle = Math.atan2(height * 0.5 - sideY, width * 0.5 - sideX);
         var ship = {
           faction: faction,
           sprite: sprite,
+          classType: classType,
           x: sideX + rand(-90, 90),
           y: sideY + rand(-70, 70),
-          vx: Math.cos(spawnAngle) * (isCapital ? rand(6, 12) : rand(15, 34)),
+          vx: Math.cos(spawnAngle) * (classType === "battleship" || classType === "destroyer" ? rand(6, 12) : rand(15, 34)),
           vy: rand(-18, 18),
           rotation: spawnAngle,
           hull: hull,
@@ -1329,10 +1430,13 @@
           shieldHit: 0,
           shieldHitAngle: 0,
           shieldRegenDelay: 0,
-          radius: isCapital ? 42 : 17,
-          size: isCapital ? 86 : 34,
+          radius: radius,
+          size: size,
           cooldown: rand(0.2, 1.2),
-          isCapital: isCapital,
+          isCapital: classType === "battleship" || classType === "destroyer",
+          isBattleship: classType === "battleship",
+          isDestroyer: classType === "destroyer",
+          isGunboat: classType === "gunboat",
           alive: true,
           thrusterActive: false,
           dogfightState: "approach",
@@ -1341,13 +1445,18 @@
           wobbleTime: rand(0, 100),
           escorting: null,
           formationSlot: -1,
-          turnRate: isCapital ? 0.38 : 2.5,
-          speed: isCapital ? rand(10, 14) : rand(50, 72)
+          turnRate: turnRate,
+          speed: speed
         };
-        if (isCapital) {
-          capitalShip = ship;
+
+        if (classType === "battleship") {
+          battleshipShip = ship;
+        } else if (classType === "destroyer") {
+          destroyerShip = ship;
+          ship.escorting = battleshipShip;
+          ship.formationSlot = 0;
         } else {
-          ship.escorting = capitalShip;
+          ship.escorting = battleshipShip || destroyerShip;
           ship.formationSlot = i - 1;
         }
         ships.push(ship);
@@ -1620,8 +1729,8 @@
           });
         }
 
-        if (ship.isCapital) {
-          // Primary Lasers
+        if (ship.classType === "battleship") {
+          // 1. Primary Lasers
           ship.cooldown -= dt;
           if (target && ship.cooldown <= 0) {
             var dist = Math.hypot(target.x - ship.x, target.y - ship.y);
@@ -1631,7 +1740,7 @@
             }
           }
           
-          // Secondary Missiles
+          // 2. Secondary Missiles
           if (ship.missileCooldown == null) ship.missileCooldown = rand(1, 4);
           ship.missileCooldown -= dt;
           if (target && ship.missileCooldown <= 0) {
@@ -1642,7 +1751,7 @@
             }
           }
 
-          // Super Battleship Weapon
+          // 3. Super Battleship Weapon
           if (ship.superCooldown == null) ship.superCooldown = rand(4, 9);
           ship.superCooldown -= dt;
           if (target && ship.superCooldown <= 0) {
@@ -1650,6 +1759,36 @@
             if (dist < 850) {
               fire(ship, target, "super");
               ship.superCooldown = rand(9.0, 14.0);
+            }
+          }
+        } else if (ship.classType === "destroyer") {
+          // 1. Primary Lasers
+          ship.cooldown -= dt;
+          if (target && ship.cooldown <= 0) {
+            var dist = Math.hypot(target.x - ship.x, target.y - ship.y);
+            if (dist < 680) {
+              fire(ship, target, "laser");
+              ship.cooldown = rand(0.20, 0.38);
+            }
+          }
+          
+          // 2. Secondary Missiles
+          if (ship.missileCooldown == null) ship.missileCooldown = rand(1, 4);
+          ship.missileCooldown -= dt;
+          if (target && ship.missileCooldown <= 0) {
+            var dist = Math.hypot(target.x - ship.x, target.y - ship.y);
+            if (dist < 750) {
+              fire(ship, target, "missile");
+              ship.missileCooldown = rand(4.5, 8.0);
+            }
+          }
+        } else if (ship.classType === "gunboat") {
+          ship.cooldown -= dt;
+          if (target && ship.cooldown <= 0) {
+            var dist = Math.hypot(target.x - ship.x, target.y - ship.y);
+            if (dist < 600) {
+              fire(ship, target, "laser");
+              ship.cooldown = rand(0.12, 0.24);
             }
           }
         } else {
@@ -1957,18 +2096,37 @@
       });
     }
 
+    function getFleetCompositionText(count, lang) {
+      if (count <= 1) {
+        return lang === "de" ? "1 Schlachtschiff" : "1 Battleship";
+      }
+      var parts = [];
+      var bs = 1;
+      var dd = count >= 2 ? 1 : 0;
+      var gs = count >= 3 ? (count > 5 ? 2 : 1) : 0;
+      var fighters = count - (bs + dd + gs);
+      
+      if (lang === "de") {
+        parts.push("1 BB");
+        if (dd) parts.push("1 DD");
+        if (gs) parts.push(gs + " GS");
+        if (fighters > 0) parts.push(fighters + " Jg");
+      } else {
+        parts.push("1 BB");
+        if (dd) parts.push("1 DD");
+        if (gs) parts.push(gs + " GS");
+        if (fighters > 0) parts.push(fighters + " Ftr");
+      }
+      return parts.join(" + ");
+    }
+
     function updateFactionCardLabels(shipsCount) {
       overlay.querySelectorAll(".battle-arena-faction").forEach(function (card) {
         var isActive = card.getAttribute("data-active") === "true";
         var statusSpan = card.querySelector("[data-faction-status]");
         if (statusSpan) {
           if (isActive) {
-            var escorts = shipsCount - 1;
-            if (lang === "de") {
-              statusSpan.textContent = "1 Schlachtschiff + " + escorts + " Eskorten";
-            } else {
-              statusSpan.textContent = "1 Battleship + " + escorts + " Escorts";
-            }
+            statusSpan.textContent = getFleetCompositionText(shipsCount, lang);
           } else {
             statusSpan.textContent = lang === "de" ? "Inaktiv" : "Inactive";
           }
