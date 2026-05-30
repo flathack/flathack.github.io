@@ -883,6 +883,17 @@
       while (angle < -Math.PI) angle += Math.PI * 2;
       return angle;
     }
+    var arenaFormationOffsets = [
+      { dx: -45, dy: -45 },
+      { dx: 45, dy: -45 },
+      { dx: -80, dy: -80 },
+      { dx: 80, dy: -80 },
+      { dx: 0, dy: -70 },
+      { dx: -35, dy: 35 },
+      { dx: 35, dy: 35 },
+      { dx: -115, dy: -115 },
+      { dx: 115, dy: -115 }
+    ];
     function resizeArena() {
       dpr = Math.min(window.devicePixelRatio || 1, 2);
       width = canvas.clientWidth;
@@ -898,17 +909,7 @@
           a: 0.22 + ((i * 13) % 70) / 100
         };
       });
-      var arenaFormationOffsets = [
-      { dx: -45, dy: -45 },
-      { dx: 45, dy: -45 },
-      { dx: -80, dy: -80 },
-      { dx: 80, dy: -80 },
-      { dx: 0, dy: -70 },
-      { dx: -35, dy: 35 },
-      { dx: 35, dy: 35 },
-      { dx: -115, dy: -115 },
-      { dx: 115, dy: -115 }
-    ];
+    }
 
     function spawnFleet(faction, count) {
       var sideX = width * faction.corner[0];
@@ -1210,7 +1211,7 @@
         var winner = activeFactions.length ? factionById(activeFactions[0]).name : "No survivors";
         status.textContent = text.victory + ": " + winner;
       }
-    }   }
+    }
 
     function createArenaExplosion(ship) {
       var scale = ship.isCapital ? 2.2 : 1;
