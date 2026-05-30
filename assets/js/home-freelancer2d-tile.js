@@ -87,6 +87,54 @@
     }));
   }
 
+  let lasers = [];
+  let sparks = [];
+
+  function rand(min, max) {
+    return min + Math.random() * (max - min);
+  }
+
+  function getTraderPathNodes() {
+    const manhattan = { x: width * 0.5, y: height * 0.34 };
+    const newark = { x: width * 0.83, y: height * 0.24 };
+    
+    const laneStartX = width * 0.79;
+    const laneStartY = height * 0.15;
+    const laneEndX = width * 0.94;
+    const laneEndY = height * 0.04;
+    
+    const ring0 = { x: laneStartX, y: laneStartY };
+    const ring1 = { x: laneStartX + (laneEndX - laneStartX) / 3, y: laneStartY + (laneEndY - laneStartY) / 3 };
+    const ring2 = { x: laneStartX + (laneEndX - laneStartX) * 2 / 3, y: laneStartY + (laneEndY - laneStartY) * 2 / 3 };
+    const ring3 = { x: laneEndX, y: laneEndY };
+    
+    return [
+      manhattan,
+      ring0,
+      ring1,
+      ring2,
+      ring3,
+      newark,
+      ring3,
+      ring2,
+      ring1,
+      ring0,
+      manhattan
+    ];
+  }
+
+  function getTradeLaneRingPos(ringIndex) {
+    const laneStartX = width * 0.79;
+    const laneStartY = height * 0.15;
+    const laneEndX = width * 0.94;
+    const laneEndY = height * 0.04;
+    const t = ringIndex / 3;
+    return {
+      x: laneStartX + (laneEndX - laneStartX) * t,
+      y: laneStartY + (laneEndY - laneStartY) * t
+    };
+  }
+
   function spawnNPC(fromEdge = false) {
     const role = pick(roles);
     const side = fromEdge ? Math.floor(Math.random() * 4) : -1;
@@ -102,13 +150,15 @@
 
     const angle = Math.atan2(targetY - y, targetX - x);
     const maxSpeed = {
-      trader: 44,
-      pirate: 72,
-      police: 64,
-      civilian: 48,
+      trader: 42,
+      pirate: 65,
+      police: 58,
+      civilian: 44,
     }[role] || 46;
 
     const sprite = pick(roleSprites[role] || ["civilianLiberty"]);
+    const radius = role === "trader" ? 18 : 14;
+    const maxHull = role === "trader" ? 160 : role === "pirate" ? 110 : role === "police" ? 130 : 90;
 
     return {
       role,
@@ -118,39 +168,421 @@
       y,
       rotation: angle,
       targetAngle: angle,
-      speed: maxSpeed * (0.72 + Math.random() * 0.45),
-      turnRate: 1.6 + Math.random() * 1.6,
-      throttle: 0.35 + Math.random() * 0.48,
+      speed: maxSpeed * (0.75 + Math.random() * 0.4),
+      turnRate: role === "trader" ? 1.4 : 2.4 + Math.random() * 0.8,
+      throttle: 0.5 + Math.random() * 0.4,
       drift: Math.random() * Math.PI * 2,
-      radius: role === "trader" ? 20 : 16,
+      radius: radius,
       minimapColor: colors[role] || "#888888",
       vx: Math.cos(angle) * maxSpeed,
       vy: Math.sin(angle) * maxSpeed,
+      hull: maxHull,
+      maxHull: maxHull,
+      shieldHit: 0,
+      shieldRegenDelay: 0,
+      fireCooldown: Math.random() * 1.5,
+      panicTimer: 0,
+      disengageTimer: 0,
+      disengageDir: Math.random() > 0.5 ? 1 : -1,
+      targetShip: null,
+      pathNodeIndex: Math.floor(Math.random() * 11),
+      patrolTimer: Math.random() * 4.0,
+      thrusterActive: false,
+      respawnTimer: 0
     };
   }
 
   function resetShips() {
     ships = Array.from({ length: 6 }, () => spawnNPC(false));
+    lasers = [];
+    sparks = [];
   }
 
   function updateNPC(npc, dt) {
-    npc.drift += dt * 0.7;
-    npc.targetAngle += Math.sin(npc.drift) * dt * 0.34;
+    if (npc.hull <= 0) {
+      npc.respawnTimer -= dt;
+      if (npc.respawnTimer <= 0) {
+        Object.assign(npc, spawnNPC(true));
+      }
+      return;
+    }
 
-    const diff = normalizeAngle(npc.targetAngle - npc.rotation);
+    npc.shieldHit = Math.max(0, npc.shieldHit - dt * 2.0);
+    npc.shieldRegenDelay = Math.max(0, npc.shieldRegenDelay - dt);
+    
+    let tx = width * 0.5;
+    let ty = height * 0.5;
+    let desiredAngle = npc.rotation;
+    let speedMult = 1.0;
+    npc.thrusterActive = false;
+
+    let bestTarget = null;
+    let bestDist = Infinity;
+
+    if (npc.role === "pirate") {
+      for (let other of ships) {
+        if (other.hull <= 0 || other === npc) continue;
+        if (other.role === "trader" || other.role === "civilian" || other.role === "police") {
+          let dist = Math.hypot(other.x - npc.x, other.y - npc.y);
+          if (dist < bestDist) {
+            bestDist = dist;
+            bestTarget = other;
+          }
+        }
+      }
+      if (bestDist < 160 || (npc.targetShip && npc.targetShip.hull > 0 && bestDist < 240)) {
+        npc.targetShip = bestTarget;
+      } else {
+        npc.targetShip = null;
+      }
+    } else if (npc.role === "police") {
+      for (let other of ships) {
+        if (other.hull <= 0 || other === npc) continue;
+        if (other.role === "pirate") {
+          let dist = Math.hypot(other.x - npc.x, other.y - npc.y);
+          if (dist < bestDist) {
+            bestDist = dist;
+            bestTarget = other;
+          }
+        }
+      }
+      if (bestDist < 200 || (npc.targetShip && npc.targetShip.hull > 0 && bestDist < 280)) {
+        npc.targetShip = bestTarget;
+      } else {
+        npc.targetShip = null;
+      }
+    }
+
+    if (npc.role === "trader") {
+      let attacker = null;
+      let attackerDist = Infinity;
+      for (let other of ships) {
+        if (other.hull > 0 && other.role === "pirate") {
+          let dist = Math.hypot(other.x - npc.x, other.y - npc.y);
+          if (dist < attackerDist) {
+            attackerDist = dist;
+            attacker = other;
+          }
+        }
+      }
+      
+      if (attackerDist < 130) {
+        npc.panicTimer = 3.5;
+      }
+
+      if (npc.panicTimer > 0) {
+        npc.panicTimer -= dt;
+        npc.thrusterActive = true;
+        speedMult = 2.0;
+        let manhattan = { x: width * 0.5, y: height * 0.34 };
+        let newark = { x: width * 0.83, y: height * 0.24 };
+        let dMan = Math.hypot(manhattan.x - npc.x, manhattan.y - npc.y);
+        let dNew = Math.hypot(newark.x - npc.x, newark.y - npc.y);
+        let escapeTarget = dMan < dNew ? manhattan : newark;
+        
+        tx = escapeTarget.x;
+        ty = escapeTarget.y;
+        desiredAngle = Math.atan2(ty - npc.y, tx - npc.x);
+      } else {
+        const nodes = getTraderPathNodes();
+        let currNode = nodes[npc.pathNodeIndex % nodes.length];
+        tx = currNode.x;
+        ty = currNode.y;
+        
+        let dist = Math.hypot(tx - npc.x, ty - npc.y);
+        if (dist < 25) {
+          npc.pathNodeIndex = (npc.pathNodeIndex + 1) % nodes.length;
+        }
+        desiredAngle = Math.atan2(ty - npc.y, tx - npc.x);
+      }
+
+    } else if (npc.role === "pirate") {
+      if (npc.targetShip && npc.targetShip.hull > 0) {
+        let target = npc.targetShip;
+        let dx = target.x - npc.x;
+        let dy = target.y - npc.y;
+        let dist = Math.hypot(dx, dy);
+
+        if (npc.disengageTimer > 0) {
+          npc.disengageTimer -= dt;
+          desiredAngle = Math.atan2(dy, dx) + npc.disengageDir * 1.4;
+          npc.thrusterActive = true;
+        } else if (dist < 80) {
+          npc.disengageTimer = rand(1.0, 1.8);
+          npc.disengageDir = Math.random() > 0.5 ? 1 : -1;
+          desiredAngle = Math.atan2(dy, dx) + npc.disengageDir * 1.4;
+          npc.thrusterActive = true;
+        } else {
+          let pSpeed = 380;
+          let travelTime = dist / pSpeed;
+          let tx = target.x + target.vx * travelTime;
+          let ty = target.y + target.vy * travelTime;
+          desiredAngle = Math.atan2(ty - npc.y, tx - npc.x);
+          if (dist > 180) npc.thrusterActive = true;
+        }
+
+        npc.fireCooldown -= dt;
+        if (npc.fireCooldown <= 0) {
+          let aimDiff = Math.abs(normalizeAngle(Math.atan2(dy, dx) - npc.rotation));
+          if (dist < 320 && aimDiff < 0.5) {
+            lasers.push({
+              ownerRole: "pirate",
+              x: npc.x + Math.cos(npc.rotation) * 12,
+              y: npc.y + Math.sin(npc.rotation) * 12,
+              vx: Math.cos(npc.rotation) * 380 + npc.vx * 0.15,
+              vy: Math.sin(npc.rotation) * 380 + npc.vy * 0.15,
+              life: 0.95,
+              damage: 15,
+              color: "#ff3333"
+            });
+            npc.fireCooldown = 0.6 + Math.random() * 0.6;
+          }
+        }
+      } else {
+        let neb1 = { x: width * 0.28, y: height * 0.5 };
+        let neb2 = { x: width * 0.72, y: height * 0.42 };
+        let lurkTarget = (npc.wobbleTime % 2 === 0) ? neb1 : neb2;
+        
+        tx = lurkTarget.x + Math.sin(npc.drift) * 60;
+        ty = lurkTarget.y + Math.cos(npc.drift) * 45;
+        
+        npc.drift += dt * 0.4;
+        desiredAngle = Math.atan2(ty - npc.y, tx - npc.x);
+        speedMult = 0.55;
+      }
+
+    } else if (npc.role === "police") {
+      if (npc.targetShip && npc.targetShip.hull > 0) {
+        let target = npc.targetShip;
+        let dx = target.x - npc.x;
+        let dy = target.y - npc.y;
+        let dist = Math.hypot(dx, dy);
+
+        if (npc.disengageTimer > 0) {
+          npc.disengageTimer -= dt;
+          desiredAngle = Math.atan2(dy, dx) + npc.disengageDir * 1.4;
+          npc.thrusterActive = true;
+        } else if (dist < 80) {
+          npc.disengageTimer = rand(1.0, 1.8);
+          npc.disengageDir = Math.random() > 0.5 ? 1 : -1;
+          desiredAngle = Math.atan2(dy, dx) + npc.disengageDir * 1.4;
+          npc.thrusterActive = true;
+        } else {
+          let pSpeed = 410;
+          let travelTime = dist / pSpeed;
+          let tx = target.x + target.vx * travelTime;
+          let ty = target.y + target.vy * travelTime;
+          desiredAngle = Math.atan2(ty - npc.y, tx - npc.x);
+          if (dist > 180) npc.thrusterActive = true;
+        }
+
+        npc.fireCooldown -= dt;
+        if (npc.fireCooldown <= 0) {
+          let aimDiff = Math.abs(normalizeAngle(Math.atan2(dy, dx) - npc.rotation));
+          if (dist < 320 && aimDiff < 0.5) {
+            lasers.push({
+              ownerRole: "police",
+              x: npc.x + Math.cos(npc.rotation) * 12,
+              y: npc.y + Math.sin(npc.rotation) * 12,
+              vx: Math.cos(npc.rotation) * 410 + npc.vx * 0.15,
+              vy: Math.sin(npc.rotation) * 410 + npc.vy * 0.15,
+              life: 0.95,
+              damage: 16,
+              color: "#33cc88"
+            });
+            npc.fireCooldown = 0.5 + Math.random() * 0.5;
+          }
+        }
+      } else {
+        npc.patrolTimer -= dt;
+        if (npc.patrolTimer <= 0) {
+          npc.patrolTimer = 6.0 + Math.random() * 8.0;
+          npc.pathNodeIndex = Math.floor(Math.random() * 3);
+        }
+        
+        let nodePos = { x: width * 0.5, y: height * 0.34 };
+        if (npc.pathNodeIndex === 1) nodePos = { x: width * 0.83, y: height * 0.24 };
+        if (npc.pathNodeIndex === 2) nodePos = getTradeLaneRingPos(1);
+        
+        tx = nodePos.x + Math.sin(npc.drift) * 40;
+        ty = nodePos.y + Math.cos(npc.drift) * 40;
+        
+        npc.drift += dt * 0.5;
+        desiredAngle = Math.atan2(ty - npc.y, tx - npc.x);
+        speedMult = 0.8;
+      }
+
+    } else if (npc.role === "civilian") {
+      tx = width * 0.5 + Math.sin(npc.drift) * 130;
+      ty = height * 0.42 + Math.cos(npc.drift) * 100;
+      
+      npc.drift += dt * 0.25;
+      desiredAngle = Math.atan2(ty - npc.y, tx - npc.x);
+      speedMult = 0.7;
+    }
+
+    let border = 40;
+    let steerX = 0;
+    let steerY = 0;
+    if (npc.x < border) steerX = 1;
+    else if (npc.x > width - border) steerX = -1;
+    if (npc.y < border) steerY = 1;
+    else if (npc.y > height - border) steerY = -1;
+    
+    if (steerX !== 0 || steerY !== 0) {
+      desiredAngle = Math.atan2(steerY, steerX);
+      npc.thrusterActive = true;
+    }
+
+    const diff = normalizeAngle(desiredAngle - npc.rotation);
     const turn = Math.min(Math.abs(diff), npc.turnRate * dt);
     npc.rotation += Math.sign(diff) * turn;
 
-    const targetSpeed = npc.speed * npc.throttle;
-    npc.vx += Math.cos(npc.rotation) * targetSpeed * dt * 0.45;
-    npc.vy += Math.sin(npc.rotation) * targetSpeed * dt * 0.45;
-    npc.vx *= 0.992;
-    npc.vy *= 0.992;
+    const actualSpeed = npc.speed * speedMult * (npc.thrusterActive ? 1.6 : 1.0);
+    const targetSpeed = actualSpeed * npc.throttle;
+    npc.vx += Math.cos(npc.rotation) * targetSpeed * dt * 0.65;
+    npc.vy += Math.sin(npc.rotation) * targetSpeed * dt * 0.65;
+    npc.vx *= 0.985;
+    npc.vy *= 0.985;
     npc.x += npc.vx * dt;
     npc.y += npc.vy * dt;
 
-    if (npc.x < -110 || npc.x > width + 110 || npc.y < -110 || npc.y > height + 110) {
+    if (npc.thrusterActive && Math.random() > 0.45) {
+      let backAngle = npc.rotation + Math.PI + rand(-0.2, 0.2);
+      let px = npc.x - Math.cos(npc.rotation) * npc.radius * 0.92;
+      let py = npc.y - Math.sin(npc.rotation) * npc.radius * 0.92;
+      sparks.push({
+        x: px,
+        y: py,
+        vx: Math.cos(backAngle) * 35 + npc.vx * 0.2,
+        vy: Math.sin(backAngle) * 35 + npc.vy * 0.2,
+        life: 0.2,
+        maxLife: 0.2,
+        size: 1.2,
+        color: npc.role === "pirate" ? "rgba(255, 80, 50, 0.55)" : "rgba(100, 200, 255, 0.55)",
+        type: "spark"
+      });
+    }
+
+    if (npc.x < -130 || npc.x > width + 130 || npc.y < -130 || npc.y > height + 130) {
       Object.assign(npc, spawnNPC(true));
+    }
+  }
+
+  function createTileExplosion(ship) {
+    for (let k = 0; k < 15; k++) {
+      let angle = Math.random() * Math.PI * 2;
+      let speed = 25 + Math.random() * 90;
+      sparks.push({
+        x: ship.x, y: ship.y,
+        vx: Math.cos(angle) * speed, vy: Math.sin(angle) * speed,
+        life: 0.35 + Math.random() * 0.55, maxLife: 0.9,
+        size: 1.5 + Math.random() * 2.5,
+        color: k % 3 === 0 ? (ship.role === "pirate" ? "#ff5533" : "#33aaff") : "#ffbb33",
+        type: "spark"
+      });
+    }
+    sparks.push({
+      x: ship.x, y: ship.y,
+      vx: 0, vy: 0,
+      life: 0.45, maxLife: 0.45,
+      size: 25,
+      color: "rgba(255, 170, 40, 0.8)",
+      type: "blast"
+    });
+  }
+
+  function updateLasers(dt) {
+    for (let i = lasers.length - 1; i >= 0; i--) {
+      let l = lasers[i];
+      l.x += l.vx * dt;
+      l.y += l.vy * dt;
+      l.life -= dt;
+      
+      let hit = false;
+      for (let s of ships) {
+        if (s.hull <= 0 || s.role === l.ownerRole) continue;
+        if (s.role === "trader" && l.ownerRole === "civilian") continue;
+        if (s.role === "civilian" && l.ownerRole === "trader") continue;
+        
+        let dist = Math.hypot(s.x - l.x, s.y - l.y);
+        if (dist < s.radius + 2) {
+          s.hull -= l.damage;
+          s.shieldHit = 0.45;
+          
+          for (let k = 0; k < 4; k++) {
+            sparks.push({
+              x: l.x,
+              y: l.y,
+              vx: (Math.random() - 0.5) * 50,
+              vy: (Math.random() - 0.5) * 50,
+              life: 0.25,
+              maxLife: 0.25,
+              size: 2,
+              color: l.color,
+              type: "spark"
+            });
+          }
+          
+          if (s.hull <= 0) {
+            s.respawnTimer = 3.5;
+            createTileExplosion(s);
+          }
+          hit = true;
+          break;
+        }
+      }
+      if (hit || l.life <= 0) {
+        lasers.splice(i, 1);
+      }
+    }
+  }
+
+  function updateSparks(dt) {
+    for (let i = sparks.length - 1; i >= 0; i--) {
+      let s = sparks[i];
+      s.life -= dt;
+      s.x += (s.vx || 0) * dt;
+      s.y += (s.vy || 0) * dt;
+      if (s.life <= 0) sparks.splice(i, 1);
+    }
+  }
+
+  function drawLasers() {
+    for (let l of lasers) {
+      ctx.save();
+      ctx.strokeStyle = l.color;
+      ctx.lineWidth = 1.8;
+      ctx.beginPath();
+      ctx.moveTo(l.x, l.y);
+      ctx.lineTo(l.x - l.vx * 0.04, l.y - l.vy * 0.04);
+      ctx.stroke();
+      ctx.restore();
+    }
+  }
+
+  function drawSparks() {
+    for (let s of sparks) {
+      ctx.save();
+      if (s.type === "blast") {
+        let prog = 1 - s.life / s.maxLife;
+        let g = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, prog * s.size);
+        g.addColorStop(0, "rgba(255,255,230,0.95)");
+        g.addColorStop(0.35, s.color);
+        g.addColorStop(1, "rgba(255,60,0,0)");
+        ctx.fillStyle = g;
+        ctx.globalAlpha = 1 - prog;
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, prog * s.size, 0, Math.PI * 2);
+        ctx.fill();
+      } else {
+        ctx.fillStyle = s.color;
+        ctx.globalAlpha = s.life / s.maxLife;
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      ctx.restore();
     }
   }
 
@@ -414,13 +846,57 @@
   }
 
   function drawNPC(npc) {
+    if (npc.hull <= 0) return;
     const sprite = images[npc.sprite] || images.civilianLiberty;
+    
     ctx.save();
     ctx.translate(npc.x, npc.y);
     ctx.rotate(npc.rotation + Math.PI / 2);
 
+    let size = npc.role === "trader" ? 24 : 18;
+
+    // Draw engine thruster flame
+    let isThruster = npc.thrusterActive;
+    let ry = size * 0.45;
+    let flameLength = (isThruster ? rand(14, 25) : rand(5, 10));
+    let flameWidth = (isThruster ? rand(5, 8) : rand(3, 5));
+    
+    let flameGrad = ctx.createLinearGradient(0, ry, 0, ry + flameLength);
+    if (isThruster) {
+      flameGrad.addColorStop(0, "rgba(255, 255, 255, 0.95)");
+      flameGrad.addColorStop(0.2, npc.role === "pirate" ? "rgba(255, 100, 50, 0.9)" : "rgba(100, 200, 255, 0.9)");
+      flameGrad.addColorStop(0.6, npc.role === "pirate" ? "rgba(255, 50, 0, 0.6)" : "rgba(30, 100, 255, 0.6)");
+      flameGrad.addColorStop(1, "rgba(0, 0, 255, 0)");
+    } else {
+      flameGrad.addColorStop(0, "rgba(255, 230, 140, 0.95)");
+      flameGrad.addColorStop(0.3, "rgba(255, 120, 30, 0.85)");
+      flameGrad.addColorStop(1, "rgba(255, 50, 0, 0)");
+    }
+    
+    ctx.save();
+    ctx.fillStyle = flameGrad;
+    ctx.beginPath();
+    ctx.moveTo(-flameWidth / 2, ry);
+    ctx.quadraticCurveTo(0, ry + flameLength * 1.1, 0, ry + flameLength);
+    ctx.quadraticCurveTo(0, ry + flameLength * 1.1, flameWidth / 2, ry);
+    ctx.closePath();
+    ctx.fill();
+    ctx.restore();
+
+    // Shield impact flash bubble
+    if (npc.shieldHit > 0) {
+      ctx.save();
+      ctx.strokeStyle = npc.role === "pirate" ? "rgba(255, 100, 100, 0.75)" : "rgba(100, 200, 255, 0.75)";
+      ctx.fillStyle = npc.role === "pirate" ? "rgba(255, 100, 100, 0.12)" : "rgba(100, 200, 255, 0.12)";
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.ellipse(0, 0, npc.radius * 1.25, npc.radius * 1.05, 0, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.stroke();
+      ctx.restore();
+    }
+
     if (sprite && sprite.complete) {
-      const size = npc.role === "trader" ? 24 : 18;
       ctx.shadowColor = npc.role === "pirate" ? "rgba(255, 90, 90, 0.55)" : "rgba(120, 210, 255, 0.46)";
       ctx.shadowBlur = 6;
       ctx.drawImage(sprite, -size / 2, -size / 2, size, size);
@@ -461,10 +937,17 @@
     drawBackground(now);
     drawLandmarks(now);
 
+    // Update simulation physics
+    updateLasers(dt);
+    updateSparks(dt);
+
     for (const npc of ships) {
       updateNPC(npc, dt);
       drawNPC(npc);
     }
+
+    drawLasers();
+    drawSparks();
 
     raf = requestAnimationFrame(frame);
   }

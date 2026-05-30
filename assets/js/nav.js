@@ -108,6 +108,18 @@
       return min + Math.random() * (max - min);
     }
 
+    var formationOffsets = [
+      { dx: -45, dy: -45 },
+      { dx: 45, dy: -45 },
+      { dx: -80, dy: -80 },
+      { dx: 80, dy: -80 },
+      { dx: 0, dy: -70 },
+      { dx: -35, dy: 35 },
+      { dx: 35, dy: 35 },
+      { dx: -115, dy: -115 },
+      { dx: 115, dy: -115 }
+    ];
+
     function spawnShip(faction, edge) {
       var police = faction === "police";
       var rogue = faction === "rogue";
@@ -140,24 +152,75 @@
               : "LR-" + Math.floor(rand(1000, 9999)),
         x: x,
         y: y,
-        vx: Math.cos(angle) * (capital ? rand(10, 18) : rand(18, 42)),
-        vy: Math.sin(angle) * (capital ? rand(10, 18) : rand(18, 42)),
+        vx: Math.cos(angle) * (capital ? rand(8, 14) : rand(18, 42)),
+        vy: Math.sin(angle) * (capital ? rand(8, 14) : rand(18, 42)),
         rotation: angle,
         target: null,
-        hull: capital ? 520 : police || humanFleet ? 130 : 95,
-        maxHull: capital ? 520 : police || humanFleet ? 130 : 95,
-        shield: capital ? 180 : police || humanFleet ? 52 : 44,
-        maxShield: capital ? 180 : police || humanFleet ? 52 : 44,
+        hull: capital ? 1500 : police || humanFleet ? 130 : 95,
+        maxHull: capital ? 1500 : police || humanFleet ? 130 : 95,
+        shield: capital ? 600 : police || humanFleet ? 52 : 44,
+        maxShield: capital ? 600 : police || humanFleet ? 52 : 44,
         shieldHit: 0,
         shieldHitAngle: 0,
         shieldRegenDelay: 0,
         fireCooldown: rand(0.2, 1.6),
-        turnRate: capital ? 0.8 : police || humanFleet ? 2.4 : 3.0,
-        speed: capital ? rand(18, 28) : police || humanFleet ? rand(46, 66) : rand(54, 78),
+        turnRate: capital ? 0.38 : police || humanFleet ? 2.4 : 3.0,
+        speed: capital ? rand(10, 15) : police || humanFleet ? rand(46, 66) : rand(54, 78),
         radius: capital ? 36 : police || humanFleet ? 18 : 15,
         fleet: faction === "humanFleet" || faction === "humanCapital",
-        respawnTimer: 0
+        respawnTimer: 0,
+        thrusterActive: false,
+        dogfightState: "approach",
+        disengageTimer: 0,
+        disengageDir: Math.random() > 0.5 ? 1 : -1,
+        wobbleTime: rand(0, 100),
+        escorting: null,
+        formationSlot: -1
       };
+    }
+
+    function spawnReinforcement(faction, x, y) {
+      var capital = faction === "humanCapital";
+      var ship = spawnShip(faction);
+      ship.x = x;
+      ship.y = y;
+      ship.vx = (Math.random() - 0.5) * 15;
+      ship.vy = (Math.random() - 0.5) * 15;
+      
+      for (var k = 0; k < 25; k++) {
+        var angle = Math.random() * Math.PI * 2;
+        var speed = rand(30, 120);
+        sparks.push({
+          x: x,
+          y: y,
+          vx: Math.cos(angle) * speed,
+          vy: Math.sin(angle) * speed,
+          life: rand(0.25, 0.75),
+          maxLife: 0.75,
+          size: rand(2.2, 4.5),
+          color: "rgba(80, 200, 255, 0.95)",
+          type: "spark"
+        });
+      }
+      sparks.push({
+        x: x, y: y, vx: 0, vy: 0,
+        life: 0.45, maxLife: 0.45,
+        size: capital ? 62 : 36,
+        color: "rgba(100, 210, 255, 0.8)",
+        type: "blast"
+      });
+      ships.push(ship);
+
+      if (capital) {
+        var escortsFound = 0;
+        ships.forEach(function (other) {
+          if (other.hull > 0 && other.side === "human" && other.faction !== "humanCapital" && !other.fleet && escortsFound < 6) {
+            other.escorting = ship;
+            other.formationSlot = escortsFound;
+            escortsFound++;
+          }
+        });
+      }
     }
 
     function seedShips() {
@@ -193,6 +256,20 @@
     function nearestEnemy(ship) {
       var best = null;
       var bestDist = Infinity;
+      var isCapital = ship.faction === "humanCapital";
+      if (isCapital) {
+        ships.forEach(function (other) {
+          if (other === ship || other.hull <= 0 || other.side === ship.side || other.faction !== "rogue") return;
+          var dx = other.x - ship.x;
+          var dy = other.y - ship.y;
+          var dist = dx * dx + dy * dy;
+          if (dist < bestDist) {
+            bestDist = dist;
+            best = other;
+          }
+        });
+        if (best) return best;
+      }
       ships.forEach(function (other) {
         if (other === ship || other.hull <= 0 || other.side === ship.side) return;
         var dx = other.x - ship.x;
@@ -227,23 +304,118 @@
 
       ship.target = nearestEnemy(ship);
       var desired = Math.atan2(ship.vy, ship.vx);
-      if (ship.target) {
-        desired = Math.atan2(ship.target.y - ship.y, ship.target.x - ship.x);
+      var isCapital = ship.faction === "humanCapital";
+      var targetSpeed = ship.speed;
+      ship.thrusterActive = false;
+
+      var border = 75;
+      var steerX = 0;
+      var steerY = 0;
+      if (ship.x < border) steerX = 1;
+      else if (ship.x > width - border) steerX = -1;
+      if (ship.y < border) steerY = 1;
+      else if (ship.y > height - border) steerY = -1;
+
+      if (steerX !== 0 || steerY !== 0) {
+        desired = Math.atan2(steerY, steerX);
+        ship.thrusterActive = true;
+      } else if (ship.shield <= 0 && ship.target) {
+        var dx = ship.target.x - ship.x;
+        var dy = ship.target.y - ship.y;
+        desired = Math.atan2(-dy, -dx);
+        desired += Math.sin(performance.now() * 0.012 + (ship.wobbleTime || 0)) * 0.7;
+        ship.thrusterActive = true;
+      } else if (ship.target) {
+        var dx = ship.target.x - ship.x;
+        var dy = ship.target.y - ship.y;
+        var dist = Math.hypot(dx, dy);
+
+        if (isCapital) {
+          var orbitAngle = Math.atan2(dy, dx) + Math.PI / 2;
+          desired = orbitAngle;
+          targetSpeed = ship.speed * 0.65;
+        } else {
+          if (ship.disengageTimer > 0) {
+            ship.disengageTimer -= dt;
+            desired = Math.atan2(dy, dx) + (ship.disengageDir || 1) * 1.4;
+            ship.thrusterActive = true;
+          } else if (dist < 120) {
+            ship.disengageTimer = rand(1.2, 2.2);
+            ship.disengageDir = Math.random() > 0.5 ? 1 : -1;
+            desired = Math.atan2(dy, dx) + ship.disengageDir * 1.4;
+            ship.thrusterActive = true;
+          } else {
+            var pSpeed = ship.side === "human" ? 420 : 370;
+            var travelTime = dist / pSpeed;
+            var tx = ship.target.x + ship.target.vx * travelTime;
+            var ty = ship.target.y + ship.target.vy * travelTime;
+            desired = Math.atan2(ty - ship.y, tx - ship.x);
+            if (dist > 300) ship.thrusterActive = true;
+          }
+        }
+      } else if (ship.escorting && ship.escorting.hull > 0) {
+        var cap = ship.escorting;
+        var offset = formationOffsets[ship.formationSlot % formationOffsets.length];
+        var cos = Math.cos(cap.rotation);
+        var sin = Math.sin(cap.rotation);
+        var tx = cap.x + (offset.dx * cos - offset.dy * sin);
+        var ty = cap.y + (offset.dx * sin + offset.dy * cos);
+
+        var fdx = tx - ship.x;
+        var fdy = ty - ship.y;
+        var fdist = Math.hypot(fdx, fdy);
+
+        desired = Math.atan2(fdy, fdx);
+        if (fdist > 180) {
+          ship.thrusterActive = true;
+        }
+        if (fdist < 40) {
+          targetSpeed = Math.hypot(cap.vx, cap.vy);
+          desired = cap.rotation;
+        }
       }
+
       var diff = normalize(desired - ship.rotation);
       var turn = Math.min(Math.abs(diff), ship.turnRate * dt);
       ship.rotation += Math.sign(diff) * turn;
 
-      ship.vx += Math.cos(ship.rotation) * ship.speed * dt * 0.72;
-      ship.vy += Math.sin(ship.rotation) * ship.speed * dt * 0.72;
-      ship.vx *= 0.986;
-      ship.vy *= 0.986;
+      var currentAcc = ship.thrusterActive ? targetSpeed * 1.6 : targetSpeed;
+      ship.vx += Math.cos(ship.rotation) * currentAcc * dt * 0.72;
+      ship.vy += Math.sin(ship.rotation) * currentAcc * dt * 0.72;
+      
+      var damp = isCapital ? 0.99 : 0.985;
+      ship.vx *= damp;
+      ship.vy *= damp;
+      
       ship.x += ship.vx * dt;
       ship.y += ship.vy * dt;
 
       if (ship.x < -140 || ship.x > width + 140 || ship.y < -140 || ship.y > height + 140) {
-        Object.assign(ship, spawnShip(ship.faction));
+        if (ship.fleet) {
+          ships.splice(ships.indexOf(ship), 1);
+        } else {
+          Object.assign(ship, spawnShip(ship.faction));
+        }
         return;
+      }
+
+      if (ship.thrusterActive && Math.random() > 0.4) {
+        var backAngle = ship.rotation + Math.PI + rand(-0.2, 0.2);
+        var flameOffset = isCapital ? 36 : ship.radius * 0.95;
+        var px = ship.x - Math.cos(ship.rotation) * flameOffset;
+        var py = ship.y - Math.sin(ship.rotation) * flameOffset;
+        var pSpeed = rand(30, 80);
+        sparks.push({
+          x: px,
+          y: py,
+          vx: Math.cos(backAngle) * pSpeed + ship.vx * 0.3,
+          vy: Math.sin(backAngle) * pSpeed + ship.vy * 0.3,
+          life: rand(0.15, 0.35),
+          maxLife: 0.35,
+          size: rand(1.5, 3.2),
+          color: "rgba(100, 200, 255, 0.65)",
+          type: "spark"
+        });
       }
 
       ship.fireCooldown -= dt;
@@ -252,13 +424,13 @@
         var dy = ship.target.y - ship.y;
         var dist = Math.hypot(dx, dy);
         var aimDiff = Math.abs(normalize(Math.atan2(dy, dx) - ship.rotation));
-        var range = ship.faction === "humanCapital" ? 780 : 520;
-        var arc = ship.faction === "humanCapital" ? 0.75 : 0.45;
+        var range = isCapital ? 780 : 520;
+        var arc = isCapital ? Math.PI * 2 : 0.45;
         if (dist < range && aimDiff < arc) {
           fire(ship, ship.target);
-          ship.fireCooldown = ship.faction === "humanCapital" ? rand(0.18, 0.42) : rand(0.45, 1.15);
+          ship.fireCooldown = isCapital ? rand(0.18, 0.42) : rand(0.45, 1.15);
         } else {
-          ship.fireCooldown = 0.18;
+          ship.fireCooldown = 0.15;
         }
       }
     }
@@ -267,17 +439,52 @@
       var angle = Math.atan2(target.y - ship.y, target.x - ship.x);
       var isCapital = ship.faction === "humanCapital";
       var speed = isCapital ? 460 : ship.side === "human" ? 420 : 370;
-      projectiles.push({
-        owner: ship,
-        side: ship.side,
-        x: ship.x + Math.cos(angle) * 18,
-        y: ship.y + Math.sin(angle) * 18,
-        vx: Math.cos(angle) * speed + ship.vx * 0.2,
-        vy: Math.sin(angle) * speed + ship.vy * 0.2,
-        life: isCapital ? 1.55 : 1.15,
-        damage: isCapital ? 32 : ship.side === "human" ? 16 : 13,
-        color: ship.side === "human" ? "rgba(105, 210, 255, 0.95)" : "rgba(255, 88, 88, 0.95)"
-      });
+      
+      if (isCapital) {
+        var offsets = [
+          { dl: -15, df: 15 },
+          { dl: 15, df: 15 },
+          { dl: -15, df: -10 },
+          { dl: 15, df: -10 }
+        ];
+        var turretIndex = (ship.fireVolleyCount || 0) % 2;
+        ship.fireVolleyCount = (ship.fireVolleyCount || 0) + 1;
+        
+        var t1 = offsets[turretIndex * 2];
+        var t2 = offsets[turretIndex * 2 + 1];
+        
+        [t1, t2].forEach(function(t) {
+          var cos = Math.cos(ship.rotation);
+          var sin = Math.sin(ship.rotation);
+          var tx = ship.x + (t.df * cos - t.dl * sin);
+          var ty = ship.y + (t.df * sin + t.dl * cos);
+          var fireAngle = Math.atan2(target.y - ty, target.x - tx);
+          
+          projectiles.push({
+            owner: ship,
+            side: ship.side,
+            x: tx,
+            y: ty,
+            vx: Math.cos(fireAngle) * speed + ship.vx * 0.25,
+            vy: Math.sin(fireAngle) * speed + ship.vy * 0.25,
+            life: 1.55,
+            damage: 22,
+            color: ship.side === "human" ? "rgba(105, 210, 255, 0.95)" : "rgba(255, 88, 88, 0.95)"
+          });
+        });
+      } else {
+        projectiles.push({
+          owner: ship,
+          side: ship.side,
+          x: ship.x + Math.cos(angle) * 18,
+          y: ship.y + Math.sin(angle) * 18,
+          vx: Math.cos(angle) * speed + ship.vx * 0.2,
+          vy: Math.sin(angle) * speed + ship.vy * 0.2,
+          life: 1.15,
+          damage: 16,
+          color: ship.side === "human" ? "rgba(105, 210, 255, 0.95)" : "rgba(255, 88, 88, 0.95)"
+        });
+      }
     }
 
     function updateProjectiles(dt) {
@@ -421,8 +628,45 @@
       ctx.translate(ship.x, ship.y);
       ctx.rotate(ship.rotation + Math.PI / 2);
       ctx.globalAlpha = 0.72;
+      
+      var isCapital = ship.faction === "humanCapital";
+      var size = isCapital ? 64 : ship.side === "human" ? 30 : 27;
+
+      // Draw thruster plume
+      var isThruster = ship.thrusterActive;
+      var rx = 0;
+      var ry = isCapital ? size * 0.44 : size * 0.42;
+      var flameLength = (isThruster ? rand(22, 38) : rand(8, 15)) * (isCapital ? 1.6 : 1);
+      var flameWidth = (isThruster ? rand(7, 12) : rand(4, 7)) * (isCapital ? 1.6 : 1);
+      
+      var flameGrad = ctx.createLinearGradient(0, ry, 0, ry + flameLength);
+      if (isThruster) {
+        flameGrad.addColorStop(0, "rgba(255, 255, 255, 0.95)");
+        flameGrad.addColorStop(0.2, "rgba(100, 200, 255, 0.95)");
+        flameGrad.addColorStop(0.6, "rgba(30, 100, 255, 0.6)");
+        flameGrad.addColorStop(1, "rgba(0, 50, 255, 0)");
+      } else {
+        flameGrad.addColorStop(0, "rgba(255, 230, 140, 0.95)");
+        flameGrad.addColorStop(0.3, "rgba(255, 120, 30, 0.85)");
+        flameGrad.addColorStop(1, "rgba(255, 50, 0, 0)");
+      }
+      
+      ctx.save();
+      ctx.fillStyle = flameGrad;
+      ctx.beginPath();
+      ctx.moveTo(-flameWidth / 2, ry);
+      ctx.quadraticCurveTo(0, ry + flameLength * 1.1, 0, ry + flameLength);
+      ctx.quadraticCurveTo(0, ry + flameLength * 1.1, flameWidth / 2, ry);
+      ctx.closePath();
+      ctx.fill();
+      
+      ctx.fillStyle = isThruster ? "rgba(230, 245, 255, 0.95)" : "rgba(255, 255, 200, 0.95)";
+      ctx.beginPath();
+      ctx.ellipse(0, ry + 2, flameWidth * 0.35, flameLength * 0.3, 0, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+
       if (img && img.complete) {
-        var size = ship.faction === "humanCapital" ? 64 : ship.side === "human" ? 30 : 27;
         ctx.shadowColor = ship.side === "human" ? "rgba(92, 190, 255, 0.55)" : "rgba(255, 75, 75, 0.5)";
         ctx.shadowBlur = 8;
         ctx.drawImage(img, -size / 2, -size / 2, size, size);
@@ -518,6 +762,23 @@
         return shipTarget;
       }
     };
+    window.addEventListener("click", function (e) {
+      if (!canvas || !canvas.parentNode) return;
+      if (e.target.closest("a, button, input, select, label, canvas, [role='button'], .battle-arena-panel")) return;
+      var rect = canvas.getBoundingClientRect();
+      var x = e.clientX - rect.left;
+      var y = e.clientY - rect.top;
+      spawnReinforcement("police", x, y);
+    });
+    window.addEventListener("dblclick", function (e) {
+      if (!canvas || !canvas.parentNode) return;
+      if (e.target.closest("a, button, input, select, label, canvas, [role='button'], .battle-arena-panel")) return;
+      var rect = canvas.getBoundingClientRect();
+      var x = e.clientX - rect.left;
+      var y = e.clientY - rect.top;
+      spawnReinforcement("humanCapital", x, y);
+    });
+
     resize();
     requestAnimationFrame(drawFrame);
   }
@@ -637,22 +898,34 @@
           a: 0.22 + ((i * 13) % 70) / 100
         };
       });
-    }
+      var arenaFormationOffsets = [
+      { dx: -45, dy: -45 },
+      { dx: 45, dy: -45 },
+      { dx: -80, dy: -80 },
+      { dx: 80, dy: -80 },
+      { dx: 0, dy: -70 },
+      { dx: -35, dy: 35 },
+      { dx: 35, dy: 35 },
+      { dx: -115, dy: -115 },
+      { dx: 115, dy: -115 }
+    ];
+
     function spawnFleet(faction, count) {
       var sideX = width * faction.corner[0];
       var sideY = height * faction.corner[1];
+      var capitalShip = null;
       for (var i = 0; i < count; i++) {
         var isCapital = i === 0;
         var sprite = isCapital ? faction.capital : faction.sprite;
-        var hull = isCapital ? 760 : 130;
-        var shield = isCapital ? 360 : 82;
+        var hull = isCapital ? 2000 : 130;
+        var shield = isCapital ? 800 : 82;
         var spawnAngle = Math.atan2(height * 0.5 - sideY, width * 0.5 - sideX);
-        ships.push({
+        var ship = {
           faction: faction,
           sprite: sprite,
           x: sideX + rand(-90, 90),
           y: sideY + rand(-70, 70),
-          vx: Math.cos(spawnAngle) * rand(10, 34),
+          vx: Math.cos(spawnAngle) * (isCapital ? rand(6, 12) : rand(15, 34)),
           vy: rand(-18, 18),
           rotation: spawnAngle,
           hull: hull,
@@ -666,8 +939,24 @@
           size: isCapital ? 86 : 34,
           cooldown: rand(0.2, 1.2),
           isCapital: isCapital,
-          alive: true
-        });
+          alive: true,
+          thrusterActive: false,
+          dogfightState: "approach",
+          disengageTimer: 0,
+          disengageDir: Math.random() > 0.5 ? 1 : -1,
+          wobbleTime: rand(0, 100),
+          escorting: null,
+          formationSlot: -1,
+          turnRate: isCapital ? 0.38 : 2.5,
+          speed: isCapital ? rand(10, 14) : rand(50, 72)
+        };
+        if (isCapital) {
+          capitalShip = ship;
+        } else {
+          ship.escorting = capitalShip;
+          ship.formationSlot = i - 1;
+        }
+        ships.push(ship);
       }
     }
     function startArena() {
@@ -683,6 +972,19 @@
     function nearestEnemy(ship) {
       var best = null;
       var bestDist = Infinity;
+      if (ship.isCapital) {
+        ships.forEach(function (other) {
+          if (!other.alive || other.faction.id === ship.faction.id || !other.isCapital) return;
+          var dx = other.x - ship.x;
+          var dy = other.y - ship.y;
+          var dist = dx * dx + dy * dy;
+          if (dist < bestDist) {
+            bestDist = dist;
+            best = other;
+          }
+        });
+        if (best) return best;
+      }
       ships.forEach(function (other) {
         if (!other.alive || other.faction.id === ship.faction.id) return;
         var dx = other.x - ship.x;
@@ -697,16 +999,50 @@
     }
     function fire(ship, target) {
       var angle = Math.atan2(target.y - ship.y, target.x - ship.x);
-      shots.push({
-        factionId: ship.faction.id,
-        x: ship.x + Math.cos(angle) * 18,
-        y: ship.y + Math.sin(angle) * 18,
-        vx: Math.cos(angle) * 520,
-        vy: Math.sin(angle) * 520,
-        life: 1.05,
-        damage: ship.isCapital ? 34 : 14,
-        color: ship.faction.color
-      });
+      
+      if (ship.isCapital) {
+        var offsets = [
+          { dl: -18, df: 20 },
+          { dl: 18, df: 20 },
+          { dl: -18, df: -12 },
+          { dl: 18, df: -12 }
+        ];
+        var turretIndex = (ship.fireVolleyCount || 0) % 2;
+        ship.fireVolleyCount = (ship.fireVolleyCount || 0) + 1;
+        
+        var t1 = offsets[turretIndex * 2];
+        var t2 = offsets[turretIndex * 2 + 1];
+        
+        [t1, t2].forEach(function(t) {
+          var cos = Math.cos(ship.rotation);
+          var sin = Math.sin(ship.rotation);
+          var tx = ship.x + (t.df * cos - t.dl * sin);
+          var ty = ship.y + (t.df * sin + t.dl * cos);
+          var fireAngle = Math.atan2(target.y - ty, target.x - tx);
+          
+          shots.push({
+            factionId: ship.faction.id,
+            x: tx,
+            y: ty,
+            vx: Math.cos(fireAngle) * 520 + ship.vx * 0.25,
+            vy: Math.sin(fireAngle) * 520 + ship.vy * 0.25,
+            life: 1.05,
+            damage: 22,
+            color: ship.faction.color
+          });
+        });
+      } else {
+        shots.push({
+          factionId: ship.faction.id,
+          x: ship.x + Math.cos(angle) * 18,
+          y: ship.y + Math.sin(angle) * 18,
+          vx: Math.cos(angle) * 520 + ship.vx * 0.2,
+          vy: Math.sin(angle) * 520 + ship.vy * 0.2,
+          life: 1.05,
+          damage: 14,
+          color: ship.faction.color
+        });
+      }
     }
     function updateArena(dt) {
       var aliveByFaction = {};
@@ -718,22 +1054,122 @@
         if (ship.shieldRegenDelay <= 0 && ship.shield < ship.maxShield) {
           ship.shield = Math.min(ship.maxShield, ship.shield + ship.maxShield * 0.11 * dt);
         }
+
         var target = nearestEnemy(ship);
-        if (target) {
-          var desired = Math.atan2(target.y - ship.y, target.x - ship.x);
-          ship.rotation += normalize(desired - ship.rotation) * Math.min(1, dt * 2.8);
+        
+        var desired = Math.atan2(ship.vy, ship.vx);
+        var targetSpeed = ship.speed;
+        ship.thrusterActive = false;
+
+        var border = 65;
+        var steerX = 0;
+        var steerY = 0;
+        if (ship.x < border) steerX = 1;
+        else if (ship.x > width - border) steerX = -1;
+        if (ship.y < border) steerY = 1;
+        else if (ship.y > height - border) steerY = -1;
+
+        if (steerX !== 0 || steerY !== 0) {
+          desired = Math.atan2(steerY, steerX);
+          ship.thrusterActive = true;
+        } else if (ship.shield <= 0 && target) {
+          var dx = target.x - ship.x;
+          var dy = target.y - ship.y;
+          desired = Math.atan2(-dy, -dx);
+          desired += Math.sin(performance.now() * 0.015 + (ship.wobbleTime || 0)) * 0.7;
+          ship.thrusterActive = true;
+        } else if (target) {
+          var dx = target.x - ship.x;
+          var dy = target.y - ship.y;
+          var dist = Math.hypot(dx, dy);
+
+          if (ship.isCapital) {
+            var orbitAngle = Math.atan2(dy, dx) + Math.PI / 2;
+            desired = orbitAngle;
+            targetSpeed = ship.speed * 0.65;
+          } else {
+            if (ship.disengageTimer > 0) {
+              ship.disengageTimer -= dt;
+              desired = Math.atan2(dy, dx) + (ship.disengageDir || 1) * 1.4;
+              ship.thrusterActive = true;
+            } else if (dist < 120) {
+              ship.disengageTimer = rand(1.2, 2.2);
+              ship.disengageDir = Math.random() > 0.5 ? 1 : -1;
+              desired = Math.atan2(dy, dx) + ship.disengageDir * 1.4;
+              ship.thrusterActive = true;
+            } else {
+              var travelTime = dist / 520;
+              var tx = target.x + target.vx * travelTime;
+              var ty = target.y + target.vy * travelTime;
+              desired = Math.atan2(ty - ship.y, tx - ship.x);
+              if (dist > 300) ship.thrusterActive = true;
+            }
+          }
+        } else if (ship.escorting && ship.escorting.alive) {
+          var cap = ship.escorting;
+          var offset = arenaFormationOffsets[ship.formationSlot % arenaFormationOffsets.length];
+          var cos = Math.cos(cap.rotation);
+          var sin = Math.sin(cap.rotation);
+          var tx = cap.x + (offset.dx * cos - offset.dy * sin);
+          var ty = cap.y + (offset.dx * sin + offset.dy * cos);
+
+          var fdx = tx - ship.x;
+          var fdy = ty - ship.y;
+          var fdist = Math.hypot(fdx, fdy);
+
+          desired = Math.atan2(fdy, fdx);
+
+          if (fdist > 180) {
+            ship.thrusterActive = true;
+          }
+
+          if (fdist < 40) {
+            targetSpeed = Math.hypot(cap.vx, cap.vy);
+            desired = cap.rotation;
+          }
         }
-        ship.vx += Math.cos(ship.rotation) * dt * (ship.isCapital ? 24 : 80);
-        ship.vy += Math.sin(ship.rotation) * dt * (ship.isCapital ? 24 : 80);
-        ship.vx *= 0.982;
-        ship.vy *= 0.982;
-        ship.x = Math.max(28, Math.min(width - 28, ship.x + ship.vx * dt));
-        ship.y = Math.max(28, Math.min(height - 28, ship.y + ship.vy * dt));
+
+        var diff = normalize(desired - ship.rotation);
+        var turn = Math.min(Math.abs(diff), ship.turnRate * dt);
+        ship.rotation += Math.sign(diff) * turn;
+
+        var currentAcc = ship.thrusterActive ? targetSpeed * 1.6 : targetSpeed;
+        ship.vx += Math.cos(ship.rotation) * currentAcc * dt * 0.72;
+        ship.vy += Math.sin(ship.rotation) * currentAcc * dt * 0.72;
+
+        var damp = ship.isCapital ? 0.99 : 0.985;
+        ship.vx *= damp;
+        ship.vy *= damp;
+        
+        ship.x = Math.max(20, Math.min(width - 20, ship.x + ship.vx * dt));
+        ship.y = Math.max(20, Math.min(height - 20, ship.y + ship.vy * dt));
+
+        if (ship.thrusterActive && Math.random() > 0.4) {
+          var backAngle = ship.rotation + Math.PI + rand(-0.2, 0.2);
+          var flameOffset = ship.isCapital ? 40 : ship.radius * 0.95;
+          var px = ship.x - Math.cos(ship.rotation) * flameOffset;
+          var py = ship.y - Math.sin(ship.rotation) * flameOffset;
+          var pSpeed = rand(30, 80);
+          sparks.push({
+            x: px,
+            y: py,
+            vx: Math.cos(backAngle) * pSpeed + ship.vx * 0.3,
+            vy: Math.sin(backAngle) * pSpeed + ship.vy * 0.3,
+            life: rand(0.15, 0.35),
+            maxLife: 0.35,
+            size: rand(1.5, 3.2),
+            color: ship.faction.color,
+            type: "spark"
+          });
+        }
+
         ship.cooldown -= dt;
         if (target && ship.cooldown <= 0) {
           var dist = Math.hypot(target.x - ship.x, target.y - ship.y);
           var aim = Math.abs(normalize(Math.atan2(target.y - ship.y, target.x - ship.x) - ship.rotation));
-          if (dist < (ship.isCapital ? 700 : 560) && aim < (ship.isCapital ? 0.72 : 0.55)) {
+          var range = ship.isCapital ? 700 : 560;
+          var arc = ship.isCapital ? Math.PI * 2 : 0.55;
+          if (dist < range && aim < arc) {
             fire(ship, target);
             ship.cooldown = ship.isCapital ? rand(0.16, 0.34) : rand(0.38, 0.85);
           }
@@ -750,7 +1186,7 @@
           if (Math.hypot(ship.x - shot.x, ship.y - shot.y) < ship.radius + 4) {
             var damage = shot.damage;
             ship.shieldHit = 1;
-            ship.shieldHitAngle = Math.atan2(shot.y - ship.y, shot.x - ship.x);
+            ship.shieldHitAngle = Math.atan2(shot.y - ship.y, shot.x - shot.x);
             ship.shieldRegenDelay = 1.7;
             sparks.push({ x: shot.x, y: shot.y, vx: rand(-22, 22), vy: rand(-22, 22), life: 0.38, maxLife: 0.38, size: 3, color: ship.faction.color, type: "shield" });
             if (ship.shield > 0) {
@@ -774,7 +1210,7 @@
         var winner = activeFactions.length ? factionById(activeFactions[0]).name : "No survivors";
         status.textContent = text.victory + ": " + winner;
       }
-    }
+    }   }
 
     function createArenaExplosion(ship) {
       var scale = ship.isCapital ? 2.2 : 1;
@@ -907,6 +1343,40 @@
         ctx.shadowColor = ship.faction.color;
         ctx.shadowBlur = 12;
         ctx.globalAlpha = 0.95;
+
+        // Draw thruster plume in Arena
+        var isThruster = ship.thrusterActive;
+        var ry = ship.isCapital ? ship.size * 0.44 : ship.size * 0.42;
+        var flameLength = (isThruster ? rand(22, 38) : rand(8, 15)) * (ship.isCapital ? 1.6 : 1);
+        var flameWidth = (isThruster ? rand(7, 12) : rand(4, 7)) * (ship.isCapital ? 1.6 : 1);
+        
+        var flameGrad = ctx.createLinearGradient(0, ry, 0, ry + flameLength);
+        if (isThruster) {
+          flameGrad.addColorStop(0, "rgba(255, 255, 255, 0.95)");
+          flameGrad.addColorStop(0.2, ship.faction.color);
+          flameGrad.addColorStop(0.6, ship.faction.color.replace("0.96", "0.6"));
+          flameGrad.addColorStop(1, ship.faction.color.replace("0.96", "0"));
+        } else {
+          flameGrad.addColorStop(0, "rgba(255, 230, 140, 0.95)");
+          flameGrad.addColorStop(0.3, "rgba(255, 120, 30, 0.85)");
+          flameGrad.addColorStop(1, "rgba(255, 50, 0, 0)");
+        }
+        
+        ctx.save();
+        ctx.fillStyle = flameGrad;
+        ctx.beginPath();
+        ctx.moveTo(-flameWidth / 2, ry);
+        ctx.quadraticCurveTo(0, ry + flameLength * 1.1, 0, ry + flameLength);
+        ctx.quadraticCurveTo(0, ry + flameLength * 1.1, flameWidth / 2, ry);
+        ctx.closePath();
+        ctx.fill();
+        
+        ctx.fillStyle = isThruster ? "rgba(230, 245, 255, 0.95)" : "rgba(255, 255, 200, 0.95)";
+        ctx.beginPath();
+        ctx.ellipse(0, ry + 2, flameWidth * 0.35, flameLength * 0.3, 0, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+
         if (img && img.complete) {
           ctx.drawImage(img, -ship.size / 2, -ship.size / 2, ship.size, ship.size);
         } else {
