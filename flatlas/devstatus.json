@@ -1,15 +1,15 @@
 {
   "title": "FLAtlas V2 Dev Status",
-  "updated": "2026-05-17",
+  "updated": "2026-06-02",
   "summary": "Kompakter Entwicklungsstatus fuer den FLAtlas-Dialog. Die Anwendung liest diese JSON spaeter direkt von flathack.github.io/flatlas/devstatus.json.",
   "sections": [
     {
       "title": "Aktuell",
       "items": [
         {
-          "status": "in_progress",
-          "label": "Base Creator",
-          "text": "Raumauswahl, Template-Kopien und Base-Erzeugung werden weiter geglaettet."
+          "status": "done",
+          "label": "FLAtlas V2 v0.8.1",
+          "text": "Release mit Translator-Fixes, AI-Provider-Konfiguration, Audio Manager und stabileren DLL-Exporten."
         },
         {
           "status": "in_progress",

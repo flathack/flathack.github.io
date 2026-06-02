@@ -29,7 +29,7 @@ RED = (255, 94, 124)
 GOLD = (255, 211, 104)
 
 MILESTONES = [
-    {"version": "v0.8.0.5", "label": "released", "pct": 80, "state": "done"},
+    {"version": "v0.8.1", "label": "released", "pct": 80, "state": "done"},
     {"version": "v0.9.0", "label": "in progress", "pct": 90, "state": "active"},
     {"version": "v1.0.0", "label": "final", "pct": 100, "state": "final"},
 ]
@@ -122,7 +122,7 @@ def draw_brand(draw: ImageDraw.ImageDraw) -> None:
     draw.rectangle([sc(18), sc(19), sc(21), sc(80)], fill=rgba(CYAN, 230))
     text(draw, (32, 18), "FL ATLAS V2", FONT_BRAND, TEXT)
     text(draw, (33, 41), "current", FONT_LABEL_BOLD, rgba(MUTED, 245))
-    text(draw, (33, 55), "v0.8.0.5", FONT_MONO, rgba(GREEN, 255))
+    text(draw, (33, 55), "v0.8.1", FONT_MONO, rgba(GREEN, 255))
     rounded(draw, [112, 51, 176, 70], 3, (9, 52, 43, 202), (84, 230, 155, 150))
     tw, th = text_size(draw, "RELEASED", FONT_LABEL_BOLD)
     draw.text((sc(144) - tw // 2, sc(56)), "RELEASED", font=FONT_LABEL_BOLD, fill=rgba(GREEN, 255))
@@ -136,7 +136,7 @@ def draw_progress(draw: ImageDraw.ImageDraw, phase: float) -> None:
     draw._image.alpha_composite(panel)
 
     text(draw, (216, 19), "ROAD TO v1.0.0", FONT_LABEL_BOLD, rgba(CYAN_SOFT, 245))
-    text(draw, (216, 34), "v0.9.0 in progress after v0.8.0.5 release", FONT_BODY, rgba(MUTED, 235))
+    text(draw, (216, 34), "v0.9.0 in progress after v0.8.1 release", FONT_BODY, rgba(MUTED, 235))
 
     x0, y0 = 216, 60
     bar_w, bar_h = 412, 7
