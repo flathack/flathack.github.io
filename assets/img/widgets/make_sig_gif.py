@@ -59,7 +59,7 @@ PROJECTS = [
     },
     {
         "name":    "FL Atlas — Savegame Editor",
-        "version": "v0.8.3",
+        "version": "v0.8.5",
         "status":  "Released · Alpha · Active",
         "detail":  "Save Editing · Inventory · Ship Swap",
         "target":  "Complete",
