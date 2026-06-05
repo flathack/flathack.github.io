@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crossfire Freelancer auf Deutsch installieren | Flathack Hilfebereich</title>
+  <meta id="page-description" name="description" content="Kurze Schritt-für-Schritt-Anleitung, um Freelancer Crossfire zu installieren und mit dem deutschen Sprachpaket zu starten.">
+  <link rel="icon" type="image/png" href="../assets/img/icons/flathack_icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    .wiki-article {
+      padding: 36px;
+    }
+
+    .wiki-article h1 {
+      max-width: none;
+      margin-bottom: 14px;
+    }
+
+    .wiki-article h2 {
+      margin-top: 34px;
+      margin-bottom: 12px;
+    }
+
+    .wiki-article p,
+    .wiki-article li {
+      max-width: 78ch;
+    }
+
+    .wiki-article ol,
+    .wiki-article ul {
+      margin: 12px 0 0;
+      padding-left: 22px;
+      color: var(--muted);
+    }
+
+    .wiki-article li {
+      margin-bottom: 10px;
+      line-height: 1.7;
+    }
+
+    .wiki-lead {
+      margin-bottom: 22px;
+      font-size: 1.05rem;
+    }
+
+    .wiki-toc {
+      margin: 22px 0 28px;
+      padding: 18px 20px;
+      border: 1px solid rgba(132, 177, 255, 0.18);
+      border-radius: var(--radius-md);
+      background: rgba(8, 20, 34, 0.45);
+    }
+
+    .wiki-toc h2 {
+      margin: 0 0 12px;
+      font-size: 1rem;
+    }
+
+    .wiki-toc ol {
+      margin: 0;
+    }
+
+    .wiki-note {
+      margin-top: 28px;
+      padding: 18px 20px;
+      border-left: 3px solid var(--accent);
+      background: rgba(88, 196, 255, 0.08);
+      border-radius: 0 12px 12px 0;
+    }
+
+    .wiki-article code {
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: rgba(88, 196, 255, 0.12);
+      border: 1px solid rgba(132, 177, 255, 0.16);
+      color: var(--text);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.92em;
+    }
+
+    .wiki-download-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      margin-left: 4px;
+      padding: 3px 11px;
+      border: 1px solid rgba(88, 196, 255, 0.45);
+      border-radius: 8px;
+      background: rgba(88, 196, 255, 0.14);
+      color: var(--text);
+      font-weight: 700;
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 4px;
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+    }
+
+    .wiki-download-link:hover,
+    .wiki-download-link:focus-visible {
+      border-color: rgba(88, 196, 255, 0.82);
+      background: rgba(88, 196, 255, 0.22);
+      color: #ffffff;
+    }
+
+    @media (max-width: 640px) {
+      .wiki-article {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+<body class="gaming-theme">
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="brand" href="../index.html">
+        <img class="brand-mark" src="../assets/img/icons/flathack_icon.png" alt="" width="44" height="44">
+        <span class="brand-text">Flathack Projects</span>
+      </a>
+      <nav class="project-top-nav" aria-label="Project navigation"></nav>
+    </header>
+
+    <main>
+      <div class="breadcrumb">
+        <a href="../index.html" data-i18n="bc_home">Startseite</a>
+        <span>•</span>
+        <a href="index.html" data-i18n="bc_help">Hilfebereich</a>
+        <span>•</span>
+        <span data-i18n="bc_article">Crossfire Freelancer auf Deutsch installieren</span>
+      </div>
+
+      <article class="page-section wiki-article">
+        <p class="eyebrow" data-i18n="eyebrow">Installationsanleitung</p>
+        <h1 data-i18n="title">Crossfire Freelancer auf Deutsch installieren</h1>
+        <p class="wiki-lead" data-i18n="lead">Diese kurze Anleitung führt dich von einer frischen Freelancer-Installation bis zum deutschen Crossfire-Start über den <code>EXE2</code>-Ordner.</p>
+
+        <nav class="wiki-toc" aria-label="Inhalt">
+          <h2 data-i18n="toc_title">Inhalt</h2>
+          <ol>
+            <li><a href="#prepare" data-i18n="toc_1">Frische Freelancer-Installation vorbereiten</a></li>
+            <li><a href="#install-crossfire" data-i18n="toc_2">Crossfire installieren und aktualisieren</a></li>
+            <li><a href="#german-files" data-i18n="toc_3">Deutsche Dateien einspielen</a></li>
+            <li><a href="#start-german" data-i18n="toc_4">Crossfire auf Deutsch starten</a></li>
+          </ol>
+        </nav>
+
+        <h2 id="prepare" data-i18n="section_1">1. Frische Freelancer-Installation vorbereiten</h2>
+        <ol>
+          <li data-i18n="prepare_1">Installiere Freelancer frisch und ohne andere Mods.</li>
+          <li data-i18n="prepare_2">Starte die Grundinstallation bei Bedarf einmal kurz, um sicherzugehen, dass Freelancer sauber installiert wurde.</li>
+          <li data-i18n="prepare_3">Behalte diese Installation möglichst unverändert, bis der Crossfire-Installer sie verwendet hat.</li>
+        </ol>
+
+        <h2 id="install-crossfire" data-i18n="section_2">2. Crossfire-Mod installieren und updaten</h2>
+        <ol>
+          <li data-i18n="crossfire_1">Lade den Crossfire-Mod herunter: <a class="wiki-download-link" href="https://www.moddb.com/mods/crossfire/downloads/freelancer-201-crossfire1">Crossfire Mod Download</a>.</li>
+          <li data-i18n="crossfire_2">Installiere den Crossfire-Mod. Als Zielordner wird in dieser Anleitung <code>C:\Freelancer Crossfire</code> verwendet.</li>
+          <li data-i18n="crossfire_3">Starte danach die <code>Freelancer.exe</code> direkt im Crossfire-Ordner.</li>
+          <li data-i18n="crossfire_4">Führe das Update durch. Klicke dafür im Launcher einmal auf Multiplayer, damit der Crossfire-Updater seine Dateien aktualisiert.</li>
+        </ol>
+
+        <div class="wiki-note">
+          <span data-i18n="update_note">Wichtig: Spiele das deutsche Paket erst nach diesem Update ein. So vermeidest du, dass der Updater die deutschen Dateien direkt wieder überschreibt.</span>
+        </div>
+
+        <h2 id="german-files" data-i18n="section_3">3. Deutsches Sprachpaket einspielen</h2>
+        <ol>
+          <li data-i18n="german_1">Schließe Freelancer und den Crossfire-Launcher vollständig.</li>
+          <li data-i18n="german_2">Entpacke <code>crossfire_de.7z</code> direkt über den Ordner <code>C:\Freelancer Crossfire</code>.</li>
+          <li data-i18n="german_3">Bestätige beim Entpacken, dass vorhandene Dateien überschrieben werden dürfen.</li>
+        </ol>
+
+        <h2 id="start-german" data-i18n="section_4">4. Crossfire auf Deutsch starten</h2>
+        <ol>
+          <li data-i18n="start_1">Öffne im Crossfire-Verzeichnis den Ordner <code>EXE2</code>.</li>
+          <li data-i18n="start_2">Starte dort die <code>Freelancer.exe</code>.</li>
+          <li data-i18n="start_3">Wenn alles geklappt hat, startet Crossfire nun mit deutschen Texten.</li>
+        </ol>
+
+        <div class="wiki-note">
+          <span data-i18n="final_note">Kurzfassung: Erst Crossfire installieren und updaten, dann <code>crossfire_de.7z</code> über <code>C:\Freelancer Crossfire</code> entpacken und anschließend <code>EXE2\Freelancer.exe</code> starten.</span>
+        </div>
+
+        <div class="section-actions">
+          <a class="button button-secondary" href="index.html" data-i18n="cta_back">Zurück zum Hilfebereich</a>
+        </div>
+      </article>
+
+      <footer class="page-footer">
+        &copy; 2026 Steven Schödel — <span data-i18n="footer_label">Flathack Hilfebereich</span>
+      </footer>
+    </main>
+  </div>
+  <script>
+    (function() {
+      var I18N = {
+        de: {
+          page_title: 'Crossfire Freelancer auf Deutsch installieren | Flathack Hilfebereich',
+          page_description: 'Kurze Schritt-für-Schritt-Anleitung, um Freelancer Crossfire zu installieren und mit dem deutschen Sprachpaket zu starten.',
+          bc_home: 'Startseite',
+          bc_help: 'Hilfebereich',
+          bc_article: 'Crossfire Freelancer auf Deutsch installieren',
+          eyebrow: 'Installationsanleitung',
+          title: 'Crossfire Freelancer auf Deutsch installieren',
+          lead: 'Diese kurze Anleitung führt dich von einer frischen Freelancer-Installation bis zum deutschen Crossfire-Start über den <code>EXE2</code>-Ordner.',
+          toc_title: 'Inhalt',
+          toc_1: 'Frische Freelancer-Installation vorbereiten',
+          toc_2: 'Crossfire installieren und aktualisieren',
+          toc_3: 'Deutsche Dateien einspielen',
+          toc_4: 'Crossfire auf Deutsch starten',
+          section_1: '1. Frische Freelancer-Installation vorbereiten',
+          prepare_1: 'Installiere Freelancer frisch und ohne andere Mods.',
+          prepare_2: 'Starte die Grundinstallation bei Bedarf einmal kurz, um sicherzugehen, dass Freelancer sauber installiert wurde.',
+          prepare_3: 'Behalte diese Installation möglichst unverändert, bis der Crossfire-Installer sie verwendet hat.',
+          section_2: '2. Crossfire-Mod installieren und updaten',
+          crossfire_1: 'Lade den Crossfire-Mod herunter: <a class="wiki-download-link" href="https://www.moddb.com/mods/crossfire/downloads/freelancer-201-crossfire1">Crossfire Mod Download</a>.',
+          crossfire_2: 'Installiere den Crossfire-Mod. Als Zielordner wird in dieser Anleitung <code>C:\\Freelancer Crossfire</code> verwendet.',
+          crossfire_3: 'Starte danach die <code>Freelancer.exe</code> direkt im Crossfire-Ordner.',
+          crossfire_4: 'Führe das Update durch. Klicke dafür im Launcher einmal auf Multiplayer, damit der Crossfire-Updater seine Dateien aktualisiert.',
+          update_note: 'Wichtig: Spiele das deutsche Paket erst nach diesem Update ein. So vermeidest du, dass der Updater die deutschen Dateien direkt wieder überschreibt.',
+          section_3: '3. Deutsches Sprachpaket einspielen',
+          german_1: 'Schließe Freelancer und den Crossfire-Launcher vollständig.',
+          german_2: 'Entpacke <code>crossfire_de.7z</code> direkt über den Ordner <code>C:\\Freelancer Crossfire</code>.',
+          german_3: 'Bestätige beim Entpacken, dass vorhandene Dateien überschrieben werden dürfen.',
+          section_4: '4. Crossfire auf Deutsch starten',
+          start_1: 'Öffne im Crossfire-Verzeichnis den Ordner <code>EXE2</code>.',
+          start_2: 'Starte dort die <code>Freelancer.exe</code>.',
+          start_3: 'Wenn alles geklappt hat, startet Crossfire nun mit deutschen Texten.',
+          final_note: 'Kurzfassung: Erst Crossfire installieren und updaten, dann <code>crossfire_de.7z</code> über <code>C:\\Freelancer Crossfire</code> entpacken und anschließend <code>EXE2\\Freelancer.exe</code> starten.',
+          cta_back: 'Zurück zum Hilfebereich',
+          footer_label: 'Flathack Hilfebereich'
+        },
+        en: {
+          page_title: 'Install Crossfire Freelancer in German | Flathack Help Center',
+          page_description: 'Short step-by-step guide for installing Freelancer Crossfire and launching it with the German language files.',
+          bc_home: 'Home',
+          bc_help: 'Help Center',
+          bc_article: 'Install Crossfire Freelancer in German',
+          eyebrow: 'Installation Guide',
+          title: 'Install Crossfire Freelancer in German',
+          lead: 'This short guide takes you from a fresh Freelancer installation to launching Crossfire in German through the <code>EXE2</code> folder.',
+          toc_title: 'Contents',
+          toc_1: 'Prepare a fresh Freelancer installation',
+          toc_2: 'Install and update Crossfire',
+          toc_3: 'Apply the German files',
+          toc_4: 'Start Crossfire in German',
+          section_1: '1. Prepare a fresh Freelancer installation',
+          prepare_1: 'Install Freelancer fresh and without other mods.',
+          prepare_2: 'Start the base installation once if needed to make sure Freelancer was installed correctly.',
+          prepare_3: 'Keep this installation as unchanged as possible until the Crossfire installer has used it.',
+          section_2: '2. Install and update the Crossfire mod',
+          crossfire_1: 'Download the Crossfire mod: <a class="wiki-download-link" href="https://www.moddb.com/mods/crossfire/downloads/freelancer-201-crossfire1">Crossfire Mod Download</a>.',
+          crossfire_2: 'Install the Crossfire mod. This guide uses <code>C:\\Freelancer Crossfire</code> as the target folder.',
+          crossfire_3: 'After installation, start <code>Freelancer.exe</code> directly from the Crossfire folder.',
+          crossfire_4: 'Run the update. Click Multiplayer once in the launcher so the Crossfire updater refreshes its files.',
+          update_note: 'Important: apply the German package only after this update. This avoids the updater immediately replacing the German files again.',
+          section_3: '3. Apply the German language package',
+          german_1: 'Close Freelancer and the Crossfire launcher completely.',
+          german_2: 'Extract <code>crossfire_de.7z</code> directly over the folder <code>C:\\Freelancer Crossfire</code>.',
+          german_3: 'Confirm that existing files may be overwritten during extraction.',
+          section_4: '4. Start Crossfire in German',
+          start_1: 'Open the <code>EXE2</code> folder inside the Crossfire directory.',
+          start_2: 'Start <code>Freelancer.exe</code> from there.',
+          start_3: 'If everything worked, Crossfire now starts with German text.',
+          final_note: 'Short version: install and update Crossfire first, then extract <code>crossfire_de.7z</code> over <code>C:\\Freelancer Crossfire</code>, then start <code>EXE2\\Freelancer.exe</code>.',
+          cta_back: 'Back to Help Center',
+          footer_label: 'Flathack Help Center'
+        }
+      };
+      var lang = (function() { try { return sessionStorage.getItem('flathack-lang') || 'de'; } catch(e) { return 'de'; } })();
+      function t(key) { return (I18N[lang] || I18N.de)[key] || key; }
+      function applyLang() {
+        document.documentElement.lang = lang;
+        document.title = t('page_title');
+        var meta = document.getElementById('page-description');
+        if (meta) meta.setAttribute('content', t('page_description'));
+        document.querySelectorAll('[data-i18n]').forEach(function(el) {
+          el.innerHTML = t(el.dataset.i18n);
+        });
+      }
+      window.addEventListener('lang-change', function(e) {
+        if (e.detail && e.detail.lang && e.detail.lang !== lang) {
+          lang = e.detail.lang;
+          applyLang();
+        }
+      });
+      applyLang();
+    })();
+  </script>
+  <script src="../assets/js/nav.js"></script>
+</body>
+</html>
