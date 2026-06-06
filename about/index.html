@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About the Author | Flathack</title>
-  <meta name="description" content="About the author behind the Flathack projects.">
+  <title>About Flathack | Flathack</title>
+  <meta name="description" content="About the Flathack projects.">
   <link rel="icon" type="image/png" href="../assets/img/icons/flathack_icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,15 +24,15 @@
     <main>
       <section class="page-hero">
         <div class="page-hero-copy">
-          <p class="eyebrow" data-i18n="eyebrow">About the author</p>
-          <h1>Steven Schödel</h1>
+          <p class="eyebrow" data-i18n="eyebrow">About Flathack</p>
+          <h1>Flathack Projects</h1>
           <p class="page-intro" data-i18n="intro">This site is where I present my projects. I build them in my spare time alongside my regular work.</p>
         </div>
         <aside class="panel-card">
-          <p class="panel-label" data-i18n="profile">Profile</p>
-          <p data-i18n="find_me">You can find me here:</p>
+          <p class="panel-label" data-i18n="profile">Links</p>
+          <p data-i18n="find_me">Project links:</p>
           <div class="section-actions">
-            <a class="button button-repo" href="https://www.xing.com/profile/Steven_Schoedel/web_profiles?nwt_nav=profile&expandNeffi=true">Xing Profile</a>
+            <a class="button button-repo" href="https://github.com/flathack" target="_blank" rel="noopener">GitHub</a>
           </div>
         </aside>
       </section>
@@ -42,16 +42,16 @@
     (function() {
       var I18N = {
         de: {
-          eyebrow: '\u00dcber den Autor',
-          intro: 'Auf dieser Seite pr\u00e4sentiere ich meine Projekte. Ich entwickle sie in meiner Freizeit neben meiner regul\u00e4ren Arbeit.',
-          profile: 'Profil',
-          find_me: 'Hier bin ich zu finden:',
+          eyebrow: '\u00dcber Flathack',
+          intro: 'Auf dieser Seite werden Flathack-Projekte und Tools f\u00fcr Freelancer-Modding pr\u00e4sentiert.',
+          profile: 'Links',
+          find_me: 'Projektlinks:',
         },
         en: {
-          eyebrow: 'About the author',
-          intro: 'This site is where I present my projects. I build them in my spare time alongside my regular work.',
-          profile: 'Profile',
-          find_me: 'You can find me here:',
+          eyebrow: 'About Flathack',
+          intro: 'This site presents Flathack projects and tools for Freelancer modding.',
+          profile: 'Links',
+          find_me: 'Project links:',
         }
       };
       var lang = (function() { try { return sessionStorage.getItem('flathack-lang') || 'en'; } catch(e) { return 'en'; } })();

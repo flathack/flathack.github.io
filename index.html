@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Flathack — Freelancer Modding Tools & Projects</title>
-  <meta name="description" content="MIT-lizenzierte Open-Source-Tools für Freelancer Modding: Visual Editor, Savegame Editor, Übersetzer, Trade Route Calculator und Equipment Explorer.">
+  <meta name="description" content="MIT-lizenzierte Open-Source-Tools für Freelancer Modding: FLAtlas V2, Savegame Editor, Trade Route Calculator, Equipment Explorer und Community-Links.">
   <link rel="icon" type="image/png" href="assets/img/icons/flathack_icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -159,6 +159,111 @@
       font-size: 1.08rem;
     }
 
+    .hp-social-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .hp-discord-tile {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 0;
+      padding: 14px 18px;
+      border: 1px solid rgba(88, 101, 242, 0.42);
+      border-radius: var(--radius-lg);
+      background:
+        linear-gradient(135deg, rgba(88, 101, 242, 0.2), rgba(8, 25, 36, 0.94) 58%),
+        linear-gradient(180deg, rgba(8, 25, 36, 0.94), rgba(4, 14, 23, 0.94));
+      box-shadow: var(--shadow);
+      color: var(--text);
+      text-decoration: none;
+      animation: rise-in 420ms ease both;
+      transition: border-color 200ms ease, transform 200ms ease, background 200ms ease;
+    }
+    .hp-discord-tile:hover {
+      border-color: rgba(88, 101, 242, 0.72);
+      transform: translateY(-2px);
+      background:
+        linear-gradient(135deg, rgba(88, 101, 242, 0.28), rgba(8, 25, 36, 0.96) 58%),
+        linear-gradient(180deg, rgba(8, 25, 36, 0.96), rgba(4, 14, 23, 0.96));
+    }
+    .hp-discord-copy {
+      min-width: 0;
+    }
+    .hp-discord-copy .eyebrow {
+      margin-bottom: 4px;
+      font-size: 0.72rem;
+    }
+    .hp-discord-copy h2 {
+      margin-bottom: 3px;
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
+    }
+    .hp-discord-copy p {
+      display: none;
+    }
+    .hp-discord-mark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: #5865f2;
+      color: #fff;
+      font-family: "IBM Plex Mono", monospace;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+    .hp-discord-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 34px;
+      padding: 0 13px;
+      border-radius: 999px;
+      background: #5865f2;
+      color: #fff;
+      font-size: 0.88rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .hp-youtube-tile {
+      border-color: rgba(255, 0, 0, 0.42);
+      background:
+        linear-gradient(135deg, rgba(255, 0, 0, 0.16), rgba(8, 25, 36, 0.94) 58%),
+        linear-gradient(180deg, rgba(8, 25, 36, 0.94), rgba(4, 14, 23, 0.94));
+    }
+    .hp-youtube-tile:hover {
+      border-color: rgba(255, 0, 0, 0.7);
+      background:
+        linear-gradient(135deg, rgba(255, 0, 0, 0.24), rgba(8, 25, 36, 0.96) 58%),
+        linear-gradient(180deg, rgba(8, 25, 36, 0.96), rgba(4, 14, 23, 0.96));
+    }
+    .hp-youtube-tile .hp-discord-mark,
+    .hp-youtube-tile .hp-discord-cta {
+      background: #ff0000;
+    }
+    .hp-github-tile {
+      grid-column: 1 / -1;
+      border-color: rgba(148, 163, 184, 0.42);
+      background:
+        linear-gradient(135deg, rgba(148, 163, 184, 0.14), rgba(8, 25, 36, 0.94) 58%),
+        linear-gradient(180deg, rgba(8, 25, 36, 0.94), rgba(4, 14, 23, 0.94));
+    }
+    .hp-github-tile:hover {
+      border-color: rgba(148, 163, 184, 0.68);
+      background:
+        linear-gradient(135deg, rgba(148, 163, 184, 0.2), rgba(8, 25, 36, 0.96) 58%),
+        linear-gradient(180deg, rgba(8, 25, 36, 0.96), rgba(4, 14, 23, 0.96));
+    }
+    .hp-github-tile .hp-discord-mark,
+    .hp-github-tile .hp-discord-cta {
+      background: #24292f;
+    }
+
     /* ── Project Cards ── */
     .hp-projects-head {
       margin-bottom: 18px;
@@ -194,13 +299,13 @@
       pointer-events: none;
     }
     .f2d-banner {
-      min-height: 260px;
+      min-height: 190px;
       padding: 0;
       border-color: rgba(52, 211, 153, 0.35);
       background: linear-gradient(135deg, rgba(6, 31, 42, 0.95), rgba(4, 14, 26, 0.96));
     }
     .f2d-banner .tr-banner-inner {
-      min-height: 260px;
+      min-height: 190px;
       display: grid;
       grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1.1fr);
       gap: 0;
@@ -208,15 +313,31 @@
     }
     .f2d-banner .tr-banner-text {
       align-self: center;
-      padding: 36px 42px;
+      padding: 18px 26px;
+    }
+    .f2d-banner .tr-banner-badge {
+      margin-bottom: 8px;
+      padding: 4px 10px;
+      font-size: 0.68rem;
+    }
+    .f2d-banner h2 {
+      margin-bottom: 6px;
+      font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+    }
+    .f2d-banner p {
+      font-size: 0.92rem;
+      line-height: 1.42;
     }
     .f2d-banner .tr-banner-cta {
-      margin-top: 18px;
+      margin-top: 10px;
+      padding: 9px 18px;
+      font-size: 0.94rem;
       background: linear-gradient(135deg, var(--success), #06b6d4);
     }
     .freelancer2d-preview {
       position: relative;
-      min-height: 260px;
+      height: 190px;
+      min-height: 190px;
       overflow: hidden;
       border-left: 1px solid var(--panel-border);
       background: #030611;
@@ -224,8 +345,8 @@
     .freelancer2d-preview canvas {
       display: block;
       width: 100%;
-      height: 100%;
-      min-height: 260px;
+      height: 190px;
+      min-height: 0;
     }
     .freelancer2d-overlay {
       position: absolute;
@@ -291,6 +412,11 @@
       border-color: rgba(245, 158, 11, 0.3);
       background: rgba(245, 158, 11, 0.08);
       color: #fbbf24;
+    }
+    .hp-status-badge.deprecated {
+      border-color: rgba(239, 68, 68, 0.36);
+      background: rgba(239, 68, 68, 0.1);
+      color: #f87171;
     }
     .hp-card-desc {
       margin-bottom: 16px;
@@ -416,17 +542,30 @@
       .hp-project-grid { grid-template-columns: 1fr; }
       .f2d-banner .tr-banner-inner { grid-template-columns: 1fr; }
       .f2d-banner .tr-banner-text {
-        padding: 32px 28px 20px;
+        padding: 20px 20px 14px;
         text-align: center;
       }
       .freelancer2d-preview {
-        min-height: 220px;
+        height: 150px;
+        min-height: 150px;
         border-left: 0;
         border-top: 1px solid var(--panel-border);
+      }
+      .freelancer2d-preview canvas {
+        height: 150px;
       }
       .hp-tool-callout {
         align-items: flex-start;
         flex-direction: column;
+      }
+      .hp-social-grid {
+        grid-template-columns: 1fr;
+      }
+      .hp-discord-tile {
+        grid-template-columns: 1fr;
+      }
+      .hp-discord-mark {
+        display: none;
       }
       .hp-bottom-grid { grid-template-columns: 1fr; }
       .tr-banner-inner { flex-direction: column; text-align: center; }
@@ -435,6 +574,8 @@
     @media (max-width: 640px) {
       .tr-banner { padding: 28px 24px; }
       .hp-intro { padding: 28px 24px; }
+      .hp-discord-tile { padding: 14px 16px; }
+      .hp-discord-cta { justify-content: center; width: 100%; }
     }
   </style>
 </head>
@@ -449,6 +590,36 @@
     </header>
 
     <main>
+      <div class="hp-social-grid" aria-label="Community links">
+        <a class="hp-discord-tile" href="https://discord.gg/fY9qweRWG" target="_blank" rel="noopener">
+          <div class="hp-discord-mark" aria-hidden="true">DC</div>
+          <div class="hp-discord-copy">
+            <p class="eyebrow" data-i18n="discord_eyebrow">Community</p>
+            <h2 data-i18n="discord_title">Discord</h2>
+            <p data-i18n="discord_desc">Diskutiere FLAtlas, Freelancer-Modding und neue Tools direkt mit der Community.</p>
+          </div>
+          <span class="hp-discord-cta"><span data-i18n="discord_join">Discord beitreten</span> <span class="arrow">→</span></span>
+        </a>
+        <a class="hp-discord-tile hp-youtube-tile" href="https://www.youtube.com/@aldenmarodin-flathack" target="_blank" rel="noopener">
+          <div class="hp-discord-mark" aria-hidden="true">YT</div>
+          <div class="hp-discord-copy">
+            <p class="eyebrow" data-i18n="youtube_eyebrow">Videos</p>
+            <h2 data-i18n="youtube_title">YouTube</h2>
+            <p data-i18n="youtube_desc">Demos, Tool-Updates und Freelancer-Modding-Videos auf dem Kanal.</p>
+          </div>
+          <span class="hp-discord-cta"><span data-i18n="youtube_open">Kanal öffnen</span> <span class="arrow">→</span></span>
+        </a>
+        <a class="hp-discord-tile hp-github-tile" href="https://github.com/flathack" target="_blank" rel="noopener">
+          <div class="hp-discord-mark" aria-hidden="true">GH</div>
+          <div class="hp-discord-copy">
+            <p class="eyebrow" data-i18n="github_eyebrow">Code</p>
+            <h2 data-i18n="github_title">GitHub</h2>
+            <p data-i18n="github_desc">Öffentliche Repositories, Releases und Quellcode der Projekte.</p>
+          </div>
+          <span class="hp-discord-cta"><span data-i18n="github_open">GitHub öffnen</span> <span class="arrow">→</span></span>
+        </a>
+      </div>
+
       <!-- ══════ FREELANCER 2D BANNER ══════ -->
       <a class="tr-banner f2d-banner" href="freelancer2d/index.html">
         <div class="tr-banner-inner">
@@ -601,10 +772,10 @@
             <span class="hp-version">v0.2.2</span>
           </div>
           <div class="hp-status-line">
-            <span class="hp-status-badge released" data-i18n="status_released">Released</span>
-            <span data-i18n="lingo_status">Uebersetzungsworkflow stabil</span>
+            <span class="hp-status-badge deprecated" data-i18n="status_deprecated">Veraltet</span>
+            <span data-i18n="lingo_status">App ist veraltet - bitte FLAtlas-V2 für Übersetzungen nutzen</span>
           </div>
-          <p class="hp-card-desc" data-i18n="lingo_desc">Relokalisierungs-Tool für Freelancer-Mods. Vergleicht modifizierte Installationen mit Clean-Referenzen, stellt bekannte Vanilla-Texte wieder her und exportiert Mod-spezifische Einträge zur Übersetzung.</p>
+          <p class="hp-card-desc" data-i18n="lingo_desc">FL-Lingo ist veraltet. Für aktuelle Freelancer-Übersetzungen soll stattdessen FLAtlas-V2 genutzt werden; dort werden die Übersetzungsfunktionen weitergeführt.</p>
           <div class="hp-card-features">
             <span class="hp-feature-tag">Simple Mode</span>
             <span class="hp-feature-tag">Expert Mode</span>
@@ -617,6 +788,7 @@
             <div class="hp-progress-bar"><span style="width:100%"></span></div>
           </div>
           <div class="hp-card-footer">
+            <a class="hp-card-link" href="https://github.com/flathack/FLAtlas-V2" target="_blank" rel="noopener" data-i18n="lingo_use_atlas">FLAtlas-V2 nutzen</a>
             <a class="hp-card-link" href="https://github.com/flathack/FL-Lingo" target="_blank" rel="noopener">GitHub</a>
           </div>
         </article>
@@ -658,7 +830,7 @@
       </section>
 
       <footer class="page-footer">
-        &copy; 2026 Steven Schödel — Flathack Projects · <a href="help/index.html">Help Center</a>
+        &copy; 2026 Flathack Projects · <a href="help/index.html">Help Center</a>
       </footer>
     </main>
   </div>
@@ -668,6 +840,18 @@
       de: {
         badge_online: 'Online-Tool',
         badge_playable: 'Spiel-Prototyp',
+        discord_eyebrow: 'Community',
+        discord_title: 'Discord',
+        discord_desc: 'Diskutiere FLAtlas, Freelancer-Modding und neue Tools direkt mit der Community.',
+        discord_join: 'Discord beitreten',
+        youtube_eyebrow: 'Videos',
+        youtube_title: 'YouTube',
+        youtube_desc: 'Demos, Tool-Updates und Freelancer-Modding-Videos auf dem Kanal.',
+        youtube_open: 'Kanal öffnen',
+        github_eyebrow: 'Code',
+        github_title: 'GitHub',
+        github_desc: 'Öffentliche Repositories, Releases und Quellcode der Projekte.',
+        github_open: 'GitHub öffnen',
         banner_trade: 'Trade Route Calculator',
         banner_trade_desc: 'Finde die profitabelsten Handelsrouten in Freelancer — für Hamburg City, Crossfire und weitere Mods. Direkt im Browser.',
         cta_start: 'Jetzt starten',
@@ -691,6 +875,7 @@
         company_car_open: 'Rechner oeffnen',
         atlas_desc: 'Umfassender visueller Mod-Editor für Freelancer: Universe-Map, System-Editor (2D/3D), Flight-Mode, Trade-Routes, Name/Infocard-Editor, INI-Editor und NPC/Rumor/News-Editor.',
         status_released: 'Released',
+        status_deprecated: 'Veraltet',
         status_in_progress: 'In Arbeit',
         atlas_status: 'v0.8.1 veroeffentlicht - v0.9.0 in Arbeit',
         progress: 'Fortschritt',
@@ -699,8 +884,9 @@
         savegame_status: 'Aktuelles Alpha-Release, Wartung und Kompatibilitaet',
         tag_5lang: '5 Sprachen',
         lingo_title: 'FL-Lingo — Übersetzer',
-        lingo_desc: 'Relokalisierungs-Tool für Freelancer-Mods. Vergleicht modifizierte Installationen mit Clean-Referenzen, stellt bekannte Vanilla-Texte wieder her und exportiert Mod-spezifische Einträge zur Übersetzung.',
-        lingo_status: 'Uebersetzungsworkflow stabil',
+        lingo_desc: 'FL-Lingo ist veraltet. Für aktuelle Freelancer-Übersetzungen soll stattdessen FLAtlas-V2 genutzt werden; dort werden die Übersetzungsfunktionen weitergeführt.',
+        lingo_status: 'App ist veraltet - bitte FLAtlas-V2 für Übersetzungen nutzen',
+        lingo_use_atlas: 'FLAtlas-V2 nutzen',
         tag_terminology: 'Terminologie',
         tag_100lang: '100 Sprachen',
         launcher_status: 'Aktuelles Alpha-Release, Mod-Verwaltung komplett',
@@ -713,6 +899,18 @@
       en: {
         badge_online: 'Online Tool',
         badge_playable: 'Playable Prototype',
+        discord_eyebrow: 'Community',
+        discord_title: 'Discord',
+        discord_desc: 'Discuss FLAtlas, Freelancer modding, and new tools directly with the community.',
+        discord_join: 'Join Discord',
+        youtube_eyebrow: 'Videos',
+        youtube_title: 'YouTube',
+        youtube_desc: 'Demos, tool updates, and Freelancer modding videos on the channel.',
+        youtube_open: 'Open channel',
+        github_eyebrow: 'Code',
+        github_title: 'GitHub',
+        github_desc: 'Public repositories, releases, and source code for the projects.',
+        github_open: 'Open GitHub',
         banner_trade: 'Trade Route Calculator',
         banner_trade_desc: 'Find the most profitable trade routes in Freelancer — for Hamburg City, Crossfire, and more mods. Right in your browser.',
         cta_start: 'Get started',
@@ -736,6 +934,7 @@
         company_car_open: 'Open calculator',
         atlas_desc: 'Comprehensive visual mod editor for Freelancer: Universe Map, System Editor (2D/3D), Flight Mode, Trade Routes, Name/Infocard Editor, INI Editor, and NPC/Rumor/News Editor.',
         status_released: 'Released',
+        status_deprecated: 'Outdated',
         status_in_progress: 'In Progress',
         atlas_status: 'v0.8.1 released - v0.9.0 in progress',
         progress: 'Progress',
@@ -744,8 +943,9 @@
         savegame_status: 'Current alpha release, maintenance and compatibility',
         tag_5lang: '5 Languages',
         lingo_title: 'FL-Lingo — Translator',
-        lingo_desc: 'Relocalization tool for Freelancer mods. Compares modified installations with clean references, restores known vanilla texts, and exports mod-specific entries for translation.',
-        lingo_status: 'Stable translation workflow',
+        lingo_desc: 'FL-Lingo is outdated. Use FLAtlas-V2 for current Freelancer translations instead; translation features continue there.',
+        lingo_status: 'App is outdated - use FLAtlas-V2 for translations',
+        lingo_use_atlas: 'Use FLAtlas-V2',
         tag_terminology: 'Terminology',
         tag_100lang: '100 Languages',
         launcher_status: 'Current alpha release, mod management complete',
