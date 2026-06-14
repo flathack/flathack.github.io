@@ -1722,6 +1722,13 @@
       return isoDateText(date);
     }
 
+    function previousIsoDate(dateText) {
+      const date = isoDateParts(dateText);
+      if (!date) return '';
+      date.setDate(date.getDate() - 1);
+      return isoDateText(date);
+    }
+
     function timeZoneDateParts(date, timeZone) {
       const parts = new Intl.DateTimeFormat('en-CA', {
         timeZone,
@@ -1740,9 +1747,20 @@
       return map;
     }
 
-    function currentBerlinDateText() {
-      const parts = timeZoneDateParts(new Date(), 'Europe/Berlin');
+    function currentBerlinDateText(now) {
+      const parts = timeZoneDateParts(now || new Date(), 'Europe/Berlin');
       return parts.year + '-' + parts.month + '-' + parts.day;
+    }
+
+    function currentCrossfireTradeDateText(now) {
+      if (window.TradeCycle && typeof window.TradeCycle.currentCrossfireTradeDateText === 'function') {
+        return window.TradeCycle.currentCrossfireTradeDateText(now || new Date());
+      }
+      const current = now || new Date();
+      const parts = timeZoneDateParts(current, 'Europe/Berlin');
+      const berlinDate = parts.year + '-' + parts.month + '-' + parts.day;
+      const hour = parseInt(parts.hour, 10);
+      return hour < 8 ? previousIsoDate(berlinDate) : berlinDate;
     }
 
     function timeZoneOffsetMinutes(date, timeZone) {
@@ -1901,7 +1919,7 @@
     }
 
     function chooseInitialCalendarDate() {
-      if (currentModId === 'crossfire') return currentBerlinDateText();
+      if (currentModId === 'crossfire') return currentCrossfireTradeDateText();
       const entry = findDatasetTimelineEntry(selectedDatasetId);
       if (entry && entry.date) return entry.date;
       if (datasetTimeline && datasetTimeline.lastDate) return datasetTimeline.lastDate;
@@ -1910,6 +1928,11 @@
 
     function applyDefaultCalendarDate() {
       selectedCalendarDate = chooseInitialCalendarDate();
+      const info = selectedCalendarInfo();
+      if (info && info.hasDataset && info.datasetId) {
+        selectedDatasetId = info.datasetId;
+        if (datasetSelect) datasetSelect.value = selectedDatasetId;
+      }
     }
 
     function saveShipSelection() {
@@ -2418,7 +2441,7 @@
       setTimeout(() => {
         try {
           if (currentModId === 'crossfire' && selectedCalendarDate && !hasSelectedDatasetCalendarEntry()) {
-            currentEmptyKey = selectedCalendarDate >= currentBerlinDateText() ? 'no_prices_soon' : 'no_prices_for_day';
+            currentEmptyKey = selectedCalendarDate >= currentCrossfireTradeDateText() ? 'no_prices_soon' : 'no_prices_for_day';
             currentResults = [];
             sortCol = -1;
             renderResults();

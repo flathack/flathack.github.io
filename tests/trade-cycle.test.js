@@ -1,6 +1,6 @@
 const assert = require('node:assert/strict');
 
-const { resolveCycleDataset } = require('../assets/js/trade-cycle.js');
+const { currentCrossfireTradeDateText, resolveCycleDataset } = require('../assets/js/trade-cycle.js');
 
 const dated = [
   { id: 'data18', date: '2026-04-23', label: 'DATA18 (2026-04-23)' },
@@ -42,5 +42,29 @@ assert.deepEqual(resolveCycleDataset('2026-06-16', dated, cycle), {
 });
 
 assert.equal(resolveCycleDataset('bad-date', dated, cycle), null);
+
+assert.equal(
+  currentCrossfireTradeDateText(new Date('2026-06-14T05:59:59Z')),
+  '2026-06-13',
+  'before 08:00 Berlin summer reboot, Crossfire should still use previous price day'
+);
+
+assert.equal(
+  currentCrossfireTradeDateText(new Date('2026-06-14T06:00:00Z')),
+  '2026-06-14',
+  'at 08:00 Berlin summer reboot, Crossfire should use current price day'
+);
+
+assert.equal(
+  currentCrossfireTradeDateText(new Date('2026-01-10T06:59:59Z')),
+  '2026-01-09',
+  'before 08:00 Berlin winter reboot, Crossfire should still use previous price day'
+);
+
+assert.equal(
+  currentCrossfireTradeDateText(new Date('2026-01-10T07:00:00Z')),
+  '2026-01-10',
+  'at 08:00 Berlin winter reboot, Crossfire should use current price day'
+);
 
 console.log('trade-cycle tests passed');

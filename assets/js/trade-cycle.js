@@ -32,6 +32,51 @@
     return Math.round((right.getTime() - left.getTime()) / 86400000);
   }
 
+  function isoDayText(date) {
+    return [
+      date.getUTCFullYear(),
+      String(date.getUTCMonth() + 1).padStart(2, '0'),
+      String(date.getUTCDate()).padStart(2, '0'),
+    ].join('-');
+  }
+
+  function shiftIsoDay(dateText, deltaDays) {
+    const date = parseIsoDay(dateText);
+    if (!date) return '';
+    date.setUTCDate(date.getUTCDate() + deltaDays);
+    return isoDayText(date);
+  }
+
+  function timeZoneDateParts(date, timeZone) {
+    const parts = new Intl.DateTimeFormat('en-CA', {
+      timeZone,
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hourCycle: 'h23',
+    }).formatToParts(date);
+    const map = Object.create(null);
+    parts.forEach(part => {
+      if (part.type !== 'literal') map[part.type] = part.value;
+    });
+    return map;
+  }
+
+  function currentCrossfireTradeDateText(now, options) {
+    const current = now instanceof Date ? now : new Date();
+    const config = options || {};
+    const timeZone = config.timeZone || 'Europe/Berlin';
+    const rebootHour = Number.isFinite(Number(config.rebootHour)) ? Number(config.rebootHour) : 8;
+    const parts = timeZoneDateParts(current, timeZone);
+    const berlinDate = parts.year + '-' + parts.month + '-' + parts.day;
+    const hour = Number(parts.hour);
+    if (!berlinDate || !Number.isFinite(hour)) return '';
+    return hour < rebootHour ? shiftIsoDay(berlinDate, -1) : berlinDate;
+  }
+
   function positiveModulo(value, modulo) {
     return ((value % modulo) + modulo) % modulo;
   }
@@ -88,6 +133,7 @@
   return {
     DEFAULT_CROSSFIRE_CYCLE,
     cyclePhase,
+    currentCrossfireTradeDateText,
     resolveCycleDataset,
   };
 });
