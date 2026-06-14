@@ -15,7 +15,6 @@
   const TRADE_SUB_LINKS = [
     { label: "Trade Routes", href: "docs/trade-routes.html" },
     { label: "Trade Compare", href: "docs/trade-compare.html" },
-    { label: "Preis-Pattern", href: "docs/price-pattern.html" },
   ];
 
   const TRADE_TOOL_PAGES = new Set(TRADE_SUB_LINKS.map(function (item) { return item.href; }));

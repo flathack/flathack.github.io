@@ -1117,6 +1117,7 @@
   </div>
 
   <script src="../assets/js/trade-engine.js"></script>
+  <script src="../assets/js/trade-cycle.js"></script>
   <script>
     /* ── i18n ──────────────────────────────────────────── */
     const I18N = {
@@ -1147,6 +1148,7 @@
         dataset_calendar_placeholder: 'Preisstand auswählen',
         dataset_calendar_selected: 'Ausgewählter Preisstand',
         dataset_calendar_no_data: 'Noch keine Preisdaten',
+        dataset_calendar_cycle: 'Zyklus nutzt {date}',
         dataset_calendar_weekdays: 'Mo,Di,Mi,Do,Fr,Sa,So',
         reboot_title: 'Crossfire-Reboot',
         reboot_countdown: 'Nächster Preiswechsel in {time}',
@@ -1210,6 +1212,7 @@
         dataset_calendar_placeholder: 'Select price snapshot',
         dataset_calendar_selected: 'Selected price snapshot',
         dataset_calendar_no_data: 'No price data yet',
+        dataset_calendar_cycle: 'Cycle uses {date}',
         dataset_calendar_weekdays: 'Mo,Tu,We,Th,Fr,Sa,Su',
         reboot_title: 'Crossfire Reboot',
         reboot_countdown: 'Next price update in {time}',
@@ -1818,7 +1821,7 @@
 
     function hasSelectedDatasetCalendarEntry() {
       const info = selectedCalendarInfo();
-      return !!(info && info.type === 'day' && info.hasDataset && info.datasetId === selectedDatasetId);
+      return !!(info && (info.type === 'day' || info.type === 'cycle') && info.hasDataset && info.datasetId === selectedDatasetId);
     }
 
     function updateRebootStatus() {
@@ -1872,6 +1875,16 @@
         datasetCalendarMeta.textContent = t('dataset_calendar_no_data');
         return;
       }
+      if (selectedInfo && selectedInfo.type === 'cycle') {
+        const dataset = datasetMap[selectedInfo.datasetId] || {};
+        datasetCalendarValue.textContent = selectedCalendarDate;
+        const parts = [];
+        parts.push(formatTimelineText(t('dataset_calendar_cycle'), { date: selectedInfo.cycleSourceDate }));
+        if (dataset.label) parts.push(dataset.label);
+        if (selectedInfo.stateIndex != null) parts.push('S' + selectedInfo.stateIndex);
+        datasetCalendarMeta.textContent = parts.join(' / ');
+        return;
+      }
       const dataset = currentDataset();
       const entry = findDatasetTimelineEntry(selectedDatasetId);
       if (!dataset || !entry) {
@@ -1914,6 +1927,25 @@
       if (Array.isArray(datasetTimeline.segments)) {
         const exact = datasetTimeline.segments.find(segment => segment.type === 'day' && segment.date === dateText);
         if (exact) return exact;
+      }
+      if (datasetTimeline.cycle && window.TradeCycle && typeof window.TradeCycle.resolveCycleDataset === 'function') {
+        const cycleMatch = window.TradeCycle.resolveCycleDataset(dateText, datasetTimeline.dated || [], datasetTimeline.cycle);
+        if (cycleMatch && !cycleMatch.exact) {
+          return {
+            type: 'cycle',
+            date: dateText,
+            datasetId: cycleMatch.datasetId,
+            label: '',
+            hasDataset: true,
+            hasHistory: false,
+            stateIndex: cycleMatch.phase,
+            entryCount: 0,
+            repeated: true,
+            cycleSourceDate: cycleMatch.datasetDate,
+          };
+        }
+      }
+      if (Array.isArray(datasetTimeline.segments)) {
         const future = datasetTimeline.segments.find(segment => segment.type === 'future' && segment.date === dateText);
         if (future) return future;
       }
@@ -1954,14 +1986,16 @@
         let tag = 'div';
         let attrs = '';
         if (!inMonth) classes.push('outside');
-        if (info && info.type === 'day') {
+        if (info && (info.type === 'day' || info.type === 'cycle')) {
           tag = 'button';
           attrs = ' type="button" data-calendar-date="' + escHtml(iso) + '"' + (info.hasDataset ? ' data-dataset-id="' + escHtml(info.datasetId) + '"' : '');
           if (info.hasHistory) classes.push('history');
           if (info.repeated) classes.push('repeat');
+          if (info.type === 'cycle' && datasetTimeline.lastDate && iso > datasetTimeline.lastDate) classes.push('future');
           if (iso === selectedCalendarDate) classes.push('selected');
           if (info.datasetId && info.datasetId === datasetTimeline.latestDatasetId) classes.push('latest');
-          if (info.hasDataset) title.push(t('dataset_timeline_available'));
+          if (info.type === 'cycle') title.push(formatTimelineText(t('dataset_calendar_cycle'), { date: info.cycleSourceDate }));
+          else if (info.hasDataset) title.push(t('dataset_timeline_available'));
           else title.push(t('dataset_timeline_history'));
           if (info.stateIndex != null) title.push('S' + info.stateIndex);
           if (info.repeated) title.push(t('dataset_timeline_repeat'));
@@ -2008,7 +2042,13 @@
         }))
         .sort((a, b) => a.date.localeCompare(b.date));
       if (!days.length) return null;
-      return { days, repeatDates };
+      const cycle = payload.cycle && typeof payload.cycle === 'object'
+        ? {
+          anchorDate: payload.cycle.anchorDate || payload.cycle.anchor_date || '',
+          cycleDays: payload.cycle.cycleDays || payload.cycle.cycle_days || 0,
+        }
+        : null;
+      return { days, repeatDates, cycle };
     }
 
     function buildDatasetTimeline() {
@@ -2069,6 +2109,12 @@
       }
       const lastDate = allDates[allDates.length - 1];
       segments.push({ type: 'future', date: nextIsoDate(lastDate) });
+      const fallbackCycle = window.TradeCycle && window.TradeCycle.DEFAULT_CROSSFIRE_CYCLE
+        ? window.TradeCycle.DEFAULT_CROSSFIRE_CYCLE
+        : null;
+      const cycle = currentModId === 'crossfire'
+        ? ((patternHistory && patternHistory.cycle) || fallbackCycle)
+        : null;
       return {
         firstDate: allDates[0],
         lastDate,
@@ -2078,6 +2124,7 @@
         segments,
         gapCount,
         repeatCount: patternHistory ? patternHistory.repeatDates.size : 0,
+        cycle,
       };
     }
 

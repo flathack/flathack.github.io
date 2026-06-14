@@ -137,6 +137,24 @@
     .td-profit { color: var(--success); font-weight: 600; }
     .td-neg { color: #ef4444; }
     .td-warm { color: var(--accent-warm); font-weight: 600; }
+    .tc-route-list {
+      display: grid;
+      gap: 3px;
+      min-width: 360px;
+      white-space: normal;
+    }
+    .tc-route-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      color: var(--text);
+      line-height: 1.35;
+    }
+    .tc-route-line small {
+      color: var(--muted);
+      font-family: "IBM Plex Mono", monospace;
+      white-space: nowrap;
+    }
 
     /* ── Heatmap cell ───────────────────────────────── */
     .hm-cell {
@@ -229,11 +247,11 @@
         <div class="tc-controls" id="controls">
           <div class="tc-field">
             <label for="cargo-input" data-i18n="lbl_cargo">Fracht</label>
-            <input type="number" id="cargo-input" value="250" min="1" max="20000">
+            <input type="number" id="cargo-input" value="275" min="1" max="20000">
           </div>
           <div class="tc-field">
             <label for="jumps-input" data-i18n="lbl_jumps">Max. Sprünge</label>
-            <input type="number" id="jumps-input" value="10" min="0" max="50">
+            <input type="number" id="jumps-input" value="4" min="0" max="50">
           </div>
         </div>
 
@@ -271,6 +289,7 @@
   </div>
 
   <script src="../assets/js/trade-engine.js"></script>
+  <script src="../assets/js/trade-compare-precomputed.js"></script>
   <script>
     /* ══════════════════════════════════════════════════════
        i18n
@@ -296,6 +315,7 @@
         hm_commodity: 'Ware',
         overview_days_chart: 'Tage-Ranking (Bester $/Min)',
         overview_comms_chart: 'Top Commodities (Ø $/Min über alle Tage)',
+        precomputed_badge: 'vorausberechnet',
       },
       en: {
         title: 'Dataset Comparison',
@@ -317,6 +337,7 @@
         hm_commodity: 'Commodity',
         overview_days_chart: 'Day Ranking (Best $/Min)',
         overview_comms_chart: 'Top Commodities (Avg $/Min across all Days)',
+        precomputed_badge: 'precomputed',
       }
     };
     const COMMODITY_DE = {
@@ -358,6 +379,7 @@
        State
     ══════════════════════════════════════════════════════ */
     let tradePayload = null;
+    let precomputedCompare = null;
     let currentModId = '';
     let selectedDatasets = new Set();
     let currentView = 'overview';
@@ -395,11 +417,19 @@
       singleDsInfo.style.display = 'none';
       currentModId = modId;
       analysisCache = null;
+      precomputedCompare = null;
 
       try {
-        const resp = await fetch('../data/trade-routes/' + file);
-        if (!resp.ok) throw new Error(resp.status);
-        tradePayload = await resp.json();
+        if (modId === 'crossfire') {
+          const preResp = await fetch('../data/trade-routes/crossfire-compare.json');
+          if (!preResp.ok) throw new Error(preResp.status);
+          precomputedCompare = await preResp.json();
+          tradePayload = TradeComparePrecomputed.createPrecomputedTradePayload(precomputedCompare);
+        } else {
+          const resp = await fetch('../data/trade-routes/' + file);
+          if (!resp.ok) throw new Error(resp.status);
+          tradePayload = await resp.json();
+        }
       } catch (e) {
         loadingEl.style.display = 'none';
         contentArea.innerHTML = '<div class="tc-empty">Failed to load: ' + escHtml(e.message) + '</div>';
@@ -472,10 +502,25 @@
     ══════════════════════════════════════════════════════ */
     function analyzeDatasets() {
       if (analysisCache) return analysisCache;
-      const maxJumps = parseInt(jumpsInput.value) || 10;
-      const cargo = parseInt(cargoInput.value) || 250;
+      const parsedJumps = parseInt(jumpsInput.value, 10);
+      const parsedCargo = parseInt(cargoInput.value, 10);
+      const maxJumps = Number.isFinite(parsedJumps) ? Math.max(0, parsedJumps) : 10;
+      const cargo = Number.isFinite(parsedCargo) ? Math.max(1, parsedCargo) : 275;
       const dsIds = [...selectedDatasets];
       if (!tradePayload || !dsIds.length) return null;
+
+      if (canUsePrecomputedCompare(cargo, maxJumps)) {
+        const precomputed = TradeComparePrecomputed.analyzePrecomputedDatasets(
+          precomputedCompare,
+          selectedDatasets,
+          cargo,
+          { maxJumps }
+        );
+        if (precomputed) {
+          analysisCache = precomputed;
+          return analysisCache;
+        }
+      }
 
       const dayStats = [];
       const commodityMap = {}; // nick -> { name, perDay: [{dsId, label, bestPPM, ...}] }
@@ -569,6 +614,15 @@
       return analysisCache;
     }
 
+    function canUsePrecomputedCompare(cargo, maxJumps) {
+      if (currentModId !== 'crossfire' || !precomputedCompare || !window.TradeComparePrecomputed) return false;
+      const defaults = precomputedCompare.defaults || {};
+      return Number(cargo) === Number(defaults.cargo || 275)
+        && Number(maxJumps) <= Number(defaults.maxJumps || 4)
+        && !defaults.tlOnly
+        && !defaults.includeReturnTrip;
+    }
+
     /* ══════════════════════════════════════════════════════
        Rendering
     ══════════════════════════════════════════════════════ */
@@ -618,8 +672,24 @@
         <div class="tc-summary-card">
           <h4>${escHtml(t('card_datasets'))}</h4>
           <div class="val accent">${dsIds.length}</div>
+          <div class="sub">${data.precomputed ? escHtml(t('precomputed_badge')) : ''}</div>
         </div>`;
       summaryRow.style.display = '';
+    }
+
+    function renderTopRoutesList(dayStat) {
+      const routes = (dayStat.topRoutes && dayStat.topRoutes.length)
+        ? dayStat.topRoutes.slice(0, 5)
+        : (dayStat.bestRoute ? [dayStat.bestRoute] : []);
+      if (!routes.length) return '-';
+      return '<div class="tc-route-list">' + routes.map((route, index) => {
+        const routeLabel = tCommodity(route.commodity) + ' (' + route.srcSys + ' -> ' + route.dstSys + ')';
+        const profit = route.profitPerMin ? fmtNum(route.profitPerMin) + ' $/Min' : '-';
+        return '<div class="tc-route-line">' +
+          '<span>' + escHtml(String(index + 1) + '. ' + routeLabel) + '</span>' +
+          '<small>' + escHtml(profit) + '</small>' +
+          '</div>';
+      }).join('') + '</div>';
     }
 
     /* ── Overview ──────────────────────────────────────── */
@@ -703,11 +773,10 @@
 
       rows.forEach((d, i) => {
         const route = d.bestRoute;
-        const routeLabel = route ? tCommodity(route.commodity) + ' (' + route.srcSys + ' → ' + route.dstSys + ')' : '-';
         html += `<tr>
           <td class="td-num">${i + 1}</td>
           <td><strong>${escHtml(d.label)}</strong></td>
-          <td>${escHtml(routeLabel)}</td>
+          <td>${renderTopRoutesList(d)}</td>
           <td class="td-num td-profit">${route && route.profitPerMin ? fmtNum(route.profitPerMin) : '-'}</td>
           <td class="td-num td-profit">${route ? fmtNum(route.totalProfit) : '-'}</td>
           <td class="td-num">${fmtNum(d.avgPPM)}</td>

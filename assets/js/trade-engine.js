@@ -790,3 +790,10 @@ class TradeEngine {
     return loops.slice(0, maxResults);
   }
 }
+
+if (typeof module === 'object' && module.exports) {
+  module.exports = TradeEngine;
+}
+if (typeof window !== 'undefined') {
+  window.TradeEngine = TradeEngine;
+}
