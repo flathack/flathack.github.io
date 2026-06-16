@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SWAT Portal Themes | Flathack</title>
+  <meta name="description" content="Copy-friendly SWAT Portal forum theme overview with Stylus links, CSS imports, and previews.">
+  <link rel="icon" type="image/png" href="../assets/img/icons/flathack_icon.png">
+  <style>
+    :root {
+      --bg: #07111f;
+      --paper: #ffffff;
+      --text: #172033;
+      --muted: #536079;
+      --line: #d7dde8;
+      --link: #075fc7;
+      --code-bg: #f4f7fb;
+      --code-border: #cdd7e6;
+      --accent: #2f95ff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      background: var(--bg);
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      padding: 28px;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(47, 149, 255, 0.16), transparent 30%),
+        linear-gradient(180deg, #07111f, #050914);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.55;
+    }
+
+    .forum-copy {
+      width: min(980px, 100%);
+      margin: 0 auto;
+      padding: 34px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+      box-shadow: 0 24px 90px rgba(0, 0, 0, 0.35);
+    }
+
+    h1,
+    h2,
+    h3,
+    p,
+    ul,
+    ol,
+    pre {
+      margin-top: 0;
+    }
+
+    h1 {
+      margin-bottom: 12px;
+      color: #0c1528;
+      font-size: 2rem;
+      line-height: 1.15;
+    }
+
+    h2 {
+      margin: 30px 0 10px;
+      padding-bottom: 7px;
+      border-bottom: 1px solid var(--line);
+      color: #0c1528;
+      font-size: 1.35rem;
+    }
+
+    h3 {
+      margin: 20px 0 8px;
+      color: #0c1528;
+      font-size: 1.08rem;
+    }
+
+    p,
+    li {
+      color: var(--text);
+    }
+
+    .intro,
+    .small-note {
+      color: var(--muted);
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: underline;
+    }
+
+    .theme-entry {
+      break-inside: avoid;
+      margin: 18px 0 24px;
+      padding: 16px 18px;
+      border: 1px solid var(--line);
+      border-left: 5px solid var(--accent);
+      border-radius: 6px;
+      background: #fbfcff;
+    }
+
+    .theme-entry p {
+      margin-bottom: 10px;
+    }
+
+    .theme-preview {
+      display: block;
+      width: min(420px, 100%);
+      height: auto;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #07111f;
+    }
+
+    pre {
+      overflow-x: auto;
+      margin-bottom: 0;
+      padding: 12px 14px;
+      border: 1px solid var(--code-border);
+      border-radius: 5px;
+      background: var(--code-bg);
+      color: #111827;
+      font: 0.92rem/1.45 Consolas, "Liberation Mono", Menlo, monospace;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    code {
+      font-family: Consolas, "Liberation Mono", Menlo, monospace;
+    }
+
+    .plain-link-list {
+      padding-left: 22px;
+    }
+
+    .plain-link-list li {
+      margin-bottom: 5px;
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 12px;
+      }
+
+      .forum-copy {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 1.55rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <article class="forum-copy">
+    <h1>Enjoy SWAT Portal forum in different colors / themes</h1>
+
+    <p class="intro">Just install the <a href="https://add0n.com/stylus.html">Stylus browser extension</a> and use one of these themes to change the SWAT Portal forum colors.</p>
+
+    <p>All theme files are hosted here:</p>
+    <p><a href="https://flathack.github.io/docs/swat-portal-themes.html">https://flathack.github.io/docs/swat-portal-themes.html</a></p>
+
+    <h2>How to use</h2>
+    <ol>
+      <li>Install Stylus for your browser.</li>
+      <li>Open one of the UserStyle links below.</li>
+      <li>Confirm the style in Stylus.</li>
+      <li>Reload SWAT Portal.</li>
+    </ol>
+
+    <p class="small-note">Target page pattern: <code>https://swat-portal.com/*</code></p>
+
+    <h2>Available themes</h2>
+
+    <section class="theme-entry">
+      <h3>Aurora</h3>
+      <p><a href="https://flathack.github.io/docs/swat-portal-themes/previews/swat-aurora.jpg"><img class="theme-preview" src="swat-portal-themes/previews/swat-aurora.jpg" alt="Aurora preview" width="420" height="240"></a></p>
+      <p>Green-blue premium theme with a bright atmospheric header glow.</p>
+      <ul class="plain-link-list">
+        <li><a href="https://flathack.github.io/docs/swat-portal-themes/swat-aurora.user.css">Install Aurora UserStyle</a></li>
+        <li><a href="https://flathack.github.io/docs/swat-portal-themes/swat-aurora.css">Open Aurora CSS</a></li>
+      </ul>
+      <p>Stylus import:</p>
+      <pre><code>@import url("https://flathack.github.io/docs/swat-portal-themes/swat-aurora.css");</code></pre>
+    </section>
+
+    <section class="theme-entry">
+      <h3>Black</h3>
+      <p>Dark monochrome premium theme with clean grey highlights.</p>
+      <ul class="plain-link-list">
+        <li><a href="https://flathack.github.io/docs/swat-portal-themes/swat-black.user.css">Install Black UserStyle</a></li>
+        <li><a href="https://flathack.github.io/docs/swat-portal-themes/swat-black.css">Open Black CSS</a></li>
+      </ul>
+      <p>Stylus import:</p>
+      <pre><code>@import url("https://flathack.github.io/docs/swat-portal-themes/swat-black.css");</code></pre>
+    </section>
+
+    <section class="theme-entry">
+      <h3>BlackGold</h3>
+      <p><a href="https://flathack.github.io/docs/swat-portal-themes/previews/swat-blackgold.jpg"><img class="theme-preview" src="swat-portal-themes/previews/swat-blackgold.jpg" alt="BlackGold preview" width="420" height="240"></a></p>
+      <p>Dark premium theme with warm gold highlights.</p>
+      <ul class="plain-link-list">
+        <li><a href="https://flathack.github.io/docs/swat-portal-themes/swat-blackgold.user.css">Install BlackGold UserStyle</a></li>
+        <li><a href="https://flathack.github.io/docs/swat-portal-themes/swat-blackgold.css">Open BlackGold CSS</a></li>
+      </ul>
+      <p>Stylus import:</p>
+      <pre><code>@import url("https://flathack.github.io/docs/swat-portal-themes/swat-blackgold.css");</code></pre>
+    </section>
+
+    <section class="theme-entry">
+      <h3>Blue</h3>
+      <p><a href="https://flathack.github.io/docs/swat-portal-themes/previews/swat-blue.jpg"><img class="theme-preview" src="swat-portal-themes/previews/swat-blue.jpg" alt="Blue preview" width="420" height="240"></a></p>
+      <p>Cool blue premium conversion for the classic BlackOps style.</p>
+      <ul class="plain-link-list">
+        <li><a href="https://flathack.github.io/docs/swat-portal-themes/swat-blue.user.css">Install Blue UserStyle</a></li>
+        <li><a href="https://flathack.github.io/docs/swat-portal-themes/swat-blue.css">Open Blue CSS</a></li>
+      </ul>
+      <p>Stylus import:</p>
+      <pre><code>@import url("https://flathack.github.io/docs/swat-portal-themes/swat-blue.css");</code></pre>
+    </section>
+
+    <section class="theme-entry">
+      <h3>DarkMatter</h3>
+      <p><a href="https://flathack.github.io/docs/swat-portal-themes/previews/swat-darkmatter.jpg"><img class="theme-preview" src="swat-portal-themes/previews/swat-darkmatter.jpg" alt="DarkMatter preview" width="420" height="240"></a></p>
+      <p>Premium dark interface treatment with extra contrast and polish.</p>
+      <ul class="plain-link-list">
+        <li><a href="https://flathack.github.io/docs/swat-portal-themes/swat-darkmatter.user.css">Install DarkMatter UserStyle</a></li>
+        <li><a href="https://flathack.github.io/docs/swat-portal-themes/swat-darkmatter.css">Open DarkMatter CSS</a></li>
+      </ul>
+      <p>Stylus import:</p>
+      <pre><code>@import url("https://flathack.github.io/docs/swat-portal-themes/swat-darkmatter.css");</code></pre>
+    </section>
+
+    <section class="theme-entry">
+      <h3>Eclipse</h3>
+      <p><a href="https://flathack.github.io/docs/swat-portal-themes/previews/swat-eclipse.jpg"><img class="theme-preview" src="swat-portal-themes/previews/swat-eclipse.jpg" alt="Eclipse preview" width="420" height="240"></a></p>
+      <p>Warm dark premium theme with muted orange and brown accents.</p>
+      <ul class="plain-link-list">
+        <li><a href="https://flathack.github.io/docs/swat-portal-themes/swat-eclipse.user.css">Install Eclipse UserStyle</a></li>
+        <li><a href="https://flathack.github.io/docs/swat-portal-themes/swat-eclipse.css">Open Eclipse CSS</a></li>
+      </ul>
+      <p>Stylus import:</p>
+      <pre><code>@import url("https://flathack.github.io/docs/swat-portal-themes/swat-eclipse.css");</code></pre>
+    </section>
+
+    <section class="theme-entry">
+      <h3>Freelancer</h3>
+      <p><a href="https://flathack.github.io/docs/swat-portal-themes/previews/swat-freelancer.jpg"><img class="theme-preview" src="swat-portal-themes/previews/swat-freelancer.jpg" alt="Freelancer preview" width="420" height="240"></a></p>
+      <p>Freelancer-inspired blue space HUD treatment.</p>
+      <ul class="plain-link-list">
+        <li><a href="https://flathack.github.io/docs/swat-portal-themes/swat-freelancer.user.css">Install Freelancer UserStyle</a></li>
+        <li><a href="https://flathack.github.io/docs/swat-portal-themes/swat-freelancer.css">Open Freelancer CSS</a></li>
+      </ul>
+      <p>Stylus import:</p>
+      <pre><code>@import url("https://flathack.github.io/docs/swat-portal-themes/swat-freelancer.css");</code></pre>
+    </section>
+
+    <section class="theme-entry">
+      <h3>Gold</h3>
+      <p><a href="https://flathack.github.io/docs/swat-portal-themes/previews/swat-gold.jpg"><img class="theme-preview" src="swat-portal-themes/previews/swat-gold.jpg" alt="Gold preview" width="420" height="240"></a></p>
+      <p>Warm gold recolor with metallic navigation and button accents.</p>
+      <ul class="plain-link-list">
+        <li><a href="https://flathack.github.io/docs/swat-portal-themes/swat-gold.user.css">Install Gold UserStyle</a></li>
+        <li><a href="https://flathack.github.io/docs/swat-portal-themes/swat-gold.css">Open Gold CSS</a></li>
+      </ul>
+      <p>Stylus import:</p>
+      <pre><code>@import url("https://flathack.github.io/docs/swat-portal-themes/swat-gold.css");</code></pre>
+    </section>
+
+    <section class="theme-entry">
+      <h3>Green</h3>
+      <p><a href="https://flathack.github.io/docs/swat-portal-themes/previews/swat-green.jpg"><img class="theme-preview" src="swat-portal-themes/previews/swat-green.jpg" alt="Green preview" width="420" height="240"></a></p>
+      <p>Green status-display feel with darker panels and clean highlights.</p>
+      <ul class="plain-link-list">
+        <li><a href="https://flathack.github.io/docs/swat-portal-themes/swat-green.user.css">Install Green UserStyle</a></li>
+        <li><a href="https://flathack.github.io/docs/swat-portal-themes/swat-green.css">Open Green CSS</a></li>
+      </ul>
+      <p>Stylus import:</p>
+      <pre><code>@import url("https://flathack.github.io/docs/swat-portal-themes/swat-green.css");</code></pre>
+    </section>
+
+    <section class="theme-entry">
+      <h3>Nebula</h3>
+      <p>Space-themed premium variant with deep cosmic tones.</p>
+      <ul class="plain-link-list">
+        <li><a href="https://flathack.github.io/docs/swat-portal-themes/swat-nebula.user.css">Install Nebula UserStyle</a></li>
+        <li><a href="https://flathack.github.io/docs/swat-portal-themes/swat-nebula.css">Open Nebula CSS</a></li>
+      </ul>
+      <p>Stylus import:</p>
+      <pre><code>@import url("https://flathack.github.io/docs/swat-portal-themes/swat-nebula.css");</code></pre>
+    </section>
+
+    <section class="theme-entry">
+      <h3>Pride</h3>
+      <p><a href="https://flathack.github.io/docs/swat-portal-themes/previews/swat-pride.jpg"><img class="theme-preview" src="swat-portal-themes/previews/swat-pride.jpg" alt="Pride preview" width="420" height="240"></a></p>
+      <p>Colorful premium theme with rainbow-style accents.</p>
+      <ul class="plain-link-list">
+        <li><a href="https://flathack.github.io/docs/swat-portal-themes/swat-pride.user.css">Install Pride UserStyle</a></li>
+        <li><a href="https://flathack.github.io/docs/swat-portal-themes/swat-pride.css">Open Pride CSS</a></li>
+      </ul>
+      <p>Stylus import:</p>
+      <pre><code>@import url("https://flathack.github.io/docs/swat-portal-themes/swat-pride.css");</code></pre>
+    </section>
+
+    <section class="theme-entry">
+      <h3>Red</h3>
+      <p><a href="https://flathack.github.io/docs/swat-portal-themes/previews/swat-red.jpg"><img class="theme-preview" src="swat-portal-themes/previews/swat-red.jpg" alt="Red preview" width="420" height="240"></a></p>
+      <p>Sharper red premium variant for the BlackOps identity.</p>
+      <ul class="plain-link-list">
+        <li><a href="https://flathack.github.io/docs/swat-portal-themes/swat-red.user.css">Install Red UserStyle</a></li>
+        <li><a href="https://flathack.github.io/docs/swat-portal-themes/swat-red.css">Open Red CSS</a></li>
+      </ul>
+      <p>Stylus import:</p>
+      <pre><code>@import url("https://flathack.github.io/docs/swat-portal-themes/swat-red.css");</code></pre>
+    </section>
+
+    <section class="theme-entry">
+      <h3>SuperNova</h3>
+      <p><a href="https://flathack.github.io/docs/swat-portal-themes/previews/swat-supernova.jpg"><img class="theme-preview" src="swat-portal-themes/previews/swat-supernova.jpg" alt="SuperNova preview" width="420" height="240"></a></p>
+      <p>Warm high-energy premium theme with orange-red highlights.</p>
+      <ul class="plain-link-list">
+        <li><a href="https://flathack.github.io/docs/swat-portal-themes/swat-supernova.user.css">Install SuperNova UserStyle</a></li>
+        <li><a href="https://flathack.github.io/docs/swat-portal-themes/swat-supernova.css">Open SuperNova CSS</a></li>
+      </ul>
+      <p>Stylus import:</p>
+      <pre><code>@import url("https://flathack.github.io/docs/swat-portal-themes/swat-supernova.css");</code></pre>
+    </section>
+
+    <section class="theme-entry">
+      <h3>Yellow</h3>
+      <p>Bright yellow premium accents over dark forum panels.</p>
+      <ul class="plain-link-list">
+        <li><a href="https://flathack.github.io/docs/swat-portal-themes/swat-yellow.user.css">Install Yellow UserStyle</a></li>
+        <li><a href="https://flathack.github.io/docs/swat-portal-themes/swat-yellow.css">Open Yellow CSS</a></li>
+      </ul>
+      <p>Stylus import:</p>
+      <pre><code>@import url("https://flathack.github.io/docs/swat-portal-themes/swat-yellow.css");</code></pre>
+    </section>
+
+    <h2>Alternative</h2>
+    <p>If you only want to keep your forum post short, link this overview page and tell users to install the theme they like:</p>
+    <p><a href="https://flathack.github.io/docs/swat-portal-themes.html">https://flathack.github.io/docs/swat-portal-themes.html</a></p>
+  </article>
+</body>
+</html>

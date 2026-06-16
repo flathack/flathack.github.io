@@ -1,0 +1,13 @@
+/* ==UserStyle==
+@name           SWAT Portal Black
+@namespace      https://flathack.github.io/docs/swat-portal-themes
+@version        1.0.0
+@description    Theme override for SWAT Portal BlackOps style.
+@author         Aldenmar Odin / Flathack
+@homepageURL    https://flathack.github.io/docs/swat-portal-themes.html
+@updateURL      https://flathack.github.io/docs/swat-portal-themes/swat-black.user.css
+@match          https://swat-portal.com/*
+@match          https://www.swat-portal.com/*
+==/UserStyle== */
+
+@import url("https://flathack.github.io/docs/swat-portal-themes/swat-black.css");
