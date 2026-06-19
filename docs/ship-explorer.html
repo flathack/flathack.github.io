@@ -40,6 +40,26 @@
     }
     .se-field select { min-width: 160px; }
     .se-field input[type="text"] { min-width: 220px; }
+    .se-range-field { min-width: 220px; }
+    .se-range-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: baseline;
+    }
+    .se-range-value {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      color: var(--accent-strong);
+    }
+    .se-field input[type="range"] {
+      width: 220px;
+      min-height: 26px;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      accent-color: var(--accent);
+    }
 
     /* ── Stats bar ── */
     .se-stats {
@@ -215,6 +235,20 @@
             <label for="search-input" data-i18n="lbl_search">Suche</label>
             <input type="text" id="search-input" placeholder="Name, Basis oder System…" data-i18n-placeholder="search_placeholder">
           </div>
+          <div class="se-field se-range-field">
+            <div class="se-range-meta">
+              <label for="agility-min" data-i18n="lbl_agility_min">Agilität min</label>
+              <output class="se-range-value" id="agility-min-value" for="agility-min">—</output>
+            </div>
+            <input type="range" id="agility-min" min="0" max="0" step="1" value="0" disabled>
+          </div>
+          <div class="se-field se-range-field">
+            <div class="se-range-meta">
+              <label for="agility-max" data-i18n="lbl_agility_max">Agilität max</label>
+              <output class="se-range-value" id="agility-max-value" for="agility-max">—</output>
+            </div>
+            <input type="range" id="agility-max" min="0" max="0" step="1" value="0" disabled>
+          </div>
         </div>
       </section>
 
@@ -241,6 +275,8 @@
         lbl_mod: 'Mod',
         lbl_type: 'Typ',
         lbl_search: 'Suche',
+        lbl_agility_min: 'Agilität min',
+        lbl_agility_max: 'Agilität max',
         opt_all: 'Alle',
         search_placeholder: 'Name, Basis oder System…',
         col_image: '',
@@ -269,6 +305,8 @@
         lbl_mod: 'Mod',
         lbl_type: 'Type',
         lbl_search: 'Search',
+        lbl_agility_min: 'Agility min',
+        lbl_agility_max: 'Agility max',
         opt_all: 'All',
         search_placeholder: 'Name, base, or system…',
         col_image: '',
@@ -351,6 +389,7 @@
     let currentMod = 'hamburg-city';
     let sortCol = 'name';
     let sortAsc = true;
+    let agilityValues = [];
 
     function getSnapshot(payload) {
       const datasets = payload && payload.datasets;
@@ -382,6 +421,49 @@
       return n.toLocaleString('de-DE') + ' $';
     }
 
+    function fmtAgility(n) {
+      return Number.isFinite(n) ? n.toLocaleString('de-DE', { maximumFractionDigits: 2 }) : '—';
+    }
+
+    function setupAgilityFilters() {
+      const minInput = document.getElementById('agility-min');
+      const maxInput = document.getElementById('agility-max');
+      agilityValues = [...new Set(ships.map(s => Number(s.agility)).filter(Number.isFinite))].sort((a, b) => a - b);
+      const lastIndex = agilityValues.length - 1;
+      [minInput, maxInput].forEach(input => {
+        input.min = '0';
+        input.max = String(Math.max(0, lastIndex));
+        input.step = '1';
+        input.disabled = lastIndex < 0;
+      });
+      minInput.value = '0';
+      maxInput.value = String(Math.max(0, lastIndex));
+      updateAgilityLabels();
+    }
+
+    function getAgilityBounds() {
+      if (!agilityValues.length) return { agilityMin: null, agilityMax: null };
+      const minInput = document.getElementById('agility-min');
+      const maxInput = document.getElementById('agility-max');
+      let minIndex = parseInt(minInput.value || '0', 10);
+      let maxIndex = parseInt(maxInput.value || String(agilityValues.length - 1), 10);
+      minIndex = Math.max(0, Math.min(agilityValues.length - 1, minIndex));
+      maxIndex = Math.max(0, Math.min(agilityValues.length - 1, maxIndex));
+      if (minIndex > maxIndex) {
+        if (document.activeElement === minInput) maxIndex = minIndex;
+        else minIndex = maxIndex;
+      }
+      minInput.value = String(minIndex);
+      maxInput.value = String(maxIndex);
+      return { agilityMin: agilityValues[minIndex], agilityMax: agilityValues[maxIndex] };
+    }
+
+    function updateAgilityLabels() {
+      const bounds = getAgilityBounds();
+      document.getElementById('agility-min-value').textContent = fmtAgility(bounds.agilityMin);
+      document.getElementById('agility-max-value').textContent = fmtAgility(bounds.agilityMax);
+    }
+
     /* ── Load mod data ── */
     async function loadMod(modId) {
       currentMod = modId;
@@ -393,6 +475,7 @@
         data = getSnapshot(payload);
         ships = data.ships || [];
         populateTypeFilter();
+        setupAgilityFilters();
         renderTable();
       } catch (e) {
         document.getElementById('table-body').innerHTML = '<tr><td colspan="' + COLS.length + '" style="text-align:center;padding:24px;color:#f87171">' + t('error') + '</td></tr>';
@@ -416,8 +499,11 @@
     function getFiltered() {
       const typeVal = document.getElementById('type-filter').value;
       const query = document.getElementById('search-input').value.toLowerCase().trim();
+      const { agilityMin, agilityMax } = getAgilityBounds();
       let filtered = ships;
       if (typeVal) filtered = filtered.filter(s => s.type === typeVal);
+      if (agilityMin !== null) filtered = filtered.filter(s => Number(s.agility) >= agilityMin);
+      if (agilityMax !== null) filtered = filtered.filter(s => Number(s.agility) <= agilityMax);
       if (query) {
         filtered = filtered.filter(s => {
           if (tShip(s).toLowerCase().includes(query)) return true;
@@ -498,6 +584,8 @@
     window.addEventListener('mod-change', e => loadMod(e.detail.mod));
     document.getElementById('type-filter').addEventListener('change', () => renderTable());
     document.getElementById('search-input').addEventListener('input', () => renderTable());
+    document.getElementById('agility-min').addEventListener('input', () => { updateAgilityLabels(); renderTable(); });
+    document.getElementById('agility-max').addEventListener('input', () => { updateAgilityLabels(); renderTable(); });
 
     // Sort
     document.getElementById('table-head').addEventListener('click', e => {

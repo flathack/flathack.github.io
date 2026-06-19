@@ -391,9 +391,44 @@
         detail_class: 'Class',
         detail_price: 'Basispreis',
         detail_offers: 'Verkaufsorte',
+        detail_equipment_info: 'Equipment-Info',
         detail_stats: 'Item-Details',
         detail_offer_count: 'Verkaufsorte',
         detail_none: 'Keine Details vorhanden.',
+        opt_yes: 'Ja',
+        opt_no: 'Nein',
+        damage_source_munition: 'Munition',
+        damage_source_explosion: 'Explosion',
+        stat_hull_damage: 'Huellenschaden',
+        stat_energy_damage: 'Schildschaden',
+        stat_damage_source: 'Schadensquelle',
+        stat_ammo_hull_damage: 'Ammo-Huellenschaden',
+        stat_ammo_energy_damage: 'Ammo-Schildschaden',
+        stat_explosion_hull_damage: 'Explosions-Huellenschaden',
+        stat_explosion_energy_damage: 'Explosions-Schildschaden',
+        stat_blast_radius: 'Explosionsradius',
+        stat_explosion_strength: 'Explosionsstaerke',
+        stat_projectile_archetype: 'Munition',
+        stat_explosion_arch: 'Explosion',
+        stat_requires_ammo: 'Benutzt Munition',
+        stat_ammo_lifetime: 'Munition-Lebensdauer',
+        stat_weapon_type: 'Waffentyp',
+        stat_refire_delay: 'Feuerverzoegerung',
+        stat_muzzle_velocity: 'Projektilgeschwindigkeit',
+        stat_power_usage: 'Energieverbrauch',
+        stat_shield_capacity: 'Schildkapazitaet',
+        stat_regeneration_rate: 'Regeneration',
+        stat_toughness: 'Haerte',
+        stat_offline_rebuild_time: 'Wiederaufbauzeit',
+        stat_offline_threshold: 'Offline-Schwelle',
+        stat_constant_power_draw: 'Dauerenergie',
+        stat_rebuild_power_draw: 'Wiederaufbau-Energie',
+        stat_shield_type: 'Schildtyp',
+        stat_hp_type: 'Hardpoint-Typ',
+        stat_hp_gun_type: 'Waffen-Hardpoint',
+        stat_hit_pts: 'Trefferpunkte',
+        stat_max_force: 'Max. Schub',
+        stat_linear_drag: 'Linearer Widerstand',
         sort_price_asc: 'Preis aufsteigend',
         sort_price_desc: 'Preis absteigend',
         sort_name_asc: 'Item A-Z',
@@ -445,9 +480,44 @@
         detail_class: 'Class',
         detail_price: 'Base price',
         detail_offers: 'Sale locations',
+        detail_equipment_info: 'Equipment info',
         detail_stats: 'Item details',
         detail_offer_count: 'Locations',
         detail_none: 'No details available.',
+        opt_yes: 'Yes',
+        opt_no: 'No',
+        damage_source_munition: 'Munition',
+        damage_source_explosion: 'Explosion',
+        stat_hull_damage: 'Hull damage',
+        stat_energy_damage: 'Shield damage',
+        stat_damage_source: 'Damage source',
+        stat_ammo_hull_damage: 'Ammo hull damage',
+        stat_ammo_energy_damage: 'Ammo shield damage',
+        stat_explosion_hull_damage: 'Explosion hull damage',
+        stat_explosion_energy_damage: 'Explosion shield damage',
+        stat_blast_radius: 'Blast radius',
+        stat_explosion_strength: 'Explosion strength',
+        stat_projectile_archetype: 'Munition',
+        stat_explosion_arch: 'Explosion',
+        stat_requires_ammo: 'Uses ammo',
+        stat_ammo_lifetime: 'Ammo lifetime',
+        stat_weapon_type: 'Weapon type',
+        stat_refire_delay: 'Refire delay',
+        stat_muzzle_velocity: 'Projectile speed',
+        stat_power_usage: 'Power usage',
+        stat_shield_capacity: 'Shield capacity',
+        stat_regeneration_rate: 'Regeneration',
+        stat_toughness: 'Toughness',
+        stat_offline_rebuild_time: 'Rebuild time',
+        stat_offline_threshold: 'Offline threshold',
+        stat_constant_power_draw: 'Constant power draw',
+        stat_rebuild_power_draw: 'Rebuild power draw',
+        stat_shield_type: 'Shield type',
+        stat_hp_type: 'Hardpoint type',
+        stat_hp_gun_type: 'Gun hardpoint',
+        stat_hit_pts: 'Hit points',
+        stat_max_force: 'Max force',
+        stat_linear_drag: 'Linear drag',
         sort_price_asc: 'Price ascending',
         sort_price_desc: 'Price descending',
         sort_name_asc: 'Item A-Z',
@@ -472,6 +542,34 @@
 
     var CATEGORY_KEYS = ['weapon', 'shield', 'thruster', 'mine', 'missile', 'countermeasure', 'scanner', 'tractor', 'armor', 'nanobot', 'battery'];
     var VALID_MOD_IDS = ['vanilla', 'hamburg-city', 'crossfire', 'discovery', 'freelancer-universe'];
+    var HIDDEN_STAT_KEYS = ['max_capacity'];
+    var EQUIPMENT_INFO_KEYS = [
+      'hull_damage',
+      'energy_damage',
+      'damage_source',
+      'ammo_hull_damage',
+      'ammo_energy_damage',
+      'explosion_hull_damage',
+      'explosion_energy_damage',
+      'blast_radius',
+      'explosion_strength',
+      'projectile_archetype',
+      'explosion_arch',
+      'requires_ammo',
+      'ammo_lifetime',
+      'weapon_type',
+      'refire_delay',
+      'muzzle_velocity',
+      'power_usage',
+      'shield_capacity',
+      'regeneration_rate',
+      'toughness',
+      'offline_rebuild_time',
+      'offline_threshold',
+      'constant_power_draw',
+      'rebuild_power_draw',
+      'shield_type'
+    ];
     var PAGE_SIZE = 100;
 
     var lang = (function () {
@@ -831,7 +929,10 @@
       });
       var statEntries = Object.keys(item.stats || {}).filter(function (key) {
         var value = item.stats[key];
-        return value !== '' && value !== 0 && value !== 0.0;
+        return hasStatValue(value) && EQUIPMENT_INFO_KEYS.indexOf(key) === -1 && HIDDEN_STAT_KEYS.indexOf(key) === -1 && value !== 0 && value !== 0.0;
+      });
+      var equipmentInfoEntries = EQUIPMENT_INFO_KEYS.filter(function (key) {
+        return hasStatValue((item.stats || {})[key]);
       });
       detailPanel.innerHTML =
         '<h2>' + escHtml(itemName(item)) + '</h2>' +
@@ -844,6 +945,7 @@
           metricCard('Nick', item.nick) +
         '</div>' +
         '<div class="ee-section"><h3>' + escHtml(t('detail_offers')) + '</h3>' + renderOffersList(itemOffers) + '</div>' +
+        '<div class="ee-section"><h3>' + escHtml(t('detail_equipment_info')) + '</h3>' + renderStatsList(item.stats || {}, equipmentInfoEntries) + '</div>' +
         '<div class="ee-section"><h3>' + escHtml(t('detail_stats')) + '</h3>' + renderStatsList(item.stats || {}, statEntries) + '</div>';
     }
 
@@ -865,8 +967,27 @@
     function renderStatsList(stats, keys) {
       if (!keys.length) return '<div class="ee-empty">' + escHtml(t('detail_none')) + '</div>';
       return '<ul class="ee-list">' + keys.map(function (key) {
-        return '<li><span>' + escHtml(key) + '</span><span>' + escHtml(String(stats[key])) + '</span></li>';
+        return '<li><span>' + escHtml(statLabel(key)) + '</span><span>' + escHtml(formatStatValue(key, stats[key])) + '</span></li>';
       }).join('') + '</ul>';
+    }
+
+    function hasStatValue(value) {
+      return value !== undefined && value !== null && value !== '';
+    }
+
+    function statLabel(key) {
+      return t('stat_' + key);
+    }
+
+    function formatStatValue(key, value) {
+      if (typeof value === 'number') return fmtNum(value);
+      if (key === 'requires_ammo') {
+        return String(value).toLowerCase() === 'true' ? t('opt_yes') : t('opt_no');
+      }
+      if (key === 'damage_source') {
+        return t('damage_source_' + String(value).toLowerCase());
+      }
+      return String(value);
     }
 
     function render() {

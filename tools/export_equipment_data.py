@@ -45,6 +45,13 @@ def parse_float(value: str, default: float = 0.0) -> float:
         return default
 
 
+def parse_optional_float(value: str | None) -> float | None:
+    try:
+        return float(value.strip())  # type: ignore[union-attr]
+    except (AttributeError, ValueError):
+        return None
+
+
 def parse_int(value: str, default: int = 0) -> int:
     try:
         return int(float(value.strip()))
@@ -96,8 +103,16 @@ def item_stats(vals: dict[str, str]) -> dict[str, float | str]:
     numeric_keys = {
         "hull_damage",
         "energy_damage",
+        "damage_per_fire",
         "refire_delay",
-        "shield_capacity",
+        "muzzle_velocity",
+        "max_capacity",
+        "regeneration_rate",
+        "toughness",
+        "offline_rebuild_time",
+        "offline_threshold",
+        "constant_power_draw",
+        "rebuild_power_draw",
         "power_usage",
         "range",
         "max_range",
@@ -107,38 +122,130 @@ def item_stats(vals: dict[str, str]) -> dict[str, float | str]:
         "max_force",
         "hit_pts",
     }
-    string_keys = {"hp_type", "loot_appearance", "munition_hp_type"}
+    string_keys = {
+        "hp_type",
+        "hp_gun_type",
+        "loot_appearance",
+        "munition_hp_type",
+        "projectile_archetype",
+        "explosion_arch",
+        "weapon_type",
+        "requires_ammo",
+        "shield_type",
+    }
     for key in numeric_keys:
         if key in vals:
             stats[key] = parse_float(vals[key])
+    if "max_capacity" in vals:
+        stats["shield_capacity"] = parse_float(vals["max_capacity"])
     for key in string_keys:
         if key in vals and vals[key].strip():
             stats[key] = vals[key].strip()
     return stats
 
 
+def add_numeric_stat(stats: dict[str, float | str], key: str, value: str | None) -> None:
+    parsed = parse_optional_float(value)
+    if parsed is not None:
+        stats[key] = parsed
+
+
+def add_string_stat(stats: dict[str, float | str], key: str, value: str | None) -> None:
+    if value and value.strip():
+        stats[key] = value.strip()
+
+
+def enrich_weapon_stats(
+    stats: dict[str, float | str],
+    vals: dict[str, str],
+    munitions: dict[str, dict[str, str]],
+    explosions: dict[str, dict[str, str]],
+) -> None:
+    ammo_nick = vals.get("projectile_archetype", "").lower()
+    if not ammo_nick:
+        return
+    stats["projectile_archetype"] = ammo_nick
+    ammo = munitions.get(ammo_nick)
+    if not ammo:
+        return
+
+    add_string_stat(stats, "munition_hp_type", ammo.get("hp_type"))
+    add_string_stat(stats, "requires_ammo", ammo.get("requires_ammo"))
+    add_string_stat(stats, "weapon_type", ammo.get("weapon_type"))
+    add_numeric_stat(stats, "ammo_lifetime", ammo.get("lifetime"))
+    add_numeric_stat(stats, "ammo_hull_damage", ammo.get("hull_damage"))
+    add_numeric_stat(stats, "ammo_energy_damage", ammo.get("energy_damage"))
+
+    if "hull_damage" in ammo or "energy_damage" in ammo:
+        stats["hull_damage"] = parse_float(ammo.get("hull_damage", "0"))
+        stats["energy_damage"] = parse_float(ammo.get("energy_damage", "0"))
+        stats["damage_source"] = "munition"
+
+    explosion_nick = ammo.get("explosion_arch", "").lower()
+    if not explosion_nick:
+        return
+    explosion = explosions.get(explosion_nick)
+    if not explosion:
+        return
+
+    explosion_values = {
+        "explosion_hull_damage": parse_optional_float(explosion.get("hull_damage")),
+        "explosion_energy_damage": parse_optional_float(explosion.get("energy_damage")),
+        "blast_radius": parse_optional_float(explosion.get("radius")),
+        "explosion_strength": parse_optional_float(explosion.get("strength")),
+    }
+    if not any(value for value in explosion_values.values() if value is not None):
+        return
+
+    stats["explosion_arch"] = explosion_nick
+    for key, value in explosion_values.items():
+        if value is not None:
+            stats[key] = value
+
+    if "damage_source" not in stats and ("hull_damage" in explosion or "energy_damage" in explosion):
+        stats["hull_damage"] = parse_float(explosion.get("hull_damage", "0"))
+        stats["energy_damage"] = parse_float(explosion.get("energy_damage", "0"))
+        stats["damage_source"] = "explosion"
+
+
 def extract_item_defs(equip_files: list[Path], res: DLLResolver) -> dict[str, dict]:
     items: dict[str, dict] = {}
+    raw_sections: list[tuple[str, dict[str, str]]] = []
+    munitions: dict[str, dict[str, str]] = {}
+    explosions: dict[str, dict[str, str]] = {}
+
     for equip_file in equip_files:
         for sec, entries in parse_ini(equip_file):
             vals = {k.lower(): v.strip() for k, v in entries}
             nick = vals.get("nickname", "").lower()
             if not nick:
                 continue
-            category = classify_item(sec, nick)
-            if category not in VALID_CATEGORIES:
-                continue
-            ids = vals.get("ids_name") or vals.get("strid_name") or ""
-            name = res.get(ids) if ids else ""
-            items[nick] = {
-                "nick": nick,
-                "name": name or fallback_item_name(nick),
-                "category": category,
-                "subcategory": sec.lower(),
-                "price": 0,
-                "stats": item_stats(vals),
-                "offers": [],
-            }
+            raw_sections.append((sec, vals))
+            sec_lower = sec.lower()
+            if sec_lower == "munition":
+                munitions[nick] = vals
+            elif sec_lower == "explosion":
+                explosions[nick] = vals
+
+    for sec, vals in raw_sections:
+        nick = vals.get("nickname", "").lower()
+        category = classify_item(sec, nick)
+        if category not in VALID_CATEGORIES:
+            continue
+        ids = vals.get("ids_name") or vals.get("strid_name") or ""
+        name = res.get(ids) if ids else ""
+        stats = item_stats(vals)
+        if sec.lower() == "gun":
+            enrich_weapon_stats(stats, vals, munitions, explosions)
+        items[nick] = {
+            "nick": nick,
+            "name": name or fallback_item_name(nick),
+            "category": category,
+            "subcategory": sec.lower(),
+            "price": 0,
+            "stats": stats,
+            "offers": [],
+        }
     return items
 
 

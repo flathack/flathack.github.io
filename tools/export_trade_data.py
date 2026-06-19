@@ -6,6 +6,7 @@ Output: ../data/trade-routes/<mod-id>.json for each configured installation.
 from __future__ import annotations
 
 import json
+import os
 import sys
 from pathlib import Path
 
@@ -27,7 +28,7 @@ INSTALLATIONS = [
     dict(
         id="crossfire",
         name="Crossfire 2.0",
-        path=Path(r"C:\Users\steve\Github\FL-Installationen\Freelancer Crossfire"),
+        path=Path(r"C:\C-Installed-Apps\CF-DEUTSCH"),
     ),
     dict(
         id="discovery",
@@ -87,8 +88,16 @@ def fl_hash(nickname: str) -> int:
 
 # ── BINI support (Vanilla FL uses binary INI files) ──────────────
 import sys as _sys
-_FLATLAS_ROOT = Path(__file__).resolve().parent.parent.parent / "FLAtlas"
-_sys.path.insert(0, str(_FLATLAS_ROOT))
+_FLATLAS_CANDIDATES = [
+    Path(os.environ["FLATLAS_ROOT"]) if os.environ.get("FLATLAS_ROOT") else None,
+    Path(__file__).resolve().parent.parent.parent / "FLAtlas",
+    Path(r"C:\PROJECTS\PRIVATE\FLAtlas-PYTHON"),
+    Path(r"C:\PROJECTS\PUBLIC\FLAtlas"),
+]
+for _FLATLAS_ROOT in _FLATLAS_CANDIDATES:
+    if _FLATLAS_ROOT and (_FLATLAS_ROOT / "fl_editor" / "bini.py").exists():
+        _sys.path.insert(0, str(_FLATLAS_ROOT))
+        break
 from fl_editor.bini import is_bini_bytes, decode_bini_to_ini_text
 
 # ── INI Parser ───────────────────────────────────────────────────
