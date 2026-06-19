@@ -50,7 +50,7 @@
 
     .ee-controls {
       display: grid;
-      grid-template-columns: minmax(220px, 1.4fr) repeat(5, minmax(140px, 1fr));
+      grid-template-columns: minmax(220px, 1.4fr) repeat(6, minmax(120px, 1fr));
       gap: 10px;
     }
     .ee-field {
@@ -298,6 +298,10 @@
             <select id="categoryFilter"></select>
           </div>
           <div class="ee-field">
+            <label for="classFilter" data-i18n="lbl_class">Class</label>
+            <select id="classFilter"></select>
+          </div>
+          <div class="ee-field">
             <label for="systemFilter" data-i18n="lbl_system">System</label>
             <select id="systemFilter"></select>
           </div>
@@ -324,6 +328,7 @@
                 <tr>
                   <th data-sort="itemName" data-i18n="col_item">Item</th>
                   <th data-sort="category" data-i18n="col_category">Kategorie</th>
+                  <th data-i18n="col_class">Class</th>
                   <th data-sort="price" data-i18n="col_price">Preis</th>
                   <th data-sort="baseName" data-i18n="col_base">Basis</th>
                   <th data-sort="systemName" data-i18n="col_system">System</th>
@@ -361,6 +366,7 @@
         intro: 'Durchsuche ausschließlich kaufbare Ausrüstung mit Preis, Basis, System und Fraktion. Geeignet für Waffen, Schilde, Scanner, Raketen, Minen, Thruster und Verbrauchsgüter.',
         lbl_search: 'Suche',
         lbl_category: 'Kategorie',
+        lbl_class: 'Class',
         lbl_system: 'System',
         lbl_base: 'Basis',
         lbl_faction: 'Fraktion',
@@ -369,6 +375,7 @@
         opt_all: 'Alle',
         col_item: 'Item',
         col_category: 'Kategorie',
+        col_class: 'Class',
         col_price: 'Preis',
         col_base: 'Basis',
         col_system: 'System',
@@ -381,6 +388,7 @@
         btn_load_more: 'Mehr laden',
         detail_empty: 'Wähle links ein Item oder einen Verkaufsort aus, um Details zu sehen.',
         detail_category: 'Kategorie',
+        detail_class: 'Class',
         detail_price: 'Basispreis',
         detail_offers: 'Verkaufsorte',
         detail_stats: 'Item-Details',
@@ -412,6 +420,7 @@
         intro: 'Browse purchasable equipment only, including price, base, system, and faction. Suitable for weapons, shields, scanners, missiles, mines, thrusters, and consumables.',
         lbl_search: 'Search',
         lbl_category: 'Category',
+        lbl_class: 'Class',
         lbl_system: 'System',
         lbl_base: 'Base',
         lbl_faction: 'Faction',
@@ -420,6 +429,7 @@
         opt_all: 'All',
         col_item: 'Item',
         col_category: 'Category',
+        col_class: 'Class',
         col_price: 'Price',
         col_base: 'Base',
         col_system: 'System',
@@ -432,6 +442,7 @@
         btn_load_more: 'Load more',
         detail_empty: 'Select an item or offer on the left to inspect its details.',
         detail_category: 'Category',
+        detail_class: 'Class',
         detail_price: 'Base price',
         detail_offers: 'Sale locations',
         detail_stats: 'Item details',
@@ -481,6 +492,7 @@
     var statsEl = document.getElementById('stats');
     var searchInput = document.getElementById('searchInput');
     var categoryFilter = document.getElementById('categoryFilter');
+    var classFilter = document.getElementById('classFilter');
     var systemFilter = document.getElementById('systemFilter');
     var baseFilter = document.getElementById('baseFilter');
     var factionFilter = document.getElementById('factionFilter');
@@ -504,6 +516,19 @@
 
     function categoryLabel(key) {
       return t('category_' + key);
+    }
+
+    function equipmentClass(item) {
+      var stats = (item && item.stats) || {};
+      var keys = Object.keys(stats);
+      for (var i = 0; i < keys.length; i += 1) {
+        var key = keys[i];
+        if (!/(^|_)hp(_|$)|hp_type$/i.test(key)) continue;
+        var value = String(stats[key] || '').trim();
+        var match = value.match(/^hp_[a-z0-9_]*_special_(10|[1-9])$/i);
+        if (match) return Number(match[1]);
+      }
+      return 0;
     }
 
     function fmtNum(value) {
@@ -553,6 +578,7 @@
       return {
         q: params.get('q') || '',
         category: params.get('category') || '',
+        class: params.get('class') || '',
         system: params.get('system') || '',
         base: params.get('base') || '',
         faction: params.get('faction') || '',
@@ -575,6 +601,11 @@
       categoryFilter.innerHTML = '<option value="">' + escHtml(t('opt_all')) + '</option>' +
         CATEGORY_KEYS.map(function (key) {
           return '<option value="' + escHtml(key) + '">' + escHtml(categoryLabel(key)) + '</option>';
+        }).join('');
+      classFilter.innerHTML = '<option value="">' + escHtml(t('opt_all')) + '</option>' +
+        Array.from({ length: 10 }, function (_, index) {
+          var value = String(index + 1);
+          return '<option value="' + value + '">' + value + '</option>';
         }).join('');
 
       var systemRows = uniqueRows(offers, 'system', function (offer) {
@@ -610,6 +641,9 @@
 
       searchInput.value = initial.q;
       categoryFilter.value = initial.category;
+      if (initial.class && Array.from(classFilter.options).some(function (opt) { return opt.value === initial.class; })) {
+        classFilter.value = initial.class;
+      }
       sortFilter.value = 'price-asc';
     }
 
@@ -634,10 +668,12 @@
         var item = itemsMap[nick];
         item.nick = item.nick || nick;
         (item.offers || []).forEach(function (offer) {
+          var itemClass = equipmentClass(item);
           offers.push({
             itemNick: item.nick,
             itemName: itemName(item),
             category: item.category || '',
+            equipmentClass: itemClass,
             price: offer.price || item.price || 0,
             base: offer.base || '',
             baseName: offer.baseName || offer.base || '',
@@ -692,6 +728,7 @@
     function applyFilters() {
       var query = searchInput.value.toLowerCase().trim();
       var category = categoryFilter.value;
+      var itemClass = classFilter.value;
       var system = systemFilter.value;
       var base = baseFilter.value;
       var faction = factionFilter.value;
@@ -701,6 +738,7 @@
 
       filteredOffers = offers.filter(function (offer) {
         if (category && offer.category !== category) return false;
+        if (itemClass && String(offer.equipmentClass || '') !== itemClass) return false;
         if (system && offer.system !== system) return false;
         if (base && offer.base !== base) return false;
         if (faction && offer.faction !== faction) return false;
@@ -743,7 +781,7 @@
 
     function renderResults() {
       if (!filteredOffers.length) {
-        resultsBody.innerHTML = '<tr><td colspan="6" class="ee-empty">' + escHtml(t('no_results')) + '</td></tr>';
+        resultsBody.innerHTML = '<tr><td colspan="7" class="ee-empty">' + escHtml(t('no_results')) + '</td></tr>';
         resultsSummary.textContent = tf('summary_showing', { visible: 0, total: 0 });
         loadMoreBtn.style.display = 'none';
         return;
@@ -755,6 +793,7 @@
         return '<tr data-item="' + escHtml(offer.itemNick) + '"' + active + '>' +
           '<td>' + escHtml(offer.itemName) + '</td>' +
           '<td><span class="ee-badge">' + escHtml(categoryLabel(offer.category)) + '</span></td>' +
+          '<td class="num">' + escHtml(offer.equipmentClass || '—') + '</td>' +
           '<td class="num">' + escHtml(fmtNum(offer.price)) + '</td>' +
           '<td>' + escHtml(offerBaseName(offer)) + '</td>' +
           '<td>' + escHtml(offerSystemName(offer)) + '</td>' +
@@ -799,6 +838,7 @@
         '<div class="ee-detail-sub">' + escHtml(item.nick) + '</div>' +
         '<div class="ee-detail-grid">' +
           metricCard(t('detail_category'), categoryLabel(item.category || '')) +
+          metricCard(t('detail_class'), equipmentClass(item) || '—') +
           metricCard(t('detail_price'), fmtNum(item.price || firstOfferPrice(itemOffers))) +
           metricCard(t('detail_offer_count'), String(itemOffers.length)) +
           metricCard('Nick', item.nick) +
@@ -851,7 +891,7 @@
 
     async function loadMod(modId) {
       selectedItemNick = '';
-      resultsBody.innerHTML = '<tr><td colspan="6" class="ee-empty">Loading…</td></tr>';
+      resultsBody.innerHTML = '<tr><td colspan="7" class="ee-empty">Loading…</td></tr>';
       detailPanel.innerHTML = '<div class="ee-empty">Loading…</div>';
       try {
         var results = await Promise.all([
@@ -865,7 +905,7 @@
         populateFilters(queryDefaults());
         applyFilters();
       } catch (error) {
-        resultsBody.innerHTML = '<tr><td colspan="6" class="ee-empty">' + escHtml(t('err_load')) + ' ' + escHtml(error.message) + '</td></tr>';
+        resultsBody.innerHTML = '<tr><td colspan="7" class="ee-empty">' + escHtml(t('err_load')) + ' ' + escHtml(error.message) + '</td></tr>';
         detailPanel.innerHTML = '<div class="ee-empty">' + escHtml(t('err_load')) + '</div>';
       }
     }
@@ -874,7 +914,7 @@
       clearTimeout(searchTimer);
       searchTimer = window.setTimeout(applyFilters, 120);
     });
-    [categoryFilter, systemFilter, baseFilter, factionFilter, sortFilter].forEach(function (el) {
+    [categoryFilter, classFilter, systemFilter, baseFilter, factionFilter, sortFilter].forEach(function (el) {
       el.addEventListener('change', applyFilters);
     });
     loadMoreBtn.addEventListener('click', function () {
