@@ -1774,6 +1774,7 @@
       }
 
       var nodes = "";
+      var occupiedSystemLabelRects = [];
       universeSystems.forEach(function (entry) {
         var s = entry.sys;
         var sp = sysPos[s.nick.toUpperCase()];
@@ -1790,6 +1791,13 @@
           });
         }
         var fillColor = hasStation ? COLORS.station : COLORS.planet;
+        var systemLabel = systemDisplayName(s);
+        var labelPlacement = placeObjectLabel(sp.x, sp.y, r, systemLabel, "", occupiedSystemLabelRects, 0, 0, w, h);
+        var labelMarkup = labelPlacement
+          ? '<text x="' + labelPlacement.x + '" y="' + labelPlacement.labelY + '"' +
+            ' text-anchor="' + labelPlacement.anchor + '" fill="#9fb2cf" font-size="9" font-family="Space Grotesk, sans-serif">' +
+            escXml(systemLabel) + '</text>'
+          : '';
 
         nodes += '<g class="uv-system-node" data-nick="' + escAttr(s.nick) + '" style="cursor:pointer;">' +
                  (routeSystemSet[s.nick.toUpperCase()]
@@ -1800,9 +1808,7 @@
                  ' stroke="' + fillColor + '" stroke-width="0.5" stroke-opacity="0.4"/>' +
                  '<circle cx="' + sp.x + '" cy="' + sp.y + '" r="' + (r + 6) + '"' +
                  ' fill="transparent" stroke="transparent"/>' + // hit area
-                 '<text x="' + sp.x + '" y="' + (sp.y + r + 14) + '"' +
-                 ' text-anchor="middle" fill="#9fb2cf" font-size="9" font-family="Space Grotesk, sans-serif">' +
-                 escXml(systemDisplayName(s)) + '</text>' +
+                 labelMarkup +
                  '</g>';
       });
 
@@ -1952,6 +1958,8 @@
                    ' stroke-opacity="0.7" stroke-dasharray="5,4"/>';
       });
 
+      var occupiedLabelRects = [];
+
       objects.forEach(function (o) {
         if (o.type === "jump_hole" && !showJumpHoles) return;
 
@@ -1966,6 +1974,13 @@
         var showLabel = shouldShowLabel(o);
         var jumpDirection = jumpObjectDirectionState(sys.nick, o);
         var showOneWay = jumpDirection.forward && !jumpDirection.reverse;
+        var targetName = "";
+        var gotoText = "";
+        if (o.goto) {
+          var targetSys = data.systems.find(function (s) { return s.nick.toUpperCase() === o.goto.toUpperCase(); });
+          targetName = targetSys ? systemDisplayName(targetSys) : o.goto;
+          gotoText = '→ ' + targetName + (showOneWay ? ' • ' + t('flag_one_way') : '');
+        }
 
         content += '<g class="uv-obj-node" data-nick="' + escAttr(o.nick) + '" style="cursor:pointer;">';
 
@@ -1994,21 +2009,22 @@
         content += '<circle cx="' + cx + '" cy="' + cy + '" r="' + hitR + '"' +
                    ' fill="transparent"/>';
 
-        // Label
-        var labelY = hasIcon ? cy + iconSize / 2 + 12 : cy + r + 14;
-        if (showLabel) {
-          content += '<text x="' + cx + '" y="' + labelY + '"' +
-                     ' text-anchor="middle" fill="#9fb2cf" font-size="9" font-family="Space Grotesk, sans-serif">' +
+        var labelPlacement = null;
+        if (showLabel || gotoText) {
+          labelPlacement = placeObjectLabel(cx, cy, hasIcon ? iconSize / 2 : r, label, gotoText, occupiedLabelRects, gridLeft, gridTop, gridW, gridH);
+        }
+
+        if (showLabel && labelPlacement) {
+          content += '<text x="' + labelPlacement.x + '" y="' + labelPlacement.labelY + '"' +
+                     ' text-anchor="' + labelPlacement.anchor + '" fill="#9fb2cf" font-size="9" font-family="Space Grotesk, sans-serif">' +
                      escXml(label) + '</text>';
         }
 
         // Goto indicator for jump gates/holes
-        if (o.goto) {
-          var targetSys = data.systems.find(function (s) { return s.nick.toUpperCase() === o.goto.toUpperCase(); });
-          var targetName = targetSys ? systemDisplayName(targetSys) : o.goto;
-          content += '<text x="' + cx + '" y="' + (labelY + 10) + '"' +
-                     ' text-anchor="middle" fill="' + color + '" font-size="7.5" opacity="0.7"' +
-                     ' font-family="IBM Plex Mono, monospace">→ ' + escXml(targetName) + (showOneWay ? ' • ' + escXml(t('flag_one_way')) : '') + '</text>';
+        if (gotoText && labelPlacement) {
+          content += '<text x="' + labelPlacement.x + '" y="' + labelPlacement.gotoY + '"' +
+                     ' text-anchor="' + labelPlacement.anchor + '" fill="' + color + '" font-size="7.5" opacity="0.7"' +
+                     ' font-family="IBM Plex Mono, monospace">' + escXml(gotoText) + '</text>';
         }
 
         content += '</g>';
@@ -2497,6 +2513,114 @@
     function objectRotation(obj) {
       if (typeof obj.rotate !== "number") return 0;
       return 90 - obj.rotate;
+    }
+
+    function estimateSvgTextWidth(text, fontSize) {
+      var value = String(text || "");
+      var width = 0;
+      for (var i = 0; i < value.length; i++) {
+        var ch = value.charAt(i);
+        if (ch === " " || ch === "·" || ch === "•") width += fontSize * 0.34;
+        else if (/[A-Z0-9]/.test(ch)) width += fontSize * 0.62;
+        else if (/[ilI\[\]\|]/.test(ch)) width += fontSize * 0.28;
+        else width += fontSize * 0.52;
+      }
+      return width;
+    }
+
+    function svgRectsOverlap(a, b) {
+      return !(a.right <= b.left || a.left >= b.right || a.bottom <= b.top || a.top >= b.bottom);
+    }
+
+    function labelRectForCandidate(candidate, width, height, padding) {
+      var left = candidate.x - width / 2;
+      if (candidate.anchor === "start") left = candidate.x;
+      if (candidate.anchor === "end") left = candidate.x - width;
+      return {
+        left: left - padding,
+        right: left + width + padding,
+        top: candidate.labelY - 10 - padding,
+        bottom: candidate.labelY - 10 + height + padding
+      };
+    }
+
+    function placeObjectLabel(cx, cy, radius, label, gotoText, occupiedRects, gridLeft, gridTop, gridW, gridH) {
+      var mainFont = 9;
+      var gotoFont = 7.5;
+      var mainWidth = estimateSvgTextWidth(label, mainFont);
+      var gotoWidth = estimateSvgTextWidth(gotoText, gotoFont);
+      var boxWidth = Math.max(mainWidth, gotoWidth, 1);
+      var lineCount = gotoText ? 2 : 1;
+      var lineGap = 10;
+      var boxHeight = lineCount === 2 ? 20 : 10;
+      var offset = Math.max(12, radius + 10);
+      var sideOffset = Math.max(16, radius + 12);
+      var candidates = [
+        { x: cx, labelY: cy + offset, anchor: "middle", score: 0 },
+        { x: cx, labelY: cy - offset - (lineCount === 2 ? lineGap : 0), anchor: "middle", score: 1 },
+        { x: cx + sideOffset, labelY: cy + 3, anchor: "start", score: 2 },
+        { x: cx - sideOffset, labelY: cy + 3, anchor: "end", score: 2 },
+        { x: cx + sideOffset, labelY: cy + offset, anchor: "start", score: 3 },
+        { x: cx - sideOffset, labelY: cy + offset, anchor: "end", score: 3 }
+      ];
+      var directions = [
+        { dx: 0, dy: 1, anchor: "middle" },
+        { dx: 0, dy: -1, anchor: "middle" },
+        { dx: 1, dy: 0, anchor: "start" },
+        { dx: -1, dy: 0, anchor: "end" },
+        { dx: 1, dy: 1, anchor: "start" },
+        { dx: -1, dy: 1, anchor: "end" },
+        { dx: 1, dy: -1, anchor: "start" },
+        { dx: -1, dy: -1, anchor: "end" }
+      ];
+      for (var ring = 2; ring <= 4; ring++) {
+        directions.forEach(function (dir, index) {
+          var distance = offset + ring * 10;
+          candidates.push({
+            x: cx + dir.dx * distance,
+            labelY: cy + dir.dy * distance - (dir.dy < 0 && lineCount === 2 ? lineGap : 0),
+            anchor: dir.anchor,
+            score: ring * 8 + index
+          });
+        });
+      }
+      var bounds = {
+        left: gridLeft - 6,
+        top: gridTop - 22,
+        right: gridLeft + gridW + 6,
+        bottom: gridTop + gridH + 24
+      };
+      var best = null;
+      var bestPenalty = Infinity;
+      var bestOverlaps = Infinity;
+
+      candidates.forEach(function (candidate) {
+        var rect = labelRectForCandidate(candidate, boxWidth, boxHeight, 3);
+        var overlaps = 0;
+        occupiedRects.forEach(function (existing) {
+          if (svgRectsOverlap(rect, existing)) overlaps++;
+        });
+        var overflow =
+          Math.max(0, bounds.left - rect.left) +
+          Math.max(0, rect.right - bounds.right) +
+          Math.max(0, bounds.top - rect.top) +
+          Math.max(0, rect.bottom - bounds.bottom);
+        var penalty = overlaps * 1000 + overflow * 4 + candidate.score;
+        if (penalty < bestPenalty) {
+          bestPenalty = penalty;
+          bestOverlaps = overlaps;
+          best = { candidate: candidate, rect: rect };
+        }
+      });
+
+      if (!best || bestOverlaps > 0) return null;
+      occupiedRects.push(best.rect);
+      return {
+        x: best.candidate.x,
+        labelY: best.candidate.labelY,
+        gotoY: best.candidate.labelY + lineGap,
+        anchor: best.candidate.anchor
+      };
     }
 
     function isRoutePointObject(obj) {
