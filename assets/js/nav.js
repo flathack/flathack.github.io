@@ -42,6 +42,31 @@
   })();
   const prefix = "../".repeat(depth);
   const isToolThemePage = document.body && document.body.classList.contains("tool-theme");
+  const THEME_STORAGE_KEY = "flathack-theme";
+  var currentTheme = (function () {
+    try {
+      var stored = localStorage.getItem(THEME_STORAGE_KEY);
+      if (stored === "light" || stored === "dark") return stored;
+    } catch (e) {}
+    if (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches) return "light";
+    return "dark";
+  })();
+
+  function applyTheme(theme) {
+    currentTheme = theme === "light" ? "light" : "dark";
+    document.documentElement.dataset.theme = currentTheme;
+    document.documentElement.style.colorScheme = currentTheme;
+    var label = currentTheme === "light" ? "Light mode" : "Dark mode";
+    document.querySelectorAll("[data-theme-toggle]").forEach(function (button) {
+      button.classList.toggle("active", currentTheme === "light");
+      button.setAttribute("aria-pressed", currentTheme === "light" ? "true" : "false");
+      button.setAttribute("title", label);
+      button.setAttribute("aria-label", label);
+      button.textContent = currentTheme === "light" ? "☀" : "☾";
+    });
+  }
+
+  applyTheme(currentTheme);
 
   // ── Real-Time Space Combat Sound Synthesizer (Web Audio API) ──
   var audioCtx = null;
@@ -2413,6 +2438,7 @@
     : 8;
   var compactActionsHtml =
     '<a class="nav-capsule-help" href="' + prefix + 'help/index.html" title="Help">?</a>' +
+    '<button class="nav-theme-toggle" type="button" data-theme-toggle aria-pressed="' + (currentTheme === "light" ? "true" : "false") + '" title="' + (currentTheme === "light" ? "Light mode" : "Dark mode") + '">' + (currentTheme === "light" ? "☀" : "☾") + '</button>' +
     '<div class="nav-capsule-lang" data-lang="' + currentLang + '">' + langToggleHtml + '</div>';
   var standardActionsHtml =
     '<label class="nav-ship-control" title="Background ship count">' +
@@ -2449,6 +2475,7 @@
 
   // ── Language toggle event listener ──
   var langToggle = capsule.querySelector(".nav-capsule-lang");
+  var themeToggle = capsule.querySelector("[data-theme-toggle]");
   var shipCountInput = capsule.querySelector("[data-bg-ship-count]");
   var shipCountOutput = capsule.querySelector("[data-bg-ship-output]");
   var shipCountLabel = capsule.querySelector("[data-nav-ship-label]");
@@ -2475,6 +2502,14 @@
   if (arenaTrigger) {
     arenaTrigger.addEventListener("click", function () {
       openBattleArena(currentLang);
+    });
+  }
+  if (themeToggle) {
+    themeToggle.addEventListener("click", function () {
+      var nextTheme = currentTheme === "light" ? "dark" : "light";
+      try { localStorage.setItem(THEME_STORAGE_KEY, nextTheme); } catch (e) {}
+      applyTheme(nextTheme);
+      window.dispatchEvent(new CustomEvent("theme-change", { detail: { theme: nextTheme } }));
     });
   }
   langToggle.addEventListener("click", function (e) {

@@ -218,6 +218,64 @@
     }
     .sd-error { color: #f87171; }
 
+    html[data-theme="light"] .sd-hero {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(245, 249, 254, 0.94));
+      box-shadow: var(--shadow);
+    }
+
+    html[data-theme="light"] .sd-render,
+    html[data-theme="light"] .sd-stat,
+    html[data-theme="light"] .sd-equip-item,
+    html[data-theme="light"] .sd-lang-toggle,
+    html[data-theme="light"] .sd-loading,
+    html[data-theme="light"] .sd-no-dealers {
+      background: rgba(255, 255, 255, 0.78);
+      border-color: var(--panel-border);
+    }
+
+    html[data-theme="light"] .sd-render-placeholder {
+      background: rgba(226, 237, 248, 0.58);
+    }
+
+    html[data-theme="light"] .sd-type-fighter {
+      background: rgba(0, 119, 182, 0.1);
+      color: var(--accent-strong);
+    }
+
+    html[data-theme="light"] .sd-type-freighter {
+      background: rgba(180, 83, 9, 0.1);
+      color: var(--accent-warm);
+    }
+
+    html[data-theme="light"] .sd-type-transport {
+      background: rgba(4, 120, 87, 0.1);
+      color: var(--success);
+    }
+
+    html[data-theme="light"] .sd-type-default {
+      background: rgba(82, 101, 125, 0.1);
+      color: var(--muted);
+    }
+
+    html[data-theme="light"] .sd-dealer-table th {
+      background: rgba(236, 244, 252, 0.98);
+      border-bottom-color: var(--panel-border);
+      color: var(--accent-strong);
+    }
+
+    html[data-theme="light"] .sd-dealer-table td {
+      border-bottom-color: rgba(48, 92, 138, 0.12);
+    }
+
+    html[data-theme="light"] .sd-dealer-table tr:hover td {
+      background: rgba(0, 119, 182, 0.06);
+    }
+
+    html[data-theme="light"] .sd-lang-btn.active {
+      background: rgba(0, 119, 182, 0.1);
+      color: var(--accent-strong);
+    }
+
     /* ── Responsive ── */
     @media (max-width: 700px) {
       .sd-hero {

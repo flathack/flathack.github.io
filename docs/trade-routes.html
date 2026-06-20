@@ -819,6 +819,117 @@
     .td-time { color: var(--accent); }
     .td-ppm { color: #f0c040; font-weight: 600; }
 
+    html[data-theme="light"] .tr-reboot-status,
+    html[data-theme="light"] .tr-dataset-timeline,
+    html[data-theme="light"] .tr-modal-card {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(245, 249, 254, 0.94));
+      box-shadow: var(--shadow);
+    }
+
+    html[data-theme="light"] .tr-field select,
+    html[data-theme="light"] .tr-field input[type="number"],
+    html[data-theme="light"] .tr-calendar-toggle,
+    html[data-theme="light"] .tr-search,
+    html[data-theme="light"] .tr-modal-close,
+    html[data-theme="light"] .tr-lang-btn {
+      background: rgba(255, 255, 255, 0.86);
+      border-color: var(--panel-border);
+      color: var(--text);
+    }
+
+    html[data-theme="light"] .tr-calendar-toggle[aria-expanded="true"],
+    html[data-theme="light"] .tr-tab.active,
+    html[data-theme="light"] .tr-lang-btn.active {
+      background: rgba(0, 119, 182, 0.1);
+      border-color: rgba(0, 119, 182, 0.24);
+      color: var(--text);
+    }
+
+    html[data-theme="light"] .tr-calendar-panel {
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 20px 48px rgba(37, 63, 93, 0.18);
+    }
+
+    html[data-theme="light"] .tr-calendar-nav,
+    html[data-theme="light"] .tr-calendar-day,
+    html[data-theme="light"] .tr-calendar-legend i,
+    html[data-theme="light"] .tr-tab,
+    html[data-theme="light"] .tr-dataset-nav-btn,
+    html[data-theme="light"] .tr-dataset-day {
+      background: rgba(255, 255, 255, 0.78);
+      border-color: var(--panel-border);
+      color: var(--text);
+    }
+
+    html[data-theme="light"] button.tr-calendar-day:hover,
+    html[data-theme="light"] button.tr-calendar-day:focus-visible,
+    html[data-theme="light"] button.tr-dataset-day:hover,
+    html[data-theme="light"] button.tr-dataset-day:focus-visible,
+    html[data-theme="light"] .tr-dataset-nav-btn:hover:not(:disabled),
+    html[data-theme="light"] .tr-tab:hover,
+    html[data-theme="light"] .tr-modal-close:hover {
+      background: rgba(0, 119, 182, 0.08);
+      border-color: rgba(0, 119, 182, 0.22);
+      color: var(--text);
+    }
+
+    html[data-theme="light"] .tr-calendar-day.selected,
+    html[data-theme="light"] .tr-dataset-day.active {
+      background: rgba(0, 119, 182, 0.12);
+      border-color: rgba(0, 119, 182, 0.3);
+      color: var(--text);
+    }
+
+    html[data-theme="light"] .tr-calendar-day.history,
+    html[data-theme="light"] .tr-dataset-day.history {
+      background: rgba(4, 120, 87, 0.1);
+      border-color: rgba(4, 120, 87, 0.22);
+      color: var(--success);
+    }
+
+    html[data-theme="light"] .tr-calendar-day.future,
+    html[data-theme="light"] .tr-dataset-day.future,
+    html[data-theme="light"] .tr-calendar-day.gap,
+    html[data-theme="light"] .tr-dataset-day.missing,
+    html[data-theme="light"] .tr-dataset-day.gap {
+      background: rgba(148, 163, 184, 0.12);
+      color: var(--muted);
+    }
+
+    html[data-theme="light"] .tr-table-wrap {
+      background: rgba(255, 255, 255, 0.78);
+    }
+
+    html[data-theme="light"] .tr-table th {
+      background: rgba(236, 244, 252, 0.98);
+      color: var(--accent-strong);
+      border-bottom-color: var(--panel-border);
+    }
+
+    html[data-theme="light"] .tr-table tbody tr:nth-child(even) {
+      background: rgba(226, 237, 248, 0.42);
+    }
+
+    html[data-theme="light"] .tr-table tbody tr:hover,
+    html[data-theme="light"] .tr-leg-row:nth-child(odd),
+    html[data-theme="light"] .tr-path-segment {
+      background: rgba(0, 119, 182, 0.06);
+    }
+
+    html[data-theme="light"] .tr-modal {
+      background: rgba(226, 237, 248, 0.72);
+    }
+
+    html[data-theme="light"] .tr-role-pill.sell {
+      background: rgba(4, 120, 87, 0.1);
+      color: var(--success);
+    }
+
+    html[data-theme="light"] .tr-role-pill.buy {
+      background: rgba(180, 83, 9, 0.1);
+      color: var(--accent-warm);
+    }
+
     /* ── Responsive ────────────────────────────────────── */
     @media (max-width: 1180px) {
       .tr-table :is(.tr-priority-5) { display: none; }

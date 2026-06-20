@@ -522,6 +522,25 @@
       display: none;
     }
 
+    html[data-theme="light"] .uv-controls input[type="text"],
+    html[data-theme="light"] .uv-route-field input {
+      background: rgba(255,255,255,0.88);
+      border-color: var(--panel-border);
+      color: var(--text);
+    }
+
+    html[data-theme="light"] .uv-controls input[type="text"]:focus,
+    html[data-theme="light"] .uv-route-field input:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px rgba(0,119,182,0.12);
+    }
+
+    html[data-theme="light"] .uv-controls input[type="text"]::placeholder,
+    html[data-theme="light"] .uv-route-field input::placeholder {
+      color: rgba(83,101,125,0.62);
+    }
+
     /* ── Responsive ── */
     @media (max-width: 768px) {
       .uv-info-panel { width: 240px; }

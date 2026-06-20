@@ -244,6 +244,74 @@
       padding: 22px;
     }
 
+    html[data-theme="light"] .ee-hero {
+      background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(245,249,254,0.94));
+      border-color: var(--panel-border);
+      box-shadow: var(--shadow);
+    }
+
+    html[data-theme="light"] .ee-toolbar,
+    html[data-theme="light"] .ee-results,
+    html[data-theme="light"] .ee-detail,
+    html[data-theme="light"] .ee-metric {
+      background: rgba(255,255,255,0.8);
+      border-color: var(--panel-border);
+    }
+
+    html[data-theme="light"] .ee-table-wrap {
+      background: rgba(255,255,255,0.72);
+    }
+
+    html[data-theme="light"] .ee-field input,
+    html[data-theme="light"] .ee-field select,
+    html[data-theme="light"] .ee-btn {
+      background: rgba(255,255,255,0.88);
+      border-color: var(--panel-border);
+      color: var(--text);
+    }
+
+    html[data-theme="light"] .ee-field input:focus,
+    html[data-theme="light"] .ee-field select:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px rgba(0,119,182,0.12);
+    }
+
+    html[data-theme="light"] .ee-table th {
+      background: rgba(236,244,252,0.98);
+      border-bottom-color: var(--panel-border);
+      color: #005f99;
+    }
+
+    html[data-theme="light"] .ee-table td {
+      border-bottom-color: rgba(0,119,182,0.1);
+    }
+
+    html[data-theme="light"] .ee-table tbody tr:nth-child(even) td {
+      background: rgba(226,237,248,0.34);
+    }
+
+    html[data-theme="light"] .ee-table tbody tr:hover td,
+    html[data-theme="light"] .ee-table tbody tr.active td {
+      background: rgba(0,119,182,0.08);
+    }
+
+    html[data-theme="light"] .ee-results-footer,
+    html[data-theme="light"] .ee-list li {
+      border-color: rgba(0,119,182,0.1);
+    }
+
+    html[data-theme="light"] .ee-btn:hover {
+      background: rgba(0,119,182,0.1);
+      border-color: rgba(0,119,182,0.28);
+      color: var(--text);
+    }
+
+    html[data-theme="light"] .ee-badge {
+      background: rgba(0,119,182,0.12);
+      color: #005f99;
+    }
+
     @media (max-width: 1100px) {
       .ee-controls {
         grid-template-columns: repeat(3, minmax(0, 1fr));
