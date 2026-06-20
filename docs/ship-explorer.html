@@ -425,10 +425,15 @@
       return Number.isFinite(n) ? n.toLocaleString('de-DE', { maximumFractionDigits: 2 }) : '—';
     }
 
+    function isPlayerPurchasableShip(ship) {
+      return Array.isArray(ship && ship.dealers) && ship.dealers.length > 0;
+    }
+
     function setupAgilityFilters() {
       const minInput = document.getElementById('agility-min');
       const maxInput = document.getElementById('agility-max');
-      agilityValues = [...new Set(ships.map(s => Number(s.agility)).filter(Number.isFinite))].sort((a, b) => a - b);
+      const purchasableShips = ships.filter(isPlayerPurchasableShip);
+      agilityValues = [...new Set(purchasableShips.map(s => Number(s.agility)).filter(Number.isFinite))].sort((a, b) => a - b);
       const lastIndex = agilityValues.length - 1;
       [minInput, maxInput].forEach(input => {
         input.min = '0';
