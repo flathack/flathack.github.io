@@ -14,11 +14,40 @@ import pefile
 
 # ── Configuration ────────────────────────────────────────────────
 
+def first_existing_path(*paths: Path) -> Path:
+    for path in paths:
+        if path.exists():
+            return path
+    return paths[-1]
+
+
+def resolve_mod_path(root: Path, rel_path: str) -> Path:
+    path = root
+    for raw_part in rel_path.replace("\\", "/").split("/"):
+        part = raw_part.strip()
+        if not part or part == ".":
+            continue
+        candidate = path / part
+        if candidate.exists():
+            path = candidate
+            continue
+        try:
+            matches = [entry for entry in path.iterdir() if entry.name.lower() == part.lower()]
+        except OSError:
+            path = candidate
+            continue
+        path = matches[0] if matches else candidate
+    return path
+
+
 INSTALLATIONS = [
     dict(
         id="vanilla",
         name="Vanilla Freelancer",
-        path=Path(r"C:\Users\steve\Github\FL-Installationen\_FL Fresh Install-deutsch"),
+        path=first_existing_path(
+            Path("/home/steven/Games/freelancer-discovery/drive_c/Freelancer-HD"),
+            Path(r"C:\Users\steve\Github\FL-Installationen\_FL Fresh Install-deutsch"),
+        ),
     ),
     dict(
         id="hamburg-city",
@@ -28,17 +57,26 @@ INSTALLATIONS = [
     dict(
         id="crossfire",
         name="Crossfire 2.0",
-        path=Path(r"C:\C-Installed-Apps\CF-DEUTSCH"),
+        path=first_existing_path(
+            Path("/home/steven/Games/freelancer-discovery/drive_c/Freelancer Crossfire"),
+            Path(r"C:\C-Installed-Apps\CF-DEUTSCH"),
+        ),
     ),
     dict(
         id="discovery",
         name="Discovery 5.3.2",
-        path=Path(r"C:\Users\steve\Github\FL-Installationen\Discovery Freelancer 5.3.2"),
+        path=first_existing_path(
+            Path("/home/steven/Games/freelancer-discovery/drive_c/Discovery Freelancer 5.3.2"),
+            Path(r"C:\Users\steve\Github\FL-Installationen\Discovery Freelancer 5.3.2"),
+        ),
     ),
     dict(
         id="freelancer-universe",
         name="Freelancer-Universe",
-        path=Path(r"C:\Users\steve\Github\FL-Installationen\Freelancer-Universe-ARM"),
+        path=first_existing_path(
+            Path("/home/steven/Games/freelancer-discovery/drive_c/FLUniverse+MOD"),
+            Path(r"C:\Users\steve\Github\FL-Installationen\Freelancer-Universe-ARM"),
+        ),
     ),
 ]
 
@@ -98,7 +136,14 @@ for _FLATLAS_ROOT in _FLATLAS_CANDIDATES:
     if _FLATLAS_ROOT and (_FLATLAS_ROOT / "fl_editor" / "bini.py").exists():
         _sys.path.insert(0, str(_FLATLAS_ROOT))
         break
-from fl_editor.bini import is_bini_bytes, decode_bini_to_ini_text
+try:
+    from fl_editor.bini import is_bini_bytes, decode_bini_to_ini_text
+except ModuleNotFoundError:
+    def is_bini_bytes(raw: bytes) -> bool:
+        return raw.startswith(b"BINI")
+
+    def decode_bini_to_ini_text(raw: bytes) -> str:
+        raise RuntimeError("BINI decoding requires FLAtlas fl_editor.bini on PYTHONPATH")
 
 # ── INI Parser ───────────────────────────────────────────────────
 
@@ -149,6 +194,7 @@ class DLLResolver:
     def __init__(self, dll_paths: list[Path]):
         self._dll_paths = dll_paths
         self._tables: dict[str, dict[int, str]] = {}
+        self._html_tables: dict[str, dict[int, str]] = {}
 
     def _load_table(self, dll_path: Path) -> dict[int, str]:
         key = str(dll_path).lower()
@@ -186,6 +232,43 @@ class DLLResolver:
         self._tables[key] = strings
         return strings
 
+    def _load_html_table(self, dll_path: Path) -> dict[int, str]:
+        key = str(dll_path).lower()
+        if key in self._html_tables:
+            return self._html_tables[key]
+        strings: dict[int, str] = {}
+        if not dll_path.exists():
+            self._html_tables[key] = strings
+            return strings
+        try:
+            pe = pefile.PE(str(dll_path), fast_load=True)
+            pe.parse_data_directories(
+                directories=[pefile.DIRECTORY_ENTRY["IMAGE_DIRECTORY_ENTRY_RESOURCE"]]
+            )
+            root = getattr(pe, "DIRECTORY_ENTRY_RESOURCE", None)
+            if root:
+                for type_entry in getattr(root, "entries", []):
+                    if getattr(type_entry, "id", None) != 23:  # RT_HTML
+                        continue
+                    for name_entry in getattr(type_entry.directory, "entries", []):
+                        resource_id = getattr(name_entry, "id", None)
+                        if not isinstance(resource_id, int):
+                            continue
+                        for lang_entry in getattr(name_entry.directory, "entries", []):
+                            data_entry = getattr(lang_entry, "data", None)
+                            if data_entry is None:
+                                continue
+                            rva = int(data_entry.struct.OffsetToData)
+                            size = int(data_entry.struct.Size)
+                            text = self._decode_text_resource(pe.get_data(rva, size))
+                            if text:
+                                strings[resource_id] = text
+            pe.close()
+        except Exception:
+            pass
+        self._html_tables[key] = strings
+        return strings
+
     @staticmethod
     def _decode_block(blob: bytes, block_id: int, out: dict[int, str]):
         offset = 0
@@ -204,6 +287,17 @@ class DLLResolver:
                     out[base_id + index] = text
             offset += byte_len
 
+    @staticmethod
+    def _decode_text_resource(blob: bytes) -> str:
+        raw = blob.strip(b"\x00")
+        if not raw:
+            return ""
+        if raw.startswith(b"\xff\xfe") or raw.startswith(b"\xfe\xff"):
+            return raw.decode("utf-16", errors="ignore").strip()
+        if b"\x00" in raw[: min(len(raw), 80)]:
+            return raw.decode("utf-16le", errors="ignore").strip()
+        return raw.decode("cp1252", errors="ignore").strip()
+
     def get(self, ids: str | int | None) -> str:
         try:
             ids_value = int(ids)  # type: ignore[arg-type]
@@ -216,8 +310,11 @@ class DLLResolver:
         slot = (ids_value >> 16) & 0xFFFF
         local_id = ids_value & 0xFFFF
         if slot > 0 and local_id > 0 and slot <= len(self._dll_paths):
-            table = self._load_table(self._dll_paths[slot - 1])
+            dll_path = self._dll_paths[slot - 1]
+            table = self._load_table(dll_path)
             text = table.get(local_id, "")
+            if not text:
+                text = self._load_html_table(dll_path).get(local_id, "")
             if text:
                 return text
 
@@ -226,6 +323,8 @@ class DLLResolver:
             for dll_path in self._dll_paths:
                 table = self._load_table(dll_path)
                 text = table.get(ids_value, "")
+                if not text:
+                    text = self._load_html_table(dll_path).get(ids_value, "")
                 if text:
                     return text
 
@@ -234,12 +333,15 @@ class DLLResolver:
             for dll_path in self._dll_paths:
                 table = self._load_table(dll_path)
                 text = table.get(local_id, "")
+                if not text:
+                    text = self._load_html_table(dll_path).get(local_id, "")
                 if text:
                     return text
         return ""
 
     def close(self):
         self._tables.clear()
+        self._html_tables.clear()
 
 
 # ── Helpers ──────────────────────────────────────────────────────
@@ -260,7 +362,7 @@ def find_data_files(fl_ini: Path, sections: list[Section], key: str) -> list[Pat
         for k, v in entries:
             if k.lower() != key.lower():
                 continue
-            p = data_root / v.replace("\\", "/")
+            p = resolve_mod_path(data_root, v)
             if p.exists() and p.is_file():
                 lk = str(p).lower()
                 if lk not in seen:
@@ -277,7 +379,7 @@ def get_dll_paths(fl_ini: Path, sections: list[Section]) -> list[Path]:
             continue
         for k, v in entries:
             if k.lower() == "dll":
-                result.append(exe_dir / v.strip())
+                result.append(resolve_mod_path(exe_dir, v.strip()))
     return result
 
 

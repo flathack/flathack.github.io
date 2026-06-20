@@ -379,6 +379,12 @@
       text-transform: uppercase;
       color: var(--accent);
     }
+    .uv-infocard-text p {
+      margin: 0 0 8px;
+      color: var(--text);
+      line-height: 1.45;
+    }
+    .uv-infocard-text p:last-child { margin-bottom: 0; }
     .uv-mini-list {
       list-style: none;
       margin: 0;
@@ -692,6 +698,7 @@
         info_jump: 'Sprung',
         info_rotation: 'Rotation',
         info_loadout: 'Loadout',
+        info_infocard: 'Infocard',
         info_loadout_equip: 'Loadout Equipment',
         info_loadout_cargo: 'Loadout Cargo',
         info_commodities_sells: 'Verkauft Commodities',
@@ -770,6 +777,7 @@
         info_jump: 'Jump',
         info_rotation: 'Rotation',
         info_loadout: 'Loadout',
+        info_infocard: 'Infocard',
         info_loadout_equip: 'Loadout Equipment',
         info_loadout_cargo: 'Loadout Cargo',
         info_commodities_sells: 'Sells commodities',
@@ -2101,6 +2109,7 @@
                  '<span class="uv-obj-type">' + t('info_jump') + (jumpDirection.forward && !jumpDirection.reverse ? ' · ' + t('flag_one_way') : '') + '</span></li>';
       }
       items += renderLoadoutSections(obj);
+      items += renderInfocardSection(obj);
       if (obj.base) items += renderBaseTradeSections(obj.base);
       infoPanelList.innerHTML = items;
       infoPanel.classList.add("visible");
@@ -2128,6 +2137,38 @@
              (color ? '<span class="uv-obj-icon" style="background:' + color + ';"></span>' : '') +
              '<span class="uv-obj-label">' + escXml(value) + '</span>' +
              '<span class="uv-obj-type">' + escXml(label) + '</span></li>';
+    }
+
+    function renderInfocardSection(obj) {
+      var paragraphs = infocardParagraphs(obj && obj.infocard);
+      if (!paragraphs.length) return "";
+      var html = '<li class="uv-info-section"><div style="width:100%;">' +
+        '<h4>' + escXml(t('info_infocard')) + '</h4>' +
+        '<div class="uv-infocard-text">';
+      paragraphs.forEach(function (paragraph) {
+        html += '<p>' + escXml(paragraph) + '</p>';
+      });
+      html += '</div></div></li>';
+      return html;
+    }
+
+    function infocardParagraphs(value) {
+      if (typeof value !== "string") return [];
+      var text = decodeTextEntities(value)
+        .replace(/\r\n?/g, "\n")
+        .replace(/<\s*(br|para)\s*\/?\s*>/gi, "\n")
+        .replace(/<\s*\/\s*(p|para|text|li)\s*>/gi, "\n")
+        .replace(/<[^>]+>/g, "")
+        .replace(/\u00a0/g, " ");
+      return text.split(/\n+/).map(function (part) {
+        return part.replace(/\s+/g, " ").trim();
+      }).filter(Boolean);
+    }
+
+    function decodeTextEntities(value) {
+      var el = document.createElement("textarea");
+      el.innerHTML = value;
+      return el.value;
     }
 
     /* ── Breadcrumb ── */

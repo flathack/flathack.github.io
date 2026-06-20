@@ -32,6 +32,38 @@ INTERESTING_ARCHETYPES = {
 }
 
 
+def find_freelancer_ini(fl_path: Path) -> Path | None:
+    candidates = [
+        fl_path / "EXE" / "Freelancer.ini",
+        fl_path / "EXE" / "freelancer.ini",
+        fl_path / "Freelancer.ini",
+        fl_path / "freelancer.ini",
+    ]
+    for candidate in candidates:
+        if candidate.exists():
+            return candidate
+    return None
+
+
+def resolve_mod_path(root: Path, rel_path: str) -> Path:
+    path = root
+    for raw_part in rel_path.replace("\\", "/").split("/"):
+        part = raw_part.strip()
+        if not part or part == ".":
+            continue
+        candidate = path / part
+        if candidate.exists():
+            path = candidate
+            continue
+        try:
+            matches = [entry for entry in path.iterdir() if entry.name.lower() == part.lower()]
+        except OSError:
+            path = candidate
+            continue
+        path = matches[0] if matches else candidate
+    return path
+
+
 def is_interesting(archetype: str) -> bool:
     """Check if an archetype is worth showing on the system map."""
     arch_lower = archetype.lower()
@@ -285,7 +317,7 @@ def extract_universe(fl_ini: Path, res: DLLResolver) -> dict:
 
     parent = fl_ini.parent
     data_root = parent.parent / "DATA" if parent.name.lower() == "exe" else parent / "DATA"
-    universe_file = data_root / "UNIVERSE" / "universe.ini"
+    universe_file = resolve_mod_path(data_root, "UNIVERSE/universe.ini")
     universe_dir = universe_file.parent
     solar_meta = parse_solar_meta(data_root)
     item_names = parse_item_names(data_root, res)
@@ -369,10 +401,10 @@ def extract_universe(fl_ini: Path, res: DLLResolver) -> dict:
         rel_path = sys_info["file"]
         if not rel_path:
             continue
-        sys_file = data_root / "UNIVERSE" / rel_path.replace("\\", "/")
+        sys_file = resolve_mod_path(data_root / "UNIVERSE", rel_path)
         if not sys_file.exists():
             # Try just under data root
-            sys_file = data_root / rel_path.replace("\\", "/")
+            sys_file = resolve_mod_path(data_root, rel_path)
         if not sys_file.exists():
             print(f"  WARN: System file not found: {rel_path}")
             systems_out.append({
@@ -473,6 +505,8 @@ def extract_universe(fl_ini: Path, res: DLLResolver) -> dict:
                 obj_name = res.get(ids_name) if ids_name else ""
                 if not obj_name and base_name:
                     obj_name = base_name
+                ids_info = vals.get("ids_info", "")
+                obj_infocard = res.get(ids_info) if ids_info else ""
 
                 obj = {
                     "nick": nickname,
@@ -481,6 +515,10 @@ def extract_universe(fl_ini: Path, res: DLLResolver) -> dict:
                 }
                 if obj_name:
                     obj["name"] = obj_name
+                if ids_info:
+                    obj["ids_info"] = ids_info
+                if obj_infocard:
+                    obj["infocard"] = obj_infocard
                 if base_nick:
                     obj["base"] = base_nick
                 if goto_system:
@@ -650,10 +688,8 @@ def main():
         print(f"  Path: {fl_path}")
 
         # Find Freelancer.ini
-        fl_ini = fl_path / "EXE" / "Freelancer.ini"
-        if not fl_ini.exists():
-            fl_ini = fl_path / "Freelancer.ini"
-        if not fl_ini.exists():
+        fl_ini = find_freelancer_ini(fl_path)
+        if not fl_ini:
             print(f"  ERROR: Freelancer.ini not found in {fl_path}")
             continue
 
