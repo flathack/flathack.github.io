@@ -914,6 +914,8 @@
 
     // Pan & zoom state
     var viewBox = { x: 0, y: 0, w: 1000, h: 800 };
+    var baseViewBox = { x: 0, y: 0, w: 1000, h: 800 };
+    var maxZoomScale = 12;
     var isPanning = false;
     var panStart = { x: 0, y: 0 };
     var panViewStart = { x: 0, y: 0 };
@@ -1821,8 +1823,7 @@
                  '</g>';
       });
 
-      viewBox = { x: 0, y: 0, w: w, h: h };
-      svg.setAttribute("viewBox", viewBox.x + " " + viewBox.y + " " + viewBox.w + " " + viewBox.h);
+      resetViewBox(w, h);
       svg.innerHTML = '<g id="connections">' + lines + sectorMarkers + '</g><g id="routeOverlay">' + routeLines + '</g><g id="nodes">' + nodes + '</g>';
 
       // Adjust container height
@@ -2039,8 +2040,7 @@
         content += '</g>';
       });
 
-      viewBox = { x: 0, y: 0, w: w, h: h };
-      svg.setAttribute("viewBox", viewBox.x + " " + viewBox.y + " " + viewBox.w + " " + viewBox.h);
+      resetViewBox(w, h);
       svg.innerHTML = content;
 
       viewer.style.height = Math.min(900, viewer.offsetWidth) + "px";
@@ -2324,14 +2324,64 @@
       var newW = viewBox.w * factor;
       var newH = viewBox.h * factor;
 
-      viewBox.x = mx - (mx - viewBox.x) * factor;
-      viewBox.y = my - (my - viewBox.y) * factor;
+      if (newW >= baseViewBox.w || newH >= baseViewBox.h) {
+        viewBox = {
+          x: baseViewBox.x,
+          y: baseViewBox.y,
+          w: baseViewBox.w,
+          h: baseViewBox.h,
+        };
+        applyViewBox();
+        return;
+      }
+
+      var minSize = minimumViewBoxSize();
+      var zoomFactor = factor;
+      if (newW <= minSize.w || newH <= minSize.h) {
+        newW = minSize.w;
+        newH = minSize.h;
+        zoomFactor = newW / viewBox.w;
+      }
+
+      viewBox.x = mx - (mx - viewBox.x) * zoomFactor;
+      viewBox.y = my - (my - viewBox.y) * zoomFactor;
       viewBox.w = newW;
       viewBox.h = newH;
       applyViewBox();
     }
 
+    function resetViewBox(w, h) {
+      baseViewBox = { x: 0, y: 0, w: w, h: h };
+      viewBox = { x: 0, y: 0, w: w, h: h };
+      applyViewBox();
+    }
+
+    function minimumViewBoxSize() {
+      return {
+        w: baseViewBox.w / maxZoomScale,
+        h: baseViewBox.h / maxZoomScale,
+      };
+    }
+
+    function clampViewBox() {
+      if (viewBox.w >= baseViewBox.w || viewBox.h >= baseViewBox.h) {
+        viewBox.x = baseViewBox.x;
+        viewBox.y = baseViewBox.y;
+        viewBox.w = baseViewBox.w;
+        viewBox.h = baseViewBox.h;
+        return;
+      }
+
+      var minX = baseViewBox.x;
+      var maxX = baseViewBox.x + baseViewBox.w - viewBox.w;
+      var minY = baseViewBox.y;
+      var maxY = baseViewBox.y + baseViewBox.h - viewBox.h;
+      viewBox.x = Math.max(minX, Math.min(maxX, viewBox.x));
+      viewBox.y = Math.max(minY, Math.min(maxY, viewBox.y));
+    }
+
     function applyViewBox() {
+      clampViewBox();
       svg.setAttribute("viewBox", viewBox.x + " " + viewBox.y + " " + viewBox.w + " " + viewBox.h);
     }
 
