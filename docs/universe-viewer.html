@@ -586,6 +586,7 @@
           <label for="search" data-i18n="lbl_search">Suche</label>
           <input type="text" id="search" placeholder="System oder Objekt suchen…">
         </div>
+        <button class="uv-btn" id="btnRouteMode" type="button" data-i18n="btn_route_mode" title="Route Planner ein-/ausblenden" aria-controls="routePanel" aria-pressed="false">Route</button>
         <button class="uv-btn active" id="btnShowHoles" title="Jump Holes ein-/ausblenden">Jump Holes</button>
         <div class="uv-zoom-controls">
           <button class="uv-btn" id="btnZoomIn" title="Vergrößern">+</button>
@@ -594,7 +595,7 @@
         </div>
       </div>
 
-      <section class="uv-route-panel" id="routePanel">
+      <section class="uv-route-panel" id="routePanel" hidden>
         <div class="uv-route-head">
           <div>
             <p class="eyebrow" data-i18n="route_eyebrow">Route Planner</p>
@@ -666,6 +667,8 @@
         bc_universe: 'Universumskarte',
         lbl_search: 'Suche',
         search_ph: 'System oder Objekt suchen…',
+        btn_route_mode: 'Route',
+        btn_route_mode_title: 'Route Planner ein-/ausblenden',
         btn_holes_title: 'Jump Holes ein-/ausblenden',
         btn_zoomin: 'Vergrößern',
         btn_zoomout: 'Verkleinern',
@@ -742,6 +745,8 @@
         bc_universe: 'Universe Map',
         lbl_search: 'Search',
         search_ph: 'Search system or object…',
+        btn_route_mode: 'Route',
+        btn_route_mode_title: 'Toggle route planner',
         btn_holes_title: 'Toggle Jump Holes',
         btn_zoomin: 'Zoom in',
         btn_zoomout: 'Zoom out',
@@ -840,10 +845,12 @@
       searchInput.placeholder = t('search_ph');
       routeStartInput.placeholder = t('route_start_ph');
       routeEndInput.placeholder = t('route_end_ph');
+      btnRouteMode.title = t('btn_route_mode_title');
       btnShowHoles.title = t('btn_holes_title');
       btnZoomIn.title = t('btn_zoomin');
       btnZoomOut.title = t('btn_zoomout');
       btnZoomReset.title = t('btn_zoomreset');
+      renderRouteMode();
       renderUniverseSectorTabs();
       if (data) rebuildRoutePlanner();
       rerenderCurrentView();
@@ -897,6 +904,7 @@
     var routePortalLinks = Object.create(null);
     var routeStartPointId = "";
     var routeEndPointId = "";
+    var routeModeActive = false;
     var activeRouteOptions = [];
     var activeRouteIndex = -1;
     var activeRouteResult = null;
@@ -937,6 +945,7 @@
     var routeSummary = document.getElementById("routeSummary");
     var routeResults = document.getElementById("routeResults");
     var sectorTabs = document.getElementById("sectorTabs");
+    var btnRouteMode = document.getElementById("btnRouteMode");
     var btnShowHoles = document.getElementById("btnShowHoles");
     var btnZoomIn = document.getElementById("btnZoomIn");
     var btnZoomOut = document.getElementById("btnZoomOut");
@@ -1672,7 +1681,7 @@
       var drawnConn = {};
       var displayConnections = universeConnectionsForDisplay();
       var routeSystemSet = Object.create(null);
-      if (activeRouteResult && Array.isArray(activeRouteResult.systemPath)) {
+      if (routeModeActive && activeRouteResult && Array.isArray(activeRouteResult.systemPath)) {
         activeRouteResult.systemPath.forEach(function (systemNick) {
           routeSystemSet[String(systemNick || '').toUpperCase()] = true;
         });
@@ -1763,7 +1772,7 @@
                          escXml(indicator.label) + '</text>';
       });
 
-      if (activeRouteResult && Array.isArray(activeRouteResult.systemPath) && activeRouteResult.systemPath.length > 1) {
+      if (routeModeActive && activeRouteResult && Array.isArray(activeRouteResult.systemPath) && activeRouteResult.systemPath.length > 1) {
         for (var ri = 0; ri < activeRouteResult.systemPath.length - 1; ri++) {
           var routeFrom = sysPos[String(activeRouteResult.systemPath[ri]).toUpperCase()];
           var routeTo = sysPos[String(activeRouteResult.systemPath[ri + 1]).toUpperCase()];
@@ -2393,6 +2402,9 @@
       }
     });
 
+    btnRouteMode.addEventListener("click", function () {
+      setRouteMode(!routeModeActive);
+    });
     routeFindBtn.addEventListener("click", findRoutes);
     routeClearBtn.addEventListener("click", function () {
       clearRouteSelection(true);
@@ -3097,6 +3109,20 @@
       });
     }
 
+    function renderRouteMode() {
+      routePanel.hidden = !routeModeActive;
+      routePanel.setAttribute('aria-hidden', routeModeActive ? 'false' : 'true');
+      btnRouteMode.classList.toggle('active', routeModeActive);
+      btnRouteMode.setAttribute('aria-pressed', routeModeActive ? 'true' : 'false');
+    }
+
+    function setRouteMode(active) {
+      routeModeActive = !!active;
+      renderRouteMode();
+      if (routeModeActive) renderRouteResults();
+      rerenderCurrentView();
+    }
+
     function clearRouteSelection(clearInputs) {
       activeRouteOptions = [];
       activeRouteIndex = -1;
@@ -3112,6 +3138,7 @@
     }
 
     function findRoutes() {
+      if (!routeModeActive) setRouteMode(true);
       if (!routeEngine) {
         renderRouteResults();
         return;
