@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           SWAT Portal DarkMatter
 @namespace      https://flathack.github.io/docs/swat-portal-themes
-@version        1.0.0
+@version        1.0.1
 @description    Theme override for SWAT Portal BlackOps style.
 @author         Aldenmar Odin / Flathack
 @homepageURL    https://flathack.github.io/docs/swat-portal-themes.html
@@ -10,4 +10,2169 @@
 @match          https://www.swat-portal.com/*
 ==/UserStyle== */
 
-@import url("https://flathack.github.io/docs/swat-portal-themes/swat-darkmatter.css");
+@-moz-document url-prefix("https://swat-portal.com/"),
+  url-prefix("https://www.swat-portal.com/") {
+/*
+ * SWAT Portal BlackOps: DarkMatter premium theme override
+ * Use after the original style-10.css, e.g. in Stylus or as custom WoltLab CSS.
+ */
+
+:root {
+  --bg: #07111f;
+  --bg-soft: rgba(12, 25, 44, 0.72);
+  --bg-strong: #0d1b2f;
+  --panel: rgba(14, 30, 52, 0.92);
+  --panel-border: rgba(132, 177, 255, 0.18);
+  --text: #edf3ff;
+  --muted: #9fb2cf;
+  --accent: #58c4ff;
+  --accent-strong: #89f0ff;
+  --accent-warm: #f59e0b;
+  --success: #34d399;
+  --shadow: 0 24px 80px rgba(0, 0, 0, 0.42);
+  --radius-lg: 24px;
+  --radius-md: 18px;
+  --content-width: 1200px;
+  --swat-darkmatter: #94a3b8;
+  --swat-darkmatter-dark: #334155;
+  --swat-darkmatter-mid: #64748b;
+  --swat-darkmatter-soft: rgba(148, 163, 184, 0.18);
+  --swat-darkmatter-glow: rgba(148, 163, 184, 0.36);
+  --swat-darkmatter-border: rgba(226, 232, 240, 0.42);
+  --swat-input-darkmatter: #080c13;
+  --swat-panel-darkmatter: rgba(8, 12, 19, 0.98);
+  --swat-panel-darkmatter-dark: rgba(2, 4, 8, 0.99);
+}
+
+html,
+body {
+  background-color: #050b0c !important;
+  background-image:
+    radial-gradient(circle at 12% 18%, rgba(86, 186, 206, 0.34) 0 2px, transparent 3px),
+    radial-gradient(circle at 26% 72%, rgba(255, 255, 255, 0.42) 0 1px, transparent 2px),
+    radial-gradient(circle at 72% 24%, rgba(255, 255, 255, 0.36) 0 1px, transparent 2px),
+    radial-gradient(circle at 88% 64%, rgba(101, 192, 210, 0.32) 0 1px, transparent 2px),
+    radial-gradient(ellipse at 8% 70%, rgba(56, 171, 194, 0.44) 0%, rgba(36, 81, 90, 0.24) 26%, transparent 58%),
+    radial-gradient(ellipse at 84% 22%, rgba(69, 179, 201, 0.34) 0%, rgba(38, 78, 86, 0.26) 30%, transparent 62%),
+    radial-gradient(ellipse at 50% 105%, rgba(48, 107, 119, 0.38) 0%, transparent 52%),
+    linear-gradient(125deg, #060d0e 0%, #0b1719 38%, #040809 72%, #000 100%) !important;
+  background-attachment: fixed !important;
+  background-size:
+    260px 220px,
+    310px 270px,
+    380px 330px,
+    470px 390px,
+    cover,
+    cover,
+    cover,
+    cover !important;
+}
+
+body::before {
+  background:
+    radial-gradient(circle at 18% 22%, rgba(255, 255, 255, 0.55) 0 1px, transparent 2px),
+    radial-gradient(circle at 82% 18%, rgba(98, 191, 209, 0.45) 0 1px, transparent 2px),
+    radial-gradient(circle at 62% 76%, rgba(255, 255, 255, 0.36) 0 1px, transparent 2px),
+    radial-gradient(ellipse at 80% 8%, rgba(58, 133, 148, 0.34) 0%, transparent 42%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.44), transparent 22%, transparent 78%, rgba(0, 0, 0, 0.55)) !important;
+  background-size: 520px 420px, 640px 560px, 760px 680px, cover, cover !important;
+  bottom: 0;
+  content: "";
+  left: 0;
+  opacity: 0.8;
+  pointer-events: none;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+
+#pageContainer,
+#pageLogoContainer,
+.pageWrapperContainer {
+  background-color: transparent !important;
+}
+
+#pageWrapperContainer,
+#pageHeaderContainer #pageHeaderPanel > .layoutBoundary {
+  background-color: rgba(5, 13, 14, 0.94) !important;
+}
+
+#content,
+.content,
+.content > .section,
+.content > form,
+.sectionContainer {
+  background-color: rgba(8, 16, 18, 0.96) !important;
+}
+
+.content > .section,
+.content > form,
+.sectionContainer,
+.tabularBox,
+.wbbBoardList,
+.messageList,
+.containerList {
+  border-color: rgba(68, 178, 201, 0.14) !important;
+}
+
+#pageLogoContainer {
+  background-image:
+    radial-gradient(ellipse at 34% 0%, rgba(99, 191, 210, 0.42) 0%, rgba(46, 101, 112, 0.28) 22%, transparent 45%),
+    radial-gradient(ellipse at 78% 12%, rgba(22, 52, 58, 0.92) 0%, rgba(8, 20, 22, 0.82) 45%, transparent 70%),
+    linear-gradient(105deg, rgba(5, 12, 14, 0.9), rgba(11, 28, 31, 0.62), rgba(0, 0, 0, 0.82)) !important;
+  background-attachment: fixed !important;
+  background-blend-mode: screen, normal, normal !important;
+}
+
+#pageLogoContainer::before {
+  background:
+    linear-gradient(118deg, transparent 0 42%, rgba(96, 190, 209, 0.75) 44%, rgba(255, 255, 255, 0.95) 45%, rgba(55, 167, 189, 0.48) 47%, transparent 50%),
+    radial-gradient(ellipse at 66% 0%, rgba(20, 43, 48, 0.94) 0%, rgba(9, 20, 23, 0.96) 46%, transparent 47%) !important;
+  bottom: 0;
+  content: "";
+  left: 0;
+  opacity: 0.72;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+#pageLogoContainer {
+  position: relative;
+}
+
+#pageLogoContainer > div {
+  position: relative;
+  z-index: 1;
+}
+
+.pageHeaderLogo img,
+.pageHeaderLogoLarge,
+.pageHeaderLogoSmall {
+  filter: grayscale(0.65) saturate(0.92) brightness(1.08) drop-shadow(0 0 10px rgba(56, 169, 192, 0.45)) !important;
+}
+
+::selection {
+  background: var(--swat-darkmatter-mid) !important;
+  color: #fff !important;
+}
+
+::-moz-selection {
+  background: var(--swat-darkmatter-mid) !important;
+  color: #fff !important;
+}
+
+a,
+.breadcrumbs > ol > li:last-child > a,
+.breadcrumbs > ol > li:last-child::before,
+.messageQuickReplyCollapsed .messageQuickReplyContent::before,
+.messageQuickReplyCollapsed .messageQuickReplyContent::after,
+.commentListAddComment.collapsed::before,
+.commentListAddComment.collapsed::after,
+.icon.red,
+.fa.red {
+  color: var(--swat-darkmatter) !important;
+}
+
+a:hover,
+a:focus {
+  color: #70c5d5 !important;
+}
+
+#pageWrapperContainer,
+#pageHeaderContainer #pageHeaderPanel > .layoutBoundary,
+.contentChrome,
+.contentChromeGlow {
+  border-color: var(--swat-darkmatter-border) !important;
+}
+
+.pageNavigation,
+.breadcrumbs,
+.pageHeaderFacade,
+#pageHeaderSubMenu,
+.contentHeader,
+.contentHeaderNavigation,
+.messageGroupNavigation,
+.mainMenu .boxMenu .boxMenuDepth1,
+.mainMenu .boxMenu .boxMenuDepth2,
+.mainMenu .boxMenu .boxMenuDepth3,
+.mainMenu .boxMenu .boxMenuDepth4,
+.userPanel,
+.userPanelItems,
+.userPanelItems > li,
+.userPanelItems > li > a,
+#pageFooter,
+.pageFooter,
+.pageFooterContainer,
+.boxesFooter,
+.boxesFooterBoxes,
+.footer,
+.footerMenu,
+.footerNavigation,
+.footerLinks,
+.copyright,
+.pageFooterCopyright {
+  background: linear-gradient(180deg, rgba(15, 38, 43, 0.98), rgba(6, 17, 19, 0.98)) !important;
+  border-color: var(--swat-darkmatter-border) !important;
+}
+
+.pageNavigation,
+.breadcrumbs {
+  box-shadow: 0 1px 0 rgba(111, 196, 213, 0.34) inset, 0 -2px 0 var(--swat-darkmatter-mid) inset !important;
+}
+
+.breadcrumbs::after,
+.breadcrumbs::before,
+.pageNavigation::after,
+.pageNavigation::before {
+  background: var(--swat-darkmatter-mid) !important;
+  border-color: var(--swat-darkmatter-border) !important;
+}
+
+@media (max-width: 1024px) {
+  #pageHeaderContainer #pageHeaderPanel > .layoutBoundary {
+    border-bottom-color: var(--swat-darkmatter-border) !important;
+  }
+
+  #pageWrapperContainer {
+    border-top-color: var(--swat-darkmatter-border) !important;
+  }
+}
+
+.mainMenu .boxMenu > li.active > a,
+.mainMenu .boxMenu > li.active > .boxMenuLink,
+.mainMenu .boxMenu > li:hover > a,
+.mainMenu .boxMenu > li:hover > .boxMenuLink,
+.button,
+a.button,
+button,
+input[type="button"],
+input[type="submit"],
+.headerContentMessageGridBox > a,
+.pagination > ul > li.active > a,
+.pagination > ul > li > a:hover {
+  background-image: linear-gradient(180deg, var(--swat-darkmatter) 0%, var(--swat-darkmatter-dark) 100%) !important;
+  border-color: #63bfd2 var(--swat-darkmatter-mid) var(--swat-darkmatter-dark) !important;
+  box-shadow: 0 0 8px var(--swat-darkmatter-glow), 0 1px 2px rgba(0, 0, 0, 0.8) !important;
+  color: #fff !important;
+}
+
+.wbbBoardList .wbbCategory > header,
+.wbbBoardList .wbbCategory .wbbCategoryTitle,
+.wbbBoardList .wbbCategory > .wbbCategoryTitle,
+.wbbCategory > header,
+.wbbCategoryHeader,
+.wbbCategoryTitle,
+.boxTitle,
+.contentHeaderTitle,
+.sectionTitle {
+  background: linear-gradient(180deg, #38a9c0 0%, #2d6c78 48%, #193f47 100%) !important;
+  border-color: #63bfd2 var(--swat-darkmatter-mid) var(--swat-darkmatter-dark) !important;
+  box-shadow: 0 1px 0 rgba(142, 209, 222, 0.36) inset, 0 -1px 0 rgba(0, 0, 0, 0.72) inset, 0 0 14px rgba(56, 169, 192, 0.18) !important;
+  color: #fff !important;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.65) !important;
+}
+
+.wbbBoardList .wbbCategory h2,
+.wbbBoardList .wbbCategory h2 a,
+.wbbCategoryTitle a,
+.boxTitle a,
+.sectionTitle a {
+  color: #a4dae4 !important;
+  text-shadow: 0 0 8px rgba(56, 169, 192, 0.75), 0 1px 1px #000 !important;
+}
+
+.wbbBoardList .wbbBoard,
+.wbbBoardContainer,
+.tabularListRow,
+.containerList > li {
+  background:
+    linear-gradient(180deg, rgba(15, 28, 31, 0.98), rgba(10, 20, 22, 0.98)) !important;
+  border-color: rgba(68, 178, 201, 0.12) !important;
+}
+
+.wbbBoardList .wbbBoard:hover,
+.wbbBoardContainer:hover,
+.tabularListRow:hover,
+.containerList > li:hover {
+  background:
+    linear-gradient(180deg, rgba(22, 42, 46, 0.98), rgba(13, 27, 29, 0.98)) !important;
+}
+
+.contentHeaderTitle,
+.messageGroupList .messageGroupLink,
+.messageGroupLink,
+.threadTitle,
+.contentTitle {
+  background: linear-gradient(180deg, #38a9c0 0%, #2d6c78 50%, #193f47 100%) !important;
+  color: #fff !important;
+  text-shadow: 0 0 8px rgba(56, 169, 192, 0.75), 0 1px 1px #000 !important;
+}
+
+.messageGroupList .messageGroupLink,
+.messageGroupLink {
+  border-color: rgba(99, 191, 210, 0.65) !important;
+}
+
+.tabMenuContainer > .menu ul li.ui-state-active a,
+.tabMenuContainer > .menu ul li.ui-state-active a:hover:not([disabled]),
+.tabmenu ul li.ui-state-active a,
+.tabmenu ul li.ui-state-active a:hover:not([disabled]) {
+  background-image: linear-gradient(180deg, var(--swat-darkmatter) 0%, var(--swat-darkmatter-dark) 100%) !important;
+  border-color: #63bfd2 var(--swat-darkmatter-mid) var(--swat-darkmatter-dark) !important;
+  box-shadow: 0 0 5px var(--swat-darkmatter-glow) inset, 0 1px 2px rgba(0, 0, 0, 0.8) !important;
+  color: #fff !important;
+}
+
+.badge.badgeUpdate,
+a.badge.badgeUpdate,
+.badge.red,
+a.badge.red {
+  background-image: linear-gradient(var(--swat-darkmatter), var(--swat-darkmatter-dark)) !important;
+  color: #fff !important;
+}
+
+a.badge:hover.badgeUpdate,
+a.badge:hover.red {
+  background-image: linear-gradient(var(--swat-darkmatter-dark), var(--swat-darkmatter-dark)) !important;
+}
+
+.tagList .tag:hover {
+  background-color: var(--swat-darkmatter-mid) !important;
+}
+
+.tagList .tag:hover::before {
+  border-right-color: var(--swat-darkmatter-mid) !important;
+}
+
+input[type="date"],
+input[type="datetime"],
+input[type="email"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="url"],
+select,
+textarea {
+  background-color: var(--swat-input-darkmatter) !important;
+  border-color: rgba(56, 169, 192, 0.35) !important;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--swat-darkmatter) !important;
+  box-shadow: 0 0 7px var(--swat-darkmatter-glow) !important;
+}
+
+.pageHeaderMobileMenu,
+#pageHeaderSubMenu,
+.userProfileUserWithCoverPhoto::before {
+  background-image:
+    radial-gradient(ellipse at 20% 45%, rgba(56, 169, 192, 0.26) 0%, transparent 52%),
+    linear-gradient(125deg, rgba(8, 18, 20, 0.98), rgba(19, 46, 51, 0.94), rgba(0, 0, 0, 0.98)) !important;
+  background-blend-mode: screen, normal !important;
+}
+
+@media (max-width: 799px) {
+  #pageHeaderSubMenu,
+  .pageHeaderMobileMenu {
+    background-image:
+      radial-gradient(ellipse at 20% 45%, rgba(56, 169, 192, 0.26) 0%, transparent 52%),
+      linear-gradient(125deg, rgba(8, 18, 20, 0.98), rgba(19, 46, 51, 0.94), rgba(0, 0, 0, 0.98)) !important;
+    background-blend-mode: screen, normal !important;
+  }
+}
+
+.boxInfo,
+.calendarFullMonthView .calendarEventLink {
+  background: linear-gradient(rgba(56, 169, 192, 1), rgba(35, 85, 95, 1)) !important;
+  box-shadow: 0 1px 0 rgba(112, 197, 213, 0.75) inset !important;
+}
+
+.messageSidebar,
+.messageContent,
+.message,
+.messageHeader,
+.messageBody,
+.messageFooter,
+.messageList > li,
+.sidebar .box,
+.boxesSidebarLeft .box,
+.boxesSidebarRight .box,
+div.scToc,
+.scToc,
+.toc,
+.tableOfContents,
+.codeBox,
+.spoilerBox > .spoilerBoxContent,
+.tabMenuContainer,
+.tabMenuContent,
+.htmlContent blockquote,
+.messageBody blockquote,
+.messageText blockquote,
+.boxesFooter .box,
+.boxesFooterBoxes .box,
+.footerBoxes .box,
+.pageFooter .box,
+.pageFooterContainer .box,
+#pageFooter .box {
+  background:
+    linear-gradient(180deg, rgba(13, 24, 26, 0.98), rgba(9, 17, 19, 0.98)) !important;
+  border-color: rgba(56, 169, 192, 0.16) !important;
+}
+
+.messageSidebar {
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(56, 169, 192, 0.18) 0%, transparent 58%),
+    linear-gradient(180deg, rgba(14, 29, 32, 0.98), rgba(8, 16, 18, 0.98)) !important;
+}
+
+.messageSidebar::before,
+.messageSidebar::after,
+.messageContent::before,
+.messageContent::after {
+  border-color: rgba(56, 169, 192, 0.18) !important;
+  background-color: rgba(9, 20, 23, 0.98) !important;
+}
+
+.wbbLastPost,
+.wbbBoardStats,
+.messageGroupList .columnLastPost,
+.boxContent,
+.interactiveDropdown,
+.popover,
+.dialogContainer,
+.dropdownMenu,
+.dropdown,
+.dropdownOpen,
+.menuOverlay,
+.menuOverlayItemLink,
+.menuOverlayItemLinkIcon,
+.buttonGroup,
+.messageFooterGroup,
+.messageHeaderMetaData,
+.messageQuickReply,
+.messageQuickReplyContent,
+.redactor-box,
+.redactor-layer,
+.quoteBox,
+woltlab-quote,
+.attachmentThumbnail,
+.embeddedAttachmentLink,
+.inlineCode,
+kbd,
+.boxesFooter .boxContent,
+.boxesFooterBoxes .boxContent,
+.footerBoxes .boxContent,
+.pageFooter .boxContent,
+.pageFooterContainer .boxContent,
+#pageFooter .boxContent,
+.footerMenu,
+.footerNavigation,
+.footerLinks,
+.googleTranslateElement,
+#google_translate_element,
+.goog-te-gadget,
+.socialBox,
+#socialBox,
+.shareButtons,
+.shareButtonList,
+.shareButtonList > li > a {
+  background-color: rgba(10, 18, 20, 0.98) !important;
+}
+
+.mainMenu .boxMenu .boxMenuDepth1 a,
+.mainMenu .boxMenu .boxMenuDepth2 a,
+.mainMenu .boxMenu .boxMenuDepth3 a,
+.mainMenu .boxMenu .boxMenuDepth4 a {
+  background: transparent !important;
+  color: #70c5d5 !important;
+}
+
+.mainMenu .boxMenu .boxMenuDepth1 a:hover,
+.mainMenu .boxMenu .boxMenuDepth2 a:hover,
+.mainMenu .boxMenu .boxMenuDepth3 a:hover,
+.mainMenu .boxMenu .boxMenuDepth4 a:hover {
+  background: rgba(56, 169, 192, 0.16) !important;
+  color: #fff !important;
+}
+
+div.scToc,
+.scToc,
+.toc,
+.tableOfContents {
+  box-shadow: 0 0 0 1px rgba(56, 169, 192, 0.14), 0 12px 30px rgba(0, 0, 0, 0.26) !important;
+}
+
+.buttonGroup > li > a,
+.buttonGroup > li > button,
+.messageFooterGroup > li > a,
+.messageFooterGroup > li > button,
+.userPanelItems > li > a:hover,
+.shareButtons a,
+.shareButtonList > li > a,
+.boxesFooter a.button,
+.pageFooter a.button,
+#pageFooter a.button {
+  background-image: linear-gradient(180deg, var(--swat-darkmatter) 0%, var(--swat-darkmatter-dark) 100%) !important;
+  border-color: #63bfd2 var(--swat-darkmatter-mid) var(--swat-darkmatter-dark) !important;
+  color: #fff !important;
+}
+
+.boxesFooter .boxTitle,
+.boxesFooterBoxes .boxTitle,
+.footerBoxes .boxTitle,
+.pageFooter .boxTitle,
+.pageFooterContainer .boxTitle,
+#pageFooter .boxTitle {
+  background: linear-gradient(180deg, #38a9c0 0%, #2d6c78 48%, #193f47 100%) !important;
+  border-color: #63bfd2 var(--swat-darkmatter-mid) var(--swat-darkmatter-dark) !important;
+  color: #fff !important;
+  text-shadow: 0 0 8px rgba(56, 169, 192, 0.75), 0 1px 1px #000 !important;
+}
+
+#pageFooter,
+.pageFooter,
+.pageFooterContainer {
+  box-shadow: 0 -1px 0 rgba(68, 178, 201, 0.16), 0 -18px 45px rgba(0, 0, 0, 0.22) !important;
+}
+
+#pageFooter select,
+.pageFooter select,
+.pageFooterContainer select,
+#google_translate_element select {
+  background-color: var(--swat-input-darkmatter) !important;
+  border-color: rgba(56, 169, 192, 0.35) !important;
+  color: rgba(162, 217, 228, 0.92) !important;
+}
+
+/*
+ * Dashboard-style polish inspired by the supplied FLATHACKSWIKI screenshot.
+ * This block intentionally overrides the stronger BlackOps/space styling above.
+ */
+:root {
+  --dash-bg: #101718;
+  --dash-panel: rgba(18, 26, 28, 0.96);
+  --dash-panel-2: rgba(15, 24, 25, 0.98);
+  --dash-card: rgba(21, 32, 35, 0.94);
+  --dash-card-hover: rgba(26, 43, 46, 0.96);
+  --dash-border: rgba(102, 132, 138, 0.22);
+  --dash-accent: #94a3b8;
+  --dash-accent-2: #e5e7eb;
+  --dash-text: #addee7;
+  --dash-muted: #8ea6ab;
+}
+
+html,
+body {
+  background:
+    radial-gradient(ellipse at 24% 0%, rgba(44, 83, 91, 0.18), transparent 46%),
+    linear-gradient(180deg, #111a1c 0%, #101718 42%, #0d1516 100%) !important;
+  color: var(--dash-text) !important;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+  font-family: "Inter", "Open Sans", Arial, Helvetica, sans-serif !important;
+}
+
+#pageContainer {
+  background: transparent !important;
+}
+
+#pageWrapperContainer,
+#pageHeaderContainer #pageHeaderPanel > .layoutBoundary,
+#pageLogoContainer,
+#pageHeaderContent,
+.baseHeaderContentVisitor,
+.pageHeaderContainer,
+.pageHeaderPanel {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+#pageWrapperContainer > .layoutBoundary,
+#pageHeaderContainer .layoutBoundary,
+#pageLogoContainer .layoutBoundary,
+#pageHeaderContent .layoutBoundary {
+  max-width: 1680px !important;
+}
+
+#pageLogoContainer {
+  padding: 22px 0 18px !important;
+}
+
+#pageLogoContainer::before {
+  opacity: 0.28 !important;
+}
+
+.pageHeaderLogo img,
+.pageHeaderLogoLarge,
+.pageHeaderLogoSmall {
+  filter: grayscale(0.72) saturate(0.88) brightness(1.1) drop-shadow(0 0 12px rgba(57, 174, 198, 0.22)) !important;
+}
+
+.headerContent,
+.headerContentVisitor,
+.headerContentInner,
+#pageHeaderContent .layoutBoundary > * {
+  background:
+    linear-gradient(135deg, rgba(16, 34, 37, 0.98), rgba(30, 63, 70, 0.82)) !important;
+  border: 1px solid var(--dash-border) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 18px 52px rgba(0, 0, 0, 0.22) !important;
+}
+
+.mainMenu,
+.userPanel,
+#topMenu,
+#pageHeaderPanel,
+.pageHeaderPanel {
+  background: var(--dash-panel) !important;
+  border: 1px solid var(--dash-border) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 16px 42px rgba(0, 0, 0, 0.18) !important;
+  overflow: hidden !important;
+}
+
+.mainMenu .boxMenu > li > a,
+.mainMenu .boxMenu > li > .boxMenuLink,
+.userPanelItems > li > a {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  color: #9fbabf !important;
+  font-weight: 700 !important;
+  text-transform: none !important;
+}
+
+.mainMenu .boxMenu > li.active > a,
+.mainMenu .boxMenu > li.active > .boxMenuLink,
+.mainMenu .boxMenu > li:hover > a,
+.mainMenu .boxMenu > li:hover > .boxMenuLink,
+.userPanelItems > li > a:hover {
+  background: rgba(61, 142, 158, 0.18) !important;
+  box-shadow: inset 0 0 0 1px rgba(57, 174, 198, 0.18) !important;
+  color: #fff !important;
+}
+
+.mainMenu .boxMenu .boxMenuDepth1,
+.mainMenu .boxMenu .boxMenuDepth2,
+.mainMenu .boxMenu .boxMenuDepth3,
+.mainMenu .boxMenu .boxMenuDepth4 {
+  background: rgba(16, 24, 25, 0.98) !important;
+  border: 1px solid var(--dash-border) !important;
+  border-radius: 0 0 8px 8px !important;
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.28) !important;
+}
+
+.breadcrumbs,
+.pageNavigation,
+.contentHeaderNavigation,
+.messageGroupNavigation,
+.footerMenu,
+.footerNavigation,
+.footerLinks {
+  background: rgba(15, 24, 26, 0.88) !important;
+  border: 1px solid var(--dash-border) !important;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+}
+
+.breadcrumbs::before,
+.breadcrumbs::after,
+.pageNavigation::before,
+.pageNavigation::after {
+  display: none !important;
+}
+
+#content,
+.content,
+.content > .section,
+.content > form,
+.sectionContainer,
+.tabularBox,
+.messageList,
+.wbbBoardList,
+.containerList {
+  background: transparent !important;
+  border-color: transparent !important;
+}
+
+.wbbCategory,
+.wbbBoardContainer,
+.wbbBoardList .wbbBoard,
+.message,
+.messageList > li,
+.sidebar .box,
+.boxesSidebarLeft .box,
+.boxesSidebarRight .box,
+.boxesFooter .box,
+.boxesFooterBoxes .box,
+.pageFooter .box,
+#pageFooter .box,
+.dialogContainer,
+.popover,
+.interactiveDropdown,
+div.scToc,
+.scToc,
+.tabMenuContainer,
+.quoteBox,
+woltlab-quote,
+.codeBox,
+.spoilerBox > .spoilerBoxContent {
+  background: var(--dash-panel) !important;
+  border: 1px solid var(--dash-border) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.16) !important;
+  overflow: hidden !important;
+}
+
+.wbbBoardList .wbbBoard,
+.wbbBoardContainer,
+.tabularListRow,
+.containerList > li,
+.messageBody,
+.messageContent,
+.messageSidebar,
+.messageHeader,
+.messageFooter,
+.wbbLastPost,
+.wbbBoardStats,
+.boxContent,
+.boxesFooter .boxContent,
+.pageFooter .boxContent,
+#pageFooter .boxContent {
+  background: var(--dash-card) !important;
+  border-color: var(--dash-border) !important;
+}
+
+.wbbBoardList .wbbBoard:hover,
+.wbbBoardContainer:hover,
+.tabularListRow:hover,
+.containerList > li:hover {
+  background: var(--dash-card-hover) !important;
+}
+
+.wbbBoardList .wbbCategory > header,
+.wbbBoardList .wbbCategory .wbbCategoryTitle,
+.wbbCategoryTitle,
+.wbbCategoryHeader,
+.boxTitle,
+.sectionTitle,
+.contentHeaderTitle,
+.pageFooter .boxTitle,
+#pageFooter .boxTitle {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  color: #8bd0dd !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  letter-spacing: 6px !important;
+  text-transform: uppercase !important;
+  text-shadow: none !important;
+}
+
+.messageGroupLink,
+.threadTitle,
+.contentTitle {
+  background: linear-gradient(135deg, rgba(29, 64, 71, 0.98), rgba(40, 85, 94, 0.82)) !important;
+  border: 1px solid rgba(57, 174, 198, 0.24) !important;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+}
+
+a,
+.mainMenu .boxMenu .boxMenuDepth1 a,
+.mainMenu .boxMenu .boxMenuDepth2 a,
+.mainMenu .boxMenu .boxMenuDepth3 a,
+.mainMenu .boxMenu .boxMenuDepth4 a {
+  color: #3bafc6 !important;
+}
+
+a:hover,
+a:focus {
+  color: #78c8d8 !important;
+}
+
+.button,
+a.button,
+button,
+input[type="button"],
+input[type="submit"],
+.buttonGroup > li > a,
+.buttonGroup > li > button,
+.messageFooterGroup > li > a,
+.messageFooterGroup > li > button,
+.shareButtons a,
+.shareButtonList > li > a {
+  background: rgba(61, 142, 158, 0.2) !important;
+  border: 1px solid rgba(57, 174, 198, 0.3) !important;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+  color: #acdde7 !important;
+}
+
+.button:hover,
+a.button:hover,
+button:hover,
+input[type="button"]:hover,
+input[type="submit"]:hover,
+.buttonGroup > li > a:hover,
+.messageFooterGroup > li > a:hover {
+  background: rgba(61, 142, 158, 0.32) !important;
+  color: #fff !important;
+}
+
+input[type="date"],
+input[type="datetime"],
+input[type="email"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="url"],
+select,
+textarea {
+  background: rgba(13, 20, 22, 0.96) !important;
+  border: 1px solid var(--dash-border) !important;
+  border-radius: 8px !important;
+  color: var(--dash-text) !important;
+}
+
+.wbbBoardDescription,
+.messageMeta,
+.messageFooter,
+.messageSignature,
+.userTitle,
+.userCredits,
+.dimmed,
+small {
+  color: var(--dash-muted) !important;
+}
+
+#pageFooter,
+.pageFooter,
+.pageFooterContainer,
+.boxesFooter,
+.boxesFooterBoxes {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.message .button,
+.message a.button,
+.messageFooterButtons a,
+.messageFooterButtons button,
+.jsOnly.button,
+.downloadButton,
+a[href*="filebase/"],
+a[href*="download"] {
+  background-image: linear-gradient(180deg, var(--swat-darkmatter) 0%, var(--swat-darkmatter-dark) 100%) !important;
+  border-color: #63bfd2 var(--swat-darkmatter-mid) var(--swat-darkmatter-dark) !important;
+  color: #fff !important;
+}
+
+.messageSignature,
+.signature,
+.messageFooter,
+.messageHeader {
+  border-color: rgba(68, 178, 201, 0.18) !important;
+  box-shadow: 0 1px 0 rgba(111, 196, 213, 0.08) inset !important;
+}
+
+.wbbBoardDescription,
+.wbbBoardStats,
+.messageMeta,
+.messageFooter,
+.messageSignature,
+.userTitle,
+.userCredits,
+.dimmed,
+small {
+  color: rgba(145, 168, 173, 0.86) !important;
+}
+
+.wcfLikeCounter.likeCounterDisliked {
+  color: var(--swat-darkmatter) !important;
+  text-shadow: 0 0 0.5em var(--swat-darkmatter) !important;
+}
+
+.codeBox .hlQuotes,
+.codeBox .hlKeywords2,
+.codeBox .hlKeywords5,
+.diffHighlighter .hlRemoved {
+  color: var(--swat-darkmatter) !important;
+}
+
+/* WCF top cleanup: remove remaining header impurities */
+#pageHeaderContent,
+#pageHeaderContent > .layoutBoundary,
+#pageHeaderContent .layoutBoundary > *,
+.headerContent,
+.headerContentVisitor,
+.headerContentInner,
+.baseHeaderContentVisitor {
+  width: 100% !important;
+  background: rgba(12, 18, 20, 0.88) !important;
+  border: 1px solid rgba(102, 132, 138, 0.22) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 18px 52px rgba(0, 0, 0, 0.22) !important;
+}
+
+#pageHeaderContent {
+  margin: 0 auto 28px !important;
+}
+
+#pageHeaderContent > .layoutBoundary {
+  max-width: 1680px !important;
+  min-height: 58px !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  overflow: hidden !important;
+}
+
+.headerContent,
+.headerContentVisitor,
+.headerContentInner,
+.baseHeaderContentVisitor {
+  min-height: 58px !important;
+  padding: 0 18px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0 !important;
+  background:
+    linear-gradient(90deg, rgba(10, 16, 17, 0.96), rgba(16, 27, 29, 0.86)) !important;
+}
+
+.headerContentMessage,
+.headerContentMessageGrid,
+.headerContentMessageGridBox,
+.headerContentVisitor .box,
+.headerContentVisitor li,
+.headerContentVisitorItem,
+.userInformation,
+.userInformation > * {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.headerContentMessageGrid,
+.headerContentVisitor ul,
+.headerContentVisitor .inlineList {
+  display: flex !important;
+  align-items: stretch !important;
+  flex-wrap: wrap !important;
+  gap: 0 !important;
+}
+
+.headerContentMessageGridBox,
+.headerContentVisitor li,
+.headerContentVisitorItem,
+.userInformation > * {
+  padding: 8px 16px !important;
+  border-right: 1px solid rgba(102, 132, 138, 0.2) !important;
+  background: rgba(27, 49, 53, 0.42) !important;
+}
+
+.headerContentMessageGridBox:first-child,
+.headerContentVisitor li:first-child,
+.userInformation > *:first-child {
+  border-radius: 8px 0 0 8px !important;
+}
+
+.headerContentMessageGridBox:last-child,
+.headerContentVisitor li:last-child,
+.userInformation > *:last-child {
+  border-right: 0 !important;
+  border-radius: 0 8px 8px 0 !important;
+}
+
+.headerContentMessageGridBox > a,
+.headerContentMessageGridBox a,
+.headerContentVisitor a,
+.userInformation a {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  color: #39acc3 !important;
+}
+
+.headerContentMessageGridBox small,
+.headerContentMessageGridBox .label,
+.headerContentVisitor small,
+.headerContentVisitor .label,
+.userInformation small,
+.userInformation .label {
+  color: rgba(162, 198, 205, 0.78) !important;
+}
+
+#pageHeaderPanel,
+#pageHeaderPanel > .layoutBoundary,
+.pageHeaderPanel,
+.pageHeaderPanel > .layoutBoundary,
+.mainMenu,
+.mainMenu > .boxMenu,
+.userPanel,
+.userPanelItems {
+  background: rgba(15, 24, 25, 0.96) !important;
+  border-color: rgba(102, 132, 138, 0.22) !important;
+  box-shadow: none !important;
+}
+
+#pageHeaderPanel > .layoutBoundary,
+.pageHeaderPanel > .layoutBoundary {
+  max-width: 1680px !important;
+  border-radius: 8px 8px 0 0 !important;
+  overflow: hidden !important;
+}
+
+#pageHeaderSubMenu,
+.pageHeaderSubMenu,
+.pageNavigation,
+.breadcrumbs,
+.contentHeaderNavigation {
+  background: rgba(11, 20, 22, 0.94) !important;
+  border-color: rgba(61, 142, 158, 0.28) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+#pageHeaderSubMenu *,
+.pageHeaderSubMenu *,
+.pageNavigation *,
+.breadcrumbs * {
+  border-color: rgba(61, 142, 158, 0.22) !important;
+}
+
+#pageHeaderSubMenu::before,
+#pageHeaderSubMenu::after,
+.pageHeaderSubMenu::before,
+.pageHeaderSubMenu::after,
+.pageNavigation::before,
+.pageNavigation::after,
+.breadcrumbs::before,
+.breadcrumbs::after {
+  display: none !important;
+}
+
+#pageHeaderSubMenu,
+.pageHeaderSubMenu {
+  border-bottom: 4px solid rgba(61, 142, 158, 0.9) !important;
+}
+
+[style*="background-color: #c"],
+[style*="background-color:#c"],
+[style*="background: #c"],
+[style*="background:#c"],
+[style*="border-color: #c"],
+[style*="border-color:#c"],
+[style*="background-color: red"],
+[style*="background:red"],
+.red,
+.badge.red,
+a.badge.red {
+  background: rgba(61, 142, 158, 0.18) !important;
+  border-color: rgba(61, 142, 158, 0.55) !important;
+  color: #abdce6 !important;
+}
+
+/* DarkMatter premium accents: obsidian depth, silver edges, cold quantum cyan */
+:root {
+  --darkmatter-accent: #94a3b8;
+  --darkmatter-accent-2: #e5e7eb;
+  --darkmatter-accent-3: #22d3ee;
+  --darkmatter-accent-4: #7c3aed;
+  --darkmatter-deep: #03050a;
+  --darkmatter-panel: rgba(8, 12, 19, 0.96);
+  --darkmatter-border: rgba(226, 232, 240, 0.24);
+  --darkmatter-lux-gradient: linear-gradient(135deg, var(--darkmatter-accent) 0%, var(--darkmatter-accent-2) 38%, var(--darkmatter-accent-3) 72%, var(--darkmatter-accent-4) 100%);
+  --darkmatter-sheen: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.22), transparent);
+  --darkmatter-aura: 0 0 22px color-mix(in srgb, var(--darkmatter-accent) 42%, transparent), 0 0 46px color-mix(in srgb, var(--darkmatter-accent-3) 22%, transparent);
+}
+
+html,
+body {
+  background-color: var(--darkmatter-deep) !important;
+}
+
+#pageWrapperContainer,
+#pageHeaderContainer #pageHeaderPanel > .layoutBoundary,
+#content,
+.content,
+.content > .section,
+.content > form,
+.sectionContainer,
+.tabularBox,
+.wbbBoardList,
+.messageList,
+.containerList,
+#pageHeaderContent .layoutBoundary > *,
+#pageFooter .box {
+  background: var(--darkmatter-panel) !important;
+  border-color: var(--darkmatter-border) !important;
+  box-shadow: 0 18px 54px rgba(0, 0, 0, 0.36), var(--darkmatter-aura) !important;
+  backdrop-filter: blur(18px) !important;
+  -webkit-backdrop-filter: blur(18px) !important;
+}
+
+#pageLogoContainer {
+  background-image:
+    radial-gradient(ellipse at 18% 0%, color-mix(in srgb, var(--darkmatter-accent) 34%, transparent) 0%, transparent 42%),
+    radial-gradient(ellipse at 72% 8%, color-mix(in srgb, var(--darkmatter-accent-3) 30%, transparent) 0%, transparent 44%),
+    linear-gradient(105deg, rgba(4, 8, 18, 0.92), color-mix(in srgb, var(--darkmatter-deep) 68%, transparent), rgba(0, 0, 0, 0.86)) !important;
+}
+
+#pageLogoContainer::before {
+  background:
+    linear-gradient(116deg, transparent 0 39%, color-mix(in srgb, var(--darkmatter-accent-2) 68%, transparent) 42%, rgba(255, 255, 255, 0.92) 44%, color-mix(in srgb, var(--darkmatter-accent-3) 64%, transparent) 47%, transparent 51%),
+    radial-gradient(ellipse at 64% 0%, color-mix(in srgb, var(--darkmatter-deep) 94%, transparent) 0%, rgba(5, 8, 18, 0.96) 48%, transparent 49%) !important;
+}
+
+.pageHeaderLogo img,
+.pageHeaderLogoLarge,
+.pageHeaderLogoSmall {
+  filter: grayscale(0.65) saturate(0.92) brightness(1.08) drop-shadow(0 0 12px color-mix(in srgb, var(--darkmatter-accent) 48%, transparent)) drop-shadow(0 0 22px color-mix(in srgb, var(--darkmatter-accent-3) 28%, transparent)) !important;
+}
+
+a,
+.breadcrumbs > ol > li:last-child > a,
+.breadcrumbs > ol > li:last-child::before,
+.messageQuickReplyCollapsed .messageQuickReplyContent::before,
+.messageQuickReplyCollapsed .messageQuickReplyContent::after,
+.commentListAddComment.collapsed::before,
+.commentListAddComment.collapsed::after,
+.icon.red,
+.fa.red {
+  color: var(--darkmatter-accent-2) !important;
+  text-shadow: 0 0 12px color-mix(in srgb, var(--darkmatter-accent-2) 28%, transparent) !important;
+}
+
+a:hover,
+a:focus {
+  color: var(--darkmatter-accent-3) !important;
+  text-shadow: 0 0 16px color-mix(in srgb, var(--darkmatter-accent-3) 42%, transparent) !important;
+}
+
+.button,
+a.button,
+button,
+input[type="button"],
+input[type="submit"],
+.buttonGroup > li > a,
+.buttonGroup > li > button,
+.message .button,
+.message a.button,
+.messageFooterButtons button,
+.messageFooterGroup > li > button,
+.jsOnly.button,
+.badge.badgeUpdate,
+a.badge.badgeUpdate,
+.badge.red,
+a.badge.red,
+.boxTitle,
+.boxesFooter .boxTitle,
+.boxesFooterBoxes .boxTitle,
+.footerBoxes .boxTitle,
+.pageFooter .boxTitle,
+.pageFooterContainer .boxTitle,
+#pageFooter .boxTitle {
+  background: var(--darkmatter-lux-gradient) !important;
+  background-size: 180% 100% !important;
+  border-color: color-mix(in srgb, var(--darkmatter-accent-2) 70%, white 18%) var(--darkmatter-accent) color-mix(in srgb, var(--darkmatter-accent-3) 72%, black 16%) !important;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.26) inset, 0 -1px 0 rgba(0, 0, 0, 0.58) inset, 0 0 18px color-mix(in srgb, var(--darkmatter-accent) 28%, transparent), 0 12px 32px rgba(0, 0, 0, 0.38) !important;
+  color: #fff !important;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.78), 0 0 12px rgba(255, 255, 255, 0.16) !important;
+}
+
+.button:hover,
+a.button:hover,
+button:hover,
+input[type="button"]:hover,
+input[type="submit"]:hover,
+.buttonGroup > li > a:hover,
+.buttonGroup > li > button:hover,
+a.badge:hover.badgeUpdate,
+a.badge:hover.red {
+  background-position: 100% 0 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.34) inset, 0 0 24px color-mix(in srgb, var(--darkmatter-accent-2) 36%, transparent), 0 16px 38px rgba(0, 0, 0, 0.42) !important;
+}
+
+#pageHeaderSubMenu,
+.pageHeaderSubMenu,
+.pageNavigation,
+.breadcrumbs,
+.contentHeaderNavigation {
+  background-image: linear-gradient(90deg, color-mix(in srgb, var(--darkmatter-accent) 24%, transparent), color-mix(in srgb, var(--darkmatter-accent-3) 18%, transparent), color-mix(in srgb, var(--darkmatter-accent-4) 20%, transparent)) !important;
+  border-color: var(--darkmatter-border) !important;
+}
+
+#pageHeaderSubMenu,
+.pageHeaderSubMenu {
+  border-bottom: 4px solid var(--darkmatter-accent-2) !important;
+  box-shadow: 0 4px 0 color-mix(in srgb, var(--darkmatter-accent) 30%, transparent), 0 8px 0 color-mix(in srgb, var(--darkmatter-accent-3) 20%, transparent) !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--darkmatter-accent-2) !important;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--darkmatter-accent) 18%, transparent), 0 0 14px color-mix(in srgb, var(--darkmatter-accent-3) 24%, transparent) !important;
+}
+
+/* DarkMatter premium motion */
+body {
+  position: relative !important;
+}
+
+body::before {
+  animation: premium-star-drift 52s linear infinite, premium-aura-pulse 9s ease-in-out infinite alternate !important;
+  will-change: transform, opacity, background-position !important;
+}
+
+body::after {
+  animation: premium-nebula-orbit 42s ease-in-out infinite alternate, premium-spectrum-shimmer 18s linear infinite !important;
+  background:
+    radial-gradient(ellipse at 18% 20%, color-mix(in srgb, var(--darkmatter-accent) 18%, transparent) 0%, transparent 36%),
+    radial-gradient(ellipse at 78% 18%, color-mix(in srgb, var(--darkmatter-accent-3) 16%, transparent) 0%, transparent 34%),
+    radial-gradient(ellipse at 48% 82%, color-mix(in srgb, var(--darkmatter-accent-2) 14%, transparent) 0%, transparent 42%),
+    linear-gradient(115deg, transparent 0 38%, color-mix(in srgb, var(--darkmatter-accent-4) 10%, transparent) 48%, transparent 62%) !important;
+  background-size: 130% 130%, 140% 140%, 120% 120%, 180% 180% !important;
+  content: "" !important;
+  filter: saturate(1.2) blur(1px) !important;
+  inset: -18vh !important;
+  opacity: 0.72 !important;
+  pointer-events: none !important;
+  position: fixed !important;
+  transform: translate3d(0, 0, 0) scale(1.02) !important;
+  will-change: transform, opacity, background-position !important;
+  z-index: -1 !important;
+}
+
+#pageLogoContainer::before {
+  animation: premium-scan-sheen 11s ease-in-out infinite !important;
+  background-size: 180% 180%, cover !important;
+}
+
+.button,
+a.button,
+button,
+input[type="button"],
+input[type="submit"],
+.buttonGroup > li > a,
+.buttonGroup > li > button,
+.message .button,
+.message a.button,
+.messageFooterButtons button,
+.messageFooterGroup > li > button,
+.jsOnly.button,
+.badge.badgeUpdate,
+a.badge.badgeUpdate,
+.badge.red,
+a.badge.red,
+.boxTitle,
+.boxesFooter .boxTitle,
+.boxesFooterBoxes .boxTitle,
+.footerBoxes .boxTitle,
+.pageFooter .boxTitle,
+.pageFooterContainer .boxTitle,
+#pageFooter .boxTitle {
+  animation: premium-gradient-flow 14s ease-in-out infinite !important;
+  transition: background-position 420ms ease, box-shadow 220ms ease, transform 180ms ease, filter 220ms ease !important;
+}
+
+.content > .section,
+.content > form,
+.sectionContainer,
+.tabularBox,
+.wbbBoardList,
+.message,
+.containerList > li,
+#pageFooter .box,
+#pageHeaderContent .layoutBoundary > * {
+  transition: border-color 220ms ease, box-shadow 220ms ease, transform 180ms ease, background-color 220ms ease !important;
+}
+
+.content > .section:hover,
+.content > form:hover,
+.sectionContainer:hover,
+.tabularBox:hover,
+.wbbBoardList:hover,
+.message:hover,
+.containerList > li:hover,
+#pageFooter .box:hover,
+#pageHeaderContent .layoutBoundary > *:hover {
+  border-color: color-mix(in srgb, var(--darkmatter-accent-2) 58%, transparent) !important;
+  box-shadow: 0 22px 62px rgba(0, 0, 0, 0.42), 0 0 24px color-mix(in srgb, var(--darkmatter-accent) 26%, transparent), 0 0 44px color-mix(in srgb, var(--darkmatter-accent-3) 16%, transparent) !important;
+  transform: translateY(-1px) !important;
+}
+
+@keyframes premium-star-drift {
+  0% { background-position: 0 0, 0 0, 0 0, 0 0, center, center, center, center; transform: translate3d(0, 0, 0); }
+  100% { background-position: 260px 220px, -310px 270px, 380px -330px, -470px -390px, center, center, center, center; transform: translate3d(1.5vw, -1vh, 0); }
+}
+
+@keyframes premium-nebula-orbit {
+  0% { background-position: 0% 0%, 100% 0%, 50% 100%, 0% 50%; transform: translate3d(-1.5vw, -1vh, 0) scale(1.02) rotate(0.001deg); }
+  50% { opacity: 0.88; }
+  100% { background-position: 100% 30%, 0% 70%, 60% 0%, 100% 50%; transform: translate3d(1.5vw, 1vh, 0) scale(1.07) rotate(0.001deg); }
+}
+
+@keyframes premium-spectrum-shimmer {
+  0% { filter: saturate(1.08) blur(1px); }
+  50% { filter: saturate(1.34) blur(1px); }
+  100% { filter: saturate(1.08) blur(1px); }
+}
+
+@keyframes premium-gradient-flow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes premium-aura-pulse {
+  0% { opacity: 0.66; }
+  100% { opacity: 0.9; }
+}
+
+@keyframes premium-scan-sheen {
+  0%, 100% { opacity: 0.58; background-position: 0% 50%, center; }
+  45%, 55% { opacity: 0.86; }
+  100% { background-position: 100% 50%, center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+
+  body::after {
+    opacity: 0.46 !important;
+    transform: none !important;
+  }
+}
+
+/* DarkMatter void motion polish */
+:root {
+  --darkmatter-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --darkmatter-void-glow: rgba(34, 211, 238, 0.18);
+  --darkmatter-silver-glow: rgba(226, 232, 240, 0.14);
+}
+
+body::before {
+  animation: darkmatter-star-drift 84s linear infinite, darkmatter-void-breathe 16s ease-in-out infinite alternate !important;
+  opacity: 0.62 !important;
+}
+
+body::after {
+  animation: darkmatter-void-orbit 76s ease-in-out infinite alternate, darkmatter-quantum-shimmer 28s linear infinite !important;
+  background:
+    radial-gradient(ellipse at 16% 22%, rgba(34, 211, 238, 0.11) 0%, transparent 38%),
+    radial-gradient(ellipse at 78% 18%, rgba(124, 58, 237, 0.12) 0%, transparent 34%),
+    radial-gradient(ellipse at 46% 82%, rgba(226, 232, 240, 0.08) 0%, transparent 44%),
+    linear-gradient(112deg, transparent 0 40%, rgba(34, 211, 238, 0.045) 49%, transparent 64%) !important;
+  opacity: 0.58 !important;
+}
+
+.button,
+a.button,
+button,
+.buttonGroup > li > a,
+.buttonGroup > li > button,
+.message .button,
+.message a.button,
+.messageFooterButtons button,
+.messageFooterGroup > li > a,
+.messageFooterGroup > li > button,
+.jsOnly.button,
+.badge,
+a.badge,
+.mainMenu .boxMenu > li > a,
+.mainMenu .boxMenu > li > span,
+.userPanelItems > li > a {
+  backface-visibility: hidden !important;
+  transform: translate3d(0, 0, 0) !important;
+  transition:
+    background-color 340ms var(--darkmatter-ease),
+    background-position 900ms var(--darkmatter-ease),
+    border-color 340ms var(--darkmatter-ease),
+    box-shadow 360ms var(--darkmatter-ease),
+    color 260ms var(--darkmatter-ease),
+    filter 360ms var(--darkmatter-ease),
+    transform 300ms var(--darkmatter-ease) !important;
+}
+
+.button:hover,
+a.button:hover,
+button:hover,
+.buttonGroup > li > a:hover,
+.buttonGroup > li > button:hover,
+.message .button:hover,
+.message a.button:hover,
+.messageFooterButtons button:hover,
+.messageFooterGroup > li > a:hover,
+.messageFooterGroup > li > button:hover,
+.jsOnly.button:hover,
+.badge:hover,
+a.badge:hover {
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.28) inset, 0 0 24px var(--darkmatter-void-glow), 0 18px 42px rgba(0, 0, 0, 0.48) !important;
+  filter: brightness(1.08) saturate(1.08) !important;
+  transform: translate3d(0, -2px, 0) !important;
+}
+
+.wbbBoardList .wbbBoard,
+.wbbBoardContainer,
+.tabularListRow,
+.containerList > li,
+.message,
+.sidebar .box,
+.boxesSidebarLeft .box,
+.boxesSidebarRight .box,
+.pageFooter .box,
+#pageFooter .box,
+.interactiveDropdown,
+.popover,
+.dialogContainer {
+  backface-visibility: hidden !important;
+  transform: translate3d(0, 0, 0) !important;
+  transition:
+    background 420ms var(--darkmatter-ease),
+    background-color 420ms var(--darkmatter-ease),
+    border-color 360ms var(--darkmatter-ease),
+    box-shadow 420ms var(--darkmatter-ease),
+    filter 420ms var(--darkmatter-ease),
+    transform 320ms var(--darkmatter-ease) !important;
+}
+
+.wbbBoardList .wbbBoard:hover,
+.wbbBoardContainer:hover,
+.tabularListRow:hover,
+.containerList > li:hover,
+.message:hover,
+.sidebar .box:hover,
+.boxesSidebarLeft .box:hover,
+.boxesSidebarRight .box:hover,
+.pageFooter .box:hover,
+#pageFooter .box:hover {
+  border-color: rgba(226, 232, 240, 0.32) !important;
+  box-shadow: 0 28px 76px rgba(0, 0, 0, 0.56), 0 0 24px var(--darkmatter-void-glow), 0 0 52px rgba(124, 58, 237, 0.08) !important;
+  filter: brightness(1.045) contrast(1.02) !important;
+  transform: translate3d(0, -2px, 0) !important;
+}
+
+.wbbBoardList .wbbBoard:hover .wbbBoardTitle a,
+.wbbBoardContainer:hover .wbbBoardTitle a,
+.containerList > li:hover a,
+.sidebar .box:hover a,
+.boxesSidebarRight .box:hover a {
+  color: #e5e7eb !important;
+  text-shadow: 0 0 14px rgba(34, 211, 238, 0.28), 0 0 28px rgba(124, 58, 237, 0.16) !important;
+}
+
+.boxTitle,
+.wbbCategoryTitle,
+.wbbCategoryHeader,
+.sectionTitle,
+.contentHeaderTitle,
+.pageFooter .boxTitle,
+#pageFooter .boxTitle,
+.pageHeaderLogo img,
+.pageHeaderLogoLarge,
+.pageHeaderLogoSmall {
+  transition:
+    border-color 420ms var(--darkmatter-ease),
+    box-shadow 420ms var(--darkmatter-ease),
+    color 300ms var(--darkmatter-ease),
+    filter 520ms var(--darkmatter-ease),
+    text-shadow 420ms var(--darkmatter-ease),
+    transform 520ms var(--darkmatter-ease) !important;
+}
+
+.wbbCategory:hover .boxTitle,
+.wbbCategory:hover .wbbCategoryTitle,
+.box:hover .boxTitle,
+.sidebar .box:hover .boxTitle,
+.boxesSidebarRight .box:hover .boxTitle {
+  color: #f8fafc !important;
+  filter: brightness(1.08) !important;
+  text-shadow: 0 0 16px rgba(34, 211, 238, 0.26), 0 1px 1px #000 !important;
+}
+
+.pageHeaderLogo:hover img,
+.pageHeaderLogo:hover .pageHeaderLogoLarge,
+.pageHeaderLogo:hover .pageHeaderLogoSmall {
+  filter: grayscale(0.55) saturate(1.06) brightness(1.14) drop-shadow(0 0 18px rgba(34, 211, 238, 0.34)) drop-shadow(0 0 30px rgba(124, 58, 237, 0.18)) !important;
+  transform: translate3d(0, -1px, 0) scale(1.01) !important;
+}
+
+@keyframes darkmatter-star-drift {
+  0% { background-position: 0 0, 0 0, 0 0, 0 0, center, center, center, center; transform: translate3d(0, 0, 0); }
+  100% { background-position: 520px 420px, -640px 560px, 760px -680px, -940px -780px, center, center, center, center; transform: translate3d(1vw, -0.75vh, 0); }
+}
+
+@keyframes darkmatter-void-orbit {
+  0% { background-position: 0% 0%, 100% 0%, 50% 100%, 0% 50%; transform: translate3d(-1vw, -0.75vh, 0) scale(1.02) rotate(0.001deg); }
+  50% { opacity: 0.72; }
+  100% { background-position: 100% 28%, 0% 72%, 58% 0%, 100% 50%; transform: translate3d(1vw, 0.9vh, 0) scale(1.065) rotate(0.001deg); }
+}
+
+@keyframes darkmatter-quantum-shimmer {
+  0% { filter: saturate(0.92) contrast(1.02) blur(1px); }
+  50% { filter: saturate(1.18) contrast(1.08) blur(1px); }
+  100% { filter: saturate(0.92) contrast(1.02) blur(1px); }
+}
+
+@keyframes darkmatter-void-breathe {
+  0% { opacity: 0.48; }
+  100% { opacity: 0.72; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  a,
+  .button,
+  a.button,
+  button,
+  .wbbBoardList .wbbBoard,
+  .wbbBoardContainer,
+  .tabularListRow,
+  .containerList > li,
+  .message,
+  .sidebar .box,
+  .boxesSidebarLeft .box,
+  .boxesSidebarRight .box {
+    transition-duration: 0.001ms !important;
+    transform: none !important;
+  }
+}
+
+/* DarkMatter borderless box polish */
+.wbbCategory,
+.wbbBoardContainer,
+.wbbBoardList,
+.wbbBoardList .wbbBoard,
+.message,
+.messageList > li,
+.messageBody,
+.messageContent,
+.messageSidebar,
+.messageHeader,
+.messageFooter,
+.containerList,
+.containerList > li,
+.tabularBox,
+.tabularListRow,
+.sectionContainer,
+.content > .section,
+.content > form,
+.sidebar .box,
+.boxesSidebarLeft .box,
+.boxesSidebarRight .box,
+.boxesFooter .box,
+.boxesFooterBoxes .box,
+.pageFooter .box,
+#pageFooter .box,
+.dialogContainer,
+.popover,
+.interactiveDropdown,
+div.scToc,
+.scToc,
+.tabMenuContainer,
+.quoteBox,
+woltlab-quote,
+.codeBox,
+.spoilerBox > .spoilerBoxContent,
+#pageHeaderContent,
+#pageHeaderContent > .layoutBoundary,
+#pageHeaderContent .layoutBoundary > *,
+.headerContent,
+.headerContentVisitor,
+.headerContentInner,
+.baseHeaderContentVisitor {
+  border: 0 !important;
+  border-color: transparent !important;
+  outline: 0 !important;
+  box-shadow: 0 18px 52px rgba(0, 0, 0, 0.34), 0 0 22px rgba(34, 211, 238, 0.07) !important;
+}
+
+.wbbBoardList .wbbBoard,
+.wbbBoardContainer,
+.tabularListRow,
+.containerList > li,
+.message,
+.sidebar .box,
+.boxesSidebarLeft .box,
+.boxesSidebarRight .box,
+.pageFooter .box,
+#pageFooter .box {
+  background:
+    linear-gradient(180deg, rgba(13, 20, 22, 0.96), rgba(7, 12, 14, 0.975)) !important;
+}
+
+.wbbBoardList .wbbBoard + .wbbBoard,
+.containerList > li + li,
+.messageList > li + li,
+.tabularListRow + .tabularListRow {
+  box-shadow: 0 -1px 0 rgba(226, 232, 240, 0.045), 0 18px 52px rgba(0, 0, 0, 0.3) !important;
+}
+
+.wbbBoardList .wbbCategory > header,
+.wbbBoardList .wbbCategory .wbbCategoryTitle,
+.wbbBoardList .wbbCategory > .wbbCategoryTitle,
+.wbbCategory > header,
+.wbbCategoryHeader,
+.wbbCategoryTitle,
+.boxTitle,
+.sectionTitle,
+.contentHeaderTitle,
+.pageFooter .boxTitle,
+#pageFooter .boxTitle {
+  border: 0 !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.wbbBoardList .wbbBoard:hover,
+.wbbBoardContainer:hover,
+.tabularListRow:hover,
+.containerList > li:hover,
+.message:hover,
+.sidebar .box:hover,
+.boxesSidebarLeft .box:hover,
+.boxesSidebarRight .box:hover,
+.pageFooter .box:hover,
+#pageFooter .box:hover {
+  border: 0 !important;
+  border-color: transparent !important;
+  box-shadow: 0 28px 76px rgba(0, 0, 0, 0.56), 0 0 24px var(--darkmatter-void-glow), 0 0 52px rgba(124, 58, 237, 0.08) !important;
+}
+
+/* DarkMatter glass depth and animated void background */
+:root {
+  --darkmatter-glass: rgba(8, 13, 18, 0.58);
+  --darkmatter-glass-strong: rgba(10, 16, 22, 0.72);
+  --darkmatter-glass-soft: rgba(15, 25, 32, 0.42);
+  --darkmatter-glass-highlight: rgba(226, 232, 240, 0.08);
+  --darkmatter-glass-shadow: 0 24px 72px rgba(0, 0, 0, 0.52), 0 0 34px rgba(34, 211, 238, 0.08), inset 0 1px 0 rgba(226, 232, 240, 0.08), inset 0 -1px 0 rgba(0, 0, 0, 0.52);
+}
+
+html,
+body {
+  background-color: #020407 !important;
+  background-image:
+    radial-gradient(circle at 12% 18%, rgba(34, 211, 238, 0.12) 0 1px, transparent 2px),
+    radial-gradient(circle at 74% 22%, rgba(124, 58, 237, 0.12) 0 1px, transparent 2px),
+    radial-gradient(circle at 88% 68%, rgba(226, 232, 240, 0.08) 0 1px, transparent 2px),
+    radial-gradient(ellipse at 8% 72%, rgba(34, 211, 238, 0.12) 0%, transparent 58%),
+    radial-gradient(ellipse at 84% 18%, rgba(124, 58, 237, 0.14) 0%, transparent 62%),
+    radial-gradient(ellipse at 52% 108%, rgba(148, 163, 184, 0.1) 0%, transparent 54%),
+    linear-gradient(125deg, #020407 0%, #061016 38%, #03060a 72%, #000 100%) !important;
+  background-size: 280px 240px, 360px 310px, 520px 460px, cover, cover, cover, cover !important;
+}
+
+body::before {
+  animation: darkmatter-glass-stars 110s linear infinite, darkmatter-void-breathe 18s ease-in-out infinite alternate !important;
+  background:
+    radial-gradient(circle at 18% 22%, rgba(226, 232, 240, 0.36) 0 1px, transparent 2px),
+    radial-gradient(circle at 82% 18%, rgba(34, 211, 238, 0.28) 0 1px, transparent 2px),
+    radial-gradient(circle at 62% 76%, rgba(124, 58, 237, 0.24) 0 1px, transparent 2px),
+    radial-gradient(circle at 32% 58%, rgba(226, 232, 240, 0.16) 0 1px, transparent 2px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.78), transparent 24%, transparent 76%, rgba(0, 0, 0, 0.82)) !important;
+  background-size: 520px 420px, 680px 560px, 820px 700px, 940px 760px, cover !important;
+  opacity: 0.58 !important;
+}
+
+body::after {
+  animation: darkmatter-glass-aurora 92s ease-in-out infinite alternate, darkmatter-glass-shimmer 36s linear infinite !important;
+  background:
+    radial-gradient(ellipse at 14% 18%, rgba(34, 211, 238, 0.12) 0%, transparent 34%),
+    radial-gradient(ellipse at 82% 16%, rgba(124, 58, 237, 0.14) 0%, transparent 36%),
+    radial-gradient(ellipse at 50% 78%, rgba(226, 232, 240, 0.075) 0%, transparent 44%),
+    linear-gradient(118deg, transparent 0 36%, rgba(34, 211, 238, 0.05) 46%, rgba(124, 58, 237, 0.06) 54%, transparent 66%) !important;
+  background-size: 150% 150%, 160% 160%, 140% 140%, 220% 220% !important;
+  filter: blur(1.4px) saturate(1.12) !important;
+  opacity: 0.66 !important;
+}
+
+.wbbCategory,
+.wbbBoardContainer,
+.wbbBoardList,
+.wbbBoardList .wbbBoard,
+.message,
+.messageList > li,
+.messageBody,
+.messageContent,
+.messageSidebar,
+.messageHeader,
+.messageFooter,
+.containerList,
+.containerList > li,
+.tabularBox,
+.tabularListRow,
+.sectionContainer,
+.content > .section,
+.content > form,
+.sidebar .box,
+.boxesSidebarLeft .box,
+.boxesSidebarRight .box,
+.boxesFooter .box,
+.boxesFooterBoxes .box,
+.pageFooter .box,
+#pageFooter .box,
+.dialogContainer,
+.popover,
+.interactiveDropdown,
+div.scToc,
+.scToc,
+.tabMenuContainer,
+.quoteBox,
+woltlab-quote,
+.codeBox,
+.spoilerBox > .spoilerBoxContent,
+#pageHeaderContent,
+#pageHeaderContent > .layoutBoundary,
+#pageHeaderContent .layoutBoundary > *,
+.headerContent,
+.headerContentVisitor,
+.headerContentInner,
+.baseHeaderContentVisitor {
+  background:
+    linear-gradient(135deg, rgba(226, 232, 240, 0.045), transparent 32%, rgba(34, 211, 238, 0.035) 68%, rgba(124, 58, 237, 0.04)),
+    var(--darkmatter-glass) !important;
+  backdrop-filter: blur(24px) saturate(1.22) contrast(1.04) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(1.22) contrast(1.04) !important;
+  box-shadow: var(--darkmatter-glass-shadow) !important;
+}
+
+.wbbBoardList .wbbBoard,
+.wbbBoardContainer,
+.tabularListRow,
+.containerList > li,
+.message,
+.sidebar .box,
+.boxesSidebarLeft .box,
+.boxesSidebarRight .box,
+.pageFooter .box,
+#pageFooter .box {
+  background:
+    linear-gradient(180deg, rgba(226, 232, 240, 0.04), transparent 26%),
+    linear-gradient(135deg, rgba(34, 211, 238, 0.035), transparent 52%, rgba(124, 58, 237, 0.045)),
+    var(--darkmatter-glass-strong) !important;
+}
+
+.boxContent,
+.wbbLastPost,
+.wbbBoardStats,
+.messageHeaderMetaData,
+.messageFooterGroup,
+.buttonGroup,
+.dropdownMenu,
+.menuOverlay,
+.redactor-box,
+.redactor-layer,
+.inlineCode,
+kbd {
+  background: rgba(5, 10, 14, 0.44) !important;
+  backdrop-filter: blur(18px) saturate(1.18) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(1.18) !important;
+  box-shadow: inset 0 1px 0 rgba(226, 232, 240, 0.055) !important;
+}
+
+.wbbBoardList .wbbBoard:hover,
+.wbbBoardContainer:hover,
+.tabularListRow:hover,
+.containerList > li:hover,
+.message:hover,
+.sidebar .box:hover,
+.boxesSidebarLeft .box:hover,
+.boxesSidebarRight .box:hover,
+.pageFooter .box:hover,
+#pageFooter .box:hover {
+  background:
+    linear-gradient(180deg, rgba(226, 232, 240, 0.06), transparent 28%),
+    linear-gradient(135deg, rgba(34, 211, 238, 0.06), transparent 52%, rgba(124, 58, 237, 0.07)),
+    rgba(13, 21, 28, 0.78) !important;
+  box-shadow: 0 30px 86px rgba(0, 0, 0, 0.58), 0 0 28px rgba(34, 211, 238, 0.16), 0 0 58px rgba(124, 58, 237, 0.1), inset 0 1px 0 rgba(226, 232, 240, 0.1) !important;
+}
+
+.wbbBoardList .wbbCategory > header,
+.wbbBoardList .wbbCategory .wbbCategoryTitle,
+.wbbBoardList .wbbCategory > .wbbCategoryTitle,
+.wbbCategory > header,
+.wbbCategoryHeader,
+.wbbCategoryTitle,
+.boxTitle,
+.sectionTitle,
+.contentHeaderTitle,
+.pageFooter .boxTitle,
+#pageFooter .boxTitle {
+  background:
+    linear-gradient(90deg, rgba(34, 211, 238, 0.18), rgba(226, 232, 240, 0.08), rgba(124, 58, 237, 0.16)) 0 100% / 100% 1px no-repeat,
+    linear-gradient(180deg, rgba(226, 232, 240, 0.035), rgba(4, 8, 12, 0.18)) !important;
+  backdrop-filter: blur(18px) saturate(1.18) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(1.18) !important;
+}
+
+@keyframes darkmatter-glass-stars {
+  0% { background-position: 0 0, 0 0, 0 0, 0 0, center; transform: translate3d(0, 0, 0); }
+  100% { background-position: 520px 420px, -680px 560px, 820px -700px, -940px 760px, center; transform: translate3d(1.2vw, -0.8vh, 0); }
+}
+
+@keyframes darkmatter-glass-aurora {
+  0% { background-position: 0% 0%, 100% 0%, 50% 100%, 0% 50%; transform: translate3d(-1.2vw, -0.9vh, 0) scale(1.02) rotate(0.001deg); }
+  50% { opacity: 0.78; }
+  100% { background-position: 100% 26%, 0% 72%, 58% 0%, 100% 50%; transform: translate3d(1.2vw, 0.9vh, 0) scale(1.07) rotate(0.001deg); }
+}
+
+@keyframes darkmatter-glass-shimmer {
+  0% { filter: blur(1.4px) saturate(1) contrast(1.02); }
+  50% { filter: blur(1.4px) saturate(1.28) contrast(1.08); }
+  100% { filter: blur(1.4px) saturate(1) contrast(1.02); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::before,
+  body::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+/* DarkMatter performance pass: keep the premium glass look, reduce repaint cost */
+:root {
+  --darkmatter-glass-shadow: 0 18px 46px rgba(0, 0, 0, 0.42), 0 0 18px rgba(34, 211, 238, 0.055), inset 0 1px 0 rgba(226, 232, 240, 0.055);
+}
+
+body::before {
+  animation: darkmatter-glass-stars 140s linear infinite !important;
+  opacity: 0.46 !important;
+  will-change: background-position, transform !important;
+}
+
+body::after {
+  animation: darkmatter-glass-aurora 120s ease-in-out infinite alternate !important;
+  filter: none !important;
+  opacity: 0.42 !important;
+  will-change: background-position, opacity, transform !important;
+}
+
+.wbbBoardList .wbbBoard,
+.wbbBoardContainer,
+.tabularListRow,
+.containerList > li,
+.message,
+.messageList > li,
+.messageBody,
+.messageContent,
+.messageSidebar,
+.messageHeader,
+.messageFooter,
+.sidebar .box,
+.boxesSidebarLeft .box,
+.boxesSidebarRight .box,
+.pageFooter .box,
+#pageFooter .box,
+.boxContent,
+.wbbLastPost,
+.wbbBoardStats,
+.messageHeaderMetaData,
+.messageFooterGroup,
+.buttonGroup,
+.dropdownMenu,
+.menuOverlay,
+.redactor-box,
+.redactor-layer,
+.inlineCode,
+kbd {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.32), inset 0 1px 0 rgba(226, 232, 240, 0.04) !important;
+  contain: paint !important;
+}
+
+#pageHeaderContent,
+#pageHeaderContent > .layoutBoundary,
+#pageHeaderContent .layoutBoundary > *,
+.headerContent,
+.headerContentVisitor,
+.headerContentInner,
+.baseHeaderContentVisitor,
+.mainMenu,
+.userPanel,
+#topMenu,
+#pageHeaderPanel,
+.pageHeaderPanel,
+.dialogContainer,
+.popover,
+.interactiveDropdown {
+  backdrop-filter: blur(10px) saturate(1.12) !important;
+  -webkit-backdrop-filter: blur(10px) saturate(1.12) !important;
+}
+
+.wbbCategory,
+.wbbBoardList,
+.containerList,
+.tabularBox,
+.sectionContainer,
+.content > .section,
+.content > form {
+  backdrop-filter: blur(8px) saturate(1.1) !important;
+  -webkit-backdrop-filter: blur(8px) saturate(1.1) !important;
+}
+
+.wbbBoardList .wbbCategory > header,
+.wbbBoardList .wbbCategory .wbbCategoryTitle,
+.wbbBoardList .wbbCategory > .wbbCategoryTitle,
+.wbbCategory > header,
+.wbbCategoryHeader,
+.wbbCategoryTitle,
+.boxTitle,
+.sectionTitle,
+.contentHeaderTitle,
+.pageFooter .boxTitle,
+#pageFooter .boxTitle {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.button,
+a.button,
+button,
+input[type="button"],
+input[type="submit"],
+.buttonGroup > li > a,
+.buttonGroup > li > button,
+.message .button,
+.message a.button,
+.messageFooterButtons button,
+.messageFooterGroup > li > a,
+.messageFooterGroup > li > button,
+.jsOnly.button,
+.badge,
+a.badge,
+.boxTitle,
+.boxesFooter .boxTitle,
+.boxesFooterBoxes .boxTitle,
+.footerBoxes .boxTitle,
+.pageFooter .boxTitle,
+.pageFooterContainer .boxTitle,
+#pageFooter .boxTitle {
+  animation: none !important;
+  background-position: 50% 50% !important;
+}
+
+.wbbBoardList .wbbBoard:hover,
+.wbbBoardContainer:hover,
+.tabularListRow:hover,
+.containerList > li:hover,
+.message:hover,
+.sidebar .box:hover,
+.boxesSidebarLeft .box:hover,
+.boxesSidebarRight .box:hover,
+.pageFooter .box:hover,
+#pageFooter .box:hover {
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.42), 0 0 18px rgba(34, 211, 238, 0.1), inset 0 1px 0 rgba(226, 232, 240, 0.08) !important;
+  filter: brightness(1.025) !important;
+  transform: translate3d(0, -1px, 0) !important;
+}
+
+@media (prefers-reduced-motion: reduce), (update: slow) {
+  body::before,
+  body::after,
+  .button,
+  a.button,
+  button,
+  .badge,
+  a.badge,
+  .boxTitle,
+  .pageHeaderLogo img,
+  .pageHeaderLogoLarge,
+  .pageHeaderLogoSmall {
+    animation: none !important;
+    transition-duration: 0.001ms !important;
+  }
+
+  body::before,
+  body::after {
+    opacity: 0.28 !important;
+    transform: none !important;
+  }
+
+  .wbbCategory,
+  .wbbBoardList,
+  .containerList,
+  .tabularBox,
+  .sectionContainer,
+  .content > .section,
+  .content > form,
+  #pageHeaderContent,
+  #pageHeaderContent > .layoutBoundary,
+  #pageHeaderContent .layoutBoundary > *,
+  .headerContent,
+  .headerContentVisitor,
+  .headerContentInner,
+  .baseHeaderContentVisitor,
+  .mainMenu,
+  .userPanel,
+  #topMenu,
+  #pageHeaderPanel,
+  .pageHeaderPanel {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+}
+
+/* DarkMatter extra borderless box cleanup */
+:root {
+  --darkmatter-borderless-shadow: 0 14px 34px rgba(0, 0, 0, 0.34), 0 0 16px rgba(34, 211, 238, 0.055), inset 0 1px 0 rgba(226, 232, 240, 0.035);
+  --darkmatter-borderless-hover-shadow: 0 20px 48px rgba(0, 0, 0, 0.44), 0 0 18px rgba(34, 211, 238, 0.1), inset 0 1px 0 rgba(226, 232, 240, 0.065);
+}
+
+.box,
+.boxContent,
+.boxTitle,
+.wbbCategory,
+.wbbCategory > header,
+.wbbCategoryHeader,
+.wbbCategoryTitle,
+.wbbBoardList,
+.wbbBoardList .wbbCategory > header,
+.wbbBoardList .wbbCategory .wbbCategoryTitle,
+.wbbBoardList .wbbCategory > .wbbCategoryTitle,
+.wbbBoardList .wbbBoard,
+.wbbBoardContainer,
+.wbbLastPost,
+.wbbBoardStats,
+.messageList,
+.messageList > li,
+.message,
+.messageSidebar,
+.messageContent,
+.messageHeader,
+.messageBody,
+.messageFooter,
+.messageFooterGroup,
+.messageHeaderMetaData,
+.containerList,
+.containerList > li,
+.tabularBox,
+.tabularListRow,
+.tabMenuContainer,
+.tabMenuContent,
+.sectionContainer,
+.content > .section,
+.content > form,
+.sidebar .box,
+.boxesSidebarLeft .box,
+.boxesSidebarRight .box,
+.boxesFooter .box,
+.boxesFooterBoxes .box,
+.footerBoxes .box,
+.pageFooter .box,
+.pageFooterContainer .box,
+#pageFooter .box,
+div.scToc,
+.scToc,
+.toc,
+.tableOfContents,
+.quoteBox,
+woltlab-quote,
+.codeBox,
+.spoilerBox > .spoilerBoxContent,
+.dialogContainer,
+.popover,
+.interactiveDropdown,
+.dropdownMenu,
+.menuOverlay {
+  border: 0 !important;
+  border-color: transparent !important;
+  border-image: none !important;
+  border-style: none !important;
+  border-width: 0 !important;
+  outline: 0 !important;
+}
+
+.wbbBoardList .wbbBoard,
+.wbbBoardContainer,
+.tabularListRow,
+.containerList > li,
+.message,
+.messageList > li,
+.sidebar .box,
+.boxesSidebarLeft .box,
+.boxesSidebarRight .box,
+.boxesFooter .box,
+.boxesFooterBoxes .box,
+.footerBoxes .box,
+.pageFooter .box,
+.pageFooterContainer .box,
+#pageFooter .box {
+  box-shadow: var(--darkmatter-borderless-shadow) !important;
+}
+
+.wbbBoardList .wbbBoard + .wbbBoard,
+.containerList > li + li,
+.messageList > li + li,
+.tabularListRow + .tabularListRow,
+.boxContent + .boxContent {
+  box-shadow: var(--darkmatter-borderless-shadow) !important;
+}
+
+.messageSidebar::before,
+.messageSidebar::after,
+.messageContent::before,
+.messageContent::after,
+.wbbBoardList .wbbBoard::before,
+.wbbBoardList .wbbBoard::after,
+.wbbBoardContainer::before,
+.wbbBoardContainer::after,
+.containerList > li::before,
+.containerList > li::after,
+.sidebar .box::before,
+.sidebar .box::after,
+.boxesSidebarLeft .box::before,
+.boxesSidebarLeft .box::after,
+.boxesSidebarRight .box::before,
+.boxesSidebarRight .box::after {
+  border: 0 !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.wbbBoardList .wbbBoard:hover,
+.wbbBoardContainer:hover,
+.tabularListRow:hover,
+.containerList > li:hover,
+.message:hover,
+.messageList > li:hover,
+.sidebar .box:hover,
+.boxesSidebarLeft .box:hover,
+.boxesSidebarRight .box:hover,
+.boxesFooter .box:hover,
+.boxesFooterBoxes .box:hover,
+.footerBoxes .box:hover,
+.pageFooter .box:hover,
+.pageFooterContainer .box:hover,
+#pageFooter .box:hover {
+  border: 0 !important;
+  border-color: transparent !important;
+  box-shadow: var(--darkmatter-borderless-hover-shadow) !important;
+}
+}
