@@ -1,6 +1,6 @@
 {
   "title": "FLAtlas V2 Dev Status",
-  "updated": "2026-06-17",
+  "updated": "2026-06-29",
   "summary": "Kompakter Entwicklungsstatus für den FLAtlas-Dialog. Die Anwendung liest diese JSON später direkt von flathack.github.io/flatlas/devstatus.json.",
   "sections": [
     {
@@ -8,8 +8,8 @@
       "items": [
         {
           "status": "done",
-          "label": "FLAtlas V2 v0.8.2",
-          "text": "Release mit REM-Lua-Staging, News-Editor-Verbesserungen, stabilerer INI-Persistenz und Update-Fixes."
+          "label": "FLAtlas V2 v0.8.3",
+          "text": "Release mit großem Refactoring, 244 Release-Tests, System-Editor-Komfortfunktionen und stabilerer 3D-Modellauflösung."
         },
         {
           "status": "in_progress",
