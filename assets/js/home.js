@@ -1,5 +1,10 @@
 const newsItems = [
   {
+    date: "2026-07-06",
+    title: { de: "Savegame Editor v0.9.0 veröffentlicht", en: "Savegame Editor v0.9.0 released" },
+    text: { de: "Das erste v0.9.x Beta-Release bringt Ship-Viewer-Fixes, bessere Savegame-Listen, Equipment-Warnungen und stabilere Core-Component-Bearbeitung.", en: "The first v0.9.x beta release adds ship viewer fixes, better savegame lists, equipment warnings, and more stable core-component editing." },
+  },
+  {
     date: "2026-04-04",
     title: { de: "Trade Route Calculator veröffentlicht", en: "Trade Route Calculator released" },
     text: { de: "Der Trade Route Calculator ist jetzt als Online-Tool auf der Webseite verfügbar — mit Unterstützung für Hamburg City und Crossfire.", en: "The Trade Route Calculator is now available as an online tool on the website — with support for Hamburg City and Crossfire." },
