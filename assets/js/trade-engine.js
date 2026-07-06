@@ -63,13 +63,17 @@ class TradeEngine {
     return index;
   }
 
+  _isPlayerAccessibleBase(baseNick) {
+    return !!baseNick && !String(baseNick).includes('_miner');
+  }
+
   _buildCommodityRouteIndex() {
     const markets = this.data.markets || {};
     const index = Object.create(null);
 
     for (const commodity of Object.keys(markets)) {
       const rawEntries = Array.isArray(markets[commodity]) ? markets[commodity] : [];
-      const accessible = rawEntries.filter(entry => entry && entry.base && !entry.base.includes('_miner'));
+      const accessible = rawEntries.filter(entry => entry && this._isPlayerAccessibleBase(entry.base));
 
       let sources = accessible.filter(entry => entry.src);
       if (!sources.length) sources = accessible.slice();
@@ -662,6 +666,43 @@ class TradeEngine {
     this._applyTravelMetrics(candidates, includeReturnTrip);
     return candidates.sort((a, b) =>
       b.totalProfit - a.totalProfit || b.profitPerUnit - a.profitPerUnit
+    );
+  }
+
+  routesFromBase(cargoCapacity, baseNick, maxJumps, tlOnly) {
+    if (!this._isPlayerAccessibleBase(baseNick)) return [];
+    const base = this.data.bases && this.data.bases[baseNick];
+    if (!base) return [];
+    if (tlOnly && !base.tl) return [];
+
+    const markets = this.data.markets || {};
+    const commodities = this.data.commodities || {};
+    const bases = this.data.bases || {};
+    const routes = [];
+
+    for (const [commodityNick, rawEntries] of Object.entries(markets)) {
+      const commInfo = commodities[commodityNick];
+      if (!commInfo || commInfo.price <= 0 || !Array.isArray(rawEntries)) continue;
+
+      const source = rawEntries.find(entry => entry && entry.base === baseNick && entry.src);
+      if (!source) continue;
+
+      for (const sink of rawEntries) {
+        if (!sink || sink.src || sink.base === baseNick) continue;
+        if (!this._isPlayerAccessibleBase(sink.base)) continue;
+        if (tlOnly && !(bases[sink.base] && bases[sink.base].tl)) continue;
+        const route = this._buildCandidateRoute(source, sink, commInfo, cargoCapacity, maxJumps);
+        if (!route) continue;
+        this._setTravelMetrics(route, false);
+        routes.push(route);
+      }
+    }
+
+    return routes.sort((a, b) =>
+      String(a.commodity || '').localeCompare(String(b.commodity || '')) ||
+      (b.profitPerMin || -1) - (a.profitPerMin || -1) ||
+      b.totalProfit - a.totalProfit ||
+      a.jumps - b.jumps
     );
   }
 

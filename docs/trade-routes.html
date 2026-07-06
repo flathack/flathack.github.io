@@ -78,6 +78,7 @@
       color: var(--muted);
     }
     .tr-field select,
+    .tr-field input[type="text"],
     .tr-field input[type="number"] {
       background: rgba(4, 14, 23, 0.85);
       border: 1px solid var(--panel-border);
@@ -90,6 +91,7 @@
       min-height: 34px;
     }
     .tr-field select { min-width: 170px; }
+    .tr-field input[type="text"] { min-width: 220px; }
     .tr-field input[type="number"] { width: 80px; }
     .tr-field select:focus,
     .tr-field input:focus {
@@ -1119,6 +1121,15 @@
             </select>
           </div>
 
+          <div class="tr-field" id="current-base-field" style="display:none;">
+            <label for="current-base-input" data-i18n="lbl_current_base">Aktuelle Basis</label>
+            <input type="text" id="current-base-input" list="current-base-list" autocomplete="off">
+            <datalist id="current-base-list"></datalist>
+            <select id="current-base-select" hidden aria-hidden="true" tabindex="-1">
+              <option value="">Loading...</option>
+            </select>
+          </div>
+
           <label class="tr-check">
             <input type="checkbox" id="tl-only">
             <span data-i18n="lbl_tl_only">Nur Trade-Lane-Basen</span>
@@ -1143,6 +1154,7 @@
 
         <div class="tr-tabs">
           <button class="tr-tab active" data-mode="system" data-i18n="tab_system">Handelsrouten</button>
+          <button class="tr-tab" data-mode="base" data-i18n="tab_base">Aktuelle Basis</button>
           <button class="tr-tab" data-mode="loop" data-i18n="tab_loop">Rundkurs</button>
           <button class="tr-tab" data-mode="pods" data-i18n="tab_pods" style="display:none;">Markt-Items</button>
           <button class="tr-tab" data-mode="journey" data-i18n="tab_journey">Reiseroute</button>
@@ -1239,10 +1251,11 @@
         lbl_mod: 'Mod', lbl_dataset: 'Preisdaten', lbl_ship: 'Schiff', lbl_cargo: 'Fracht',
         lbl_jumps: 'Max. Sprünge', lbl_legs: 'Etappen',
         lbl_start_system: 'Aktuelles System', lbl_target_system: 'Zielsystem',
+        lbl_current_base: 'Aktuelle Basis',
         lbl_tl_only: 'Nur Trade-Lane-Basen',
         lbl_return_flight: 'Rückflug einberechnen',
         btn_calc: 'Berechnen',
-        tab_system: 'Handelsrouten', tab_loop: 'Rundkurs', tab_pods: 'Markt-Items', tab_journey: 'Trade Along Route',
+        tab_system: 'Handelsrouten', tab_base: 'Aktuelle Basis', tab_loop: 'Rundkurs', tab_pods: 'Markt-Items', tab_journey: 'Trade Along Route',
         search_placeholder: 'Routen durchsuchen...',
         loading: 'Routen werden berechnet...',
         dataset_default: 'Standard',
@@ -1269,10 +1282,11 @@
         no_prices_for_day: 'Für diesen Tag liegen keine Crossfire-Preisdaten vor.',
         custom_cargo: 'Eigene Fracht',
         no_routes: 'Keine Routen gefunden.',
+        no_base: 'Bitte waehle eine Basis mit kaufbaren Waren.',
         no_pod_capacity: 'Nicht genug Frachtraum für einen Cargo Pod.',
         no_path: 'Zwischen diesen Systemen wurde kein Pfad gefunden.',
         load_fail: 'Mod-Daten konnten nicht geladen werden: ',
-        stats_routes: 'Routen', stats_best: 'Bester Profit', stats_path: 'Reiseweg', stats_showing: 'Angezeigt',
+        stats_routes: 'Routen', stats_best: 'Bester Profit', stats_path: 'Reiseweg', stats_showing: 'Angezeigt', stats_base: 'Basis',
         btn_load_more: 'Mehr laden',
         col_srcSys: 'Quell-System', col_buyBase: 'Kauf-Basis',
         col_dstSys: 'Ziel-System', col_sellBase: 'Verkauf-Basis',
@@ -1303,10 +1317,11 @@
         lbl_mod: 'Mod', lbl_dataset: 'Price Data', lbl_ship: 'Ship', lbl_cargo: 'Cargo',
         lbl_jumps: 'Max Jumps', lbl_legs: 'Legs',
         lbl_start_system: 'Current System', lbl_target_system: 'Target System',
+        lbl_current_base: 'Current Base',
         lbl_tl_only: 'Trade Lane bases only',
         lbl_return_flight: 'Include return flight',
         btn_calc: 'Calculate',
-        tab_system: 'Trade Routes', tab_loop: 'Round Trip', tab_pods: 'Market Items', tab_journey: 'Trade Along Route',
+        tab_system: 'Trade Routes', tab_base: 'Current Base', tab_loop: 'Round Trip', tab_pods: 'Market Items', tab_journey: 'Trade Along Route',
         search_placeholder: 'Search routes...',
         loading: 'Calculating routes...',
         dataset_default: 'Default',
@@ -1333,10 +1348,11 @@
         no_prices_for_day: 'No Crossfire price data exists for this day.',
         custom_cargo: 'Custom cargo',
         no_routes: 'No routes found.',
+        no_base: 'Choose a base with buyable commodities.',
         no_pod_capacity: 'Not enough cargo space for a cargo pod.',
         no_path: 'No path was found between these systems.',
         load_fail: 'Failed to load mod data: ',
-        stats_routes: 'Routes', stats_best: 'Best profit', stats_path: 'Journey path', stats_showing: 'Showing',
+        stats_routes: 'Routes', stats_best: 'Best profit', stats_path: 'Journey path', stats_showing: 'Showing', stats_base: 'Base',
         btn_load_more: 'Load more',
         col_srcSys: 'Source System', col_buyBase: 'Buy Base',
         col_dstSys: 'Target System', col_sellBase: 'Sell Base',
@@ -1591,6 +1607,8 @@
     let currentMode = 'system';
     let currentEmptyKey = 'no_routes';
     let currentJourneyPath = [];
+    let currentBaseLabels = Object.create(null);
+    let currentBaseNicksByLabel = Object.create(null);
     let activeCommodityNick = '';
     let activeItemNick = '';
     let sortCol = -1;
@@ -1634,10 +1652,14 @@
     const legsInput    = $('legs-input');
     const startSystemSelect = $('start-system-select');
     const targetSystemSelect = $('target-system-select');
+    const currentBaseInput = $('current-base-input');
+    const currentBaseList = $('current-base-list');
+    const currentBaseSelect = $('current-base-select');
     const jumpsField   = $('jumps-field');
     const legsField    = $('legs-field');
     const startSystemField = $('start-system-field');
     const targetSystemField = $('target-system-field');
+    const currentBaseField = $('current-base-field');
     const calcBtn      = $('calc-btn');
     const tlOnlyCheck  = $('tl-only');
     const returnFlightWrap = $('return-flight-wrap');
@@ -2284,9 +2306,64 @@
       updateRebootStatus();
     }
 
+    function baseHasBuyableCommodity(data, baseNick) {
+      if (!baseNick || String(baseNick).includes('_miner')) return false;
+      const markets = (data && data.markets) || {};
+      return Object.values(markets).some(entries =>
+        Array.isArray(entries) && entries.some(entry => entry && entry.base === baseNick && entry.src)
+      );
+    }
+
+    function syncCurrentBaseInputFromSelect() {
+      currentBaseInput.value = currentBaseLabels[currentBaseSelect.value] || '';
+    }
+
+    function syncCurrentBaseSelectFromInput() {
+      const raw = String(currentBaseInput.value || '').trim();
+      if (!raw) {
+        currentBaseSelect.value = '';
+        return false;
+      }
+
+      const exact = currentBaseNicksByLabel[raw];
+      if (exact) {
+        currentBaseSelect.value = exact;
+        return true;
+      }
+
+      const normalized = raw.toLowerCase();
+      const entries = Object.entries(currentBaseLabels);
+      const caseMatch = entries.find(([, label]) => String(label).toLowerCase() === normalized);
+      const partialMatch = caseMatch || entries.find(([, label]) => String(label).toLowerCase().includes(normalized));
+      if (!partialMatch) {
+        currentBaseSelect.value = '';
+        return false;
+      }
+
+      currentBaseSelect.value = partialMatch[0];
+      currentBaseInput.value = partialMatch[1];
+      return true;
+    }
+
+    function syncCurrentBaseSelectFromExactInput() {
+      const raw = String(currentBaseInput.value || '').trim();
+      if (!raw) {
+        currentBaseSelect.value = '';
+        return false;
+      }
+      const exact = currentBaseNicksByLabel[raw];
+      if (!exact) {
+        currentBaseSelect.value = '';
+        return false;
+      }
+      currentBaseSelect.value = exact;
+      return true;
+    }
+
     function applyDataset(datasetId) {
       const prevStartSystem = startSystemSelect.value;
       const prevTargetSystem = targetSystemSelect.value;
+      const prevCurrentBase = currentBaseSelect.value;
       const prevShip = shipSelect.value;
       const prevCargo = cargoInput.value;
       selectedDatasetId = datasetId;
@@ -2324,6 +2401,35 @@
       } else if (systemEntries.length) {
         targetSystemSelect.value = systemEntries[Math.min(1, systemEntries.length - 1)][0];
       }
+
+      const baseEntries = Object.entries(data.bases || {})
+        .filter(([nick]) => baseHasBuyableCommodity(data, nick))
+        .sort((a, b) => {
+          const leftSystem = data.systems[a[1].sys] || a[1].sys || '';
+          const rightSystem = data.systems[b[1].sys] || b[1].sys || '';
+          return String(leftSystem).localeCompare(String(rightSystem)) ||
+            String(a[1].name || a[0]).localeCompare(String(b[1].name || b[0]));
+        });
+      currentBaseLabels = Object.create(null);
+      currentBaseNicksByLabel = Object.create(null);
+      const baseOptions = baseEntries.map(([nick, base]) => {
+        const systemName = data.systems[base.sys] || base.sys || '';
+        let label = (tBase(nick, base.name || nick) || nick) + (systemName ? ' (' + systemName + ')' : '');
+        if (currentBaseNicksByLabel[label]) label += ' [' + nick + ']';
+        currentBaseLabels[nick] = label;
+        currentBaseNicksByLabel[label] = nick;
+        return { nick, label };
+      });
+      currentBaseSelect.innerHTML = baseEntries.length
+        ? baseOptions.map(option => '<option value="' + escHtml(option.nick) + '">' + escHtml(option.label) + '</option>').join('')
+        : '<option value=""></option>';
+      currentBaseList.innerHTML = baseOptions.map(option => '<option value="' + escHtml(option.label) + '"></option>').join('');
+      if (prevCurrentBase && data.bases && data.bases[prevCurrentBase] && baseHasBuyableCommodity(data, prevCurrentBase)) {
+        currentBaseSelect.value = prevCurrentBase;
+      } else if (baseEntries.length) {
+        currentBaseSelect.value = baseEntries[0][0];
+      }
+      syncCurrentBaseInputFromSelect();
 
       shipSelect.innerHTML = '';
       const cOpt = document.createElement('option');
@@ -2479,6 +2585,7 @@
       legsField.style.display = currentMode === 'loop' ? '' : 'none';
       startSystemField.style.display = currentMode === 'journey' ? '' : 'none';
       targetSystemField.style.display = currentMode === 'journey' ? '' : 'none';
+      currentBaseField.style.display = currentMode === 'base' ? '' : 'none';
       returnFlightWrap.style.display = currentMode === 'system' ? '' : 'none';
       if (tlOnlyWrap) tlOnlyWrap.style.display = currentMode === 'pods' ? 'none' : '';
     }
@@ -2543,6 +2650,8 @@
       const legs  = Math.max(3, Math.min(6, parseInt(legsInput.value) || 3));
       const startSystem = startSystemSelect.value;
       const targetSystem = targetSystemSelect.value;
+      if (currentMode === 'base') syncCurrentBaseSelectFromInput();
+      const currentBase = currentBaseSelect.value;
       const includeReturnFlight = returnFlightCheck.checked && currentMode === 'system';
       visibleResultsCount = RESULTS_PAGE_SIZE;
 
@@ -2565,6 +2674,13 @@
           currentJourneyPath = [];
           if (currentMode === 'system') {
                  currentResults = engine.bestRoutesBySystem(cargo, jumps, tlOnly, includeReturnFlight);
+          } else if (currentMode === 'base') {
+            if (!currentBase) {
+              currentEmptyKey = 'no_base';
+              currentResults = [];
+            } else {
+              currentResults = engine.routesFromBase(cargo, currentBase, jumps, tlOnly);
+            }
           } else if (currentMode === 'pods') {
             const hasSpecialItems = !!(engine.data.specialItems && Object.keys(engine.data.specialItems).length);
             if (!hasSpecialItems && currentModId === 'crossfire' && cargo < 400) {
@@ -2590,6 +2706,7 @@
           const cols = getCols();
           for (let i = 0; i < cols.length; i++) {
             if (currentMode === 'pods' && cols[i].key === 'totalProfit') { sortCol = i; sortAsc = false; break; }
+            if (currentMode === 'base') { sortCol = -1; sortAsc = false; break; }
             if (currentMode !== 'pods' && cols[i].key === 'profitPerMin') { sortCol = i; sortAsc = false; break; }
           }
           renderResults();
@@ -2845,6 +2962,18 @@
     ]; }
 
     function colsJourney() { return colsRoute(); }
+    function colsBase() { return [
+      { key: 'commodity',    label: t('col_commodity'), priority: 2, format: v => tCommodity(v), html: (v, r) => commodityButtonHtml(getCommodityNickByName(v), tCommodity(v)) },
+      { key: 'dstSys',       label: t('col_dstSys') },
+      { key: 'sellBase',     label: t('col_sellBase'), format: (v, r) => tBase(r.sellBaseNick, v), html: (v, r) => baseCellHtml(tBase(r.sellBaseNick, v), r.dstSys) },
+      { key: 'buyPrice',     label: t('col_buyPrice'),   priority: 5, cls: 'td-num' },
+      { key: 'sellPrice',    label: t('col_sellPrice'),  priority: 5, cls: 'td-num' },
+      { key: 'profitPerUnit',label: t('col_profitUnit'), priority: 4, cls: 'td-num td-profit' },
+      { key: 'totalProfit',  label: t('col_totalProfit'),priority: 3, cls: 'td-num td-profit' },
+      { key: 'jumps',        label: t('col_jumps'),      priority: 4, cls: 'td-num td-jumps' },
+      { key: 'travelTime',   label: t('col_time'),       priority: 3, cls: 'td-num td-time', format: v => fmtTime(v) },
+      { key: 'profitPerMin', label: t('col_ppm'),        cls: 'td-num td-ppm', format: v => v != null ? fmt(v) : '-' },
+    ]; }
     function colsPods() { return [
       { key: 'item',         label: t('col_item'), priority: 2, format: (v, r) => tItem(r.itemNick, v), html: (v, r) => itemButtonHtml((engine && engine.data && engine.data.specialItems && engine.data.specialItems[r.itemNick]) ? r.itemNick : '', tItem(r.itemNick, v)) },
       { key: 'srcSys',       label: t('col_srcSys') },
@@ -2867,6 +2996,7 @@
     function getCols() {
       if (currentMode === 'pods') return colsPods();
       if (currentMode === 'loop') return colsLoop();
+      if (currentMode === 'base') return colsBase();
       if (currentMode === 'journey') return colsJourney();
       return colsRoute();
     }
@@ -2936,6 +3066,16 @@
           '<span>' + t('stats_showing') + ': <strong>' + visibleRows.length + ' / ' + rows.length + '</strong></span>' +
           '<span>' + t('stats_best') + ': <strong>' + best + '</strong></span>' +
           '<span>' + t('stats_path') + ': <strong>' + pathText + '</strong></span>';
+      } else if (currentMode === 'base') {
+        const bestPpm = rows.reduce((best, route) => Math.max(best, route.profitPerMin || 0), 0);
+        const baseText = currentBaseSelect.selectedOptions && currentBaseSelect.selectedOptions[0]
+          ? currentBaseSelect.selectedOptions[0].textContent
+          : '-';
+        statsBar.innerHTML =
+          '<span>' + t('stats_routes') + ': <strong>' + rows.length + '</strong></span>' +
+          '<span>' + t('stats_showing') + ': <strong>' + visibleRows.length + ' / ' + rows.length + '</strong></span>' +
+          '<span>' + t('stats_base') + ': <strong>' + escHtml(baseText || '-') + '</strong></span>' +
+          '<span>' + t('col_ppm') + ': <strong>' + (bestPpm ? fmt(bestPpm) : '-') + '</strong></span>';
       } else {
         const best = rows.length ? fmt(rows[0].totalProfit) : '-';
         statsBar.innerHTML =
@@ -3081,6 +3221,17 @@
     });
     returnFlightCheck.addEventListener('change', () => {
       if (resultsSection.style.display !== 'none' && currentMode === 'system') calculate();
+    });
+    currentBaseInput.addEventListener('input', () => {
+      syncCurrentBaseSelectFromExactInput();
+    });
+    currentBaseInput.addEventListener('change', () => {
+      syncCurrentBaseSelectFromInput();
+      if (resultsSection.style.display !== 'none' && currentMode === 'base') calculate();
+    });
+    currentBaseSelect.addEventListener('change', () => {
+      syncCurrentBaseInputFromSelect();
+      if (resultsSection.style.display !== 'none' && currentMode === 'base') calculate();
     });
     commodityModal.addEventListener('click', e => {
       if (e.target === commodityModal) closeCommodityModal();
