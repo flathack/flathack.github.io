@@ -72,5 +72,10 @@ assert.equal(
   false,
   'current-base mode must only include commodities sold by the selected base'
 );
+assert.equal(
+  baseEngine.candidateRoutes(100, 0, false).some(route => route.commodity === 'Gold'),
+  false,
+  'candidate routes must not promote buy-only bases to commodity sources'
+);
 
 console.log('trade-engine node test passed');
