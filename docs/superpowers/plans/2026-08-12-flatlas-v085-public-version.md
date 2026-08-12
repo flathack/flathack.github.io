@@ -4,7 +4,7 @@
 
 **Goal:** Show FLAtlas v0.8.5 consistently on the public homepage and in the public development-status JSON.
 
-**Architecture:** Add one focused content regression test that reads the two public files and asserts the current release plus bilingual status. Then update only the four stale v0.8.3 strings; no layout, progress, feature, or link changes are needed.
+**Architecture:** Add one focused content regression test that reads the two public files and asserts the current release plus bilingual status. Then update only the five stale v0.8.3 references (four homepage strings and one JSON label); no layout, progress, feature, or link changes are needed.
 
 **Tech Stack:** Static HTML, JSON, Node.js built-in test assertions
 
@@ -26,15 +26,22 @@ const fs = require('node:fs');
 
 const home = fs.readFileSync('index.html', 'utf8');
 const devStatus = JSON.parse(fs.readFileSync('flatlas/devstatus.json', 'utf8'));
-const releaseLabel = devStatus.sections
-  .flatMap(section => section.items || [])
-  .map(item => item.label)
-  .find(label => label.startsWith('FLAtlas V2 v'));
+const atlasCardMatch = home.match(/<!-- FL Atlas V2 -->([\s\S]*?)<!-- FL Atlas Savegame Editor -->/);
+assert.ok(atlasCardMatch, 'FLAtlas V2 project card must exist');
+const atlasCard = atlasCardMatch[1];
 
-assert.match(home, /<span class="hp-version">v0\.8\.5<\/span>/);
+const currentSection = devStatus.sections.find(section => section.title === 'Aktuell');
+assert.ok(currentSection, 'current development-status section must exist');
+const releaseItem = currentSection.items.find(item =>
+  item.status === 'done' && item.label.startsWith('FLAtlas V2 v')
+);
+
+assert.match(atlasCard, /<span class="hp-version">v0\.8\.5<\/span>/);
 assert.match(home, /v0\.8\.5 veröffentlicht - v0\.9\.0 in Arbeit/);
 assert.match(home, /v0\.8\.5 released - v0\.9\.0 in progress/);
-assert.equal(releaseLabel, 'FLAtlas V2 v0.8.5');
+assert.equal(releaseItem.label, 'FLAtlas V2 v0.8.5');
+assert.doesNotMatch(home, /v?0\.8\.3/);
+assert.doesNotMatch(JSON.stringify(devStatus), /v?0\.8\.3/);
 
 console.log('FLAtlas public version test passed');
 ```
@@ -125,11 +132,17 @@ git add -- index.html flatlas/devstatus.json docs/superpowers/plans/2026-08-12-f
 git commit -m "docs: publish FLAtlas v0.8.5 version"
 ```
 
-- [ ] **Step 7: Push and verify the public source**
+- [ ] **Step 7: Merge into main, push, and verify the public source**
 
-Run: `git push origin main`
+Run these commands from the repository's main worktree:
 
-Expected: push succeeds.
+```powershell
+git pull --ff-only
+git merge --ff-only codex/flatlas-v085-public-version
+git push origin main
+```
+
+Expected: the feature branch merges into `main` and the push succeeds.
 
 Run:
 
