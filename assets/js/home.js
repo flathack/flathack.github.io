@@ -1,8 +1,8 @@
 const newsItems = [
   {
-    date: "2026-07-10",
-    title: { de: "Savegame Editor v0.9.2 veröffentlicht", en: "Savegame Editor v0.9.2 released" },
-    text: { de: "Das v0.9.2 Beta-Release verbessert die Schiffsvorschau, repariert leere Equipment-Zeilen zuverlässiger und ergänzt Startup-Diagnosen.", en: "The v0.9.2 beta release improves ship preview rendering, repairs empty equipment rows more reliably, and adds startup diagnostics." },
+    date: "2026-07-27",
+    title: { de: "Savegame Editor v0.9.3 veröffentlicht", en: "Savegame Editor v0.9.3 released" },
+    text: { de: "Das v0.9.3 Beta-Release verbessert die Savegame-Kompatibilität, lädt Standardkomponenten aus echten Ship-Packages und härtet Repair-on-Save sowie den Speichervorgang ab.", en: "The v0.9.3 beta release improves savegame compatibility, loads standard components from real ship packages, and hardens repair-on-save and save workflows." },
   },
   {
     date: "2026-04-04",
