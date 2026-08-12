@@ -75,8 +75,7 @@ class TradeEngine {
       const rawEntries = Array.isArray(markets[commodity]) ? markets[commodity] : [];
       const accessible = rawEntries.filter(entry => entry && this._isPlayerAccessibleBase(entry.base));
 
-      let sources = accessible.filter(entry => entry.src);
-      if (!sources.length) sources = accessible.slice();
+      const sources = accessible.filter(entry => entry.src);
       const sinks = accessible.filter(entry => !entry.src);
       const sinksBySystem = Object.create(null);
 
