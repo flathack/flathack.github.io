@@ -2429,6 +2429,7 @@
   var storedLang = null;
   try { storedLang = sessionStorage.getItem("flathack-lang"); } catch(e) {}
   var currentLang = storedLang || "en";
+  var isFreelancerHome = document.body && document.body.classList.contains("home-dashboard");
 
   var langToggleHtml =
     '<button data-lang="de"' + (currentLang === "de" ? ' class="active"' : '') + '>DE</button>' +
@@ -2436,7 +2437,11 @@
   var savedShipCount = window.flathackCombatBackground && window.flathackCombatBackground.getShipTarget
     ? window.flathackCombatBackground.getShipTarget()
     : 8;
+  var domainSwitchHtml = isFreelancerHome
+    ? '<a class="nav-domain-switch" href="business/index.html">Business <span aria-hidden="true">↗</span></a>'
+    : '';
   var compactActionsHtml =
+    domainSwitchHtml +
     '<a class="nav-capsule-help" href="' + prefix + 'help/index.html" title="Help">?</a>' +
     '<button class="nav-theme-toggle" type="button" data-theme-toggle aria-pressed="' + (currentTheme === "light" ? "true" : "false") + '" title="' + (currentTheme === "light" ? "Light mode" : "Dark mode") + '">' + (currentTheme === "light" ? "☀" : "☾") + '</button>' +
     '<div class="nav-capsule-lang" data-lang="' + currentLang + '">' + langToggleHtml + '</div>';

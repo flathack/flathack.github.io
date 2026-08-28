@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#061018">
   <title>Flathack — Freelancer Modding Tools & Projects</title>
   <meta name="description" content="MIT-lizenzierte Open-Source-Tools für Freelancer Modding: FLAtlas V2, Savegame Editor, Trade Route Calculator, Equipment Explorer und Community-Links.">
   <link rel="icon" type="image/png" href="assets/img/icons/flathack_icon.png">
@@ -689,8 +690,10 @@
       .hp-discord-cta { justify-content: center; width: 100%; }
     }
   </style>
+  <link rel="stylesheet" href="assets/css/home-refresh.css">
 </head>
 <body class="home-dashboard">
+  <a class="skip-link" href="#main-content">Zum Inhalt springen</a>
   <div class="site-shell">
     <header class="site-header">
       <a class="brand" href="index.html">
@@ -700,37 +703,28 @@
       <nav class="project-top-nav" aria-label="Projekt-Navigation"></nav>
     </header>
 
-    <main>
-      <div class="hp-social-grid" aria-label="Community links">
-        <a class="hp-discord-tile" href="https://discord.gg/fY9qweRWG" target="_blank" rel="noopener">
-          <div class="hp-discord-mark" aria-hidden="true">DC</div>
-          <div class="hp-discord-copy">
-            <p class="eyebrow" data-i18n="discord_eyebrow">Community</p>
-            <h2 data-i18n="discord_title">Discord</h2>
-            <p data-i18n="discord_desc">Diskutiere FLAtlas, Freelancer-Modding und neue Tools direkt mit der Community.</p>
+    <main id="main-content">
+      <h1 class="visually-hidden">Flathack Freelancer Tools</h1>
+      <!-- ══════ UNIVERSE EXPLORER ══════ -->
+      <a class="tr-banner" href="docs/universe-viewer.html">
+        <div class="tr-banner-inner">
+          <div class="tr-banner-text">
+            <span class="tr-banner-badge"><span class="pulse-dot"></span> <span data-i18n="badge_online">Online-Tool</span></span>
+            <h2 data-i18n="banner_universe">Universe Explorer</h2>
+            <p data-i18n="banner_universe_desc">Interaktive SVG-Karte des Freelancer-Universums — Systeme, Sprungverbindungen, Planeten und Stationen. Für Hamburg City, Crossfire und mehr.</p>
+            <span class="tr-banner-cta"><span data-i18n="cta_explore">Erkunden</span> <span class="arrow">→</span></span>
           </div>
-          <span class="hp-discord-cta"><span data-i18n="discord_join">Discord beitreten</span> <span class="arrow">→</span></span>
-        </a>
-        <a class="hp-discord-tile hp-youtube-tile" href="https://www.youtube.com/@aldenmarodin-flathack" target="_blank" rel="noopener">
-          <div class="hp-discord-mark" aria-hidden="true">YT</div>
-          <div class="hp-discord-copy">
-            <p class="eyebrow" data-i18n="youtube_eyebrow">Videos</p>
-            <h2 data-i18n="youtube_title">YouTube</h2>
-            <p data-i18n="youtube_desc">Demos, Tool-Updates und Freelancer-Modding-Videos auf dem Kanal.</p>
+          <div class="tile-animation universe-animation" aria-hidden="true">
+            <svg viewBox="0 0 360 120" role="presentation">
+              <path class="mini-grid" d="M0 30H360M0 60H360M0 90H360M90 0V120M180 0V120M270 0V120"/>
+              <path class="universe-route" d="M25 91C82 21 134 104 190 59S281 26 337 49"/>
+              <circle cx="25" cy="91" r="5"/><circle cx="190" cy="59" r="6"/><circle cx="337" cy="49" r="5"/>
+              <path class="universe-ship" d="M0 -8L5 7L0 4L-5 7Z" transform="translate(235 37) rotate(52)"/>
+            </svg>
+            <small>SIGMA-13 // ROUTE LOCKED</small>
           </div>
-          <span class="hp-discord-cta"><span data-i18n="youtube_open">Kanal öffnen</span> <span class="arrow">→</span></span>
-        </a>
-        <a class="hp-discord-tile hp-github-tile" href="https://github.com/flathack" target="_blank" rel="noopener">
-          <div class="hp-discord-mark" aria-hidden="true">GH</div>
-          <div class="hp-discord-copy">
-            <p class="eyebrow" data-i18n="github_eyebrow">Code</p>
-            <h2 data-i18n="github_title">GitHub</h2>
-            <p data-i18n="github_desc">Öffentliche Repositories, Releases und Quellcode der Projekte.</p>
-          </div>
-          <span class="hp-discord-cta"><span data-i18n="github_open">GitHub öffnen</span> <span class="arrow">→</span></span>
-        </a>
-      </div>
-
+        </div>
+      </a>
       <!-- ══════ FREELANCER 2D BANNER ══════ -->
       <a class="tr-banner f2d-banner" href="freelancer2d/index.html">
         <div class="tr-banner-inner">
@@ -753,8 +747,13 @@
             <span class="tr-banner-badge"><span class="pulse-dot"></span> <span data-i18n="badge_online">Online-Tool</span></span>
             <h2 data-i18n="banner_trade">Trade Route Calculator</h2>
             <p data-i18n="banner_trade_desc">Finde die profitabelsten Handelsrouten in Freelancer — für Hamburg City, Crossfire und weitere Mods. Direkt im Browser.</p>
+            <span class="tr-banner-cta"><span data-i18n="cta_start">Jetzt starten</span> <span class="arrow">→</span></span>
           </div>
-          <span class="tr-banner-cta"><span data-i18n="cta_start">Jetzt starten</span> <span class="arrow">→</span></span>
+          <div class="tile-animation trade-animation" aria-hidden="true">
+            <span class="trade-node trade-node-a"></span><span class="trade-node trade-node-b"></span>
+            <span class="trade-route"></span><span class="trade-cargo">▰</span>
+            <small>NEW BERLIN</small><small>PLANET MANHATTAN</small>
+          </div>
         </div>
       </a>
 
@@ -765,20 +764,13 @@
             <span class="tr-banner-badge" style="background: rgba(245, 158, 11, 0.15); border-color: rgba(245, 158, 11, 0.3); color: var(--accent-warm);"><span class="pulse-dot" style="background: var(--accent-warm); box-shadow: 0 0 8px var(--accent-warm);"></span> <span data-i18n="badge_online">Online-Tool</span></span>
             <h2 data-i18n="banner_ships">Schiff-Explorer</h2>
             <p data-i18n="banner_ships_desc">Alle Schiffe auf einen Blick — mit Armor, Cargo, Agilität, Preis und Kauforten. Für Hamburg City, Crossfire und mehr.</p>
+            <span class="tr-banner-cta"><span data-i18n="cta_explore">Erkunden</span> <span class="arrow">→</span></span>
           </div>
-          <span class="tr-banner-cta" style="background: linear-gradient(135deg, var(--accent-warm), #f59e0b);"><span data-i18n="cta_explore">Erkunden</span> <span class="arrow">→</span></span>
-        </div>
-      </a>
-
-      <!-- ══════ UNIVERSE VIEWER BANNER ══════ -->
-      <a class="tr-banner" href="docs/universe-viewer.html" style="border-color: rgba(52, 211, 153, 0.35); animation-delay: 240ms;">
-        <div class="tr-banner-inner">
-          <div class="tr-banner-text">
-            <span class="tr-banner-badge" style="background: rgba(52, 211, 153, 0.15); border-color: rgba(52, 211, 153, 0.3); color: var(--success);"><span class="pulse-dot" style="background: var(--success); box-shadow: 0 0 8px var(--success);"></span> <span data-i18n="badge_online">Online-Tool</span></span>
-            <h2 data-i18n="banner_universe">Universum</h2>
-            <p data-i18n="banner_universe_desc">Interaktive SVG-Karte des Freelancer-Universums — Systeme, Sprungverbindungen, Planeten und Stationen. Für Hamburg City, Crossfire und mehr.</p>
+          <div class="tile-animation ship-animation" aria-hidden="true">
+            <span class="radar-ring radar-ring-a"></span><span class="radar-ring radar-ring-b"></span>
+            <span class="radar-sweep"></span><span class="radar-ship">▲</span>
+            <small>SHIP ID // HF-07</small>
           </div>
-          <span class="tr-banner-cta" style="background: linear-gradient(135deg, var(--success), #06b6d4);"><span data-i18n="cta_explore">Erkunden</span> <span class="arrow">→</span></span>
         </div>
       </a>
 
@@ -789,8 +781,16 @@
             <span class="tr-banner-badge" style="background: rgba(168, 85, 247, 0.15); border-color: rgba(168, 85, 247, 0.3); color: #a855f7;"><span class="pulse-dot" style="background: #a855f7; box-shadow: 0 0 8px #a855f7;"></span> <span data-i18n="badge_online">Online-Tool</span></span>
             <h2 data-i18n="banner_rep">Rep Planner</h2>
             <p data-i18n="banner_rep_desc">Plane deine Fraktionsreputation in Freelancer — gib deinen Wunsch-Ruf ein und erhalte eine optimale Abschuss-Reihenfolge. Für Hamburg City, Crossfire und mehr.</p>
+            <span class="tr-banner-cta"><span data-i18n="cta_plan">Planen</span> <span class="arrow">→</span></span>
           </div>
-          <span class="tr-banner-cta" style="background: linear-gradient(135deg, #a855f7, #7c3aed);"><span data-i18n="cta_plan">Planen</span> <span class="arrow">→</span></span>
+          <div class="tile-animation rep-animation" aria-hidden="true">
+            <svg viewBox="0 0 360 120" role="presentation">
+              <path d="M58 64L142 28L225 78L307 38M142 28L225 78M58 64L225 78"/>
+              <circle class="rep-node ally" cx="58" cy="64" r="10"/><circle class="rep-node neutral" cx="142" cy="28" r="9"/>
+              <circle class="rep-node hostile" cx="225" cy="78" r="11"/><circle class="rep-node ally" cx="307" cy="38" r="8"/>
+            </svg>
+            <small>ALLY +0.82 // HOSTILE −0.64</small>
+          </div>
         </div>
       </a>
 
@@ -801,20 +801,21 @@
             <span class="tr-banner-badge" style="background: rgba(244, 114, 182, 0.15); border-color: rgba(244, 114, 182, 0.32); color: #f9a8d4;"><span class="pulse-dot" style="background: #f472b6; box-shadow: 0 0 8px #f472b6;"></span> <span data-i18n="badge_online">Online-Tool</span></span>
             <h2 data-i18n="banner_equipment">Equipment Explorer</h2>
             <p data-i18n="banner_equipment_desc">Durchsuche kaufbare Ausrüstung in Freelancer — Waffen, Schilde, Scanner, Raketen, Minen und mehr mit Preis und Verkaufsorten. Für Hamburg City, Crossfire und mehr.</p>
+            <span class="tr-banner-cta"><span data-i18n="cta_browse">Durchsuchen</span> <span class="arrow">→</span></span>
           </div>
-          <span class="tr-banner-cta" style="background: linear-gradient(135deg, #f472b6, #fb7185);"><span data-i18n="cta_browse">Durchsuchen</span> <span class="arrow">→</span></span>
+          <div class="tile-animation equipment-animation" aria-hidden="true">
+            <span class="equipment-scan"></span>
+            <i style="--x:14%;--y:28%;--s:18px"></i><i style="--x:43%;--y:56%;--s:10px"></i>
+            <i style="--x:72%;--y:24%;--s:14px"></i><i style="--x:84%;--y:67%;--s:8px"></i>
+            <small>LOADOUT SCAN // 148 ITEMS</small>
+          </div>
         </div>
       </a>
 
-      <!-- ══════ INTRO ══════ -->
-      <section class="hp-intro">
-        <p class="eyebrow" data-i18n="eyebrow_tools">Freelancer Modding Tools</p>
-        <h1 data-i18n="intro_title">Tools für die Freelancer-Community</h1>
-      </section>
-
       <!-- ══════ PROJECTS ══════ -->
-      <div class="hp-projects-head">
+      <div class="hp-projects-head" id="projects">
         <p class="eyebrow" data-i18n="eyebrow_projects">Projekte</p>
+        <h2 data-i18n="projects_title">Ausgewählte Builds</h2>
       </div>
       <div class="hp-project-grid">
 
@@ -932,14 +933,35 @@
         </article>
       </div>
 
-      <section class="hp-tool-callout" aria-labelledby="other-tools-title">
-        <div>
-          <p class="eyebrow" data-i18n="eyebrow_other_tools">Weitere Tools</p>
-          <h2 id="other-tools-title" data-i18n="company_car_title">Firmenwagen-Rechner</h2>
-          <p data-i18n="company_car_desc">Browser-Rechner für den Nettovergleich einer Gehaltsabrechnung mit und ohne Firmenwagen. Die PDF-Auswertung bleibt lokal im Browser.</p>
-        </div>
-        <a class="hp-card-link" href="guides/firmenwagenrechner/index.html" data-i18n="company_car_open">Rechner öffnen</a>
-      </section>
+      <div class="hp-social-grid" aria-label="Community-Links">
+        <a class="hp-discord-tile" href="https://discord.gg/fY9qweRWG" target="_blank" rel="noopener">
+          <div class="hp-discord-mark" aria-hidden="true">DC</div>
+          <div class="hp-discord-copy">
+            <p class="eyebrow" data-i18n="discord_eyebrow">Community</p>
+            <h2 data-i18n="discord_title">Discord</h2>
+            <p data-i18n="discord_desc">Diskutiere FLAtlas, Freelancer-Modding und neue Tools direkt mit der Community.</p>
+          </div>
+          <span class="hp-discord-cta"><span data-i18n="discord_join">Discord beitreten</span> <span class="arrow">→</span></span>
+        </a>
+        <a class="hp-discord-tile hp-youtube-tile" href="https://www.youtube.com/@aldenmarodin-flathack" target="_blank" rel="noopener">
+          <div class="hp-discord-mark" aria-hidden="true">YT</div>
+          <div class="hp-discord-copy">
+            <p class="eyebrow" data-i18n="youtube_eyebrow">Videos</p>
+            <h2 data-i18n="youtube_title">YouTube</h2>
+            <p data-i18n="youtube_desc">Demos, Tool-Updates und Freelancer-Modding-Videos auf dem Kanal.</p>
+          </div>
+          <span class="hp-discord-cta"><span data-i18n="youtube_open">Kanal öffnen</span> <span class="arrow">→</span></span>
+        </a>
+        <a class="hp-discord-tile hp-github-tile" href="https://github.com/flathack" target="_blank" rel="noopener">
+          <div class="hp-discord-mark" aria-hidden="true">GH</div>
+          <div class="hp-discord-copy">
+            <p class="eyebrow" data-i18n="github_eyebrow">Code</p>
+            <h2 data-i18n="github_title">GitHub</h2>
+            <p data-i18n="github_desc">Öffentliche Repositories, Releases und Quellcode der Projekte.</p>
+          </div>
+          <span class="hp-discord-cta"><span data-i18n="github_open">GitHub öffnen</span> <span class="arrow">→</span></span>
+        </a>
+      </div>
 
       <footer class="page-footer">
         &copy; 2026 Flathack Projects · <a href="help/index.html">Help Center</a>
@@ -950,6 +972,14 @@
     /* ── i18n ──────────────────────────────────────────── */
     const I18N = {
       de: {
+        hero_eyebrow: 'Freelancer Modding · Open Source',
+        hero_title: 'Werkzeuge für ein Universum, das weiterlebt.',
+        hero_desc: 'Flathack entwickelt freie Editoren, Karten und Browser-Tools für Freelancer-Modder, Piloten und Server-Communities.',
+        hero_primary: 'Universum öffnen',
+        hero_secondary: 'Projekte ansehen',
+        hero_stat_tools: 'Browser-Tools',
+        hero_stat_license: 'Open Source',
+        hero_stat_mods: 'Mod-Datensätze',
         badge_online: 'Online-Tool',
         badge_playable: 'Spiel-Prototyp',
         discord_eyebrow: 'Community',
@@ -970,7 +1000,7 @@
         banner_ships: 'Schiff-Explorer',
         banner_ships_desc: 'Alle Schiffe auf einen Blick — mit Armor, Cargo, Agilität, Preis und Kauforten. Für Hamburg City, Crossfire und mehr.',
         cta_explore: 'Erkunden',
-        banner_universe: 'Universum',
+        banner_universe: 'Universe Explorer',
         banner_universe_desc: 'Interaktive SVG-Karte des Freelancer-Universums — Systeme, Sprungverbindungen, Planeten und Stationen. Für Hamburg City, Crossfire und mehr.',
         banner_rep: 'Rep Planner',
         banner_rep_desc: 'Plane deine Fraktionsreputation in Freelancer — gib deinen Wunsch-Ruf ein und erhalte eine optimale Abschuss-Reihenfolge. Für Hamburg City, Crossfire und mehr.',
@@ -981,6 +1011,7 @@
         eyebrow_tools: 'Freelancer Modding Tools',
         intro_title: 'MIT-lizenzierte Tools für die Freelancer-Community',
         eyebrow_projects: 'Projekte',
+        projects_title: 'Ausgewählte Builds',
         eyebrow_other_tools: 'Weitere Tools',
         company_car_title: 'Firmenwagen-Rechner',
         company_car_desc: 'Browser-Rechner für den Nettovergleich einer Gehaltsabrechnung mit und ohne Firmenwagen. Die PDF-Auswertung bleibt lokal im Browser.',
@@ -1009,6 +1040,14 @@
         project_page: 'Projektseite',
       },
       en: {
+        hero_eyebrow: 'Freelancer Modding · Open Source',
+        hero_title: 'Tools for a universe that keeps evolving.',
+        hero_desc: 'Flathack builds free editors, maps, and browser tools for Freelancer modders, pilots, and server communities.',
+        hero_primary: 'Open universe',
+        hero_secondary: 'Explore projects',
+        hero_stat_tools: 'Browser tools',
+        hero_stat_license: 'Open source',
+        hero_stat_mods: 'Mod datasets',
         badge_online: 'Online Tool',
         badge_playable: 'Playable Prototype',
         discord_eyebrow: 'Community',
@@ -1029,7 +1068,7 @@
         banner_ships: 'Ship Explorer',
         banner_ships_desc: 'All ships at a glance — armor, cargo, agility, price, and purchase locations. For Hamburg City, Crossfire, and more.',
         cta_explore: 'Explore',
-        banner_universe: 'Universe',
+        banner_universe: 'Universe Explorer',
         banner_universe_desc: 'Interactive SVG map of the Freelancer universe — systems, jump connections, planets, and stations. For Hamburg City, Crossfire, and more.',
         banner_rep: 'Rep Planner',
         banner_rep_desc: 'Plan your faction reputation in Freelancer — enter your desired rep and get an optimal kill sequence. For Hamburg City, Crossfire, and more.',
@@ -1040,6 +1079,7 @@
         eyebrow_tools: 'Freelancer Modding Tools',
         intro_title: 'Tools for the Freelancer Community',
         eyebrow_projects: 'Projects',
+        projects_title: 'Selected builds',
         eyebrow_other_tools: 'More Tools',
         company_car_title: 'Company Car Calculator',
         company_car_desc: 'Browser calculator for comparing payroll payout with and without a company car. PDF parsing stays local in your browser.',

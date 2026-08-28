@@ -367,7 +367,7 @@ body.gaming-theme .domain-tab.active {
   color: var(--muted);
   font-weight: 700;
   font-size: 1rem;
-  transition: all 200ms ease;
+  transition: color 200ms ease, background-color 200ms ease, border-color 200ms ease;
 }
 
 .nav-capsule-help:hover {
@@ -398,7 +398,7 @@ body.gaming-theme .domain-tab.active {
   border-radius: 999px;
   color: var(--muted);
   cursor: pointer;
-  transition: all 200ms ease;
+  transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease;
 }
 
 .nav-capsule-lang button:hover {
@@ -434,7 +434,7 @@ body.gaming-theme .domain-tab.active {
   color: var(--muted);
   font-weight: 500;
   font-size: 0.9rem;
-  transition: all 200ms ease;
+  transition: color 200ms ease, background-color 200ms ease, border-radius 200ms ease;
   position: relative;
 }
 
@@ -578,7 +578,7 @@ body.gaming-theme .domain-tab.active {
   color: var(--text);
   font-size: 0.82rem;
   font-weight: 800;
-  transition: all 0.22s ease-in-out;
+  transition: opacity 0.22s ease-in-out, border-color 0.22s ease-in-out, box-shadow 0.22s ease-in-out;
 }
 
 .battle-arena-faction.active {
@@ -655,6 +655,11 @@ body.gaming-theme .domain-tab.active {
   height: min(72vh, 760px);
   min-height: 560px;
   outline: none;
+}
+
+.battle-arena-stage canvas:focus-visible {
+  outline: 2px solid var(--accent-warm);
+  outline-offset: -3px;
 }
 
 .battle-arena-status {
