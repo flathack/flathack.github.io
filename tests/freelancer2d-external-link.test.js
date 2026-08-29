@@ -1,15 +1,15 @@
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 
-const repositoryUrl = 'https://github.com/flathack/Freelancer-2D';
+const pagesUrl = 'https://flathack.github.io/Freelancer-2D/';
 const home = fs.readFileSync('index.html', 'utf8');
 const nav = fs.readFileSync('assets/js/nav.js', 'utf8');
 
 assert.equal(fs.existsSync('freelancer2d'), false, 'Freelancer 2D must not be bundled in this repository');
 assert.equal(fs.existsSync('assets/js/home-freelancer2d-tile.js'), false, 'the local game preview must be removed');
 
-assert.match(home, new RegExp(`href="${repositoryUrl}" target="_blank" rel="noopener"`));
-assert.match(nav, new RegExp(`href: "${repositoryUrl}", external: true`));
+assert.match(home, new RegExp(`href="${pagesUrl}" target="_blank" rel="noopener"`));
+assert.match(nav, new RegExp(`href: "${pagesUrl}", external: true`));
 assert.doesNotMatch(home, /href=["']freelancer2d\//i);
 assert.doesNotMatch(nav, /freelancer2d\/data\//i);
 

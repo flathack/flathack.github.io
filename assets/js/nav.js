@@ -21,7 +21,7 @@
 
   const NAV_ITEMS = [
     { label: "Home", href: "index.html" },
-    { label: "Freelancer 2D", href: "https://github.com/flathack/Freelancer-2D", external: true },
+    { label: "Freelancer 2D", href: "https://flathack.github.io/Freelancer-2D/", external: true },
     { label: "Trade Routes", href: "docs/trade-routes.html", children: MOD_CHILDREN },
     { label: "Schiff-Explorer", href: "docs/ship-explorer.html", children: MOD_CHILDREN },
     { label: "Equipment Explorer", href: "docs/equipment-explorer.html", children: MOD_CHILDREN },

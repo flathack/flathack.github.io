@@ -7,7 +7,7 @@ Static GitHub Pages site for Flathack project pages, documentation, support arti
 - `index.html`: main project overview
 - `docs`: standalone tool pages and documentation views
 - `help`: support articles and setup guides
-- [Freelancer 2D](https://github.com/flathack/Freelancer-2D): browser-based game prototype maintained in its own repository
+- [Freelancer 2D](https://flathack.github.io/Freelancer-2D/): live browser prototype ([source repository](https://github.com/flathack/Freelancer-2D))
 - `assets`: shared styles, images, scripts, and generated widgets
 - `data`: generated data used by the browser tools
 - `tools`: helper scripts for generating site data and assets
