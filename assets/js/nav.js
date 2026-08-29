@@ -21,7 +21,7 @@
 
   const NAV_ITEMS = [
     { label: "Home", href: "index.html" },
-    { label: "Freelancer 2D", href: "freelancer2d/index.html" },
+    { label: "Freelancer 2D", href: "https://github.com/flathack/Freelancer-2D", external: true },
     { label: "Trade Routes", href: "docs/trade-routes.html", children: MOD_CHILDREN },
     { label: "Schiff-Explorer", href: "docs/ship-explorer.html", children: MOD_CHILDREN },
     { label: "Equipment Explorer", href: "docs/equipment-explorer.html", children: MOD_CHILDREN },
@@ -280,7 +280,7 @@
     osc.stop(now + duration);
   }
 
-  // Attach window hooks so home-freelancer2d-tile.js can leverage these sounds
+  // Attach sound hooks for the shared combat background and arena.
   window.flathackAudio = {
     playLaser: playLaserSound,
     playShield: playShieldSound,
@@ -326,11 +326,11 @@
     })();
 
     var assets = {
-      police: prefix + "freelancer2d/data/ship_icons/li_elite.png",
-      policeAlt: prefix + "freelancer2d/data/ship_icons/li_fighter.png",
-      rogue: prefix + "freelancer2d/data/ship_icons/ge_fighter.png",
-      rogueAlt: prefix + "freelancer2d/data/ship_icons/rh_fighter.png",
-      humanCapital: prefix + "freelancer2d/data/ship_icons/li_cruiser.png"
+      police: prefix + "assets/img/ships/li_elite.png",
+      policeAlt: prefix + "assets/img/ships/li_fighter.png",
+      rogue: prefix + "assets/img/ships/ge_fighter.png",
+      rogueAlt: prefix + "assets/img/ships/rh_fighter.png",
+      humanCapital: prefix + "assets/img/ships/li_cruiser.png"
     };
 
     Object.keys(assets).forEach(function (key) {
@@ -1376,7 +1376,7 @@
     var images = {};
     Object.keys(assetMap).forEach(function (key) {
       var img = new Image();
-      img.src = prefix + "freelancer2d/data/ship_icons/" + assetMap[key];
+      img.src = prefix + "assets/img/ships/" + assetMap[key];
       images[key] = img;
     });
 
@@ -2413,12 +2413,14 @@
   var navHtml = '';
 
   NAV_ITEMS.forEach(function (item) {
-    const href = prefix + item.href;
+    const href = item.external ? item.href : prefix + item.href;
     const isHelpSection = item.href === "help/index.html" && current.indexOf("help/") === 0;
     const isTradeGroup = item.href === "docs/trade-routes.html" && TRADE_TOOL_PAGES.has(current);
     const isActive = current === item.href || isHelpSection || isTradeGroup;
     if (isActive) activeItem = item;
-    navHtml += '<a href="' + href + '"' + (isActive ? ' class="active"' : "") + ">" + item.label + "</a>";
+    navHtml += '<a href="' + href + '"' +
+      (item.external ? ' target="_blank" rel="noopener"' : '') +
+      (isActive ? ' class="active"' : "") + ">" + item.label + (item.external ? ' ↗' : '') + "</a>";
   });
 
   if (!activeItem && TRADE_TOOL_PAGES.has(current)) {

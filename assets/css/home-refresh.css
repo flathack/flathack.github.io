@@ -380,7 +380,6 @@ body.home-dashboard::before {
 .home-dashboard .f2d-banner .tr-banner-text { justify-content: flex-start; padding: 0; }
 .home-dashboard .f2d-banner .tr-banner-badge { margin-bottom: 14px; }
 .home-dashboard .f2d-banner .tr-banner-cta { margin-top: 14px; }
-.home-dashboard .freelancer2d-preview,
 .tile-animation {
   position: relative;
   width: 100%;
@@ -396,8 +395,49 @@ body.home-dashboard::before {
   background-size: 28px 28px;
   clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
 }
-.home-dashboard .freelancer2d-preview { border-left: 1px solid var(--home-line); }
-.home-dashboard .freelancer2d-preview canvas { width: 100%; height: 148px; min-height: 148px; }
+
+.f2d-repo-preview { color: var(--home-green); }
+.repo-mark {
+  position: absolute;
+  top: 27px;
+  left: 25px;
+  display: grid;
+  width: 54px;
+  height: 54px;
+  place-items: center;
+  border: 1px solid rgba(82, 214, 162, .52);
+  border-radius: 50%;
+  background: rgba(82, 214, 162, .09);
+  box-shadow: 0 0 28px rgba(82, 214, 162, .18);
+  font: 700 .78rem/1 "IBM Plex Mono", monospace;
+}
+.repo-branch {
+  position: absolute;
+  top: 37px;
+  left: 98px;
+  color: #c8f5e5;
+  font: 600 .67rem/1.3 "IBM Plex Mono", monospace;
+  letter-spacing: .06em;
+}
+.repo-line {
+  position: absolute;
+  left: 98px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(82, 214, 162, .72), transparent);
+}
+.repo-line-a { top: 68px; width: 58%; }
+.repo-line-b { top: 91px; width: 39%; }
+.repo-node {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border: 1px solid var(--home-green);
+  border-radius: 50%;
+  background: #07151e;
+  box-shadow: 0 0 10px rgba(82, 214, 162, .5);
+}
+.repo-node-a { top: 65px; left: 70%; }
+.repo-node-b { top: 88px; left: 53%; }
 
 .tile-animation small {
   position: absolute;
@@ -577,7 +617,6 @@ html[data-theme="light"] .home-dashboard .hp-card-desc { color: #526b75; }
   .home-dashboard .tr-banner { grid-column: 1 / -1; height: 440px; padding: 22px; }
   .home-dashboard .f2d-banner { padding: 22px; }
   .home-dashboard .f2d-banner .tr-banner-text { padding: 0; text-align: left; align-items: flex-start; }
-  .home-dashboard .freelancer2d-preview { border-left: 1px solid var(--home-line); border-top: 1px solid var(--home-line); }
   .home-dashboard .hp-social-grid { grid-template-columns: 1fr; }
   .home-dashboard .hp-project-card { min-height: 0; padding: 24px; }
 }

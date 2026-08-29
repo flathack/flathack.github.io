@@ -335,34 +335,6 @@
       font-size: 0.94rem;
       background: linear-gradient(135deg, var(--success), #06b6d4);
     }
-    .freelancer2d-preview {
-      position: relative;
-      height: 190px;
-      min-height: 190px;
-      overflow: hidden;
-      border-left: 1px solid var(--panel-border);
-      background: #030611;
-    }
-    .freelancer2d-preview canvas {
-      display: block;
-      width: 100%;
-      height: 190px;
-      min-height: 0;
-    }
-    .freelancer2d-overlay {
-      position: absolute;
-      left: 14px;
-      right: 14px;
-      bottom: 12px;
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      pointer-events: none;
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 0.72rem;
-      color: rgba(185, 239, 255, 0.86);
-      text-shadow: 0 0 12px rgba(0, 136, 255, 0.9);
-    }
     .hp-card-header {
       display: flex;
       align-items: center;
@@ -603,11 +575,6 @@
       background: linear-gradient(135deg, rgba(236, 253, 245, 0.94), rgba(255, 255, 255, 0.94));
     }
 
-    html[data-theme="light"] .freelancer2d-preview {
-      background: #dbeafe;
-      border-color: var(--panel-border);
-    }
-
     html[data-theme="light"] .hp-project-card::after {
       background: radial-gradient(circle, rgba(0, 119, 182, 0.1), transparent 68%);
     }
@@ -656,15 +623,6 @@
       .f2d-banner .tr-banner-text {
         padding: 20px 20px 14px;
         text-align: center;
-      }
-      .freelancer2d-preview {
-        height: 150px;
-        min-height: 150px;
-        border-left: 0;
-        border-top: 1px solid var(--panel-border);
-      }
-      .freelancer2d-preview canvas {
-        height: 150px;
       }
       .hp-tool-callout {
         align-items: flex-start;
@@ -726,16 +684,22 @@
         </div>
       </a>
       <!-- ══════ FREELANCER 2D BANNER ══════ -->
-      <a class="tr-banner f2d-banner" href="freelancer2d/index.html">
+      <a class="tr-banner f2d-banner" href="https://github.com/flathack/Freelancer-2D" target="_blank" rel="noopener">
         <div class="tr-banner-inner">
           <div class="tr-banner-text">
-            <span class="tr-banner-badge" style="background: rgba(52, 211, 153, 0.15); border-color: rgba(52, 211, 153, 0.3); color: var(--success);"><span class="pulse-dot" style="background: var(--success); box-shadow: 0 0 8px var(--success);"></span> <span data-i18n="badge_playable">Spiel-Prototyp</span></span>
+            <span class="tr-banner-badge" style="background: rgba(52, 211, 153, 0.15); border-color: rgba(52, 211, 153, 0.3); color: var(--success);"><span class="pulse-dot" style="background: var(--success); box-shadow: 0 0 8px var(--success);"></span> <span data-i18n="badge_playable">Externes Projekt</span></span>
             <h2>Freelancer 2D</h2>
-            <p data-i18n="f2d_desc">Browser-Spiel-Prototyp im Freelancer-Stil: 2D-Flug, NPC-Verkehr, Handel, Fraktionen, Stationen, Gates und HUD direkt im Canvas.</p>
-            <span class="tr-banner-cta"><span data-i18n="f2d_play">Spiel öffnen</span> <span class="arrow">→</span></span>
+            <p data-i18n="f2d_desc">Der Browser-Spiel-Prototyp wird in einem eigenen Repository weiterentwickelt. Quellcode, Releases und Projektstatus findest du auf GitHub.</p>
+            <span class="tr-banner-cta"><span data-i18n="f2d_play">Repository öffnen</span> <span class="arrow">↗</span></span>
           </div>
-          <div class="freelancer2d-preview" aria-label="Freelancer 2D live scene preview">
-            <canvas id="freelancer2d-tile" width="640" height="300"></canvas>
+          <div class="tile-animation f2d-repo-preview" aria-hidden="true">
+            <span class="repo-mark">GH</span>
+            <span class="repo-branch">FLATHACK / FREELANCER-2D</span>
+            <span class="repo-line repo-line-a"></span>
+            <span class="repo-line repo-line-b"></span>
+            <span class="repo-node repo-node-a"></span>
+            <span class="repo-node repo-node-b"></span>
+            <small>EXTERNAL REPOSITORY // OPEN SOURCE</small>
           </div>
         </div>
       </a>
@@ -981,7 +945,7 @@
         hero_stat_license: 'Open Source',
         hero_stat_mods: 'Mod-Datensätze',
         badge_online: 'Online-Tool',
-        badge_playable: 'Spiel-Prototyp',
+        badge_playable: 'Externes Projekt',
         discord_eyebrow: 'Community',
         discord_title: 'Discord',
         discord_desc: 'Diskutiere FLAtlas, Freelancer-Modding und neue Tools direkt mit der Community.',
@@ -1035,8 +999,8 @@
         launcher_status: 'Aktuelles Beta-Release, Mod-Verwaltung komplett',
         launcher_desc: 'Startprogramm für Freelancer-Mods. Ermöglicht das einfache Starten und Verwalten von Mod-Installationen.',
         f2d_status: 'NPC-Verkehr, Handel und Patrouillen-Simulation',
-        f2d_desc: 'Browser-Spiel-Prototyp im Freelancer-Stil: 2D-Flug, NPC-Verkehr, Handel, Fraktionen, Stationen, Gates und HUD direkt im Canvas.',
-        f2d_play: 'Spiel öffnen',
+        f2d_desc: 'Der Browser-Spiel-Prototyp wird in einem eigenen Repository weiterentwickelt. Quellcode, Releases und Projektstatus findest du auf GitHub.',
+        f2d_play: 'Repository öffnen',
         project_page: 'Projektseite',
       },
       en: {
@@ -1049,7 +1013,7 @@
         hero_stat_license: 'Open source',
         hero_stat_mods: 'Mod datasets',
         badge_online: 'Online Tool',
-        badge_playable: 'Playable Prototype',
+        badge_playable: 'External Project',
         discord_eyebrow: 'Community',
         discord_title: 'Discord',
         discord_desc: 'Discuss FLAtlas, Freelancer modding, and new tools directly with the community.',
@@ -1103,8 +1067,8 @@
         launcher_status: 'Current beta release, mod management complete',
         launcher_desc: 'Launcher for Freelancer mods. Makes it easy to start and manage mod installations.',
         f2d_status: 'NPC traffic, trading and patrol simulation',
-        f2d_desc: 'Browser game prototype in the style of Freelancer: 2D flight, NPC traffic, trading, factions, stations, gates, and HUD directly in canvas.',
-        f2d_play: 'Open game',
+        f2d_desc: 'The browser game prototype now lives in its own repository. Find source code, releases, and project status on GitHub.',
+        f2d_play: 'Open repository',
         project_page: 'Project page',
       }
     };
@@ -1127,8 +1091,7 @@
 
     if (lang !== 'de') applyLang();
   </script>
-  <script src="assets/js/nav.js"></script>
+  <script src="assets/js/nav.js?v=2026-08-29-f2d-external"></script>
   <script src="assets/js/home.js"></script>
-  <script src="assets/js/home-freelancer2d-tile.js"></script>
 </body>
 </html>

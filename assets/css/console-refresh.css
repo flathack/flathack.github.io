@@ -1,4 +1,4 @@
-/* Shared visual system for every Flathack surface outside the homepage and Freelancer 2D. */
+/* Shared visual system for every Flathack surface outside the homepage. */
 :root {
   --console-ink: #061018;
   --console-panel: rgba(8, 23, 33, 0.92);
