@@ -13,11 +13,11 @@ const releaseItem = currentSection.items.find(item =>
   item.status === 'done' && item.label.startsWith('FLAtlas V2 v')
 );
 
-assert.match(atlasCard, /<span class="hp-version">v0\.8\.7<\/span>/);
-assert.match(home, /v0\.8\.7 veröffentlicht - v0\.9\.0 in Arbeit/);
-assert.match(home, /v0\.8\.7 released - v0\.9\.0 in progress/);
-assert.equal(releaseItem.label, 'FLAtlas V2 v0.8.7');
-assert.doesNotMatch(home, /v?0\.8\.6/);
-assert.doesNotMatch(JSON.stringify(devStatus), /v?0\.8\.6/);
+assert.match(atlasCard, /<span class="hp-version">v0\.8\.8<\/span>/);
+assert.match(home, /v0\.8\.8 veröffentlicht - v0\.9\.0 in Arbeit/);
+assert.match(home, /v0\.8\.8 released - v0\.9\.0 in progress/);
+assert.equal(releaseItem.label, 'FLAtlas V2 v0.8.8');
+assert.doesNotMatch(home, /v?0\.8\.7/);
+assert.doesNotMatch(JSON.stringify(devStatus), /v?0\.8\.7/);
 
 console.log('FLAtlas public version test passed');

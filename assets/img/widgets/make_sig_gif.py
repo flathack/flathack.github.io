@@ -49,11 +49,11 @@ BAR_PAD_X = 10   # left/right padding inside each project column
 PROJECTS = [
     {
         "name":    "FL Atlas — Visual Editor",
-        "version": "v0.8.7",
+        "version": "v0.8.8",
         "status":  "Released · Alpha · v0.9.0 in progress",
         "detail":  "3D Viewer · INI Editor · Universe Map",
         "target":  "→ v1.0",
-        "pct":     87,
+        "pct":     88,
         "dot":     "green",
         "theme":   "red",
     },
