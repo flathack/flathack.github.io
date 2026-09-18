@@ -146,6 +146,9 @@ a:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
 .business-card:hover { transform: translateY(-3px); border-color: rgba(104,167,255,.44); }
 .card-meta { display: flex; justify-content: space-between; gap: 16px; margin-bottom: 42px; color: var(--muted); font: 500 .62rem/1 "IBM Plex Mono", monospace; letter-spacing: .09em; text-transform: uppercase; }
 .card-meta span:last-child { color: var(--mint); }
+.business-card--development .card-meta span:last-child,
+.business-card--pilot .card-meta span:last-child { color: var(--amber); }
+.business-card--wide { grid-column: 1 / -1; min-height: 250px; }
 .business-card h3 { margin: 0 0 11px; font-size: clamp(1.45rem,2.3vw,2.1rem); letter-spacing: -.04em; }
 .business-card p { max-width: 58ch; margin: 0; color: var(--muted); line-height: 1.58; }
 .tech { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 22px; }
@@ -172,6 +175,7 @@ footer a:hover { color: var(--paper); }
   .pipe-node { width: 72px; }
   .business-grid { grid-template-columns: 1fr; }
   .business-card { min-height: 310px; padding: 23px; }
+  .business-card--wide { min-height: 310px; }
   .section-heading { align-items: flex-start; flex-direction: column; }
   footer { flex-direction: column; }
 }
