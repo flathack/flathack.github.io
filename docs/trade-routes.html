@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="../assets/css/flathack-design/theme-init.js"></script>
   <title>Trade Route Calculator | Flathack</title>
   <meta name="description" content="Find the most profitable Freelancer trade routes across systems for Hamburg City, Crossfire, and more.">
   <link rel="icon" type="image/png" href="../assets/img/icons/flathack_icon.png">
@@ -821,113 +822,113 @@
     .td-time { color: var(--accent); }
     .td-ppm { color: #f0c040; font-weight: 600; }
 
-    html[data-theme="light"] .tr-reboot-status,
-    html[data-theme="light"] .tr-dataset-timeline,
-    html[data-theme="light"] .tr-modal-card {
+    html[data-theme="paper"] .tr-reboot-status,
+    html[data-theme="paper"] .tr-dataset-timeline,
+    html[data-theme="paper"] .tr-modal-card {
       background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(245, 249, 254, 0.94));
       box-shadow: var(--shadow);
     }
 
-    html[data-theme="light"] .tr-field select,
-    html[data-theme="light"] .tr-field input[type="number"],
-    html[data-theme="light"] .tr-calendar-toggle,
-    html[data-theme="light"] .tr-search,
-    html[data-theme="light"] .tr-modal-close,
-    html[data-theme="light"] .tr-lang-btn {
+    html[data-theme="paper"] .tr-field select,
+    html[data-theme="paper"] .tr-field input[type="number"],
+    html[data-theme="paper"] .tr-calendar-toggle,
+    html[data-theme="paper"] .tr-search,
+    html[data-theme="paper"] .tr-modal-close,
+    html[data-theme="paper"] .tr-lang-btn {
       background: rgba(255, 255, 255, 0.86);
       border-color: var(--panel-border);
       color: var(--text);
     }
 
-    html[data-theme="light"] .tr-calendar-toggle[aria-expanded="true"],
-    html[data-theme="light"] .tr-tab.active,
-    html[data-theme="light"] .tr-lang-btn.active {
+    html[data-theme="paper"] .tr-calendar-toggle[aria-expanded="true"],
+    html[data-theme="paper"] .tr-tab.active,
+    html[data-theme="paper"] .tr-lang-btn.active {
       background: rgba(0, 119, 182, 0.1);
       border-color: rgba(0, 119, 182, 0.24);
       color: var(--text);
     }
 
-    html[data-theme="light"] .tr-calendar-panel {
+    html[data-theme="paper"] .tr-calendar-panel {
       background: rgba(255, 255, 255, 0.98);
       box-shadow: 0 20px 48px rgba(37, 63, 93, 0.18);
     }
 
-    html[data-theme="light"] .tr-calendar-nav,
-    html[data-theme="light"] .tr-calendar-day,
-    html[data-theme="light"] .tr-calendar-legend i,
-    html[data-theme="light"] .tr-tab,
-    html[data-theme="light"] .tr-dataset-nav-btn,
-    html[data-theme="light"] .tr-dataset-day {
+    html[data-theme="paper"] .tr-calendar-nav,
+    html[data-theme="paper"] .tr-calendar-day,
+    html[data-theme="paper"] .tr-calendar-legend i,
+    html[data-theme="paper"] .tr-tab,
+    html[data-theme="paper"] .tr-dataset-nav-btn,
+    html[data-theme="paper"] .tr-dataset-day {
       background: rgba(255, 255, 255, 0.78);
       border-color: var(--panel-border);
       color: var(--text);
     }
 
-    html[data-theme="light"] button.tr-calendar-day:hover,
-    html[data-theme="light"] button.tr-calendar-day:focus-visible,
-    html[data-theme="light"] button.tr-dataset-day:hover,
-    html[data-theme="light"] button.tr-dataset-day:focus-visible,
-    html[data-theme="light"] .tr-dataset-nav-btn:hover:not(:disabled),
-    html[data-theme="light"] .tr-tab:hover,
-    html[data-theme="light"] .tr-modal-close:hover {
+    html[data-theme="paper"] button.tr-calendar-day:hover,
+    html[data-theme="paper"] button.tr-calendar-day:focus-visible,
+    html[data-theme="paper"] button.tr-dataset-day:hover,
+    html[data-theme="paper"] button.tr-dataset-day:focus-visible,
+    html[data-theme="paper"] .tr-dataset-nav-btn:hover:not(:disabled),
+    html[data-theme="paper"] .tr-tab:hover,
+    html[data-theme="paper"] .tr-modal-close:hover {
       background: rgba(0, 119, 182, 0.08);
       border-color: rgba(0, 119, 182, 0.22);
       color: var(--text);
     }
 
-    html[data-theme="light"] .tr-calendar-day.selected,
-    html[data-theme="light"] .tr-dataset-day.active {
+    html[data-theme="paper"] .tr-calendar-day.selected,
+    html[data-theme="paper"] .tr-dataset-day.active {
       background: rgba(0, 119, 182, 0.12);
       border-color: rgba(0, 119, 182, 0.3);
       color: var(--text);
     }
 
-    html[data-theme="light"] .tr-calendar-day.history,
-    html[data-theme="light"] .tr-dataset-day.history {
+    html[data-theme="paper"] .tr-calendar-day.history,
+    html[data-theme="paper"] .tr-dataset-day.history {
       background: rgba(4, 120, 87, 0.1);
       border-color: rgba(4, 120, 87, 0.22);
       color: var(--success);
     }
 
-    html[data-theme="light"] .tr-calendar-day.future,
-    html[data-theme="light"] .tr-dataset-day.future,
-    html[data-theme="light"] .tr-calendar-day.gap,
-    html[data-theme="light"] .tr-dataset-day.missing,
-    html[data-theme="light"] .tr-dataset-day.gap {
+    html[data-theme="paper"] .tr-calendar-day.future,
+    html[data-theme="paper"] .tr-dataset-day.future,
+    html[data-theme="paper"] .tr-calendar-day.gap,
+    html[data-theme="paper"] .tr-dataset-day.missing,
+    html[data-theme="paper"] .tr-dataset-day.gap {
       background: rgba(148, 163, 184, 0.12);
       color: var(--muted);
     }
 
-    html[data-theme="light"] .tr-table-wrap {
+    html[data-theme="paper"] .tr-table-wrap {
       background: rgba(255, 255, 255, 0.78);
     }
 
-    html[data-theme="light"] .tr-table th {
+    html[data-theme="paper"] .tr-table th {
       background: rgba(236, 244, 252, 0.98);
       color: var(--accent-strong);
       border-bottom-color: var(--panel-border);
     }
 
-    html[data-theme="light"] .tr-table tbody tr:nth-child(even) {
+    html[data-theme="paper"] .tr-table tbody tr:nth-child(even) {
       background: rgba(226, 237, 248, 0.42);
     }
 
-    html[data-theme="light"] .tr-table tbody tr:hover,
-    html[data-theme="light"] .tr-leg-row:nth-child(odd),
-    html[data-theme="light"] .tr-path-segment {
+    html[data-theme="paper"] .tr-table tbody tr:hover,
+    html[data-theme="paper"] .tr-leg-row:nth-child(odd),
+    html[data-theme="paper"] .tr-path-segment {
       background: rgba(0, 119, 182, 0.06);
     }
 
-    html[data-theme="light"] .tr-modal {
+    html[data-theme="paper"] .tr-modal {
       background: rgba(226, 237, 248, 0.72);
     }
 
-    html[data-theme="light"] .tr-role-pill.sell {
+    html[data-theme="paper"] .tr-role-pill.sell {
       background: rgba(4, 120, 87, 0.1);
       color: var(--success);
     }
 
-    html[data-theme="light"] .tr-role-pill.buy {
+    html[data-theme="paper"] .tr-role-pill.buy {
       background: rgba(180, 83, 9, 0.1);
       color: var(--accent-warm);
     }

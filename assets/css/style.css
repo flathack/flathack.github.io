@@ -1,18 +1,17 @@
+@import url("flathack-design/tokens.css");
+@import url("flathack-design/base.css");
+
 :root {
-  --bg: #07111f;
-  --bg-soft: rgba(12, 25, 44, 0.72);
-  --bg-strong: #0d1b2f;
-  --panel: rgba(14, 30, 52, 0.88);
-  --panel-border: rgba(132, 177, 255, 0.18);
-  --text: #edf3ff;
-  --muted: #9fb2cf;
-  --accent: #58c4ff;
-  --accent-strong: #89f0ff;
-  --accent-warm: #f59e0b;
-  --success: #34d399;
-  --shadow: 0 24px 80px rgba(0, 0, 0, 0.42);
-  --radius-lg: 24px;
-  --radius-md: 18px;
+  --bg: var(--body-bg);
+  --bg-soft: var(--field-bg);
+  --bg-strong: var(--panel-strong);
+  --panel-border: var(--line);
+  --text: var(--ink);
+  --accent-strong: var(--cyan);
+  --accent-warm: var(--warning);
+  --success: var(--cyan);
+  --radius-lg: var(--radius);
+  --radius-md: var(--radius);
   --content-width: 1180px;
 }
 
@@ -55,14 +54,9 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: "Space Grotesk", sans-serif;
+  font-family: var(--font-body);
   color: var(--text);
-  background:
-    linear-gradient(180deg, rgba(3, 8, 15, 0.68), rgba(5, 11, 20, 0.9)),
-    url("../img/home/space-nebula-wallpaper.webp") center top / cover fixed,
-    radial-gradient(circle at top left, rgba(88, 196, 255, 0.16), transparent 28%),
-    radial-gradient(circle at top right, rgba(245, 158, 11, 0.12), transparent 24%),
-    linear-gradient(180deg, #06101d 0%, #091422 50%, #050b14 100%);
+  background: var(--body-bg);
 }
 
 body::before {
@@ -1411,285 +1405,246 @@ p {
   font-size: 0.92rem;
 }
 
-/* ── Light mode ───────────────────────────────────── */
-html[data-theme="light"] {
-  --bg: #eef4fb;
-  --bg-soft: rgba(255, 255, 255, 0.78);
-  --bg-strong: #dbeafe;
-  --panel: rgba(255, 255, 255, 0.9);
-  --panel-border: rgba(48, 92, 138, 0.18);
-  --text: #172033;
-  --muted: #52657d;
-  --accent: #0077b6;
-  --accent-strong: #005f99;
-  --accent-warm: #b45309;
-  --success: #047857;
-  --shadow: 0 22px 60px rgba(37, 63, 93, 0.16);
+/* ── Flathack Paper theme compatibility ───────────── */
+html[data-theme="paper"] {
+  --bg: var(--body-bg);
+  --bg-soft: var(--field-bg);
+  --bg-strong: var(--panel-strong);
+  --panel-border: var(--line);
+  --text: var(--ink);
+  --accent-strong: var(--accent-text);
+  --accent-warm: var(--warning);
+  --success: var(--cyan);
   color-scheme: light;
 }
 
-html[data-theme="light"] body {
-  background:
-    linear-gradient(180deg, rgba(248, 252, 255, 0.9), rgba(232, 241, 251, 0.94)),
-    url("../img/home/space-nebula-wallpaper.webp") center top / cover fixed,
-    linear-gradient(180deg, #f7fbff 0%, #e8f1fb 54%, #f8fafc 100%);
-  background-color: #eef4fb;
+html[data-theme="paper"] body {
+  background: var(--body-bg);
 }
 
-html[data-theme="light"] body.tool-theme {
-  background:
-    linear-gradient(180deg, rgba(250, 253, 255, 0.92), rgba(237, 244, 252, 0.94)),
-    url("../img/home/space-nebula-wallpaper.webp") center top / cover fixed,
-    linear-gradient(180deg, #f7fbff 0%, #eaf2fb 52%, #f8fafc 100%);
+html[data-theme="paper"] body.tool-theme,
+html[data-theme="paper"] body.gaming-theme,
+html[data-theme="paper"] body.home-dashboard {
+  background: var(--body-bg);
 }
 
-html[data-theme="light"] body.gaming-theme,
-html[data-theme="light"] body.home-dashboard {
-  background:
-    linear-gradient(180deg, rgba(250, 253, 255, 0.88), rgba(232, 241, 251, 0.94)),
-    url("../img/home/space-nebula-wallpaper.webp") center top / cover fixed,
-    linear-gradient(180deg, #f7fbff 0%, #e9f2fb 50%, #f8fafc 100%);
-  background-color: #eef4fb;
-}
-
-html[data-theme="light"] body::before {
+html[data-theme="paper"] body::before {
   background-image:
     linear-gradient(rgba(48, 92, 138, 0.08) 1px, transparent 1px),
     linear-gradient(90deg, rgba(48, 92, 138, 0.08) 1px, transparent 1px);
   mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.36), transparent 92%);
 }
 
-html[data-theme="light"] .site-bg-combat-canvas {
+html[data-theme="paper"] .site-bg-combat-canvas {
   opacity: 0.18;
   mix-blend-mode: multiply;
 }
 
-html[data-theme="light"] .site-header,
-html[data-theme="light"] .nav-capsule,
-html[data-theme="light"] .project-sub-nav,
-html[data-theme="light"] .home-hero-copy,
-html[data-theme="light"] .home-card,
-html[data-theme="light"] .hero-copy,
-html[data-theme="light"] .page-hero-copy,
-html[data-theme="light"] .hero-panel,
-html[data-theme="light"] .card,
-html[data-theme="light"] .panel-card,
-html[data-theme="light"] .page-section,
-html[data-theme="light"] .split-card,
-html[data-theme="light"] .project-card,
-html[data-theme="light"] .help-card,
-html[data-theme="light"] .note-card,
-html[data-theme="light"] .progress-diagram-card {
+html[data-theme="paper"] .site-header,
+html[data-theme="paper"] .nav-capsule,
+html[data-theme="paper"] .project-sub-nav,
+html[data-theme="paper"] .home-hero-copy,
+html[data-theme="paper"] .home-card,
+html[data-theme="paper"] .hero-copy,
+html[data-theme="paper"] .page-hero-copy,
+html[data-theme="paper"] .hero-panel,
+html[data-theme="paper"] .card,
+html[data-theme="paper"] .panel-card,
+html[data-theme="paper"] .page-section,
+html[data-theme="paper"] .split-card,
+html[data-theme="paper"] .project-card,
+html[data-theme="paper"] .help-card,
+html[data-theme="paper"] .note-card,
+html[data-theme="paper"] .progress-diagram-card {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(245, 249, 254, 0.92));
   box-shadow: var(--shadow);
 }
 
-html[data-theme="light"] .domain-tab,
-html[data-theme="light"] .project-top-nav a,
-html[data-theme="light"] .nav-lang-toggle,
-html[data-theme="light"] .nav-capsule-lang,
-html[data-theme="light"] .nav-ship-control,
-html[data-theme="light"] .nav-capsule-help,
-html[data-theme="light"] .nav-theme-toggle,
-html[data-theme="light"] .mini-card,
-html[data-theme="light"] .news-item,
-html[data-theme="light"] .highlight-item {
+html[data-theme="paper"] .domain-tab,
+html[data-theme="paper"] .project-top-nav a,
+html[data-theme="paper"] .nav-lang-toggle,
+html[data-theme="paper"] .nav-capsule-lang,
+html[data-theme="paper"] .nav-ship-control,
+html[data-theme="paper"] .nav-capsule-help,
+html[data-theme="paper"] .nav-theme-select,
+html[data-theme="paper"] .mini-card,
+html[data-theme="paper"] .news-item,
+html[data-theme="paper"] .highlight-item {
   background: rgba(255, 255, 255, 0.72);
   border-color: var(--panel-border);
 }
 
-html[data-theme="light"] .nav-theme-toggle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 999px;
-  color: var(--muted);
-  font: inherit;
-  font-size: 1rem;
-  font-weight: 800;
-  cursor: pointer;
-  transition: 160ms ease;
+.nav-theme-select { flex: 0 0 auto; }
+.nav-theme-select select { min-height: 32px; max-width: 112px; }
+
+html[data-theme="terminal"] body,
+html[data-theme="amber"] body,
+html[data-theme="ice"] body,
+html[data-theme="terminal"] body.tool-theme,
+html[data-theme="amber"] body.tool-theme,
+html[data-theme="ice"] body.tool-theme,
+html[data-theme="terminal"] body.gaming-theme,
+html[data-theme="amber"] body.gaming-theme,
+html[data-theme="ice"] body.gaming-theme,
+html[data-theme="terminal"] body.home-dashboard,
+html[data-theme="amber"] body.home-dashboard,
+html[data-theme="ice"] body.home-dashboard {
+  background: var(--body-bg);
 }
 
-.nav-theme-toggle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  border: 1px solid rgba(132, 177, 255, 0.2);
-  border-radius: 999px;
-  background: rgba(8, 20, 34, 0.6);
-  color: var(--muted);
-  font: inherit;
-  font-size: 1rem;
-  font-weight: 800;
-  cursor: pointer;
-  transition: 160ms ease;
-}
-
-.nav-theme-toggle:hover,
-.nav-theme-toggle.active {
-  color: var(--text);
-  background: rgba(88, 196, 255, 0.12);
-  border-color: rgba(88, 196, 255, 0.35);
-}
-
-html[data-theme="light"] .nav-capsule-divider {
+html[data-theme="paper"] .nav-capsule-divider {
   background: linear-gradient(90deg, transparent, rgba(48, 92, 138, 0.18), transparent);
 }
 
-html[data-theme="light"] .nav-capsule-items a:not(:last-child)::after {
+html[data-theme="paper"] .nav-capsule-items a:not(:last-child)::after {
   background: rgba(48, 92, 138, 0.14);
 }
 
-html[data-theme="light"] .nav-capsule-items a:hover,
-html[data-theme="light"] .nav-capsule-items a.active,
-html[data-theme="light"] .site-nav a:hover,
-html[data-theme="light"] .site-nav a.active,
-html[data-theme="light"] .project-sub-nav a:hover,
-html[data-theme="light"] .project-sub-nav a.active,
-html[data-theme="light"] .domain-tab:hover,
-html[data-theme="light"] .domain-tab.active,
-html[data-theme="light"] .nav-capsule-lang button:hover,
-html[data-theme="light"] .nav-capsule-lang button.active,
-html[data-theme="light"] .nav-lang-toggle button:hover,
-html[data-theme="light"] .nav-lang-toggle button.active {
+html[data-theme="paper"] .nav-capsule-items a:hover,
+html[data-theme="paper"] .nav-capsule-items a.active,
+html[data-theme="paper"] .site-nav a:hover,
+html[data-theme="paper"] .site-nav a.active,
+html[data-theme="paper"] .project-sub-nav a:hover,
+html[data-theme="paper"] .project-sub-nav a.active,
+html[data-theme="paper"] .domain-tab:hover,
+html[data-theme="paper"] .domain-tab.active,
+html[data-theme="paper"] .nav-capsule-lang button:hover,
+html[data-theme="paper"] .nav-capsule-lang button.active,
+html[data-theme="paper"] .nav-lang-toggle button:hover,
+html[data-theme="paper"] .nav-lang-toggle button.active {
   background: rgba(0, 119, 182, 0.1);
   color: var(--text);
 }
 
-html[data-theme="light"] .hero-copy::after,
-html[data-theme="light"] .page-hero-copy::after,
-html[data-theme="light"] .card::after,
-html[data-theme="light"] .panel-card::after,
-html[data-theme="light"] .page-section::after,
-html[data-theme="light"] .help-card::after,
-html[data-theme="light"] .note-card::after {
+html[data-theme="paper"] .hero-copy::after,
+html[data-theme="paper"] .page-hero-copy::after,
+html[data-theme="paper"] .card::after,
+html[data-theme="paper"] .panel-card::after,
+html[data-theme="paper"] .page-section::after,
+html[data-theme="paper"] .help-card::after,
+html[data-theme="paper"] .note-card::after {
   background: radial-gradient(circle, rgba(0, 119, 182, 0.12), transparent 68%);
 }
 
-html[data-theme="light"] .button-primary {
+html[data-theme="paper"] .button-primary {
   color: #ffffff;
 }
 
-html[data-theme="light"] .button-secondary,
-html[data-theme="light"] .button-repo,
-html[data-theme="light"] .tag,
-html[data-theme="light"] .status-badge,
-html[data-theme="light"] .upcoming-list li {
+html[data-theme="paper"] .button-secondary,
+html[data-theme="paper"] .button-repo,
+html[data-theme="paper"] .tag,
+html[data-theme="paper"] .status-badge,
+html[data-theme="paper"] .upcoming-list li {
   background: rgba(0, 119, 182, 0.08);
   border-color: rgba(0, 119, 182, 0.16);
   color: var(--text);
 }
 
-html[data-theme="light"] .status-badge {
+html[data-theme="paper"] .status-badge {
   color: var(--success);
 }
 
-html[data-theme="light"] .battle-arena-overlay {
+html[data-theme="paper"] .battle-arena-overlay {
   background: rgba(226, 237, 248, 0.76);
 }
 
-html[data-theme="light"] .battle-arena-panel {
+html[data-theme="paper"] .battle-arena-panel {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(239, 246, 255, 0.98));
   box-shadow: 0 30px 120px rgba(37, 63, 93, 0.24);
 }
 
-html[data-theme="light"] .battle-arena-close,
-html[data-theme="light"] .battle-arena-faction,
-html[data-theme="light"] .battle-arena-controls select,
-html[data-theme="light"] .battle-arena-controls input,
-html[data-theme="light"] .battle-arena-controls button,
-html[data-theme="light"] .battle-arena-status {
+html[data-theme="paper"] .battle-arena-close,
+html[data-theme="paper"] .battle-arena-faction,
+html[data-theme="paper"] .battle-arena-controls select,
+html[data-theme="paper"] .battle-arena-controls input,
+html[data-theme="paper"] .battle-arena-controls button,
+html[data-theme="paper"] .battle-arena-status {
   background: rgba(255, 255, 255, 0.84);
   color: var(--text);
 }
 
-html[data-theme="light"] input,
-html[data-theme="light"] select,
-html[data-theme="light"] textarea {
+html[data-theme="paper"] input,
+html[data-theme="paper"] select,
+html[data-theme="paper"] textarea {
   color: var(--text);
   background-color: rgba(255, 255, 255, 0.82);
   border-color: var(--panel-border);
 }
 
-html[data-theme="light"] table,
-html[data-theme="light"] th,
-html[data-theme="light"] td {
+html[data-theme="paper"] table,
+html[data-theme="paper"] th,
+html[data-theme="paper"] td {
   border-color: rgba(48, 92, 138, 0.14);
 }
 
-html[data-theme="light"] code,
-html[data-theme="light"] pre {
+html[data-theme="paper"] code,
+html[data-theme="paper"] pre {
   background: rgba(224, 236, 248, 0.72);
   color: #172033;
 }
 
-html[data-theme="light"] [class$="-hero"],
-html[data-theme="light"] [class$="-panel"],
-html[data-theme="light"] [class$="-card"],
-html[data-theme="light"] [class$="-controls"],
-html[data-theme="light"] [class$="-toolbar"],
-html[data-theme="light"] [class$="-results"],
-html[data-theme="light"] [class$="-summary"],
-html[data-theme="light"] [class$="-modal"],
-html[data-theme="light"] [class$="-dialog"],
-html[data-theme="light"] [class$="-section"],
-html[data-theme="light"] [class$="-table-wrap"],
-html[data-theme="light"] .uv-container,
-html[data-theme="light"] .uv-route-panel,
-html[data-theme="light"] .uv-info-panel,
-html[data-theme="light"] .uv-market-dialog,
-html[data-theme="light"] .ee-detail,
-html[data-theme="light"] .ee-table thead,
-html[data-theme="light"] .se-table thead,
-html[data-theme="light"] .rp-table thead,
-html[data-theme="light"] .rp-step-table thead,
-html[data-theme="light"] .tc-table thead {
+html[data-theme="paper"] [class$="-hero"],
+html[data-theme="paper"] [class$="-panel"],
+html[data-theme="paper"] [class$="-card"],
+html[data-theme="paper"] [class$="-controls"],
+html[data-theme="paper"] [class$="-toolbar"],
+html[data-theme="paper"] [class$="-results"],
+html[data-theme="paper"] [class$="-summary"],
+html[data-theme="paper"] [class$="-modal"],
+html[data-theme="paper"] [class$="-dialog"],
+html[data-theme="paper"] [class$="-section"],
+html[data-theme="paper"] [class$="-table-wrap"],
+html[data-theme="paper"] .uv-container,
+html[data-theme="paper"] .uv-route-panel,
+html[data-theme="paper"] .uv-info-panel,
+html[data-theme="paper"] .uv-market-dialog,
+html[data-theme="paper"] .ee-detail,
+html[data-theme="paper"] .ee-table thead,
+html[data-theme="paper"] .se-table thead,
+html[data-theme="paper"] .rp-table thead,
+html[data-theme="paper"] .rp-step-table thead,
+html[data-theme="paper"] .tc-table thead {
   background: rgba(255, 255, 255, 0.86);
   border-color: var(--panel-border);
 }
 
-html[data-theme="light"] [class$="-row"],
-html[data-theme="light"] [class$="-item"],
-html[data-theme="light"] [class$="-entry"],
-html[data-theme="light"] [class$="-pill"],
-html[data-theme="light"] [class$="-badge"],
-html[data-theme="light"] [class$="-tab"],
-html[data-theme="light"] .uv-btn,
-html[data-theme="light"] .uv-sector-tab,
-html[data-theme="light"] .uv-route-card,
-html[data-theme="light"] .ee-btn,
-html[data-theme="light"] .rp-preset-btn,
-html[data-theme="light"] .rp-sim-btn,
-html[data-theme="light"] .tc-tab,
-html[data-theme="light"] .tr-commodity-btn {
+html[data-theme="paper"] [class$="-row"],
+html[data-theme="paper"] [class$="-item"],
+html[data-theme="paper"] [class$="-entry"],
+html[data-theme="paper"] [class$="-pill"],
+html[data-theme="paper"] [class$="-badge"],
+html[data-theme="paper"] [class$="-tab"],
+html[data-theme="paper"] .uv-btn,
+html[data-theme="paper"] .uv-sector-tab,
+html[data-theme="paper"] .uv-route-card,
+html[data-theme="paper"] .ee-btn,
+html[data-theme="paper"] .rp-preset-btn,
+html[data-theme="paper"] .rp-sim-btn,
+html[data-theme="paper"] .tc-tab,
+html[data-theme="paper"] .tr-commodity-btn {
   background-color: rgba(255, 255, 255, 0.7);
   border-color: var(--panel-border);
 }
 
-html[data-theme="light"] .uv-market-modal,
-html[data-theme="light"] .rp-modal-overlay {
+html[data-theme="paper"] .uv-market-modal,
+html[data-theme="paper"] .rp-modal-overlay {
   background: rgba(226, 237, 248, 0.72);
 }
 
-html[data-theme="light"] .uv-route-card.active,
-html[data-theme="light"] .uv-btn.active,
-html[data-theme="light"] .uv-sector-tab.active,
-html[data-theme="light"] .rp-preset-btn.active,
-html[data-theme="light"] .rp-sim-btn.active,
-html[data-theme="light"] .tc-tab.active,
-html[data-theme="light"] .tr-commodity-btn.active {
+html[data-theme="paper"] .uv-route-card.active,
+html[data-theme="paper"] .uv-btn.active,
+html[data-theme="paper"] .uv-sector-tab.active,
+html[data-theme="paper"] .rp-preset-btn.active,
+html[data-theme="paper"] .rp-sim-btn.active,
+html[data-theme="paper"] .tc-tab.active,
+html[data-theme="paper"] .tr-commodity-btn.active {
   background: rgba(0, 119, 182, 0.12);
   border-color: rgba(0, 119, 182, 0.28);
   color: var(--text);
 }
 
-html[data-theme="light"] .uv-container svg text,
-html[data-theme="light"] .uv-container svg tspan {
+html[data-theme="paper"] .uv-container svg text,
+html[data-theme="paper"] .uv-container svg tspan {
   paint-order: stroke;
 }
 

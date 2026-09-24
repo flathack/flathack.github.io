@@ -1,20 +1,20 @@
 /* Shared visual system for every Flathack surface outside the homepage. */
 :root {
-  --console-ink: #061018;
-  --console-panel: rgba(8, 23, 33, 0.92);
-  --console-panel-solid: #0a1822;
-  --console-panel-raised: #0e202c;
-  --console-line: rgba(135, 203, 218, 0.2);
-  --console-line-strong: rgba(83, 214, 232, 0.42);
-  --console-text: #eaf7ff;
-  --console-muted: #93adb8;
-  --console-cyan: #53d6e8;
-  --console-amber: #ffb454;
-  --console-green: #52d6a2;
-  --console-coral: #ff6b6b;
-  --console-radius: 14px;
-  --console-radius-small: 7px;
-  --console-shadow: 0 24px 70px rgba(0, 0, 0, 0.34);
+  --console-ink: #0b1014;
+  --console-panel: #11191f;
+  --console-panel-solid: #0d151a;
+  --console-panel-raised: #11191f;
+  --console-line: #2c3d46;
+  --console-line-strong: #3a4f59;
+  --console-text: #d5e3e8;
+  --console-muted: #94a9b3;
+  --console-cyan: #6ce5be;
+  --console-amber: #f2c879;
+  --console-green: #6ce5be;
+  --console-coral: #ffa2ae;
+  --console-radius: 0;
+  --console-radius-small: 0;
+  --console-shadow: none;
 
   /* Bridge the older page-local token names to the refreshed system. */
   --bg: var(--console-ink);
@@ -51,7 +51,7 @@ body.console-page {
   min-width: 320px;
   overflow-x: clip;
   color: var(--console-text);
-  font-family: "Space Grotesk", Inter, system-ui, sans-serif;
+  font-family: var(--font-body);
   background:
     linear-gradient(180deg, rgba(6, 16, 24, 0.34), rgba(6, 16, 24, 0.97) 74%),
     url("../img/home/space-nebula-wallpaper.webp") center top / cover fixed,
@@ -138,7 +138,7 @@ body.console-page .brand-mark {
 }
 
 body.console-page :where(.project-top-nav a, .site-nav a, .nav-lang-toggle, .nav-capsule-help,
-  .nav-theme-toggle, .nav-arena-trigger, .nav-ship-control, .nav-capsule-lang) {
+  .nav-theme-select, .nav-arena-trigger, .nav-ship-control, .nav-capsule-lang) {
   border-radius: var(--console-radius-small);
 }
 
@@ -349,43 +349,75 @@ body.console-page .app :where(.grid, .grid > *, .results, .panel, .vehicle-table
 body.console-page .app { overflow-x: hidden; }
 
 /* The existing theme switch remains a first-class mode of the refreshed system. */
-html[data-theme="light"] {
-  --console-ink: #edf4f4;
-  --console-panel: rgba(248, 252, 252, .94);
-  --console-panel-solid: #f7fbfb;
-  --console-panel-raised: #ffffff;
-  --console-line: rgba(51, 91, 102, .2);
-  --console-line-strong: rgba(8, 125, 145, .42);
-  --console-text: #10242d;
-  --console-muted: #526b75;
-  --console-cyan: #087d91;
-  --console-amber: #a75b00;
-  --console-green: #08775a;
-  --console-coral: #ba3434;
-  --console-shadow: 0 18px 48px rgba(25, 58, 66, .1);
+html[data-theme="paper"] {
+  --console-ink: #f2f0e9;
+  --console-panel: rgba(251, 250, 246, .74);
+  --console-panel-solid: #fbfaf6;
+  --console-panel-raised: #fbfaf6;
+  --console-line: #d8ddd8;
+  --console-line-strong: #bfc8c3;
+  --console-text: #11171b;
+  --console-muted: #76838a;
+  --console-cyan: #d64626;
+  --console-amber: #c07f2d;
+  --console-green: #47c2ba;
+  --console-coral: #bf4329;
+  --console-shadow: 0 24px 64px rgba(25, 35, 37, .08);
+  --console-radius: 10px;
+  --console-radius-small: 6px;
   color-scheme: light;
 }
 
-html[data-theme="light"] body.console-page {
+html[data-theme="paper"] body.console-page {
   color: var(--console-text);
-  background: #edf4f4;
+  background: var(--body-bg);
 }
 
-html[data-theme="light"] body.console-page::before {
+html[data-theme="paper"] body.console-page::before {
   opacity: .46;
   background-image:
     linear-gradient(rgba(8, 125, 145, .055) 1px, transparent 1px),
     linear-gradient(90deg, rgba(8, 125, 145, .055) 1px, transparent 1px);
 }
 
-html[data-theme="light"] body.console-page .site-bg-combat-canvas { opacity: .12; }
+html[data-theme="paper"] body.console-page .site-bg-combat-canvas { opacity: .12; }
 
-html[data-theme="light"] body.console-page :where(.site-header, .nav-capsule) {
-  background: rgba(247, 251, 251, .92);
+html[data-theme="paper"] body.console-page :where(.site-header, .nav-capsule) {
+  background: var(--console-panel-solid);
   box-shadow: 0 14px 36px rgba(25, 58, 66, .1);
 }
 
-html[data-theme="light"] body.console-page :where(.page-hero, .ee-hero, .sd-hero, .calculator-hero, .hero,
+html[data-theme="amber"] {
+  --console-ink: #100d09;
+  --console-panel: #1a1510;
+  --console-panel-solid: #14100c;
+  --console-panel-raised: #1a1510;
+  --console-line: #3f3427;
+  --console-line-strong: #57493a;
+  --console-text: #e6dcc9;
+  --console-muted: #8f8270;
+  --console-cyan: #f2c879;
+  --console-amber: #f2c879;
+  --console-green: #8fd3a8;
+  --console-coral: #ffa2ae;
+}
+
+html[data-theme="ice"] {
+  --console-ink: #0a1016;
+  --console-panel: #101a23;
+  --console-panel-solid: #0d151d;
+  --console-panel-raised: #101a23;
+  --console-line: #2b4254;
+  --console-line-strong: #3d5a6e;
+  --console-text: #dceaf2;
+  --console-muted: #7e97a8;
+  --console-cyan: #7cc7f2;
+  --console-amber: #f2c879;
+  --console-green: #6fd8d0;
+  --console-coral: #ffa2ae;
+}
+
+html[data-theme="paper"] body.console-page :where(.page-hero, .ee-hero, .sd-hero, .calculator-hero, .hero,
   .page-section, .panel-card, .help-card, .note-card, .ee-toolbar, .ee-results, .ee-detail,
   .rp-planner-card, .rp-table-card, .rp-collapse, .tc-summary-card, .tc-table-wrap,
   .uv-route-panel, .uv-container, .uv-info-panel, .sd-stat, .sd-equip-item, .sd-dealers,
@@ -397,17 +429,17 @@ html[data-theme="light"] body.console-page :where(.page-hero, .ee-hero, .sd-hero
   box-shadow: var(--console-shadow);
 }
 
-html[data-theme="light"] body.console-page :where(input:not([type="range"]):not([type="checkbox"]):not([type="radio"]), select, textarea) {
+html[data-theme="paper"] body.console-page :where(input:not([type="range"]):not([type="checkbox"]):not([type="radio"]), select, textarea) {
   background: rgba(255, 255, 255, .92);
   color: var(--console-text);
 }
 
-html[data-theme="light"] body.console-page :where(th) {
+html[data-theme="paper"] body.console-page :where(th) {
   background: #e4eeee;
   color: var(--console-cyan);
 }
 
-html[data-theme="light"] body.console-page :where(code, pre, .code-block, .bbcode-code) {
+html[data-theme="paper"] body.console-page :where(code, pre, .code-block, .bbcode-code) {
   background: #deeaeb;
   color: #153842;
 }

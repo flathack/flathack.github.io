@@ -1,20 +1,20 @@
 /* Homepage refresh: a Freelancer navigation console, not a generic card dashboard. */
 :root {
-  --home-ink: #061018;
-  --home-panel: #0a1822;
-  --home-panel-2: #0e202c;
-  --home-line: rgba(135, 203, 218, 0.2);
-  --home-text: #eaf7ff;
-  --home-muted: #93adb8;
-  --home-cyan: #53d6e8;
-  --home-amber: #ffb454;
-  --home-green: #52d6a2;
-  --home-coral: #ff6b6b;
-  --home-radius: 14px;
+  --home-ink: #0b1014;
+  --home-panel: #11191f;
+  --home-panel-2: #0d151a;
+  --home-line: #2c3d46;
+  --home-text: #d5e3e8;
+  --home-muted: #94a9b3;
+  --home-cyan: #6ce5be;
+  --home-amber: #f2c879;
+  --home-green: #6ce5be;
+  --home-coral: #ffa2ae;
+  --home-radius: 0;
 }
 
 html { color-scheme: dark; }
-html[data-theme="light"] { color-scheme: light; }
+html[data-theme="paper"] { color-scheme: light; }
 
 .skip-link {
   position: fixed;
@@ -88,7 +88,7 @@ body.home-dashboard::before {
 .home-dashboard .nav-capsule-items a:not(:last-child)::after { background: rgba(135,203,218,.12); }
 .home-dashboard .nav-capsule-help,
 .home-dashboard .nav-domain-switch,
-.home-dashboard .nav-theme-toggle,
+.home-dashboard .nav-theme-select,
 .home-dashboard .nav-arena-trigger,
 .home-dashboard .nav-ship-control,
 .home-dashboard .nav-capsule-lang { border-radius: 6px; }
@@ -574,16 +574,59 @@ body.home-dashboard::before {
 
 .home-dashboard :focus-visible { outline: 2px solid var(--home-amber); outline-offset: 3px; }
 
-html[data-theme="light"] body.home-dashboard { background: #edf4f4; color: #10242d; }
-html[data-theme="light"] .mission-hero,
-html[data-theme="light"] .home-dashboard .tr-banner,
-html[data-theme="light"] .home-dashboard .hp-project-card,
-html[data-theme="light"] .home-dashboard .hp-tool-callout,
-html[data-theme="light"] .home-dashboard .hp-discord-tile { background: rgba(248, 252, 252, .94); color: #10242d; box-shadow: 0 18px 48px rgba(25, 58, 66, .08); }
-html[data-theme="light"] .mission-map { background: #10242d; }
-html[data-theme="light"] .mission-lead,
-html[data-theme="light"] .home-dashboard .tr-banner p,
-html[data-theme="light"] .home-dashboard .hp-card-desc { color: #526b75; }
+html[data-theme="paper"] {
+  --home-ink: #f2f0e9;
+  --home-panel: #fbfaf6;
+  --home-panel-2: #f7f4ed;
+  --home-line: #d8ddd8;
+  --home-text: #11171b;
+  --home-muted: #76838a;
+  --home-cyan: #d64626;
+  --home-amber: #c07f2d;
+  --home-green: #47c2ba;
+  --home-coral: #bf4329;
+  --home-radius: 10px;
+}
+html[data-theme="paper"] body.home-dashboard { background: var(--body-bg); color: var(--home-text); }
+html[data-theme="paper"] .mission-hero,
+html[data-theme="paper"] .home-dashboard .tr-banner,
+html[data-theme="paper"] .home-dashboard .hp-project-card,
+html[data-theme="paper"] .home-dashboard .hp-tool-callout,
+html[data-theme="paper"] .home-dashboard .hp-discord-tile { background: var(--home-panel); color: var(--home-text); box-shadow: var(--shadow); }
+html[data-theme="paper"] .mission-map { background: var(--card-invert-bg); }
+html[data-theme="paper"] .mission-lead,
+html[data-theme="paper"] .home-dashboard .tr-banner p,
+html[data-theme="paper"] .home-dashboard .hp-card-desc { color: var(--home-muted); }
+
+html[data-theme="amber"] {
+  --home-ink: #100d09;
+  --home-panel: #1a1510;
+  --home-panel-2: #14100c;
+  --home-line: #3f3427;
+  --home-text: #e6dcc9;
+  --home-muted: #8f8270;
+  --home-cyan: #f2c879;
+  --home-amber: #f2c879;
+  --home-green: #8fd3a8;
+  --home-coral: #ffa2ae;
+}
+
+html[data-theme="ice"] {
+  --home-ink: #0a1016;
+  --home-panel: #101a23;
+  --home-panel-2: #0d151d;
+  --home-line: #2b4254;
+  --home-text: #dceaf2;
+  --home-muted: #7e97a8;
+  --home-cyan: #7cc7f2;
+  --home-amber: #f2c879;
+  --home-green: #6fd8d0;
+  --home-coral: #ffa2ae;
+}
+
+html[data-theme="terminal"] body.home-dashboard,
+html[data-theme="amber"] body.home-dashboard,
+html[data-theme="ice"] body.home-dashboard { background: var(--home-ink); }
 
 @media (max-width: 1080px) {
   .mission-hero { grid-template-columns: 1fr; }

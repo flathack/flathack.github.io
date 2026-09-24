@@ -1,0 +1,190 @@
+/* flathack-design · Design-Tokens
+   Single Source of Truth für alle Themes. Default = Terminal (wie das servicehub-Dashboard).
+   Aktivierung: <html data-theme="terminal|paper|amber|ice"> — ohne Attribut gilt :root (= terminal). */
+
+@font-face {
+  font-family: 'JetBrains Mono Nerd';
+  src: url('./fonts/JetBrainsMonoNerdFontMono-Regular.woff2') format('woff2');
+  font-weight: 100 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'JetBrains Mono Nerd';
+  src: url('./fonts/JetBrainsMonoNerdFontMono-Bold.woff2') format('woff2');
+  font-weight: 600 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ── Terminal (Default) — exakt der flathack-servicehub-Look ─────────── */
+:root, [data-theme='terminal'] {
+  color-scheme: dark;
+  --body-bg: #0b1014;
+  --panel: #11191f;
+  --panel-strong: #0d151a;
+  --field-bg: #0b1318;
+  --field-bg-hover: #131e25;
+  --line: #2c3d46;
+  --line-strong: #3a4f59;
+  --line-hover: #46606c;
+  --ink: #d5e3e8;
+  --ink-soft: #b7c9d1;
+  --muted: #94a9b3;
+  --heading: #edf7fa;
+  --accent: #6ce5be;
+  --on-accent: #0b1714;
+  --accent-text: #6ce5be;
+  --accent-soft: rgba(108, 229, 190, .08);
+  --focus: rgba(108, 229, 190, .45);
+  --cyan: #6ce5be;
+  --lime: #b7d36b;
+  --violet: #9c85d8;
+  --error: #ffa2ae;
+  --warning: #f2c879;
+  --card-invert-bg: #0d151a;
+  --card-invert-text: #d5e3e8;
+  --card-invert-muted: #94a9b3;
+  --icon-line: #46606c;
+  --icon-fill: #11191f;
+  --code-bg: #0b151a;
+  --code-fg: #a3eed9;
+  --shadow: none;
+  --toast-shadow: none;
+  --radius: 0px;
+  --font-mono: 'JetBrains Mono Nerd', monospace;
+  --font-body: 'JetBrains Mono Nerd', monospace;
+  --base-font-size: 13px;
+  --line-height: 1.65;
+  --ambient-left: none;
+  --ambient-right: none;
+}
+
+/* ── Paper — helles Editorial-Design (Manrope + DM Mono, Orange) ─────── */
+[data-theme='paper'] {
+  color-scheme: light;
+  --body-bg: linear-gradient(128deg, rgba(255, 255, 255, .58), transparent 35%), #f2f0e9;
+  --panel: rgba(251, 250, 246, .74);
+  --panel-strong: #fbfaf6;
+  --field-bg: rgba(255, 255, 255, .48);
+  --field-bg-hover: rgba(255, 255, 255, .75);
+  --line: #d8ddd8;
+  --line-strong: #bfc8c3;
+  --line-hover: #aab7b2;
+  --ink: #11171b;
+  --ink-soft: #36434a;
+  --muted: #76838a;
+  --heading: #11171b;
+  --accent: #f05a35;
+  --on-accent: #fbfaf6;
+  --accent-text: #d64626;
+  --accent-soft: rgba(240, 90, 53, .08);
+  --focus: rgba(240, 90, 53, .36);
+  --cyan: #47c2ba;
+  --lime: #b7d36b;
+  --violet: #9c85d8;
+  --error: #bf4329;
+  --warning: #c07f2d;
+  --card-invert-bg: #11171b;
+  --card-invert-text: #fbfaf6;
+  --card-invert-muted: #aab8b7;
+  --icon-line: #11171b;
+  --icon-fill: #fbfaf6;
+  --code-bg: #11171b;
+  --code-fg: #a3eed9;
+  --shadow: 0 24px 64px rgba(25, 35, 37, .08);
+  --toast-shadow: 6px 6px 0 rgba(240, 90, 53, .72);
+  --radius: 10px;
+  --font-mono: 'DM Mono', 'SFMono-Regular', Consolas, monospace;
+  --font-body: 'Manrope', 'Avenir Next', 'Segoe UI', sans-serif;
+  --base-font-size: 16px;
+  --line-height: 1.5;
+  --ambient-left: radial-gradient(circle, rgba(71, 194, 186, .18), transparent 68%);
+  --ambient-right: radial-gradient(circle, rgba(240, 90, 53, .16), transparent 68%);
+}
+
+/* ── Amber — dunkles Terminal mit warmem Bernstein-Akzent ─────────────── */
+[data-theme='amber'] {
+  color-scheme: dark;
+  --body-bg: #100d09;
+  --panel: #1a1510;
+  --panel-strong: #14100c;
+  --field-bg: #0f0b07;
+  --field-bg-hover: #221b13;
+  --line: #3f3427;
+  --line-strong: #57493a;
+  --line-hover: #6a5945;
+  --ink: #e6dcc9;
+  --ink-soft: #cbb99d;
+  --muted: #8f8270;
+  --heading: #f4ecdd;
+  --accent: #f2c879;
+  --on-accent: #1a1206;
+  --accent-text: #f2c879;
+  --accent-soft: rgba(242, 200, 121, .08);
+  --focus: rgba(242, 200, 121, .45);
+  --cyan: #8fd3a8;
+  --lime: #d3c96b;
+  --violet: #c9a0e8;
+  --error: #ffa2ae;
+  --warning: #f2c879;
+  --card-invert-bg: #14100c;
+  --card-invert-text: #e6dcc9;
+  --card-invert-muted: #a3957f;
+  --icon-line: #6a5945;
+  --icon-fill: #1a1510;
+  --code-bg: #0d0a06;
+  --code-fg: #e8c98a;
+  --shadow: none;
+  --toast-shadow: none;
+  --radius: 0px;
+  --font-mono: 'JetBrains Mono Nerd', monospace;
+  --font-body: 'JetBrains Mono Nerd', monospace;
+  --base-font-size: 13px;
+  --line-height: 1.65;
+  --ambient-left: radial-gradient(circle, rgba(242, 200, 121, .1), transparent 68%);
+  --ambient-right: radial-gradient(circle, rgba(255, 157, 92, .08), transparent 68%);
+}
+
+/* ── Ice — dunkles Terminal mit kaltem Eisblau-Akzent ─────────────────── */
+[data-theme='ice'] {
+  color-scheme: dark;
+  --body-bg: #0a1016;
+  --panel: #101a23;
+  --panel-strong: #0d151d;
+  --field-bg: #0a1118;
+  --field-bg-hover: #14222e;
+  --line: #2b4254;
+  --line-strong: #3d5a6e;
+  --line-hover: #4a6b80;
+  --ink: #dceaf2;
+  --ink-soft: #a9c2d0;
+  --muted: #7e97a8;
+  --heading: #eef7fc;
+  --accent: #7cc7f2;
+  --on-accent: #08131b;
+  --accent-text: #7cc7f2;
+  --accent-soft: rgba(124, 199, 242, .08);
+  --focus: rgba(124, 199, 242, .45);
+  --cyan: #6fd8d0;
+  --lime: #a3d3b7;
+  --violet: #a5b4f0;
+  --error: #ffa2ae;
+  --warning: #f2c879;
+  --card-invert-bg: #0d151d;
+  --card-invert-text: #dceaf2;
+  --card-invert-muted: #8fa8ba;
+  --icon-line: #4a6b80;
+  --icon-fill: #101a23;
+  --code-bg: #090f15;
+  --code-fg: #9fd8f7;
+  --shadow: none;
+  --toast-shadow: none;
+  --radius: 0px;
+  --font-mono: 'JetBrains Mono Nerd', monospace;
+  --font-body: 'JetBrains Mono Nerd', monospace;
+  --base-font-size: 13px;
+  --line-height: 1.65;
+  --ambient-left: radial-gradient(circle, rgba(124, 199, 242, .1), transparent 68%);
+  --ambient-right: radial-gradient(circle, rgba(165, 180, 240, .08), transparent 68%);
+}

@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="../assets/css/flathack-design/theme-init.js"></script>
   <meta name="theme-color" content="#10171d">
   <title>Flathack Business — IT-Betrieb, Automatisierung & Utilities</title>
   <meta name="description" content="Flathack-Projekte für Citrix, Windows-Support, Automatisierung, Datensicherung und produktive Desktop-Workflows.">
@@ -21,7 +22,18 @@
         <img src="../assets/img/icons/flathack_icon.png" alt="" width="38" height="38">
         <span><strong>Flathack</strong><small>Business Projects</small></span>
       </a>
-      <a class="domain-switch" href="../index.html">Freelancer-Projekte <span aria-hidden="true">↗</span></a>
+      <div class="business-actions">
+        <label class="theme-switch">
+          <span>Theme</span>
+          <select id="theme-select" aria-label="Theme">
+            <option value="terminal">Terminal</option>
+            <option value="paper">Paper</option>
+            <option value="amber">Amber</option>
+            <option value="ice">Ice</option>
+          </select>
+        </label>
+        <a class="domain-switch" href="../index.html">Freelancer-Projekte <span aria-hidden="true">↗</span></a>
+      </div>
     </header>
 
     <main>
@@ -152,5 +164,6 @@
       <a href="../index.html">Zu den Freelancer-Projekten</a>
     </footer>
   </div>
+  <script src="../assets/css/flathack-design/theme-switch.js"></script>
 </body>
 </html>
