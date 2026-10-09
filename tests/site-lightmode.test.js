@@ -44,8 +44,6 @@ const htmlFiles = [
   'about/index.html',
   ...fs.readdirSync('docs').filter((name) => name.endsWith('.html')).map((name) => `docs/${name}`),
   ...fs.readdirSync('help').filter((name) => name.endsWith('.html')).map((name) => `help/${name}`),
-  'guides/firmenwagenrechner/index.html',
-  'guides/firmenwagenrechner/firmenwagenrechner-standalone.html',
 ];
 
 for (const file of htmlFiles) {
