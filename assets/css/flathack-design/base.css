@@ -1,3 +1,5 @@
+@import url('./effects.css');
+
 /* flathack-design · base.css — Komponenten-Bibliothek auf Basis der Tokens aus tokens.css
    Import-Reihenfolge: 1) tokens.css  2) base.css  3) App-eigene Styles.
    Alle Regeln greifen nur über die Token-Variablen → Themes bleiben austauschbar. */
@@ -107,3 +109,42 @@ select { appearance: none; cursor: pointer; background-image: linear-gradient(45
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
 }
+
+/* Version 2: readable hierarchy, tangible controls, purposeful motion. */
+h1, h2, h3, h4 { letter-spacing: -.035em; line-height: 1.2; }
+.eyebrow, .kicker, .field-meta, .section-note { font-size: 11px; }
+.panel-header { align-items: center; flex-wrap: wrap; }
+.panel-header h2, .panel-header h3 { letter-spacing: -.035em; }
+.card-invert { border: 1px solid var(--line-strong); }
+.card-invert strong { color: var(--card-invert-text); font-size: 15px; }
+.card-invert p { font-size: 14px; }
+.button { min-height: 44px; border-radius: calc(var(--radius) * .65); letter-spacing: 0; transition: transform .18s ease, background-color .18s ease, border-color .18s ease, box-shadow .18s ease; }
+.button:active:not(:disabled) { transform: translateY(0) scale(.98); }
+.button-outline { background: var(--field-bg); border-color: var(--line-strong); }
+.button-ghost { padding: 8px 12px; font-size: 12px; }
+.field { font-family: var(--font-body); font-size: 14px; font-weight: 600; text-transform: none; letter-spacing: 0; color: var(--ink-soft); }
+.input, input[type='text'], input[type='password'], input[type='number'], select, textarea { border-color: var(--line-strong); border-radius: calc(var(--radius) * .6); font-size: 15px; font-family: var(--font-body); transition: border-color .18s, background-color .18s; }
+input::placeholder, textarea::placeholder { color: var(--muted); opacity: 1; }
+input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 2px solid var(--accent-text); outline-offset: 3px; }
+.status-pill { font-size: 11px; padding: 5px 9px; border: 1px solid var(--line); border-radius: 99px; background: var(--field-bg); color: var(--ink-soft); }
+.status-pill::before { width: 7px; height: 7px; flex-shrink: 0; }
+.status-pill.offline::before { background: var(--muted); }
+.table { font-size: 14px; }
+.table th, .table td { padding: 14px 12px; }
+.table thead th { font-size: 11px; color: var(--ink-soft); }
+.table tbody tr { transition: background-color .18s; }
+.table-wrap { overflow-x: auto; }
+.alert { font-size: 14px; }
+.alert-success { background: color-mix(in srgb, var(--cyan) 10%, var(--panel)); border-color: var(--cyan); color: var(--ink); }
+.toast { border-radius: var(--radius); font-size: 14px; }
+.theme-switch { text-transform: none; font-family: var(--font-body); font-size: 14px; }
+.theme-switch select { min-height: 44px; font-size: 14px; font-family: var(--font-body); text-transform: none; background-position: calc(100% - 16px) 20px, calc(100% - 12px) 20px; }
+/* Opt in to entrance motion; existing apps do not animate on every render. */
+.reveal { animation: flathack-reveal .5s cubic-bezier(.22, 1, .36, 1) both; }
+@keyframes flathack-reveal { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  .button:hover:not(:disabled), .button:active:not(:disabled) { transform: none; }
+}
+[data-motion='off'] *, [data-motion='off'] *::before, [data-motion='off'] *::after { animation: none !important; transition: none !important; }
+[data-motion='off'] .button:hover, [data-motion='off'] .button:active { transform: none; }

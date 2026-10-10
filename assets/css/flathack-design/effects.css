@@ -1,0 +1,33 @@
+/* Signature themes: all decoration sits behind content and ignores input. */
+h1, h2, h3, h4 { font-family: var(--font-heading, var(--font-body)); }
+html[data-theme='matrix'] body,
+html[data-theme='guildwars2'] body { position: relative; isolation: isolate; }
+html[data-theme='matrix'] body::before,
+html[data-theme='guildwars2'] body::before {
+  content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+}
+html[data-theme='matrix'] body::before {
+  background: url('./textures/matrix-code.svg') repeat; opacity: .22;
+  animation: flathack-code-rain 48s linear infinite;
+  mask-image: linear-gradient(to right, #000, transparent 42%, transparent 58%, #000);
+}
+@keyframes flathack-code-rain { to { background-position: 0 720px; } }
+[data-theme='matrix'] .panel { border-top: 2px solid var(--accent); }
+[data-theme='matrix'] .button-accent { box-shadow: 0 0 18px rgba(123, 250, 147, .1); }
+[data-theme='matrix'] .kicker { letter-spacing: .12em; }
+html[data-theme='guildwars2'] body::before {
+  background: url('./textures/tyria-brush.svg') right top / min(42vw, 560px) auto no-repeat,
+    repeating-linear-gradient(105deg, transparent 0 5px, rgba(108, 77, 35, .025) 5px 6px);
+  opacity: .18;
+}
+[data-theme='guildwars2'] .panel { border-top: 3px solid var(--accent); }
+[data-theme='guildwars2'] .button-accent { border: 1px solid var(--accent-text); box-shadow: inset 0 0 0 2px rgba(255, 230, 190, .2); }
+[data-theme='guildwars2'] h1, [data-theme='guildwars2'] h2 { font-weight: 500; letter-spacing: -.045em; }
+[data-theme='guildwars2'] .kicker { color: var(--accent-text); }
+/* Keep these rules after signature animations so reduced motion wins. */
+@media (prefers-reduced-motion: reduce) {
+  html[data-theme='matrix'] body::before { animation: none; }
+}
+html[data-motion='off'][data-theme='matrix'] body::before { animation: none; }
+
+@media print { body::before, body::after { display: none !important; } }

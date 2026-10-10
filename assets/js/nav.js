@@ -43,7 +43,7 @@
   const prefix = "../".repeat(depth);
   const isToolThemePage = document.body && document.body.classList.contains("tool-theme");
   const THEME_STORAGE_KEY = "flathack-theme";
-  const THEMES = ["terminal", "paper", "amber", "ice"];
+  const THEMES = ["terminal", "paper", "amber", "ice", "slate", "ocean", "cloud", "bloom", "matrix", "guildwars2"];
   var currentTheme = (function () {
     try {
       var stored = localStorage.getItem(THEME_STORAGE_KEY);
@@ -57,7 +57,7 @@
   function applyTheme(theme) {
     currentTheme = THEMES.indexOf(theme) !== -1 ? theme : "terminal";
     document.documentElement.dataset.theme = currentTheme;
-    document.documentElement.style.colorScheme = currentTheme === "paper" ? "light" : "dark";
+    document.documentElement.style.colorScheme = ["paper", "cloud", "bloom", "guildwars2"].includes(currentTheme) ? "light" : "dark";
     document.querySelectorAll("[data-theme-select]").forEach(function (select) {
       select.value = currentTheme;
     });
@@ -2442,7 +2442,7 @@
   var compactActionsHtml =
     domainSwitchHtml +
     '<a class="nav-capsule-help" href="' + prefix + 'help/index.html" title="Help">?</a>' +
-    '<label class="theme-switch nav-theme-select"><span class="sr-only">Theme</span><select data-theme-select aria-label="Theme"><option value="terminal">Terminal</option><option value="paper">Paper</option><option value="amber">Amber</option><option value="ice">Ice</option></select></label>' +
+    '<label class="theme-switch nav-theme-select"><span class="sr-only">Theme</span><select data-theme-select aria-label="Theme"><option value="terminal">Terminal</option><option value="paper">Paper</option><option value="amber">Amber</option><option value="ice">Ice</option><option value="slate">Slate</option><option value="ocean">Ocean</option><option value="cloud">Cloud</option><option value="bloom">Bloom</option><option value="matrix">Matrix</option><option value="guildwars2">Guild Wars 2</option></select></label>' +
     '<div class="nav-capsule-lang" data-lang="' + currentLang + '">' + langToggleHtml + '</div>';
   var standardActionsHtml =
     '<label class="nav-ship-control" title="Background ship count">' +

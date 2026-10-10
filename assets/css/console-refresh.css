@@ -1,48 +1,41 @@
 /* Shared visual system for every Flathack surface outside the homepage. */
 :root {
-  --console-ink: #0b1014;
-  --console-panel: #11191f;
-  --console-panel-solid: #0d151a;
-  --console-panel-raised: #11191f;
-  --console-line: #2c3d46;
-  --console-line-strong: #3a4f59;
-  --console-text: #d5e3e8;
-  --console-muted: #94a9b3;
-  --console-cyan: #6ce5be;
-  --console-amber: #f2c879;
-  --console-green: #6ce5be;
-  --console-coral: #ffa2ae;
-  --console-radius: 0;
-  --console-radius-small: 0;
-  --console-shadow: none;
-
-  /* Bridge the older page-local token names to the refreshed system. */
-  --bg: var(--console-ink);
-  --bg-dark: var(--console-ink);
-  --bg-sidebar: var(--console-panel-solid);
-  --bg-card: var(--console-panel-raised);
-  --bg-hover: #132b39;
-  --bg-soft: var(--console-panel);
-  --bg-strong: var(--console-panel-raised);
-  --panel: var(--console-panel);
-  --panel-border: var(--console-line);
-  --border: var(--console-line);
-  --text: var(--console-text);
-  --text-dim: var(--console-muted);
-  --text-muted: #68818c;
-  --muted: var(--console-muted);
-  --accent: var(--console-cyan);
-  --accent-hover: #83e7f2;
-  --accent-strong: #b7f4fa;
-  --accent-bg: rgba(83, 214, 232, 0.11);
-  --accent-warm: var(--console-amber);
-  --success: var(--console-green);
-  --warning: var(--console-amber);
-  --danger: var(--console-coral);
-  --shadow: var(--console-shadow);
-  --radius-lg: var(--console-radius);
-  --radius-md: 10px;
-  color-scheme: dark;
+  --console-ink: var(--body-bg);
+  --console-panel: var(--panel);
+  --console-panel-2: var(--panel-strong);
+  --console-panel-solid: var(--panel-strong);
+  --console-panel-raised: var(--panel-strong);
+  --console-line: var(--line);
+  --console-line-strong: var(--line-strong);
+  --console-text: var(--ink);
+  --console-muted: var(--muted);
+  --console-cyan: var(--accent-text);
+  --console-amber: var(--warning);
+  --console-green: var(--cyan);
+  --console-coral: var(--error);
+  --console-radius: var(--radius);
+  --console-radius-small: var(--radius);
+  --console-shadow: var(--shadow);
+  --bg: var(--body-bg);
+  --bg-dark: var(--body-bg);
+  --bg-sidebar: var(--panel-strong);
+  --bg-card: var(--panel-strong);
+  --bg-hover: var(--field-bg-hover);
+  --bg-soft: var(--panel);
+  --bg-strong: var(--panel-strong);
+  --panel-border: var(--line);
+  --border: var(--line);
+  --text: var(--ink);
+  --text-dim: var(--muted);
+  --text-muted: var(--muted);
+  --accent-hover: var(--accent);
+  --accent-strong: var(--accent-text);
+  --accent-bg: var(--accent-soft);
+  --accent-warm: var(--warning);
+  --success: var(--cyan);
+  --danger: var(--error);
+  --radius-lg: var(--radius);
+  --radius-md: var(--radius);
 }
 
 html { background: var(--console-ink); }
@@ -52,10 +45,7 @@ body.console-page {
   overflow-x: clip;
   color: var(--console-text);
   font-family: var(--font-body);
-  background:
-    linear-gradient(180deg, rgba(6, 16, 24, 0.34), rgba(6, 16, 24, 0.97) 74%),
-    url("../img/home/space-nebula-wallpaper.webp") center top / cover fixed,
-    var(--console-ink);
+  background: var(--body-bg);
 }
 
 body.console-page::before {
@@ -105,7 +95,7 @@ body.console-page .nav-capsule {
   margin-bottom: 22px;
   border: 1px solid var(--console-line);
   border-radius: var(--console-radius);
-  background: rgba(6, 16, 24, .9);
+  background: var(--panel-strong);
   box-shadow: 0 16px 48px rgba(0, 0, 0, .28);
   backdrop-filter: blur(16px) saturate(130%);
 }
@@ -185,9 +175,7 @@ body.console-page :where(.page-hero, .ee-hero, .sd-hero, .calculator-hero, .hero
   overflow: hidden;
   border: 1px solid var(--console-line);
   border-radius: var(--console-radius);
-  background:
-    linear-gradient(90deg, rgba(83, 214, 232, .42), transparent 190px) top left / 190px 1px no-repeat,
-    linear-gradient(125deg, rgba(9, 28, 39, .96), rgba(6, 16, 24, .94));
+  background: var(--panel);
   box-shadow: var(--console-shadow);
 }
 
@@ -212,7 +200,7 @@ body.console-page :where(.page-section, .panel-card, .help-card, .note-card, .mo
 body.console-page :where(input:not([type="range"]):not([type="checkbox"]):not([type="radio"]), select, textarea) {
   border-color: var(--console-line);
   border-radius: var(--console-radius-small);
-  background: rgba(4, 14, 22, .88);
+  background: var(--field-bg);
   color: var(--console-text);
 }
 
@@ -224,15 +212,15 @@ body.console-page :where(button, .button, .ee-btn, .uv-btn, .rp-preset-btn, .rp-
 
 body.console-page :where(.button-primary, .rp-run-btn, .tr-calc-btn, .file-button) {
   border-color: rgba(83, 214, 232, .56);
-  background: linear-gradient(135deg, #4ec9dc, #2889a1);
-  color: #031017;
+  background: var(--accent);
+  color: var(--on-accent);
   font-weight: 700;
 }
 
 body.console-page :where(table) { border-color: var(--console-line); }
 body.console-page :where(th) {
   border-color: var(--console-line);
-  background: rgba(7, 24, 34, .98);
+  background: var(--panel-strong);
   color: var(--console-cyan);
   font-family: "IBM Plex Mono", monospace;
   letter-spacing: .06em;
@@ -243,8 +231,8 @@ body.console-page :where(tbody tr:hover td) { background-color: rgba(83, 214, 23
 body.console-page :where(code, pre, .code-block, .bbcode-code) {
   border-color: var(--console-line);
   border-radius: var(--console-radius-small);
-  background: #041018;
-  color: #c9f3f7;
+  background: var(--code-bg);
+  color: var(--code-fg);
   font-family: "IBM Plex Mono", monospace;
 }
 
@@ -295,9 +283,7 @@ body.console-page .app > header {
   padding: 28px;
   border: 1px solid var(--console-line);
   border-radius: var(--console-radius);
-  background:
-    linear-gradient(90deg, rgba(83, 214, 232, .42), transparent 190px) top left / 190px 1px no-repeat,
-    linear-gradient(125deg, rgba(9, 28, 39, .96), rgba(6, 16, 24, .94));
+  background: var(--panel);
   box-shadow: var(--console-shadow);
 }
 
@@ -349,75 +335,32 @@ body.console-page .app :where(.grid, .grid > *, .results, .panel, .vehicle-table
 body.console-page .app { overflow-x: hidden; }
 
 /* The existing theme switch remains a first-class mode of the refreshed system. */
-html[data-theme="paper"] {
-  --console-ink: #f2f0e9;
-  --console-panel: rgba(251, 250, 246, .74);
-  --console-panel-solid: #fbfaf6;
-  --console-panel-raised: #fbfaf6;
-  --console-line: #d8ddd8;
-  --console-line-strong: #bfc8c3;
-  --console-text: #11171b;
-  --console-muted: #76838a;
-  --console-cyan: #d64626;
-  --console-amber: #c07f2d;
-  --console-green: #47c2ba;
-  --console-coral: #bf4329;
-  --console-shadow: 0 24px 64px rgba(25, 35, 37, .08);
-  --console-radius: 10px;
-  --console-radius-small: 6px;
-  color-scheme: light;
-}
 
-html[data-theme="paper"] body.console-page {
+
+:is(html[data-theme="paper"], html[data-theme="cloud"], html[data-theme="bloom"], html[data-theme="guildwars2"]) body.console-page {
   color: var(--console-text);
   background: var(--body-bg);
 }
 
-html[data-theme="paper"] body.console-page::before {
+:is(html[data-theme="paper"], html[data-theme="cloud"], html[data-theme="bloom"], html[data-theme="guildwars2"]) body.console-page::before {
   opacity: .46;
   background-image:
     linear-gradient(rgba(8, 125, 145, .055) 1px, transparent 1px),
     linear-gradient(90deg, rgba(8, 125, 145, .055) 1px, transparent 1px);
 }
 
-html[data-theme="paper"] body.console-page .site-bg-combat-canvas { opacity: .12; }
+:is(html[data-theme="paper"], html[data-theme="cloud"], html[data-theme="bloom"], html[data-theme="guildwars2"]) body.console-page .site-bg-combat-canvas { opacity: .12; }
 
-html[data-theme="paper"] body.console-page :where(.site-header, .nav-capsule) {
+:is(html[data-theme="paper"], html[data-theme="cloud"], html[data-theme="bloom"], html[data-theme="guildwars2"]) body.console-page :where(.site-header, .nav-capsule) {
   background: var(--console-panel-solid);
   box-shadow: 0 14px 36px rgba(25, 58, 66, .1);
 }
 
-html[data-theme="amber"] {
-  --console-ink: #100d09;
-  --console-panel: #1a1510;
-  --console-panel-solid: #14100c;
-  --console-panel-raised: #1a1510;
-  --console-line: #3f3427;
-  --console-line-strong: #57493a;
-  --console-text: #e6dcc9;
-  --console-muted: #8f8270;
-  --console-cyan: #f2c879;
-  --console-amber: #f2c879;
-  --console-green: #8fd3a8;
-  --console-coral: #ffa2ae;
-}
 
-html[data-theme="ice"] {
-  --console-ink: #0a1016;
-  --console-panel: #101a23;
-  --console-panel-solid: #0d151d;
-  --console-panel-raised: #101a23;
-  --console-line: #2b4254;
-  --console-line-strong: #3d5a6e;
-  --console-text: #dceaf2;
-  --console-muted: #7e97a8;
-  --console-cyan: #7cc7f2;
-  --console-amber: #f2c879;
-  --console-green: #6fd8d0;
-  --console-coral: #ffa2ae;
-}
 
-html[data-theme="paper"] body.console-page :where(.page-hero, .ee-hero, .sd-hero, .calculator-hero, .hero,
+
+
+:is(html[data-theme="paper"], html[data-theme="cloud"], html[data-theme="bloom"], html[data-theme="guildwars2"]) body.console-page :where(.page-hero, .ee-hero, .sd-hero, .calculator-hero, .hero,
   .page-section, .panel-card, .help-card, .note-card, .ee-toolbar, .ee-results, .ee-detail,
   .rp-planner-card, .rp-table-card, .rp-collapse, .tc-summary-card, .tc-table-wrap,
   .uv-route-panel, .uv-container, .uv-info-panel, .sd-stat, .sd-equip-item, .sd-dealers,
@@ -429,19 +372,19 @@ html[data-theme="paper"] body.console-page :where(.page-hero, .ee-hero, .sd-hero
   box-shadow: var(--console-shadow);
 }
 
-html[data-theme="paper"] body.console-page :where(input:not([type="range"]):not([type="checkbox"]):not([type="radio"]), select, textarea) {
-  background: rgba(255, 255, 255, .92);
+:is(html[data-theme="paper"], html[data-theme="cloud"], html[data-theme="bloom"], html[data-theme="guildwars2"]) body.console-page :where(input:not([type="range"]):not([type="checkbox"]):not([type="radio"]), select, textarea) {
+  background: var(--field-bg);
   color: var(--console-text);
 }
 
-html[data-theme="paper"] body.console-page :where(th) {
-  background: #e4eeee;
+:is(html[data-theme="paper"], html[data-theme="cloud"], html[data-theme="bloom"], html[data-theme="guildwars2"]) body.console-page :where(th) {
+  background: var(--panel-strong);
   color: var(--console-cyan);
 }
 
-html[data-theme="paper"] body.console-page :where(code, pre, .code-block, .bbcode-code) {
-  background: #deeaeb;
-  color: #153842;
+:is(html[data-theme="paper"], html[data-theme="cloud"], html[data-theme="bloom"], html[data-theme="guildwars2"]) body.console-page :where(code, pre, .code-block, .bbcode-code) {
+  background: var(--code-bg);
+  color: var(--code-fg);
 }
 
 @media (max-width: 760px) {
@@ -476,3 +419,10 @@ html[data-theme="paper"] body.console-page :where(code, pre, .code-block, .bbcod
     transition-duration: .01ms !important;
   }
 }
+
+body.console-page .forum-copy, body.console-page .app > header { background: var(--panel); }
+
+@media (prefers-reduced-motion: no-preference) {
+ body :is(.hp-project-card, .panel-card, .help-card, .theme-entry, .nav-capsule) { transition: background-color 180ms ease, border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease; }
+}
+html[data-motion="off"] *, html[data-motion="off"] *::before, html[data-motion="off"] *::after { animation: none !important; transition: none !important; }

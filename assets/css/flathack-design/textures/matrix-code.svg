@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="720" viewBox="0 0 480 720">
+  <!-- Original repeating code texture; no embedded scripts or external assets. -->
+  <g fill="#76ef91" font-family="monospace" font-size="14" writing-mode="vertical-rl" text-orientation="upright">
+    <text x="24" y="-60" opacity=".55">01ホ10ナ01ミ11ネ00ハ10モ01ニ11ソ00キ10</text>
+    <text x="72" y="80" opacity=".28">10ミ01ロ11ナ00ホ10ソ01ネ11ハ00ニ10モ01</text>
+    <text x="120" y="-180" opacity=".4">01ネ11ハ00ニ10モ01ホ10ナ01ミ11ソ00キ10</text>
+    <text x="168" y="160" opacity=".24">11ソ00キ10ホ01ミ10ナ11ネ00ハ01モ10ニ01</text>
+    <text x="216" y="-40" opacity=".6">00ナ10ホ01ニ11ミ00ソ10ネ01ハ11モ00キ10</text>
+    <text x="264" y="260" opacity=".3">01ハ10ミ00ホ11モ01ナ10ネ00ニ11ソ01キ10</text>
+    <text x="312" y="-120" opacity=".45">10モ01ソ11キ00ナ10ホ01ミ11ネ00ハ10ニ01</text>
+    <text x="360" y="140" opacity=".24">11ニ00ネ10ハ01ソ11ホ00モ10ミ01ナ11キ00</text>
+    <text x="408" y="-200" opacity=".5">01キ10モ11ホ00ナ01ミ10ネ11ハ00ニ01ソ10</text>
+    <text x="456" y="320" opacity=".35">10ホ01ネ11ミ00ハ10ナ01モ11ソ00ニ10キ01</text>
+  </g>
+</svg>

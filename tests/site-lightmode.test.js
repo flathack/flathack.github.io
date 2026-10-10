@@ -9,30 +9,32 @@ const tokens = fs.readFileSync('assets/css/flathack-design/tokens.css', 'utf8');
 const nav = fs.readFileSync('assets/js/nav.js', 'utf8');
 const business = fs.readFileSync('business/index.html', 'utf8');
 
-for (const theme of ['terminal', 'paper', 'amber', 'ice']) {
+for (const theme of ['terminal', 'paper', 'amber', 'ice', 'slate', 'ocean', 'cloud', 'bloom', 'matrix', 'guildwars2']) {
   assert.match(tokens, new RegExp(`data-theme=['"]${theme}['"]`));
   assert.match(nav, new RegExp(`<option value="${theme}">`, 'i'));
 }
 
 assert.match(tokens, /--accent: #6ce5be/);
-assert.match(tokens, /--accent: #f05a35/);
+assert.match(tokens, /--accent: #c43f20/);
 assert.match(tokens, /--accent: #f2c879/);
 assert.match(tokens, /--accent: #7cc7f2/);
 assert.match(css, /@import url\("flathack-design\/tokens\.css"\)/);
 assert.match(css, /@import url\("flathack-design\/base\.css"\)/);
 assert.match(css, /\.nav-theme-select/);
 
-assert.match(nav, /const THEMES = \["terminal", "paper", "amber", "ice"\]/);
+assert.match(nav, /const THEMES = \["terminal", "paper", "amber", "ice", "slate", "ocean", "cloud", "bloom", "matrix", "guildwars2"\]/);
 assert.match(nav, /if \(stored === "light"\) return "paper"/);
 assert.match(nav, /if \(stored === "dark"\) return "terminal"/);
 assert.match(nav, /data-theme-select/);
 assert.match(nav, /localStorage\.setItem\(THEME_STORAGE_KEY, nextTheme\)/);
 assert.match(nav, /theme-change/);
 
-for (const theme of ['paper', 'amber', 'ice']) {
-  assert.match(consoleCss, new RegExp(`html\\[data-theme="${theme}"\\]`));
-  assert.match(homeCss, new RegExp(`html\\[data-theme="${theme}"\\]`));
-}
+// Local page aliases must consume canonical tokens without cycles.
+assert.match(consoleCss, /--console-panel: var\(--panel\)/);
+assert.match(consoleCss, /--console-muted: var\(--muted\)/);
+assert.doesNotMatch(consoleCss, /--panel: var\(--console-panel\)/);
+assert.doesNotMatch(consoleCss, /--muted: var\(--console-muted\)/);
+assert.match(homeCss, /--home-panel: var\(--panel\)/);
 
 assert.match(businessCss, /@import url\("flathack-design\/tokens\.css"\)/);
 assert.match(business, /id="theme-select"/);

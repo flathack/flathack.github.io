@@ -1,6 +1,6 @@
 /* flathack-design · Design-Tokens
-   Single Source of Truth für alle Themes. Default = Terminal (wie das servicehub-Dashboard).
-   Aktivierung: <html data-theme="terminal|paper|amber|ice"> — ohne Attribut gilt :root (= terminal). */
+   Single Source of Truth für alle Themes. Version 2 · zehn Themes mit klaren Oberflächen. Default = Terminal.
+   Aktivierung: <html data-theme="terminal|paper|amber|ice|slate|ocean|cloud|bloom|matrix|guildwars2"> — ohne Attribut gilt :root (= terminal). */
 
 @font-face {
   font-family: 'JetBrains Mono Nerd';
@@ -17,12 +17,12 @@
   font-display: swap;
 }
 
-/* ── Terminal (Default) — exakt der flathack-servicehub-Look ─────────── */
+/* ── Terminal (Default) — Mint, klare Flächen ─────────── */
 :root, [data-theme='terminal'] {
   color-scheme: dark;
   --body-bg: #0b1014;
-  --panel: #11191f;
-  --panel-strong: #0d151a;
+  --panel: #19262e;
+  --panel-strong: #24363f;
   --field-bg: #0b1318;
   --field-bg-hover: #131e25;
   --line: #2c3d46;
@@ -36,26 +36,27 @@
   --on-accent: #0b1714;
   --accent-text: #6ce5be;
   --accent-soft: rgba(108, 229, 190, .08);
-  --focus: rgba(108, 229, 190, .45);
+  --focus: #6ce5be;
   --cyan: #6ce5be;
   --lime: #b7d36b;
   --violet: #9c85d8;
   --error: #ffa2ae;
   --warning: #f2c879;
-  --card-invert-bg: #0d151a;
+  --card-invert-bg: #24363f;
   --card-invert-text: #d5e3e8;
   --card-invert-muted: #94a9b3;
   --icon-line: #46606c;
   --icon-fill: #11191f;
   --code-bg: #0b151a;
   --code-fg: #a3eed9;
-  --shadow: none;
-  --toast-shadow: none;
-  --radius: 0px;
+  --shadow: 0 12px 32px rgba(0, 0, 0, .16);
+  --toast-shadow: 0 16px 48px rgba(0, 0, 0, .3);
+  --radius: 14px;
   --font-mono: 'JetBrains Mono Nerd', monospace;
-  --font-body: 'JetBrains Mono Nerd', monospace;
-  --base-font-size: 13px;
-  --line-height: 1.65;
+  --font-heading: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  --font-body: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  --base-font-size: 16px;
+  --line-height: 1.6;
   --ambient-left: none;
   --ambient-right: none;
 }
@@ -73,18 +74,18 @@
   --line-hover: #aab7b2;
   --ink: #11171b;
   --ink-soft: #36434a;
-  --muted: #76838a;
+  --muted: #56666e;
   --heading: #11171b;
-  --accent: #f05a35;
+  --accent: #c43f20;
   --on-accent: #fbfaf6;
-  --accent-text: #d64626;
+  --accent-text: #b3381e;
   --accent-soft: rgba(240, 90, 53, .08);
-  --focus: rgba(240, 90, 53, .36);
-  --cyan: #47c2ba;
+  --focus: #b3381e;
+  --cyan: #18736e;
   --lime: #b7d36b;
   --violet: #9c85d8;
   --error: #bf4329;
-  --warning: #c07f2d;
+  --warning: #865712;
   --card-invert-bg: #11171b;
   --card-invert-text: #fbfaf6;
   --card-invert-muted: #aab8b7;
@@ -96,6 +97,7 @@
   --toast-shadow: 6px 6px 0 rgba(240, 90, 53, .72);
   --radius: 10px;
   --font-mono: 'DM Mono', 'SFMono-Regular', Consolas, monospace;
+  --font-heading: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
   --font-body: 'Manrope', 'Avenir Next', 'Segoe UI', sans-serif;
   --base-font-size: 16px;
   --line-height: 1.5;
@@ -103,12 +105,12 @@
   --ambient-right: radial-gradient(circle, rgba(240, 90, 53, .16), transparent 68%);
 }
 
-/* ── Amber — dunkles Terminal mit warmem Bernstein-Akzent ─────────────── */
+/* ── Amber — warme dunkle Flächen mit Bernstein-Akzent ─────────────── */
 [data-theme='amber'] {
   color-scheme: dark;
   --body-bg: #100d09;
-  --panel: #1a1510;
-  --panel-strong: #14100c;
+  --panel: #292119;
+  --panel-strong: #3e3023;
   --field-bg: #0f0b07;
   --field-bg-hover: #221b13;
   --line: #3f3427;
@@ -116,42 +118,43 @@
   --line-hover: #6a5945;
   --ink: #e6dcc9;
   --ink-soft: #cbb99d;
-  --muted: #8f8270;
+  --muted: #bdac94;
   --heading: #f4ecdd;
   --accent: #f2c879;
   --on-accent: #1a1206;
   --accent-text: #f2c879;
   --accent-soft: rgba(242, 200, 121, .08);
-  --focus: rgba(242, 200, 121, .45);
+  --focus: #f2c879;
   --cyan: #8fd3a8;
   --lime: #d3c96b;
   --violet: #c9a0e8;
   --error: #ffa2ae;
   --warning: #f2c879;
-  --card-invert-bg: #14100c;
+  --card-invert-bg: #3e3023;
   --card-invert-text: #e6dcc9;
-  --card-invert-muted: #a3957f;
+  --card-invert-muted: #bdac94;
   --icon-line: #6a5945;
   --icon-fill: #1a1510;
   --code-bg: #0d0a06;
   --code-fg: #e8c98a;
-  --shadow: none;
-  --toast-shadow: none;
-  --radius: 0px;
+  --shadow: 0 12px 32px rgba(0, 0, 0, .16);
+  --toast-shadow: 0 16px 48px rgba(0, 0, 0, .3);
+  --radius: 14px;
   --font-mono: 'JetBrains Mono Nerd', monospace;
-  --font-body: 'JetBrains Mono Nerd', monospace;
-  --base-font-size: 13px;
-  --line-height: 1.65;
+  --font-heading: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  --font-body: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  --base-font-size: 16px;
+  --line-height: 1.6;
   --ambient-left: radial-gradient(circle, rgba(242, 200, 121, .1), transparent 68%);
   --ambient-right: radial-gradient(circle, rgba(255, 157, 92, .08), transparent 68%);
 }
 
-/* ── Ice — dunkles Terminal mit kaltem Eisblau-Akzent ─────────────────── */
+/* ── Ice — kühle dunkle Flächen mit Eisblau-Akzent ─────────────────── */
 [data-theme='ice'] {
   color-scheme: dark;
   --body-bg: #0a1016;
-  --panel: #101a23;
-  --panel-strong: #0d151d;
+  --panel: #182b3a;
+  --panel-strong: #263e50;
   --field-bg: #0a1118;
   --field-bg-hover: #14222e;
   --line: #2b4254;
@@ -159,32 +162,297 @@
   --line-hover: #4a6b80;
   --ink: #dceaf2;
   --ink-soft: #a9c2d0;
-  --muted: #7e97a8;
+  --muted: #a6bfd0;
   --heading: #eef7fc;
   --accent: #7cc7f2;
   --on-accent: #08131b;
   --accent-text: #7cc7f2;
   --accent-soft: rgba(124, 199, 242, .08);
-  --focus: rgba(124, 199, 242, .45);
+  --focus: #7cc7f2;
   --cyan: #6fd8d0;
   --lime: #a3d3b7;
   --violet: #a5b4f0;
   --error: #ffa2ae;
   --warning: #f2c879;
-  --card-invert-bg: #0d151d;
+  --card-invert-bg: #263e50;
   --card-invert-text: #dceaf2;
-  --card-invert-muted: #8fa8ba;
+  --card-invert-muted: #a6bfd0;
   --icon-line: #4a6b80;
   --icon-fill: #101a23;
   --code-bg: #090f15;
   --code-fg: #9fd8f7;
-  --shadow: none;
-  --toast-shadow: none;
-  --radius: 0px;
+  --shadow: 0 12px 32px rgba(0, 0, 0, .16);
+  --toast-shadow: 0 16px 48px rgba(0, 0, 0, .3);
+  --radius: 14px;
   --font-mono: 'JetBrains Mono Nerd', monospace;
-  --font-body: 'JetBrains Mono Nerd', monospace;
-  --base-font-size: 13px;
-  --line-height: 1.65;
+  --font-heading: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  --font-body: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  --base-font-size: 16px;
+  --line-height: 1.6;
   --ambient-left: radial-gradient(circle, rgba(124, 199, 242, .1), transparent 68%);
   --ambient-right: radial-gradient(circle, rgba(165, 180, 240, .08), transparent 68%);
+}
+
+/* ── Slate ─────────────────────────────────────── */
+[data-theme='slate'] {
+  color-scheme: dark;
+  --body-bg: #17191f;
+  --panel: #252830;
+  --panel-strong: #343842;
+  --field-bg: #1b1e25;
+  --field-bg-hover: #303541;
+  --line: #4d5260;
+  --line-strong: #6b7282;
+  --line-hover: #929aab;
+  --ink: #eef0f6;
+  --ink-soft: #d1d5e0;
+  --muted: #b0b7c7;
+  --heading: #ffffff;
+  --accent: #c0b6ff;
+  --on-accent: #25203f;
+  --accent-text: #c0b6ff;
+  --accent-soft: color-mix(in srgb, #c0b6ff 12%, transparent);
+  --focus: #c0b6ff;
+  --cyan: #83dfbf;
+  --lime: #b7d36b;
+  --violet: #9c85d8;
+  --error: #ffabb8;
+  --warning: #f4cd83;
+  --card-invert-bg: #343842;
+  --card-invert-text: #eef0f6;
+  --card-invert-muted: #b0b7c7;
+  --icon-line: #d1d5e0;
+  --icon-fill: #252830;
+  --code-bg: #1b1e25;
+  --code-fg: #c0b6ff;
+  --shadow: 0 12px 32px rgba(0, 0, 0, .16);
+  --toast-shadow: 0 16px 48px rgba(0, 0, 0, .3);
+  --radius: 18px;
+  --font-mono: 'JetBrains Mono Nerd', monospace;
+  --font-heading: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  --font-body: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  --base-font-size: 16px;
+  --line-height: 1.6;
+  --ambient-left: none;
+  --ambient-right: none;
+}
+
+/* ── Ocean ─────────────────────────────────────── */
+[data-theme='ocean'] {
+  color-scheme: dark;
+  --body-bg: #091e25;
+  --panel: #12323b;
+  --panel-strong: #1e4651;
+  --field-bg: #0b262e;
+  --field-bg-hover: #1b414b;
+  --line: #38636c;
+  --line-strong: #59828a;
+  --line-hover: #86aeb5;
+  --ink: #e4f4f5;
+  --ink-soft: #c3dce0;
+  --muted: #a1c4ca;
+  --heading: #f2fcfc;
+  --accent: #76e3d1;
+  --on-accent: #082d29;
+  --accent-text: #76e3d1;
+  --accent-soft: color-mix(in srgb, #76e3d1 12%, transparent);
+  --focus: #76e3d1;
+  --cyan: #76e3d1;
+  --lime: #b7d36b;
+  --violet: #9c85d8;
+  --error: #ffb2b9;
+  --warning: #f5cb86;
+  --card-invert-bg: #1e4651;
+  --card-invert-text: #e4f4f5;
+  --card-invert-muted: #a1c4ca;
+  --icon-line: #c3dce0;
+  --icon-fill: #12323b;
+  --code-bg: #0b262e;
+  --code-fg: #76e3d1;
+  --shadow: 0 12px 32px rgba(0, 0, 0, .16);
+  --toast-shadow: 0 16px 48px rgba(0, 0, 0, .3);
+  --radius: 20px;
+  --font-mono: 'JetBrains Mono Nerd', monospace;
+  --font-heading: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  --font-body: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  --base-font-size: 16px;
+  --line-height: 1.6;
+  --ambient-left: none;
+  --ambient-right: none;
+}
+
+/* ── Cloud ─────────────────────────────────────── */
+[data-theme='cloud'] {
+  color-scheme: light;
+  --body-bg: #eef3fa;
+  --panel: #ffffff;
+  --panel-strong: #e2ebf7;
+  --field-bg: #f4f7fc;
+  --field-bg-hover: #e7effa;
+  --line: #c3cfe1;
+  --line-strong: #8799b5;
+  --line-hover: #617da4;
+  --ink: #20304a;
+  --ink-soft: #3d516e;
+  --muted: #536780;
+  --heading: #172a48;
+  --accent: #285bc5;
+  --on-accent: #ffffff;
+  --accent-text: #2454b9;
+  --accent-soft: color-mix(in srgb, #285bc5 12%, transparent);
+  --focus: #2454b9;
+  --cyan: #17735a;
+  --lime: #b7d36b;
+  --violet: #9c85d8;
+  --error: #b32d48;
+  --warning: #86590b;
+  --card-invert-bg: #e2ebf7;
+  --card-invert-text: #20304a;
+  --card-invert-muted: #536780;
+  --icon-line: #3d516e;
+  --icon-fill: #ffffff;
+  --code-bg: #f4f7fc;
+  --code-fg: #2454b9;
+  --shadow: 0 12px 32px rgba(34, 65, 111, .07);
+  --toast-shadow: 0 12px 32px rgba(34, 65, 111, .07);
+  --radius: 16px;
+  --font-mono: 'JetBrains Mono Nerd', monospace;
+  --font-heading: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  --font-body: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  --base-font-size: 16px;
+  --line-height: 1.6;
+  --ambient-left: none;
+  --ambient-right: none;
+}
+
+/* ── Bloom ─────────────────────────────────────── */
+[data-theme='bloom'] {
+  color-scheme: light;
+  --body-bg: #f8eff3;
+  --panel: #fffafd;
+  --panel-strong: #f1dfe8;
+  --field-bg: #ffffff;
+  --field-bg-hover: #f6e7ef;
+  --line: #dbc2d0;
+  --line-strong: #b18c9f;
+  --line-hover: #97657f;
+  --ink: #402b3b;
+  --ink-soft: #674c60;
+  --muted: #7b5d71;
+  --heading: #362231;
+  --accent: #a33369;
+  --on-accent: #ffffff;
+  --accent-text: #982a60;
+  --accent-soft: color-mix(in srgb, #a33369 12%, transparent);
+  --focus: #982a60;
+  --cyan: #217454;
+  --lime: #b7d36b;
+  --violet: #9c85d8;
+  --error: #b22e46;
+  --warning: #885714;
+  --card-invert-bg: #f1dfe8;
+  --card-invert-text: #402b3b;
+  --card-invert-muted: #7b5d71;
+  --icon-line: #674c60;
+  --icon-fill: #fffafd;
+  --code-bg: #ffffff;
+  --code-fg: #982a60;
+  --shadow: 0 12px 32px rgba(99, 39, 71, .07);
+  --toast-shadow: 0 12px 32px rgba(99, 39, 71, .07);
+  --radius: 22px;
+  --font-mono: 'JetBrains Mono Nerd', monospace;
+  --font-heading: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  --font-body: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  --base-font-size: 16px;
+  --line-height: 1.6;
+  --ambient-left: none;
+  --ambient-right: none;
+}
+
+/* ── matrix ─────────────────────────────────────── */
+[data-theme='matrix'] {
+  color-scheme: dark;
+  --body-bg: #060d08;
+  --panel: #112319;
+  --panel-strong: #1b3425;
+  --field-bg: #09180e;
+  --field-bg-hover: #213e2c;
+  --line: #31563e;
+  --line-strong: #53785b;
+  --line-hover: #78ac85;
+  --ink: #def9e4;
+  --ink-soft: #b9dfc2;
+  --muted: #9ec3a8;
+  --heading: #eefff1;
+  --accent: #7bfa93;
+  --on-accent: #08200d;
+  --accent-text: #7bfa93;
+  --accent-soft: color-mix(in srgb, #7bfa93 10%, transparent);
+  --focus: #7bfa93;
+  --cyan: #7bfa93;
+  --lime: #b7d36b;
+  --violet: #9c85d8;
+  --error: #ffa6ad;
+  --warning: #f4d17c;
+  --card-invert-bg: #1b3425;
+  --card-invert-text: #def9e4;
+  --card-invert-muted: #9ec3a8;
+  --icon-line: #b9dfc2;
+  --icon-fill: #112319;
+  --code-bg: #09180e;
+  --code-fg: #7bfa93;
+  --shadow: 0 12px 32px rgba(0, 0, 0, .24);
+  --toast-shadow: 0 16px 48px rgba(0, 0, 0, .3);
+  --radius: 6px;
+  --font-mono: 'JetBrains Mono Nerd', monospace;
+  --font-body: 'JetBrains Mono Nerd', monospace;
+  --base-font-size: 16px;
+  --line-height: 1.6;
+  --ambient-left: none;
+  --ambient-right: none;
+  --font-heading: 'JetBrains Mono Nerd', monospace;
+}
+
+/* ── guildwars2 ─────────────────────────────────────── */
+[data-theme='guildwars2'] {
+  color-scheme: light;
+  --body-bg: #f1eee7;
+  --panel: #fffdf7;
+  --panel-strong: #e9dfcf;
+  --field-bg: #f7f3ea;
+  --field-bg-hover: #ece3d4;
+  --line: #cfc0a9;
+  --line-strong: #a38b6b;
+  --line-hover: #80613d;
+  --ink: #302921;
+  --ink-soft: #574937;
+  --muted: #705b41;
+  --heading: #30251d;
+  --accent: #b5232e;
+  --on-accent: #ffffff;
+  --accent-text: #ab1f29;
+  --accent-soft: color-mix(in srgb, #b5232e 10%, transparent);
+  --focus: #ab1f29;
+  --cyan: #236448;
+  --lime: #b7d36b;
+  --violet: #9c85d8;
+  --error: #ad2232;
+  --warning: #835209;
+  --card-invert-bg: #e9dfcf;
+  --card-invert-text: #302921;
+  --card-invert-muted: #705b41;
+  --icon-line: #574937;
+  --icon-fill: #fffdf7;
+  --code-bg: #f7f3ea;
+  --code-fg: #ab1f29;
+  --shadow: 0 12px 32px rgba(80, 57, 30, .10);
+  --toast-shadow: 0 16px 48px rgba(0, 0, 0, .3);
+  --radius: 4px;
+  --font-mono: 'JetBrains Mono Nerd', monospace;
+  --font-body: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  --base-font-size: 16px;
+  --line-height: 1.6;
+  --ambient-left: none;
+  --ambient-right: none;
+  --font-heading: Georgia, 'Times New Roman', serif;
 }

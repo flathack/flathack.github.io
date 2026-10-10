@@ -1,20 +1,25 @@
 /* Homepage refresh: a Freelancer navigation console, not a generic card dashboard. */
 :root {
-  --home-ink: #0b1014;
-  --home-panel: #11191f;
-  --home-panel-2: #0d151a;
-  --home-line: #2c3d46;
-  --home-text: #d5e3e8;
-  --home-muted: #94a9b3;
-  --home-cyan: #6ce5be;
-  --home-amber: #f2c879;
-  --home-green: #6ce5be;
-  --home-coral: #ffa2ae;
-  --home-radius: 0;
+  --home-ink: var(--body-bg);
+  --home-panel: var(--panel);
+  --home-panel-2: var(--panel-strong);
+  --home-panel-solid: var(--panel-strong);
+  --home-panel-raised: var(--panel-strong);
+  --home-line: var(--line);
+  --home-line-strong: var(--line-strong);
+  --home-text: var(--ink);
+  --home-muted: var(--muted);
+  --home-cyan: var(--accent-text);
+  --home-amber: var(--warning);
+  --home-green: var(--cyan);
+  --home-coral: var(--error);
+  --home-radius: var(--radius);
+  --home-radius-small: var(--radius);
+  --home-shadow: var(--shadow);
 }
 
-html { color-scheme: dark; }
-html[data-theme="paper"] { color-scheme: light; }
+
+
 
 .skip-link {
   position: fixed;
@@ -32,10 +37,7 @@ html[data-theme="paper"] { color-scheme: light; }
 .skip-link:focus { transform: translateY(0); }
 
 body.home-dashboard {
-  background:
-    linear-gradient(180deg, rgba(6, 16, 24, 0.34), rgba(6, 16, 24, 0.96) 78%),
-    url("../img/home/space-nebula-wallpaper.webp") center top / cover fixed,
-    var(--home-ink);
+  background: var(--body-bg);
   color: var(--home-text);
 }
 
@@ -574,55 +576,21 @@ body.home-dashboard::before {
 
 .home-dashboard :focus-visible { outline: 2px solid var(--home-amber); outline-offset: 3px; }
 
-html[data-theme="paper"] {
-  --home-ink: #f2f0e9;
-  --home-panel: #fbfaf6;
-  --home-panel-2: #f7f4ed;
-  --home-line: #d8ddd8;
-  --home-text: #11171b;
-  --home-muted: #76838a;
-  --home-cyan: #d64626;
-  --home-amber: #c07f2d;
-  --home-green: #47c2ba;
-  --home-coral: #bf4329;
-  --home-radius: 10px;
-}
-html[data-theme="paper"] body.home-dashboard { background: var(--body-bg); color: var(--home-text); }
-html[data-theme="paper"] .mission-hero,
-html[data-theme="paper"] .home-dashboard .tr-banner,
-html[data-theme="paper"] .home-dashboard .hp-project-card,
-html[data-theme="paper"] .home-dashboard .hp-tool-callout,
-html[data-theme="paper"] .home-dashboard .hp-discord-tile { background: var(--home-panel); color: var(--home-text); box-shadow: var(--shadow); }
-html[data-theme="paper"] .mission-map { background: var(--card-invert-bg); }
-html[data-theme="paper"] .mission-lead,
-html[data-theme="paper"] .home-dashboard .tr-banner p,
-html[data-theme="paper"] .home-dashboard .hp-card-desc { color: var(--home-muted); }
 
-html[data-theme="amber"] {
-  --home-ink: #100d09;
-  --home-panel: #1a1510;
-  --home-panel-2: #14100c;
-  --home-line: #3f3427;
-  --home-text: #e6dcc9;
-  --home-muted: #8f8270;
-  --home-cyan: #f2c879;
-  --home-amber: #f2c879;
-  --home-green: #8fd3a8;
-  --home-coral: #ffa2ae;
-}
+:is(html[data-theme="paper"], html[data-theme="cloud"], html[data-theme="bloom"], html[data-theme="guildwars2"]) body.home-dashboard { background: var(--body-bg); color: var(--home-text); }
+:is(html[data-theme="paper"], html[data-theme="cloud"], html[data-theme="bloom"], html[data-theme="guildwars2"]) .mission-hero,
+:is(html[data-theme="paper"], html[data-theme="cloud"], html[data-theme="bloom"], html[data-theme="guildwars2"]) .home-dashboard .tr-banner,
+:is(html[data-theme="paper"], html[data-theme="cloud"], html[data-theme="bloom"], html[data-theme="guildwars2"]) .home-dashboard .hp-project-card,
+:is(html[data-theme="paper"], html[data-theme="cloud"], html[data-theme="bloom"], html[data-theme="guildwars2"]) .home-dashboard .hp-tool-callout,
+:is(html[data-theme="paper"], html[data-theme="cloud"], html[data-theme="bloom"], html[data-theme="guildwars2"]) .home-dashboard .hp-discord-tile { background: var(--home-panel); color: var(--home-text); box-shadow: var(--shadow); }
+:is(html[data-theme="paper"], html[data-theme="cloud"], html[data-theme="bloom"], html[data-theme="guildwars2"]) .mission-map { background: var(--card-invert-bg); }
+:is(html[data-theme="paper"], html[data-theme="cloud"], html[data-theme="bloom"], html[data-theme="guildwars2"]) .mission-lead,
+:is(html[data-theme="paper"], html[data-theme="cloud"], html[data-theme="bloom"], html[data-theme="guildwars2"]) .home-dashboard .tr-banner p,
+:is(html[data-theme="paper"], html[data-theme="cloud"], html[data-theme="bloom"], html[data-theme="guildwars2"]) .home-dashboard .hp-card-desc { color: var(--home-muted); }
 
-html[data-theme="ice"] {
-  --home-ink: #0a1016;
-  --home-panel: #101a23;
-  --home-panel-2: #0d151d;
-  --home-line: #2b4254;
-  --home-text: #dceaf2;
-  --home-muted: #7e97a8;
-  --home-cyan: #7cc7f2;
-  --home-amber: #f2c879;
-  --home-green: #6fd8d0;
-  --home-coral: #ffa2ae;
-}
+
+
+
 
 html[data-theme="terminal"] body.home-dashboard,
 html[data-theme="amber"] body.home-dashboard,
@@ -682,3 +650,17 @@ html[data-theme="ice"] body.home-dashboard { background: var(--home-ink); }
   .home-dashboard *::before,
   .home-dashboard *::after { transition-duration: 0.01ms !important; }
 }
+
+/* Canonical surfaces for all ten themes, while maps keep their space scenery. */
+html body.home-dashboard { background: var(--body-bg); }
+html .home-dashboard :is(.site-header, .nav-capsule, .mission-hero, .hp-project-card, .hp-tool-callout, .hp-discord-tile, .hp-youtube-tile, .hp-github-tile) { background: var(--panel); box-shadow: var(--shadow); }
+html .home-dashboard .hp-feature-tag { color: var(--ink-soft); background: var(--field-bg); border-color: var(--line); }
+html .home-dashboard .nav-domain-switch { color: var(--accent-text); background: var(--accent-soft); border-color: var(--line); }
+html .home-dashboard .mission-primary, html .home-dashboard .mission-primary:hover { background: var(--accent); color: var(--on-accent); }
+html .home-dashboard .mission-map { color: #d5e3e8; }
+html .home-dashboard .mission-map :is(text, .map-label) { fill: #d5e3e8; color: #d5e3e8; }
+
+@media (prefers-reduced-motion: no-preference) {
+ body :is(.hp-project-card, .panel-card, .help-card, .theme-entry, .nav-capsule) { transition: background-color 180ms ease, border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease; }
+}
+html[data-motion="off"] *, html[data-motion="off"] *::before, html[data-motion="off"] *::after { animation: none !important; transition: none !important; }

@@ -1,33 +1,22 @@
-/* flathack-design · theme-switch.js — Theme-Umschalter mit Persistenz
- *
- * Nutzung (vor dem CSS-Laden einbinden, um Flash zu vermeiden):
- *   <html data-theme="terminal">
- *   <script src="/design/theme-init.js"></script>  → setzt data-theme aus localStorage vor dem Paint
- *   <link rel="stylesheet" href="/design/tokens.css">
- *   <link rel="stylesheet" href="/design/base.css">
- *   ... App-HTML mit <select id="theme-select"> (optional) ...
- *   <script src="/design/theme-switch.js"></script> → verbindet das Select + Persistenz
- */
-
+/* Optional selector, programmatic API, persistence, and theme change event. */
 const FLATHACK_THEME_KEY = 'flathack-theme';
+const FLATHACK_THEMES = Object.freeze(['terminal', 'paper', 'amber', 'ice', 'slate', 'ocean', 'cloud', 'bloom', 'matrix', 'guildwars2']);
 
 function flathackApplyTheme(theme) {
+  if (!FLATHACK_THEMES.includes(theme)) return false;
   document.documentElement.dataset.theme = theme;
+  const select = document.getElementById('theme-select');
+  if (select) select.value = theme;
+  try { localStorage.setItem(FLATHACK_THEME_KEY, theme); } catch { /* In-memory switching still works. */ }
+  document.dispatchEvent(new CustomEvent('flathack:themechange', { detail: { theme } }));
+  return true;
 }
 
-/* Init: gespeichertes Theme setzen (wird auch vom theme-init-Snippet im <head> gemacht — hier nur Fallback) */
-(function init() {
-  const saved = localStorage.getItem(FLATHACK_THEME_KEY);
-  if (saved && !document.documentElement.dataset.theme) flathackApplyTheme(saved);
-})();
-
-/* Select verbinden, falls vorhanden: <select id="theme-select"> mit Options terminal/paper/amber/ice */
-(function bindSelect() {
+(() => {
+  let saved;
+  try { saved = localStorage.getItem(FLATHACK_THEME_KEY); } catch { /* Storage is optional. */ }
+  const current = document.documentElement.dataset.theme;
+  flathackApplyTheme(FLATHACK_THEMES.includes(current) ? current : FLATHACK_THEMES.includes(saved) ? saved : 'terminal');
   const select = document.getElementById('theme-select');
-  if (!select) return;
-  select.value = document.documentElement.dataset.theme || 'terminal';
-  select.addEventListener('change', () => {
-    localStorage.setItem(FLATHACK_THEME_KEY, select.value);
-    flathackApplyTheme(select.value);
-  });
+  if (select) select.addEventListener('change', () => flathackApplyTheme(select.value));
 })();
