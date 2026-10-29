@@ -6,6 +6,7 @@ from __future__ import annotations
 import math
 from pathlib import Path
 
+import numpy as np
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 W, H = 800, 100
@@ -14,8 +15,8 @@ SW, SH = W * SCALE, H * SCALE
 BASE = Path(__file__).parent / "flatlas-signature-splash.png"
 OUT = Path(__file__).parent / "widget-flatlas-v2-progress.png"
 OUT_GIF = Path(__file__).parent / "widget-animated-flatlas-v2-progress.gif"
-FPS = 15
-DURATION_S = 4
+FPS = 20
+DURATION_S = 14
 TOTAL_FRAMES = FPS * DURATION_S
 TEXT = (230, 245, 255)
 MUTED = (140, 182, 211)
@@ -45,8 +46,9 @@ def text(draw: ImageDraw.ImageDraw, xy, value, font, fill) -> None:
     draw.text((sc(xy[0]), sc(xy[1])), value, font=font, fill=fill, anchor="lt")
 
 
-def make_background() -> Image.Image:
-    source = Image.open(BASE).convert("RGB")
+def make_background(source: Image.Image | None = None) -> Image.Image:
+    if source is None:
+        source = Image.open(BASE).convert("RGB")
     # Separate crops preserve the wordmark and ship in the narrow forum format.
     image = Image.new("RGBA", (SW, SH), (1, 8, 16, 255))
     stars = source.crop((0, 0, 1000, 250)).resize((SW, SH), Image.Resampling.LANCZOS)
@@ -72,8 +74,8 @@ def make_background() -> Image.Image:
 BACKGROUND = make_background()
 
 
-def render_frame(phase: float = 0.0) -> Image.Image:
-    image = BACKGROUND.copy()
+def render_frame(phase: float = 0.0, background: Image.Image | None = None) -> Image.Image:
+    image = (BACKGROUND if background is None else background).copy()
     draw = ImageDraw.Draw(image)
     draw.line((sc(273), sc(19), sc(273), sc(75)), fill=(44, 112, 150, 150), width=sc(0.6))
     text(draw, (291, 20), "CURRENT RELEASE", FONT_LABEL, MUTED)
@@ -105,16 +107,98 @@ def render_frame(phase: float = 0.0) -> Image.Image:
     return image.convert("RGB").resize((W, H), Image.Resampling.LANCZOS)
 
 
+def make_flight_frames() -> list[Image.Image]:
+    original = Image.open(BASE).convert("RGB")
+    background = make_background(Image.open(BASE.parent / "flatlas-signature-space.png").convert("RGB"))
+
+    # Reuse the exact existing wordmark rather than generated lettering.
+    logo = original.crop((135, 280, 910, 490)).resize((sc(238), sc(64.5)), Image.Resampling.LANCZOS)
+    logo_mask = Image.new("L", logo.size, 255)
+    md = ImageDraw.Draw(logo_mask)
+    for i in range(sc(8)):
+        md.rectangle((i, i, logo.width - i - 1, logo.height - i - 1), outline=round(i / sc(8) * 255))
+
+    ship = Image.open(BASE.parent / "flatlas-signature-ship.png").convert("RGBA")
+    ship = ship.crop(ship.getbbox())
+    ship = ship.resize((round(ship.width * sc(70) / ship.height), sc(70)), Image.Resampling.LANCZOS)
+
+    # The split sits just past the metal engine housings. Only the plasma changes.
+    nozzle_x = round(ship.width * 0.445)
+    body = ship.crop((0, 0, nozzle_x, ship.height))
+    plumes = []
+    for top, bottom in ((0, 94), (94, 126), (126, ship.height)):
+        plume = np.asarray(ship.crop((nozzle_x, top, ship.width, bottom))).astype(np.float32)
+        plumes.append((top, plume))
+
+
+    def animated_ship(seconds):
+        result = Image.new("RGBA", (ship.width + sc(25), ship.height))
+        result.alpha_composite(body)
+        glow = Image.new("RGBA", result.size)
+        gd = ImageDraw.Draw(glow)
+        for engine, (top, source) in enumerate(plumes):
+            offset = engine * 1.4
+            pulse = math.sin(math.tau * 2.5 * seconds + offset)
+            flicker = math.sin(math.tau * 3.5 * seconds + offset * 1.7)
+            length = 0.91 + 0.10 * pulse + 0.035 * flicker
+            u = np.linspace(0, 1, source.shape[1])[None, :]
+            # Brightness ripples move away from the nozzle, along the exhaust.
+            ripple = np.sin(math.tau * (3 * u - 2.5 * seconds) + offset)
+            brightness = 0.92 + 0.16 * pulse + 0.16 * ripple
+            pixels = source.copy()
+            pixels[:, :, :3] = np.clip(pixels[:, :, :3] * brightness[:, :, None], 0, 255)
+            pixels[:, :, 3] *= np.clip(0.87 + 0.10 * pulse + 0.10 * ripple, 0, 1)
+            plume = Image.fromarray(pixels.astype(np.uint8)).resize(
+                (round(source.shape[1] * length), source.shape[0]), Image.Resampling.BICUBIC)
+            # Slight waves at the far end keep the nozzle itself perfectly fixed.
+            for left in range(0, plume.width, 10):
+                right = min(left + 10, plume.width)
+                progress = left / plume.width
+                shift = round(sc(0.9) * progress ** 1.3 * math.sin(
+                    math.tau * (progress * 2 - 2.5 * seconds) + offset))
+                result.alpha_composite(plume.crop((left, 0, right, plume.height)),
+                                       (nozzle_x + left, top + shift))
+            center_y = (68, 99, 135)[engine]
+            radius = sc(1.6 + 0.5 * (pulse + 1))
+            gd.ellipse((nozzle_x - radius, center_y - radius,
+                        nozzle_x + radius, center_y + radius),
+                       fill=(130, 228, 255, round(90 + 50 * (pulse + 1))))
+        return Image.alpha_composite(result, glow.filter(ImageFilter.GaussianBlur(sc(1.2))))
+
+
+    # Soft shading behind the version labels preserves readability as it passes.
+    shade = Image.new("RGBA", background.size)
+    sd = ImageDraw.Draw(shade)
+    sd.rectangle((sc(282), sc(12), sc(575), sc(79)), fill=(0, 8, 18, 95))
+    shade = shade.filter(ImageFilter.GaussianBlur(sc(7)))
+
+    frames = []
+    for index in range(TOTAL_FRAMES):
+        phase = (index / TOTAL_FRAMES + 0.15) % 1.0
+        scene = background.copy()
+        scene.paste(logo, (sc(17), sc(17)), logo_mask)
+        if phase < 0.88:
+            x = 820 - (820 + ship.width / SCALE + 45) * phase / 0.88
+            y = 15 + 1.5 * math.sin(phase * math.tau)
+            scene.alpha_composite(animated_ship(index / FPS), (sc(x), sc(y)))
+        scene = Image.alpha_composite(scene, shade)
+        frames.append(render_frame((index / TOTAL_FRAMES * 3) % 1.0, scene))
+
+    return frames
+
+
 def main() -> None:
-    render_frame(0.25).save(OUT, optimize=True)
-    frames = [render_frame(index / TOTAL_FRAMES) for index in range(TOTAL_FRAMES)]
-    # A shared palette keeps the stationary artwork from flickering.
-    palette = frames[TOTAL_FRAMES // 4].quantize(colors=256)
-    frames = [frame.quantize(palette=palette, dither=Image.Dither.NONE) for frame in frames]
-    # GIF delays use 10 ms units: 60/70/70 ms gives exactly 15 fps.
-    delays = [60 if index % 3 == 0 else 70 for index in range(TOTAL_FRAMES)]
-    frames[0].save(OUT_GIF, save_all=True, append_images=frames[1:], duration=delays,
-                   loop=0, optimize=True, disposal=1)
+    # Requires Pillow and NumPy; all artwork is stored beside this generator.
+    frames = make_flight_frames()
+    frames[0].save(OUT, optimize=True)
+    # Sample the whole flight for one palette to keep the starfield stable.
+    samples = Image.new("RGB", (W, H * 6))
+    for row, index in enumerate(range(0, TOTAL_FRAMES, 50)):
+        samples.paste(frames[index], (0, row * H))
+    palette = samples.quantize(colors=256)
+    indexed = [frame.quantize(palette=palette, dither=Image.Dither.NONE) for frame in frames]
+    indexed[0].save(OUT_GIF, save_all=True, append_images=indexed[1:], duration=50,
+                    loop=0, optimize=True, disposal=1)
     for output in (OUT, OUT_GIF):
         print(f"Saved {output.name} ({W}x{H}, {output.stat().st_size // 1024} KB)")
 
