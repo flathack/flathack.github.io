@@ -1,223 +1,122 @@
 #!/usr/bin/env python3
-"""Generate modern flat FL Atlas V2 forum signatures."""
+"""Generate FLAtlas signatures from the blue splash art, keeping existing forum URLs."""
 
 from __future__ import annotations
 
 import math
 from pathlib import Path
 
-from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageFont
-
+from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 W, H = 800, 100
 SCALE = 3
 SW, SH = W * SCALE, H * SCALE
-BASE = Path(__file__).parent / "flatlas-v2-signature-bg.png"
+BASE = Path(__file__).parent / "flatlas-signature-splash.png"
 OUT = Path(__file__).parent / "widget-flatlas-v2-progress.png"
 OUT_GIF = Path(__file__).parent / "widget-animated-flatlas-v2-progress.gif"
-FPS = 12
-DURATION_S = 3
+FPS = 15
+DURATION_S = 4
 TOTAL_FRAMES = FPS * DURATION_S
-
-TEXT = (237, 247, 255)
-MUTED = (132, 174, 210)
-DIM = (82, 119, 154)
-CYAN = (74, 197, 255)
-CYAN_SOFT = (112, 222, 255)
-GREEN = (77, 230, 151)
-RED = (255, 94, 124)
-GOLD = (255, 211, 104)
-
-MILESTONES = [
-    {"version": "v0.8.8", "label": "released", "pct": 88, "state": "done"},
-    {"version": "v0.9.0", "label": "in progress", "pct": 90, "state": "active"},
-    {"version": "v1.0.0", "label": "final", "pct": 100, "state": "final"},
-]
+TEXT = (230, 245, 255)
+MUTED = (140, 182, 211)
+CYAN = (66, 207, 255)
 
 
-def load_font(names: list[str], size: int) -> ImageFont.ImageFont:
-    for name in names:
-        try:
-            return ImageFont.truetype(name, size * SCALE)
-        except OSError:
-            continue
-    return ImageFont.load_default()
-
-
-FONT_BRAND = load_font(["segoeuib.ttf", "arialbd.ttf"], 18)
-FONT_LABEL = load_font(["segoeui.ttf", "arial.ttf"], 8)
-FONT_LABEL_BOLD = load_font(["segoeuib.ttf", "arialbd.ttf"], 8)
-FONT_BODY = load_font(["segoeui.ttf", "arial.ttf"], 10)
-FONT_MONO = load_font(["consolab.ttf", "consola.ttf", "arialbd.ttf"], 12)
-FONT_BIG = load_font(["consolab.ttf", "arialbd.ttf"], 21)
-
-
-def sc(value: int | float) -> int:
+def sc(value: float) -> int:
     return round(value * SCALE)
 
 
-def rgba(color: tuple[int, int, int], alpha: int) -> tuple[int, int, int, int]:
-    return color + (alpha,)
+def load_font(size: int, bold: bool = False) -> ImageFont.ImageFont:
+    names = ["bahnschrift.ttf", "segoeuib.ttf" if bold else "segoeui.ttf", "DejaVuSans.ttf"]
+    for name in names:
+        try:
+            return ImageFont.truetype(name, sc(size))
+        except OSError:
+            continue
+    return ImageFont.load_default(size=sc(size))
 
 
-def lerp(a: tuple[int, int, int], b: tuple[int, int, int], t: float) -> tuple[int, int, int]:
-    t = max(0.0, min(1.0, t))
-    return tuple(round(x + (y - x) * t) for x, y in zip(a, b))
+FONT_LABEL = load_font(9)
+FONT_VERSION = load_font(25, bold=True)
+FONT_BETA = load_font(11, bold=True)
 
 
-def text_size(draw: ImageDraw.ImageDraw, text: str, font: ImageFont.ImageFont) -> tuple[int, int]:
-    box = draw.textbbox((0, 0), text, font=font)
-    return box[2] - box[0], box[3] - box[1]
+def text(draw: ImageDraw.ImageDraw, xy, value, font, fill) -> None:
+    draw.text((sc(xy[0]), sc(xy[1])), value, font=font, fill=fill, anchor="lt")
 
 
-def rounded(draw: ImageDraw.ImageDraw, box: list[int], radius: int, fill, outline=None, width: int = 1) -> None:
-    draw.rounded_rectangle([sc(v) for v in box], radius=sc(radius), fill=fill, outline=outline, width=sc(width))
-
-
-def text(draw: ImageDraw.ImageDraw, xy: tuple[int, int], value: str, font: ImageFont.ImageFont, fill) -> None:
-    draw.text((sc(xy[0]), sc(xy[1])), value, font=font, fill=fill)
-
-
-def make_background(phase: float) -> Image.Image:
-    src = Image.open(BASE).convert("RGB")
-    src_ratio = src.width / src.height
-    target_ratio = W / H
-    if src_ratio > target_ratio:
-      crop_h = src.height
-      crop_w = round(crop_h * target_ratio)
-      # Keep the planet glow on the right, with calm negative space on the left.
-      left = min(src.width - crop_w, round(src.width * 0.25))
-      top = 0
-    else:
-      crop_w = src.width
-      crop_h = round(crop_w / target_ratio)
-      left = 0
-      top = max(0, round(src.height * 0.34) - crop_h // 2)
-    crop = src.crop((left, top, left + crop_w, top + crop_h))
-    bg = crop.resize((SW, SH), Image.LANCZOS)
-    bg = ImageEnhance.Color(bg).enhance(0.92)
-    bg = ImageEnhance.Contrast(bg).enhance(0.92)
-    bg = bg.filter(ImageFilter.GaussianBlur(sc(0.45)))
-
-    overlay = Image.new("RGBA", (SW, SH), (0, 0, 0, 0))
-    draw = ImageDraw.Draw(overlay)
+def make_background() -> Image.Image:
+    source = Image.open(BASE).convert("RGB")
+    # Separate crops preserve the wordmark and ship in the narrow forum format.
+    image = Image.new("RGBA", (SW, SH), (1, 8, 16, 255))
+    stars = source.crop((0, 0, 1000, 250)).resize((SW, SH), Image.Resampling.LANCZOS)
+    image.alpha_composite(stars.convert("RGBA"))
+    art = source.crop((920, 250, 2098, 750)).resize((sc(236), SH), Image.Resampling.LANCZOS)
+    image.alpha_composite(art.convert("RGBA"), (sc(564), 0))
+    shade = Image.new("RGBA", image.size)
+    draw = ImageDraw.Draw(shade)
     for x in range(SW):
-        t = x / max(1, SW - 1)
-        shade = int(150 - 54 * t)
-        draw.line([(x, 0), (x, SH)], fill=(0, 8, 19, shade))
-    draw.rectangle([0, 0, SW, SH], fill=(2, 11, 25, 74))
+        alpha = round(215 * max(0.0, 1.0 - max(0, x / SCALE - 475) / 155))
+        draw.line((x, 0, x, SH), fill=(0, 7, 15, alpha))
+    image = Image.alpha_composite(image, shade)
 
-    # A very restrained sweep in the animated variant.
-    sweep_x = round((phase % 1) * SW)
-    for x in range(max(0, sweep_x - sc(18)), min(SW, sweep_x + sc(18))):
-        strength = int((1 - abs(x - sweep_x) / sc(18)) * 22)
-        draw.line([(x, 0), (x, SH)], fill=(82, 202, 255, strength))
-
-    # Thin flat brand line inspired by the splash screen.
-    draw.line([(0, SH - sc(2)), (SW, SH - sc(2))], fill=(30, 148, 230, 155), width=sc(1))
-    return Image.alpha_composite(bg.convert("RGBA"), overlay)
+    logo = source.crop((135, 280, 910, 490)).resize((sc(238), sc(64.5)), Image.Resampling.LANCZOS)
+    mask = Image.new("L", logo.size, 255)
+    md = ImageDraw.Draw(mask)
+    for i in range(sc(8)):
+        md.rectangle((i, i, logo.width - i - 1, logo.height - i - 1), outline=round(i / sc(8) * 255))
+    image.paste(logo, (sc(17), sc(17)), mask)
+    return image
 
 
-def draw_brand(draw: ImageDraw.ImageDraw) -> None:
-    draw.rectangle([sc(18), sc(19), sc(21), sc(80)], fill=rgba(CYAN, 230))
-    text(draw, (32, 18), "FL ATLAS V2", FONT_BRAND, TEXT)
-    text(draw, (33, 41), "current", FONT_LABEL_BOLD, rgba(MUTED, 245))
-    text(draw, (33, 55), "v0.8.8", FONT_MONO, rgba(GREEN, 255))
-    rounded(draw, [112, 51, 176, 70], 3, (9, 52, 43, 202), (84, 230, 155, 150))
-    tw, th = text_size(draw, "RELEASED", FONT_LABEL_BOLD)
-    draw.text((sc(144) - tw // 2, sc(56)), "RELEASED", font=FONT_LABEL_BOLD, fill=rgba(GREEN, 255))
-
-
-def draw_progress(draw: ImageDraw.ImageDraw, phase: float) -> None:
-    panel = Image.new("RGBA", (SW, SH), (0, 0, 0, 0))
-    pd = ImageDraw.Draw(panel)
-    rounded(pd, [196, 15, 653, 84], 7, (2, 13, 29, 166), (74, 197, 255, 70))
-    panel = panel.filter(ImageFilter.GaussianBlur(sc(0.2)))
-    draw._image.alpha_composite(panel)
-
-    text(draw, (216, 19), "ROAD TO v1.0.0", FONT_LABEL_BOLD, rgba(CYAN_SOFT, 245))
-    text(draw, (216, 34), "v0.9.0 in progress after v0.8.8 release", FONT_BODY, rgba(MUTED, 235))
-
-    x0, y0 = 216, 60
-    bar_w, bar_h = 412, 7
-    rounded(draw, [x0, y0, x0 + bar_w, y0 + bar_h], 4, (8, 28, 49, 235), (80, 156, 214, 120))
-
-    released_w = round(bar_w * 0.88)
-    active_w = round(bar_w * 0.90)
-    for x in range(sc(x0), sc(x0 + released_w)):
-        c = lerp((35, 161, 136), GREEN, (x - sc(x0)) / max(1, sc(released_w)))
-        draw.line([(x, sc(y0 + 1)), (x, sc(y0 + bar_h - 1))], fill=rgba(c, 255), width=1)
-    for x in range(sc(x0 + released_w), sc(x0 + active_w)):
-        c = lerp(CYAN, RED, (x - sc(x0 + released_w)) / max(1, sc(active_w - released_w)))
-        draw.line([(x, sc(y0 + 1)), (x, sc(y0 + bar_h - 1))], fill=rgba(c, 255), width=1)
-
-    shimmer = sc(x0 + released_w) + round(sc(active_w - released_w) * phase)
-    for x in range(max(sc(x0 + released_w), shimmer - sc(8)), min(sc(x0 + active_w), shimmer + sc(8))):
-        amount = 1 - abs(x - shimmer) / max(1, sc(8))
-        draw.line([(x, sc(y0 + 1)), (x, sc(y0 + bar_h - 1))], fill=rgba(lerp(RED, TEXT, amount * 0.6), 230), width=1)
-
-    for item in MILESTONES:
-        x = x0 + round(bar_w * item["pct"] / 100)
-        color = {"done": GREEN, "active": RED, "next": MUTED, "final": GOLD}[item["state"]]
-        r = 5 if item["state"] in {"active", "final", "done"} else 4
-        if item["state"] == "active":
-            pulse = 0.5 + 0.5 * math.sin(phase * math.tau)
-            draw.ellipse([sc(x - 12 - pulse * 2), sc(y0 - 11 - pulse * 2), sc(x + 12 + pulse * 2), sc(y0 + 18 + pulse * 2)], outline=rgba(RED, 110), width=sc(1))
-        draw.ellipse([sc(x - r), sc(y0 + bar_h / 2 - r), sc(x + r), sc(y0 + bar_h / 2 + r)], fill=rgba(color, 255), outline=rgba(TEXT, 210), width=sc(1))
-        vy = 72 if item["state"] != "active" else 44
-        tw, _ = text_size(draw, item["version"], FONT_LABEL_BOLD)
-        draw.text((sc(x) - tw // 2, sc(vy)), item["version"], font=FONT_LABEL_BOLD, fill=rgba(color, 255))
-        lw, _ = text_size(draw, item["label"], FONT_LABEL)
-        draw.text((sc(x) - lw // 2, sc(vy + 10)), item["label"], font=FONT_LABEL, fill=rgba(DIM, 245))
-
-
-def draw_target(draw: ImageDraw.ImageDraw, phase: float) -> None:
-    rounded(draw, [675, 15, 782, 84], 7, (2, 13, 29, 174), (74, 197, 255, 92))
-    text(draw, (690, 23), "TARGET", FONT_LABEL_BOLD, rgba(MUTED, 245))
-    text(draw, (690, 38), "v1.0.0", FONT_BIG, rgba(GOLD, 255))
-    text(draw, (691, 62), "FINAL RELEASE", FONT_LABEL_BOLD, rgba((255, 225, 144), 255))
-    draw.line([(sc(690), sc(77)), (sc(762), sc(77))], fill=rgba((55, 119, 174), 210), width=sc(2))
-    draw.line([(sc(690), sc(77)), (sc(748), sc(77))], fill=rgba(CYAN, 230), width=sc(2))
-    scan = sc(690) + round(sc(58) * phase)
-    draw.line([(scan, sc(73)), (scan, sc(81))], fill=rgba(TEXT, 210), width=sc(1))
+BACKGROUND = make_background()
 
 
 def render_frame(phase: float = 0.0) -> Image.Image:
-    img = make_background(phase)
-    draw = ImageDraw.Draw(img, "RGBA")
-    draw_brand(draw)
-    draw_progress(draw, phase)
-    draw_target(draw, phase)
-    draw.rectangle([0, 0, SW - 1, SH - 1], outline=rgba((56, 158, 238), 180), width=sc(1))
-    return img.resize((W, H), Image.Resampling.LANCZOS).convert("RGB")
+    image = BACKGROUND.copy()
+    draw = ImageDraw.Draw(image)
+    draw.line((sc(273), sc(19), sc(273), sc(75)), fill=(44, 112, 150, 150), width=sc(0.6))
+    text(draw, (291, 20), "CURRENT RELEASE", FONT_LABEL, MUTED)
+    text(draw, (290, 38), "v0.8.9", FONT_VERSION, TEXT)
+    text(draw, (292, 68), "AVAILABLE NOW", FONT_LABEL, (130, 213, 240))
+    text(draw, (433, 20), "COMING SOON", FONT_LABEL, MUTED)
+    text(draw, (431, 38), "v0.9.0", FONT_VERSION, TEXT)
+    draw.polygon([(sc(x), sc(y)) for x, y in [(531, 40), (565, 40), (570, 45), (570, 58), (536, 58), (531, 53)]],
+                 fill=(6, 37, 57), outline=CYAN, width=sc(0.6))
+    text(draw, (536, 44), "BETA", FONT_BETA, (144, 231, 255))
+    text(draw, (433, 68), "ALPHA TO BETA", FONT_LABEL, (130, 213, 240))
 
-
-def save_static() -> None:
-    img = render_frame(0.0)
-    img.save(OUT, optimize=True)
-    print(f"Saved {OUT.name} ({W}x{H}, {OUT.stat().st_size // 1024} KB)")
-
-
-def save_gif() -> None:
-    frames = []
-    for idx in range(TOTAL_FRAMES):
-        if idx % 2:
-            continue
-        frames.append(render_frame(idx / TOTAL_FRAMES).quantize(colors=96))
-    frames[0].save(
-        OUT_GIF,
-        save_all=True,
-        append_images=frames[1:],
-        duration=83,
-        loop=0,
-        optimize=True,
-    )
-    print(f"Saved {OUT_GIF.name} ({W}x{H}, {OUT_GIF.stat().st_size // 1024} KB)")
+    # A looping highlight echoes the splash bar without inventing a percentage.
+    glow = Image.new("RGBA", image.size)
+    gd = ImageDraw.Draw(glow)
+    for index in range(36):
+        x = 291 + index * 7.7
+        distance = abs(index / 36 - phase)
+        distance = min(distance, 1 - distance)
+        strength = math.exp(-((distance / 0.09) ** 2))
+        color = (round(20 + 93 * strength), round(90 + 147 * strength), round(130 + 125 * strength), 255)
+        box = (sc(x), sc(85), sc(x + 5.3), sc(87))
+        draw.rectangle(box, fill=color)
+        gd.rectangle(box, fill=(55, 202, 255, round(160 * strength)))
+    image = Image.alpha_composite(image, glow.filter(ImageFilter.GaussianBlur(sc(1.6))))
+    draw = ImageDraw.Draw(image)
+    draw.line((sc(15), sc(98), sc(785), sc(98)), fill=(19, 102, 148, 210), width=sc(0.5))
+    draw.rectangle((0, 0, SW - 1, SH - 1), outline=(32, 107, 153, 220), width=sc(0.6))
+    return image.convert("RGB").resize((W, H), Image.Resampling.LANCZOS)
 
 
 def main() -> None:
-    save_static()
-    save_gif()
+    render_frame(0.25).save(OUT, optimize=True)
+    frames = [render_frame(index / TOTAL_FRAMES) for index in range(TOTAL_FRAMES)]
+    # A shared palette keeps the stationary artwork from flickering.
+    palette = frames[TOTAL_FRAMES // 4].quantize(colors=256)
+    frames = [frame.quantize(palette=palette, dither=Image.Dither.NONE) for frame in frames]
+    # GIF delays use 10 ms units: 60/70/70 ms gives exactly 15 fps.
+    delays = [60 if index % 3 == 0 else 70 for index in range(TOTAL_FRAMES)]
+    frames[0].save(OUT_GIF, save_all=True, append_images=frames[1:], duration=delays,
+                   loop=0, optimize=True, disposal=1)
+    for output in (OUT, OUT_GIF):
+        print(f"Saved {output.name} ({W}x{H}, {output.stat().st_size // 1024} KB)")
 
 
 if __name__ == "__main__":
