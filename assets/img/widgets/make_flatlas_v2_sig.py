@@ -39,7 +39,6 @@ def load_font(size: int, bold: bool = False) -> ImageFont.ImageFont:
 
 FONT_LABEL = load_font(9)
 FONT_VERSION = load_font(25, bold=True)
-FONT_BETA = load_font(11, bold=True)
 
 
 def text(draw: ImageDraw.ImageDraw, xy, value, font, fill) -> None:
@@ -79,14 +78,11 @@ def render_frame(phase: float = 0.0, background: Image.Image | None = None) -> I
     draw = ImageDraw.Draw(image)
     draw.line((sc(273), sc(19), sc(273), sc(75)), fill=(44, 112, 150, 150), width=sc(0.6))
     text(draw, (291, 20), "CURRENT RELEASE", FONT_LABEL, MUTED)
-    text(draw, (290, 38), "v0.8.9", FONT_VERSION, TEXT)
+    text(draw, (290, 38), "v0.9.0", FONT_VERSION, TEXT)
     text(draw, (292, 68), "AVAILABLE NOW", FONT_LABEL, (130, 213, 240))
-    text(draw, (433, 20), "COMING SOON", FONT_LABEL, MUTED)
-    text(draw, (431, 38), "v0.9.0", FONT_VERSION, TEXT)
-    draw.polygon([(sc(x), sc(y)) for x, y in [(531, 40), (565, 40), (570, 45), (570, 58), (536, 58), (531, 53)]],
-                 fill=(6, 37, 57), outline=CYAN, width=sc(0.6))
-    text(draw, (536, 44), "BETA", FONT_BETA, (144, 231, 255))
-    text(draw, (433, 68), "ALPHA TO BETA", FONT_LABEL, (130, 213, 240))
+    text(draw, (433, 20), "BETA RELEASE", FONT_LABEL, MUTED)
+    text(draw, (431, 38), "BETA", FONT_VERSION, TEXT)
+    text(draw, (433, 68), "WINDOWS + LINUX", FONT_LABEL, (130, 213, 240))
 
     # A looping highlight echoes the splash bar without inventing a percentage.
     glow = Image.new("RGBA", image.size)
