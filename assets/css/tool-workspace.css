@@ -1,0 +1,231 @@
+/* Data tools share the page header and theme tokens with the project directory. */
+html { min-width: 0; }
+body.tool-workspace { min-width: 0; background: var(--body-bg); }
+body.tool-workspace::before { display: none; }
+body.tool-workspace .site-bg-combat-canvas { opacity: .09; }
+body.tool-workspace .site-shell {
+  width: min(1440px, calc(100% - clamp(24px, 6vw, 100px)));
+  min-width: 0;
+  padding: 0 0 32px;
+}
+.tool-workspace .portal-header { border-bottom: 1px solid var(--line); }
+.workspace-intro {
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 2vw, 24px);
+  padding: clamp(20px, 3vw, 42px) 0;
+}
+.workspace-intro > div { min-width: 0; }
+.workspace-icon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 56px;
+  aspect-ratio: 1;
+  border-radius: 14px;
+  color: var(--accent-text);
+  background: var(--accent-soft);
+  border: 1px solid var(--line);
+  font: 1.65rem/1 'JetBrains Mono Nerd', monospace;
+}
+body.tool-workspace .workspace-intro h1 {
+  max-width: none;
+  margin: 0;
+  color: var(--heading);
+  font: 710 clamp(1.8rem, 3.4vw, 3.3rem)/1.05 var(--font-heading);
+  letter-spacing: -.055em;
+}
+.workspace-intro p { margin: 7px 0 0; max-width: 80ch; color: var(--ink-soft); font-size: 1rem; line-height: 1.45; }
+.tool-workspace .project-sub-nav {
+  justify-content: flex-start;
+  gap: 10px;
+  margin: 0 0 16px;
+  padding: 8px 0 14px;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+  backdrop-filter: none;
+}
+.workspace-mod-label { color: var(--muted); font: .78rem/1.5 var(--font-mono); }
+.workspace-mod-select { display: none; }
+.tool-workspace .project-sub-nav-main, .tool-workspace .project-sub-nav-side { gap: 4px; }
+.tool-workspace .project-sub-nav a {
+  padding-inline: 13px;
+  min-height: 34px;
+  border-radius: 7px;
+  color: var(--ink-soft);
+  font-size: .88rem;
+}
+.tool-workspace .project-sub-nav a.active,
+.tool-workspace .portal-menu div a.active {
+  color: var(--accent-text);
+  background: var(--accent-soft);
+  border-color: var(--line-strong);
+}
+.tool-workspace .portal-menu div a { justify-content: flex-start; background: var(--panel-strong); color: var(--ink); }
+.tool-workspace .portal-menu div a:hover { background: var(--accent-soft); }
+.tool-workspace .portal-header { z-index: 12; }
+.tool-workspace :is(.page-section, .ee-toolbar, .ee-results, .ee-detail, .rp-planner-card, .rp-manual-card, .rp-summary, .rp-table-card, .uv-route-panel) {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--panel);
+  box-shadow: none;
+}
+.tool-workspace :is(.page-section, .ee-toolbar, .rp-planner-card, .rp-manual-card, .rp-table-card) { padding: clamp(14px, 1.6vw, 24px); }
+.tool-workspace .page-section::after { content: none; }
+.tool-workspace :is(.tr-field, .tc-field, .uv-field, .ee-field, .se-field, .rp-field) { min-width: 0; }
+.tool-workspace :is(.tr-field, .tc-field, .ee-field, .se-field, .rp-field) label {
+  color: var(--ink-soft);
+  font-size: .86rem;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.tool-workspace main :is(select, input[type="text"], input[type="number"]) {
+  min-width: 0;
+  max-width: 100%;
+  min-height: 38px;
+  border: 1px solid var(--line-strong);
+  border-radius: 7px;
+  background: var(--field-bg);
+  color: var(--ink);
+}
+.tool-workspace main :is(.tr-calc-btn, .rp-run-btn, .uv-route-submit) {
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-weight: 700;
+  box-shadow: none;
+}
+.tool-workspace main :is(.tr-tab, .tc-tab, .rp-preset-btn, .uv-btn:not(.uv-route-submit), .ee-btn, .tc-pill) {
+  border-color: var(--line-strong);
+  border-radius: 7px;
+  background: var(--field-bg);
+  color: var(--ink-soft);
+}
+.tool-workspace main :is(.tr-tab, .tc-tab, .rp-preset-btn, .uv-btn, .tc-pill).active {
+  color: var(--accent-text);
+  border-color: var(--accent-text);
+  background: var(--accent-soft);
+}
+.tool-workspace :is(.tr-table-wrap, .se-table-wrap, .ee-table-wrap, .rp-table-wrap, .tc-table-wrap) {
+  max-width: 100%;
+  overflow-x: auto;
+  border-color: var(--line);
+  scrollbar-color: var(--line-strong) var(--field-bg);
+}
+.tool-workspace main table th {
+  color: var(--ink-soft);
+  background: var(--panel-strong);
+  border-color: var(--line);
+  font-size: .82rem;
+  text-transform: none;
+  letter-spacing: .005em;
+}
+.tool-workspace main table td { border-color: var(--line); font-variant-numeric: tabular-nums; }
+.tool-workspace main table tbody tr:hover { background-color: var(--accent-soft); }
+
+/* Universe map */
+.map-context { display: flex; align-items: baseline; justify-content: space-between; gap: 6px 18px; flex-wrap: wrap; margin: 0 0 8px; }
+.map-context .uv-breadcrumb { margin: 0; }
+.map-context .uv-stats { display: block; white-space: normal; width: auto; }
+.tool-workspace .uv-controls {
+  gap: 8px;
+  margin: 0 0 10px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--panel);
+}
+.tool-workspace .uv-controls .uv-field { flex: 1 1 190px; }
+.tool-workspace .uv-controls input { width: 100%; }
+.tool-workspace .uv-btn { min-height: 38px; }
+.tool-workspace #viewer {
+  width: 100%;
+  min-height: 290px;
+  border: 1px solid var(--line-strong);
+  background: #0a1320;
+}
+.tool-workspace #svgCanvas { position: absolute; inset: 0; }
+.tool-workspace .uv-route-fields input { width: 100%; }
+.tool-workspace .uv-info-panel { background: var(--panel-strong); color: var(--ink); }
+
+/* Trading */
+.tool-workspace .tr-tabs { flex-wrap: wrap; gap: 6px; margin: 0 0 14px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+.tool-workspace .tr-controls { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(155px, 100%), 1fr)); align-items: end; }
+.tool-workspace .tr-field :is(select, input, .tr-calendar-toggle) { width: 100%; min-width: 0; }
+.tool-workspace .tr-calendar-toggle { color: var(--ink); background: var(--field-bg); border-color: var(--line-strong); }
+.tool-workspace .tr-calendar-panel { background: var(--panel-strong); }
+.tool-workspace .tr-check { white-space: normal; }
+.tool-workspace .tr-check input { flex: none; }
+.tool-workspace .tc-tabs { flex-wrap: wrap; }
+.tool-workspace :is(.tr-stats, .se-stats, .ee-stats) { flex-wrap: wrap; gap: 4px 16px; }
+
+/* Ship and equipment catalogues */
+.tool-workspace .se-controls, .tool-workspace .ee-controls {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  background: transparent;
+}
+.tool-workspace .se-field :is(input, select), .tool-workspace .ee-field :is(input, select) { width: 100%; min-width: 0; }
+.tool-workspace .ee-controls { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); }
+.ee-advanced { grid-column: 1 / -1; }
+.ee-advanced summary { width: fit-content; color: var(--accent-text); cursor: pointer; font-weight: 600; font-size: .9rem; }
+.ee-extra-fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(140px, 100%), 1fr)); gap: 10px; margin-top: 12px; }
+.tool-workspace .ee-table-wrap { max-height: min(64vh, 720px); }
+.tool-workspace .ee-results, .tool-workspace .ee-detail { min-width: 0; }
+.tool-workspace .ee-item-link {
+  padding: 2px 0;
+  border: 0;
+  background: transparent;
+  color: var(--accent-text);
+  font: inherit;
+  cursor: pointer;
+}
+.tool-workspace .ee-item-link:hover { text-decoration: underline; }
+.tool-workspace .se-table-wrap { background: var(--panel); }
+.tool-workspace .se-table td { padding-block: 7px; }
+
+/* Reputation setup and faction tables */
+.tool-workspace .rp-config-block, .tool-workspace .rp-collapse {
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: var(--field-bg);
+}
+.tool-workspace .rp-config-title { color: var(--ink-soft); text-transform: none; font-size: 1rem; letter-spacing: 0; }
+.tool-workspace .rp-table-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.tool-workspace .rp-table-wrap { max-height: 60vh; overflow: auto; }
+.tool-workspace .rp-table tbody tr:nth-child(even) { background: var(--accent-soft); }
+.tool-workspace .rp-section-head { flex-wrap: wrap; }
+
+@media (max-width: 980px) {
+  .tool-workspace .rp-table-grid, .tool-workspace .ee-layout { grid-template-columns: minmax(0, 1fr); }
+  .tool-workspace .se-controls { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 760px) {
+  .tool-workspace .portal-header { padding-bottom: 12px; }
+  .tool-workspace .portal-header .project-top-nav { margin: 0; }
+  .workspace-icon { width: 42px; font-size: 1.25rem; }
+  .workspace-intro { align-items: flex-start; gap: 10px; }
+  .workspace-intro h1 { overflow-wrap: anywhere; }
+  .workspace-intro p { font-size: .94rem; }
+  .tool-workspace .project-sub-nav-main { display: none; }
+  .tool-workspace .workspace-mod-select { display: block; padding: 5px 8px; }
+  .tool-workspace .project-sub-nav-side { margin-left: 0; }
+  .tool-workspace .project-sub-nav-side a { padding-inline: 9px; }
+  .tool-workspace .tr-controls { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tool-workspace .tr-calendar-field { grid-column: 1 / -1; }
+  .tool-workspace .tr-calendar-panel { width: min(320px, 100%); }
+  .tool-workspace .uv-controls .uv-field { flex-basis: 100%; }
+  .tool-workspace .uv-zoom-controls { margin-left: auto; }
+}
+@media (max-width: 520px) {
+  .tool-workspace .ee-controls { grid-template-columns: minmax(0, 1fr); }
+  .tool-workspace .rp-table-card { padding: 10px; }
+  .tool-workspace .uv-controls { gap: 5px; }
+  .tool-workspace .uv-controls .uv-btn { padding-inline: 8px; }
+}

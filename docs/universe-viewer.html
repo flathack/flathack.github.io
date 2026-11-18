@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="../assets/css/flathack-design/theme-init.js"></script>
-  <title>Universum | Flathack</title>
+  <title>Universe Explorer | Flathack</title>
   <meta name="description" content="Interaktive Freelancer-Universumskarte: Systeme, Sprungverbindungen, Planeten und Stationen für Hamburg City, Crossfire und weitere Mods.">
   <link rel="icon" type="image/png" href="../assets/img/icons/flathack_icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -589,23 +589,31 @@
     }
   </style>
   <link rel="stylesheet" href="../assets/css/console-refresh.css">
+  <link rel="stylesheet" href="../assets/css/portal-header.css">
+  <link rel="stylesheet" href="../assets/css/tool-workspace.css">
 </head>
-<body class="console-page">
+<body class="console-page tool-workspace">
   <div class="site-shell">
-    <header class="site-header">
-      <a class="brand" href="../index.html">
-        <img class="brand-mark" src="../assets/img/icons/flathack_icon.png" alt="" width="44" height="44">
-        <span class="brand-text">Flathack Projects</span>
-      </a>
-      <nav class="project-top-nav" aria-label="Projekt-Navigation"></nav>
+    <header class="portal-header">
+      <a class="portal-brand" href="../index.html"><img src="../assets/img/icons/flathack_icon.png" alt="" width="34" height="34">Flathack</a>
+      <nav class="project-top-nav" aria-label="Tools"><a href="../index.html#tools">Tools</a></nav>
+      <div class="portal-actions"></div>
     </header>
 
     <main>
-      <h2 style="margin: 0 0 4px;" data-i18n="title">Universum</h2>
-      <p style="color: var(--muted); margin: 0 0 18px; font-size: 0.92rem;" data-i18n="subtitle">Interaktive Karte des Freelancer-Universums — klicke auf ein System für Details.</p>
+      <header class="workspace-intro">
+        <span class="workspace-icon" aria-hidden="true">&#xf278;</span>
+        <div>
+          <h1 data-i18n="title">Universe Explorer</h1>
+          <p data-i18n="subtitle">Interaktive Karte des Freelancer-Universums — klicke auf ein System für Details.</p>
+        </div>
+      </header>
 
-      <div class="uv-breadcrumb" id="breadcrumb">
-        <span data-i18n="bc_universe">Universumskarte</span>
+      <div class="map-context">
+        <div class="uv-breadcrumb" id="breadcrumb">
+          <span data-i18n="bc_universe">Universumskarte</span>
+        </div>
+        <div class="uv-stats" id="stats"></div>
       </div>
 
       <div class="uv-controls">
@@ -649,8 +657,6 @@
 
       <div class="uv-sector-tabs" id="sectorTabs" hidden></div>
 
-      <div class="uv-stats" id="stats"></div>
-
       <div class="uv-container" id="viewer">
         <svg id="svgCanvas"></svg>
         <div class="uv-info-panel" id="infoPanel">
@@ -689,7 +695,7 @@
     /* ── i18n ── */
     var I18N = {
       de: {
-        title: 'Universum',
+        title: 'Universe Explorer',
         subtitle: 'Interaktive Karte des Freelancer-Universums — klicke auf ein System für Details.',
         bc_universe: 'Universumskarte',
         lbl_search: 'Suche',
@@ -768,7 +774,7 @@
         sector_galaxy: 'Galaxie',
       },
       en: {
-        title: 'Universe',
+        title: 'Universe Explorer',
         subtitle: 'Interactive map of the Freelancer universe — click a system for details.',
         bc_universe: 'Universe Map',
         lbl_search: 'Search',
@@ -965,7 +971,6 @@
     var statsEl = document.getElementById("stats");
     var searchInput = document.getElementById("search");
     var legendEl = document.getElementById("legend");
-    var controlsEl = document.querySelector(".uv-controls");
     var routePanel = document.getElementById("routePanel");
     var routeNote = document.getElementById("routeNote");
     var routeStartInput = document.getElementById("routeStart");
@@ -1855,9 +1860,8 @@
       resetViewBox(w, h);
       svg.innerHTML = '<g id="connections">' + lines + sectorMarkers + '</g><g id="routeOverlay">' + routeLines + '</g><g id="nodes">' + nodes + '</g>';
 
-      // Adjust container height
-      var aspect = h / w;
-      viewer.style.height = Math.min(800, viewer.offsetWidth * aspect) + "px";
+      viewer.style.aspectRatio = w + " / " + h;
+      viewer.style.maxHeight = "800px";
 
       // Click handler for system nodes
       svg.querySelectorAll(".uv-system-node").forEach(function (node) {
@@ -2072,7 +2076,8 @@
       resetViewBox(w, h);
       svg.innerHTML = content;
 
-      viewer.style.height = Math.min(900, viewer.offsetWidth) + "px";
+      viewer.style.aspectRatio = "1";
+      viewer.style.maxHeight = "900px";
 
       // Click handler for objects
       svg.querySelectorAll(".uv-obj-node").forEach(function (node) {
@@ -3301,24 +3306,6 @@
         (obj.type === "station" && !!obj.base);
     }
 
-    function mountControlsIntoSubnav() {
-      var subNav = document.querySelector(".project-sub-nav");
-      if (!subNav || !controlsEl || !breadcrumb || !statsEl) return;
-
-      breadcrumb.classList.add("in-subnav");
-      controlsEl.classList.add("in-subnav");
-
-      if (!controlsEl.contains(statsEl)) {
-        controlsEl.insertBefore(statsEl, controlsEl.querySelector(".uv-zoom-controls"));
-      }
-      if (!subNav.contains(breadcrumb)) {
-        subNav.appendChild(breadcrumb);
-      }
-      if (!subNav.contains(controlsEl)) {
-        subNav.appendChild(controlsEl);
-      }
-    }
-
     function legendItem(color, label) {
       return '<div class="uv-legend-item">' +
              '<span class="uv-legend-dot" style="background:' + color + ';"></span>' +
@@ -3351,11 +3338,10 @@
 
     /* ── Init ── */
     window.addEventListener("mod-change", function (e) { loadMod(e.detail.mod); });
-    window.addEventListener("load", mountControlsIntoSubnav);
     loadMod((window.location.hash || '').replace(/^#/, '') || localStorage.getItem('flathack-mod') || 'vanilla');
     if (lang !== 'de') applyLang();
   })();
   </script>
-  <script src="../assets/js/nav.js?v=2026-08-29-f2d-pages"></script>
+  <script src="../assets/js/nav.js"></script>
 </body>
 </html>

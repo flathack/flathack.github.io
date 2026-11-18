@@ -338,23 +338,25 @@
     }
   </style>
   <link rel="stylesheet" href="../assets/css/console-refresh.css">
+  <link rel="stylesheet" href="../assets/css/portal-header.css">
+  <link rel="stylesheet" href="../assets/css/tool-workspace.css">
 </head>
-<body class="console-page">
+<body class="console-page tool-workspace">
   <div class="site-shell">
-    <header class="site-header">
-      <a class="brand" href="../index.html">
-        <img class="brand-mark" src="../assets/img/icons/flathack_icon.png" alt="" width="44" height="44">
-        <span class="brand-text">Flathack Projects</span>
-      </a>
-      <nav class="project-top-nav" aria-label="Projekt-Navigation"></nav>
+    <header class="portal-header">
+      <a class="portal-brand" href="../index.html"><img src="../assets/img/icons/flathack_icon.png" alt="" width="34" height="34">Flathack</a>
+      <nav class="project-top-nav" aria-label="Tools"><a href="../index.html#tools">Tools</a></nav>
+      <div class="portal-actions"></div>
     </header>
 
     <main>
-      <section class="ee-hero">
-        <p class="eyebrow" data-i18n="eyebrow">Equipment Explorer</p>
-        <h1 data-i18n="title">Equipment Explorer</h1>
-        <p data-i18n="intro">Durchsuche ausschließlich kaufbare Ausrüstung mit Preis, Basis, System und Fraktion. Geeignet für Waffen, Schilde, Scanner, Raketen, Minen, Thruster und Verbrauchsgüter.</p>
-      </section>
+      <header class="workspace-intro">
+        <span class="workspace-icon" aria-hidden="true">&#xf1de;</span>
+        <div>
+          <h1 data-i18n="title">Equipment Explorer</h1>
+          <p data-i18n="intro">Durchsuche ausschließlich kaufbare Ausrüstung mit Preis, Basis, System und Fraktion. Geeignet für Waffen, Schilde, Scanner, Raketen, Minen, Thruster und Verbrauchsgüter.</p>
+        </div>
+      </header>
 
       <section class="ee-toolbar">
         <div class="ee-stats" id="stats"></div>
@@ -367,26 +369,31 @@
             <label for="categoryFilter" data-i18n="lbl_category">Kategorie</label>
             <select id="categoryFilter"></select>
           </div>
-          <div class="ee-field">
-            <label for="classFilter" data-i18n="lbl_class">Class</label>
-            <select id="classFilter"></select>
-          </div>
-          <div class="ee-field">
-            <label for="systemFilter" data-i18n="lbl_system">System</label>
-            <select id="systemFilter"></select>
-          </div>
-          <div class="ee-field">
-            <label for="baseFilter" data-i18n="lbl_base">Basis</label>
-            <select id="baseFilter"></select>
-          </div>
-          <div class="ee-field">
-            <label for="factionFilter" data-i18n="lbl_faction">Fraktion</label>
-            <select id="factionFilter"></select>
-          </div>
-          <div class="ee-field">
-            <label for="sortFilter" data-i18n="lbl_sort">Sortierung</label>
-            <select id="sortFilter"></select>
-          </div>
+          <details class="ee-advanced">
+            <summary data-i18n="more_filters">Weitere Filter und Sortierung</summary>
+            <div class="ee-extra-fields">
+              <div class="ee-field">
+                <label for="classFilter" data-i18n="lbl_class">Class</label>
+                <select id="classFilter"></select>
+              </div>
+              <div class="ee-field">
+                <label for="systemFilter" data-i18n="lbl_system">System</label>
+                <select id="systemFilter"></select>
+              </div>
+              <div class="ee-field">
+                <label for="baseFilter" data-i18n="lbl_base">Basis</label>
+                <select id="baseFilter"></select>
+              </div>
+              <div class="ee-field">
+                <label for="factionFilter" data-i18n="lbl_faction">Fraktion</label>
+                <select id="factionFilter"></select>
+              </div>
+              <div class="ee-field">
+                <label for="sortFilter" data-i18n="lbl_sort">Sortierung</label>
+                <select id="sortFilter"></select>
+              </div>
+            </div>
+          </details>
         </div>
       </section>
 
@@ -435,6 +442,7 @@
         title: 'Equipment Explorer',
         intro: 'Durchsuche ausschließlich kaufbare Ausrüstung mit Preis, Basis, System und Fraktion. Geeignet für Waffen, Schilde, Scanner, Raketen, Minen, Thruster und Verbrauchsgüter.',
         lbl_search: 'Suche',
+        more_filters: 'Weitere Filter und Sortierung',
         lbl_category: 'Kategorie',
         lbl_class: 'Class',
         lbl_system: 'System',
@@ -524,6 +532,7 @@
         title: 'Equipment Explorer',
         intro: 'Browse purchasable equipment only, including price, base, system, and faction. Suitable for weapons, shields, scanners, missiles, mines, thrusters, and consumables.',
         lbl_search: 'Search',
+        more_filters: 'More filters and sorting',
         lbl_category: 'Category',
         lbl_class: 'Class',
         lbl_system: 'System',
@@ -959,7 +968,7 @@
       resultsBody.innerHTML = visibleRows.map(function (offer) {
         var active = offer.itemNick === selectedItemNick ? ' class="active"' : '';
         return '<tr data-item="' + escHtml(offer.itemNick) + '"' + active + '>' +
-          '<td>' + escHtml(offer.itemName) + '</td>' +
+          '<td><button type="button" class="ee-item-link">' + escHtml(offer.itemName) + '</button></td>' +
           '<td><span class="ee-badge">' + escHtml(categoryLabel(offer.category)) + '</span></td>' +
           '<td class="num">' + escHtml(offer.equipmentClass || '—') + '</td>' +
           '<td class="num">' + escHtml(fmtNum(offer.price)) + '</td>' +
@@ -1154,6 +1163,6 @@
     loadMod(getModId());
   })();
   </script>
-  <script src="../assets/js/nav.js?v=2026-08-29-f2d-pages"></script>
+  <script src="../assets/js/nav.js"></script>
 </body>
 </html>

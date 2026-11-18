@@ -4,10 +4,8 @@ const fs = require('node:fs');
 const css = fs.readFileSync('assets/css/style.css', 'utf8');
 const consoleCss = fs.readFileSync('assets/css/console-refresh.css', 'utf8');
 const homeCss = fs.readFileSync('assets/css/home-refresh.css', 'utf8');
-const businessCss = fs.readFileSync('assets/css/business.css', 'utf8');
 const tokens = fs.readFileSync('assets/css/flathack-design/tokens.css', 'utf8');
 const nav = fs.readFileSync('assets/js/nav.js', 'utf8');
-const business = fs.readFileSync('business/index.html', 'utf8');
 
 for (const theme of ['terminal', 'paper', 'amber', 'ice', 'slate', 'ocean', 'cloud', 'bloom', 'matrix', 'guildwars2']) {
   assert.match(tokens, new RegExp(`data-theme=['"]${theme}['"]`));
@@ -36,13 +34,8 @@ assert.doesNotMatch(consoleCss, /--panel: var\(--console-panel\)/);
 assert.doesNotMatch(consoleCss, /--muted: var\(--console-muted\)/);
 assert.match(homeCss, /--home-panel: var\(--panel\)/);
 
-assert.match(businessCss, /@import url\("flathack-design\/tokens\.css"\)/);
-assert.match(business, /id="theme-select"/);
-assert.match(business, /flathack-design\/theme-switch\.js/);
-
 const htmlFiles = [
   'index.html',
-  'business/index.html',
   'about/index.html',
   ...fs.readdirSync('docs').filter((name) => name.endsWith('.html')).map((name) => `docs/${name}`),
   ...fs.readdirSync('help').filter((name) => name.endsWith('.html')).map((name) => `help/${name}`),

@@ -2,1091 +2,169 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="assets/css/flathack-design/theme-init.js"></script>
-  <meta name="theme-color" content="#061018">
-  <title>Flathack — Freelancer Modding Tools & Projects</title>
-  <meta name="description" content="MIT-lizenzierte Open-Source-Tools für Freelancer Modding: FLAtlas, Savegame Editor, Trade Route Calculator, Equipment Explorer und Community-Links.">
+  <title>Flathack — Freelancer Tools &amp; Mods</title>
+  <meta name="description" content="Sternenkarte, Handelsrouten und Schiffsdaten für Freelancer. Entdecke die Browser-Tools und Desktop-Editoren von Flathack.">
   <link rel="icon" type="image/png" href="assets/img/icons/flathack_icon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
-  <style>
-    /* ── Trade-Route Hero Banner ── */
-    .tr-banner {
-      position: relative;
-      overflow: hidden;
-      margin-bottom: 28px;
-      padding: 38px 42px;
-      border: 2px solid rgba(88, 196, 255, 0.35);
-      border-radius: var(--radius-lg);
-      background: linear-gradient(135deg, rgba(10, 38, 70, 0.96), rgba(6, 14, 28, 0.96));
-      box-shadow:
-        0 0 60px rgba(88, 196, 255, 0.12),
-        0 0 120px rgba(34, 211, 238, 0.06),
-        var(--shadow);
-      animation: banner-in 600ms ease both;
-      cursor: pointer;
-      text-decoration: none;
-      display: block;
-      transition: border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease;
-    }
-    .tr-banner:hover {
-      border-color: rgba(88, 196, 255, 0.55);
-      box-shadow:
-        0 0 80px rgba(88, 196, 255, 0.2),
-        0 0 160px rgba(34, 211, 238, 0.1),
-        var(--shadow);
-      transform: translateY(-2px);
-    }
-    .tr-banner::before {
-      content: "";
-      position: absolute;
-      top: -50%; right: -20%;
-      width: 500px; height: 500px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(88, 196, 255, 0.18), transparent 65%);
-      pointer-events: none;
-      animation: pulse-glow 4s ease-in-out infinite alternate;
-    }
-    .tr-banner::after {
-      content: "";
-      position: absolute;
-      bottom: -40%; left: -10%;
-      width: 400px; height: 400px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(245, 158, 11, 0.12), transparent 65%);
-      pointer-events: none;
-    }
-    .tr-banner-inner {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-    .tr-banner-text { flex: 1; }
-    .tr-banner-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 12px;
-      padding: 5px 14px;
-      border-radius: 999px;
-      background: rgba(88, 196, 255, 0.15);
-      border: 1px solid rgba(88, 196, 255, 0.3);
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 0.78rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--accent-strong);
-    }
-    .tr-banner-badge .pulse-dot {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: var(--success);
-      box-shadow: 0 0 8px var(--success);
-      animation: dot-pulse 2s ease-in-out infinite;
-    }
-    .tr-banner h2 {
-      font-size: clamp(1.6rem, 3.4vw, 2.4rem);
-      margin-bottom: 8px;
-      background: linear-gradient(135deg, var(--text) 40%, var(--accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .tr-banner p {
-      max-width: 52ch;
-      color: var(--muted);
-      font-size: 1.05rem;
-    }
-    .tr-banner-cta {
-      flex-shrink: 0;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 28px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
-      color: #03101d;
-      font-weight: 700;
-      font-size: 1.05rem;
-      white-space: nowrap;
-      transition: transform 160ms ease, box-shadow 160ms ease;
-    }
-    .tr-banner:hover .tr-banner-cta {
-      transform: scale(1.04);
-      box-shadow: 0 0 24px rgba(88, 196, 255, 0.3);
-    }
-    .tr-banner-cta .arrow {
-      font-size: 1.3rem;
-      transition: transform 200ms ease;
-    }
-    .tr-banner:hover .tr-banner-cta .arrow {
-      transform: translateX(4px);
-    }
-
-    @keyframes banner-in {
-      from { opacity: 0; transform: translateY(16px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes pulse-glow {
-      from { opacity: 0.6; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1.05); }
-    }
-    @keyframes dot-pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.4; }
-    }
-
-    /* ── Intro Hero ── */
-    .hp-intro {
-      margin-bottom: 28px;
-      padding: 42px;
-      border: 1px solid var(--panel-border);
-      border-radius: var(--radius-lg);
-      background: linear-gradient(180deg, rgba(8, 25, 36, 0.94), rgba(4, 14, 23, 0.94));
-      box-shadow: var(--shadow);
-      animation: rise-in 420ms ease both;
-    }
-    .hp-intro h1 {
-      max-width: 20ch;
-      margin-bottom: 14px;
-    }
-    .hp-intro p {
-      max-width: 68ch;
-      font-size: 1.08rem;
-    }
-
-    .hp-social-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-      margin-bottom: 20px;
-    }
-    .hp-discord-tile {
-      display: grid;
-      grid-template-columns: auto minmax(0, 1fr) auto;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 0;
-      padding: 14px 18px;
-      border: 1px solid rgba(88, 101, 242, 0.42);
-      border-radius: var(--radius-lg);
-      background:
-        linear-gradient(135deg, rgba(88, 101, 242, 0.2), rgba(8, 25, 36, 0.94) 58%),
-        linear-gradient(180deg, rgba(8, 25, 36, 0.94), rgba(4, 14, 23, 0.94));
-      box-shadow: var(--shadow);
-      color: var(--text);
-      text-decoration: none;
-      animation: rise-in 420ms ease both;
-      transition: border-color 200ms ease, transform 200ms ease, background 200ms ease;
-    }
-    .hp-discord-tile:hover {
-      border-color: rgba(88, 101, 242, 0.72);
-      transform: translateY(-2px);
-      background:
-        linear-gradient(135deg, rgba(88, 101, 242, 0.28), rgba(8, 25, 36, 0.96) 58%),
-        linear-gradient(180deg, rgba(8, 25, 36, 0.96), rgba(4, 14, 23, 0.96));
-    }
-    .hp-discord-copy {
-      min-width: 0;
-    }
-    .hp-discord-copy .eyebrow {
-      margin-bottom: 4px;
-      font-size: 0.72rem;
-    }
-    .hp-discord-copy h2 {
-      margin-bottom: 3px;
-      font-size: clamp(1.1rem, 2vw, 1.35rem);
-    }
-    .hp-discord-copy p {
-      display: none;
-    }
-    .hp-discord-mark {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 38px;
-      height: 38px;
-      border-radius: 10px;
-      background: #5865f2;
-      color: #fff;
-      font-family: "IBM Plex Mono", monospace;
-      font-weight: 700;
-      letter-spacing: 0;
-    }
-    .hp-discord-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      min-height: 34px;
-      padding: 0 13px;
-      border-radius: 999px;
-      background: #5865f2;
-      color: #fff;
-      font-size: 0.88rem;
-      font-weight: 700;
-      white-space: nowrap;
-    }
-    .hp-youtube-tile {
-      border-color: rgba(255, 0, 0, 0.42);
-      background:
-        linear-gradient(135deg, rgba(255, 0, 0, 0.16), rgba(8, 25, 36, 0.94) 58%),
-        linear-gradient(180deg, rgba(8, 25, 36, 0.94), rgba(4, 14, 23, 0.94));
-    }
-    .hp-youtube-tile:hover {
-      border-color: rgba(255, 0, 0, 0.7);
-      background:
-        linear-gradient(135deg, rgba(255, 0, 0, 0.24), rgba(8, 25, 36, 0.96) 58%),
-        linear-gradient(180deg, rgba(8, 25, 36, 0.96), rgba(4, 14, 23, 0.96));
-    }
-    .hp-youtube-tile .hp-discord-mark,
-    .hp-youtube-tile .hp-discord-cta {
-      background: #ff0000;
-    }
-    .hp-github-tile {
-      grid-column: 1 / -1;
-      border-color: rgba(148, 163, 184, 0.42);
-      background:
-        linear-gradient(135deg, rgba(148, 163, 184, 0.14), rgba(8, 25, 36, 0.94) 58%),
-        linear-gradient(180deg, rgba(8, 25, 36, 0.94), rgba(4, 14, 23, 0.94));
-    }
-    .hp-github-tile:hover {
-      border-color: rgba(148, 163, 184, 0.68);
-      background:
-        linear-gradient(135deg, rgba(148, 163, 184, 0.2), rgba(8, 25, 36, 0.96) 58%),
-        linear-gradient(180deg, rgba(8, 25, 36, 0.96), rgba(4, 14, 23, 0.96));
-    }
-    .hp-github-tile .hp-discord-mark,
-    .hp-github-tile .hp-discord-cta {
-      background: #24292f;
-    }
-
-    /* ── Project Cards ── */
-    .hp-projects-head {
-      margin-bottom: 18px;
-    }
-    .hp-project-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 20px;
-      margin-bottom: 28px;
-    }
-    .hp-project-card {
-      position: relative;
-      overflow: hidden;
-      padding: 28px;
-      border: 1px solid var(--panel-border);
-      border-radius: var(--radius-lg);
-      background: linear-gradient(180deg, rgba(11, 24, 42, 0.92), rgba(7, 16, 29, 0.92));
-      box-shadow: var(--shadow);
-      transition: border-color 200ms ease, transform 200ms ease;
-      animation: rise-in 500ms ease both;
-    }
-    .hp-project-card:hover {
-      border-color: rgba(88, 196, 255, 0.3);
-      transform: translateY(-3px);
-    }
-    .hp-project-card::after {
-      content: "";
-      position: absolute;
-      inset: auto -10% -40% auto;
-      width: 180px; height: 180px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(88, 196, 255, 0.1), transparent 68%);
-      pointer-events: none;
-    }
-    .f2d-banner {
-      min-height: 190px;
-      padding: 0;
-      border-color: rgba(52, 211, 153, 0.35);
-      background: linear-gradient(135deg, rgba(6, 31, 42, 0.95), rgba(4, 14, 26, 0.96));
-    }
-    .f2d-banner .tr-banner-inner {
-      min-height: 190px;
-      display: grid;
-      grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1.1fr);
-      gap: 0;
-      align-items: stretch;
-    }
-    .f2d-banner .tr-banner-text {
-      align-self: center;
-      padding: 18px 26px;
-    }
-    .f2d-banner .tr-banner-badge {
-      margin-bottom: 8px;
-      padding: 4px 10px;
-      font-size: 0.68rem;
-    }
-    .f2d-banner h2 {
-      margin-bottom: 6px;
-      font-size: clamp(1.35rem, 2.4vw, 1.75rem);
-    }
-    .f2d-banner p {
-      font-size: 0.92rem;
-      line-height: 1.42;
-    }
-    .f2d-banner .tr-banner-cta {
-      margin-top: 10px;
-      padding: 9px 18px;
-      font-size: 0.94rem;
-      background: linear-gradient(135deg, var(--success), #06b6d4);
-    }
-    .hp-card-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 12px;
-    }
-    .hp-card-header h3 {
-      font-size: 1.2rem;
-      margin: 0;
-    }
-    .hp-version {
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 0.78rem;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: rgba(88, 196, 255, 0.1);
-      color: var(--accent-strong);
-      white-space: nowrap;
-    }
-    .hp-status-line {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 8px;
-      margin: -2px 0 12px;
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 0.76rem;
-      color: var(--muted);
-    }
-    .hp-status-badge {
-      display: inline-flex;
-      align-items: center;
-      padding: 3px 8px;
-      border-radius: 999px;
-      border: 1px solid rgba(88, 196, 255, 0.26);
-      background: rgba(88, 196, 255, 0.08);
-      color: var(--accent-strong);
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-    .hp-status-badge.released {
-      border-color: rgba(52, 211, 153, 0.28);
-      background: rgba(52, 211, 153, 0.08);
-      color: var(--success);
-    }
-    .hp-status-badge.active {
-      border-color: rgba(245, 158, 11, 0.3);
-      background: rgba(245, 158, 11, 0.08);
-      color: #fbbf24;
-    }
-    .hp-status-badge.deprecated {
-      border-color: rgba(239, 68, 68, 0.36);
-      background: rgba(239, 68, 68, 0.1);
-      color: #f87171;
-    }
-    .hp-card-desc {
-      margin-bottom: 16px;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-    .hp-card-features {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 16px;
-    }
-    .hp-feature-tag {
-      display: inline-flex;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: rgba(52, 211, 153, 0.08);
-      border: 1px solid rgba(52, 211, 153, 0.2);
-      font-size: 0.82rem;
-      color: var(--success);
-    }
-    .hp-card-footer {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: auto;
-    }
-    .hp-card-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 8px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(132, 177, 255, 0.18);
-      background: rgba(88, 196, 255, 0.06);
-      color: var(--text);
-      font-size: 0.88rem;
-      font-weight: 500;
-      transition: background 160ms ease, border-color 160ms ease;
-    }
-    .hp-card-link:hover {
-      background: rgba(88, 196, 255, 0.14);
-      border-color: rgba(88, 196, 255, 0.35);
-    }
-    .hp-card-link.moddb {
-      border-color: rgba(239, 68, 68, 0.3);
-      background: rgba(239, 68, 68, 0.08);
-    }
-    .hp-card-link.moddb:hover {
-      background: rgba(239, 68, 68, 0.16);
-      border-color: rgba(239, 68, 68, 0.45);
-    }
-
-    /* ── Progress inline bar ── */
-    .hp-progress {
-      margin-top: 16px;
-    }
-    .hp-progress-head {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 6px;
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-    .hp-progress-bar {
-      height: 6px;
-      border-radius: 999px;
-      background: rgba(132, 177, 255, 0.16);
-      overflow: hidden;
-    }
-    .hp-progress-bar > span {
-      display: block;
-      height: 100%;
-      border-radius: inherit;
-      background: linear-gradient(90deg, #22c55e, #06b6d4);
-      transition: width 600ms ease;
-    }
-
-    /* ── Bottom Row: News + Upcoming ── */
-    .hp-bottom-grid {
-      display: grid;
-      grid-template-columns: 1.4fr 0.6fr;
-      gap: 20px;
-      margin-bottom: 28px;
-    }
-    .hp-bottom-card {
-      padding: 28px;
-      border: 1px solid var(--panel-border);
-      border-radius: var(--radius-lg);
-      background: linear-gradient(180deg, rgba(8, 25, 36, 0.94), rgba(4, 14, 23, 0.94));
-      box-shadow: var(--shadow);
-      animation: rise-in 560ms ease both;
-    }
-    .hp-tool-callout {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-      margin: 0 0 28px;
-      padding: 24px 28px;
-      border: 1px solid rgba(132, 177, 255, 0.18);
-      border-radius: var(--radius-lg);
-      background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(7, 16, 29, 0.92));
-      box-shadow: var(--shadow);
-      animation: rise-in 560ms ease both;
-    }
-    .hp-tool-callout h2 {
-      margin-bottom: 8px;
-    }
-    .hp-tool-callout p {
-      max-width: 68ch;
-    }
-    .hp-tool-callout .hp-card-link {
-      flex: 0 0 auto;
-      min-height: 42px;
-      padding: 0 18px;
-    }
-
-    html[data-theme="paper"] .tr-banner,
-    html[data-theme="paper"] .hp-intro,
-    html[data-theme="paper"] .hp-project-card,
-    html[data-theme="paper"] .hp-bottom-card,
-    html[data-theme="paper"] .hp-tool-callout {
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(245, 249, 254, 0.92));
-      border-color: var(--panel-border);
-      box-shadow: var(--shadow);
-    }
-
-    html[data-theme="paper"] .tr-banner:hover,
-    html[data-theme="paper"] .hp-project-card:hover {
-      border-color: rgba(0, 119, 182, 0.28);
-      box-shadow: 0 24px 70px rgba(37, 63, 93, 0.18);
-    }
-
-    html[data-theme="paper"] .tr-banner::before {
-      background: radial-gradient(circle, rgba(0, 119, 182, 0.12), transparent 65%);
-    }
-
-    html[data-theme="paper"] .tr-banner::after {
-      background: radial-gradient(circle, rgba(180, 83, 9, 0.1), transparent 65%);
-    }
-
-    html[data-theme="paper"] .hp-discord-tile {
-      background:
-        linear-gradient(135deg, rgba(88, 101, 242, 0.1), rgba(255, 255, 255, 0.94) 58%),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(245, 249, 254, 0.92));
-      box-shadow: var(--shadow);
-    }
-
-    html[data-theme="paper"] .hp-discord-tile:hover {
-      background:
-        linear-gradient(135deg, rgba(88, 101, 242, 0.16), rgba(255, 255, 255, 0.96) 58%),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(245, 249, 254, 0.94));
-    }
-
-    html[data-theme="paper"] .hp-youtube-tile {
-      background:
-        linear-gradient(135deg, rgba(220, 38, 38, 0.1), rgba(255, 255, 255, 0.94) 58%),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(245, 249, 254, 0.92));
-    }
-
-    html[data-theme="paper"] .hp-youtube-tile:hover {
-      background:
-        linear-gradient(135deg, rgba(220, 38, 38, 0.15), rgba(255, 255, 255, 0.96) 58%),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(245, 249, 254, 0.94));
-    }
-
-    html[data-theme="paper"] .hp-github-tile {
-      background:
-        linear-gradient(135deg, rgba(36, 41, 47, 0.08), rgba(255, 255, 255, 0.94) 58%),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(245, 249, 254, 0.92));
-    }
-
-    html[data-theme="paper"] .hp-github-tile:hover {
-      background:
-        linear-gradient(135deg, rgba(36, 41, 47, 0.13), rgba(255, 255, 255, 0.96) 58%),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(245, 249, 254, 0.94));
-    }
-
-    html[data-theme="paper"] .f2d-banner {
-      background: linear-gradient(135deg, rgba(236, 253, 245, 0.94), rgba(255, 255, 255, 0.94));
-    }
-
-    html[data-theme="paper"] .hp-project-card::after {
-      background: radial-gradient(circle, rgba(0, 119, 182, 0.1), transparent 68%);
-    }
-
-    html[data-theme="paper"] .hp-version,
-    html[data-theme="paper"] .hp-card-link,
-    html[data-theme="paper"] .hp-status-badge,
-    html[data-theme="paper"] .hp-feature-tag,
-    html[data-theme="paper"] .hp-progress-bar {
-      background-color: rgba(255, 255, 255, 0.72);
-      border-color: var(--panel-border);
-    }
-
-    html[data-theme="paper"] .hp-card-link:hover {
-      background: rgba(0, 119, 182, 0.1);
-      border-color: rgba(0, 119, 182, 0.24);
-    }
-
-    html[data-theme="paper"] .hp-card-link.moddb {
-      background: rgba(220, 38, 38, 0.08);
-      border-color: rgba(220, 38, 38, 0.22);
-    }
-
-    html[data-theme="paper"] .hp-card-link.moddb:hover {
-      background: rgba(220, 38, 38, 0.14);
-      border-color: rgba(220, 38, 38, 0.34);
-    }
-
-    html[data-theme="paper"] .hp-status-badge.active {
-      color: var(--accent-warm);
-    }
-
-    html[data-theme="paper"] .hp-status-badge.deprecated {
-      color: #b91c1c;
-    }
-
-    html[data-theme="paper"] .tr-banner-badge {
-      background: rgba(0, 119, 182, 0.08) !important;
-      border-color: rgba(0, 119, 182, 0.16) !important;
-    }
-
-    /* ── Responsive ── */
-    @media (max-width: 960px) {
-      .hp-project-grid { grid-template-columns: 1fr; }
-      .f2d-banner .tr-banner-inner { grid-template-columns: 1fr; }
-      .f2d-banner .tr-banner-text {
-        padding: 20px 20px 14px;
-        text-align: center;
-      }
-      .hp-tool-callout {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-      .hp-social-grid {
-        grid-template-columns: 1fr;
-      }
-      .hp-discord-tile {
-        grid-template-columns: 1fr;
-      }
-      .hp-discord-mark {
-        display: none;
-      }
-      .hp-bottom-grid { grid-template-columns: 1fr; }
-      .tr-banner-inner { flex-direction: column; text-align: center; }
-      .tr-banner-cta { align-self: center; }
-    }
-    @media (max-width: 640px) {
-      .tr-banner { padding: 28px 24px; }
-      .hp-intro { padding: 28px 24px; }
-      .hp-discord-tile { padding: 14px 16px; }
-      .hp-discord-cta { justify-content: center; width: 100%; }
-    }
-  </style>
+  <link rel="stylesheet" href="assets/css/portal-header.css">
   <link rel="stylesheet" href="assets/css/home-refresh.css">
 </head>
 <body class="home-dashboard">
-  <a class="skip-link" href="#main-content">Zum Inhalt springen</a>
+  <a class="skip-link" href="#main-content" data-en="Skip to content">Zum Inhalt springen</a>
   <div class="site-shell">
-    <header class="site-header">
-      <a class="brand" href="index.html">
-        <img class="brand-mark" src="assets/img/icons/flathack_icon.png" alt="" width="44" height="44">
-        <span class="brand-text">Flathack Projects</span>
-      </a>
-      <nav class="project-top-nav" aria-label="Projekt-Navigation"></nav>
+    <header class="portal-header">
+      <a class="portal-brand" href="index.html"><img src="assets/img/icons/flathack_icon.png" width="34" height="34" alt="">Flathack</a>
+      <nav class="project-top-nav home-nav" aria-label="Navigation">
+        <a href="#tools" data-en="Browser tools">Browser-Tools</a>
+        <a href="#projects" data-en="Projects">Projekte</a>
+        <a href="#community">Community</a>
+      </nav>
+      <div class="portal-actions"></div>
     </header>
-
     <main id="main-content">
-      <h1 class="visually-hidden">Flathack Freelancer Tools</h1>
-      <!-- ══════ UNIVERSE EXPLORER ══════ -->
-      <a class="tr-banner" href="docs/universe-viewer.html">
-        <div class="tr-banner-inner">
-          <div class="tr-banner-text">
-            <span class="tr-banner-badge"><span class="pulse-dot"></span> <span data-i18n="badge_online">Online-Tool</span></span>
-            <h2 data-i18n="banner_universe">Universe Explorer</h2>
-            <p data-i18n="banner_universe_desc">Interaktive SVG-Karte des Freelancer-Universums — Systeme, Sprungverbindungen, Planeten und Stationen. Für Hamburg City, Crossfire und mehr.</p>
-            <span class="tr-banner-cta"><span data-i18n="cta_explore">Erkunden</span> <span class="arrow">→</span></span>
-          </div>
-          <div class="tile-animation universe-animation" aria-hidden="true">
-            <svg viewBox="0 0 360 120" role="presentation">
-              <path class="mini-grid" d="M0 30H360M0 60H360M0 90H360M90 0V120M180 0V120M270 0V120"/>
-              <path class="universe-route" d="M25 91C82 21 134 104 190 59S281 26 337 49"/>
-              <circle cx="25" cy="91" r="5"/><circle cx="190" cy="59" r="6"/><circle cx="337" cy="49" r="5"/>
-              <path class="universe-ship" d="M0 -8L5 7L0 4L-5 7Z" transform="translate(235 37) rotate(52)"/>
-            </svg>
-            <small>SIGMA-13 // ROUTE LOCKED</small>
-          </div>
+      <section class="home-hero" aria-labelledby="hero-title">
+        <img class="hero-ship" src="assets/img/home/freelancer-ship.webp" alt="" width="800" height="286">
+        <div class="sirius-copy">
+          <h1 id="hero-title">Freelancer<br><em>Tools &amp; Mods</em></h1>
+          <p data-en="Explore Sirius, plan your next trade run and build your own mods with FLAtlas.">Erkunde den Sirius-Sektor, plane deinen nächsten Handelsflug und entwickle eigene Mods mit FLAtlas.</p>
+          <a class="hero-button" href="docs/universe-viewer.html"><span data-en="Open star map">Sternenkarte öffnen</span> <span aria-hidden="true">↗</span></a>
         </div>
-      </a>
-      <!-- ══════ FREELANCER 2D BANNER ══════ -->
-      <a class="tr-banner f2d-banner" href="https://flathack.github.io/Freelancer-2D/" target="_blank" rel="noopener">
-        <div class="tr-banner-inner">
-          <div class="tr-banner-text">
-            <span class="tr-banner-badge" style="background: rgba(52, 211, 153, 0.15); border-color: rgba(52, 211, 153, 0.3); color: var(--success);"><span class="pulse-dot" style="background: var(--success); box-shadow: 0 0 8px var(--success);"></span> <span data-i18n="badge_playable">GitHub Pages</span></span>
-            <h2>Freelancer 2D</h2>
-            <p data-i18n="f2d_desc">Spiele den Browser-Prototyp direkt über GitHub Pages. Der Quellcode und die weitere Entwicklung liegen im eigenen GitHub-Repository.</p>
-            <span class="tr-banner-cta"><span data-i18n="f2d_play">Spiel öffnen</span> <span class="arrow">↗</span></span>
-          </div>
-          <div class="tile-animation f2d-repo-preview" aria-hidden="true">
-            <span class="repo-mark">GH</span>
-            <span class="repo-branch">FLATHACK / FREELANCER-2D</span>
-            <span class="repo-line repo-line-a"></span>
-            <span class="repo-line repo-line-b"></span>
-            <span class="repo-node repo-node-a"></span>
-            <span class="repo-node repo-node-b"></span>
-            <small>LIVE BUILD // GITHUB PAGES</small>
-          </div>
+      </section>
+
+      <section id="tools" aria-labelledby="tools-title">
+        <h2 id="tools-title" data-en="Browser tools">Browser-Tools</h2>
+        <div class="tool-grid">
+          <a class="tool-card tool-map" href="docs/universe-viewer.html">
+            <span class="tool-icon" aria-hidden="true">&#xf278;</span>
+            <div>
+              <h3>Universe Explorer</h3>
+              <p data-en="Find systems, jump gates and bases on the star map.">Systeme, Sprungtore und Basen auf der Sternenkarte finden.</p>
+            </div>
+            <span class="tool-arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="tool-card tool-trade" href="docs/trade-routes.html">
+            <span class="tool-icon" aria-hidden="true">&#xf0ec;</span>
+            <div>
+              <h3>Trade Routes</h3>
+              <p data-en="Compare commodity prices and plan profitable trade routes.">Warenpreise vergleichen und profitable Handelsrouten planen.</p>
+            </div>
+            <span class="tool-arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="tool-card tool-ships" href="docs/ship-explorer.html">
+            <span class="tool-icon" aria-hidden="true">&#xf135;</span>
+            <div>
+              <h3 data-en="Ship Explorer">Schiff-Explorer</h3>
+              <p data-en="Compare armor, cargo capacity, prices and ship dealers.">Panzerung, Frachtraum, Preis und Händler vergleichen.</p>
+            </div>
+            <span class="tool-arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="tool-card tool-gear" href="docs/equipment-explorer.html">
+            <span class="tool-icon" aria-hidden="true">&#xf1de;</span>
+            <div>
+              <h3>Equipment Explorer</h3>
+              <p data-en="Find weapons, shields and equipment and see where to buy them.">Waffen, Schilde und Ausrüstung mit ihren Verkaufsorten finden.</p>
+            </div>
+            <span class="tool-arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="tool-card tool-rep" href="docs/rep-planner.html">
+            <span class="tool-icon" aria-hidden="true">&#xf0c0;</span>
+            <div>
+              <h3>Rep Planner</h3>
+              <p data-en="Choose factions and calculate how to reach your target reputation.">Fraktionen wählen und den Weg zum gewünschten Ruf berechnen.</p>
+            </div>
+            <span class="tool-arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="tool-card tool-game" href="https://flathack.github.io/Freelancer-2D/" target="_blank" rel="noopener">
+            <span class="tool-icon" aria-hidden="true">&#xf11b;</span>
+            <div>
+              <h3>Freelancer 2D</h3>
+              <p data-en="Play the 2D prototype with NPC traffic and trading in your browser.">Den 2D-Prototyp mit NPC-Verkehr und Handel im Browser spielen.</p>
+            </div>
+            <span class="tool-arrow" aria-hidden="true">↗</span>
+          </a>
         </div>
-      </a>
+      </section>
 
-      <!-- ══════ TRADE ROUTE BANNER ══════ -->
-      <a class="tr-banner" href="docs/trade-routes.html">
-        <div class="tr-banner-inner">
-          <div class="tr-banner-text">
-            <span class="tr-banner-badge"><span class="pulse-dot"></span> <span data-i18n="badge_online">Online-Tool</span></span>
-            <h2 data-i18n="banner_trade">Trade Route Calculator</h2>
-            <p data-i18n="banner_trade_desc">Finde die profitabelsten Handelsrouten in Freelancer — für Hamburg City, Crossfire und weitere Mods. Direkt im Browser.</p>
-            <span class="tr-banner-cta"><span data-i18n="cta_start">Jetzt starten</span> <span class="arrow">→</span></span>
-          </div>
-          <div class="tile-animation trade-animation" aria-hidden="true">
-            <span class="trade-node trade-node-a"></span><span class="trade-node trade-node-b"></span>
-            <span class="trade-route"></span><span class="trade-cargo">▰</span>
-            <small>NEW BERLIN</small><small>PLANET MANHATTAN</small>
-          </div>
+      <section id="projects" aria-labelledby="projects-title">
+        <h2 id="projects-title" data-en="Desktop projects">Desktop-Projekte</h2>
+        <div class="project-grid">
+          <!-- FL Atlas V2 -->
+          <article class="project-card">
+            <div class="project-heading">
+              <h3>FLAtlas Modding Suite</h3>
+              <span class="hp-version">v0.9.0</span>
+            </div>
+            <p class="release-note" data-en="v0.9.0 Beta released">v0.9.0 Beta veröffentlicht</p>
+            <p data-en="Build systems in 2D and 3D, simulate trade routes and edit infocards, NPCs and translations.">Systeme in 2D und 3D bauen, Handelsrouten simulieren und Infokarten, NPCs und Übersetzungen bearbeiten.</p>
+            <p class="project-status" data-en="In development · 83%">Entwicklung läuft · 83 %</p>
+            <div class="project-links">
+              <a href="https://github.com/flathack/FLAtlas-V2" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
+              <a href="https://www.moddb.com/games/freelancer/downloads/flatlas-v2-windows-2d3d-system-editor-idseditor-trade-data-npc" target="_blank" rel="noopener">ModDB <span aria-hidden="true">↗</span></a>
+              <a href="https://swat-portal.com/forum/thread/78454-a-cross-platform-system-editor-for-freelancer-written-in-python/" target="_blank" rel="noopener">Forum <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <!-- FL Atlas Savegame Editor -->
+          <article class="project-card">
+            <div class="project-heading">
+              <h3>FLAtlas Savegame Editor</h3>
+              <span class="hp-version">v0.9.3</span>
+            </div>
+            <p class="release-note">Beta</p>
+            <p data-en="Edit ships and reputation in single-player saves. The editor validates changes and creates backups.">Schiff und Ruf in Einzelspieler-Spielständen bearbeiten. Der Editor prüft Änderungen und legt Backups an.</p>
+            <p class="project-status" data-en="Development progress · 100%">Entwicklungsstand · 100 %</p>
+            <div class="project-links">
+              <a href="https://github.com/flathack/FLAtlas---Save-Game-Editor/releases/tag/v0.9.3" target="_blank" rel="noopener">Download <span aria-hidden="true">↗</span></a>
+              <a href="https://github.com/flathack/FLAtlas---Save-Game-Editor" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
+              <a href="https://www.moddb.com/games/freelancer/downloads/flatlas-savegame-editor" target="_blank" rel="noopener">ModDB <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <!-- FL Atlas Launcher -->
+          <article class="project-card">
+            <div class="project-heading">
+              <h3>FL Atlas Launcher</h3>
+              <span class="hp-version">v0.9.7</span>
+            </div>
+            <p class="release-note">Beta</p>
+            <p data-en="Manage multiple Freelancer installations and launch the mod you want to play.">Mehrere Freelancer-Installationen verwalten und direkt mit der gewünschten Mod starten.</p>
+            <p class="project-status" data-en="Development progress · 100%">Entwicklungsstand · 100 %</p>
+            <div class="project-links">
+              <a href="https://github.com/flathack/FL-Atlas-Launcher" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
+              <a href="https://www.moddb.com/games/freelancer/downloads/fl-atlas-a-freelancer-launcher" target="_blank" rel="noopener">ModDB <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <!-- FL-Lingo -->
+          <article class="project-card">
+            <div class="project-heading">
+              <h3>FL-Lingo</h3>
+              <span class="hp-version">v0.2.2</span>
+            </div>
+            <p class="release-note" data-en="Deprecated">Veraltet</p>
+            <p data-en="Former translation editor for Freelancer. Translation tools are now developed in FLAtlas.">Früherer Übersetzungseditor für Freelancer. Die Übersetzungsfunktionen werden in FLAtlas weiterentwickelt.</p>
+            <p class="project-status" data-en="Final development progress · 100%">Letzter Entwicklungsstand · 100 %</p>
+            <div class="project-links">
+              <a href="https://github.com/flathack/FLAtlas-V2" target="_blank" rel="noopener">FLAtlas <span aria-hidden="true">↗</span></a>
+              <a href="https://github.com/flathack/FL-Lingo" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
         </div>
-      </a>
-
-      <!-- ══════ SHIP EXPLORER BANNER ══════ -->
-      <a class="tr-banner" href="docs/ship-explorer.html" style="border-color: rgba(245, 158, 11, 0.35); animation-delay: 120ms;">
-        <div class="tr-banner-inner">
-          <div class="tr-banner-text">
-            <span class="tr-banner-badge" style="background: rgba(245, 158, 11, 0.15); border-color: rgba(245, 158, 11, 0.3); color: var(--accent-warm);"><span class="pulse-dot" style="background: var(--accent-warm); box-shadow: 0 0 8px var(--accent-warm);"></span> <span data-i18n="badge_online">Online-Tool</span></span>
-            <h2 data-i18n="banner_ships">Schiff-Explorer</h2>
-            <p data-i18n="banner_ships_desc">Alle Schiffe auf einen Blick — mit Armor, Cargo, Agilität, Preis und Kauforten. Für Hamburg City, Crossfire und mehr.</p>
-            <span class="tr-banner-cta"><span data-i18n="cta_explore">Erkunden</span> <span class="arrow">→</span></span>
-          </div>
-          <div class="tile-animation ship-animation" aria-hidden="true">
-            <span class="radar-ring radar-ring-a"></span><span class="radar-ring radar-ring-b"></span>
-            <span class="radar-sweep"></span><span class="radar-ship">▲</span>
-            <small>SHIP ID // HF-07</small>
-          </div>
-        </div>
-      </a>
-
-      <!-- ══════ REP PLANNER BANNER ══════ -->
-      <a class="tr-banner" href="docs/rep-planner.html" style="border-color: rgba(168, 85, 247, 0.35); animation-delay: 360ms;">
-        <div class="tr-banner-inner">
-          <div class="tr-banner-text">
-            <span class="tr-banner-badge" style="background: rgba(168, 85, 247, 0.15); border-color: rgba(168, 85, 247, 0.3); color: #a855f7;"><span class="pulse-dot" style="background: #a855f7; box-shadow: 0 0 8px #a855f7;"></span> <span data-i18n="badge_online">Online-Tool</span></span>
-            <h2 data-i18n="banner_rep">Rep Planner</h2>
-            <p data-i18n="banner_rep_desc">Plane deine Fraktionsreputation in Freelancer — gib deinen Wunsch-Ruf ein und erhalte eine optimale Abschuss-Reihenfolge. Für Hamburg City, Crossfire und mehr.</p>
-            <span class="tr-banner-cta"><span data-i18n="cta_plan">Planen</span> <span class="arrow">→</span></span>
-          </div>
-          <div class="tile-animation rep-animation" aria-hidden="true">
-            <svg viewBox="0 0 360 120" role="presentation">
-              <path d="M58 64L142 28L225 78L307 38M142 28L225 78M58 64L225 78"/>
-              <circle class="rep-node ally" cx="58" cy="64" r="10"/><circle class="rep-node neutral" cx="142" cy="28" r="9"/>
-              <circle class="rep-node hostile" cx="225" cy="78" r="11"/><circle class="rep-node ally" cx="307" cy="38" r="8"/>
-            </svg>
-            <small>ALLY +0.82 // HOSTILE −0.64</small>
-          </div>
-        </div>
-      </a>
-
-      <!-- ══════ EQUIPMENT EXPLORER BANNER ══════ -->
-      <a class="tr-banner" href="docs/equipment-explorer.html" style="border-color: rgba(244, 114, 182, 0.35); animation-delay: 480ms;">
-        <div class="tr-banner-inner">
-          <div class="tr-banner-text">
-            <span class="tr-banner-badge" style="background: rgba(244, 114, 182, 0.15); border-color: rgba(244, 114, 182, 0.32); color: #f9a8d4;"><span class="pulse-dot" style="background: #f472b6; box-shadow: 0 0 8px #f472b6;"></span> <span data-i18n="badge_online">Online-Tool</span></span>
-            <h2 data-i18n="banner_equipment">Equipment Explorer</h2>
-            <p data-i18n="banner_equipment_desc">Durchsuche kaufbare Ausrüstung in Freelancer — Waffen, Schilde, Scanner, Raketen, Minen und mehr mit Preis und Verkaufsorten. Für Hamburg City, Crossfire und mehr.</p>
-            <span class="tr-banner-cta"><span data-i18n="cta_browse">Durchsuchen</span> <span class="arrow">→</span></span>
-          </div>
-          <div class="tile-animation equipment-animation" aria-hidden="true">
-            <span class="equipment-scan"></span>
-            <i style="--x:14%;--y:28%;--s:18px"></i><i style="--x:43%;--y:56%;--s:10px"></i>
-            <i style="--x:72%;--y:24%;--s:14px"></i><i style="--x:84%;--y:67%;--s:8px"></i>
-            <small>LOADOUT SCAN // 148 ITEMS</small>
-          </div>
-        </div>
-      </a>
-
-      <!-- ══════ PROJECTS ══════ -->
-      <div class="hp-projects-head" id="projects">
-        <p class="eyebrow" data-i18n="eyebrow_projects">Projekte</p>
-        <h2 data-i18n="projects_title">Ausgewählte Builds</h2>
-      </div>
-      <div class="hp-project-grid">
-
-        <!-- FL Atlas V2 -->
-        <article class="hp-project-card">
-          <div class="hp-card-header">
-            <h3>FLAtlas - Freelancer Modding Suite</h3>
-            <span class="hp-version">v0.9.0</span>
-          </div>
-          <div class="hp-status-line">
-            <span class="hp-status-badge released" data-i18n="status_released">Released</span>
-            <span class="hp-status-badge active" data-i18n="status_in_progress">In Progress</span>
-            <span data-i18n="atlas_status">v0.9.0 Beta veröffentlicht</span>
-          </div>
-          <p class="hp-card-desc" data-i18n="atlas_desc">Umfassender visueller Mod-Editor für Freelancer: Universe-Map, System-Editor (2D/3D), Flight-Mode, Trade-Routes, Name/Infocard-Editor, INI-Editor und NPC/Rumor/News-Editor.</p>
-          <div class="hp-card-features">
-            <span class="hp-feature-tag">2D/3D Editor</span>
-            <span class="hp-feature-tag">Trade Routes</span>
-            <span class="hp-feature-tag">File Explorer</span>
-            <span class="hp-feature-tag">NPC,Rumor,News Editor</span>
-            <span class="hp-feature-tag">Simulationmodes</span>
-          </div>
-          <div class="hp-progress">
-            <div class="hp-progress-head"><span data-i18n="progress">Fortschritt</span><span>83 %</span></div>
-            <div class="hp-progress-bar"><span style="width:83%"></span></div>
-          </div>
-          <div class="hp-card-footer">
-            <a class="hp-card-link" target="_blank" href="https://swat-portal.com/forum/thread/78454-a-cross-platform-system-editor-for-freelancer-written-in-python/" data-i18n="atlas_track">Projektentwicklung verfolgen</a>
-            <a class="hp-card-link" href="https://github.com/flathack/FLAtlas-V2" target="_blank" rel="noopener">GitHub</a>
-            <a class="hp-card-link moddb" href="https://www.moddb.com/games/freelancer/downloads/flatlas-v2-windows-2d3d-system-editor-idseditor-trade-data-npc" target="_blank" rel="noopener">ModDB</a>
-          </div>
-        </article>
-
-        <!-- FL Atlas Savegame Editor -->
-        <article class="hp-project-card">
-          <div class="hp-card-header">
-            <h3>FL Atlas — Savegame Editor</h3>
-            <span class="hp-version">v0.9.3</span>
-          </div>
-          <div class="hp-status-line">
-            <span class="hp-status-badge released" data-i18n="status_released">Released</span>
-            <span data-i18n="savegame_status">Aktuelles Beta-Release, Wartung und Kompatibilität</span>
-          </div>
-          <p class="hp-card-desc" data-i18n="savegame_desc">Standalone-Editor für Freelancer Singleplayer-Savegames. Sicheres Bearbeiten mit Inspektion, gezielter Modifikation, Validierung und automatischem Backup.</p>
-          <div class="hp-card-features">
-            <span class="hp-feature-tag">Ship Editor</span>
-            <span class="hp-feature-tag">Reputation</span>
-            <span class="hp-feature-tag">Locked Gates</span>
-            <span class="hp-feature-tag">Backup</span>
-            <span class="hp-feature-tag" data-i18n="tag_5lang">5 Sprachen</span>
-          </div>
-          <div class="hp-progress">
-            <div class="hp-progress-head"><span data-i18n="progress">Fortschritt</span><span>100 %</span></div>
-            <div class="hp-progress-bar"><span style="width:100%"></span></div>
-          </div>
-          <div class="hp-card-footer">
-            <a class="hp-card-link" href="https://github.com/flathack/FLAtlas---Save-Game-Editor" target="_blank" rel="noopener">GitHub</a>
-            <a class="hp-card-link" href="https://github.com/flathack/FLAtlas---Save-Game-Editor/releases/tag/v0.9.3" target="_blank" rel="noopener">Download</a>
-            <a class="hp-card-link moddb" href="https://www.moddb.com/games/freelancer/downloads/flatlas-savegame-editor" target="_blank" rel="noopener">ModDB</a>
-          </div>
-        </article>
-
-        <!-- FL-Lingo -->
-        <article class="hp-project-card">
-          <div class="hp-card-header">
-            <h3 data-i18n="lingo_title">FL-Lingo — Übersetzer</h3>
-            <span class="hp-version">v0.2.2</span>
-          </div>
-          <div class="hp-status-line">
-            <span class="hp-status-badge deprecated" data-i18n="status_deprecated">Veraltet</span>
-            <span data-i18n="lingo_status">App ist veraltet - bitte FLAtlas-V2 für Übersetzungen nutzen</span>
-          </div>
-          <p class="hp-card-desc" data-i18n="lingo_desc">FL-Lingo ist veraltet. Für aktuelle Freelancer-Übersetzungen soll stattdessen FLAtlas-V2 genutzt werden; dort werden die Übersetzungsfunktionen weitergeführt.</p>
-          <div class="hp-card-features">
-            <span class="hp-feature-tag">Simple Mode</span>
-            <span class="hp-feature-tag">Expert Mode</span>
-            <span class="hp-feature-tag" data-i18n="tag_terminology">Terminologie</span>
-            <span class="hp-feature-tag">Auto-Backup</span>
-            <span class="hp-feature-tag" data-i18n="tag_100lang">100 Sprachen</span>
-          </div>
-          <div class="hp-progress">
-            <div class="hp-progress-head"><span data-i18n="progress">Fortschritt</span><span>100 %</span></div>
-            <div class="hp-progress-bar"><span style="width:100%"></span></div>
-          </div>
-          <div class="hp-card-footer">
-            <a class="hp-card-link" href="https://github.com/flathack/FLAtlas-V2" target="_blank" rel="noopener" data-i18n="lingo_use_atlas">FLAtlas-V2 nutzen</a>
-            <a class="hp-card-link" href="https://github.com/flathack/FL-Lingo" target="_blank" rel="noopener">GitHub</a>
-          </div>
-        </article>
-
-              <!-- FL-Launcher -->
-        <article class="hp-project-card">
-          <div class="hp-card-header">
-            <h3>FL Atlas Launcher</h3>
-            <span class="hp-version">v0.9.7</span>
-          </div>
-          <div class="hp-status-line">
-            <span class="hp-status-badge released" data-i18n="status_released">Released</span>
-            <span data-i18n="launcher_status">Produktiv nutzbar, Mod-Verwaltung komplett</span>
-          </div>
-          <p class="hp-card-desc" data-i18n="launcher_desc">Startprogramm für Freelancer-Mods. Ermöglicht das einfache Starten und Verwalten von Mod-Installationen.</p>
-          <div class="hp-card-features">
-            <span class="hp-feature-tag">Manage Multiple Installs</span>
-            <span class="hp-feature-tag">Trade Route and Ship Viewer</span>
-            <span class="hp-feature-tag">Auto-Backup via NAS</span>
-          </div>
-          <div class="hp-progress">
-            <div class="hp-progress-head"><span data-i18n="progress">Fortschritt</span><span>100 %</span></div>
-            <div class="hp-progress-bar"><span style="width:100%"></span></div>
-          </div>
-          <div class="hp-card-footer">
-            <a class="hp-card-link" href="https://github.com/flathack/FL-Atlas-Launcher" target="_blank" rel="noopener">GitHub</a>
-           <a class="hp-card-link moddb" href="https://www.moddb.com/games/freelancer/downloads/fl-atlas-a-freelancer-launcher" target="_blank" rel="noopener">ModDB</a>
-          </div>
-        </article>
-      </div>
-
-      <div class="hp-social-grid" aria-label="Community-Links">
-        <a class="hp-discord-tile" href="https://discord.gg/fY9qweRWG" target="_blank" rel="noopener">
-          <div class="hp-discord-mark" aria-hidden="true">DC</div>
-          <div class="hp-discord-copy">
-            <p class="eyebrow" data-i18n="discord_eyebrow">Community</p>
-            <h2 data-i18n="discord_title">Discord</h2>
-            <p data-i18n="discord_desc">Diskutiere FLAtlas, Freelancer-Modding und neue Tools direkt mit der Community.</p>
-          </div>
-          <span class="hp-discord-cta"><span data-i18n="discord_join">Discord beitreten</span> <span class="arrow">→</span></span>
-        </a>
-        <a class="hp-discord-tile hp-youtube-tile" href="https://www.youtube.com/@aldenmarodin-flathack" target="_blank" rel="noopener">
-          <div class="hp-discord-mark" aria-hidden="true">YT</div>
-          <div class="hp-discord-copy">
-            <p class="eyebrow" data-i18n="youtube_eyebrow">Videos</p>
-            <h2 data-i18n="youtube_title">YouTube</h2>
-            <p data-i18n="youtube_desc">Demos, Tool-Updates und Freelancer-Modding-Videos auf dem Kanal.</p>
-          </div>
-          <span class="hp-discord-cta"><span data-i18n="youtube_open">Kanal öffnen</span> <span class="arrow">→</span></span>
-        </a>
-        <a class="hp-discord-tile hp-github-tile" href="https://github.com/flathack" target="_blank" rel="noopener">
-          <div class="hp-discord-mark" aria-hidden="true">GH</div>
-          <div class="hp-discord-copy">
-            <p class="eyebrow" data-i18n="github_eyebrow">Code</p>
-            <h2 data-i18n="github_title">GitHub</h2>
-            <p data-i18n="github_desc">Öffentliche Repositories, Releases und Quellcode der Projekte.</p>
-          </div>
-          <span class="hp-discord-cta"><span data-i18n="github_open">GitHub öffnen</span> <span class="arrow">→</span></span>
-        </a>
-      </div>
-
-      <footer class="page-footer">
-        &copy; 2026 Flathack Projects · <a href="help/index.html">Help Center</a>
-      </footer>
+      </section>
     </main>
+
+    <footer id="community">
+      <h2>Community</h2>
+      <div class="community-links">
+        <a href="https://discord.gg/fY9qweRWG" target="_blank" rel="noopener">Discord ↗</a>
+        <a href="https://www.youtube.com/@aldenmarodin-flathack" target="_blank" rel="noopener">YouTube ↗</a>
+        <a href="https://github.com/flathack" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="docs/forum-signature-progress.html" data-en="Forum signatures">Forum-Signaturen</a>
+        <a href="help/index.html" data-en="Help center">Hilfe</a>
+      </div>
+      <small>© 2026 Flathack Projects</small>
+    </footer>
   </div>
-  <script>
-    /* ── i18n ──────────────────────────────────────────── */
-    const I18N = {
-      de: {
-        hero_eyebrow: 'Freelancer Modding · Open Source',
-        hero_title: 'Werkzeuge für ein Universum, das weiterlebt.',
-        hero_desc: 'Flathack entwickelt freie Editoren, Karten und Browser-Tools für Freelancer-Modder, Piloten und Server-Communities.',
-        hero_primary: 'Universum öffnen',
-        hero_secondary: 'Projekte ansehen',
-        hero_stat_tools: 'Browser-Tools',
-        hero_stat_license: 'Open Source',
-        hero_stat_mods: 'Mod-Datensätze',
-        badge_online: 'Online-Tool',
-        badge_playable: 'GitHub Pages',
-        discord_eyebrow: 'Community',
-        discord_title: 'Discord',
-        discord_desc: 'Diskutiere FLAtlas, Freelancer-Modding und neue Tools direkt mit der Community.',
-        discord_join: 'Discord beitreten',
-        youtube_eyebrow: 'Videos',
-        youtube_title: 'YouTube',
-        youtube_desc: 'Demos, Tool-Updates und Freelancer-Modding-Videos auf dem Kanal.',
-        youtube_open: 'Kanal öffnen',
-        github_eyebrow: 'Code',
-        github_title: 'GitHub',
-        github_desc: 'Öffentliche Repositories, Releases und Quellcode der Projekte.',
-        github_open: 'GitHub öffnen',
-        banner_trade: 'Trade Route Calculator',
-        banner_trade_desc: 'Finde die profitabelsten Handelsrouten in Freelancer — für Hamburg City, Crossfire und weitere Mods. Direkt im Browser.',
-        cta_start: 'Jetzt starten',
-        banner_ships: 'Schiff-Explorer',
-        banner_ships_desc: 'Alle Schiffe auf einen Blick — mit Armor, Cargo, Agilität, Preis und Kauforten. Für Hamburg City, Crossfire und mehr.',
-        cta_explore: 'Erkunden',
-        banner_universe: 'Universe Explorer',
-        banner_universe_desc: 'Interaktive SVG-Karte des Freelancer-Universums — Systeme, Sprungverbindungen, Planeten und Stationen. Für Hamburg City, Crossfire und mehr.',
-        banner_rep: 'Rep Planner',
-        banner_rep_desc: 'Plane deine Fraktionsreputation in Freelancer — gib deinen Wunsch-Ruf ein und erhalte eine optimale Abschuss-Reihenfolge. Für Hamburg City, Crossfire und mehr.',
-        banner_equipment: 'Equipment Explorer',
-        banner_equipment_desc: 'Durchsuche kaufbare Ausrüstung in Freelancer — Waffen, Schilde, Scanner, Raketen, Minen und mehr mit Preis und Verkaufsorten. Für Hamburg City, Crossfire und mehr.',
-        cta_plan: 'Planen',
-        cta_browse: 'Durchsuchen',
-        eyebrow_tools: 'Freelancer Modding Tools',
-        intro_title: 'MIT-lizenzierte Tools für die Freelancer-Community',
-        eyebrow_projects: 'Projekte',
-        projects_title: 'Ausgewählte Builds',
-        eyebrow_other_tools: 'Weitere Tools',
-        atlas_desc: 'Umfassender visueller Mod-Editor für Freelancer: Universe-Map, System-Editor (2D/3D), Flight-Mode, Trade-Routes, Name/Infocard-Editor, INI-Editor und NPC/Rumor/News-Editor.',
-        status_released: 'Released',
-        status_deprecated: 'Veraltet',
-        status_in_progress: 'In Arbeit',
-        atlas_status: 'v0.9.0 Beta veröffentlicht',
-        progress: 'Fortschritt',
-        atlas_track: 'Projektentwicklung verfolgen',
-        savegame_desc: 'Standalone-Editor für Freelancer Singleplayer-Savegames. Sicheres Bearbeiten mit Inspektion, gezielter Modifikation, Validierung und automatischem Backup.',
-        savegame_status: 'Aktuelles Beta-Release, Wartung und Kompatibilität',
-        tag_5lang: '5 Sprachen',
-        lingo_title: 'FL-Lingo — Übersetzer',
-        lingo_desc: 'FL-Lingo ist veraltet. Für aktuelle Freelancer-Übersetzungen soll stattdessen FLAtlas-V2 genutzt werden; dort werden die Übersetzungsfunktionen weitergeführt.',
-        lingo_status: 'App ist veraltet - bitte FLAtlas-V2 für Übersetzungen nutzen',
-        lingo_use_atlas: 'FLAtlas-V2 nutzen',
-        tag_terminology: 'Terminologie',
-        tag_100lang: '100 Sprachen',
-        launcher_status: 'Aktuelles Beta-Release, Mod-Verwaltung komplett',
-        launcher_desc: 'Startprogramm für Freelancer-Mods. Ermöglicht das einfache Starten und Verwalten von Mod-Installationen.',
-        f2d_status: 'NPC-Verkehr, Handel und Patrouillen-Simulation',
-        f2d_desc: 'Spiele den Browser-Prototyp direkt über GitHub Pages. Der Quellcode und die weitere Entwicklung liegen im eigenen GitHub-Repository.',
-        f2d_play: 'Spiel öffnen',
-        project_page: 'Projektseite',
-      },
-      en: {
-        hero_eyebrow: 'Freelancer Modding · Open Source',
-        hero_title: 'Tools for a universe that keeps evolving.',
-        hero_desc: 'Flathack builds free editors, maps, and browser tools for Freelancer modders, pilots, and server communities.',
-        hero_primary: 'Open universe',
-        hero_secondary: 'Explore projects',
-        hero_stat_tools: 'Browser tools',
-        hero_stat_license: 'Open source',
-        hero_stat_mods: 'Mod datasets',
-        badge_online: 'Online Tool',
-        badge_playable: 'GitHub Pages',
-        discord_eyebrow: 'Community',
-        discord_title: 'Discord',
-        discord_desc: 'Discuss FLAtlas, Freelancer modding, and new tools directly with the community.',
-        discord_join: 'Join Discord',
-        youtube_eyebrow: 'Videos',
-        youtube_title: 'YouTube',
-        youtube_desc: 'Demos, tool updates, and Freelancer modding videos on the channel.',
-        youtube_open: 'Open channel',
-        github_eyebrow: 'Code',
-        github_title: 'GitHub',
-        github_desc: 'Public repositories, releases, and source code for the projects.',
-        github_open: 'Open GitHub',
-        banner_trade: 'Trade Route Calculator',
-        banner_trade_desc: 'Find the most profitable trade routes in Freelancer — for Hamburg City, Crossfire, and more mods. Right in your browser.',
-        cta_start: 'Get started',
-        banner_ships: 'Ship Explorer',
-        banner_ships_desc: 'All ships at a glance — armor, cargo, agility, price, and purchase locations. For Hamburg City, Crossfire, and more.',
-        cta_explore: 'Explore',
-        banner_universe: 'Universe Explorer',
-        banner_universe_desc: 'Interactive SVG map of the Freelancer universe — systems, jump connections, planets, and stations. For Hamburg City, Crossfire, and more.',
-        banner_rep: 'Rep Planner',
-        banner_rep_desc: 'Plan your faction reputation in Freelancer — enter your desired rep and get an optimal kill sequence. For Hamburg City, Crossfire, and more.',
-        banner_equipment: 'Equipment Explorer',
-        banner_equipment_desc: 'Browse purchasable Freelancer equipment — weapons, shields, scanners, missiles, mines, and more with prices and sale locations. For Hamburg City, Crossfire, and more.',
-        cta_plan: 'Plan',
-        cta_browse: 'Browse',
-        eyebrow_tools: 'Freelancer Modding Tools',
-        intro_title: 'Tools for the Freelancer Community',
-        eyebrow_projects: 'Projects',
-        projects_title: 'Selected builds',
-        eyebrow_other_tools: 'More Tools',
-        atlas_desc: 'Comprehensive visual mod editor for Freelancer: Universe Map, System Editor (2D/3D), Flight Mode, Trade Routes, Name/Infocard Editor, INI Editor, and NPC/Rumor/News Editor.',
-        status_released: 'Released',
-        status_deprecated: 'Outdated',
-        status_in_progress: 'In Progress',
-        atlas_status: 'v0.9.0 Beta released',
-        progress: 'Progress',
-        atlas_track: 'Follow project development',
-        savegame_desc: 'Standalone editor for Freelancer single-player savegames. Safe editing with inspection, targeted modification, validation, and automatic backup.',
-        savegame_status: 'Current beta release, maintenance and compatibility',
-        tag_5lang: '5 Languages',
-        lingo_title: 'FL-Lingo — Translator',
-        lingo_desc: 'FL-Lingo is outdated. Use FLAtlas-V2 for current Freelancer translations instead; translation features continue there.',
-        lingo_status: 'App is outdated - use FLAtlas-V2 for translations',
-        lingo_use_atlas: 'Use FLAtlas-V2',
-        tag_terminology: 'Terminology',
-        tag_100lang: '100 Languages',
-        launcher_status: 'Current beta release, mod management complete',
-        launcher_desc: 'Launcher for Freelancer mods. Makes it easy to start and manage mod installations.',
-        f2d_status: 'NPC traffic, trading and patrol simulation',
-        f2d_desc: 'Play the browser prototype directly on GitHub Pages. Source code and ongoing development live in the dedicated GitHub repository.',
-        f2d_play: 'Open game',
-        project_page: 'Project page',
-      }
-    };
-
-    let lang = (function() { try { return sessionStorage.getItem('flathack-lang') || 'en'; } catch(e) { return 'en'; } })();
-    function t(key) { return (I18N[lang] || I18N.de)[key] || key; }
-
-    function applyLang() {
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        el.textContent = t(el.dataset.i18n);
-      });
-    }
-
-    window.addEventListener('lang-change', e => {
-      if (e.detail && e.detail.lang && e.detail.lang !== lang) {
-        lang = e.detail.lang;
-        applyLang();
-      }
-    });
-
-    if (lang !== 'de') applyLang();
-  </script>
-  <script src="assets/js/nav.js?v=2026-08-29-f2d-pages"></script>
   <script src="assets/js/home.js"></script>
+  <script src="assets/js/nav.js"></script>
 </body>
 </html>

@@ -1032,31 +1032,35 @@
     }
   </style>
   <link rel="stylesheet" href="../assets/css/console-refresh.css">
+  <link rel="stylesheet" href="../assets/css/portal-header.css">
+  <link rel="stylesheet" href="../assets/css/tool-workspace.css">
 </head>
-<body class="gaming-theme console-page">
+<body class="gaming-theme console-page tool-workspace">
   <div class="site-shell">
-    <header class="site-header">
-      <a class="brand" href="../index.html">
-        <img class="brand-mark" src="../assets/img/icons/flathack_icon.png" alt="" width="44" height="44">
-        <span class="brand-text">Flathack Projects</span>
-      </a>
-      <nav class="project-top-nav" aria-label="Projekt-Navigation"></nav>
+    <header class="portal-header">
+      <a class="portal-brand" href="../index.html"><img src="../assets/img/icons/flathack_icon.png" alt="" width="34" height="34">Flathack</a>
+      <nav class="project-top-nav" aria-label="Tools"><a href="../index.html#tools">Tools</a></nav>
+      <div class="portal-actions"></div>
     </header>
 
     <main>
-      <div class="tr-page-heading" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
+      <header class="workspace-intro">
+        <span class="workspace-icon" aria-hidden="true">&#xf0ec;</span>
         <div>
-          <h2 style="margin: 0 0 2px;" data-i18n="title">Handelsrouten-Rechner</h2>
-          <p style="color: var(--muted); margin: 0; font-size: 0.88rem;" data-i18n="intro">Finde die profitabelsten Handelsrouten über alle Systeme.</p>
+          <h1 data-i18n="title">Handelsrouten-Rechner</h1>
+          <p data-i18n="intro">Finde die profitabelsten Handelsrouten über alle Systeme.</p>
         </div>
-        <div class="tr-lang-toggle" id="lang-toggle">
-          <button class="tr-lang-btn active" data-lang="de">DE</button>
-          <button class="tr-lang-btn" data-lang="en">EN</button>
-        </div>
-      </div>
+      </header>
 
       <!-- Controls -->
       <section class="page-section tr-controls-section" style="margin-bottom: 14px;">
+        <div class="tr-tabs">
+          <button class="tr-tab active" data-mode="system" data-i18n="tab_system">Handelsrouten</button>
+          <button class="tr-tab" data-mode="base" data-i18n="tab_base">Aktuelle Basis</button>
+          <button class="tr-tab" data-mode="loop" data-i18n="tab_loop">Rundkurs</button>
+          <button class="tr-tab" data-mode="pods" data-i18n="tab_pods" style="display:none;">Markt-Items</button>
+          <button class="tr-tab" data-mode="journey" data-i18n="tab_journey">Reiseroute</button>
+        </div>
         <div class="tr-controls">
           <div class="tr-field tr-calendar-field">
             <label for="dataset-calendar-toggle" data-i18n="lbl_dataset">Preisdaten</label>
@@ -1152,14 +1156,6 @@
           </div>
           <div class="tr-reboot-note" id="reboot-note"></div>
           <div class="tr-reboot-message" id="reboot-message"></div>
-        </div>
-
-        <div class="tr-tabs">
-          <button class="tr-tab active" data-mode="system" data-i18n="tab_system">Handelsrouten</button>
-          <button class="tr-tab" data-mode="base" data-i18n="tab_base">Aktuelle Basis</button>
-          <button class="tr-tab" data-mode="loop" data-i18n="tab_loop">Rundkurs</button>
-          <button class="tr-tab" data-mode="pods" data-i18n="tab_pods" style="display:none;">Markt-Items</button>
-          <button class="tr-tab" data-mode="journey" data-i18n="tab_journey">Reiseroute</button>
         </div>
       </section>
 
@@ -1257,7 +1253,7 @@
         lbl_tl_only: 'Nur Trade-Lane-Basen',
         lbl_return_flight: 'Rückflug einberechnen',
         btn_calc: 'Berechnen',
-        tab_system: 'Handelsrouten', tab_base: 'Aktuelle Basis', tab_loop: 'Rundkurs', tab_pods: 'Markt-Items', tab_journey: 'Trade Along Route',
+        tab_system: 'Handelsrouten', tab_base: 'Aktuelle Basis', tab_loop: 'Rundkurs', tab_pods: 'Markt-Items', tab_journey: 'Handel entlang der Route',
         search_placeholder: 'Routen durchsuchen...',
         loading: 'Routen werden berechnet...',
         dataset_default: 'Standard',
@@ -1573,9 +1569,6 @@
         el.textContent = t(el.dataset.i18n);
       });
       searchInput.placeholder = t('search_placeholder');
-      document.querySelectorAll('.tr-lang-btn').forEach(b => {
-        b.classList.toggle('active', b.dataset.lang === lang);
-      });
       if (tradePayload) {
         populateDatasetOptions();
         applyDataset(selectedDatasetId);
@@ -1600,6 +1593,8 @@
 
     /* ── State ─────────────────────────────────────────── */
     let engine = null;
+    let modLoadSequence = 0;
+    let calculationTimer;
     let tradePayload = null;
     let datasetMap = Object.create(null);
     let selectedDatasetId = '';
@@ -2594,6 +2589,8 @@
 
     /* ── Mod Loading ───────────────────────────────────── */
     async function loadMod(modId) {
+      const request = ++modLoadSequence;
+      clearTimeout(calculationTimer);
       currentModId = modId;
       engine = null;
       tradePayload = null;
@@ -2612,40 +2609,48 @@
       try {
         const resp = await fetch('../data/trade-routes/' + modId + '.json');
         if (!resp.ok) throw new Error('HTTP ' + resp.status);
-        tradePayload = normalizeTradePayload(await resp.json());
-        datasetMap = tradePayload.datasets || Object.create(null);
+        const payload = normalizeTradePayload(await resp.json());
+        const factions = Object.create(null);
+        let history = null;
         try {
           const repResp = await fetch('../data/reputation/' + modId + '.json');
           if (repResp.ok) {
             const repData = await repResp.json();
             for (const faction of (repData.factions || [])) {
-              if (faction && faction.nick) factionNames[faction.nick] = faction;
+              if (faction && faction.nick) factions[faction.nick] = faction;
             }
           }
         } catch (e) {}
         try {
           const historyResp = await fetch('../data/price-pattern/' + modId + '-cycle.json');
           if (historyResp.ok) {
-            patternHistory = normalizePatternHistory(await historyResp.json());
+            history = normalizePatternHistory(await historyResp.json());
           }
         } catch (e) {}
 
+        if (request !== modLoadSequence) return;
+        tradePayload = payload;
+        datasetMap = payload.datasets || Object.create(null);
+        factionNames = factions;
+        patternHistory = history;
         populateDatasetOptions();
         applyDataset(selectedDatasetId);
         updateModeTabs();
         shouldAutoCalculate = !!engine;
       } catch (err) {
+        if (request !== modLoadSequence) return;
         tableBody.innerHTML = '<tr><td colspan="99" class="tr-empty">' + escHtml(t('load_fail')) +
           escHtml(err.message) + '</td></tr>';
         resultsSection.style.display = '';
       } finally {
-        loading.style.display = 'none';
+        if (request === modLoadSequence) loading.style.display = 'none';
       }
       if (shouldAutoCalculate) calculate();
     }
 
     /* ── Calculation ───────────────────────────────────── */
     function calculate() {
+      clearTimeout(calculationTimer);
       if (!engine) return;
       const cargo = Math.max(1, parseInt(cargoInput.value) || 1);
       const jumps = Math.max(0, parseInt(jumpsInput.value) || 0);
@@ -2660,7 +2665,7 @@
       loading.style.display = 'flex';
       resultsSection.style.display = 'none';
 
-      setTimeout(() => {
+      calculationTimer = setTimeout(() => {
         try {
           if (currentModId === 'crossfire' && selectedCalendarDate && !hasSelectedDatasetCalendarEntry()) {
             currentEmptyKey = selectedCalendarDate >= currentCrossfireTradeDateText() ? 'no_prices_soon' : 'no_prices_for_day';
@@ -3317,15 +3322,6 @@
       }
     });
 
-    // Language toggle (per-page)
-    $('lang-toggle').addEventListener('click', e => {
-      const btn = e.target.closest('.tr-lang-btn');
-      if (!btn || btn.dataset.lang === lang) return;
-      lang = btn.dataset.lang;
-      try { sessionStorage.setItem('flathack-lang', lang); } catch(e) {}
-      applyLang();
-    });
-
     // Global language toggle (from nav bar)
     window.addEventListener('lang-change', e => {
       if (e.detail && e.detail.lang && e.detail.lang !== lang) {
@@ -3341,6 +3337,6 @@
 
     /* ── Init ──────────────────────────────────────────── */
   </script>
-  <script src="../assets/js/nav.js?v=2026-08-29-f2d-pages"></script>
+  <script src="../assets/js/nav.js"></script>
 </body>
 </html>

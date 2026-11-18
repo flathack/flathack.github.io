@@ -23,11 +23,11 @@
     { label: "Home", href: "index.html" },
     { label: "Freelancer 2D", href: "https://flathack.github.io/Freelancer-2D/", external: true },
     { label: "Trade Routes", href: "docs/trade-routes.html", children: MOD_CHILDREN },
-    { label: "Schiff-Explorer", href: "docs/ship-explorer.html", children: MOD_CHILDREN },
+    { label: "Schiff-Explorer", en: "Ship Explorer", href: "docs/ship-explorer.html", children: MOD_CHILDREN },
     { label: "Equipment Explorer", href: "docs/equipment-explorer.html", children: MOD_CHILDREN },
-    { label: "Universum", href: "docs/universe-viewer.html", children: MOD_CHILDREN },
+    { label: "Universum", en: "Universe Explorer", href: "docs/universe-viewer.html", children: MOD_CHILDREN },
     { label: "Rep Planner", href: "docs/rep-planner.html", children: MOD_CHILDREN },
-    { label: "Signaturen", href: "docs/forum-signature-progress.html" },
+    { label: "Signaturen", en: "Signatures", href: "docs/forum-signature-progress.html" },
   ];
 
   // Determine the base path from root to the current page's directory
@@ -2416,8 +2416,9 @@
     const isActive = current === item.href || isHelpSection || isTradeGroup;
     if (isActive) activeItem = item;
     navHtml += '<a href="' + href + '"' +
+      (item.en ? ' data-nav-en="' + item.en + '" data-nav-de="' + item.label + '"' : '') +
       (item.external ? ' target="_blank" rel="noopener"' : '') +
-      (isActive ? ' class="active"' : "") + ">" + item.label + (item.external ? ' ↗' : '') + "</a>";
+      (isActive ? ' class="active" aria-current="page"' : "") + ">" + item.label + (item.external ? ' ↗' : '') + "</a>";
   });
 
   if (!activeItem && TRADE_TOOL_PAGES.has(current)) {
@@ -2428,7 +2429,7 @@
   var storedLang = null;
   try { storedLang = sessionStorage.getItem("flathack-lang"); } catch(e) {}
   var currentLang = storedLang || "en";
-  var isFreelancerHome = document.body && document.body.classList.contains("home-dashboard");
+  var toolWorkspace = document.body.classList.contains("tool-workspace");
 
   var langToggleHtml =
     '<button data-lang="de"' + (currentLang === "de" ? ' class="active"' : '') + '>DE</button>' +
@@ -2436,45 +2437,44 @@
   var savedShipCount = window.flathackCombatBackground && window.flathackCombatBackground.getShipTarget
     ? window.flathackCombatBackground.getShipTarget()
     : 8;
-  var domainSwitchHtml = isFreelancerHome
-    ? '<a class="nav-domain-switch" href="business/index.html">Business <span aria-hidden="true">↗</span></a>'
-    : '';
   var compactActionsHtml =
-    domainSwitchHtml +
     '<a class="nav-capsule-help" href="' + prefix + 'help/index.html" title="Help">?</a>' +
     '<label class="theme-switch nav-theme-select"><span class="sr-only">Theme</span><select data-theme-select aria-label="Theme"><option value="terminal">Terminal</option><option value="paper">Paper</option><option value="amber">Amber</option><option value="ice">Ice</option><option value="slate">Slate</option><option value="ocean">Ocean</option><option value="cloud">Cloud</option><option value="bloom">Bloom</option><option value="matrix">Matrix</option><option value="guildwars2">Guild Wars 2</option></select></label>' +
     '<div class="nav-capsule-lang" data-lang="' + currentLang + '">' + langToggleHtml + '</div>';
-  var standardActionsHtml =
+  var arcadeActionsHtml =
     '<label class="nav-ship-control" title="Background ship count">' +
       '<span data-nav-ship-label>Ships</span>' +
       '<input type="range" min="0" max="36" step="1" value="' + savedShipCount + '" data-bg-ship-count>' +
       '<output data-bg-ship-output>' + savedShipCount + '</output>' +
     '</label>' +
-    '<button class="nav-arena-trigger" type="button" data-arena-open>Bored?</button>' +
-    compactActionsHtml;
+    '<button class="nav-arena-trigger" type="button" data-arena-open>Bored?</button>';
 
   // ── Build the complete capsule structure ──
-  var capsule = document.createElement("div");
-  capsule.className = "nav-capsule";
-  capsule.innerHTML =
-    '<div class="nav-capsule-header">' +
-      '<a class="brand" href="' + prefix + 'index.html">' +
-        '<img class="brand-mark" src="' + prefix + 'assets/img/icons/flathack_icon.png" alt="" width="36" height="36">' +
-        '<span class="brand-text">Flathack Projects</span>' +
-      '</a>' +
-      '<div class="nav-capsule-actions">' +
-        (isToolThemePage ? compactActionsHtml : standardActionsHtml) +
-      '</div>' +
-    '</div>' +
-    '<div class="nav-capsule-divider"></div>' +
-    '<div class="nav-capsule-items">' + navHtml + '</div>';
-
-  // Replace the old header with the capsule
-  var siteHeader = document.querySelector(".site-header");
-  if (siteHeader) {
-    siteHeader.parentNode.replaceChild(capsule, siteHeader);
+  var capsule = document.querySelector(".portal-actions");
+  if (capsule) {
+    if (toolWorkspace) {
+      nav.innerHTML = '<details class="portal-menu"><summary>Tools</summary><div>' + navHtml + '</div></details>';
+    }
+    capsule.innerHTML = '<details class="portal-arcade"><summary>Arcade</summary><div>' +
+      arcadeActionsHtml + '</div></details>' + compactActionsHtml;
   } else {
-    nav.parentNode.replaceChild(capsule, nav);
+    capsule = document.createElement("div");
+    capsule.className = "nav-capsule";
+    capsule.innerHTML =
+      '<div class="nav-capsule-header">' +
+        '<a class="brand" href="' + prefix + 'index.html">' +
+          '<img class="brand-mark" src="' + prefix + 'assets/img/icons/flathack_icon.png" alt="" width="36" height="36">' +
+          '<span class="brand-text">Flathack Projects</span>' +
+        '</a>' +
+        '<div class="nav-capsule-actions">' +
+          (isToolThemePage ? '' : arcadeActionsHtml) + compactActionsHtml +
+        '</div>' +
+      '</div>' +
+      '<div class="nav-capsule-divider"></div>' +
+      '<div class="nav-capsule-items">' + navHtml + '</div>';
+
+    var siteHeader = document.querySelector(".site-header");
+    (siteHeader || nav).replaceWith(capsule);
   }
 
   // ── Language toggle event listener ──
@@ -2486,6 +2486,10 @@
   var arenaTrigger = capsule.querySelector("[data-arena-open]");
 
   function applyNavLanguage(lang) {
+    if (toolWorkspace) document.documentElement.lang = lang;
+    document.querySelectorAll("[data-nav-en]").forEach(function (link) {
+      link.textContent = lang === "de" ? link.dataset.navDe : link.dataset.navEn;
+    });
     if (shipCountLabel) shipCountLabel.textContent = lang === "de" ? "Schiffe" : "Ships";
     if (arenaTrigger) arenaTrigger.textContent = lang === "de" ? "Gelangweilt?" : "Bored?";
     if (shipCountInput && shipCountInput.parentElement) {
@@ -2568,8 +2572,26 @@
       '<div class="project-sub-nav-main">' + modLinksHtml + '</div>' +
       (tradeLinksHtml ? '<div class="project-sub-nav-side">' + tradeLinksHtml + '</div>' : '');
 
-    // Insert sub-nav after the capsule
-    capsule.parentNode.insertBefore(subNav, capsule.nextSibling);
+    var modSelect;
+    if (toolWorkspace) {
+      modSelect = document.createElement("select");
+      modSelect.className = "workspace-mod-select";
+      modSelect.setAttribute("aria-label", "Mod");
+      activeItem.children.forEach(function (child) {
+        modSelect.add(new Option(child.label, child.hash));
+      });
+      modSelect.value = currentHash;
+      modSelect.addEventListener("change", function () {
+        subNav.querySelector('a[data-mod="' + modSelect.value + '"]').click();
+      });
+      var modLabel = document.createElement("span");
+      modLabel.className = "workspace-mod-label";
+      modLabel.textContent = "Mod";
+      subNav.prepend(modLabel, modSelect);
+      document.querySelector(".workspace-intro").after(subNav);
+    } else {
+      capsule.after(subNav);
+    }
 
     // Handle sub-nav clicks
     subNav.addEventListener("click", function (e) {
@@ -2578,8 +2600,12 @@
       e.preventDefault();
       var mod = link.dataset.mod;
       window.location.hash = mod;
+      if (modSelect) modSelect.value = mod;
+      subNav.querySelectorAll(".project-sub-nav-side a").forEach(function (anchor) {
+        anchor.hash = mod;
+      });
       try { localStorage.setItem("flathack-mod", mod); } catch(e) {}
-      subNav.querySelectorAll("a").forEach(function (a) {
+      subNav.querySelectorAll("a[data-mod]").forEach(function (a) {
         a.classList.toggle("active", a.dataset.mod === mod);
       });
       window.dispatchEvent(new CustomEvent("mod-change", { detail: { mod: mod } }));

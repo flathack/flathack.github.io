@@ -201,28 +201,25 @@
     }
   </style>
   <link rel="stylesheet" href="../assets/css/console-refresh.css">
+  <link rel="stylesheet" href="../assets/css/portal-header.css">
+  <link rel="stylesheet" href="../assets/css/tool-workspace.css">
 </head>
-<body class="gaming-theme console-page">
+<body class="gaming-theme console-page tool-workspace">
   <div class="site-shell">
-    <header class="site-header">
-      <a class="brand" href="../index.html">
-        <img class="brand-mark" src="../assets/img/icons/flathack_icon.png" alt="" width="44" height="44">
-        <span class="brand-text">Flathack Projects</span>
-      </a>
-      <nav class="project-top-nav" aria-label="Projekt-Navigation"></nav>
+    <header class="portal-header">
+      <a class="portal-brand" href="../index.html"><img src="../assets/img/icons/flathack_icon.png" alt="" width="34" height="34">Flathack</a>
+      <nav class="project-top-nav" aria-label="Tools"><a href="../index.html#tools">Tools</a></nav>
+      <div class="portal-actions"></div>
     </header>
 
     <main>
-      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
+      <header class="workspace-intro">
+        <span class="workspace-icon" aria-hidden="true">&#xf135;</span>
         <div>
-          <h2 style="margin: 0 0 2px;" data-i18n="title">Schiff-Explorer</h2>
-          <p style="color: var(--muted); margin: 0; font-size: 0.88rem;" data-i18n="intro">Alle Schiffe im Überblick — mit Armor, Cargo, Agilität, Preis und Kauforten.</p>
+          <h1 data-i18n="title">Schiff-Explorer</h1>
+          <p data-i18n="intro">Alle Schiffe im Überblick — mit Armor, Cargo, Agilität, Preis und Kauforten.</p>
         </div>
-        <div class="se-lang-toggle" id="lang-toggle">
-          <button class="se-lang-btn active" data-lang="de">DE</button>
-          <button class="se-lang-btn" data-lang="en">EN</button>
-        </div>
-      </div>
+      </header>
 
       <!-- Controls -->
       <section class="page-section" style="margin-bottom: 10px;">
@@ -345,18 +342,7 @@
       document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
         el.placeholder = t(el.getAttribute('data-i18n-placeholder'));
       });
-      document.querySelectorAll('.se-lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
     }
-
-    document.getElementById('lang-toggle').addEventListener('click', e => {
-      const btn = e.target.closest('.se-lang-btn');
-      if (!btn) return;
-      lang = btn.dataset.lang;
-      try { sessionStorage.setItem('flathack-lang', lang); } catch(e) {}
-      document.querySelectorAll('.se-lang-btn').forEach(b => b.classList.toggle('active', b === btn));
-      applyLang();
-      renderTable();
-    });
 
     // Global language toggle (from nav bar)
     window.addEventListener('lang-change', e => {
@@ -634,6 +620,6 @@
     /* ── Init ── */
     applyLang();
   </script>
-  <script src="../assets/js/nav.js?v=2026-08-29-f2d-pages"></script>
+  <script src="../assets/js/nav.js"></script>
 </body>
 </html>

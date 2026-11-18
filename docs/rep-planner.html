@@ -947,24 +947,25 @@
     }
   </style>
   <link rel="stylesheet" href="../assets/css/console-refresh.css">
+  <link rel="stylesheet" href="../assets/css/portal-header.css">
+  <link rel="stylesheet" href="../assets/css/tool-workspace.css">
 </head>
-<body class="console-page">
+<body class="console-page tool-workspace">
   <div class="site-shell">
-    <header class="site-header">
-      <a class="brand" href="../index.html">
-        <img class="brand-mark" src="../assets/img/icons/flathack_icon.png" alt="" width="44" height="44">
-        <span class="brand-text">Flathack Projects</span>
-      </a>
-      <nav class="project-top-nav" aria-label="Projekt-Navigation"></nav>
+    <header class="portal-header">
+      <a class="portal-brand" href="../index.html"><img src="../assets/img/icons/flathack_icon.png" alt="" width="34" height="34">Flathack</a>
+      <nav class="project-top-nav" aria-label="Tools"><a href="../index.html#tools">Tools</a></nav>
+      <div class="portal-actions"></div>
     </header>
 
     <main>
-      <!-- ── Intro ── -->
-      <section class="rp-intro">
-        <p class="eyebrow" data-i18n="eyebrow">Reputation Planner</p>
-        <h1 data-i18n="h1">Rep Planner</h1>
-        <p data-i18n="intro">Setze Start- und Zielruf, wähle erlaubte Aktionen und berechne den passenden Reputations-Plan in einem Schritt.</p>
-      </section>
+      <header class="workspace-intro">
+        <span class="workspace-icon" aria-hidden="true">&#xf0c0;</span>
+        <div>
+          <h1 data-i18n="h1">Rep Planner</h1>
+          <p data-i18n="intro">Setze Start- und Zielruf, wähle erlaubte Aktionen und berechne den passenden Reputations-Plan in einem Schritt.</p>
+        </div>
+      </header>
 
       <section class="rp-planner-card">
         <div class="rp-section-head">
@@ -994,11 +995,11 @@
             <p class="rp-config-title" data-i18n="planner_settings">Berechnung</p>
             <div class="rp-controls" id="rp-controls">
               <div class="rp-field">
-                <label data-i18n="lbl_tolerance">Toleranz</label>
+                <label for="rp-tolerance" data-i18n="lbl_tolerance">Toleranz</label>
                 <input type="number" id="rp-tolerance" value="0.2" min="0.01" max="0.3" step="0.01">
               </div>
               <div class="rp-field">
-                <label data-i18n="lbl_max_steps">Max. Abschüsse</label>
+                <label for="rp-max-steps" data-i18n="lbl_max_steps">Max. Abschüsse</label>
                 <input type="number" id="rp-max-steps" value="3000" min="100" max="20000" step="100">
               </div>
             </div>
@@ -1164,7 +1165,7 @@
     </main>
   </div>
 
-  <script src="../assets/js/nav.js?v=2026-08-29-f2d-pages"></script>
+  <script src="../assets/js/nav.js"></script>
   <script src="../assets/js/rep-engine.js"></script>
   <script>
   (function () {
