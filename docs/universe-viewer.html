@@ -591,8 +591,9 @@
   <link rel="stylesheet" href="../assets/css/console-refresh.css">
   <link rel="stylesheet" href="../assets/css/portal-header.css">
   <link rel="stylesheet" href="../assets/css/tool-workspace.css">
+  <link rel="stylesheet" href="../assets/css/universe-explorer.css">
 </head>
-<body class="console-page tool-workspace">
+<body class="console-page tool-workspace uv-page">
   <div class="site-shell">
     <header class="portal-header">
       <a class="portal-brand" href="../index.html"><img src="../assets/img/icons/flathack_icon.png" alt="" width="34" height="34">Flathack</a>
@@ -602,67 +603,77 @@
 
     <main>
       <header class="workspace-intro">
-        <span class="workspace-icon" aria-hidden="true">&#xf278;</span>
         <div>
           <h1 data-i18n="title">Universe Explorer</h1>
-          <p data-i18n="subtitle">Interaktive Karte des Freelancer-Universums — klicke auf ein System für Details.</p>
+          <p data-i18n="subtitle">Erkunde Sternsysteme, finde Stationen und plane deine Flugroute.</p>
         </div>
+        <dl class="uv-metrics" id="stats"></dl>
       </header>
 
-      <div class="map-context">
-        <div class="uv-breadcrumb" id="breadcrumb">
-          <span data-i18n="bc_universe">Universumskarte</span>
-        </div>
-        <div class="uv-stats" id="stats"></div>
-      </div>
-
-      <div class="uv-controls">
-        <div class="uv-field">
-          <label for="search" data-i18n="lbl_search">Suche</label>
-          <input type="text" id="search" placeholder="System oder Objekt suchen…">
-        </div>
-        <button class="uv-btn" id="btnRouteMode" type="button" data-i18n="btn_route_mode" title="Route Planner ein-/ausblenden" aria-controls="routePanel" aria-pressed="false">Route</button>
-        <button class="uv-btn active" id="btnShowHoles" title="Jump Holes ein-/ausblenden">Jump Holes</button>
-        <div class="uv-zoom-controls">
-          <button class="uv-btn" id="btnZoomIn" title="Vergrößern">+</button>
-          <button class="uv-btn" id="btnZoomOut" title="Verkleinern">−</button>
-          <button class="uv-btn" id="btnZoomReset" title="Zurücksetzen">⌂</button>
-        </div>
-      </div>
-
-      <section class="uv-route-panel" id="routePanel" hidden>
-        <div class="uv-route-head">
-          <div>
-            <p class="eyebrow" data-i18n="route_eyebrow">Route Planner</p>
-            <h3 data-i18n="route_title">Schnellste Verbindung</h3>
-            <p class="uv-route-note" id="routeNote" data-i18n="route_desc">Berechnet die schnellste Verbindung anhand derselben Flugzeitlogik wie im Trade Route Calculator und meidet gesperrte Sprungtore automatisch.</p>
+      <div class="uv-atlas">
+        <details class="uv-directory" id="directory" open>
+          <summary><span id="directoryTitle">Systemverzeichnis</span><span id="directoryCount"></span></summary>
+          <div class="uv-directory-body">
+            <div class="uv-search-field">
+              <label for="search" data-i18n="lbl_search">Suche</label>
+              <input type="search" id="search" placeholder="System oder Objekt suchen…" autocomplete="off">
+            </div>
+            <div class="uv-index-list" id="indexList"></div>
           </div>
-          <button class="uv-btn" id="routeClear" type="button" data-i18n="route_clear">Route zurücksetzen</button>
-        </div>
-        <div class="uv-route-fields">
-          <div class="uv-route-field">
-            <label for="routeStart" data-i18n="route_start">Startpunkt</label>
-            <input type="text" id="routeStart" list="routePoints" placeholder="System • Objekt [Typ]">
+        </details>
+        <div class="uv-chart">
+          <div class="uv-chart-head">
+            <div class="uv-breadcrumb" id="breadcrumb"><span data-i18n="bc_universe">Universumskarte</span></div>
+            <div class="uv-chart-actions">
+              <button class="uv-btn" id="btnRouteMode" type="button" data-i18n="btn_route_mode" title="Routenplaner öffnen" aria-controls="routePanel" aria-pressed="false">Routenplaner</button>
+              <button class="uv-btn active" id="btnShowHoles" type="button" aria-pressed="true" title="Sprunglöcher ein-/ausblenden"><span data-i18n="jump_holes">Sprunglöcher</span></button>
+            </div>
           </div>
-          <div class="uv-route-field">
-            <label for="routeEnd" data-i18n="route_end">Zielpunkt</label>
-            <input type="text" id="routeEnd" list="routePoints" placeholder="System • Objekt [Typ]">
+          <section class="uv-route-panel" id="routePanel" hidden>
+            <div class="uv-route-head">
+              <div>
+                <p class="eyebrow" data-i18n="route_eyebrow">Route Planner</p>
+                <h3 data-i18n="route_title">Schnellste Verbindung</h3>
+                <p class="uv-route-note" id="routeNote" data-i18n="route_desc">Berechnet die schnellste Verbindung anhand derselben Flugzeitlogik wie im Trade Route Calculator und meidet gesperrte Sprungtore automatisch.</p>
+              </div>
+              <button class="uv-btn" id="routeClear" type="button" data-i18n="route_clear">Route zurücksetzen</button>
+            </div>
+            <div class="uv-route-fields">
+              <div class="uv-route-field">
+                <label for="routeStart" data-i18n="route_start">Startpunkt</label>
+                <input type="text" id="routeStart" list="routePoints" placeholder="System • Objekt [Typ]">
+              </div>
+              <div class="uv-route-field">
+                <label for="routeEnd" data-i18n="route_end">Zielpunkt</label>
+                <input type="text" id="routeEnd" list="routePoints" placeholder="System • Objekt [Typ]">
+              </div>
+              <button class="uv-btn uv-route-submit" id="routeFind" type="button" data-i18n="route_button">Route finden</button>
+            </div>
+            <datalist id="routePoints"></datalist>
+            <div class="uv-route-summary" id="routeSummary"></div>
+            <div class="uv-route-results" id="routeResults"></div>
+          </section>
+
+          <div class="uv-sector-tabs" id="sectorTabs" hidden></div>
+
+          <div class="uv-container" id="viewer">
+            <svg id="svgCanvas"></svg>
+            <div class="uv-zoom-controls">
+              <button class="uv-btn" id="btnZoomOut" type="button" title="Verkleinern">−</button>
+              <output id="zoomLevel" aria-label="Zoom">100%</output>
+              <button class="uv-btn" id="btnZoomIn" type="button" title="Vergrößern">+</button>
+              <button class="uv-btn" id="btnZoomReset" type="button" title="Zurücksetzen">⤢</button>
+            </div>
+            <div class="uv-info-panel" id="infoPanel">
+              <button class="uv-info-close" id="infoClose">✕</button>
+              <h3 id="infoPanelTitle"></h3>
+              <ul class="uv-info-list" id="infoPanelList"></ul>
+            </div>
           </div>
-          <button class="uv-btn uv-route-submit" id="routeFind" type="button" data-i18n="route_button">Route finden</button>
-        </div>
-        <datalist id="routePoints"></datalist>
-        <div class="uv-route-summary" id="routeSummary"></div>
-        <div class="uv-route-results" id="routeResults"></div>
-      </section>
 
-      <div class="uv-sector-tabs" id="sectorTabs" hidden></div>
-
-      <div class="uv-container" id="viewer">
-        <svg id="svgCanvas"></svg>
-        <div class="uv-info-panel" id="infoPanel">
-          <button class="uv-info-close" id="infoClose">✕</button>
-          <h3 id="infoPanelTitle"></h3>
-          <ul class="uv-info-list" id="infoPanelList"></ul>
+          <div class="uv-chart-foot">
+            <div class="uv-legend" id="legend"></div>
+          </div>
         </div>
       </div>
 
@@ -679,7 +690,6 @@
         </div>
       </div>
 
-      <div class="uv-legend" id="legend"></div>
 
       <footer class="page-footer" style="margin-top: 32px;">
         &copy; 2026 Flathack Projects
@@ -696,11 +706,12 @@
     var I18N = {
       de: {
         title: 'Universe Explorer',
-        subtitle: 'Interaktive Karte des Freelancer-Universums — klicke auf ein System für Details.',
+        subtitle: 'Erkunde Sternsysteme, finde Stationen und plane deine Flugroute.',
         bc_universe: 'Universumskarte',
         lbl_search: 'Suche',
+        system_index: 'Systemverzeichnis', object_index: 'Objekte im System', no_matches: 'Keine Treffer', jump_holes: 'Sprunglöcher',
         search_ph: 'System oder Objekt suchen…',
-        btn_route_mode: 'Route',
+        btn_route_mode: 'Routenplaner',
         btn_route_mode_title: 'Route Planner ein-/ausblenden',
         btn_holes_title: 'Jump Holes ein-/ausblenden',
         btn_zoomin: 'Vergrößern',
@@ -714,8 +725,8 @@
         stats_objects: 'Objekte',
         legend_station_system: 'System mit Station',
         legend_system: 'System',
-        legend_gate: 'Jump Gate Verbindung',
-        legend_hole: 'Jump Hole Verbindung',
+        legend_gate: 'Sprungtor',
+        legend_hole: 'Sprungloch',
         legend_buoy: 'Boje',
         flag_one_way: 'Einbahn',
         info_type: 'Typ',
@@ -775,11 +786,12 @@
       },
       en: {
         title: 'Universe Explorer',
-        subtitle: 'Interactive map of the Freelancer universe — click a system for details.',
+        subtitle: 'Explore star systems, find stations and plot your route.',
         bc_universe: 'Universe Map',
         lbl_search: 'Search',
+        system_index: 'System index', object_index: 'System objects', no_matches: 'No matches', jump_holes: 'Jump holes',
         search_ph: 'Search system or object…',
-        btn_route_mode: 'Route',
+        btn_route_mode: 'Route planner',
         btn_route_mode_title: 'Toggle route planner',
         btn_holes_title: 'Toggle Jump Holes',
         btn_zoomin: 'Zoom in',
@@ -793,8 +805,8 @@
         stats_objects: 'Objects',
         legend_station_system: 'System with station',
         legend_system: 'System',
-        legend_gate: 'Jump Gate connection',
-        legend_hole: 'Jump Hole connection',
+        legend_gate: 'Jump gate',
+        legend_hole: 'Jump hole',
         legend_buoy: 'Buoy',
         flag_one_way: 'One-way',
         info_type: 'Type',
@@ -925,7 +937,8 @@
     var viewMode = "universe"; // "universe" or "system"
     var currentSystem = null;
     var showJumpHoles = true;
-    var iconCache = {};  // arch -> true/false (whether icon exists)
+    var missingIcons = new Set();
+    var modRequest = 0;
     var tradeData = null;
     var equipmentData = null;
     var baseCommodityIndex = {};
@@ -951,7 +964,7 @@
     var viewBox = { x: 0, y: 0, w: 1000, h: 800 };
     var baseViewBox = { x: 0, y: 0, w: 1000, h: 800 };
     var maxZoomScale = 12;
-    var isPanning = false;
+    var mapLabelSize = 14;
     var panStart = { x: 0, y: 0 };
     var panViewStart = { x: 0, y: 0 };
 
@@ -986,6 +999,21 @@
     var btnZoomIn = document.getElementById("btnZoomIn");
     var btnZoomOut = document.getElementById("btnZoomOut");
     var btnZoomReset = document.getElementById("btnZoomReset");
+
+    var directory = document.getElementById("directory");
+    var directoryTitle = document.getElementById("directoryTitle");
+    var directoryCount = document.getElementById("directoryCount");
+    var indexList = document.getElementById("indexList");
+    var indexEntries = [];
+    var compactMap = window.matchMedia("(max-width: 760px)");
+    directory.open = !compactMap.matches;
+    compactMap.addEventListener("change", function () { directory.open = !compactMap.matches; });
+
+    svg.addEventListener("error", function (event) {
+      if (!event.target.matches("image[data-arch]")) return;
+      missingIcons.add(event.target.dataset.arch);
+      event.target.remove();
+    }, true);
 
     /* ── Data loading ── */
     function snapshotFromLegacyPayload(payload) {
@@ -1052,7 +1080,10 @@
     }
 
     function loadMod(mod) {
+      if (currentMod === mod) return;
+      var request = ++modRequest;
       currentMod = mod;
+      searchInput.value = "";
       Promise.all([
         fetch("../data/universe/" + mod + ".json").then(function (r) { return r.json(); }),
         fetch("../data/trade-routes/" + mod + ".json")
@@ -1063,6 +1094,7 @@
           .catch(function () { return null; })
       ])
         .then(function (results) {
+          if (request !== modRequest) return;
           var d = results[0];
           data = d;
           tradeData = defaultTradeDataset(results[1]);
@@ -1072,25 +1104,15 @@
           rebuildUniverseSectors();
           rebuildRoutePlanner();
           clearRouteSelection(false);
-          iconCache = {};
-          var archs = {};
-          d.systems.forEach(function (s) {
-            (s.objects || []).forEach(function (o) {
-              if (o.arch && !archs[o.arch]) archs[o.arch] = true;
-            });
-          });
-          var archList = Object.keys(archs);
-          var iconBase = "../data/universe/icons/" + mod + "/";
-          var remaining = archList.length;
-          if (!remaining) { showUniverse(); return; }
-          archList.forEach(function (arch) {
-            var img = new window.Image();
-            img.onload = function () { iconCache[arch] = true; if (--remaining === 0) showUniverse(); };
-            img.onerror = function () { iconCache[arch] = false; if (--remaining === 0) showUniverse(); };
-            img.src = iconBase + encodeURIComponent(arch) + ".png";
-          });
+          missingIcons.clear();
+          showUniverse();
         })
         .catch(function () {
+          if (request !== modRequest) return;
+          currentMod = "";
+          data = null;
+          statsEl.innerHTML = legendEl.innerHTML = "";
+          buildDirectory([]);
           svg.innerHTML = '<text x="50%" y="50%" text-anchor="middle" fill="#ef4444" font-size="16">' + escXml(t('err_load')) + '</text>';
         });
     }
@@ -1661,12 +1683,16 @@
 
     /* ── Universe map (all systems) ── */
     function showUniverse() {
+      if (viewMode !== "universe") searchInput.value = "";
       viewMode = "universe";
       currentSystem = null;
       infoPanel.classList.remove("visible");
 
       var universeSystems = visibleUniverseSystems();
       if (!data || !universeSystems.length) {
+        buildDirectory([]);
+        statsEl.innerHTML = legendEl.innerHTML = "";
+        breadcrumb.textContent = t('bc_universe');
         svg.innerHTML = '<text x="50%" y="50%" text-anchor="middle" fill="' + COLORS.other + '" font-size="14">' + escXml(t('err_nosys')) + '</text>';
         return;
       }
@@ -1682,9 +1708,10 @@
 
       var rangeX = maxX - minX || 1;
       var rangeY = maxY - minY || 1;
-      var padding = 80;
+      var padding = 60;
       var w = 1200;
       var h = Math.max(800, w * (rangeY / rangeX));
+      fitMapLabels(w, h);
       var scaleX = (w - padding * 2) / rangeX;
       var scaleY = (h - padding * 2) / rangeY;
       var scale = Math.min(scaleX, scaleY);
@@ -1738,9 +1765,9 @@
 
         var color = isHole ? COLORS.jump_hole : COLORS.jump_gate;
         var dash = isHole ? ' stroke-dasharray="6,4"' : "";
-        var opacity = isHole ? "0.4" : "0.35";
+        var opacity = isHole ? "0.64" : "0.74";
         lines += '<line x1="' + from.x + '" y1="' + from.y + '" x2="' + to.x + '" y2="' + to.y + '"' +
-                 ' stroke="' + color + '" stroke-width="1.2" opacity="' + opacity + '"' + dash + '/>';
+                 ' stroke="' + color + '" stroke-width="1.6" opacity="' + opacity + '"' + dash + '/>';
 
         if (c.oneWay && c.oneWayFrom && c.oneWayTo) {
           var arrowFrom = sysPos[c.oneWayFrom.toUpperCase()];
@@ -1826,7 +1853,7 @@
         if (!sp) return;
 
         var objCount = s.objects ? s.objects.length : 0;
-        var r = Math.max(5, Math.min(12, 4 + objCount * 0.4));
+        var r = Math.max(4, Math.min(8, 3 + objCount * 0.15));
 
         // Color based on dominant object types
         var hasStation = false;
@@ -1840,7 +1867,7 @@
         var labelPlacement = placeObjectLabel(sp.x, sp.y, r, systemLabel, "", occupiedSystemLabelRects, 0, 0, w, h);
         var labelMarkup = labelPlacement
           ? '<text x="' + labelPlacement.x + '" y="' + labelPlacement.labelY + '"' +
-            ' text-anchor="' + labelPlacement.anchor + '" fill="#9fb2cf" font-size="9" font-family="Space Grotesk, sans-serif">' +
+            ' text-anchor="' + labelPlacement.anchor + '" class="uv-map-label">' +
             escXml(systemLabel) + '</text>'
           : '';
 
@@ -1848,11 +1875,10 @@
                  (routeSystemSet[s.nick.toUpperCase()]
                   ? '<circle cx="' + sp.x + '" cy="' + sp.y + '" r="' + (r + 5) + '" fill="rgba(251,191,36,0.18)" stroke="#fbbf24" stroke-width="1.5"/>'
                   : '') +
-                 '<circle cx="' + sp.x + '" cy="' + sp.y + '" r="' + r + '"' +
-                 ' fill="' + fillColor + '" opacity="0.8"' +
-                 ' stroke="' + fillColor + '" stroke-width="0.5" stroke-opacity="0.4"/>' +
-                 '<circle cx="' + sp.x + '" cy="' + sp.y + '" r="' + (r + 6) + '"' +
-                 ' fill="transparent" stroke="transparent"/>' + // hit area
+                 '<title>' + escXml(systemLabel) + '</title>' +
+                 '<circle cx="' + sp.x + '" cy="' + sp.y + '" r="' + (r + 3) + '" fill="' + fillColor + '" fill-opacity=".12" stroke="' + fillColor + '" stroke-opacity=".52"/>' +
+                 '<circle cx="' + sp.x + '" cy="' + sp.y + '" r="' + (r * .62) + '" fill="' + fillColor + '"/>' +
+                 '<circle class="uv-hit" cx="' + sp.x + '" cy="' + sp.y + '" r="' + (r + 8) + '" fill="transparent"/>' +
                  labelMarkup +
                  '</g>';
       });
@@ -1860,8 +1886,6 @@
       resetViewBox(w, h);
       svg.innerHTML = '<g id="connections">' + lines + sectorMarkers + '</g><g id="routeOverlay">' + routeLines + '</g><g id="nodes">' + nodes + '</g>';
 
-      viewer.style.aspectRatio = w + " / " + h;
-      viewer.style.maxHeight = "800px";
 
       // Click handler for system nodes
       svg.querySelectorAll(".uv-system-node").forEach(function (node) {
@@ -1886,20 +1910,21 @@
       var visibleConnections = displayConnections.filter(function (c) {
         return !!sysPos[c.from.toUpperCase()] && !!sysPos[c.to.toUpperCase()];
       });
-      statsEl.innerHTML = t('stats_systems') + ': <strong>' + universeSystems.length + '</strong> · ' +
-                          t('stats_connections') + ': <strong>' + visibleConnections.length + '</strong> · ' +
-                          t('stats_objects') + ': <strong>' + totalObj + '</strong>';
+      statsEl.innerHTML = metric(t('stats_systems'), universeSystems.length) +
+        metric(t('stats_connections'), visibleConnections.length) + metric(t('stats_objects'), totalObj);
+      buildDirectory(universeSystems.map(function (entry) { return entry.sys; }));
 
       // Legend
       legendEl.innerHTML =
         legendItem(COLORS.station, t('legend_station_system')) +
         legendItem(COLORS.planet, t('legend_system')) +
-        legendItem(COLORS.jump_gate, t('legend_gate')) +
-        legendItem(COLORS.jump_hole, t('legend_hole'));
+        legendItem(COLORS.jump_gate, t('legend_gate'), 'gate') +
+        (showJumpHoles ? legendItem(COLORS.jump_hole, t('legend_hole'), 'hole') : '');
     }
 
     /* ── System detail view ── */
     function showSystem(sys) {
+      if (currentSystem !== sys) searchInput.value = "";
       viewMode = "system";
       currentSystem = sys;
       infoPanel.classList.remove("visible");
@@ -1908,6 +1933,9 @@
       if (!objects.length) {
         svg.innerHTML = '<text x="50%" y="50%" text-anchor="middle" fill="' + COLORS.other + '" font-size="14">' + escXml(t('err_noobj')) + '</text>';
         updateBreadcrumb(sys);
+        buildDirectory([]);
+        statsEl.innerHTML = metric(t('stats_objects'), 0);
+        legendEl.innerHTML = '';
         return;
       }
 
@@ -1919,6 +1947,7 @@
       var padding = 60;
       var w = 1000;
       var h = 1000;
+      fitMapLabels(w, h);
       var cellSvg = (w - padding * 2) / gridSize;
       var gridLeft = padding;
       var gridTop = padding;
@@ -2011,7 +2040,7 @@
         var color = COLORS[o.type] || COLORS.other;
         var r = objectVisualRadius(o, fullRange, gridW, gridH);
         var label = o.name || o.nick;
-        var hasIcon = o.arch && iconCache[o.arch] !== false && o.type !== "sun" && o.type !== "planet" && o.type !== "buoy";
+        var hasIcon = o.arch && !missingIcons.has(o.arch) && o.type !== "sun" && o.type !== "planet" && o.type !== "buoy";
         var iconSize = objectIconSize(o, r);
         var rotation = objectRotation(o);
         var showLabel = shouldShowLabel(o);
@@ -2036,7 +2065,8 @@
         } else if (o.type === "buoy") {
           content += '<circle cx="' + cx + '" cy="' + cy + '" r="2.2" fill="' + COLORS.buoy + '" opacity="0.95"/>';
         } else if (hasIcon) {
-          content += '<image href="' + iconBase + encodeURIComponent(o.arch) + '.png"' +
+          content += '<circle class="uv-icon-fallback" cx="' + cx + '" cy="' + cy + '" r="' + r + '" fill="' + color + '"/>';
+          content += '<image data-arch="' + escAttr(o.arch) + '" href="' + iconBase + encodeURIComponent(o.arch) + '.png"' +
                      ' x="' + (cx - iconSize / 2) + '" y="' + (cy - iconSize / 2) + '"' +
                      ' width="' + iconSize + '" height="' + iconSize + '"' +
                      ' transform="rotate(' + rotation + ' ' + cx + ' ' + cy + ')"/>';
@@ -2049,7 +2079,7 @@
 
         // Hit area
         var hitR = hasIcon ? iconSize / 2 + 4 : Math.max(r + 6, 10);
-        content += '<circle cx="' + cx + '" cy="' + cy + '" r="' + hitR + '"' +
+        content += '<circle class="uv-hit" cx="' + cx + '" cy="' + cy + '" r="' + hitR + '"' +
                    ' fill="transparent"/>';
 
         var labelPlacement = null;
@@ -2059,14 +2089,14 @@
 
         if (showLabel && labelPlacement) {
           content += '<text x="' + labelPlacement.x + '" y="' + labelPlacement.labelY + '"' +
-                     ' text-anchor="' + labelPlacement.anchor + '" fill="#9fb2cf" font-size="9" font-family="Space Grotesk, sans-serif">' +
+                     ' text-anchor="' + labelPlacement.anchor + '" class="uv-map-label">' +
                      escXml(label) + '</text>';
         }
 
         // Goto indicator for jump gates/holes
         if (gotoText && labelPlacement) {
           content += '<text x="' + labelPlacement.x + '" y="' + labelPlacement.gotoY + '"' +
-                     ' text-anchor="' + labelPlacement.anchor + '" fill="' + color + '" font-size="7.5" opacity="0.7"' +
+                     ' text-anchor="' + labelPlacement.anchor + '" fill="' + color + '" font-size="9" opacity="0.9"' +
                      ' font-family="IBM Plex Mono, monospace">' + escXml(gotoText) + '</text>';
         }
 
@@ -2076,8 +2106,6 @@
       resetViewBox(w, h);
       svg.innerHTML = content;
 
-      viewer.style.aspectRatio = "1";
-      viewer.style.maxHeight = "900px";
 
       // Click handler for objects
       svg.querySelectorAll(".uv-obj-node").forEach(function (node) {
@@ -2100,23 +2128,23 @@
       zones.forEach(function (z) {
         typeCounts[z.type] = (typeCounts[z.type] || 0) + 1;
       });
-      var statParts = [];
-      Object.keys(typeCounts).forEach(function (t) {
-        statParts.push(typeLabel(t) + ": <strong>" + typeCounts[t] + "</strong>");
-      });
-      statsEl.innerHTML = statParts.join(" · ");
-
-      // Legend for this system
-      var typesUsed = Object.keys(typeCounts);
-      legendEl.innerHTML = typesUsed.map(function (t) {
-        return legendItem(COLORS[t] || COLORS.other, typeLabel(t));
-      }).join("");
-      statsEl.innerHTML = "";
-      legendEl.innerHTML = "";
+      statsEl.innerHTML = metric(t('stats_objects'), objects.length);
+      buildDirectory(objects.filter(function (object) { return object.type !== 'jump_hole' || showJumpHoles; }));
+      legendEl.innerHTML = Object.keys(typeCounts).filter(function (type) {
+        return type !== 'jump_hole' || showJumpHoles;
+      }).map(function (type) {
+        return legendItem(COLORS[type] || COLORS.other, typeLabel(type));
+      }).join('');
     }
 
     /* ── Object info panel ── */
     function showObjectInfo(obj) {
+      indexEntries.forEach(function (entry) {
+        if (entry.node) entry.node.classList.toggle('uv-selected', entry.item === obj);
+      });
+      indexList.querySelectorAll('[data-index]').forEach(function (button) {
+        button.setAttribute('aria-current', String(indexEntries[button.dataset.index].item === obj));
+      });
       infoPanelTitle.textContent = obj.name || obj.nick;
       var items = '';
       items += infoRow(t('info_type'), typeLabel(obj.type), COLORS[obj.type]);
@@ -2315,12 +2343,12 @@
       var activeSectorMeta = universeSectorDefs[activeUniverseSector] || null;
       var hasSectorBreadcrumb = activeSectorMeta && universeSectorOrder.length > 1;
       breadcrumb.innerHTML = hasSectorBreadcrumb
-        ? '<a id="bcUniverse">' + escXml(t('bc_universe')) + '</a>' +
+        ? '<button type="button" id="bcUniverse">' + escXml(t('bc_universe')) + '</button>' +
           '<span class="separator">›</span>' +
-          '<a id="bcSector">' + escXml(activeSectorMeta.displayName) + '</a>' +
+          '<button type="button" id="bcSector">' + escXml(activeSectorMeta.displayName) + '</button>' +
           '<span class="separator">›</span>' +
           '<span>' + escXml(systemDisplayName(sys)) + '</span>'
-        : '<a id="bcUniverse">' + escXml(t('bc_universe')) + '</a>' +
+        : '<button type="button" id="bcUniverse">' + escXml(t('bc_universe')) + '</button>' +
           '<span class="separator">›</span>' +
           '<span>' + escXml(systemDisplayName(sys)) + '</span>';
       document.getElementById("bcUniverse").addEventListener("click", function () {
@@ -2338,30 +2366,40 @@
     }
 
     /* ── Pan & Zoom ── */
-    viewer.addEventListener("mousedown", function (e) {
-      if (e.button !== 0) return;
-      isPanning = true;
+    var dragPointer = null;
+    var dragMoved = false;
+    svg.addEventListener("pointerdown", function (e) {
+      if (e.button !== 0 || !e.isPrimary) return;
+      dragPointer = e.pointerId;
+      dragMoved = false;
       panStart = { x: e.clientX, y: e.clientY };
       panViewStart = { x: viewBox.x, y: viewBox.y };
-      viewer.classList.add("dragging");
     });
 
-    window.addEventListener("mousemove", function (e) {
-      if (!isPanning) return;
-      var rect = viewer.getBoundingClientRect();
-      var scaleFactorX = viewBox.w / rect.width;
-      var scaleFactorY = viewBox.h / rect.height;
-      viewBox.x = panViewStart.x - (e.clientX - panStart.x) * scaleFactorX;
-      viewBox.y = panViewStart.y - (e.clientY - panStart.y) * scaleFactorY;
+    svg.addEventListener("pointermove", function (e) {
+      if (dragPointer !== e.pointerId || viewBox.w >= baseViewBox.w) return;
+      var dx = e.clientX - panStart.x;
+      var dy = e.clientY - panStart.y;
+      if (!dragMoved && Math.hypot(dx, dy) < 4) return;
+      dragMoved = true;
+      svg.setPointerCapture(e.pointerId);
+      viewer.classList.add("dragging");
+      var scale = svg.getScreenCTM().a;
+      viewBox.x = panViewStart.x - dx / scale;
+      viewBox.y = panViewStart.y - dy / scale;
       applyViewBox();
     });
 
-    window.addEventListener("mouseup", function () {
-      isPanning = false;
+    function endDrag(e) {
+      if (dragPointer === e.pointerId) dragPointer = null;
       viewer.classList.remove("dragging");
-    });
-
-    viewer.addEventListener("wheel", function (e) {
+    }
+    window.addEventListener("pointerup", endDrag);
+    window.addEventListener("pointercancel", endDrag);
+    svg.addEventListener("click", function (e) {
+      if (dragMoved) { e.stopPropagation(); dragMoved = false; }
+    }, true);
+    svg.addEventListener("wheel", function (e) {
       e.preventDefault();
       var factor = e.deltaY > 0 ? 1.15 : 0.87;
       zoom(factor, e.clientX, e.clientY);
@@ -2384,9 +2422,11 @@
     });
 
     function zoom(factor, clientX, clientY) {
-      var rect = viewer.getBoundingClientRect();
-      var mx = ((clientX - rect.left) / rect.width) * viewBox.w + viewBox.x;
-      var my = ((clientY - rect.top) / rect.height) * viewBox.h + viewBox.y;
+      var matrix = svg.getScreenCTM();
+      if (!matrix) return;
+      var point = new DOMPoint(clientX, clientY).matrixTransform(matrix.inverse());
+      var mx = point.x;
+      var my = point.y;
 
       var newW = viewBox.w * factor;
       var newH = viewBox.h * factor;
@@ -2449,69 +2489,70 @@
 
     function applyViewBox() {
       clampViewBox();
+      svg.classList.toggle("uv-zoomed", viewBox.w < baseViewBox.w);
+      document.getElementById("zoomLevel").textContent = Math.round(100 * baseViewBox.w / viewBox.w) + "%";
       svg.setAttribute("viewBox", viewBox.x + " " + viewBox.y + " " + viewBox.w + " " + viewBox.h);
     }
 
     /* ── Search ── */
-    var searchTimeout;
-    searchInput.addEventListener("input", function () {
-      clearTimeout(searchTimeout);
-      searchTimeout = setTimeout(doSearch, 300);
-    });
-
-    function doSearch() {
-      var q = searchInput.value.trim().toLowerCase();
-      if (!q || !data) {
-        // Reset highlights
-        svg.querySelectorAll(".uv-search-highlight").forEach(function (el) { el.remove(); });
-        return;
-      }
-
-      // Search in systems
-      if (viewMode === "universe") {
-        svg.querySelectorAll(".uv-system-node").forEach(function (node) {
-          var nick = node.getAttribute("data-nick");
-          var sys = data.systems.find(function (s) { return s.nick === nick; });
-          if (!sys) return;
-          var match = sys.name.toLowerCase().indexOf(q) >= 0 || sys.nick.toLowerCase().indexOf(q) >= 0;
-          // Also search in objects
-          if (!match && sys.objects) {
-            match = sys.objects.some(function (o) {
-              return (o.name && o.name.toLowerCase().indexOf(q) >= 0) ||
-                     o.nick.toLowerCase().indexOf(q) >= 0;
-            });
-          }
-          node.style.opacity = match ? "1" : "0.15";
-        });
-        svg.querySelectorAll("#connections line, #connections polygon, #connections text").forEach(function (line) {
-          line.style.opacity = "0.08";
-        });
-      } else {
-        // System view: highlight matching objects
-        svg.querySelectorAll(".uv-obj-node").forEach(function (node) {
-          var nick = node.getAttribute("data-nick");
-          var obj = currentSystem.objects.find(function (o) { return o.nick === nick; });
-          if (!obj) return;
-          var match = (obj.name && obj.name.toLowerCase().indexOf(q) >= 0) ||
-                      obj.nick.toLowerCase().indexOf(q) >= 0 ||
-                      (typeLabel(obj.type) || "").toLowerCase().indexOf(q) >= 0;
-          node.style.opacity = match ? "1" : "0.15";
-        });
-      }
+    function buildDirectory(items) {
+      var overview = viewMode === 'universe';
+      var mapNodes = new Map(Array.from(svg.querySelectorAll('[data-nick]'), function (node) {
+        return [node.dataset.nick, node];
+      }));
+      indexEntries = items.map(function (item) {
+        var name = overview ? systemDisplayName(item) : item.name || item.nick;
+        var meta = overview ? item.nick : typeLabel(item.type);
+        var terms = [name, meta, item.nick];
+        if (overview) (item.objects || []).forEach(function (object) { terms.push(object.name, object.nick); });
+        return { item: item, name: name, meta: meta, terms: terms.join(' ').toLowerCase(), node: mapNodes.get(item.nick) };
+      }).sort(function (a, b) { return a.name.localeCompare(b.name, lang); });
+      directoryTitle.textContent = t(overview ? 'system_index' : 'object_index');
+      indexList.scrollTop = 0;
+      filterDirectory();
     }
 
-    // Clear search highlights when search is emptied
-    searchInput.addEventListener("change", function () {
-      if (!searchInput.value.trim()) {
-        svg.querySelectorAll(".uv-system-node, .uv-obj-node").forEach(function (n) { n.style.opacity = "1"; });
-        svg.querySelectorAll("#connections line, #connections polygon, #connections text").forEach(function (l) { l.style.opacity = ""; });
-      }
+    function filterDirectory() {
+      var query = searchInput.value.trim().toLowerCase();
+      var count = 0;
+      var rows = indexEntries.map(function (entry, index) {
+        var match = !query || entry.terms.includes(query);
+        if (entry.node) entry.node.classList.toggle('uv-dim', !match);
+        if (!match) return '';
+        count++;
+        var selected = entry.node && entry.node.classList.contains('uv-selected');
+        return '<button type="button" class="uv-index-item" data-index="' + index + '" aria-current="' + Boolean(selected) + '">' +
+          '<span>' + escXml(entry.name) + '</span><small>' + escXml(entry.meta) + '</small></button>';
+      });
+      svg.classList.toggle('uv-filtering', !!query);
+      directoryCount.textContent = count.toLocaleString(lang);
+      indexList.innerHTML = count ? rows.join('') : '<p class="uv-index-empty">' + escXml(t('no_matches')) + '</p>';
+    }
+
+    searchInput.addEventListener('input', filterDirectory);
+    function previewIndexItem(event) {
+      var button = event.target.closest('[data-index]');
+      if (!button) return;
+      var node = indexEntries[button.dataset.index].node;
+      if (node) node.classList.toggle('uv-preview', event.type === 'pointerover' || event.type === 'focusin');
+    }
+    ['pointerover', 'pointerout', 'focusin', 'focusout'].forEach(function (type) {
+      indexList.addEventListener(type, previewIndexItem);
+    });
+    indexList.addEventListener('click', function (event) {
+      var button = event.target.closest('[data-index]');
+      if (!button) return;
+      var entry = indexEntries[Number(button.dataset.index)];
+      if (compactMap.matches) directory.open = false;
+      if (viewMode === 'universe') showSystem(entry.item);
+      else showObjectInfo(entry.item);
     });
 
     /* ── Jump Holes toggle ── */
     btnShowHoles.addEventListener("click", function () {
       showJumpHoles = !showJumpHoles;
       btnShowHoles.classList.toggle("active", showJumpHoles);
+      btnShowHoles.setAttribute("aria-pressed", String(showJumpHoles));
       if (viewMode === "system" && currentSystem) {
         showSystem(currentSystem);
       } else {
@@ -2542,6 +2583,8 @@
     /* ── Info panel close ── */
     infoClose.addEventListener("click", function () {
       infoPanel.classList.remove("visible");
+      svg.querySelectorAll('.uv-selected').forEach(function (node) { node.classList.remove('uv-selected'); });
+      indexList.querySelectorAll('[aria-current="true"]').forEach(function (button) { button.removeAttribute('aria-current'); });
     });
     marketClose.addEventListener("click", closeMarketModal);
     marketModal.addEventListener("click", function (e) {
@@ -2668,21 +2711,27 @@
       return {
         left: left - padding,
         right: left + width + padding,
-        top: candidate.labelY - 10 - padding,
-        bottom: candidate.labelY - 10 + height + padding
+        top: candidate.labelY - mapLabelSize - padding,
+        bottom: candidate.labelY - mapLabelSize + height + padding
       };
     }
 
+    function fitMapLabels(width, height) {
+      var scale = Math.min(viewer.clientWidth / width, viewer.clientHeight / height) || 1;
+      mapLabelSize = Math.max(12, Math.min(32, 11 / scale));
+      svg.style.setProperty("--map-label-size", mapLabelSize + "px");
+    }
+
     function placeObjectLabel(cx, cy, radius, label, gotoText, occupiedRects, gridLeft, gridTop, gridW, gridH) {
-      var mainFont = 9;
-      var gotoFont = 7.5;
+      var mainFont = mapLabelSize;
+      var gotoFont = 9;
       var mainWidth = estimateSvgTextWidth(label, mainFont);
       var gotoWidth = estimateSvgTextWidth(gotoText, gotoFont);
       var boxWidth = Math.max(mainWidth, gotoWidth, 1);
       var lineCount = gotoText ? 2 : 1;
-      var lineGap = 10;
-      var boxHeight = lineCount === 2 ? 20 : 10;
-      var offset = Math.max(12, radius + 10);
+      var lineGap = mainFont + 2;
+      var boxHeight = mainFont + (lineCount === 2 ? lineGap : 0);
+      var offset = radius + mainFont + 3;
       var sideOffset = Math.max(16, radius + 12);
       var candidates = [
         { x: cx, labelY: cy + offset, anchor: "middle", score: 0 },
@@ -3306,9 +3355,13 @@
         (obj.type === "station" && !!obj.base);
     }
 
-    function legendItem(color, label) {
+    function metric(label, value) {
+      return '<div><dt>' + escXml(label) + '</dt><dd>' + value.toLocaleString(lang) + '</dd></div>';
+    }
+
+    function legendItem(color, label, kind) {
       return '<div class="uv-legend-item">' +
-             '<span class="uv-legend-dot" style="background:' + color + ';"></span>' +
+             '<span class="uv-legend-dot ' + (kind || '') + '" style="--marker:' + color + ';"></span>' +
              '<span>' + escXml(label) + '</span></div>';
     }
 

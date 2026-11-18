@@ -1,0 +1,133 @@
+/* The chart keeps a dark sky so the map symbols are consistent in every theme. */
+.uv-page .workspace-intro {
+  position: relative;
+  isolation: isolate;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 12px;
+  padding: clamp(18px, 2.5vw, 34px);
+  overflow: hidden;
+  border: 1px solid #30495d;
+  border-radius: 14px;
+  background: linear-gradient(90deg, #091723 5%, rgba(7,20,33,.65) 52%, rgba(7,20,33,.55)),
+              url("../img/home/sirius-horizon.webp") 50% 45% / cover;
+}
+body.uv-page .workspace-intro h1 { color: #f3f8ff; }
+.uv-page .workspace-intro p { color: #cbdae6; }
+.uv-metrics { display: flex; gap: clamp(14px, 3vw, 40px); margin: 0; }
+.uv-metrics div { display: flex; flex-direction: column-reverse; align-items: flex-start; }
+.uv-metrics dd { margin: 0; color: #def7f2; font: 650 clamp(1.2rem, 2vw, 1.9rem)/1.15 var(--font-heading); font-variant-numeric: tabular-nums; }
+.uv-metrics dt { color: #c1d3df; font: .75rem/1.6 var(--font-mono); }
+.uv-page .project-sub-nav { margin: 0; padding: 10px 0; border: 0; }
+
+.uv-atlas {
+  display: grid;
+  grid-template-columns: clamp(210px, 21%, 300px) minmax(0, 1fr);
+  border: 1px solid var(--line-strong);
+  border-radius: 14px;
+  background: var(--panel);
+}
+.uv-atlas:has(.uv-directory:not([open])) { grid-template-columns: minmax(0, 1fr); }
+.uv-directory:not([open]) { border-right: 0; border-bottom: 1px solid var(--line); }
+.uv-directory { position: relative; min-width: 0; border-right: 1px solid var(--line); }
+.uv-directory summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 54px;
+  padding: 10px 16px;
+  cursor: pointer;
+  list-style: none;
+  color: var(--heading);
+  font-weight: 650;
+}
+.uv-directory summary::-webkit-details-marker { display: none; }
+.uv-directory summary::after { content: "▸"; margin-left: auto; font-size: .8rem; color: var(--muted); }
+.uv-directory[open] summary::after { content: "▾"; }
+#directoryCount { color: var(--accent-text); font: .76rem/1 var(--font-mono); }
+.uv-directory-body { position: absolute; inset: 54px 0 0; display: flex; flex-direction: column; }
+.uv-search-field { padding: 0 12px 10px; }
+.uv-search-field label { display: block; margin: 0 0 3px 3px; color: var(--muted); font-size: .8rem; }
+.uv-search-field input { width: 100%; min-width: 0; padding: 9px 10px; border: 1px solid var(--line-strong); border-radius: 7px; color: var(--ink); background: var(--field-bg); font: inherit; font-size: .86rem; }
+.uv-index-list { min-height: 0; overflow: auto; padding: 0 6px 9px; scrollbar-color: var(--line-strong) transparent; }
+.uv-page .uv-index-item {
+  display: flex;
+  gap: 8px;
+  justify-content: space-between;
+  align-items: baseline;
+  width: 100%;
+  padding: 9px 10px;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  color: var(--ink);
+  background: transparent;
+  text-align: left;
+  font: 500 .9rem/1.3 var(--font-body);
+  cursor: pointer;
+}
+.uv-index-item span { overflow-wrap: anywhere; }
+.uv-index-item small { color: var(--muted); font: .7rem/1.3 var(--font-mono); overflow-wrap: anywhere; }
+.uv-page .uv-index-item:is(:hover, :focus-visible, [aria-current="true"]) { color: var(--accent-text); background: var(--accent-soft); }
+.uv-index-empty { padding: 12px; font-size: .9rem; }
+.uv-chart { min-width: 0; }
+.uv-chart-head, .uv-chart-foot { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px 14px; padding: 10px 14px; }
+.uv-chart-head { min-height: 54px; }
+.uv-breadcrumb { flex-wrap: wrap; }
+.uv-chart-head .uv-breadcrumb { color: var(--heading); font-weight: 650; }
+.uv-breadcrumb button { border: 0; padding: 0; color: var(--accent-text); background: transparent; font: inherit; cursor: pointer; }
+.uv-breadcrumb button:hover { text-decoration: underline; }
+.uv-chart-actions { display: flex; flex-wrap: wrap; gap: 6px; }
+.uv-chart-actions .uv-btn { min-height: 32px; padding: 4px 10px; font-size: .8rem; }
+#btnShowHoles::before { content: ""; display: inline-block; margin-right: 6px; width: 12px; vertical-align: middle; border-top: 2px dashed currentColor; }
+.uv-page .uv-route-panel { margin: 0 12px 10px; background: var(--field-bg); }
+.uv-page .uv-sector-tabs:not([hidden]) { margin: 0 12px 10px; }
+.uv-page #viewer {
+  height: clamp(425px, calc(100svh - 335px), 780px);
+  min-height: 0;
+  border-width: 1px 0;
+  border-radius: 0;
+  background:
+    linear-gradient(rgba(74,128,162,.08) 1px, transparent 1px) 50% 50% / 52px 52px,
+    linear-gradient(90deg, rgba(74,128,162,.08) 1px, transparent 1px) 50% 50% / 52px 52px,
+    linear-gradient(110deg, rgba(4,14,27,.9), rgba(5,16,30,.87)),
+    url("../img/home/space-nebula-wallpaper.webp") center / cover, #071522;
+}
+.uv-map-label { fill: #e4f4ff; font: 500 var(--map-label-size, 14px) var(--font-body); stroke: #081725; stroke-width: 3px; paint-order: stroke; stroke-linejoin: round; }
+.uv-icon-fallback:has(+ image) { display: none; }
+.uv-zoomed { touch-action: none; }
+.uv-system-node:hover .uv-map-label, .uv-obj-node:hover .uv-map-label { fill: #a5ffe7; }
+.uv-dim { opacity: .13; }
+.uv-filtering #connections { opacity: .28; }
+#svgCanvas :is(.uv-system-node:hover, .uv-obj-node:hover, .uv-preview, .uv-selected) .uv-hit {
+  stroke: #aff8e1;
+  stroke-width: 2px;
+  fill: rgba(100, 237, 190, .14);
+}
+.uv-page .uv-info-panel { box-shadow: var(--shadow); border-color: var(--line-strong); }
+.uv-info-panel h3 { padding-right: 20px; }
+.uv-chart-foot { align-items: flex-start; }
+.uv-chart-foot .uv-legend { flex: 1 1 260px; display: flex; flex-wrap: wrap; gap: 5px 14px; margin: 0; align-self: center; }
+.uv-legend-item { color: var(--ink-soft); }
+.uv-legend-dot { background: var(--marker); width: 8px; height: 8px; }
+.uv-legend-dot:is(.gate, .hole) { width: 16px; height: 0; border-top: 2px solid var(--marker); border-radius: 0; }
+.uv-legend-dot.hole { border-top-style: dashed; }
+.uv-chart .uv-zoom-controls { position: absolute; z-index: 2; top: 8px; right: 8px; align-items: center; gap: 3px; border: 1px solid #344b59; border-radius: 8px; padding: 3px; background: #0a1926; }
+.uv-chart .uv-zoom-controls .uv-btn { min-height: 30px; min-width: 30px; color: #d6e8ee; background: transparent; border: 0; }
+.uv-chart .uv-zoom-controls .uv-btn:hover { background: #213443; }
+#zoomLevel { min-width: 4.5ch; text-align: center; color: #d6e8ee; font: .77rem var(--font-mono); }
+@media (max-width: 760px) {
+  .uv-page .workspace-intro { align-items: flex-start; flex-direction: column; gap: 12px; }
+  .uv-metrics { gap: 16px; }
+  .uv-metrics div { flex-direction: row-reverse; align-items: baseline; gap: 4px; }
+  .uv-metrics dd { font-size: .97rem; }
+  .uv-metrics dt { font: .76rem var(--font-body); }
+  .uv-atlas, .uv-atlas:has(.uv-directory:not([open])) { grid-template-columns: minmax(0, 1fr); }
+  .uv-directory { border: 0; border-bottom: 1px solid var(--line); }
+  .uv-directory summary { min-height: 42px; padding: 8px 12px; }
+  .uv-directory-body { position: static; }
+  .uv-index-list { max-height: 200px; }
+  .uv-chart-head, .uv-chart-foot { padding: 8px 10px; }
+  .uv-page #viewer { height: clamp(300px, 51svh, 510px); }
+  .uv-chart-foot .uv-legend { flex-basis: 220px; }
+}
