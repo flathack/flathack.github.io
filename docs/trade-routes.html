@@ -935,46 +935,46 @@
 
     /* ── Responsive ────────────────────────────────────── */
     @media (max-width: 1180px) {
-      .tr-table :is(.tr-priority-5) { display: none; }
+      .tr-modal .tr-table :is(.tr-priority-5) { display: none; }
     }
 
     @media (max-width: 980px) {
-      .tr-table :is(.tr-priority-4) { display: none; }
+      .tr-modal .tr-table :is(.tr-priority-4) { display: none; }
     }
 
     @media (max-width: 820px) {
-      .tr-table :is(.tr-col-src-sys, .tr-col-dst-sys, .tr-priority-3) { display: none; }
-      .tr-base-system { display: block; }
-      .tr-table-wrap { overflow-x: hidden; }
-      .tr-table,
-      .tr-table thead,
-      .tr-table tbody {
+      .tr-modal .tr-table :is(.tr-col-src-sys, .tr-col-dst-sys, .tr-priority-3) { display: none; }
+      .tr-modal .tr-base-system { display: block; }
+      .tr-modal .tr-table-wrap { overflow-x: hidden; }
+      .tr-modal .tr-table,
+      .tr-modal .tr-table thead,
+      .tr-modal .tr-table tbody {
         display: block;
         width: 100%;
       }
-      .tr-table thead tr,
-      .tr-table tbody tr.tr-route-parent,
-      .tr-table tbody tr.tr-loop-parent {
+      .tr-modal .tr-table thead tr,
+      .tr-modal .tr-table tbody tr.tr-route-parent,
+      .tr-modal .tr-table tbody tr.tr-loop-parent {
         display: grid;
         grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(82px, 0.75fr) 78px;
         width: 100%;
       }
-      .tr-table .tr-col-buy-base { grid-column: 1; }
-      .tr-table .tr-col-sell-base { grid-column: 2; }
-      .tr-table .tr-col-commodity { grid-column: 3; }
-      .tr-table .tr-col-profit-per-min { grid-column: 4; }
-      .tr-base-name {
+      .tr-modal .tr-table .tr-col-buy-base { grid-column: 1; }
+      .tr-modal .tr-table .tr-col-sell-base { grid-column: 2; }
+      .tr-modal .tr-table .tr-col-commodity { grid-column: 3; }
+      .tr-modal .tr-table .tr-col-profit-per-min { grid-column: 4; }
+      .tr-modal .tr-base-name {
         overflow: visible;
         text-overflow: clip;
         white-space: normal;
         overflow-wrap: anywhere;
       }
-      .tr-path-row.open,
-      .tr-loop-legs.open {
+      .tr-modal .tr-path-row.open,
+      .tr-modal .tr-loop-legs.open {
         display: block;
       }
-      .tr-path-row td,
-      .tr-loop-legs td {
+      .tr-modal .tr-path-row td,
+      .tr-modal .tr-loop-legs td {
         display: block;
         width: 100%;
       }
@@ -988,44 +988,44 @@
       .tr-calendar-panel { width: 100%; }
       .tr-tabs { flex-wrap: wrap; }
       .tr-dataset-strip { grid-auto-columns: minmax(62px, 62px); }
-      .tr-table-wrap { border-radius: 10px; }
-      .tr-table {
+      .tr-modal .tr-table-wrap { border-radius: 10px; }
+      .tr-modal .tr-table {
         font-size: 0.78rem;
         white-space: normal;
       }
-      .tr-table th {
+      .tr-modal .tr-table th {
         padding: 6px 5px;
         font-size: 0.66rem;
         letter-spacing: 0.03em;
       }
-      .tr-table td {
+      .tr-modal .tr-table td {
         padding: 5px;
         vertical-align: top;
       }
-      .tr-table .tr-col-profit-per-min { text-align: right; }
-      .tr-commodity-btn {
+      .tr-modal .tr-table .tr-col-profit-per-min { text-align: right; }
+      .tr-modal .tr-commodity-btn {
         white-space: normal;
         text-align: left;
       }
-      .tr-path-row td,
-      .tr-loop-legs td {
+      .tr-modal .tr-path-row td,
+      .tr-modal .tr-loop-legs td {
         padding: 6px 8px 8px;
       }
     }
 
     @media (max-width: 520px) {
-      .tr-table :is(.tr-priority-2) { display: none; }
-      .tr-table thead tr,
-      .tr-table tbody tr.tr-route-parent,
-      .tr-table tbody tr.tr-loop-parent {
+      .tr-modal .tr-table :is(.tr-priority-2) { display: none; }
+      .tr-modal .tr-table thead tr,
+      .tr-modal .tr-table tbody tr.tr-route-parent,
+      .tr-modal .tr-table tbody tr.tr-loop-parent {
         grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 74px;
       }
-      .tr-table .tr-col-profit-per-min { grid-column: 3; }
-      .tr-table {
+      .tr-modal .tr-table .tr-col-profit-per-min { grid-column: 3; }
+      .tr-modal .tr-table {
         font-size: 0.74rem;
       }
-      .tr-table th,
-      .tr-table td {
+      .tr-modal .tr-table th,
+      .tr-modal .tr-table td {
         padding-left: 4px;
         padding-right: 4px;
       }
@@ -1034,8 +1034,9 @@
   <link rel="stylesheet" href="../assets/css/console-refresh.css">
   <link rel="stylesheet" href="../assets/css/portal-header.css">
   <link rel="stylesheet" href="../assets/css/tool-workspace.css">
+  <link rel="stylesheet" href="../assets/css/trade-routes.css">
 </head>
-<body class="gaming-theme console-page tool-workspace">
+<body class="gaming-theme console-page tool-workspace trade-page">
   <div class="site-shell">
     <header class="portal-header">
       <a class="portal-brand" href="../index.html"><img src="../assets/img/icons/flathack_icon.png" alt="" width="34" height="34">Flathack</a>
@@ -1045,15 +1046,15 @@
 
     <main>
       <header class="workspace-intro">
-        <span class="workspace-icon" aria-hidden="true">&#xf0ec;</span>
         <div>
           <h1 data-i18n="title">Handelsrouten-Rechner</h1>
-          <p data-i18n="intro">Finde die profitabelsten Handelsrouten über alle Systeme.</p>
+          <p data-i18n="intro">Vergleiche Einkauf, Verkauf und Gewinn pro Flugminute für dein Schiff.</p>
         </div>
       </header>
 
       <!-- Controls -->
-      <section class="page-section tr-controls-section" style="margin-bottom: 14px;">
+      <section class="page-section tr-controls-section" aria-labelledby="plan-heading">
+        <h2 id="plan-heading" data-i18n="plan_heading">Route planen</h2>
         <div class="tr-tabs">
           <button class="tr-tab active" data-mode="system" data-i18n="tab_system">Handelsrouten</button>
           <button class="tr-tab" data-mode="base" data-i18n="tab_base">Aktuelle Basis</button>
@@ -1136,6 +1137,8 @@
             </select>
           </div>
 
+        </div>
+        <div class="tr-flight-actions">
           <label class="tr-check">
             <input type="checkbox" id="tl-only">
             <span data-i18n="lbl_tl_only">Nur Trade-Lane-Basen</span>
@@ -1161,10 +1164,18 @@
 
       <!-- Results -->
       <section class="page-section" id="results-section" style="display:none;">
-        <div class="tr-stats" id="stats-bar"></div>
-        <input type="text" id="search-input" class="tr-search" placeholder="Routen durchsuchen...">
+        <div class="tr-results-head">
+          <h2 data-i18n="results_heading" id="results-heading">Ergebnisse</h2>
+          <label class="tr-search-box">
+            <span class="tr-visually-hidden" data-i18n="search_label">Ergebnisse durchsuchen</span>
+            <input type="search" id="search-input" class="tr-search" placeholder="Routen durchsuchen…">
+          </label>
+        </div>
+        <dl class="tr-metrics" id="stats-bar"></dl>
+        <p class="tr-route-context" id="route-context" hidden></p>
+        <button class="tr-view-toggle" type="button" aria-pressed="false" aria-controls="results-table" data-i18n="full_table">Alle Spalten anzeigen</button>
         <div class="tr-table-wrap">
-          <table class="tr-table" id="results-table">
+          <table class="tr-table" id="results-table" aria-labelledby="results-heading">
             <thead id="table-head"></thead>
             <tbody id="table-body"></tbody>
           </table>
@@ -1245,7 +1256,10 @@
       de: {
         back: '\u2190 Zurück zur Startseite',
         title: 'Handelsrouten-Rechner',
-        intro: 'Finde die profitabelsten Handelsrouten über alle Systeme. Wähle deinen Mod, dein Schiff und starte den Handel.',
+        intro: 'Vergleiche Einkauf, Verkauf und Gewinn pro Flugminute für dein Schiff.',
+        plan_heading: 'Route planen', results_heading: 'Ergebnisse', search_label: 'Ergebnisse durchsuchen',
+        full_table: 'Alle Spalten anzeigen', best_rate: 'Bester Gewinn pro Minute', total_gain: 'Höchster Gesamtgewinn',
+        no_match: 'Keine Route passt zur Suche.',
         lbl_mod: 'Mod', lbl_dataset: 'Preisdaten', lbl_ship: 'Schiff', lbl_cargo: 'Fracht',
         lbl_jumps: 'Max. Sprünge', lbl_legs: 'Etappen',
         lbl_start_system: 'Aktuelles System', lbl_target_system: 'Zielsystem',
@@ -1311,7 +1325,10 @@
       en: {
         back: '\u2190 Back to Home',
         title: 'Trade Route Calculator',
-        intro: 'Find the most profitable trade routes across systems. Select your mod, your ship, and start trading.',
+        intro: 'Compare buy prices, sell prices and profit per flight minute for your ship.',
+        plan_heading: 'Plan a route', results_heading: 'Results', search_label: 'Search results',
+        full_table: 'Show all columns', best_rate: 'Best profit per minute', total_gain: 'Highest total profit',
+        no_match: 'No routes match your search.',
         lbl_mod: 'Mod', lbl_dataset: 'Price Data', lbl_ship: 'Ship', lbl_cargo: 'Cargo',
         lbl_jumps: 'Max Jumps', lbl_legs: 'Legs',
         lbl_start_system: 'Current System', lbl_target_system: 'Target System',
@@ -1686,7 +1703,8 @@
     const podsTab = document.querySelector('.tr-tab[data-mode="pods"]');
 
     /* ── Formatters ────────────────────────────────────── */
-    const fmt = n => Number(n).toLocaleString('de-DE');
+    const numberFormats = { de: new Intl.NumberFormat('de-DE'), en: new Intl.NumberFormat('en-US') };
+    const fmt = n => (numberFormats[lang] || numberFormats.en).format(n);
     function fmtTime(s) {
       if (s == null) return '-';
       const m = Math.floor(s / 60), sec = Math.round(s % 60);
@@ -2576,8 +2594,12 @@
       if (podsTab) podsTab.style.display = (hasSpecialItems || showFallback) ? '' : 'none';
       if (!(hasSpecialItems || showFallback) && currentMode === 'pods') {
         currentMode = 'system';
-        document.querySelectorAll('.tr-tab').forEach(t => t.classList.toggle('active', t.dataset.mode === currentMode));
       }
+      document.querySelectorAll('.tr-tab').forEach(tab => {
+        const active = tab.dataset.mode === currentMode;
+        tab.classList.toggle('active', active);
+        tab.setAttribute('aria-pressed', String(active));
+      });
       jumpsField.style.display = currentMode === 'journey' ? 'none' : '';
       legsField.style.display = currentMode === 'loop' ? '' : 'none';
       startSystemField.style.display = currentMode === 'journey' ? '' : 'none';
@@ -3015,8 +3037,9 @@
       // Header
       tableHead.innerHTML = '<tr>' + cols.map((c, i) => {
         const arrow = sortCol === i ? (sortAsc ? ' ▲' : ' ▼') : '';
-        return '<th data-col="' + i + '" class="' + colCssClass(c) + '">' + c.label +
-          '<span class="sort-arrow">' + arrow + '</span></th>';
+        const sortState = sortCol === i ? ' aria-sort="' + (sortAsc ? 'ascending' : 'descending') + '"' : '';
+        return '<th scope="col" data-col="' + i + '" class="' + colCssClass(c) + '"' + sortState + '><button type="button">' +
+          c.label + '<span aria-hidden="true">' + arrow + '</span></button></th>';
       }).join('') + '</tr>';
 
       // Filter
@@ -3052,48 +3075,28 @@
 
       const visibleRows = rows.slice(0, visibleResultsCount);
 
-      // Stats
-      if (currentMode === 'loop') {
-        statsBar.innerHTML =
-          '<span>' + t('stats_routes') + ': <strong>' + rows.length + '</strong></span>' +
-          '<span>' + t('stats_showing') + ': <strong>' + visibleRows.length + ' / ' + rows.length + '</strong></span>';
-      } else if (currentMode === 'pods') {
-        const best = rows.length ? fmt(rows[0].totalProfit) : '-';
-        statsBar.innerHTML =
-          '<span>' + t('stats_routes') + ': <strong>' + rows.length + '</strong></span>' +
-          '<span>' + t('stats_showing') + ': <strong>' + visibleRows.length + ' / ' + rows.length + '</strong></span>' +
-          '<span>' + t('stats_best') + ': <strong>' + best + '</strong></span>';
-      } else if (currentMode === 'journey') {
-        const best = rows.length ? fmt(rows[0].totalProfit) : '-';
-        const pathText = currentJourneyPath.length
-          ? currentJourneyPath.map(sysNick => engine.data.systems[sysNick] || sysNick).join(' \u2192 ')
-          : '-';
-        statsBar.innerHTML =
-          '<span>' + t('stats_routes') + ': <strong>' + rows.length + '</strong></span>' +
-          '<span>' + t('stats_showing') + ': <strong>' + visibleRows.length + ' / ' + rows.length + '</strong></span>' +
-          '<span>' + t('stats_best') + ': <strong>' + best + '</strong></span>' +
-          '<span>' + t('stats_path') + ': <strong>' + pathText + '</strong></span>';
-      } else if (currentMode === 'base') {
-        const bestPpm = rows.reduce((best, route) => Math.max(best, route.profitPerMin || 0), 0);
-        const baseText = currentBaseSelect.selectedOptions && currentBaseSelect.selectedOptions[0]
-          ? currentBaseSelect.selectedOptions[0].textContent
-          : '-';
-        statsBar.innerHTML =
-          '<span>' + t('stats_routes') + ': <strong>' + rows.length + '</strong></span>' +
-          '<span>' + t('stats_showing') + ': <strong>' + visibleRows.length + ' / ' + rows.length + '</strong></span>' +
-          '<span>' + t('stats_base') + ': <strong>' + escHtml(baseText || '-') + '</strong></span>' +
-          '<span>' + t('col_ppm') + ': <strong>' + (bestPpm ? fmt(bestPpm) : '-') + '</strong></span>';
-      } else {
-        const best = rows.length ? fmt(rows[0].totalProfit) : '-';
-        statsBar.innerHTML =
-          '<span>' + t('stats_routes') + ': <strong>' + rows.length + '</strong></span>' +
-          '<span>' + t('stats_showing') + ': <strong>' + visibleRows.length + ' / ' + rows.length + '</strong></span>' +
-          '<span>' + t('stats_best') + ': <strong>' + best + '</strong></span>';
+      let bestProfit = null;
+      let bestRate = null;
+      for (const route of rows) {
+        if (Number.isFinite(route.totalProfit) && (bestProfit === null || route.totalProfit > bestProfit)) bestProfit = route.totalProfit;
+        if (Number.isFinite(route.profitPerMin) && (bestRate === null || route.profitPerMin > bestRate)) bestRate = route.profitPerMin;
       }
+      const metric = (label, value) => '<div><dt>' + t(label) + '</dt><dd>' + value + '</dd></div>';
+      const credits = value => value === null ? '—' : fmt(value) + ' <small>$</small>';
+      statsBar.innerHTML = metric('stats_routes', fmt(rows.length)) + metric('total_gain', credits(bestProfit)) +
+        metric('best_rate', credits(bestRate));
+      const context = document.getElementById('route-context');
+      context.textContent = '';
+      if (currentMode === 'journey' && currentJourneyPath.length) {
+        context.textContent = t('stats_path') + ' · ' + currentJourneyPath.map(nick => engine.data.systems[nick] || nick).join(' → ');
+      } else if (currentMode === 'base' && currentBaseSelect.selectedOptions.length) {
+        context.textContent = t('stats_base') + ' · ' + currentBaseSelect.selectedOptions[0].textContent;
+      }
+      context.hidden = !context.textContent;
 
       // Body
       if (!rows.length) {
-        tableBody.innerHTML = '<tr><td colspan="' + cols.length + '" class="tr-empty">' + escHtml(t(currentEmptyKey)) + '</td></tr>';
+        tableBody.innerHTML = '<tr><td colspan="' + cols.length + '" class="tr-empty">' + escHtml(t(query && currentResults.length ? 'no_match' : currentEmptyKey)) + '</td></tr>';
         resultsSummary.textContent = '';
         loadMoreBtn.style.display = 'none';
         return;
@@ -3103,25 +3106,30 @@
       for (let i = 0; i < visibleRows.length; i++) {
         const r = visibleRows[i];
         const hasPath = currentMode !== 'loop' && (r.path || (Array.isArray(r.pathNicks) && r.pathNicks.length));
-        html += '<tr' + (currentMode === 'loop' ? ' class="tr-loop-parent" data-idx="' + i + '"' : (hasPath ? ' class="tr-route-parent" data-idx="' + i + '"' : '')) + '>';
+        const expandable = hasPath || (currentMode === 'loop' && r.legs);
+        const parentClass = expandable ? (currentMode === 'loop' ? ' tr-loop-parent' : ' tr-route-parent') : '';
+        html += '<tr class="tr-result' + parentClass + '" data-idx="' + i + '">';
         for (const c of cols) {
           const raw = r[c.key];
           const val = c.format ? c.format(raw, r) : (typeof raw === 'number' ? fmt(raw) : String(raw || ''));
-          const inner = c.html ? c.html(raw, r) : escHtml(val);
+          let inner = c.html ? c.html(raw, r) : escHtml(val);
+          if (expandable && c.key === (currentMode === 'loop' ? 'routeText' : currentMode === 'base' ? 'sellBase' : 'buyBase')) {
+            inner = '<button type="button" class="tr-expand" aria-expanded="false" aria-controls="route-detail-' + i + '">' + inner + '</button>';
+          }
           const cellClass = colCssClass(c) + (c.cls ? ' ' + c.cls : '');
-          html += '<td class="' + cellClass + '">' + inner + '</td>';
+          html += '<td class="' + cellClass + '"><span class="tr-card-label" aria-hidden="true">' + c.label + '</span>' + inner + '</td>';
         }
         html += '</tr>';
 
         // Path detail row (hidden, expand on click)
         if (hasPath) {
-          html += '<tr class="tr-path-row" data-parent="' + i + '"><td colspan="' + cols.length + '">' +
+          html += '<tr class="tr-path-row" id="route-detail-' + i + '" data-parent="' + i + '"><td colspan="' + cols.length + '">' +
             renderRoutePathDetails(r) + '</td></tr>';
         }
 
         // Loop legs (hidden, expand on click)
         if (currentMode === 'loop' && r.legs) {
-          html += '<tr class="tr-loop-legs" data-parent="' + i + '"><td colspan="' + cols.length + '">';
+          html += '<tr class="tr-loop-legs" id="route-detail-' + i + '" data-parent="' + i + '"><td colspan="' + cols.length + '">';
           html += '<div class="tr-leg-detail">';
           r.legs.forEach((leg, li) => {
             html += '<div class="tr-leg-row">' +
@@ -3260,8 +3268,6 @@
     document.querySelectorAll('.tr-tab').forEach(tab => {
       tab.addEventListener('click', () => {
         if (!engine) return;
-        document.querySelectorAll('.tr-tab').forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
         currentMode = tab.dataset.mode;
         visibleResultsCount = RESULTS_PAGE_SIZE;
         updateModeTabs();
@@ -3280,6 +3286,11 @@
       renderResults();
     });
 
+    document.querySelector('.tr-view-toggle').addEventListener('click', e => {
+      const full = resultsSection.classList.toggle('tr-full-table');
+      e.currentTarget.setAttribute('aria-pressed', String(full));
+    });
+
     // Column sort
     tableHead.addEventListener('click', e => {
       const th = e.target.closest('th');
@@ -3289,6 +3300,7 @@
       if (sortCol === col) { sortAsc = !sortAsc; }
       else { sortCol = col; sortAsc = false; }
       renderResults();
+      tableHead.querySelector('th[data-col="' + col + '"] button').focus({ preventScroll: true });
     });
 
     // Expand/collapse loop legs
@@ -3307,18 +3319,11 @@
         openItemModal(itemBtn.dataset.item);
         return;
       }
-      const parent = e.target.closest('.tr-loop-parent');
-      if (parent) {
-        const idx = parent.dataset.idx;
-        const legs = tableBody.querySelector('.tr-loop-legs[data-parent="' + idx + '"]');
-        if (legs) legs.classList.toggle('open');
-        return;
-      }
-      const routeParent = e.target.closest('.tr-route-parent');
-      if (routeParent) {
-        const idx = routeParent.dataset.idx;
-        const pathRow = tableBody.querySelector('.tr-path-row[data-parent="' + idx + '"]');
-        if (pathRow) pathRow.classList.toggle('open');
+      const parent = e.target.closest('.tr-result');
+      const toggle = parent && parent.querySelector('.tr-expand');
+      if (toggle) {
+        const detail = document.getElementById(toggle.getAttribute('aria-controls'));
+        toggle.setAttribute('aria-expanded', String(detail.classList.toggle('open')));
       }
     });
 
